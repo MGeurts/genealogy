@@ -92,7 +92,7 @@ This application is build using :
     <li>GEDCOM import and export (help needed)</li>
 </ul>
 
-## Installation & configuration
+## Installation
 
     create a new project folder, cd into the folder
 
@@ -101,11 +101,13 @@ This application is build using :
     rename .env.example to .env and make the needed changes regarding name, url, database connection & mail server
     
     composer install
+
     php artisan key:generate
     php artisan storage:link
     php artisan migrate:fresh --seed
-    npm install
-    npm run build
+    
+    npm install & npm run build
+
     php artisan serve
 
 ## Impressum
