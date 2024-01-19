@@ -110,11 +110,12 @@
                     <li>Write documentation</li>
                     <li>GEDCOM import and export (help needed)</li>
                 </ul>
-                <h2>Basic idea (2017)</h2>
+                <h2>Impressum</h2>
+                <h3>Basic idea (2017)</h3>
                 <p>
                     This application is based on an original implementation by <a href="https://github.com/nafiesl/silsilah" target="_blank">nafiesl</a>.<br />Thanks for your excellent work.
                 </p>
-                <h2>Design &amp; Development (2024)</h2>
+                <h3>Design &amp; Development (2024)</h3>
                 <p>This Laravel application is designed and developed by <a href="https://www.kreaweb.be" target="_blank">kreaweb.be</a>.</p>
             </div>
         </div>
