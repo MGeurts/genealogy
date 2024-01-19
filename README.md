@@ -1,3 +1,5 @@
+# Genealogy
+
 ## About this project
 
 <b>Genealogy</b> (family tree) application to record family members.
@@ -90,10 +92,27 @@ This application is build using :
     <li>GEDCOM import and export (help needed)</li>
 </ul>
 
-## Basic idea (2017)
+## Installation & configuration
+
+    <ul>
+        <li>create a new project folder, cd into the folder</li>
+        <li>git clone https://github.com/MGeurts/genealogy.git .</li>
+        <li>rename .env.example to .env and make the needed changes regarding name, url, database connection & mail server</li>
+        <li>composer install</li>
+        <li>php artisan key:generate</li>
+        <li>php artisan storage:link</li>
+        <li>php artisan migrate:fresh --seed</li>
+        <li>npm install</li>
+        <li>npm run build</li>
+        <li>php artisan serve</li>
+   </ul>
+
+## Impressum
+
+### Basic idea (2017)
 
 <p>This application is based on an original implementation by <a href="https://github.com/nafiesl/silsilah" target="_blank">nafiesl</a>.<br/>Thanks for your excellent work.</p>
 
-## Design & Development (2024)
+### Design & Development (2024)
 
 <p>This Laravel application is designed and developed by <a href="https://www.kreaweb.be" target="_blank">kreaweb.be</a>.</p>
