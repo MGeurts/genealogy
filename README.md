@@ -94,18 +94,18 @@ This application is build using :
 
 ## Installation & configuration
 
-    <ul>
-        <li>create a new project folder, cd into the folder</li>
-        <li>git clone https://github.com/MGeurts/genealogy.git .</li>
-        <li>rename .env.example to .env and make the needed changes regarding name, url, database connection & mail server</li>
-        <li>composer install</li>
-        <li>php artisan key:generate</li>
-        <li>php artisan storage:link</li>
-        <li>php artisan migrate:fresh --seed</li>
-        <li>npm install</li>
-        <li>npm run build</li>
-        <li>php artisan serve</li>
-   </ul>
+    <code>
+        create a new project folder, cd into the folder
+        git clone https://github.com/MGeurts/genealogy.git .
+        rename .env.example to .env and make the needed changes regarding name, url, database connection & mail server
+        composer install
+        php artisan key:generate
+        php artisan storage:link
+        php artisan migrate:fresh --seed
+        npm install
+        npm run build
+        php artisan serve
+    </code>
 
 ## Impressum
 
