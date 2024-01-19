@@ -86,7 +86,6 @@ This application is PHP 8.1 compatible and build using :
 
 <ul>
     <li>Allow uploading extra images for people</li>
-    <li>Persons information overview in PDF</li>
     <li>Write documentation</li>
     <li>GEDCOM import and export (help needed)</li>
 </ul>

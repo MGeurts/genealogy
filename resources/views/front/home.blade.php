@@ -119,7 +119,6 @@
                     <h3>To do ...</h3>
                     <ul>
                         <li>Allow uploading extra images for people</li>
-                        <li>Persons information overview in PDF</li>
                         <li>Write documentation</li>
                         <li>GEDCOM import and export (help needed)</li>
                     </ul>
