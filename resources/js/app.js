@@ -55,8 +55,6 @@ document.addEventListener('livewire:navigated', () => {
         Toast,
         Validation,
     });
-
-    console.log('wire:navigated & initTE');
 });
 
 // -------------------------------------------------------------------------------------

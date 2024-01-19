@@ -2,7 +2,7 @@
     &vert; {{ __('app.dependencies') }}
 @endsection
 
-<x-guest-layout>
+<x-app-layout>
     <x-slot name="heading">
         <h2 class="font-semibold text-gray-800 dark:text-gray-100">
             {{ __('app.dependencies') }}
@@ -106,14 +106,10 @@
                                 <li class="py-2">
                                     <x-link href="https://github.com/ARCANEDEV/LogViewer/" target="_blank">ARCANEDEV/LogViewer</x-link>
                                 </li>
-                                <li class="py-2">
-                                    <x-link href="https://github.com/opcodesio/log-viewer/" target="_blank">opcodesio/log-viewer</x-link> (candidate : alternative Log Viewer)
-                                </li>
 
                                 <li class="py-2">
                                     <x-link href="https://github.com/victorybiz/laravel-simple-select/" target="_blank">victorybiz/laravel-simple-select</x-link>
                                 </li>
-
                                 <li class="py-2">
                                     <x-link href="https://github.com/usernotnull/tall-toasts/" target="_blank">usernotnull/tall-toasts</x-link>
                                 </li>
@@ -130,6 +126,11 @@
                                     <x-link href="https://github.com/stevebauman/location/" target="_blank">stevebauman/location</x-link>
                                 </li>
 
+                                <x-hr.narrow class="w-full h-1 max-md:mx-auto my-4 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+
+                                <li class="py-2">
+                                    <x-link href="https://github.com/opcodesio/log-viewer/" target="_blank">opcodesio/log-viewer</x-link> (candidate : alternative Log Viewer)
+                                </li>
                                 <li class="py-2">
                                     <x-link href="https://github.com/stefangabos/world_countries/" target="_blank">stefangabos/world_countries</x-link> (candidate)
                                 </li>
@@ -194,4 +195,4 @@
             </div>
         </div>
     </div>
-</x-guest-layout>
+</x-app-layout>

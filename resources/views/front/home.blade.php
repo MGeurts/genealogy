@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
     <x-slot name="heading">
         <h2 class="font-semibold text-gray-800 dark:text-gray-100">
             {{ __('app.home') }}
@@ -7,7 +7,7 @@
 
     <div class="py-10 dark:text-neutral-200">
 
-        <div class="pt-4 bg-gray-100">
+        <div class="pt-4 bg-gray-100 rounded">
             <div class="flex flex-col items-center pt-6 sm:pt-0">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" class="size-48 fill-dark dark:fill-neutral-400" alt="genealogy" viewBox="0 0 1499 1499" version="1.1">
@@ -29,8 +29,8 @@
                 <div class="w-full sm:max-w-5xl mt-6 p-6 bg-white shadow-md overflow-hidden sm:rounded prose">
                     <h1>Welcome</h1>
                     <h2><b>Genealogy</b> (family tree) application to record family members.</h2>
-                    <img src="https://genealogy.kreaweb.be/img/genealogy-01.webp" alt="Genealogy-01">
-                    <img src="https://genealogy.kreaweb.be/img/genealogy-02.webp" alt="Genealogy-02">
+                    <img src="https://genealogy.kreaweb.be/img/genealogy-001a.webp" alt="Genealogy-001a">
+                    <img src="https://genealogy.kreaweb.be/img/genealogy-001b.webp" alt="Genealogy-001b">
                     <p>This application is PHP 8.1 compatible and build using :</p>
                     <ul>
                         <li><a href="https://laravel.com/" target="_blank">Laravel 10</a> (featuring <a href="https://vitejs.dev/" target="_blank">Vite</a>)</li>
@@ -94,8 +94,7 @@
                         <li>Image upload with possibility of watermarking</li>
                     </ul>
                     <h3>Special features</h3>
-                    <p>This application has a built-in <b>Backup Manager</b> :
-                    </p>
+                    <p>This application has a built-in <b>Backup Manager</b> :</p>
                     <ul>
                         <li>Backups can be initiated and managed manually</li>
                         <li>Backups can be scheludeld by issuing a cron job on your development or production server</li>
@@ -111,27 +110,27 @@
                         <li>ERROR : All detected errors</li>
                     </ul>
                     <p></p>
-                    <p>This application has a built-in <b>User logging</b> :
-                    </p>
+                    <p>This application has a built-in <b>User logging</b> :</p>
                     <ul>
                         <li>User statistics by country of origin</li>
-                        <li>User statistics by date</li>
+                        <li>User statistics by year/month/week/day</li>
                     </ul>
                     <p></p>
                     <h3>To do ...</h3>
                     <ul>
                         <li>Allow uploading extra images for people</li>
+                        <li>Persons information overview in PDF</li>
                         <li>Write documentation</li>
                         <li>GEDCOM import and export (help needed)</li>
                     </ul>
                     <h2>Basic idea (2017)</h2>
-                    <p>This application is based on an original implementation by <a href="https://github.com/nafiesl/silsilah" target="_blank">nafiesl</a>.<br>Thanks for your excellent work.</p>
+                    <p>
+                        This application is based on an original implementation by <a href="https://github.com/nafiesl/silsilah" target="_blank">nafiesl</a>.<br />Thanks for your excellent work.
+                    </p>
                     <h2>Design &amp; Development (2024)</h2>
                     <p>This Laravel application is designed and developed by <a href="https://www.kreaweb.be" target="_blank">kreaweb.be</a>.</p>
-
                 </div>
             </div>
         </div>
-
     </div>
-</x-guest-layout>
+</x-app-layout>

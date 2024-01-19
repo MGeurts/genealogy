@@ -2,7 +2,7 @@
     &vert; {{ __('birthday.birthdays') }}
 @endsection
 
-<x-guest-layout>
+<x-app-layout>
     <x-slot name="heading">
         <h2 class="font-semibold text-gray-800 dark:text-gray-100">
             {{ __('birthday.birthdays') }}
@@ -21,7 +21,6 @@
                         <x-icon.tabler icon="cake" />
                     </div>
                 </div>
-
             </div>
 
             <!-- body -->
@@ -84,4 +83,4 @@
             </div>
         </div>
     </div>
-</x-guest-layout>
+</x-app-layout>

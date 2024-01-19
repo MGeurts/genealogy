@@ -2,7 +2,7 @@
     &vert; {{ __('person.add_child') }}
 @endsection
 
-<x-guest-layout>
+<x-app-layout>
     <x-slot name="heading">
         <h2 class="font-semibold text-gray-800 dark:text-gray-100">
             {{ __('person.add_child') }}
@@ -29,4 +29,4 @@
             </div>
         </div>
     </div>
-</x-guest-layout>
+</x-app-layout>

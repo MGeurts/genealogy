@@ -20,28 +20,6 @@ Route::controller(App\Http\Controllers\Front\PageController::class)->group(funct
 });
 
 // -----------------------------------------------------------------------------------------------
-// Language
-// -----------------------------------------------------------------------------------------------
-Route::get('language/{locale}', function ($locale) {
-    app()->setLocale($locale);
-    Carbon::setLocale($locale);
-    session()->put('locale', $locale);
-
-    // session()->flash('flash.banner', 'Language changed.');
-    // session()->flash('flash.bannerStyle', 'danger');
-
-    toast()
-        ->info(__('app.language_set') . ' <b>' . strtoupper($locale) . '</b>.', __('app.language'))
-        ->doNotSanitize()
-        //->duration(10000)
-        //->sticky()
-        //->push();
-        ->pushOnNextPage();
-
-    return redirect()->back();
-});
-
-// -----------------------------------------------------------------------------------------------
 // Backend routes
 // -----------------------------------------------------------------------------------------------
 Route::middleware([
@@ -57,7 +35,6 @@ Route::middleware([
         Route::get('birthdays', 'birthdays')->name('people.birthdays');
 
         Route::get('people/add', 'add')->name('people.add');
-
         Route::get('people/{person}', 'show')->name('people.show');
         Route::get('people/{person}/ancestors', 'ancestors')->name('people.ancestors');
         Route::get('people/{person}/descendants', 'descendants')->name('people.descendants');
@@ -69,20 +46,8 @@ Route::middleware([
         Route::get('people/{person}/edit-death', 'editDeath')->name('people.edit-death');
         Route::get('people/{person}/edit-family', 'editFamily')->name('people.edit-family');
         Route::get('people/{person}/edit-profile', 'editProfile')->name('people.edit-profile');
-
         Route::get('people/{couple}/{person}/edit-partner', 'editPartner')->name('people.edit-partner');
-
-        Route::patch('people/{person}', 'update')->name('people.update');
-        Route::delete('people/{person}', 'destroy')->name('people.destroy');
     });
-
-    Route::get('dependencies', function () {
-        return view('back.dependencies');
-    })->name('dependencies');
-
-    Route::get('session', function () {
-        return view('back.session');
-    })->name('session');
 
     // -----------------------------------------------------------------------------------------------
     // backups
@@ -96,5 +61,29 @@ Route::middleware([
     Route::get('userlogs/origin', App\Livewire\Userlogs\Origin::class)->name('userlogs.origin');
     Route::get('userlogs/originMap', App\Livewire\Userlogs\OriginMap::class)->name('userlogs.origin-map');
     Route::get('userlogs/period', App\Livewire\Userlogs\Period::class)->name('userlogs.period');
+
+    // -----------------------------------------------------------------------------------------------
+    // Pages
+    // -----------------------------------------------------------------------------------------------
+    Route::controller(App\Http\Controllers\Back\PageController::class)->group(function () {
+        Route::get('dependencies', 'dependencies')->name('dependencies');
+        Route::get('session', 'session')->name('session');
+    });
+});
+
+// -----------------------------------------------------------------------------------------------
+// Language
+// -----------------------------------------------------------------------------------------------
+Route::get('language/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    Carbon::setLocale($locale);
+    session()->put('locale', $locale);
+
+    toast()
+        ->info(__('app.language_set') . ' <b>' . strtoupper($locale) . '</b>.', __('app.language'))
+        ->doNotSanitize()
+        ->pushOnNextPage();
+
+    return redirect()->back();
 });
 // -----------------------------------------------------------------------------------------------

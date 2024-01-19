@@ -2,7 +2,7 @@
     &vert; {{ __('app.session') }}
 @endsection
 
-<x-guest-layout>
+<x-app-layout>
     <x-slot name="heading">
         <h2 class="font-semibold text-gray-800 dark:text-gray-100">
             {{ __('app.session') }}
@@ -26,4 +26,4 @@
             </div>
         </div>
     </div>
-</x-guest-layout>
+</x-app-layout>

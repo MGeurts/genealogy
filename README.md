@@ -2,8 +2,8 @@
 
 <b>Genealogy</b> (family tree) application to record family members.
 
-<img src="https://genealogy.kreaweb.be/img/genealogy-01.webp" alt="Genealogy-01"/>
-<img src="https://genealogy.kreaweb.be/img/genealogy-02.webp" alt="Genealogy-02"/>
+<img src="https://genealogy.kreaweb.be/img/genealogy-001a.webp" alt="Genealogy-001a"/>
+<img src="https://genealogy.kreaweb.be/img/genealogy-001b.webp" alt="Genealogy-001b"/>
 
 This application is PHP 8.1 compatible and build using :
 <ul>
@@ -78,7 +78,7 @@ This application is PHP 8.1 compatible and build using :
 <p>This application has a built-in <b>User logging</b> :
     <ul>
         <li>User statistics by country of origin</li>
-        <li>User statistics by date</li>
+        <li>User statistics by year/month/week/day</li>
    </ul>
 </p>
 
@@ -86,8 +86,8 @@ This application is PHP 8.1 compatible and build using :
 
 <ul>
     <li>Allow uploading extra images for people</li>
+    <li>Persons information overview in PDF</li>
     <li>Write documentation</li>
-    <br/>
     <li>GEDCOM import and export (help needed)</li>
 </ul>
 

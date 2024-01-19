@@ -1,11 +1,11 @@
 @section('title')
-    &vert; {{ __('person.edit_relationship') }}
+    &vert; {{ __('app.edit_death') }}
 @endsection
 
-<x-guest-layout>
+<x-app-layout>
     <x-slot name="heading">
         <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-            {{ __('person.edit_relationship') }}
+            {{ __('app.edit_death') }}
         </h2>
     </x-slot>
 
@@ -25,8 +25,8 @@
             </div>
 
             <div class="min-w-100 md:max-w-max flex flex-col flex-grow gap-5 overflow-x-auto">
-                <livewire:people.edit.partner :couple="$couple" :person="$person" />
+                <livewire:people.edit.death :person="$person" />
             </div>
         </div>
     </div>
-</x-guest-layout>
+</x-app-layout>

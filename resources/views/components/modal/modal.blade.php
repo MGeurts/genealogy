@@ -17,6 +17,7 @@
                 </button>
             </div>
         @endif
+
         <div class="p-4">
             {{ $body }}
         </div>

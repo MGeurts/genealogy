@@ -11,7 +11,6 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <!-- Front -->
                 <div class="flex flex-wrap gap-5">
                     <div class="flex items-center gap-5">
                         <x-nav-link wire:navigate href="{{ route('home') }}" :active="request()->routeIs('home')">
@@ -32,7 +31,6 @@
                         </x-nav-link>
                     </div>
                 </div>
-                <!-- Back -->
             </div>
 
             <div class="hidden md:flex md:items-center gap-5">

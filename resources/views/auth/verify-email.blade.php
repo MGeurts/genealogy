@@ -2,7 +2,7 @@
     &vert; {{ __('auth.verify-email') }}
 @endsection
 
-<x-guest-layout>
+<x-app-layout>
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -45,4 +45,4 @@
             </div>
         </div>
     </x-authentication-card>
-</x-guest-layout>
+</x-app-layout>

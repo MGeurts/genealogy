@@ -2,7 +2,7 @@
     &vert; TEST
 @endsection
 
-<x-guest-layout>
+<x-app-layout>
     <x-slot name="heading">
         <h2 class="font-semibold text-gray-800 dark:text-gray-100">
             TEST
@@ -13,7 +13,6 @@
         <div class="grid grid-flow-row auto-rows-max gap-10">
             <div class="overflow-x-auto">
                 TEST ROW 01<br /><br />
-
             </div>
 
             <div>
@@ -71,4 +70,4 @@
         </div>
 
     </div>
-</x-guest-layout>
+</x-app-layout>

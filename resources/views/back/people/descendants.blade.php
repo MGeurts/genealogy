@@ -1,11 +1,11 @@
 @section('title')
-    &vert; {{ __('person.ancestors') }}
+    &vert; {{ __('person.descendants') }}
 @endsection
 
-<x-guest-layout>
+<x-app-layout>
     <x-slot name="heading">
         <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-            {{ __('person.ancestors') }}
+            {{ __('person.descendants') }}
         </h2>
     </x-slot>
 
@@ -14,8 +14,8 @@
 
         <div class="md:min-w-max md:max-w-sm">
             <div class="overflow-x-auto">
-                <livewire:people.ancestors :person="$person" />
+                <livewire:people.descendants :person="$person" />
             </div>
         </div>
     </div>
-</x-guest-layout>
+</x-app-layout>

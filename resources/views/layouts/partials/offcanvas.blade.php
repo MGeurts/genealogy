@@ -55,7 +55,7 @@
                             </p>
 
                             <p>
-                                <x-nav-link-responsive href="{{ url('admin/log-viewer') }}" target="_blank">
+                                <x-nav-link-responsive href="{{ url('log-viewer') }}" target="_blank">
                                     {{ __('Log Viewer') }}
                                 </x-nav-link-responsive>
                             </p>
