@@ -60,7 +60,7 @@
                 </p>
 
                 <p>Users can manage either their personal team or create new teams and invite other users (by e-mail) to join.</p>
-                <img src="https://genealogy.kreaweb.be/img/help/genealogy-010.webp" class="rounded" alt="Manage Teams">
+                <img src="https://genealogy.kreaweb.be/img/help/genealogy-001.webp" class="rounded" alt="Manage Teams">
                 <br>
 
             </div>
