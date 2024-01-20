@@ -10,6 +10,16 @@
     </x-slot>
 
     <div class="py-10 dark:text-neutral-200">
-        {{ __('app.about') }}
+        <div class="flex flex-col items-center pt-6 sm:pt-0">
+            <div>
+                <x-authentication-card-logo />
+            </div>
+
+            <div class="w-full sm:max-w-5xl mt-6 p-6 bg-white shadow-md overflow-hidden rounded prose">
+                <h1>About</h1>
+
+                <p>Edit this file to tell more about your application.</p>
+            </div>
+        </div>
     </div>
 </x-app-layout>

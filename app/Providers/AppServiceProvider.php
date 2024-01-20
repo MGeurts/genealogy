@@ -7,6 +7,7 @@ use Illuminate\Pagination\Paginator;
 // use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
+
 // use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider

@@ -10,7 +10,7 @@
                 <x-icon.tabler icon="brand-facebook-filled" class="text-neutral-900 dark:text-neutral-200" />
             </a>
 
-            <a href="https://www.twitter.com/" class="mr-6 text-neutral-600 dark:text-neutral-200" target="_blank" title="X">
+            <a href="https://www.x.com/" class="mr-6 text-neutral-600 dark:text-neutral-200" target="_blank" title="X">
                 <x-icon.tabler icon="brand-x-filled" class="text-neutral-900 dark:text-neutral-200" />
             </a>
 
@@ -22,7 +22,11 @@
                 <x-icon.tabler icon="brand-linkedin" class="text-neutral-900 dark:text-neutral-200" />
             </a>
 
-            <a href="https://github.com/MGeurts?tab=repositories" class="text-neutral-600 dark:text-neutral-200" target="_blank" title="GitHub">
+            <a href="https://www.youtube.com/" class="mr-6 text-neutral-600 dark:text-neutral-200" target="_blank" title="YouTube">
+                <x-icon.tabler icon="brand-youtube" class="text-neutral-900 dark:text-neutral-200" />
+            </a>
+
+            <a href="https://github.com/MGeurts" class="text-neutral-600 dark:text-neutral-200" target="_blank" title="GitHub">
                 <x-icon.tabler icon="brand-github-filled" class="text-neutral-900 dark:text-neutral-200" />
             </a>
         </div>
