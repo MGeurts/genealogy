@@ -37,10 +37,10 @@
                                     <x-link href="https://laravel.com/" target="_blank">Laravel</x-link> 10.x
                                 </li>
                                 <li class="py-2">
-                                    <x-link href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream</x-link> (with Teams) 4.xx
+                                    <x-link href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream</x-link> (with Teams) 4.x
                                 </li>
                                 <li class="py-2">
-                                    <x-link href="https://livewire.laravel.com/" target="_blank">Laravel Livewire</x-link> 3.xx
+                                    <x-link href="https://livewire.laravel.com/" target="_blank">Laravel Livewire</x-link> 3.x
                                 </li>
                             </ul>
                         </div>
@@ -70,12 +70,6 @@
                                 </li>
                                 <li class="py-2">
                                     <x-link href="https://tw-elements.com/" target="_blank">Tailwind Elements</x-link>
-                                </li>
-                                <li class="py-2">
-                                    <x-link href="https://ui.shadcn.com/docs/components/" target="_blank">shadcn/ui</x-link> (candidate)
-                                </li>
-                                <li class="py-2">
-                                    <x-link href="https://wireui.dev/" target="_blank">wireui/wireui</x-link> (candidate)
                                 </li>
                             </ul>
                         </div>
@@ -159,6 +153,9 @@
                             <ul class="w-full ml-4">
                                 <li class="py-2">
                                     <x-link href="https://www.chartjs.org/" target="_blank">Chart.js</x-link>
+                                </li>
+                                <li class="py-2">
+                                    <x-link href="https://github.com/rstacruz/nprogress/" target="_blank">NProgress.js</x-link>
                                 </li>
                             </ul>
                         </div>

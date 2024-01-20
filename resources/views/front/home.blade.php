@@ -13,9 +13,10 @@
 
             <div class="w-full sm:max-w-5xl mt-6 p-6 bg-white shadow-md overflow-hidden rounded prose">
                 <h1>Welcome ...</h1>
-                <x-hr.narrow class="w-full h-1 max-md:mx-auto my-4 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                <x-hr.narrow class="!my-2" />
 
-                <h2><b>Genealogy</b> (family tree) application to record family members.</h2>
+                <h4><b>Genealogy</b> is a free and open-source (family tree) application to record family members and their relationships, build with Laravel 10.</h4>
+                <br />
                 <img src="https://genealogy.kreaweb.be/img/genealogy-001a.webp" class="rounded" alt="Genealogy-001a">
                 <img src="https://genealogy.kreaweb.be/img/genealogy-001b.webp" class="rounded" alt="Genealogy-001b">
                 <p>This application is build using :</p>
@@ -61,7 +62,10 @@
                 </ul>
                 <h3>License</h3>
                 <p>Open source under MIT License.</p>
+
+                <br />
                 <h2>Demo</h2>
+                <x-hr.narrow class="!my-2" />
 
                 <div class="mb-4 rounded-lg bg-info-100 px-6 py-5 text-base text-info-800" role="alert">
                     <a href="https://genealogy.kreaweb.be/" target="_blank">https://genealogy.kreaweb.be/</a>
@@ -69,8 +73,10 @@
                     e-mail : <b>administrator@genealogy.test</b><br />
                     password : <b>password</b>
                 </div>
+                <br />
 
                 <h2>Features</h2>
+                <x-hr.narrow class="!my-2" />
 
                 <ul>
                     <li>Light/Dark/System theme</li>
@@ -103,14 +109,10 @@
                     <li>User statistics by country of origin</li>
                     <li>User statistics by year/month/week/day</li>
                 </ul>
-                <p></p>
-                <h3>To do ...</h3>
-                <ul>
-                    <li>Allow uploading extra images for people</li>
-                    <li>Write documentation</li>
-                    <li>GEDCOM import and export (help needed)</li>
-                </ul>
+                <br />
+
                 <h2>Impressum</h2>
+                <x-hr.narrow class="!my-2" />
                 <h3>Basic idea (2017)</h3>
                 <p>
                     This application is based on an original implementation by <a href="https://github.com/nafiesl/silsilah" target="_blank">nafiesl</a>.<br />Thanks for your excellent work.
