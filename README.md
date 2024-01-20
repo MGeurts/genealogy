@@ -17,7 +17,7 @@ This application is build using :
     <li><a href="https://tabler-icons.io/" target="_blank">Tabler Icons</a></li>
 </ul>
 
-### Logic Concept
+### Logic concept
 1. A person can have 1 biological father (1 person, based on <b>father_id</b>)
 2. A person can have 1 biological mother (1 person, based on <b>mother_id</b>)
 3. A person can have 1 set of parents, biological or not (1 couple of 2 people, based on <b>parents_id</b>)

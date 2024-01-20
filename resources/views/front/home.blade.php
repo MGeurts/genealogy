@@ -29,7 +29,7 @@
                     <li><a href="https://tw-elements.com/" target="_blank">Tailwind Elements</a></li>
                     <li><a href="https://tabler-icons.io/" target="_blank">Tabler Icons</a></li>
                 </ul>
-                <h3>Logic Concept</h3>
+                <h3>Logic concept</h3>
                 <ol>
                     <li>
                         <p>A person can have 1 biological father (1 person, based on <b>father_id</b>)</p>
