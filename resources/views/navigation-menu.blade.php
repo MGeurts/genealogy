@@ -29,6 +29,11 @@
                             <x-icon.tabler icon="cake" class="mr-1" />
                             {{ __('birthday.birthdays') }}
                         </x-nav-link>
+
+                        <x-nav-link wire:navigate href="{{ route('help') }}" :active="request()->routeIs('help')">
+                            <x-icon.tabler icon="help" class="mr-1" />
+                            {{ __('app.help') }}
+                        </x-nav-link>
                     </div>
                 </div>
             </div>
