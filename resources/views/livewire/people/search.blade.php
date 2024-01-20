@@ -4,22 +4,23 @@
         <form>
             <div class="p-5 flex flex-col justify-end rounded dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
                 <!-- heading -->
-                <div class="flex flex-wrap mb-2">
-                    <div class="flex-grow max-w-full flex-1 text-lg">
+                <div class="flex flex-wrap mb-2 text-lg">
+                    <div class="flex-grow max-w-full flex-1">
                         {{ __('app.search_family') }}
                     </div>
 
-                    <div class="flex-grow max-w-full flex-1 text-lg text-center">
+                    <div class="flex-grow max-w-full flex-1 text-center">
                         @if (auth()->user()->hasPermission('person:create'))
                             <a wire:navigate href="/people/add">
-                                <x-button.success class="!p-2" title="{{ __('person.add_person') }}">
-                                    <x-icon.tabler icon="user-plus" class="!size-4" />
+                                <x-button.success>
+                                    <x-icon.tabler icon="user-plus" class="me-2" />
+                                    {{ __('person.add_person') }}
                                 </x-button.success>
                             </a>
                         @endif
                     </div>
 
-                    <div class="flex-grow max-w-full flex-1 text-lg text-end">
+                    <div class="flex-grow max-w-full flex-1 text-end">
                         @if ($this->search)
                             {!! __('app.persons_found', [
                                 'total' => $people->total(),

@@ -88,7 +88,6 @@ This application is build using :
 
 <ul>
     <li>Allow uploading extra images for people</li>
-    <li>Write documentation</li>
     <li>Improve translations</li>
     <li>GEDCOM import and export (help needed)</li>
 </ul>
