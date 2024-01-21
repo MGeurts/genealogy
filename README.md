@@ -108,13 +108,13 @@ This application is build using :
     
     npm install & npm run build
 
-    php artisan serve
+    php artisan serve or npm run dev
 
 ## Impressum
 
 ### Basic idea (2017)
 
-<p>This application is based on an original implementation by <a href="https://github.com/nafiesl/silsilah" target="_blank">nafiesl</a>.<br/>Thanks for your excellent work.</p>
+<p>This application is based on an original implementation by <a href="https://github.com/nafiesl/silsilah" target="_blank">Nafies Luthfi</a>.<br/>Thanks for your excellent work.</p>
 
 ### Design & Development (2024)
 

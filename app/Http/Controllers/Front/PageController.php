@@ -2,19 +2,29 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Laravel\Jetstream\Jetstream;
+use App\Http\Controllers\Controller;
 
 class PageController extends Controller
 {
     public function about(Request $request)
     {
-        return view('front.about', []);
+        $aboutFile = Jetstream::localizedMarkdownPath('about.md');
+
+        return view('about', [
+            'about' => Str::markdown(file_get_contents($aboutFile)),
+        ]);
     }
 
     public function help(Request $request)
     {
-        return view('front.help', []);
+        $helpFile = Jetstream::localizedMarkdownPath('help.md');
+
+        return view('help', [
+            'help' => Str::markdown(file_get_contents($helpFile)),
+        ]);
     }
 
     public function test(Request $request)

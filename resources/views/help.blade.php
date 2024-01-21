@@ -1,11 +1,11 @@
 @section('title')
-    &vert; {{ __('app.about') }}
+    &vert; {{ __('app.help') }}
 @endsection
 
 <x-app-layout>
     <x-slot name="heading">
         <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-            {{ __('app.about') }}
+            {{ __('app.help') }}
         </h2>
     </x-slot>
 
@@ -16,9 +16,7 @@
             </div>
 
             <div class="w-full sm:max-w-5xl mt-6 p-6 bg-white shadow-md overflow-hidden rounded prose">
-                <h1>About</h1>
-
-                <p>Edit this file to tell more about your application.</p>
+                {!! $help !!}
             </div>
         </div>
     </div>
