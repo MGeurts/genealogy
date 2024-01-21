@@ -44,7 +44,7 @@ This application is build using :
 
 <p><a href="https://genealogy.kreaweb.be/" target="_blank">https://genealogy.kreaweb.be/</a></p>
 
-<p>e-mail : <b>administrator@genealogy.test</b><br/>password : <b>password</b></p>
+<p>e-mail : <b>developer@genealogy.test</b><br/>password : <b>password</b></p>
 
 ## Features
 
