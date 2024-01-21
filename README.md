@@ -87,9 +87,8 @@ This application is build using :
 ### To do ...
 
 <ul>
-    <li>Allow uploading extra images for people</li>
-    <li>Improve translations</li>
-    <li>GEDCOM import and export (help needed)</li>
+    <li>Allow uploading supplemental images for people</li>
+    <li>GEDCOM import and export</li>
 </ul>
 
 ## Installation
@@ -114,7 +113,7 @@ This application is build using :
 
 ### Basic idea (2017)
 
-<p>This application is based on an original implementation by <a href="https://github.com/nafiesl/silsilah" target="_blank">Nafies Luthfi</a>.<br/>Thanks for your excellent work.</p>
+<p>This application is based on an original implementation by <a href="https://github.com/nafiesl/silsilah" target="_blank">Nafies Luthfi</a>. Thanks for your excellent work.</p>
 
 ### Design & Development (2024)
 

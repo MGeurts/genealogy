@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Front;
 
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use Laravel\Jetstream\Jetstream;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Laravel\Jetstream\Jetstream;
 
 class PageController extends Controller
 {
