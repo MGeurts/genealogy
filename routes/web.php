@@ -48,7 +48,7 @@ Route::middleware([
         Route::get('people/{couple}/{person}/edit-partner', 'editPartner')->name('people.edit-partner');
     });
 
-    Route::middleware('isDeveloper')->group(function () {
+    Route::middleware('IsDeveloper')->group(function () {
         // -----------------------------------------------------------------------------------------------
         // backups
         // -----------------------------------------------------------------------------------------------
