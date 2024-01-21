@@ -54,7 +54,7 @@ class DemoSeeder extends Seeder
 
                 'photo' => 'demo_' . $person['id'] . '.webp',
 
-                'team_id' => 2,
+                'team_id' => 3,
             ]);
         }
 
@@ -132,7 +132,7 @@ class DemoSeeder extends Seeder
                 'is_married' => $couple['status'] >= 1 ? 1 : 0,
                 'has_ended' => $couple['status'] == 2 ? 1 : 0,
 
-                'team_id' => 2,
+                'team_id' => 3,
             ]);
         }
     }
@@ -151,7 +151,7 @@ class DemoSeeder extends Seeder
 
             'father_id' => 2,
 
-            'team_id' => 2,
+            'team_id' => 3,
         ]);
 
         Person::create([
@@ -164,7 +164,7 @@ class DemoSeeder extends Seeder
 
             'mother_id' => 1,
 
-            'team_id' => 2,
+            'team_id' => 3,
         ]);
 
         Person::create([
@@ -176,7 +176,7 @@ class DemoSeeder extends Seeder
 
             'parents_id' => 1,
 
-            'team_id' => 2,
+            'team_id' => 3,
         ]);
 
         // -----------------------------------------------------------------------
@@ -189,7 +189,7 @@ class DemoSeeder extends Seeder
             'sex' => 'f',
             'dob' => '1970-01-01',
 
-            'team_id' => 2,
+            'team_id' => 3,
         ]);
 
         Person::create([
@@ -199,7 +199,7 @@ class DemoSeeder extends Seeder
             'sex' => 'f',
             'dob' => '1971-01-01',
 
-            'team_id' => 2,
+            'team_id' => 3,
         ]);
 
         Person::create([
@@ -210,7 +210,7 @@ class DemoSeeder extends Seeder
             'dob' => '2000-01-01',
             'mother_id' => 201,
 
-            'team_id' => 2,
+            'team_id' => 3,
         ]);
 
         Person::create([
@@ -221,7 +221,7 @@ class DemoSeeder extends Seeder
             'dob' => '2001-01-01',
             'mother_id' => 201,
 
-            'team_id' => 2,
+            'team_id' => 3,
         ]);
 
         Person::create([
@@ -231,7 +231,7 @@ class DemoSeeder extends Seeder
             'sex' => 'm',
             'dob' => '1960-01-01',
 
-            'team_id' => 2,
+            'team_id' => 3,
         ]);
 
         Person::create([
@@ -242,7 +242,7 @@ class DemoSeeder extends Seeder
             'dob' => '2015-01-01',
             'father_id' => 205,
 
-            'team_id' => 2,
+            'team_id' => 3,
         ]);
 
         Couple::create([
@@ -251,7 +251,7 @@ class DemoSeeder extends Seeder
             'person2_id' => 202,
             'date_start' => '1995-01-01',
 
-            'team_id' => 2,
+            'team_id' => 3,
         ]);
 
         Couple::create([
@@ -260,7 +260,7 @@ class DemoSeeder extends Seeder
             'person2_id' => 205,
             'date_start' => '2010-01-01',
 
-            'team_id' => 2,
+            'team_id' => 3,
         ]);
 
         Person::create([
@@ -271,7 +271,7 @@ class DemoSeeder extends Seeder
             'dob' => '2002-01-01',
             'parents_id' => 101,
 
-            'team_id' => 2,
+            'team_id' => 3,
         ]);
 
         Person::create([
@@ -282,7 +282,7 @@ class DemoSeeder extends Seeder
             'dob' => '2003-01-01',
             'parents_id' => 101,
 
-            'team_id' => 2,
+            'team_id' => 3,
         ]);
 
         // -----------------------------------------------------------------------
@@ -295,7 +295,7 @@ class DemoSeeder extends Seeder
             'date_start' => '2005-01-01',
             'is_married' => true,
 
-            'team_id' => 2,
+            'team_id' => 3,
         ]);
     }
 }

@@ -14,7 +14,7 @@ class UserAndTeamSeeder extends Seeder
         // -----------------------------------------------------------------------------------
         // create developer user
         // -----------------------------------------------------------------------------------
-        $administrator = User::factory([
+        $developer = User::factory([
             'firstname' => '_',
             'surname' => 'Developer',
             'email' => 'developer@genealogy.test',
@@ -39,19 +39,19 @@ class UserAndTeamSeeder extends Seeder
         // -----------------------------------------------------------------------------------
         $team_demo = $this->createTeamBig('administrator@genealogy.test', 'BRITISH ROYALS');
 
+        $administrator->update([
+            'current_team_id' => $team_demo->id,
+        ]);
+
+        $team_demo->users()->attach(
+            Jetstream::findUserByEmailOrFail($administrator->email),
+            ['role' => 'administrator']
+        );
+
         // -----------------------------------------------------------------------------------
         // create special users
         // -----------------------------------------------------------------------------------
         if (true) {
-            $administrator->update([
-                'current_team_id' => $team_demo->id,
-            ]);
-
-            $team_demo->users()->attach(
-                Jetstream::findUserByEmailOrFail($administrator->email),
-                ['role' => 'administrator']
-            );
-
             // manager
             $manager = User::factory([
                 'firstname' => '_',
@@ -105,7 +105,7 @@ class UserAndTeamSeeder extends Seeder
 
             for ($i = 6; $i <= 7; $i++) {
                 $user = User::factory([
-                    'firstname' => '__',
+                    'firstname' => '___',
                     'surname' => 'Member ' . $i,
                     'email' => 'member_' . $i . '@genealogy.test',
                 ])
