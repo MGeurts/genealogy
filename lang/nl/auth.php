@@ -38,6 +38,6 @@ return [
     'remember_me' => 'Onthou mij',
     'role' => 'Rol',
     'guest' => 'Bezoeker',
-    'administrator' => 'Beheerder',
+    'developer' => 'Beheerder',
 
 ];

@@ -16,7 +16,6 @@ Route::get('/', App\Http\Controllers\Front\HomeController::class)->name('home');
 Route::controller(App\Http\Controllers\Front\PageController::class)->group(function () {
     Route::get('about', 'about')->name('about');
     Route::get('help', 'help')->name('help');
-    Route::get('test', 'test')->name('test');
 });
 
 // -----------------------------------------------------------------------------------------------
@@ -49,25 +48,27 @@ Route::middleware([
         Route::get('people/{couple}/{person}/edit-partner', 'editPartner')->name('people.edit-partner');
     });
 
-    // -----------------------------------------------------------------------------------------------
-    // backups
-    // -----------------------------------------------------------------------------------------------
-    Route::get('backups', App\Livewire\Backups\Manage::class)->name('backups');
+    Route::middleware('isDeveloper')->group(function () {
+        // -----------------------------------------------------------------------------------------------
+        // backups
+        // -----------------------------------------------------------------------------------------------
+        Route::get('backups', App\Livewire\Backups\Manage::class)->name('backups');
 
-    // -----------------------------------------------------------------------------------------------
-    // userlog
-    // -----------------------------------------------------------------------------------------------
-    Route::get('userlogs/log', App\Livewire\Userlogs\Log::class)->name('userlogs.log');
-    Route::get('userlogs/origin', App\Livewire\Userlogs\Origin::class)->name('userlogs.origin');
-    Route::get('userlogs/originMap', App\Livewire\Userlogs\OriginMap::class)->name('userlogs.origin-map');
-    Route::get('userlogs/period', App\Livewire\Userlogs\Period::class)->name('userlogs.period');
+        // -----------------------------------------------------------------------------------------------
+        // userlog
+        // -----------------------------------------------------------------------------------------------
+        Route::get('userlogs/log', App\Livewire\Userlogs\Log::class)->name('userlogs.log');
+        Route::get('userlogs/origin', App\Livewire\Userlogs\Origin::class)->name('userlogs.origin');
+        Route::get('userlogs/originMap', App\Livewire\Userlogs\OriginMap::class)->name('userlogs.origin-map');
+        Route::get('userlogs/period', App\Livewire\Userlogs\Period::class)->name('userlogs.period');
 
-    // -----------------------------------------------------------------------------------------------
-    // Pages
-    // -----------------------------------------------------------------------------------------------
-    Route::controller(App\Http\Controllers\Back\PageController::class)->group(function () {
-        Route::get('dependencies', 'dependencies')->name('dependencies');
-        Route::get('session', 'session')->name('session');
+        // -----------------------------------------------------------------------------------------------
+        // Pages
+        // -----------------------------------------------------------------------------------------------
+        Route::controller(App\Http\Controllers\Back\PageController::class)->group(function () {
+            Route::get('dependencies', 'dependencies')->name('dependencies');
+            Route::get('session', 'session')->name('session');
+        });
     });
 });
 

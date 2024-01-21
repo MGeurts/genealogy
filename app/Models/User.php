@@ -13,12 +13,18 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 
+// ------------------------------------------------------------------------------------------------------
+// ATTENTION :
+// the user attribute "is_developer" should be set directly in the database
+// by the application developer on the user account he want to use to manage the whole applacation
+// ------------------------------------------------------------------------------------------------------
+
 class User extends Authenticatable
-    // ---------------------------------------------------------------------------------------
-    // class User extends Authenticatable implements MustVerifyEmail
-    //
-    // Ref : https://jetstream.laravel.com/features/registration.html#email-verification
-    // ---------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------
+// class User extends Authenticatable implements MustVerifyEmail
+//
+// Ref : https://jetstream.laravel.com/features/registration.html#email-verification
+// ---------------------------------------------------------------------------------------
 {
     use HasApiTokens;
     use HasFactory;
@@ -36,6 +42,7 @@ class User extends Authenticatable
         'password',
 
         'language',
+        'is_developer',
     ];
 
     protected $hidden = [
@@ -48,6 +55,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'is_developer' => 'boolean',
     ];
 
     protected $appends = [

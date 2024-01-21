@@ -38,5 +38,5 @@ return [
     'remember_me' => 'Remember me',
     'role' => 'Role',
     'guest' => 'Guest',
-    'administrator' => 'Administrator',
+    'developer' => 'Developer',
 ];

@@ -14,18 +14,28 @@ class UserAndTeamSeeder extends Seeder
         // -----------------------------------------------------------------------------------
         // create developer user
         // -----------------------------------------------------------------------------------
-        // administrator
+        $administrator = User::factory([
+            'firstname' => '_',
+            'surname' => 'Developer',
+            'email' => 'developer@genealogy.test',
+            'is_developer' => true,
+        ])
+            ->withPersonalTeam()
+            ->create();
+
+        // -----------------------------------------------------------------------------------
+        // create administrator user
+        // -----------------------------------------------------------------------------------
         $administrator = User::factory([
             'firstname' => '_',
             'surname' => 'Administrator',
             'email' => 'administrator@genealogy.test',
         ])
             ->withPersonalTeam()
-            //->hasAttached(Team::factory()->count(3))
             ->create();
 
         // -----------------------------------------------------------------------------------
-        // create demo team
+        // create demo team (owned by administrator)
         // -----------------------------------------------------------------------------------
         $team_demo = $this->createTeamBig('administrator@genealogy.test', 'BRITISH ROYALS');
 

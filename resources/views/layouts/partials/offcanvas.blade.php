@@ -41,9 +41,9 @@
             <!-- offcanvas menu -->
             <div class="flex-grow overflow-y-auto p-4">
                 @if (Auth::user())
-                    @if (Auth::user()->hasTeamRole(auth()->user()->currentTeam, 'administrator'))
-                        <!-- administrator -->
-                        <div>{{ __('auth.administrator') }} ...</div>
+                    @if (Auth::user()->is_developer)
+                        <!-- developer -->
+                        <div>{{ __('auth.developer') }} ...</div>
 
                         <div>
                             <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
@@ -101,16 +101,6 @@
                             <p>
                                 <x-nav-link-responsive wire:navigate href="{{ route('session') }}" :active="request()->routeIs('session')">
                                     {{ __('app.session') }}
-                                </x-nav-link-responsive>
-                            </p>
-                        </div>
-
-                        <div>
-                            <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
-
-                            <p>
-                                <x-nav-link-responsive wire:navigate href="{{ route('test') }}" :active="request()->routeIs('test')">
-                                    -- Test Page --
                                 </x-nav-link-responsive>
                             </p>
                         </div>

@@ -26,9 +26,4 @@ class PageController extends Controller
             'help' => Str::markdown(file_get_contents($helpFile)),
         ]);
     }
-
-    public function test(Request $request)
-    {
-        return view('front.test', []);
-    }
 }
