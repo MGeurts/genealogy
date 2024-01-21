@@ -25,8 +25,48 @@
                 <div class="rounded bg-info-100 p-4 text-base text-info-800" role="alert">
                     <p><a href="https://genealogy.kreaweb.be/" target="_blank">https://genealogy.kreaweb.be/</a></p>
 
-                    e-mail : <b>developer@genealogy.test</b><br />
-                    password : <b>password</b>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>E-mail</th>
+                                <th>Password</th>
+                                <th>Purpose</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>administrator@genealogy.test</td>
+                                <td>password</td>
+                                <td>to view team BRITISH ROYALS as owner</td>
+                                <td>Administrator</td>
+                            </tr>
+                            <tr>
+                                <td>manager@genealogy.test</td>
+                                <td>password</td>
+                                <td>to view team BRITISH ROYALS as manager</td>
+                                <td>Manager</td>
+                            </tr>
+                            <tr>
+                                <td>editor@genealogy.test</td>
+                                <td>password</td>
+                                <td>to view team BRITISH ROYALS as editor</td>
+                                <td>Editor</td>
+                            </tr>
+                            <tr>
+                                <td>member_1@genealogy.test</td>
+                                <td>password</td>
+                                <td>to view team BRITISH ROYALS as normal member</td>
+                                <td>Member</td>
+                            </tr>
+                            <tr>
+                                <td>developer@genealogy.test</td>
+                                <td>password</td>
+                                <td>to view options reserved for developer, like offcanvas menu</td>
+                                <td>Developer</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
