@@ -57,7 +57,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     </thead>
     <tbody>
         <tr>
-            <td>**administrator@genealogy.test**</b></td>
+            <td><b>administrator@genealogy.test</b></td>
             <td>**password**</td>
             <td>to view team BRITISH ROYALS as team **owner**</td>
             <td>Administrator</td>
