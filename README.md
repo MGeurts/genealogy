@@ -83,7 +83,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
         <tr>
             <td>developer@genealogy.test</td>
             <td>password</td>
-            <td>to view options reserved for a <b>developer</b>, like the offcanvas menu and all persons in all teams</td>
+            <td>to view options reserved for a <b>developer</b>, like the <b>offcanvas menu</b> and <b>all persons in all teams</b></td>
             <td>Developer</td>
         </tr>
     </tbody>
@@ -97,7 +97,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <li>Multi-language, English and Dutch already implemented, language setting saved in authenticated users profile</li>
     <li>Multi-tenancy by Jetstream Teams</li>
     <li>Security through Jetstream Teams Roles & Permissions, 2FA & API can be enabled</li>
-    <li>Offcanvas menu</li>
+    <li>Offcanvas menu for developer</li>
     <li>Image upload with possibility of watermarking</li>
 </ul>
 
@@ -131,7 +131,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 
 <ul>
     <li>Allow uploading supplemental images for people</li>
-    <li>GEDCOM import and export</li>
+    <li>GEDCOM import and export (help needed)</li>
 </ul>
 
 ## Installation
@@ -152,7 +152,9 @@ make the needed changes regarding name, url, database connection & mail server
 
 `php artisan migrate:fresh --seed`
 
-`php artisan serve`
+`npm install & npm run build`
+
+`php artisan serve` or `npm run dev`
 
 ## Contributing
 
