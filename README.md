@@ -55,33 +55,33 @@ This application is build using :
     </thead>
     <tbody>
         <tr>
-            <td>administrator@genealogy.test</td>
-            <td>password</td>
-            <td>to view team BRITISH ROYALS as owner</td>
+            <td>**administrator@genealogy.test**</b></td>
+            <td>**password**</td>
+            <td>to view team BRITISH ROYALS as team **owner**</td>
             <td>Administrator</td>
         </tr>
         <tr>
             <td>manager@genealogy.test</td>
             <td>password</td>
-            <td>to view team BRITISH ROYALS as manager</td>
+            <td>to view team BRITISH ROYALS as **manager**</td>
             <td>Manager</td>
         </tr>
         <tr>
             <td>editor@genealogy.test</td>
             <td>password</td>
-            <td>to view team BRITISH ROYALS as editor</td>
+            <td>to view team BRITISH ROYALS as **editor**</td>
             <td>Editor</td>
         </tr>
         <tr>
             <td>member_1@genealogy.test</td>
             <td>password</td>
-            <td>to view team BRITISH ROYALS as normal member</td>
+            <td>to view team BRITISH ROYALS as normal **member**</td>
             <td>Member</td>
         </tr>
         <tr>
             <td>developer@genealogy.test</td>
             <td>password</td>
-            <td>to view options reserved for developer, like offcanvas menu</td>
+            <td>to view options reserved for a **developer**, like the offcanvas menu</td>
             <td>Developer</td>
         </tr>
     </tbody>
@@ -134,21 +134,25 @@ This application is build using :
 
 ## Installation
 
-    create a new project folder, cd into the folder
+    1. create a new project folder, cd into the folder
+    2. Clone the repo: `git clone https://github.com/MGeurts/genealogy.git .`
+    3. `composer install` 
+    4. `cp .env.example .env` and make the needed changes regarding name, url, database connection & mail server
+    5. `php artisan key:generate`
+    6. Create **database on MySQL Server**
+    7. **Set database credentials** in `.env` file
+    8. `php artisan migrate:fresh --seed`
+    9. `php artisan storage:link`
+    10. `php artisan serve`
+    11. login using `administrator@genealogy.test` and `password`
 
-    git clone https://github.com/MGeurts/genealogy.git .
+## Contributing
 
-    rename .env.example to .env and make the needed changes regarding name, url, database connection & mail server
-    
-    composer install
+Feel free to submit Issues (for bugs or sugestions) and Pull Requests.
 
-    php artisan key:generate
-    php artisan storage:link
-    php artisan migrate:fresh --seed
-    
-    npm install & npm run build
+## Help
 
-    php artisan serve or npm run dev
+Visit the <a href="https://genealogy.kreaweb.be/help" target="_blank">demo project</a> to read the documentation.
 
 ## Impressum
 

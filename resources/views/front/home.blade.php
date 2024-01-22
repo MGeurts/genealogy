@@ -37,7 +37,7 @@
                             <tr>
                                 <td>administrator@genealogy.test</td>
                                 <td>password</td>
-                                <td>to view team BRITISH ROYALS as <b>owner</b></td>
+                                <td>to view team BRITISH ROYALS as team <b>owner</b></td>
                             </tr>
                             <tr>
                                 <td>manager@genealogy.test</td>
@@ -52,7 +52,7 @@
                             <tr>
                                 <td>member_1@genealogy.test</td>
                                 <td>password</td>
-                                <td>to view team BRITISH ROYALS as normal <b>>member</b></td>
+                                <td>to view team BRITISH ROYALS as normal <b>member</b></td>
                             </tr>
                             <tr>
                                 <td>developer@genealogy.test</td>
