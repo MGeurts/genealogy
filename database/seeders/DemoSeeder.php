@@ -297,5 +297,28 @@ class DemoSeeder extends Seeder
 
             'team_id' => 3,
         ]);
+
+        // -----------------------------------------------------------------------
+        // people in other team (than BRITISH ROYALS)
+        // -----------------------------------------------------------------------
+        Person::create([
+            'id' => 209,
+            'firstname' => 'John',
+            'surname' => 'DOE',
+            'sex' => 'm',
+            'dob' => '2000-01-01',
+
+            'team_id' => 5,
+        ]);
+
+        Person::create([
+            'id' => 210,
+            'firstname' => 'Fu',
+            'surname' => 'BAR',
+            'sex' => 'm',
+            'dob' => '2000-01-01',
+
+            'team_id' => 5,
+        ]);
     }
 }

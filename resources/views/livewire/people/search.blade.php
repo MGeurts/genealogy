@@ -22,16 +22,31 @@
 
                     <div class="flex-grow max-w-full flex-1 text-end">
                         @if ($this->search)
-                            {!! __('app.persons_found', [
-                                'total' => $people->total(),
-                                'scope' => auth()->user()->currentTeam->name,
-                                'keyword' => $this->search,
-                            ]) !!}
+                            @if (env('GOD_MODE', 'false') && auth()->user()->is_developer)
+                                {!! __('app.persons_found', [
+                                    'total' => $people->total(),
+                                    'scope' => 'ALL TEAMS',
+                                    'keyword' => $this->search,
+                                ]) !!}
+                            @else
+                                {!! __('app.persons_found', [
+                                    'total' => $people->total(),
+                                    'scope' => auth()->user()->currentTeam->name,
+                                    'keyword' => $this->search,
+                                ]) !!}
+                            @endif
                         @else
-                            {!! __('app.persons_available', [
-                                'total' => $people_db,
-                                'scope' => auth()->user()->currentTeam->name,
-                            ]) !!}
+                            @if (env('GOD_MODE', 'false') && auth()->user()->is_developer)
+                                {!! __('app.persons_available', [
+                                    'total' => $people_db,
+                                    'scope' => 'ALL TEAMS',
+                                ]) !!}
+                            @else
+                                {!! __('app.persons_available', [
+                                    'total' => $people_db,
+                                    'scope' => auth()->user()->currentTeam->name,
+                                ]) !!}
+                            @endif
                         @endif
                     </div>
                 </div>

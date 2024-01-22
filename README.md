@@ -40,11 +40,11 @@ This application is build using :
 
 ### License
 
-<p>Open source under MIT License.</p>
+This project is open-sourced software licensed under the [MIT license](LICENSE).
 
 ## Demo
 
-<p><a href="https://genealogy.kreaweb.be/" target="_blank">https://genealogy.kreaweb.be/</a></p>
+<a href="https://genealogy.kreaweb.be/" target="_blank">https://genealogy.kreaweb.be/</a>
 
 <table>
     <thead>
@@ -136,17 +136,20 @@ This application is build using :
 
 ## Installation
 
-    1. create a new project folder, cd into the folder
-    2. Clone the repo: ```git clone https://github.com/MGeurts/genealogy.git .```
-    3. `composer install` 
-    4. `cp .env.example .env` and make the needed changes regarding name, url, database connection & mail server
-    5. `php artisan key:generate`
-    6. Create **database on MySQL Server**
-    7. **Set database credentials** in `.env` file
-    8. `php artisan migrate:fresh --seed`
-    9. `php artisan storage:link`
-    10. `php artisan serve`
-    11. login using `administrator@genealogy.test` and `password`
+create a new project folder, cd into the folder
+
+git clone https://github.com/MGeurts/genealogy.git .
+
+cp .env.example .env 
+make the needed changes regarding name, url, database connection & mail server
+
+composer install
+
+php artisan key:generate
+php artisan storage:link
+php artisan migrate:fresh --seed
+
+php artisan serve
 
 ## Contributing
 
@@ -160,8 +163,8 @@ Visit the <a href="https://genealogy.kreaweb.be/help" target="_blank">demo proje
 
 ### Basic idea (2017)
 
-<p>This application is based on an original implementation by <a href="https://github.com/nafiesl/silsilah" target="_blank">Nafies Luthfi</a>. Thanks for your excellent work.</p>
+This application is based on an original implementation by <a href="https://github.com/nafiesl/silsilah" target="_blank">Nafies Luthfi</a>. Thanks for your excellent work.
 
 ### Design & Development (2024)
 
-<p>This Laravel application is designed and developed by <a href="https://www.kreaweb.be" target="_blank">kreaweb.be</a>.</p>
+This Laravel application is designed and developed by <a href="https://www.kreaweb.be" target="_blank">kreaweb.be</a>.
