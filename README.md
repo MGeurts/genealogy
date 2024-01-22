@@ -1,4 +1,4 @@
-<p align="center"><img src="https://genealogy.kreaweb.be/img/genealogy-logo.svg" alt="Genealogy-logo"/></p>
+<p align="center"><img src="https://genealogy.kreaweb.be/img/genealogy-logo.svg" width="100px" alt="Genealogy-logo"/></p>
 
 # Genealogy
 
