@@ -141,12 +141,15 @@ create a new project folder, cd into the folder
 `git clone https://github.com/MGeurts/genealogy.git .`
 
 `cp .env.example .env`
+
 make the needed changes regarding name, url, database connection & mail server
 
 `composer install`
 
 `php artisan key:generate`
+
 `php artisan storage:link`
+
 `php artisan migrate:fresh --seed`
 
 `php artisan serve`
