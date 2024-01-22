@@ -20,7 +20,11 @@ class JetstreamServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // ----------------------------------------------------------------------------------------------------
+        // Let us disable default Jetstream routes, we will override them in /routes/jetstream.php
+        // ----------------------------------------------------------------------------------------------------
+        Jetstream::ignoreRoutes();
+        // ----------------------------------------------------------------------------------------------------
     }
 
     /**
@@ -39,7 +43,7 @@ class JetstreamServiceProvider extends ServiceProvider
         Jetstream::deleteUsersUsing(DeleteUser::class);
 
         // ----------------------------------------------------------------------------------------------------
-        // Let's redirect the user to the page he was before he tried to log in
+        // Let uss redirect the user to the page he was before he tried to log in
         // Ref: https://laracasts.com/discuss/channels/laravel/redirect-to-intended-url-jetstream-fortify
         // ----------------------------------------------------------------------------------------------------
         // Get Session Link for Login View
@@ -56,7 +60,6 @@ class JetstreamServiceProvider extends ServiceProvider
                 }
             } else {
                 session(['link' => url()->previous()]);
-                //session(['link' => session('url.intended')]);
             }
 
             return view('auth.login');
