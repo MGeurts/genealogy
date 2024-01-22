@@ -18,7 +18,7 @@
     </div>
 
     @if ($person->couples->count() > 0)
-        @foreach ($person->couples as $couple)
+        @foreach ($person->couples->sortBy('date_start') as $couple)
             <div class="p-2 flex flex-wrap gap-2 justify-center items-start @if (!$loop->last) border-b @endif">
                 <div class="flex-grow min-w-max max-w-full flex-1">
                     @if ($couple->person2_id === $person->id)
