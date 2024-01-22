@@ -1,5 +1,7 @@
 ![Laravel](https://laravel.com/assets/img/components/logo-laravel.svg)
 
+<img src="https://genealogy.test/img/genealogy-logo.svg" class="rounded" alt="Genealogy-logo"/>
+
 # Genealogy
 
 ## About this project
