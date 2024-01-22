@@ -83,7 +83,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
         <tr>
             <td>developer@genealogy.test</td>
             <td>password</td>
-            <td>to view options reserved for a <b>developer</b>, like the offcanvas menu</td>
+            <td>to view options reserved for a <b>developer</b>, like the offcanvas menu and all persons in all teams</td>
             <td>Developer</td>
         </tr>
     </tbody>
