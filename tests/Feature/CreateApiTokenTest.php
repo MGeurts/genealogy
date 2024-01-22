@@ -15,7 +15,7 @@ class CreateApiTokenTest extends TestCase
 
     public function test_api_tokens_can_be_created(): void
     {
-        if (! Features::hasApiFeatures()) {
+        if (!Features::hasApiFeatures()) {
             $this->markTestSkipped('API support is not enabled.');
         }
 
@@ -25,15 +25,15 @@ class CreateApiTokenTest extends TestCase
             ->set(['createApiTokenForm' => [
                 'name' => 'Test Token',
                 'permissions' => [
-                    'read',
-                    'update',
+                    'user:read',
+                    'user:update',
                 ],
             ]])
             ->call('createApiToken');
 
         $this->assertCount(1, $user->fresh()->tokens);
         $this->assertEquals('Test Token', $user->fresh()->tokens->first()->name);
-        $this->assertTrue($user->fresh()->tokens->first()->can('read'));
-        $this->assertFalse($user->fresh()->tokens->first()->can('delete'));
+        $this->assertTrue($user->fresh()->tokens->first()->can('user:read'));
+        $this->assertFalse($user->fresh()->tokens->first()->can('user:delete'));
     }
 }

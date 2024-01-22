@@ -56,14 +56,14 @@
         <!-- Firstname -->
         <div class="col-span-6 md:col-span-4">
             <x-label for="firstname" value="{{ __('user.firstname') }}" />
-            <x-input id="firstname" type="text" class="mt-1 block w-full" wire:model.defer="state.firstname" autocomplete="firstname" />
+            <x-input id="firstname" name="firstname" type="text" class="mt-1 block w-full" wire:model.defer="state.firstname" autocomplete="firstname" />
             <x-input-error for="firstname" class="mt-1" />
         </div>
 
         <!-- Surname -->
         <div class="col-span-6 md:col-span-4">
             <x-label for="surname" value="{{ __('user.surname') }}" />
-            <x-input id="surname" type="text" class="mt-1 block w-full" wire:model.defer="state.surname" required autocomplete="surname" />
+            <x-input id="surname" name="surname" type="text" class="mt-1 block w-full" wire:model.defer="state.surname" required autocomplete="surname" />
             <x-input-error for="surname" class="mt-1" />
         </div>
 
