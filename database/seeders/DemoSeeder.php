@@ -151,7 +151,7 @@ class DemoSeeder extends Seeder
 
             'father_id' => 2,
 
-            'team_id' => 3,
+            'team_id' => 3,         // BRITISH ROYALS Team
         ]);
 
         Person::create([
@@ -306,9 +306,9 @@ class DemoSeeder extends Seeder
             'firstname' => 'John',
             'surname' => 'DOE',
             'sex' => 'm',
-            'dob' => '2000-01-01',
+            'dob' => '1960-01-01',
 
-            'team_id' => 5,
+            'team_id' => 5,         // Editors Personal Team
         ]);
 
         Person::create([
@@ -318,7 +318,7 @@ class DemoSeeder extends Seeder
             'sex' => 'm',
             'dob' => '2000-01-01',
 
-            'team_id' => 5,
+            'team_id' => 5,         // Editors Personal Team
         ]);
     }
 }
