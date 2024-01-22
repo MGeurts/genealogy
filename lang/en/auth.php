@@ -37,6 +37,7 @@ return [
     'change_password_error' => 'Uh-oh, change password failed',
     'remember_me' => 'Remember me',
     'role' => 'Role',
+    'permissions' => "Permisssions",
     'guest' => 'Guest',
     'developer' => 'Developer',
 ];

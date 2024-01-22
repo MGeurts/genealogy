@@ -19,19 +19,23 @@
             <div class="p-4">
                 <div class="rounded bg-secondary-100 p-4 text-base text-secondary-800" role="alert">
                     <div class="flex flex-row">
-                        <div class="basis-1/3">{{ __('auth.role') }} :</div>
-                        <div class="basis-2/3">
+                        <div class="basis-1/2">
+                            {{ __('auth.role') }} :
+                            <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                            {{ __('auth.permissions') }} :
+                        </div>
+
+                        <div class="basis-1/2">
                             @if (Auth::user())
                                 {{ Auth::user()->teamRole(auth()->user()->currentTeam)->name }}
 
                                 <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
-                                <div class="text-sm">
-                                    @foreach (Auth::user()->teamPermissions(Auth::user()->currentTeam) as $permission)
-                                        {{ $permission }}<br />
-                                    @endforeach
-                                </div>
+                                @foreach (Auth::user()->teamPermissions(Auth::user()->currentTeam) as $permission)
+                                    {{ $permission }}<br />
+                                @endforeach
                             @else
                                 {{ __('auth.guest') }}
+                                <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
                             @endif
                         </div>
                     </div>
