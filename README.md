@@ -160,7 +160,7 @@ make the needed changes regarding name, url, database connection & mail server
 
 Feel free to submit Issues (for bugs or suggestions) and Pull Requests.
 
-## Help
+## Documentation
 
 Visit the <a href="https://genealogy.kreaweb.be/help" target="_blank">demo project</a> to read the documentation.
 
@@ -168,7 +168,7 @@ Visit the <a href="https://genealogy.kreaweb.be/help" target="_blank">demo proje
 
 ### Basic idea (2017)
 
-This application is based on an original implementation by <a href="https://github.com/nafiesl/silsilah" target="_blank">Nafies Luthfi</a>. Thanks for your excellent work.
+This application is based on an original idea by <a href="https://github.com/nafiesl/silsilah" target="_blank">Nafies Luthfi</a>. Thanks for your excellent work.
 
 ### Design & Development (2024)
 
