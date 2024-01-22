@@ -1,6 +1,4 @@
-![Laravel](https://laravel.com/assets/img/components/logo-laravel.svg)
-
-<img src="https://genealogy.test/img/genealogy-logo.svg" class="rounded" alt="Genealogy-logo"/>
+<p align="center"><img src="https://genealogy.kreaweb.be/img/genealogy-logo.svg" alt="Genealogy-logo"/></p>
 
 # Genealogy
 
