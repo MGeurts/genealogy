@@ -1,4 +1,4 @@
-<p align="center"><img src="https://genealogy.kreaweb.be/img/genealogy-logo.svg" width="100px" alt="Genealogy-logo"/></p>
+<p align="center"><img src="https://genealogy.kreaweb.be/img/genealogy-logo.svg" width="300px" alt="Genealogy-logo"/></p>
 
 # Genealogy
 
@@ -138,18 +138,18 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 
 create a new project folder, cd into the folder
 
-git clone https://github.com/MGeurts/genealogy.git .
+`git clone https://github.com/MGeurts/genealogy.git .`
 
-cp .env.example .env 
+`cp .env.example .env`
 make the needed changes regarding name, url, database connection & mail server
 
-composer install
+`composer install`
 
-php artisan key:generate
-php artisan storage:link
-php artisan migrate:fresh --seed
+`php artisan key:generate`
+`php artisan storage:link`
+`php artisan migrate:fresh --seed`
 
-php artisan serve
+`php artisan serve`
 
 ## Contributing
 
