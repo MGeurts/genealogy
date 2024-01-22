@@ -1,3 +1,5 @@
+![Laravel](https://laravel.com/assets/img/components/logo-laravel.svg)
+
 # Genealogy
 
 ## About this project
@@ -135,7 +137,7 @@ This application is build using :
 ## Installation
 
     1. create a new project folder, cd into the folder
-    2. Clone the repo: `git clone https://github.com/MGeurts/genealogy.git .`
+    2. Clone the repo: ```git clone https://github.com/MGeurts/genealogy.git .```
     3. `composer install` 
     4. `cp .env.example .env` and make the needed changes regarding name, url, database connection & mail server
     5. `php artisan key:generate`
@@ -148,7 +150,7 @@ This application is build using :
 
 ## Contributing
 
-Feel free to submit Issues (for bugs or sugestions) and Pull Requests.
+Feel free to submit Issues (for bugs or suggestions) and Pull Requests.
 
 ## Help
 
