@@ -17,7 +17,7 @@ class CurrentTeamController extends Controller
     {
         $team = Jetstream::newTeamModel()->findOrFail($request->team_id);
 
-        if (!$request->user()->switchTeam($team)) {
+        if (! $request->user()->switchTeam($team)) {
             abort(403);
         }
 

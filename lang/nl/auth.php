@@ -37,7 +37,7 @@ return [
     'change_password_error' => 'Uh-oh, change password failed',
     'remember_me' => 'Onthou mij',
     'role' => 'Rol',
-    'permissions' => "Rechten",
+    'permissions' => 'Rechten',
     'guest' => 'Bezoeker',
     'developer' => 'Beheerder',
 

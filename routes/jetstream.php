@@ -12,7 +12,7 @@ use Laravel\Jetstream\Jetstream;
 
 // ----------------------------------------------------------------------------------------------------
 // custom copy of \vendor\laravel\jetstream\routes\livewire.php
-// using custom App\Http\Controllers\Jetstream\CurrentTeamController 
+// using custom App\Http\Controllers\Jetstream\CurrentTeamController
 // so we can always redirect to search page after switching team
 // ----------------------------------------------------------------------------------------------------
 Route::group(['middleware' => config('jetstream.middleware', ['web'])], function () {
