@@ -58,32 +58,32 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <tbody>
         <tr>
             <td><b>administrator@genealogy.test</b></td>
-            <td>**password**</td>
-            <td>to view team BRITISH ROYALS as team **owner**</td>
+            <td><b>password</b></td>
+            <td>to view team BRITISH ROYALS as team <b>owner</b></td>
             <td>Administrator</td>
         </tr>
         <tr>
             <td>manager@genealogy.test</td>
             <td>password</td>
-            <td>to view team BRITISH ROYALS as **manager**</td>
+            <td>to view team BRITISH ROYALS as <b>manager</b></td>
             <td>Manager</td>
         </tr>
         <tr>
             <td>editor@genealogy.test</td>
             <td>password</td>
-            <td>to view team BRITISH ROYALS as **editor**</td>
+            <td>to view team BRITISH ROYALS as <b>editor</b></td>
             <td>Editor</td>
         </tr>
         <tr>
             <td>member_1@genealogy.test</td>
             <td>password</td>
-            <td>to view team BRITISH ROYALS as normal **member**</td>
+            <td>to view team BRITISH ROYALS as normal <b>member</b></td>
             <td>Member</td>
         </tr>
         <tr>
             <td>developer@genealogy.test</td>
             <td>password</td>
-            <td>to view options reserved for a **developer**, like the offcanvas menu</td>
+            <td>to view options reserved for a <b>developer</b>, like the offcanvas menu</td>
             <td>Developer</td>
         </tr>
     </tbody>
