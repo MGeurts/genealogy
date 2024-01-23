@@ -41,6 +41,7 @@ Route::middleware([
         Route::get('people/{person}/death', 'death')->name('people.death');
         Route::get('people/{person}/add-child', 'addChild')->name('people.add-child');
         Route::get('people/{person}/add-partner', 'addPartner')->name('people.add-partner');
+        Route::get('people/{person}/add-photo', 'addPhoto')->name('people.add-photo');
         Route::get('people/{person}/edit-contact', 'editContact')->name('people.edit-contact');
         Route::get('people/{person}/edit-death', 'editDeath')->name('people.edit-death');
         Route::get('people/{person}/edit-family', 'editFamily')->name('people.edit-family');

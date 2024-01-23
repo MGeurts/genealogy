@@ -98,7 +98,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <li>Multi-tenancy by Jetstream Teams</li>
     <li>Security through Jetstream Teams Roles & Permissions, 2FA & API can be enabled</li>
     <li>Offcanvas menu for developer</li>
-    <li>Image upload with possibility of watermarking</li>
+    <li>Multiple image upload with possibility of watermarking</li>
 </ul>
 
 ### Special features
@@ -130,7 +130,6 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 ### To do ...
 
 <ul>
-    <li>Allow uploading supplemental images for people</li>
     <li>GEDCOM import and export (help needed)</li>
 </ul>
 

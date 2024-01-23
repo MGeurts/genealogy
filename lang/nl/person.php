@@ -39,6 +39,7 @@ return [
     'add_child' => 'Kind toevoegen',
     'add_child_from_existing_partner' => 'Ouder (kies partner van :name)',
     'add_person' => 'Persoon toevoegen',
+    'add_photo' => 'Foto toevoegen',
     'add_relationship' => 'Relatie toevoegen',
 
     'edit' => 'Editeer',

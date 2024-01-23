@@ -39,6 +39,7 @@ return [
     'add_child' => 'Add child',
     'add_child_from_existing_partner' => 'Parent (select spouse of :name)',
     'add_person' => 'Add person',
+    'add_photo' => 'Add photo',
     'add_relationship' => 'Add relationship',
 
     'edit' => 'Edit',
