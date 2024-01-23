@@ -52,7 +52,7 @@ class DemoSeeder extends Seeder
                 'yod' => ! empty($person['yod']) ? $person['yod'] : null,
                 'pod' => ! empty($person['death_place']) ? $person['death_place'] : null,
 
-                'photo' => 'demo_' . $person['id'] . '.webp',
+                'photo' => $person['id'] . '_001_demo.webp',
 
                 'team_id' => 3,
             ]);
