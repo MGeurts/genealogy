@@ -51,7 +51,7 @@
                         </x-button.primary>
 
                         <x-button.danger wire:click="confirmDeletion('{{ $backup['file_name'] }}')">
-                            <x-icon.tabler icon="trash-filled" class="mr-2" />
+                            <x-icon.tabler icon="trash" class="mr-2" />
                             {{ __('backup.delete') }}
                         </x-button.danger>
                     </div>

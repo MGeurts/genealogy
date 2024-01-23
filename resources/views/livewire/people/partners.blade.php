@@ -64,7 +64,7 @@
                     @if (auth()->user()->hasPermission('couple:delete'))
                         <x-button.danger class="!p-2" title="{{ __('app.delete') }} {{ __('app.delete_relationship') }}"
                             wire:click="confirmDeletion({{ $couple->id }} , '{{ $couple->name }}')">
-                            <x-icon.tabler icon="trash-filled" class="!size-4" />
+                            <x-icon.tabler icon="trash" class="!size-4" />
                         </x-button.danger>
                     @endif
                 </div>

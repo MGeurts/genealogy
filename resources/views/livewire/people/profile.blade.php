@@ -9,7 +9,7 @@
                 @if ($person->isDeletable())
                     <div class="flex-grow min-w-max max-w-min flex-1 text-end">
                         <x-button.danger class="!p-2" title="{{ __('person.delete_person') }}" wire:click="confirmDeletion()">
-                            <x-icon.tabler icon="trash-filled" class="!size-4" />
+                            <x-icon.tabler icon="trash" class="!size-4" />
                         </x-button.danger>
                     </div>
                 @endif
@@ -57,7 +57,7 @@
 
     <!-- image -->
     <div class="grid p-2 justify-center">
-        <x-image.photo :person="$person" class="max-w-96" />
+        <livewire:people.photos :person="$person" class="max-w-96" />
     </div>
 
     <!-- lifetime -->
