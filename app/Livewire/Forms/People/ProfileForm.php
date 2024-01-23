@@ -42,7 +42,7 @@ class ProfileForm extends Form
     }
 
     // -----------------------------------------------------------------------
-    // ToDo : add to rules : yob must be equal to dob->format("Y) when dob not null
+    // To Do : add to rules : yob must be equal to dob->format("Y) when dob not null
     protected $rules = [
         'firstname' => ['nullable', 'string', 'max:255'],
         'surname' => ['required', 'string', 'max:255'],

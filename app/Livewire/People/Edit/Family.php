@@ -83,7 +83,7 @@ class Family extends Component
         });
 
         // ------------------------------------------------------------------
-        // ToDo : Only needed for sorting, there must be a better way ??
+        // To Do : Only needed for sorting, there must be a better way ??
         // ------------------------------------------------------------------
         $fathers = [];
         foreach ($males as $person) {
@@ -96,7 +96,7 @@ class Family extends Component
         });
 
         // ------------------------------------------------------------------
-        // ToDo : Only needed for sorting, there must be a better way ??
+        // To Do : Only needed for sorting, there must be a better way ??
         // ------------------------------------------------------------------
         $mothers = [];
         foreach ($females as $person) {
@@ -113,7 +113,7 @@ class Family extends Component
             });
 
         // ------------------------------------------------------------------
-        // ToDo : Only needed for sorting, there must be a better way ??
+        // To Do : Only needed for sorting, there must be a better way ??
         // ------------------------------------------------------------------
         $parents = [];
         foreach ($couples as $couple) {

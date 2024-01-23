@@ -22,7 +22,7 @@ class DeathForm extends Form
     public $cemetery_location_longitude;
 
     // -----------------------------------------------------------------------
-    // ToDo : add to rules : yod must be equal to dod->format("Y) when dod not null
+    // To Do : add to rules : yod must be equal to dod->format("Y) when dod not null
     protected $rules = [
         'yod' => ['nullable', 'date_format:Y'],
         'dod' => ['nullable', 'date', 'date_format:Y-m-d', 'before_or_equal:today'],
