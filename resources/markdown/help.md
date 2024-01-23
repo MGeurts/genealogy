@@ -80,7 +80,7 @@ Authenticated users can only see persons and couples:
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-001.webp" class="rounded" alt="Menu">
 
-After login and selecting the proper team, click on the <b>Search</b> button in the top navigation menu.
+After login and <span class="text-danger">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-010.webp" class="rounded" alt="Search">
 
@@ -95,6 +95,27 @@ The results are shown below the search box, each person is represented in one ca
 Click on the <b>Profile</b> or <b>Family chart</b> button to see details about that person.
 
 <hr />
+
+
+<!-- ---------------------------------------------------------------------------------- -->
+## 3. Adding persons
+
+After login and <span class="text-danger">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
+
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-001.webp" class="rounded" alt="Search">
+
+You can add new person by clinking the <b>Add person</b> button above the search bar.
+
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-010.webp" class="rounded" alt="Add person">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-011.webp" class="rounded" alt="Add person">
+
+Another way to add people is to click on the <b>Add child</b> button on the <b>Children</b> tab of an existing person.
+
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-050.webp" class="rounded" alt="Children">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-051.webp" class="rounded" alt="Add child">
+
+<hr />
+
 
 <!-- ---------------------------------------------------------------------------------- -->
 ## 4. Persons and relationships
@@ -117,14 +138,26 @@ Notice this card shows different data for living and deceased persons.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-022b.webp" class="rounded" alt="Profile living">
 
-You can edit the profile data by clicking the blue <b>Edit</b> button in the card header.
+You can edit the profile, contact and death data by clicking the blue <b>Edit</b> button in the card header.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-023.webp" class="rounded" alt="Profile edit">
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-024.webp" class="rounded" alt="Profile edit profile">
+
+The image uploaded in the <b>Edit profile</b> form, will be the <b>primary photo</b> for the selected person.
+
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-025.webp" class="rounded" alt="Profile edit contact">
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-026.webp" class="rounded" alt="Profile edit death">
 
-### b. Family
+### b. Photos
+
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-022c.webp" class="rounded" alt="Photo editing">
+
+You can browse through the available photos by using the navigation bar below the photo carousel.<br/>
+You can <b>add</b> or <b>delete</b> photos using the buttons above the photo carousel.
+
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-027.webp" class="rounded" alt="Photo add">
+
+### c. Family
 
 The <b>Family</b> card shows the persons parents and the current partner.
 
@@ -134,7 +167,7 @@ You can edit the family data by clicking the blue <b>Edit</b> button in the card
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-034.webp" class="rounded" alt="Family edit">
 
-### c. Partners (Couples)
+### d. Partners (Couples)
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-040.webp" class="rounded" alt="Partners">
 
@@ -145,7 +178,7 @@ You can delete a relationship by clicking the red <b>Delete</b> button in the re
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-041.webp" class="rounded" alt="Partners add">
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-042.webp" class="rounded" alt="Partners edit">
 
-### d. Children
+### e. Children
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-050.webp" class="rounded" alt="Children">
 
@@ -155,7 +188,9 @@ The deleted child will remain in the database as a person but just not have the 
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-051.webp" class="rounded" alt="Partners add">
 
-### e. Siblings
+When adding a child you can either create a brand <b>new person</b> or select an <b>existing person</b>.
+
+### f. Siblings
 
 Siblings are shown on the siblings card.<br/>
 
@@ -165,21 +200,21 @@ A sibling can be <b>full</b>: both the same biological parents as the selected p
 A sibling can be <b>half</b>: only the biological mother or the biological father are common.<br/>
 A sibling can be <b>plus</b>: neither the biological father nor the biological mother are common, but the child is part of the current relationship of the slected person
 
-### f. Ancestors
+### g. Ancestors
 
 This shows the selected persons ancestors.<br/>
 You can change the tree level by using the control in the card header.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-070.webp" class="rounded" alt="Ancestors">
 
-### g. Descendants
+### h. Descendants
 
 This shows the selected persons descendants.<br/>
 You can change the tree level by using the control in the card header.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-071.webp" class="rounded" alt="Descendants">
 
-### h. Family chart
+### i. Family chart
 
 This shows the compleet family chart, 3 generations deep.
 
@@ -200,6 +235,7 @@ This shows the upcomming birthdays.
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-080.webp" class="rounded" alt="Birthdays">
 
 <hr />
+
 
 <!-- ---------------------------------------------------------------------------------- -->
 ## 6. Offcanvas menu 
@@ -242,6 +278,7 @@ The <b>Dependencies</b> menu item allows <b>developers</b> to consult the applic
 
 <hr />
 
+
 <!-- ---------------------------------------------------------------------------------- -->
 ## 7. Language
 
@@ -260,6 +297,7 @@ The selected language is saved in the database for further use.
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-002d.webp" class="rounded" alt="Profile editor">
 
 <hr />
+
 
 <!-- ---------------------------------------------------------------------------------- -->
 ## 8. Color theme
