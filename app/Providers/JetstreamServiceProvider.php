@@ -23,7 +23,7 @@ class JetstreamServiceProvider extends ServiceProvider
         // ----------------------------------------------------------------------------------------------------
         // Let us disable default Jetstream routes, we will override them in /routes/jetstream.php
         // ----------------------------------------------------------------------------------------------------
-        Jetstream::ignoreRoutes();
+        //Jetstream::ignoreRoutes();
         // ----------------------------------------------------------------------------------------------------
     }
 
