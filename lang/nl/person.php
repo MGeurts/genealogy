@@ -92,6 +92,7 @@ return [
     'cemetery_location' => 'Locatie begraafplaats',
 
     // Photo
+    'photo_deleted' => 'Afbeelding verwijderd',
     'reupload_photo' => 'Afbeelding (opnieuw) uploaden',
     'upload_photo' => 'Afbeelding uploaden',
     'update_photo' => 'Afbeelding wijzigen',

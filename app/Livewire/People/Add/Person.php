@@ -54,10 +54,10 @@ class Person extends Component
                     $image_height = env('IMAGE_UPLOAD_MAX_HEIGHT', 800);
                     $image_quality = env('IMAGE_UPLOAD_QUALITY', 80);
                     $image_type = env('IMAGE_UPLOAD_TYPE', 'webp');
-                    $image_name = $person->id . '_1_' . now()->format('YmdHis') . '.' . $image_type;
+                    $image_name = $person->id . '_001_' . now()->format('YmdHis') . '.' . $image_type;
 
                     // delete old photos
-                    File::delete(File::glob(storage_path('app/public/*/' . $person->id . '_1_*.*')));
+                    File::delete(File::glob(storage_path('app/public/*/' . $person->id . '_001_*.*')));
 
                     // resize (new) photo, add watermark and save it
                     $manager = new ImageManager(new Driver());

@@ -92,6 +92,7 @@ return [
     'cemetery_location' => 'Cemetery Location',
 
     // Photo
+    'photo_deleted' => 'Photo deleted',
     'reupload_photo' => 'Re-upload photo',
     'upload_photo' => 'Upload photo',
     'update_photo' => 'Update photo',

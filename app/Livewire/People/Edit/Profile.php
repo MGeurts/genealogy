@@ -56,10 +56,10 @@ class Profile extends Component
                     $image_height = env('IMAGE_UPLOAD_MAX_HEIGHT', 800);
                     $image_quality = env('IMAGE_UPLOAD_QUALITY', 80);
                     $image_type = env('IMAGE_UPLOAD_TYPE', 'webp');
-                    $image_name = $this->person->id . '_1_' . now()->format('YmdHis') . '.' . $image_type;
+                    $image_name = $this->person->id . '_001_' . now()->format('YmdHis') . '.' . $image_type;
 
                     // delete old photos
-                    File::delete(File::glob(storage_path('app/public/*/' . $this->person->id . '_1_*.*')));
+                    File::delete(File::glob(storage_path('app/public/*/' . $this->person->id . '_001_*.*')));
 
                     // resize (new) photo, watermark and save it
                     $manager = new ImageManager(new Driver());
@@ -77,18 +77,19 @@ class Profile extends Component
                         $this->profileForm->image = null;
                         $this->profileForm->iteration++;
                     } else {
-                        toast()->danger(__('app.image_not_saved') . '.', __('app.save'))->push();
+                        toast()->danger(__('app.image_not_saved') . '.', __('app.save'))->pushOnNextPage();
                     }
                 }
 
                 $this->person->update($validated);
 
-                $this->dispatch('person_updated');
-                toast()->success(__('app.saved') . '.', __('app.save'))->push();
+                toast()->success(__('app.saved') . '.', __('app.save'))->pushOnNextPage();
             } else {
                 $this->resetProfile();
-                toast()->danger(__('person.yob') . ' ≠ ' . __('person.dob') . '!', __('app.attention'))->push();
+                toast()->danger(__('person.yob') . ' ≠ ' . __('person.dob') . '!', __('app.attention'))->pushOnNextPage();
             }
+
+            $this->redirect('/people/' . $this->person->id);
         }
     }
 
