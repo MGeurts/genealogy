@@ -30,7 +30,6 @@ class UserAndTeamSeeder extends Seeder
             'firstname' => '_',
             'surname' => 'Administrator',
             'email' => 'administrator@genealogy.test',
-            'is_developer' => true,     // To Do : set to false in productin
         ])
             ->withPersonalTeam()
             ->create();
