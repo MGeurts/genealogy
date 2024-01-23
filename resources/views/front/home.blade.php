@@ -17,7 +17,7 @@
 
                 <h3><b>Genealogy</b> is a free and open-source family tree application to record family members and their relationships.</h3>
                 <img src="https://genealogy.kreaweb.be/img/genealogy-001a.webp" class="rounded" alt="Genealogy-001a">
-                <img src="https://genealogy.kreaweb.be/img/genealogy-001b.webp" class="rounded" alt="Genealogy-001b">
+                <img src="https://genealogy.kreaweb.be/img/genealogy-001c.webp" class="rounded" alt="Genealogy-001c">
 
                 <h2>Demo credentials</h2>
                 <x-hr.narrow class="!my-2" />
