@@ -25,7 +25,7 @@
             </div>
 
             <div class="min-w-100 md:max-w-max flex flex-col flex-grow gap-5 overflow-x-auto">
-                <livewire:people.edit.partner :couple="$couple" :person="$person" />
+                <livewire:people.edit.partner :person="$person" :couple="$couple" />
             </div>
         </div>
     </div>
