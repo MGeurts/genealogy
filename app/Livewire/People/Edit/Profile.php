@@ -59,7 +59,7 @@ class Profile extends Component
                     $image_name = $this->person->id . '_001_' . now()->format('YmdHis') . '.' . $image_type;
 
                     // delete old photos
-                    File::delete(File::glob(storage_path('app/public/*/' . $this->person->id . '_001_*.*')));
+                    File::delete(File::glob(storage_path('app/public/*/' . $this->person->id . '_001_*.webp')));
 
                     // resize (new) photo, watermark and save it
                     $manager = new ImageManager(new Driver());

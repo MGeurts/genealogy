@@ -57,7 +57,7 @@ class Person extends Component
                     $image_name = $person->id . '_001_' . now()->format('YmdHis') . '.' . $image_type;
 
                     // delete old photos
-                    File::delete(File::glob(storage_path('app/public/*/' . $person->id . '_001_*.*')));
+                    File::delete(File::glob(storage_path('app/public/*/' . $person->id . '_001_*.webp')));
 
                     // resize (new) photo, add watermark and save it
                     $manager = new ImageManager(new Driver());
@@ -70,6 +70,8 @@ class Person extends Component
                         $new_image->save(public_path('storage/photos/' . $image_name));
 
                         $person->update(['photo' => $image_name]);
+
+                        $this->dispatch('photo_updated');
 
                         // reset photo upload input
                         $this->personForm->image = null;

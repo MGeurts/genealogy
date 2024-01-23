@@ -19,7 +19,7 @@ class Photos extends Component
     public $maxImages = 5;
 
     protected $listeners = [
-        'person_updated' => 'render',
+        'photo_updated' => 'mount',
     ];
 
     public function previousImage()
@@ -51,8 +51,13 @@ class Photos extends Component
 
         toast()->success(__('person.photo_deleted') . '.', __('app.delete'))->push();
 
-        $this->mount();
-        $this->dispatch('person_updated');
+        $files = File::glob(public_path() . "/storage/photos/{$this->person->id}_*.webp");
+
+        $this->person->update([
+            'photo' => $files ? substr($files[0], strrpos($files[0], '/') + 1) : null,
+        ]);
+
+        $this->dispatch('photo_updated');
     }
 
     public function mount()

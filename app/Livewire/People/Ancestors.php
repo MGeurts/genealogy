@@ -17,6 +17,10 @@ class Ancestors extends Component
 
     public $count_max = 10;
 
+    protected $listeners = [
+        'photo_updated' => 'mount',
+    ];
+
     public function increment()
     {
         if ($this->count < $this->count_max) {

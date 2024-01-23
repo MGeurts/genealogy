@@ -53,6 +53,10 @@ class Photo extends Component
                 if ($new_image) {
                     $new_image->save(public_path('storage/photos/' . $image_name));
 
+                    if ($this->person->photo == null) {
+                        $this->person->update(['photo' => $image_name]);
+                    }
+
                     // reset photo upload input
                     $this->photoForm->image = null;
                     $this->photoForm->iteration++;
