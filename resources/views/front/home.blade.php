@@ -57,7 +57,7 @@
                             <tr>
                                 <td>developer@genealogy.test</td>
                                 <td>password</td>
-                                <td>to view options reserved for a <b>developer</b>, like the offcanvas menu</td>
+                                <td>to view options reserved for a <b>developer</b>, like the <b>offcanvas menu</b> and <b>all persons in all teams</b></td>
                             </tr>
                         </tbody>
                     </table>
