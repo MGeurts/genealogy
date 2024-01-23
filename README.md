@@ -7,7 +7,7 @@
 <b>Genealogy</b> is a free and open-source (family tree) application to record family members and their relationships, build with Laravel 10.
 
 <img src="https://genealogy.kreaweb.be/img/genealogy-001a.webp" class="rounded" alt="Genealogy-001a"/>
-<img src="https://genealogy.kreaweb.be/img/genealogy-001b.webp" class="rounded" alt="Genealogy-001b"/>
+<img src="https://genealogy.kreaweb.be/img/genealogy-001c.webp" class="rounded" alt="Genealogy-001c"/>
 
 This application is build using :
 <ul>
