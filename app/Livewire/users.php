@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Livewire\Component;
 
-class users extends Component implements HasForms, HasTable
+class Users extends Component implements HasForms, HasTable
 {
     use InteractsWithForms;
     use InteractsWithTable;
