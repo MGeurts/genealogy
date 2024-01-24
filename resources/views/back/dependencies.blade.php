@@ -42,6 +42,10 @@
                                 <li class="py-2">
                                     <x-link href="https://livewire.laravel.com/" target="_blank">Laravel Livewire</x-link> 3.x
                                 </li>
+                                <li class="py-2">
+                                    <x-link href="https://filamentphp.com/" target="_blank">Laravel Filament</x-link> (only Table Builder) 3.x
+                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -99,6 +103,10 @@
                                 </li>
                                 <li class="py-2">
                                     <x-link href="https://github.com/ARCANEDEV/LogViewer/" target="_blank">ARCANEDEV/LogViewer</x-link>
+                                </li>
+
+                                <li class="py-2">
+                                    <x-link href="https://github.com/csstools/postcss-plugins/" target="_blank">csstools/postcss-plugins</x-link> (needed by Filament Table Builder)
                                 </li>
 
                                 <li class="py-2">

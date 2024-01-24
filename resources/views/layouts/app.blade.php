@@ -24,6 +24,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/chart.js'])
 
     <!-- Styles -->
+    @filamentStyles
     @livewireStyles
     @stack('styles')
 </head>
@@ -61,6 +62,7 @@
 
     <!-- Scripts -->
     @livewireScripts
+    @filamentScripts
     @stack('scripts')
 </body>
 

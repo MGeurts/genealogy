@@ -9,11 +9,16 @@ class PageController extends Controller
 {
     public function dependencies(Request $request)
     {
-        return view('back.dependencies', []);
+        return view('back.dependencies');
     }
 
     public function session(Request $request)
     {
-        return view('back.session', []);
+        return view('back.session');
+    }
+
+    public function users(Request $request)
+    {
+        return view('back.users');
     }
 }

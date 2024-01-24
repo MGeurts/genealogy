@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
@@ -16,7 +17,8 @@ use Laravel\Sanctum\HasApiTokens;
 // ------------------------------------------------------------------------------------------------------
 // ATTENTION :
 // the user attribute "is_developer" should be set directly in the database
-// by the application developer on the user account he want to use to manage the whole applacation
+// by the application developer on the one user account he wants to use to manage the whole applacation
+// including user management and managing all people in all teams
 // ------------------------------------------------------------------------------------------------------
 
 class User extends Authenticatable
@@ -42,7 +44,6 @@ class User extends Authenticatable
         'password',
 
         'language',
-        'is_developer',
     ];
 
     protected $hidden = [
@@ -79,6 +80,12 @@ class User extends Authenticatable
     /* -------------------------------------------------------------------------------------------- */
     // Relations
     /* -------------------------------------------------------------------------------------------- */
+    /* OK : returns the currently actiated team */
+    public function current_team(): HasOne
+    {
+        return $this->hasone(Team::class, 'id', 'current_team_id');
+    }
+
     /* OK : returns ALL USERLOG (N USERLOG) */
     public function userlogs(): HasMany
     {

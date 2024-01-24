@@ -3,6 +3,7 @@
 return [
     // Labels
     'user' => 'Gebruiker',
+    'users' => 'Gebruikers',
 
     // Actions
     'edit' => 'Editeer',
@@ -14,6 +15,14 @@ return [
     'password' => 'Paswoord',
     'confirm_password' => 'Bevestig paswoord',
     'language' => 'Taal',
+    'developer' => 'Developer',
+    'team' => 'Team',
+    'current_team' => 'Geselecteerd team',
+    'created_at' => 'Aangemaakt op',
+    'updated_at' => 'Gewijzigd op',
+    'deleted_at' => 'Verwijderd op',
+    'email_verified_at' => 'Email geverifieerd op',
+    'two_factor_confirmed_at' => '2FA bevestigd op',
 
     // Photo
     'select_photo' => 'Selecteer een nieuw afbeelding',
