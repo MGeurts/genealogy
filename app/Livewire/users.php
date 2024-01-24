@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Models\user;
+use App\Models\User;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Tables;
@@ -54,7 +54,7 @@ class Users extends Component implements HasForms, HasTable
                     })
                     ->searchable(),
                 Tables\Columns\IconColumn::make('is_developer')
-                    ->label(__('user.developer') . ' ?')
+                    ->label(__('user.developer') . '?')
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('user.created_at'))
