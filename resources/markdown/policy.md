@@ -35,7 +35,7 @@ This information is collected anonymously and is not linked to information that 
 ### Disclosure of your information
 Any information you provide to us will either be emailed directly to us or may be stored on a secure server located near Dublin within the Republic of Ireland. We use a trusted third party website and hosting provider (<b>[ISP]</b>) to facilitate the running and management of this website. Cleverbox meet high data protection and security standards and are bound by contract to keep any information they process on our behalf confidential. Any data that may be collected through this website that Cleverbox process, is kept secure and only processed in the manner we instruct them to. Cleverbox cannot access, provide, rectify or delete any data that they store on our behalf without permission.
 
-We do not rent, sell or share personal information about you with other people or non-affiliated companies. <b>[Check this statement is in accordance with your internal data processing activities and outline any other storage of information inline with your internal data policy (ie. Do you have a database of personal data stored on third party platforms such as MailChimp?)]</b>
+We do not rent, sell or share personal information about you with other people or non-affiliated companies. <b>[Check this statement is in accordance with your internal data processing activities and outline any other storage of information inline with your internal data policy (ie. Do you have a database of personal data stored on third party platforms such as MailChimp or others?)]</b>
 
 We will use all reasonable efforts to ensure that your personal data is not disclosed to regional/national institutions and authorities, unless required by law or other regulations.
 
@@ -47,7 +47,7 @@ Our site may, from time to time, contain links to and from the third party websi
 
 ### Your rights – access to your personal data
 
-You have the right to ensure that your personal data is being processed lawfully (“Subject Access Right”). Your subject access right can be exercised in accordance with data protection laws and regulations. Any subject access request must be made in writing to <b>[insert school/Trust Data Controller contact details]</b>. We will provide your personal data to you within the statutory time frames. To enable us to trace any of your personal data that we may be holding, we may need to request further information from you. If you have a complaint about how we have used your information, you have the right to complain to the Information Commissioner’s Office (ICO).
+You have the right to ensure that your personal data is being processed lawfully (“Subject Access Right”). Your subject access right can be exercised in accordance with data protection laws and regulations. Any subject access request must be made in writing to <b>[insert Trust Data Controller contact details]</b>. We will provide your personal data to you within the statutory time frames. To enable us to trace any of your personal data that we may be holding, we may need to request further information from you. If you have a complaint about how we have used your information, you have the right to complain to the Information Commissioner’s Office (ICO).
 
 ### Changes to our privacy policy
 

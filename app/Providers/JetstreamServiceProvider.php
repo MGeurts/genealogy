@@ -20,12 +20,7 @@ class JetstreamServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // ----------------------------------------------------------------------------------------------------
-        // Let us disable default Jetstream routes, we will override them in /routes/jetstream.php
-        // ----------------------------------------------------------------------------------------------------
-        // To Do : ignoring these routes causes tests to fail and 500 server error in production !! Why ??
-        //Jetstream::ignoreRoutes();
-        // ----------------------------------------------------------------------------------------------------
+        //
     }
 
     /**

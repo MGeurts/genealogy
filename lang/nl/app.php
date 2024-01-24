@@ -95,7 +95,7 @@ return [
 
     'connected_social' => 'Maak contact met ons op sociale netwerken',
     'open_source' => 'Open-source onder',
-    'licence' => 'licentie',
+    'licence' => 'MIT Licentie',
     'free_use' => 'Gratis te gebruiken voor niet-commerciële doeleinden',
     'design_development' => 'Ontworpen & onwikkeld',
     'by' => 'door',

@@ -6,6 +6,7 @@
                 <h5 class="mb-0 font-semibold leading-normal" id="offcanvasLabel">
                     {{ __('app.menu') }}
                 </h5>
+
                 <button type="button" class="box-content rounded-none border-none opacity-50 hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
                     data-te-offcanvas-dismiss>
                     <span
@@ -15,7 +16,7 @@
                 </button>
             </div>
 
-            <!-- Role -->
+            <!-- role and permissions-->
             <div class="p-4">
                 <div class="rounded bg-secondary-100 p-4 text-base text-secondary-800" role="alert">
                     <div class="flex flex-row">
@@ -97,7 +98,7 @@
                             <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                             <p>
-                                <x-nav-link-responsive href="{{ route('dependencies') }}" :active="request()->routeIs('dependencies')">
+                                <x-nav-link-responsive wire:navigate href="{{ route('dependencies') }}" :active="request()->routeIs('dependencies')">
                                     {{ __('app.dependencies') }}
                                 </x-nav-link-responsive>
                             </p>
@@ -112,9 +113,7 @@
                         <!-- others -->
                         <div>{{ Auth::user()->teamRole(auth()->user()->currentTeam)->name }} ...</div>
 
-                        <div>
-                            <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
-                        </div>
+                        <div><x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" /></div>
                     @endif
                 @endif
 
@@ -122,9 +121,7 @@
                     <!-- guest -->
                     <div>{{ __('auth.guest') }} ...</div>
 
-                    <div>
-                        <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
-                    </div>
+                    <div><x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" /></div>
                 @endguest
             </div>
         </div>

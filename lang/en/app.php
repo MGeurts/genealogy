@@ -96,7 +96,7 @@ return [
 
     'connected_social' => 'Get connected with us on social networks',
     'open_source' => 'Open-source under',
-    'licence' => 'licence',
+    'licence' => 'MIT Licence',
     'free_use' => 'Free to use for non-commercial purposes',
     'design_development' => 'Designed & developed',
     'by' => 'by',
