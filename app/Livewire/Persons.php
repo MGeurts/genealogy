@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Models\person;
+use App\Models\Person;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Tables;
@@ -11,7 +11,6 @@ use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
 use Livewire\Component;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Builder;
 
 class Persons extends Component implements HasForms, HasTable
 {
@@ -21,7 +20,7 @@ class Persons extends Component implements HasForms, HasTable
     public function table(Table $table): Table
     {
         return $table
-            ->query(person::query())
+            ->query(Person::query())
             ->columns([
                 Tables\Columns\TextColumn::make('surname')
                     ->label(__('person.surname'))
