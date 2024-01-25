@@ -155,6 +155,10 @@ make the needed changes regarding name, url, database connection & mail server
 
 `php artisan serve` or `npm run dev`
 
+## Testing
+
+`php artisan test`
+
 ## Contributing
 
 Feel free to submit Issues (for bugs or suggestions) and Pull Requests.
@@ -162,10 +166,6 @@ Feel free to submit Issues (for bugs or suggestions) and Pull Requests.
 ## Documentation
 
 Visit the <a href="https://genealogy.kreaweb.be/help" target="_blank">demo project</a> to read the documentation.
-
-## Testing
-
-`php artisan test`
 
 ## Impressum
 
