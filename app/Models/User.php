@@ -81,6 +81,9 @@ class User extends Authenticatable
     // Relations
     /* -------------------------------------------------------------------------------------------- */
     /* OK : returns the currently actiated team */
+
+    // To Do : can we replace this relationship with build in relationship from hasTeams ?
+
     public function current_team(): HasOne
     {
         return $this->hasone(Team::class, 'id', 'current_team_id');

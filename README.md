@@ -127,7 +127,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
    </ul>
 </p>
 
-### To do ...
+### To Do ...
 
 <ul>
     <li>GEDCOM import and export (help needed)</li>
