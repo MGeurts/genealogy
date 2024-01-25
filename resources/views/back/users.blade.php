@@ -11,5 +11,7 @@
 
     <div class="py-10 w-full">
         <livewire:users />
+
+        {{ dump(collect(auth()->user()->teamRole(Auth::user()->currentTeam))) }}
     </div>
 </x-app-layout>

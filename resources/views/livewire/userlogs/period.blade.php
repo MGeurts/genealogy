@@ -55,7 +55,7 @@
                         {{ __('userlog.period') }}
                     </div>
 
-                    <div class="w-32">
+                    <div class="w-48">
                         <x-simple-select class="bg-white" wire:model.live="period" name="period" id="period" :options="$options" :searchable="false" :clearable="false" class="form-select pl-0 py-0" />
                     </div>
 
