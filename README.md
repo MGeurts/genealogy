@@ -97,8 +97,8 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <li>Multi-language, English and Dutch already implemented, language setting saved in authenticated users profile</li>
     <li>Multi-tenancy by Jetstream Teams</li>
     <li>Security through Jetstream Teams Roles & Permissions, 2FA & API can be enabled</li>
-    <li>Offcanvas menu for developer</li>
-    <li>Multiple image upload with possibility of watermarking</li>
+    <li>Offcanvas menu</li>
+    <li>Multiple image upload with possibility of watermarking, photo carousel</li>
 </ul>
 
 ### Special features
@@ -162,6 +162,10 @@ Feel free to submit Issues (for bugs or suggestions) and Pull Requests.
 ## Documentation
 
 Visit the <a href="https://genealogy.kreaweb.be/help" target="_blank">demo project</a> to read the documentation.
+
+## Testing
+
+`php artisan test`
 
 ## Impressum
 
