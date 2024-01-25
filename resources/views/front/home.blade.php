@@ -22,7 +22,7 @@
                 <h2>Demo credentials</h2>
                 <x-hr.narrow class="!my-2" />
 
-                <div class="rounded bg-info-100 p-4 text-base text-info-800" role="alert">
+                <div class="p-4 text-base bg-info-100 text-info-800 rounded" role="alert">
                     <p><a href="https://genealogy.kreaweb.be/" target="_blank">https://genealogy.kreaweb.be/</a></p>
 
                     <table>
@@ -33,6 +33,7 @@
                                 <th>Purpose</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             <tr>
                                 <td>administrator@genealogy.test</td>
@@ -57,7 +58,7 @@
                             <tr>
                                 <td>developer@genealogy.test</td>
                                 <td>password</td>
-                                <td>to view options reserved for a <b>developer</b>, like the <b>user management</b>, the <b>offcanvas menu</b> and access to <b>all persons in all teams</b></td>
+                                <td>to view options reserved for the <b>developer</b>, like the <b>user management</b> and access to <b>all persons in all teams</b></td>
                             </tr>
                         </tbody>
                     </table>
