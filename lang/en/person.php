@@ -4,6 +4,7 @@ return [
     // Labels
     'biological' => 'biological',
     'person' => 'Person',
+    'people' => 'People',
     'family' => 'Family',
     'profile' => 'Profile',
     'spouse' => 'Spouse',

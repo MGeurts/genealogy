@@ -70,6 +70,16 @@
                             <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                             <p>
+                                <x-nav-link-responsive wire:navigate href="{{ route('persons') }}" :active="request()->routeIs('persons')">
+                                    {{ __('person.people') }}
+                                </x-nav-link-responsive>
+                            </p>
+                        </div>
+
+                        <div>
+                            <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+
+                            <p>
                                 <x-nav-link-responsive wire:navigate href="{{ route('users') }}" :active="request()->routeIs('users')">
                                     {{ __('user.users') }}
                                 </x-nav-link-responsive>

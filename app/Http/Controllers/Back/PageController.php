@@ -12,6 +12,11 @@ class PageController extends Controller
         return view('back.dependencies');
     }
 
+    public function persons(Request $request)
+    {
+        return view('back.persons');
+    }
+
     public function session(Request $request)
     {
         return view('back.session');

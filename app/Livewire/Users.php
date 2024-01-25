@@ -49,8 +49,6 @@ class Users extends Component implements HasForms, HasTable
                 //         return $record->permisscion();
                 //     }),
 
-
-
                 // Tables\Columns\TextColumn::make('profile_photo_path')
                 //     ->searchable(),
                 Tables\Columns\TextColumn::make('language')
