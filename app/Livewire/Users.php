@@ -44,6 +44,13 @@ class Users extends Component implements HasForms, HasTable
                     ->sortable(),
                 Tables\Columns\TextColumn::make('current_team.name')
                     ->label(__('user.current_team')),
+                // Tables\Columns\TextColumn::make('column_one')
+                //     ->state(function (User $record): string {
+                //         return $record->permisscion();
+                //     }),
+
+
+
                 // Tables\Columns\TextColumn::make('profile_photo_path')
                 //     ->searchable(),
                 Tables\Columns\TextColumn::make('language')

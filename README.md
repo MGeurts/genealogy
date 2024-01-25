@@ -83,7 +83,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
         <tr>
             <td>developer@genealogy.test</td>
             <td>password</td>
-            <td>to view options reserved for a <b>developer</b>, like the <b>offcanvas menu</b> and access to <b>all persons in all teams</b></td>
+            <td>to view options reserved for a <b>developer</b>, like the <b>user management</b>, the <b>offcanvas menu</b> and access to <b>all persons in all teams</b></td>
             <td>Developer</td>
         </tr>
     </tbody>
@@ -120,7 +120,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
    </ul>
 </p>
 
-<p>This application has a built-in <b>User logging</b> :
+<p>This application has a built-in <b>User management & logging</b>, available to the developer :
     <ul>
         <li>User statistics by country of origin</li>
         <li>User statistics by year/month/week/day</li>

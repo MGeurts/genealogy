@@ -259,8 +259,9 @@ The <b>Log Viewer</b> menu item allows <b>developers</b> to consult the applicat
 
 ### c. User logging
 
-The offcanvas menu allows <b>developers</b> to consult the user logging information.
+The offcanvas menu allows <b>developers</b> to consult the users and their logging information.
 
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-082a.webp" class="rounded" alt="Users">
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-082.webp" class="rounded" alt="User logging 1">
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-083.webp" class="rounded" alt="User logging 2">
 
