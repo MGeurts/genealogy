@@ -27,9 +27,11 @@ class Users extends Component implements HasForms, HasTable
             ->columns([
                 Tables\Columns\TextColumn::make('surname')
                     ->label(__('user.surname'))
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('firstname')
                     ->label(__('user.firstname'))
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->label(__('user.email'))
@@ -43,20 +45,14 @@ class Users extends Component implements HasForms, HasTable
                     ->dateTime('Y-m-d h:i')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('current_team.name')
-                    ->label(__('user.current_team')),
-                // Tables\Columns\TextColumn::make('column_one')
-                //     ->state(function (User $record): string {
-                //         return $record->permisscion();
-                //     }),
-
-                // Tables\Columns\TextColumn::make('profile_photo_path')
-                //     ->searchable(),
+                    ->label(__('user.current_team'))
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('language')
                     ->label(__('user.language'))
                     ->getStateUsing(function (User $record) {
                         return strtoupper($record->language);
                     })
-                    ->searchable(),
+                    ->sortable(),
                 Tables\Columns\IconColumn::make('is_developer')
                     ->label(__('user.developer') . '?')
                     ->boolean(),
@@ -77,9 +73,9 @@ class Users extends Component implements HasForms, HasTable
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
+                Tables\Filters\TrashedFilter::make(),
                 Filter::make('is_developer')
                     ->query(fn (Builder $query): Builder => $query->where('is_developer', true)),
-                Tables\Filters\TrashedFilter::make(),
             ], layout: FiltersLayout::AboveContent)
             ->actions([
                 Tables\Actions\DeleteAction::make()->iconButton(),
