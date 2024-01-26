@@ -45,8 +45,7 @@ class EventServiceProvider extends ServiceProvider
     private function logUser($user)
     {
         try {
-            // To Do : Remove the 2nd condition in production
-            if ($position = Location::get() and $position->countryCode != 'BE') {
+            if ($position = Location::get()) {
                 $country_name = $position->countryName;
                 $country_code = $position->countryCode;
             } else {
@@ -54,11 +53,14 @@ class EventServiceProvider extends ServiceProvider
                 $country_code = null;
             }
 
-            Userlog::create([
-                'user_id' => $user->id,
-                'country_name' => $country_name,
-                'country_code' => $country_code,
-            ]);
+            // To Do : Remove the BE filter in production
+            if ($position->countryCode != 'BE') {
+                Userlog::create([
+                    'user_id' => $user->id,
+                    'country_name' => $country_name,
+                    'country_code' => $country_code,
+                ]);
+            }
         } catch (QueryException $e) {
             Log::info("User log ERROR: {$e->getMessage()}");
         }
