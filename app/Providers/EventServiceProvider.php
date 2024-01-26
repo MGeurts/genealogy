@@ -45,7 +45,8 @@ class EventServiceProvider extends ServiceProvider
     private function logUser($user)
     {
         try {
-            if ($position = Location::get()) {
+            // To Do : Remove the 2nd condition in production
+            if ($position = Location::get() and $position->countryCode != 'BE') {
                 $country_name = $position->countryName;
                 $country_code = $position->countryCode;
             } else {
