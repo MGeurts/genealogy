@@ -45,10 +45,12 @@ class Persons extends Component implements HasForms, HasTable
                     ->searchable(),
                 Tables\Columns\TextColumn::make('father.name')
                     ->label(__('person.father'))
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('mother.name')
                     ->label(__('person.mother'))
-                    ->sortable(),
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('dob')
                     ->label(__('person.dob'))
                     ->dateTime('Y-m-d')
@@ -58,7 +60,8 @@ class Persons extends Component implements HasForms, HasTable
                     ->sortable(),
                 Tables\Columns\TextColumn::make('pob')
                     ->label(__('person.pob'))
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('dod')
                     ->label(__('person.dod'))
                     ->dateTime('Y-m-d')
@@ -68,7 +71,8 @@ class Persons extends Component implements HasForms, HasTable
                     ->sortable(),
                 Tables\Columns\TextColumn::make('pod')
                     ->label(__('person.pod'))
-                    ->searchable(),
+                    ->searchable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\IconColumn::make('photo')
                     ->label(__('person.photo'))
                     ->getStateUsing(function (Person $record) {
