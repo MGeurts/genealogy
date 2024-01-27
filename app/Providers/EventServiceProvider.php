@@ -53,8 +53,8 @@ class EventServiceProvider extends ServiceProvider
                 $country_code = null;
             }
 
-            // To Do : Remove the BE filter in production
-            if ($position->countryCode != 'BE') {
+            // To Do : Remove the kreaweb filter in production
+            if ($user->email != 'kreaweb@genealogy.test') {
                 Userlog::create([
                     'user_id' => $user->id,
                     'country_name' => $country_name,

@@ -12,12 +12,21 @@ class UserAndTeamSeeder extends Seeder
     public function run()
     {
         // -----------------------------------------------------------------------------------
-        // create developer user
+        // create developer users
         // -----------------------------------------------------------------------------------
-        $developer = User::factory([
+        User::factory([
             'firstname' => '_',
             'surname' => 'Developer',
             'email' => 'developer@genealogy.test',
+            'is_developer' => true,
+        ])
+            ->withPersonalTeam()
+            ->create();
+
+        User::factory([
+            'firstname' => 'Kreaweb',
+            'surname' => 'Developer',
+            'email' => 'kreaweb@genealogy.test',
             'is_developer' => true,
         ])
             ->withPersonalTeam()
