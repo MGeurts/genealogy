@@ -17,14 +17,14 @@ class PageController extends Controller
         return view('back.persons');
     }
 
-    public function personsStats(Request $request)
-    {
-        return view('back.persons-stats');
-    }
-
     public function session(Request $request)
     {
         return view('back.session');
+    }
+
+    public function teams(Request $request)
+    {
+        return view('back.teams');
     }
 
     public function users(Request $request)

@@ -59,8 +59,8 @@
                                 </x-nav-link-responsive>
                             </p>
                             <p>
-                                <x-nav-link-responsive wire:navigate href="{{ route('persons-stats') }}" :active="request()->routeIs('persons-stats')">
-                                    {{ __('person.people_stats') }}
+                                <x-nav-link-responsive wire:navigate href="{{ route('teams') }}" :active="request()->routeIs('teams')">
+                                    {{ __('team.teams') }}
                                 </x-nav-link-responsive>
                             </p>
                         </div>

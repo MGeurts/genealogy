@@ -7,6 +7,8 @@ return [
     'manage' => 'Manage team',
     'settings' => 'Team settings',
     'switch' => 'Switch team',
+    'team' => 'team',
+    'teams' => 'Teams',
     'team_name' => 'Team name',
     'team_owner' => 'Team owner',
 ];

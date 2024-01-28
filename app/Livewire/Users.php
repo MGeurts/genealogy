@@ -9,7 +9,8 @@ use Filament\Tables;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Enums\FiltersLayout;
-use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -74,8 +75,10 @@ class Users extends Component implements HasForms, HasTable
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
-                Filter::make('is_developer')
-                    ->query(fn (Builder $query): Builder => $query->where('is_developer', true)),
+                SelectFilter::make('language')
+                    ->options(array_flip(config('app.available_locales'))),
+                TernaryFilter::make('is_developer')
+                    ->label(__('user.developer') . '?'),
             ], layout: FiltersLayout::AboveContent)
             ->actions([
                 Tables\Actions\DeleteAction::make()->iconButton(),

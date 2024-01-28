@@ -2,19 +2,20 @@
 
 namespace App\Livewire;
 
-use Filament\Tables;
 use App\Models\Person;
-use Livewire\Component;
-use Filament\Tables\Table;
-use Filament\Tables\Grouping\Group;
-use Illuminate\Contracts\View\View;
+use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
+use Filament\Tables;
+use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Grouping\Group;
+use Filament\Tables\Table;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Tables\Concerns\InteractsWithTable;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Livewire\Component;
 
 class Persons extends Component implements HasForms, HasTable
 {
@@ -104,6 +105,11 @@ class Persons extends Component implements HasForms, HasTable
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
+                SelectFilter::make('sex')
+                    ->options([
+                        'm' => 'Male',
+                        'f' => 'Female',
+                    ]),
             ], layout: FiltersLayout::AboveContent)
             ->actions([
                 Tables\Actions\DeleteAction::make()->iconButton(),
