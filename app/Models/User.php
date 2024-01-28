@@ -22,11 +22,11 @@ use Laravel\Sanctum\HasApiTokens;
 // ------------------------------------------------------------------------------------------------------
 
 class User extends Authenticatable
-    // ---------------------------------------------------------------------------------------
-    // class User extends Authenticatable implements MustVerifyEmail
-    //
-    // Ref : https://jetstream.laravel.com/features/registration.html#email-verification
-    // ---------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------
+// class User extends Authenticatable implements MustVerifyEmail
+//
+// Ref : https://jetstream.laravel.com/features/registration.html#email-verification
+// ---------------------------------------------------------------------------------------
 {
     use HasApiTokens;
     use HasFactory;
@@ -80,7 +80,7 @@ class User extends Authenticatable
     /* -------------------------------------------------------------------------------------------- */
     // Relations
     /* -------------------------------------------------------------------------------------------- */
-    /* OK : returns the currently actiated team */
+    /* OK : returns the currently activated team */
 
     // To Do : can we replace this relationship with build in relationship from hasTeams ?
 

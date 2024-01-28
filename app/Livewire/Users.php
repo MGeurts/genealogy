@@ -45,6 +45,17 @@ class Users extends Component implements HasForms, HasTable
                     ->label(__('user.two_factor_confirmed_at'))
                     ->dateTime('Y-m-d h:i')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('team_personal')
+                    ->label(__('team.team_personal'))
+                    ->getStateUsing(function (User $record) {
+                        return $record->personalTeam()->name;
+                    }),
+                Tables\Columns\TextColumn::make('teams')
+                    ->label(__('team.teams'))
+                    ->getStateUsing(function (User $record) {
+                        return implode('<br/>', $record->teams()->pluck('name')->toArray());
+                    })
+                    ->html(),
                 Tables\Columns\TextColumn::make('current_team.name')
                     ->label(__('user.current_team'))
                     ->sortable(),

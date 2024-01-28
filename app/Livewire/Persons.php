@@ -107,9 +107,10 @@ class Persons extends Component implements HasForms, HasTable
                 Tables\Filters\TrashedFilter::make(),
                 SelectFilter::make('sex')
                     ->options([
-                        'm' => 'Male',
-                        'f' => 'Female',
-                    ]),
+                        'm' => __('app.male'),
+                        'f' => __('app.female'),
+                    ])
+                    ->label(__('person.sex')),
             ], layout: FiltersLayout::AboveContent)
             ->actions([
                 Tables\Actions\DeleteAction::make()->iconButton(),
