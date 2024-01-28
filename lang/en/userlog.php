@@ -2,7 +2,7 @@
 
 return [
     // Labels
-    'users_log' => 'Userlog',
+    'users_log' => 'User logbook',
     'users_origin' => 'User origin',
     'users_stats' => 'User statictics',
 

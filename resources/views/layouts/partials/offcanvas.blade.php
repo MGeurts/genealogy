@@ -54,24 +54,13 @@
                             <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                             <p>
-                                <x-nav-link-responsive wire:navigate href="{{ route('backups') }}" :active="request()->routeIs('backups')">
-                                    {{ __('Backups') }}
-                                </x-nav-link-responsive>
-                            </p>
-
-                            <p>
-                                <x-nav-link-responsive href="{{ url('log-viewer') }}" target="_blank">
-                                    {{ __('Log Viewer') }}
-                                </x-nav-link-responsive>
-                            </p>
-                        </div>
-
-                        <div>
-                            <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
-
-                            <p>
                                 <x-nav-link-responsive wire:navigate href="{{ route('persons') }}" :active="request()->routeIs('persons')">
                                     {{ __('person.people') }}
+                                </x-nav-link-responsive>
+                            </p>
+                            <p>
+                                <x-nav-link-responsive wire:navigate href="{{ route('persons-stats') }}" :active="request()->routeIs('persons-stats')">
+                                    {{ __('person.people_stats') }}
                                 </x-nav-link-responsive>
                             </p>
                         </div>
@@ -106,6 +95,22 @@
                             <p>
                                 <x-nav-link-responsive wire:navigate href="{{ route('userlogs.period') }}" :active="request()->routeIs('userlogs.period')">
                                     {{ __('userlog.users_stats') }}
+                                </x-nav-link-responsive>
+                            </p>
+                        </div>
+
+                        <div>
+                            <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+
+                            <p>
+                                <x-nav-link-responsive wire:navigate href="{{ route('backups') }}" :active="request()->routeIs('backups')">
+                                    {{ __('Backups') }}
+                                </x-nav-link-responsive>
+                            </p>
+
+                            <p>
+                                <x-nav-link-responsive href="{{ url('log-viewer') }}" target="_blank">
+                                    {{ __('Log Viewer') }}
                                 </x-nav-link-responsive>
                             </p>
                         </div>

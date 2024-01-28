@@ -89,6 +89,11 @@ class Users extends Component implements HasForms, HasTable
                     Tables\Actions\RestoreBulkAction::make(),
                 ]),
             ])
+            ->defaultSort(function (Builder $query): Builder {
+                return $query
+                    ->orderBy('surname')
+                    ->orderBy('firstname');
+            })
             ->striped();
     }
 

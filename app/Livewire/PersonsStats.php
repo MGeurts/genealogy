@@ -16,7 +16,7 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class Persons extends Component implements HasForms, HasTable
+class PersonsStats extends Component implements HasForms, HasTable
 {
     use InteractsWithForms;
     use InteractsWithTable;
@@ -105,17 +105,9 @@ class Persons extends Component implements HasForms, HasTable
             ->filters([
                 Tables\Filters\TrashedFilter::make(),
             ], layout: FiltersLayout::AboveContent)
-            ->actions([
-                Tables\Actions\DeleteAction::make()->iconButton(),
-                Tables\Actions\ForceDeleteAction::make()->iconButton(),
-                Tables\Actions\RestoreAction::make()->iconButton(),
-            ])
+            ->actions([])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\ForceDeleteBulkAction::make(),
-                    Tables\Actions\RestoreBulkAction::make(),
-                ]),
+                Tables\Actions\BulkActionGroup::make([]),
             ])
             ->groups([
                 Group::make('team.name')
@@ -139,6 +131,6 @@ class Persons extends Component implements HasForms, HasTable
 
     public function render(): View
     {
-        return view('livewire.persons');
+        return view('livewire.persons-stats');
     }
 }

@@ -2,7 +2,7 @@
 
 return [
     // Labels
-    'users_log' => 'Gebruikerslog',
+    'users_log' => 'Gebruikers logboek',
     'users_origin' => 'Gebruikers herkomst',
     'users_stats' => 'Gebruikers statistiek',
 

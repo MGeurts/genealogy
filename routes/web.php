@@ -69,6 +69,7 @@ Route::middleware([
         Route::controller(App\Http\Controllers\Back\PageController::class)->group(function () {
             Route::get('dependencies', 'dependencies')->name('dependencies');
             Route::get('persons', 'persons')->name('persons');
+            Route::get('persons-stats', 'personsStats')->name('persons-stats');
             Route::get('session', 'session')->name('session');
             Route::get('users', 'users')->name('users');
         });

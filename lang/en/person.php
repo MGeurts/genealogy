@@ -5,6 +5,7 @@ return [
     'biological' => 'biological',
     'person' => 'Person',
     'people' => 'People',
+    'people_stats' => 'People statistics',
     'family' => 'Family',
     'profile' => 'Profile',
     'spouse' => 'Spouse',
@@ -88,6 +89,9 @@ return [
     'phone' => 'Phone',
     'photo' => 'Photo',
     'manager' => 'Manager',
+    'created_at' => 'Created at',
+    'updated_at' => 'Updated at',
+    'deleted_at' => 'Deleted at',
 
     'cemetery' => 'Cemetery',
     'cemetery_location' => 'Cemetery Location',

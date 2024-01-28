@@ -5,6 +5,7 @@ return [
     'biological' => 'biologisch',
     'person' => 'Persoon',
     'people' => 'Personen',
+    'people_stats' => 'Personen statistiek',
     'family' => 'Familie',
     'profile' => 'Profiel',
     'spouse' => 'Echtgenote',
@@ -88,6 +89,9 @@ return [
     'phone' => 'Telefoon',
     'photo' => 'Afbeelding',
     'manager' => 'Manager',
+    'created_at' => 'Aangemaakt op',
+    'updated_at' => 'Gewijzigd op',
+    'deleted_at' => 'Verwijderd op',
 
     'cemetery' => 'Begraafplaats',
     'cemetery_location' => 'Locatie begraafplaats',

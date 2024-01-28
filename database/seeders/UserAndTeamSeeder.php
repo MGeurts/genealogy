@@ -28,6 +28,7 @@ class UserAndTeamSeeder extends Seeder
             'surname' => 'Developer',
             'email' => 'kreaweb@genealogy.test',
             'is_developer' => true,
+            'language' => 'nl',
         ])
             ->withPersonalTeam()
             ->create();
