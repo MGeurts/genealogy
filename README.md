@@ -35,8 +35,8 @@ This application is build using :
 ### Requirements
 
 <ul>
-    <li>At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.1 supporting Laravel 10.</li>
-    <li>At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2 or equivalent database supporting <a href="https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL" target="_blank">Common Table Expressions</a>.</li>
+    <li>At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.1, supporting Laravel 10.</li>
+    <li>At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2 or equivalent database, supporting <a href="https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL" target="_blank">Common Table Expressions</a>.</li>
 </ul>
 
 ### License
@@ -131,12 +131,12 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 ### To Do ...
 
 <ul>
-    <li>GEDCOM import and export (help needed)</li>
+    <li>GEDCOM import and export (help needed).</li>
 </ul>
 
 ## Techniques
 
-Both the <b>ancestors</b> and <b>descendants</b> family trees are build using <a href="https://dev.mysql.com/blog-archive/mysql-8-0-improved-performance-with-cte/" target="_blank">MySQL Common Table Expressions (CTE)</a>. This prevents the N+1 query problem generating the recursive tree elements.
+Both the <b>ancestors</b> and <b>descendants</b> family trees are build using <a href="https://dev.mysql.com/blog-archive/mysql-8-0-improved-performance-with-cte/" target="_blank">MySQL Common Table Expressions</a> (CTE). This prevents the N+1 query problem generating the recursive tree elements.
 
 ## Installation
 
@@ -166,10 +166,11 @@ make the needed changes regarding name, url, database connection & mail server
 
 ## Contributing
 
-Feel free to submit Issues (for bugs or suggestions) and Pull Requests.
+Feel free to submit <b>Issues</b> (for bugs or suggestions) and <b>Pull Requests</b>.
 
 ## Documentation
 
+The documentation is built-in the applications help.
 Visit the <a href="https://genealogy.kreaweb.be/help" target="_blank">demo project</a> to read the documentation.
 
 ## Impressum
