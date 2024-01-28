@@ -7,7 +7,7 @@ return [
     'manage' => 'Teambeheer',
     'settings' => 'Team instellingen',
     'switch' => 'Selecteer team',
-    'team' => 'team',
+    'team' => 'Team',
     'team_personal' => 'Persoonlijk team',
     'teams' => 'Teams',
     'team_name' => 'Team naam',

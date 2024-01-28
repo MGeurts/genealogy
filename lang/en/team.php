@@ -7,7 +7,7 @@ return [
     'manage' => 'Manage team',
     'settings' => 'Team settings',
     'switch' => 'Switch team',
-    'team' => 'team',
+    'team' => 'Team',
     'team_personal' => 'Personal team',
     'teams' => 'Teams',
     'team_name' => 'Team name',

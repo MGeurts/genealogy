@@ -126,6 +126,10 @@ class Persons extends Component implements HasForms, HasTable
             ])
             ->groups([
                 Group::make('team.name')
+                    ->label(__('team.team'))
+                    ->collapsible(),
+                Group::make('sex')
+                    ->label(__('person.sex'))
                     ->collapsible(),
             ])
             ->defaultSort(function (Builder $query): Builder {
@@ -133,6 +137,7 @@ class Persons extends Component implements HasForms, HasTable
                     ->orderBy('surname')
                     ->orderBy('firstname');
             })
+            ->defaultGroup('team.name')
             ->striped();
     }
 
