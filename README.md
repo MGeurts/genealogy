@@ -35,8 +35,8 @@ This application is build using :
 ### Requirements
 
 <ul>
-    <li>At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.1</li>
-    <li>At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2</li> or equivalent database supporting <a href="https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL" target="_blank">Common Table Expressions</a>.
+    <li>At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.1 supporting Laravel 10.</li>
+    <li>At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2 or equivalent database supporting <a href="https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL" target="_blank">Common Table Expressions</a>.</li>
 </ul>
 
 ### License
@@ -136,7 +136,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 
 ## Techniques
 
-Both the ancestors and descendants family trees are build using <a href="https://dev.mysql.com/blog-archive/mysql-8-0-improved-performance-with-cte/" target="_blank">MySQL Common Table Expressions (CTE)</a>. Therefore the minimum database requirement is MySQL 8.0 or 
+Both the <b>ancestors</b> and <b>descendants</b> family trees are build using <a href="https://dev.mysql.com/blog-archive/mysql-8-0-improved-performance-with-cte/" target="_blank">MySQL Common Table Expressions (CTE)</a>. This prevents the N+1 query problem generating the recursive tree elements.
 
 ## Installation
 
