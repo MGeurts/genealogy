@@ -4,7 +4,7 @@
 
 ## About this project
 
-<b>Genealogy</b> is a free and open-source (family tree) application to record family members and their relationships, build with Laravel 10.
+<b>Genealogy</b> is a free and open-source (family tree) application to record family members and their relationships, build with PHP (Laravel 10).
 
 <img src="https://genealogy.kreaweb.be/img/genealogy-001a.webp" class="rounded" alt="Genealogy-001a"/>
 <img src="https://genealogy.kreaweb.be/img/genealogy-001c.webp" class="rounded" alt="Genealogy-001c"/>
