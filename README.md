@@ -35,7 +35,7 @@ This application is build using :
 ### Requirements
 
 <ul>
-    <li>At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.1, supporting Laravel 10.</li>
+    <li>At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.2, supporting (upcomming) Laravel 11.</li>
     <li>At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2 or equivalent database, supporting <a href="https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL" target="_blank">Common Table Expressions</a>.</li>
 </ul>
 
@@ -136,7 +136,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 
 ## Techniques
 
-Both the <b>ancestors</b> and <b>descendants</b> family trees are build using <a href="https://dev.mysql.com/blog-archive/mysql-8-0-improved-performance-with-cte/" target="_blank">MySQL Common Table Expressions</a> (CTE). This prevents the N+1 query problem generating the recursive tree elements.
+Both the <b>ancestors</b> and <b>descendants</b> family trees are build using <a href="https://dev.mysql.com/blog-archive/mysql-8-0-improved-performance-with-cte/" target="_blank">MySQL Common Table Expressions</a> (CTE). This prevents the N+1 query problem generating the recursive tree elements and dramatically improves performance.
 
 ## Installation
 
@@ -173,6 +173,10 @@ Feel free to submit <b>Issues</b> (for bugs or suggestions) and <b>Pull Requests
 The documentation is built-in the applications help.
 Visit the <a href="https://genealogy.kreaweb.be/help" target="_blank">demo project</a> to read the documentation.
 
+### Sponsoring
+
+If you like this project, please consider giving it a star. Thank you.
+
 ## Impressum
 
 ### Basic idea (2017)
@@ -182,3 +186,4 @@ This application is based on an original idea by <a href="https://github.com/naf
 ### Design & Development (2024)
 
 This Laravel application is designed and developed by <a href="https://www.kreaweb.be" target="_blank">kreaweb.be</a>.
+

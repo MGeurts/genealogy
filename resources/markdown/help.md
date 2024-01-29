@@ -311,41 +311,43 @@ Users can click a button in the top right-hand menu to open the <b>offcanvas men
 On top the users role and permissions in the current team are shown.<br/>
 If a user has the proper rights, additional features are presented.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-006.webp" class="rounded" alt="Offcanvas menu">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-006a.webp" class="rounded" alt="Offcanvas menu">
 
 ### a. Teams & Persons
+
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-090.webp" class="rounded" alt="Persons">
 
 ### b. Users & user logging
 
 The offcanvas menu allows <b>developers</b> to consult the users and their logging information.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-082a.webp" class="rounded" alt="Users">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-082.webp" class="rounded" alt="User logging 1">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-083.webp" class="rounded" alt="User logging 2">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-091.webp" class="rounded" alt="Users">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-093.webp" class="rounded" alt="User logging 1">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-094.webp" class="rounded" alt="User logging 2">
 
 ### c. Backups
 
 The <b>Backups</b> menu item allows <b>developers</b> to make database backups.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-081.webp" class="rounded" alt="Backups">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-095.webp" class="rounded" alt="Backups">
 
 ### d. Log viewer
 
 The <b>Log Viewer</b> menu item allows <b>developers</b> to consult the application log files.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-086.webp" class="rounded" alt="Log viewer">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-096.webp" class="rounded" alt="Log viewer">
 
 ### e. Dependencies
 
 The <b>Dependencies</b> menu item allows <b>developers</b> to consult the application dependencies.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-084.webp" class="rounded" alt="Dependencies">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-097.webp" class="rounded" alt="Dependencies">
 
 ### f. Session
 
 The <b>Dependencies</b> menu item allows <b>developers</b> to consult the application session.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-085.webp" class="rounded" alt="Session">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-098.webp" class="rounded" alt="Session">
 
 <hr />
 
