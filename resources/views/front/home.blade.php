@@ -38,32 +38,32 @@
 
                         <tbody>
                             <tr>
-                                <td>administrator@genealogy.test</td>
+                                <td><b>administrator@genealogy.test</b></td>
                                 <td>password</td>
                                 <td>to view teams <b>BRITISH ROYALS</b> and <b>KENNEDY</b> as team <b>owner</b></td>
                             </tr>
                             <tr>
-                                <td>manager@genealogy.test</td>
+                                <td><b>manager@genealogy.test</b></td>
                                 <td>password</td>
                                 <td>to view team <b>BRITISH ROYALS</b> as <b>manager</b></td>
                             </tr>
                             <tr>
-                                <td>editor@genealogy.test</td>
+                                <td><b>editor@genealogy.test</b></td>
                                 <td>password</td>
                                 <td>to view team <b>KENNEDY</b> as <b>editor</b></td>
                             </tr>
                             <tr>
-                                <td>member_1@genealogy.test</td>
+                                <td><b>member_1@genealogy.test</b></td>
                                 <td>password</td>
                                 <td>to view team <b>BRITISH ROYALS</b> as normal <b>member</b></td>
                             </tr>
                             <tr>
-                                <td>member_4@genealogy.test</td>
+                                <td><b>member_4@genealogy.test</b></td>
                                 <td>password</td>
                                 <td>to view team <b>KENNEDY</b> as normal <b>member</b></td>
                             </tr>
                             <tr>
-                                <td>developer@genealogy.test</td>
+                                <td></td>developer@genealogy.test</b></td>
                                 <td>password</td>
                                 <td>to view options reserved for the <b>developer</b>, like the <b>user management</b> and access to <b>all persons in all teams</b></td>
                             </tr>
