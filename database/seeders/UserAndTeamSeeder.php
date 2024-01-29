@@ -88,12 +88,12 @@ class UserAndTeamSeeder extends Seeder
                 'firstname' => '_',
                 'surname' => 'Editor',
                 'email' => 'editor@genealogy.test',
-                'current_team_id' => $team_britisch_royals->id,
+                'current_team_id' => $team_kennedy->id,
             ])
                 ->withPersonalTeam()
                 ->create();
 
-            $team_britisch_royals->users()->attach(
+            $team_kennedy->users()->attach(
                 Jetstream::findUserByEmailOrFail($editor->email),
                 ['role' => 'editor']
             );
@@ -103,7 +103,7 @@ class UserAndTeamSeeder extends Seeder
         // create normal users (members)
         // -----------------------------------------------------------------------------------
         if (true) {
-            for ($i = 1; $i <= 5; $i++) {
+            for ($i = 1; $i <= 3; $i++) {
                 $user = User::factory([
                     'firstname' => '__',
                     'surname' => 'Member ' . $i,
@@ -119,7 +119,23 @@ class UserAndTeamSeeder extends Seeder
                 );
             }
 
-            for ($i = 6; $i <= 7; $i++) {
+            for ($i = 4; $i <= 6; $i++) {
+                $user = User::factory([
+                    'firstname' => '__',
+                    'surname' => 'Member ' . $i,
+                    'email' => 'member_' . $i . '@genealogy.test',
+                    'current_team_id' => $team_kennedy,
+                ])
+                    ->withPersonalTeam()
+                    ->create();
+
+                $team_kennedy->users()->attach(
+                    Jetstream::findUserByEmailOrFail($user->email),
+                    ['role' => 'member']
+                );
+            }
+
+            for ($i = 7; $i <= 10; $i++) {
                 $user = User::factory([
                     'firstname' => '___',
                     'surname' => 'Member ' . $i,

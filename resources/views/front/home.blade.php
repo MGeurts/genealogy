@@ -25,6 +25,8 @@
                 <div class="p-4 text-base bg-info-100 text-info-800 rounded" role="alert">
                     <p><a href="https://genealogy.kreaweb.be/" target="_blank">https://genealogy.kreaweb.be/</a></p>
 
+                    <p>This demo has 2 family trees implemented, <b>BRITISH ROYALS</b> and <b>KENNEDY</b>.</p>
+
                     <table>
                         <thead>
                             <tr>
@@ -38,22 +40,27 @@
                             <tr>
                                 <td>administrator@genealogy.test</td>
                                 <td>password</td>
-                                <td>to view team BRITISH ROYALS as team <b>owner</b></td>
+                                <td>to view teams <b>BRITISH ROYALS</b> and <b>KENNEDY</b> as team <b>owner</b></td>
                             </tr>
                             <tr>
                                 <td>manager@genealogy.test</td>
                                 <td>password</td>
-                                <td>to view team BRITISH ROYALS as <b>manager</b></td>
+                                <td>to view team <b>BRITISH ROYALS</b> as <b>manager</b></td>
                             </tr>
                             <tr>
                                 <td>editor@genealogy.test</td>
                                 <td>password</td>
-                                <td>to view team BRITISH ROYALS as <b>editor</b></td>
+                                <td>to view team <b>KENNEDY</b> as <b>editor</b></td>
                             </tr>
                             <tr>
                                 <td>member_1@genealogy.test</td>
                                 <td>password</td>
-                                <td>to view team BRITISH ROYALS as normal <b>member</b></td>
+                                <td>to view team <b>BRITISH ROYALS</b> as normal <b>member</b></td>
+                            </tr>
+                            <tr>
+                                <td>member_4@genealogy.test</td>
+                                <td>password</td>
+                                <td>to view team <b>KENNEDY</b> as normal <b>member</b></td>
                             </tr>
                             <tr>
                                 <td>developer@genealogy.test</td>

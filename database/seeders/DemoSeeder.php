@@ -43,23 +43,23 @@ class DemoSeeder extends Seeder
         foreach ($people as $person) {
             Person::create([
                 'id' => $person['id'],
-                'firstname' => !empty($person['firstname']) ? $person['firstname'] : null,
-                'surname' => !empty($person['surname']) ? $person['surname'] : null,
-                'birthname' => !empty($person['birthname']) ? $person['birthname'] : null,
-                'nickname' => !empty($person['nickname']) ? $person['nickname'] : null,
+                'firstname' => ! empty($person['firstname']) ? $person['firstname'] : null,
+                'surname' => ! empty($person['surname']) ? $person['surname'] : null,
+                'birthname' => ! empty($person['birthname']) ? $person['birthname'] : null,
+                'nickname' => ! empty($person['nickname']) ? $person['nickname'] : null,
 
                 'sex' => strtolower($person['sex']),
 
-                'father_id' => !empty($person['father_id']) ? $person['father_id'] : null,
-                'mother_id' => !empty($person['mother_id']) ? $person['mother_id'] : null,
-                'parents_id' => !empty($person['parents_id']) ? $person['parents_id'] : null,
+                'father_id' => ! empty($person['father_id']) ? $person['father_id'] : null,
+                'mother_id' => ! empty($person['mother_id']) ? $person['mother_id'] : null,
+                'parents_id' => ! empty($person['parents_id']) ? $person['parents_id'] : null,
 
-                'dob' => !empty($person['dob']) ? $person['dob'] : null,
-                'yob' => !empty($person['yob']) ? $person['yob'] : null,
-                'pob' => !empty($person['birth_place']) ? $person['birth_place'] : null,
-                'dod' => !empty($person['dod']) ? $person['dod'] : null,
-                'yod' => !empty($person['yod']) ? $person['yod'] : null,
-                'pod' => !empty($person['death_place']) ? $person['death_place'] : null,
+                'dob' => ! empty($person['dob']) ? $person['dob'] : null,
+                'yob' => ! empty($person['yob']) ? $person['yob'] : null,
+                'pob' => ! empty($person['birth_place']) ? $person['birth_place'] : null,
+                'dod' => ! empty($person['dod']) ? $person['dod'] : null,
+                'yod' => ! empty($person['yod']) ? $person['yod'] : null,
+                'pod' => ! empty($person['death_place']) ? $person['death_place'] : null,
 
                 'photo' => $person['id'] . '_001_demo.webp',
 
@@ -135,8 +135,8 @@ class DemoSeeder extends Seeder
                 'person1_id' => $couple['person1_id'],
                 'person2_id' => $couple['person2_id'],
 
-                'date_start' => !empty($couple['date_start']) ? $couple['date_start'] : null,
-                'date_end' => !empty($couple['date_end']) ? $couple['date_end'] : null,
+                'date_start' => ! empty($couple['date_start']) ? $couple['date_start'] : null,
+                'date_end' => ! empty($couple['date_end']) ? $couple['date_end'] : null,
 
                 'is_married' => $couple['status'] >= 1 ? 1 : 0,
                 'has_ended' => $couple['status'] == 2 ? 1 : 0,
@@ -160,23 +160,23 @@ class DemoSeeder extends Seeder
         foreach ($people as $person) {
             Person::create([
                 'id' => $person['id'],
-                'firstname' => !empty($person['firstname']) ? $person['firstname'] : null,
-                'surname' => !empty($person['surname']) ? $person['surname'] : null,
-                'birthname' => !empty($person['birthname']) ? $person['birthname'] : null,
-                'nickname' => !empty($person['nickname']) ? $person['nickname'] : null,
+                'firstname' => ! empty($person['firstname']) ? $person['firstname'] : null,
+                'surname' => ! empty($person['surname']) ? $person['surname'] : null,
+                'birthname' => ! empty($person['birthname']) ? $person['birthname'] : null,
+                'nickname' => ! empty($person['nickname']) ? $person['nickname'] : null,
 
                 'sex' => strtolower($person['sex']),
 
-                'father_id' => !empty($person['father_id']) ? $person['father_id'] : null,
-                'mother_id' => !empty($person['mother_id']) ? $person['mother_id'] : null,
-                'parents_id' => !empty($person['parents_id']) ? $person['parents_id'] : null,
+                'father_id' => ! empty($person['father_id']) ? $person['father_id'] : null,
+                'mother_id' => ! empty($person['mother_id']) ? $person['mother_id'] : null,
+                'parents_id' => ! empty($person['parents_id']) ? $person['parents_id'] : null,
 
-                'dob' => !empty($person['dob']) ? $person['dob'] : null,
-                'yob' => !empty($person['yob']) ? $person['yob'] : null,
-                'pob' => !empty($person['birth_place']) ? $person['birth_place'] : null,
-                'dod' => !empty($person['dod']) ? $person['dod'] : null,
-                'yod' => !empty($person['yod']) ? $person['yod'] : null,
-                'pod' => !empty($person['death_place']) ? $person['death_place'] : null,
+                'dob' => ! empty($person['dob']) ? $person['dob'] : null,
+                'yob' => ! empty($person['yob']) ? $person['yob'] : null,
+                'pob' => ! empty($person['birth_place']) ? $person['birth_place'] : null,
+                'dod' => ! empty($person['dod']) ? $person['dod'] : null,
+                'yod' => ! empty($person['yod']) ? $person['yod'] : null,
+                'pod' => ! empty($person['death_place']) ? $person['death_place'] : null,
 
                 'photo' => $person['id'] . '_001_demo.webp',
 
@@ -203,8 +203,8 @@ class DemoSeeder extends Seeder
                 'person1_id' => $couple['person1_id'],
                 'person2_id' => $couple['person2_id'],
 
-                'date_start' => !empty($couple['date_start']) ? $couple['date_start'] : null,
-                'date_end' => !empty($couple['date_end']) ? $couple['date_end'] : null,
+                'date_start' => ! empty($couple['date_start']) ? $couple['date_start'] : null,
+                'date_end' => ! empty($couple['date_end']) ? $couple['date_end'] : null,
 
                 'is_married' => $couple['status'] >= 1 ? 1 : 0,
                 'has_ended' => $couple['status'] == 2 ? 1 : 0,
