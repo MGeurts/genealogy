@@ -36,7 +36,7 @@ This application is build using :
 
 <ul>
     <li>At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.2, supporting (upcomming) Laravel 11.</li>
-    <li>At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2 or equivalent database, supporting <a href="https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL" target="_blank">Common Table Expressions</a>.</li>
+    <li>At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0.1 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2.2 or equivalent database, supporting <a href="https://en.wikipedia.org/wiki/Hierarchical_and_recursive_queries_in_SQL" target="_blank">Recursive Common Table Expressions</a>.</li>
 </ul>
 
 ### License
@@ -137,7 +137,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 
 ## Techniques
 
-Both the <b>ancestors</b> and <b>descendants</b> family trees are build using <a href="https://dev.mysql.com/blog-archive/mysql-8-0-improved-performance-with-cte/" target="_blank">MySQL Common Table Expressions</a> (CTE). This prevents the N+1 query problem generating the recursive tree elements and dramatically improves performance.
+Both the <b>ancestors</b> and <b>descendants</b> family trees are build using <a href="https://dev.mysql.com/blog-archive/mysql-8-0-labs-recursive-common-table-expressions-in-mysql-ctes//" target="_blank">MySQL Recursive Common Table Expressions</a> (Recursive CTE). This prevents the N+1 query problem generating the recursive tree elements and dramatically improves performance.
 
 ## Installation
 
