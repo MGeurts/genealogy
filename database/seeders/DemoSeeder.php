@@ -11,22 +11,27 @@ class DemoSeeder extends Seeder
 {
     protected $britisch_royals_team = 4;
 
-    protected $editors_team = 6;
+    protected $kennedy_team = 5;
+
+    protected $editors_team = 7;
 
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $this->importPeople();
-        $this->importCouples();
+        $this->importBritishRoyalsPeople();
+        $this->importBritishRoyalsCouples();
 
         $this->generateTestData();
+
+        $this->importKennedyPeople();
+        $this->importKennedyCouples();
     }
 
-    protected function importPeople(): void
+    protected function importBritishRoyalsPeople(): void
     {
-        $xmlFile = file_get_contents(public_path('xml/people.xml'));
+        $xmlFile = file_get_contents(public_path('xml/british_royals_people.xml'));
 
         $xmlObject = simplexml_load_string($xmlFile);
 
@@ -38,23 +43,23 @@ class DemoSeeder extends Seeder
         foreach ($people as $person) {
             Person::create([
                 'id' => $person['id'],
-                'firstname' => ! empty($person['firstname']) ? $person['firstname'] : null,
-                'surname' => ! empty($person['surname']) ? $person['surname'] : null,
-                'birthname' => ! empty($person['birthname']) ? $person['birthname'] : null,
-                'nickname' => ! empty($person['nickname']) ? $person['nickname'] : null,
+                'firstname' => !empty($person['firstname']) ? $person['firstname'] : null,
+                'surname' => !empty($person['surname']) ? $person['surname'] : null,
+                'birthname' => !empty($person['birthname']) ? $person['birthname'] : null,
+                'nickname' => !empty($person['nickname']) ? $person['nickname'] : null,
 
                 'sex' => strtolower($person['sex']),
 
-                'father_id' => ! empty($person['father_id']) ? $person['father_id'] : null,
-                'mother_id' => ! empty($person['mother_id']) ? $person['mother_id'] : null,
-                'parents_id' => ! empty($person['parents_id']) ? $person['parents_id'] : null,
+                'father_id' => !empty($person['father_id']) ? $person['father_id'] : null,
+                'mother_id' => !empty($person['mother_id']) ? $person['mother_id'] : null,
+                'parents_id' => !empty($person['parents_id']) ? $person['parents_id'] : null,
 
-                'dob' => ! empty($person['dob']) ? $person['dob'] : null,
-                'yob' => ! empty($person['yob']) ? $person['yob'] : null,
-                'pob' => ! empty($person['birth_place']) ? $person['birth_place'] : null,
-                'dod' => ! empty($person['dod']) ? $person['dod'] : null,
-                'yod' => ! empty($person['yod']) ? $person['yod'] : null,
-                'pod' => ! empty($person['death_place']) ? $person['death_place'] : null,
+                'dob' => !empty($person['dob']) ? $person['dob'] : null,
+                'yob' => !empty($person['yob']) ? $person['yob'] : null,
+                'pob' => !empty($person['birth_place']) ? $person['birth_place'] : null,
+                'dod' => !empty($person['dod']) ? $person['dod'] : null,
+                'yod' => !empty($person['yod']) ? $person['yod'] : null,
+                'pod' => !empty($person['death_place']) ? $person['death_place'] : null,
 
                 'photo' => $person['id'] . '_001_demo.webp',
 
@@ -112,9 +117,9 @@ class DemoSeeder extends Seeder
         ]);
     }
 
-    protected function importCouples(): void
+    protected function importBritishRoyalsCouples(): void
     {
-        $xmlFile = file_get_contents(public_path('xml/couples.xml'));
+        $xmlFile = file_get_contents(public_path('xml/british_royals_couples.xml'));
 
         $xmlObject = simplexml_load_string($xmlFile);
 
@@ -130,13 +135,81 @@ class DemoSeeder extends Seeder
                 'person1_id' => $couple['person1_id'],
                 'person2_id' => $couple['person2_id'],
 
-                'date_start' => ! empty($couple['date_start']) ? $couple['date_start'] : null,
-                'date_end' => ! empty($couple['date_end']) ? $couple['date_end'] : null,
+                'date_start' => !empty($couple['date_start']) ? $couple['date_start'] : null,
+                'date_end' => !empty($couple['date_end']) ? $couple['date_end'] : null,
 
                 'is_married' => $couple['status'] >= 1 ? 1 : 0,
                 'has_ended' => $couple['status'] == 2 ? 1 : 0,
 
                 'team_id' => $this->britisch_royals_team,
+            ]);
+        }
+    }
+
+    protected function importKennedyPeople(): void
+    {
+        $xmlFile = file_get_contents(public_path('xml/kennedy_people.xml'));
+
+        $xmlObject = simplexml_load_string($xmlFile);
+
+        $json = json_encode($xmlObject);
+        $result = json_decode($json, true);
+
+        $people = ($result['people']);
+
+        foreach ($people as $person) {
+            Person::create([
+                'id' => $person['id'],
+                'firstname' => !empty($person['firstname']) ? $person['firstname'] : null,
+                'surname' => !empty($person['surname']) ? $person['surname'] : null,
+                'birthname' => !empty($person['birthname']) ? $person['birthname'] : null,
+                'nickname' => !empty($person['nickname']) ? $person['nickname'] : null,
+
+                'sex' => strtolower($person['sex']),
+
+                'father_id' => !empty($person['father_id']) ? $person['father_id'] : null,
+                'mother_id' => !empty($person['mother_id']) ? $person['mother_id'] : null,
+                'parents_id' => !empty($person['parents_id']) ? $person['parents_id'] : null,
+
+                'dob' => !empty($person['dob']) ? $person['dob'] : null,
+                'yob' => !empty($person['yob']) ? $person['yob'] : null,
+                'pob' => !empty($person['birth_place']) ? $person['birth_place'] : null,
+                'dod' => !empty($person['dod']) ? $person['dod'] : null,
+                'yod' => !empty($person['yod']) ? $person['yod'] : null,
+                'pod' => !empty($person['death_place']) ? $person['death_place'] : null,
+
+                'photo' => $person['id'] . '_001_demo.webp',
+
+                'team_id' => $this->kennedy_team,
+            ]);
+        }
+    }
+
+    protected function importKennedyCouples(): void
+    {
+        $xmlFile = file_get_contents(public_path('xml/kennedy_couples.xml'));
+
+        $xmlObject = simplexml_load_string($xmlFile);
+
+        $json = json_encode($xmlObject);
+        $result = json_decode($json, true);
+
+        $couples = ($result['couples']);
+
+        foreach ($couples as $couple) {
+            Couple::create([
+                'id' => $couple['id'],
+
+                'person1_id' => $couple['person1_id'],
+                'person2_id' => $couple['person2_id'],
+
+                'date_start' => !empty($couple['date_start']) ? $couple['date_start'] : null,
+                'date_end' => !empty($couple['date_end']) ? $couple['date_end'] : null,
+
+                'is_married' => $couple['status'] >= 1 ? 1 : 0,
+                'has_ended' => $couple['status'] == 2 ? 1 : 0,
+
+                'team_id' => $this->kennedy_team,
             ]);
         }
     }

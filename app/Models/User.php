@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -23,11 +22,11 @@ use Laravel\Sanctum\HasApiTokens;
 // ------------------------------------------------------------------------------------------------------
 
 class User extends Authenticatable
-// ---------------------------------------------------------------------------------------
-// class User extends Authenticatable implements MustVerifyEmail
-//
-// Ref : https://jetstream.laravel.com/features/registration.html#email-verification
-// ---------------------------------------------------------------------------------------
+    // ---------------------------------------------------------------------------------------
+    // class User extends Authenticatable implements MustVerifyEmail
+    //
+    // Ref : https://jetstream.laravel.com/features/registration.html#email-verification
+    // ---------------------------------------------------------------------------------------
 {
     use HasApiTokens;
     use HasFactory;

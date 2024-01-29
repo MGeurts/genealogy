@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataroot xmlns:od="urn:schemas-microsoft-com:officedata" generated="2023-10-03T12:10:46">
+
+<couples>
+<id>501</id>
+<person1_id>501</person1_id>
+<person2_id>502</person2_id>
+<status>1</status>
+<date_start>1914-01-01</date_start>
+<note>Joseph Patrick Kennedy / Rose Elizabeth Fitzgerald</note>
+</couples>
+
+<couples>
+<id>502</id>
+<person1_id>504</person1_id>
+<person2_id>512</person2_id>
+<status>1</status>
+<date_start>1953-01-01</date_start>
+<note>John Fitzgerald Kennedy / Jaqueline Lee Bouvier</note>
+</couples>
+
+<couples>
+<id>503</id>
+<person1_id>506</person1_id>
+<person2_id>513</person2_id>
+<status>1</status>
+<date_start>1944-01-01</date_start>
+<note>Kathleen Agnes Kennedy / William Cavendish</note>
+</couples>
+
+<couples>
+<id>504</id>
+<person1_id>507</person1_id>
+<person2_id>514</person2_id>
+<status>1</status>
+<date_start>1953-01-01</date_start>
+<note>Eunice Mary Kennedy / Robert Sergent Jr. Shriver</note>
+</couples>
+
+<couples>
+<id>505</id>
+<person1_id>508</person1_id>
+<person2_id>515</person2_id>
+<status>1</status>
+<date_start>1954-01-01</date_start>
+<note>Patricia Kennedy / Peter Lawford</note>
+</couples>
+
+<couples>
+<id>506</id>
+<person1_id>509</person1_id>
+<person2_id>516</person2_id>
+<status>1</status>
+<date_start>1953-01-01</date_start>
+<note>Robert Francis Kennedy / Ethel Skakel</note>
+</couples>
+
+<couples>
+<id>507</id>
+<person1_id>510</person1_id>
+<person2_id>517</person2_id>
+<status>1</status>
+<date_start>1956-01-01</date_start>
+<note>Jean Ann Kennedy / Stephen Edward Smith</note>
+</couples>
+
+<couples>
+<id>508</id>
+<person1_id>511</person1_id>
+<person2_id>518</person2_id>
+<status>2</status>
+<date_start>1958-01-01</date_start>
+<note>Edward More Kennedy / Virginia Jean Bennett</note>
+</couples>
+
+<couples>
+<id>509</id>
+<person1_id>511</person1_id>
+<person2_id>519</person2_id>
+<status>1</status>
+<date_start>1992-01-01</date_start>
+<note>Edward More Kennedy / Victoria Reggie</note>
+</couples>
+
+<couples>
+<id>510</id>
+<person1_id>524</person1_id>
+<person2_id>551</person2_id>
+<status>2</status>
+<date_start>1986-01-01</date_start>
+<date_end>2011-01-01</date_end>
+<note>Maria Owings Shriver / Arnold Alois Schwarzenegger</note>
+</couples>
+
+</dataroot>

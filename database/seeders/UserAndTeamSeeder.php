@@ -45,15 +45,21 @@ class UserAndTeamSeeder extends Seeder
             ->create();
 
         // -----------------------------------------------------------------------------------
-        // create demo team (owned by administrator)
+        // create demo teams (owned by administrator)
         // -----------------------------------------------------------------------------------
-        $team_demo = $this->createTeamBig('administrator@genealogy.test', 'BRITISH ROYALS');
+        $team_britisch_royals = $this->createTeamBig('administrator@genealogy.test', 'BRITISH ROYALS');
+        $team_kennedy = $this->createTeamBig('administrator@genealogy.test', 'KENNEDY');
 
         $administrator->update([
-            'current_team_id' => $team_demo->id,
+            'current_team_id' => $team_britisch_royals->id,
         ]);
 
-        $team_demo->users()->attach(
+        $team_britisch_royals->users()->attach(
+            Jetstream::findUserByEmailOrFail($administrator->email),
+            ['role' => 'administrator']
+        );
+
+        $team_kennedy->users()->attach(
             Jetstream::findUserByEmailOrFail($administrator->email),
             ['role' => 'administrator']
         );
@@ -67,12 +73,12 @@ class UserAndTeamSeeder extends Seeder
                 'firstname' => '_',
                 'surname' => 'Manager',
                 'email' => 'manager@genealogy.test',
-                'current_team_id' => $team_demo->id,
+                'current_team_id' => $team_britisch_royals->id,
             ])
                 ->withPersonalTeam()
                 ->create();
 
-            $team_demo->users()->attach(
+            $team_britisch_royals->users()->attach(
                 Jetstream::findUserByEmailOrFail($manager->email),
                 ['role' => 'manager']
             );
@@ -82,12 +88,12 @@ class UserAndTeamSeeder extends Seeder
                 'firstname' => '_',
                 'surname' => 'Editor',
                 'email' => 'editor@genealogy.test',
-                'current_team_id' => $team_demo->id,
+                'current_team_id' => $team_britisch_royals->id,
             ])
                 ->withPersonalTeam()
                 ->create();
 
-            $team_demo->users()->attach(
+            $team_britisch_royals->users()->attach(
                 Jetstream::findUserByEmailOrFail($editor->email),
                 ['role' => 'editor']
             );
@@ -102,12 +108,12 @@ class UserAndTeamSeeder extends Seeder
                     'firstname' => '__',
                     'surname' => 'Member ' . $i,
                     'email' => 'member_' . $i . '@genealogy.test',
-                    'current_team_id' => $team_demo,
+                    'current_team_id' => $team_britisch_royals,
                 ])
                     ->withPersonalTeam()
                     ->create();
 
-                $team_demo->users()->attach(
+                $team_britisch_royals->users()->attach(
                     Jetstream::findUserByEmailOrFail($user->email),
                     ['role' => 'member']
                 );
