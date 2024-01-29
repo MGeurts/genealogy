@@ -12,7 +12,9 @@
                 </x-slot>
 
                 <x-slot name="description">
-                    {{ __('Add a new team member to your team, allowing them to collaborate with you.') }}
+                    <div class="dark:text-gray-100">
+                        {{ __('Add a new team member to your team, allowing them to collaborate with you.') }}
+                    </div>
                 </x-slot>
 
                 <x-slot name="form">
@@ -84,11 +86,15 @@
         <div class="mt-10 sm:mt-0">
             <x-action-section>
                 <x-slot name="title">
-                    {{ __('Pending Team Invitations') }}
+                    <div class="dark:text-gray-400">
+                        {{ __('Pending Team Invitations') }}
+                    </div>
                 </x-slot>
 
                 <x-slot name="description">
-                    {{ __('These people have been invited to your team and have been sent an invitation email. They may join the team by accepting the email invitation.') }}
+                    <div class="dark:text-gray-100">
+                        {{ __('These people have been invited to your team and have been sent an invitation email. They may join the team by accepting the email invitation.') }}
+                    </div>
                 </x-slot>
 
                 <x-slot name="content">
@@ -126,7 +132,9 @@
                 </x-slot>
 
                 <x-slot name="description">
-                    {{ __('All of the people that are part of this team.') }}
+                    <div class="dark:text-gray-100">
+                        {{ __('All of the people that are part of this team.') }}
+                    </div>
                 </x-slot>
 
                 <!-- Team Member List -->

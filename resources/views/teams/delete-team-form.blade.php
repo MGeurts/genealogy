@@ -6,7 +6,9 @@
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Permanently delete this team.') }}
+        <div class="dark:text-gray-100">
+            {{ __('Permanently delete this team.') }}
+        </div>
     </x-slot>
 
     <x-slot name="content">
