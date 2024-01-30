@@ -83,20 +83,4 @@ const backToTop = () => {
 mybutton.addEventListener("click", backToTop);
 
 window.addEventListener("scroll", scrollFunction);
-
-// -------------------------------------------------------------------------------------
-// loading indicator
-// -------------------------------------------------------------------------------------
-import NProgress from 'nprogress';
-
-Livewire.hook('commit', ({ component, commit, respond, succeed, fail }) => {
-    NProgress.start()
-
-    succeed(({ spanshot, effect }) => {
-        queueMicrotask(() => {
-            NProgress.done(true)
-            NProgress.remove()
-        })
-    })
-})
 // -------------------------------------------------------------------------------------

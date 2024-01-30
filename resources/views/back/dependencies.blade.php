@@ -162,9 +162,6 @@
                                 <li class="py-2">
                                     <x-link href="https://www.chartjs.org/" target="_blank">Chart.js</x-link>
                                 </li>
-                                <li class="py-2">
-                                    <x-link href="https://github.com/rstacruz/nprogress/" target="_blank">NProgress.js</x-link>
-                                </li>
                             </ul>
                         </div>
                     </div>
