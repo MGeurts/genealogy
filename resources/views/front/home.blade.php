@@ -65,10 +65,17 @@
                             <tr>
                                 <td></td>developer@genealogy.test</b></td>
                                 <td>password</td>
-                                <td>to view options reserved for the <b>developer</b>, like the <b>user management</b> and access to <b>all persons in all teams</b></td>
+                                <td>to view options reserved for the <b>developer</b>, like the <b>user management</b> and access to <b>persons in all teams</b></td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <h2>Github Repository</h2>
+                <x-hr.narrow class="!my-2" />
+
+                <div class="p-4 text-base bg-info-100 text-info-800 rounded" role="alert">
+                    <p><a href="https://github.com/MGeurts/genealogy/" target="_blank">https://github.com/MGeurts/genealogy</a></p>
                 </div>
             </div>
         </div>
