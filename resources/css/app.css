@@ -28,7 +28,3 @@
   color: #FFFFFF;
   box-shadow: 0 calc(-1*var(--f)) 0 inset #0005;
 }
-/* -------------------------------------------- */
-#nprogress .bar {
-    background: red !important;
-}
