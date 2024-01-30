@@ -47,14 +47,14 @@ class UserAndTeamSeeder extends Seeder
         // -----------------------------------------------------------------------------------
         // create demo teams (owned by administrator)
         // -----------------------------------------------------------------------------------
-        $team_britisch_royals = $this->createTeamBig('administrator@genealogy.test', 'BRITISH ROYALS');
-        $team_kennedy = $this->createTeamBig('administrator@genealogy.test', 'KENNEDY');
+        $team_british_royals = $this->createTeamBig('administrator@genealogy.test', 'BRITISH ROYALS', 'Part of the British Royal family around Queen Elizabeth II');
+        $team_kennedy = $this->createTeamBig('administrator@genealogy.test', 'KENNEDY', 'Part of the Kennedy family around former US President John Fitzgerald Kennedy');
 
         $administrator->update([
-            'current_team_id' => $team_britisch_royals->id,
+            'current_team_id' => $team_british_royals->id,
         ]);
 
-        $team_britisch_royals->users()->attach(
+        $team_british_royals->users()->attach(
             Jetstream::findUserByEmailOrFail($administrator->email),
             ['role' => 'administrator']
         );
@@ -67,37 +67,35 @@ class UserAndTeamSeeder extends Seeder
         // -----------------------------------------------------------------------------------
         // create special users
         // -----------------------------------------------------------------------------------
-        if (true) {
-            // manager
-            $manager = User::factory([
-                'firstname' => '_',
-                'surname' => 'Manager',
-                'email' => 'manager@genealogy.test',
-                'current_team_id' => $team_britisch_royals->id,
-            ])
-                ->withPersonalTeam()
-                ->create();
+        // manager
+        $manager = User::factory([
+            'firstname' => '_',
+            'surname' => 'Manager',
+            'email' => 'manager@genealogy.test',
+            'current_team_id' => $team_british_royals->id,
+        ])
+            ->withPersonalTeam()
+            ->create();
 
-            $team_britisch_royals->users()->attach(
-                Jetstream::findUserByEmailOrFail($manager->email),
-                ['role' => 'manager']
-            );
+        $team_british_royals->users()->attach(
+            Jetstream::findUserByEmailOrFail($manager->email),
+            ['role' => 'manager']
+        );
 
-            // editor
-            $editor = User::factory([
-                'firstname' => '_',
-                'surname' => 'Editor',
-                'email' => 'editor@genealogy.test',
-                'current_team_id' => $team_kennedy->id,
-            ])
-                ->withPersonalTeam()
-                ->create();
+        // editor
+        $editor = User::factory([
+            'firstname' => '_',
+            'surname' => 'Editor',
+            'email' => 'editor@genealogy.test',
+            'current_team_id' => $team_kennedy->id,
+        ])
+            ->withPersonalTeam()
+            ->create();
 
-            $team_kennedy->users()->attach(
-                Jetstream::findUserByEmailOrFail($editor->email),
-                ['role' => 'editor']
-            );
-        }
+        $team_kennedy->users()->attach(
+            Jetstream::findUserByEmailOrFail($editor->email),
+            ['role' => 'editor']
+        );
 
         // -----------------------------------------------------------------------------------
         // create normal users (members)
@@ -108,12 +106,12 @@ class UserAndTeamSeeder extends Seeder
                     'firstname' => '__',
                     'surname' => 'Member ' . $i,
                     'email' => 'member_' . $i . '@genealogy.test',
-                    'current_team_id' => $team_britisch_royals,
+                    'current_team_id' => $team_british_royals,
                 ])
                     ->withPersonalTeam()
                     ->create();
 
-                $team_britisch_royals->users()->attach(
+                $team_british_royals->users()->attach(
                     Jetstream::findUserByEmailOrFail($user->email),
                     ['role' => 'member']
                 );
@@ -148,23 +146,25 @@ class UserAndTeamSeeder extends Seeder
     }
 
     // -----------------------------------------------------------------------------------
-    protected function createTeamPersonal(User $user, string $suffix = "'s TEAM"): void
+    protected function createTeamPersonal(User $user, string $suffix = "'s TEAM", string $description = null): void
     {
         $user->ownedTeams()->save(Team::forceCreate([
             'user_id' => $user->id,
             'name' => $user->name . ' ' . $suffix,
+            'description' => $description,
             'personal_team' => true,
         ]));
     }
 
     // -----------------------------------------------------------------------------------
-    protected function createTeamBig(string $email, string $name): Team
+    protected function createTeamBig(string $email, string $name, string $description = null): Team
     {
         $user = Jetstream::findUserByEmailOrFail($email);
 
         $team = Team::forceCreate([
             'user_id' => $user->id,
             'name' => $name,
+            'description' => $description,
             'personal_team' => false,
         ]);
 

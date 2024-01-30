@@ -17,7 +17,10 @@ class UpdateTeamNameTest extends TestCase
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
         Livewire::test(UpdateTeamNameForm::class, ['team' => $user->currentTeam])
-            ->set(['state' => ['name' => 'Test Team']])
+            ->set(['state' => [
+                'name' => 'Test Team',
+                'description' => 'Test Team Description',
+            ]])
             ->call('updateTeamName');
 
         $this->assertCount(1, $user->fresh()->ownedTeams);

@@ -9,7 +9,7 @@ use Illuminate\Database\Seeder;
 
 class DemoSeeder extends Seeder
 {
-    protected $britisch_royals_team = 4;
+    protected $british_royals_team = 4;
 
     protected $kennedy_team = 5;
 
@@ -43,27 +43,27 @@ class DemoSeeder extends Seeder
         foreach ($people as $person) {
             Person::create([
                 'id' => $person['id'],
-                'firstname' => ! empty($person['firstname']) ? $person['firstname'] : null,
-                'surname' => ! empty($person['surname']) ? $person['surname'] : null,
-                'birthname' => ! empty($person['birthname']) ? $person['birthname'] : null,
-                'nickname' => ! empty($person['nickname']) ? $person['nickname'] : null,
+                'firstname' => !empty($person['firstname']) ? $person['firstname'] : null,
+                'surname' => !empty($person['surname']) ? $person['surname'] : null,
+                'birthname' => !empty($person['birthname']) ? $person['birthname'] : null,
+                'nickname' => !empty($person['nickname']) ? $person['nickname'] : null,
 
                 'sex' => strtolower($person['sex']),
 
-                'father_id' => ! empty($person['father_id']) ? $person['father_id'] : null,
-                'mother_id' => ! empty($person['mother_id']) ? $person['mother_id'] : null,
-                'parents_id' => ! empty($person['parents_id']) ? $person['parents_id'] : null,
+                'father_id' => !empty($person['father_id']) ? $person['father_id'] : null,
+                'mother_id' => !empty($person['mother_id']) ? $person['mother_id'] : null,
+                'parents_id' => !empty($person['parents_id']) ? $person['parents_id'] : null,
 
-                'dob' => ! empty($person['dob']) ? $person['dob'] : null,
-                'yob' => ! empty($person['yob']) ? $person['yob'] : null,
-                'pob' => ! empty($person['birth_place']) ? $person['birth_place'] : null,
-                'dod' => ! empty($person['dod']) ? $person['dod'] : null,
-                'yod' => ! empty($person['yod']) ? $person['yod'] : null,
-                'pod' => ! empty($person['death_place']) ? $person['death_place'] : null,
+                'dob' => !empty($person['dob']) ? $person['dob'] : null,
+                'yob' => !empty($person['yob']) ? $person['yob'] : null,
+                'pob' => !empty($person['birth_place']) ? $person['birth_place'] : null,
+                'dod' => !empty($person['dod']) ? $person['dod'] : null,
+                'yod' => !empty($person['yod']) ? $person['yod'] : null,
+                'pod' => !empty($person['death_place']) ? $person['death_place'] : null,
 
                 'photo' => $person['id'] . '_001_demo.webp',
 
-                'team_id' => $this->britisch_royals_team,
+                'team_id' => $this->british_royals_team,
             ]);
         }
 
@@ -135,13 +135,13 @@ class DemoSeeder extends Seeder
                 'person1_id' => $couple['person1_id'],
                 'person2_id' => $couple['person2_id'],
 
-                'date_start' => ! empty($couple['date_start']) ? $couple['date_start'] : null,
-                'date_end' => ! empty($couple['date_end']) ? $couple['date_end'] : null,
+                'date_start' => !empty($couple['date_start']) ? $couple['date_start'] : null,
+                'date_end' => !empty($couple['date_end']) ? $couple['date_end'] : null,
 
                 'is_married' => $couple['status'] >= 1 ? 1 : 0,
                 'has_ended' => $couple['status'] == 2 ? 1 : 0,
 
-                'team_id' => $this->britisch_royals_team,
+                'team_id' => $this->british_royals_team,
             ]);
         }
     }
@@ -160,23 +160,23 @@ class DemoSeeder extends Seeder
         foreach ($people as $person) {
             Person::create([
                 'id' => $person['id'],
-                'firstname' => ! empty($person['firstname']) ? $person['firstname'] : null,
-                'surname' => ! empty($person['surname']) ? $person['surname'] : null,
-                'birthname' => ! empty($person['birthname']) ? $person['birthname'] : null,
-                'nickname' => ! empty($person['nickname']) ? $person['nickname'] : null,
+                'firstname' => !empty($person['firstname']) ? $person['firstname'] : null,
+                'surname' => !empty($person['surname']) ? $person['surname'] : null,
+                'birthname' => !empty($person['birthname']) ? $person['birthname'] : null,
+                'nickname' => !empty($person['nickname']) ? $person['nickname'] : null,
 
                 'sex' => strtolower($person['sex']),
 
-                'father_id' => ! empty($person['father_id']) ? $person['father_id'] : null,
-                'mother_id' => ! empty($person['mother_id']) ? $person['mother_id'] : null,
-                'parents_id' => ! empty($person['parents_id']) ? $person['parents_id'] : null,
+                'father_id' => !empty($person['father_id']) ? $person['father_id'] : null,
+                'mother_id' => !empty($person['mother_id']) ? $person['mother_id'] : null,
+                'parents_id' => !empty($person['parents_id']) ? $person['parents_id'] : null,
 
-                'dob' => ! empty($person['dob']) ? $person['dob'] : null,
-                'yob' => ! empty($person['yob']) ? $person['yob'] : null,
-                'pob' => ! empty($person['birth_place']) ? $person['birth_place'] : null,
-                'dod' => ! empty($person['dod']) ? $person['dod'] : null,
-                'yod' => ! empty($person['yod']) ? $person['yod'] : null,
-                'pod' => ! empty($person['death_place']) ? $person['death_place'] : null,
+                'dob' => !empty($person['dob']) ? $person['dob'] : null,
+                'yob' => !empty($person['yob']) ? $person['yob'] : null,
+                'pob' => !empty($person['birth_place']) ? $person['birth_place'] : null,
+                'dod' => !empty($person['dod']) ? $person['dod'] : null,
+                'yod' => !empty($person['yod']) ? $person['yod'] : null,
+                'pod' => !empty($person['death_place']) ? $person['death_place'] : null,
 
                 'photo' => $person['id'] . '_001_demo.webp',
 
@@ -203,8 +203,8 @@ class DemoSeeder extends Seeder
                 'person1_id' => $couple['person1_id'],
                 'person2_id' => $couple['person2_id'],
 
-                'date_start' => ! empty($couple['date_start']) ? $couple['date_start'] : null,
-                'date_end' => ! empty($couple['date_end']) ? $couple['date_end'] : null,
+                'date_start' => !empty($couple['date_start']) ? $couple['date_start'] : null,
+                'date_end' => !empty($couple['date_end']) ? $couple['date_end'] : null,
 
                 'is_married' => $couple['status'] >= 1 ? 1 : 0,
                 'has_ended' => $couple['status'] == 2 ? 1 : 0,
@@ -228,7 +228,7 @@ class DemoSeeder extends Seeder
 
             'father_id' => 2,
 
-            'team_id' => $this->britisch_royals_team,
+            'team_id' => $this->british_royals_team,
         ]);
 
         Person::create([
@@ -241,7 +241,7 @@ class DemoSeeder extends Seeder
 
             'mother_id' => 1,
 
-            'team_id' => $this->britisch_royals_team,
+            'team_id' => $this->british_royals_team,
         ]);
 
         Person::create([
@@ -253,7 +253,7 @@ class DemoSeeder extends Seeder
 
             'parents_id' => 1,
 
-            'team_id' => $this->britisch_royals_team,
+            'team_id' => $this->british_royals_team,
         ]);
 
         // -----------------------------------------------------------------------
@@ -266,7 +266,7 @@ class DemoSeeder extends Seeder
             'sex' => 'f',
             'dob' => '1970-01-01',
 
-            'team_id' => $this->britisch_royals_team,
+            'team_id' => $this->british_royals_team,
         ]);
 
         Person::create([
@@ -276,7 +276,7 @@ class DemoSeeder extends Seeder
             'sex' => 'f',
             'dob' => '1971-01-01',
 
-            'team_id' => $this->britisch_royals_team,
+            'team_id' => $this->british_royals_team,
         ]);
 
         Person::create([
@@ -287,7 +287,7 @@ class DemoSeeder extends Seeder
             'dob' => '2000-01-01',
             'mother_id' => 201,
 
-            'team_id' => $this->britisch_royals_team,
+            'team_id' => $this->british_royals_team,
         ]);
 
         Person::create([
@@ -298,7 +298,7 @@ class DemoSeeder extends Seeder
             'dob' => '2001-01-01',
             'mother_id' => 201,
 
-            'team_id' => $this->britisch_royals_team,
+            'team_id' => $this->british_royals_team,
         ]);
 
         Person::create([
@@ -308,7 +308,7 @@ class DemoSeeder extends Seeder
             'sex' => 'm',
             'dob' => '1960-01-01',
 
-            'team_id' => $this->britisch_royals_team,
+            'team_id' => $this->british_royals_team,
         ]);
 
         Person::create([
@@ -319,7 +319,7 @@ class DemoSeeder extends Seeder
             'dob' => '2015-01-01',
             'father_id' => 205,
 
-            'team_id' => $this->britisch_royals_team,
+            'team_id' => $this->british_royals_team,
         ]);
 
         Couple::create([
@@ -328,7 +328,7 @@ class DemoSeeder extends Seeder
             'person2_id' => 202,
             'date_start' => '1995-01-01',
 
-            'team_id' => $this->britisch_royals_team,
+            'team_id' => $this->british_royals_team,
         ]);
 
         Couple::create([
@@ -337,7 +337,7 @@ class DemoSeeder extends Seeder
             'person2_id' => 205,
             'date_start' => '2010-01-01',
 
-            'team_id' => $this->britisch_royals_team,
+            'team_id' => $this->british_royals_team,
         ]);
 
         Person::create([
@@ -348,7 +348,7 @@ class DemoSeeder extends Seeder
             'dob' => '2002-01-01',
             'parents_id' => 101,
 
-            'team_id' => $this->britisch_royals_team,
+            'team_id' => $this->british_royals_team,
         ]);
 
         Person::create([
@@ -359,7 +359,7 @@ class DemoSeeder extends Seeder
             'dob' => '2003-01-01',
             'parents_id' => 101,
 
-            'team_id' => $this->britisch_royals_team,
+            'team_id' => $this->british_royals_team,
         ]);
 
         // -----------------------------------------------------------------------
@@ -372,7 +372,7 @@ class DemoSeeder extends Seeder
             'date_start' => '2005-01-01',
             'is_married' => true,
 
-            'team_id' => $this->britisch_royals_team,
+            'team_id' => $this->british_royals_team,
         ]);
 
         // -----------------------------------------------------------------------
