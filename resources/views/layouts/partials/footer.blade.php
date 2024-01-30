@@ -48,13 +48,13 @@
                 <x-hr.narrow class="w-48 h-1 max-md:mx-auto my-4 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                 <p class="mb-4">
-                    <x-nav-link-footer wire:navigate href="{{ url('terms-of-service') }}" :active="request()->routeIs('terms-of-service')">
+                    <x-nav-link-footer wire:navigate href="{{ url('terms-of-service') }}" :active="request()->is('terms-of-service')">
                         {{ __('app.terms_of_service') }}
                     </x-nav-link-footer>
                 </p>
 
                 <p class="mb-4">
-                    <x-nav-link-footer wire:navigate href="{{ url('privacy-policy') }}" :active="request()->routeIs('privacy-policy')">
+                    <x-nav-link-footer wire:navigate href="{{ url('privacy-policy') }}" :active="request()->is('privacy-policy')">
                         {{ __('app.privacy_policy') }}
                     </x-nav-link-footer>
                 </p>
