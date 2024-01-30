@@ -15,30 +15,48 @@ return [
 
     'agree' => 'Ik ga akoord met de :terms_of_service en het :privacy_policy',
     'already_registered' => 'Reeds geregistreerd',
-    'failed' => 'De credentials komen niet overeen met onze gegevens.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'email' => 'E-mail',
-    'password' => 'Paswoord',
-    'login' => 'Aanmelden',
-    'logout' => 'Afmelden',
+
     'back' => 'Trug',
-    'register' => 'Registreer',
-    'have_an_account' => 'I have an Account',
-    'need_account' => 'Need an Account?',
+
     'change_password' => 'Change Password',
-    'forgot_password' => 'Paswoord vergeten?',
-    'reset_password' => 'Reset Password',
-    'password_confirmation' => 'Repeat Password',
-    'old_password' => 'Old Password',
-    'new_password' => 'New Password',
-    'new_password_confirmation' => 'Repeat New Password',
-    'send_reset_password_link' => 'Send Reset Password Link',
     'change_password_success' => 'Your password has changed',
     'change_password_error' => 'Uh-oh, change password failed',
-    'remember_me' => 'Onthou mij',
-    'role' => 'Rol',
-    'permissions' => 'Rechten',
-    'guest' => 'Bezoeker',
+
     'developer' => 'Beheerder',
 
+    'email' => 'E-mail',
+
+    'failed' => 'De credentials komen niet overeen met onze gegevens.',
+    'forgot_password' => 'Paswoord vergeten?',
+
+    'guest' => 'Bezoeker',
+
+    'have_an_account' => 'I have an Account',
+
+    'login' => 'Aanmelden',
+    'log_in' => 'Meld u aan',
+    'logout' => 'Afmelden',
+
+    'need_account' => 'Need an Account?',
+    'new_password' => 'New Password',
+    'new_password_confirmation' => 'Repeat New Password',
+
+    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+
+    'old_password' => 'Old Password',
+    'or' => 'of',
+
+    'password' => 'Paswoord',
+    'password_confirmation' => 'Repeat Password',
+    'permissions' => 'Rechten',
+
+    'register' => 'Registreer',
+    'remember_me' => 'Onthou mij',
+    'reset_password' => 'Reset Password',
+    'role' => 'Rol',
+
+    'send_reset_password_link' => 'Send Reset Password Link',
+
+    'team' => 'team',
+    'to_join' => 'om mee te werken aan',
 ];
