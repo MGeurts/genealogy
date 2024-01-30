@@ -8,6 +8,15 @@
             <x-authentication-card-logo />
         </x-slot>
 
+        @if (session('teamInvitation'))
+            <x-slot name="header">
+                <h4>
+                    {{ __('auth.log_in') }} {{ __('auth.or') }} <a class="underline hover:text-primary" href="{{ route('register') }}">{{ __('auth.register') }}</a>
+                    {{ __('auth.to_join') }} {{ __('auth.team') }} <strong class="text-primary">{{ session('teamInvitation') }}</strong>.
+                </h4>
+            </x-slot>
+        @endif
+
         <x-validation-errors class="mb-4" />
 
         @if (session('status'))

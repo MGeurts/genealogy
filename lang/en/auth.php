@@ -33,6 +33,8 @@ return [
 
     'have_an_account' => 'I have an Account',
 
+    'invitation_accepted' => 'Great! You have accepted the invitation to join team :team.',
+
     'login' => 'Login',
     'log_in' => 'Log in',
     'logout' => 'Logout',
