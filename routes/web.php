@@ -95,7 +95,7 @@ Route::get('language/{locale}', function ($locale) {
 });
 
 // -----------------------------------------------------------------------------------------------
-// Override Jetstream Team Invitation route
+// Override Jetstream Team Invitation route : /team-invitations/{invitation}
 // Ref : https://mariogiancini.com/making-laravel-jetstream-team-invitations-better
 // -----------------------------------------------------------------------------------------------
 Route::group(['middleware' => config('jetstream.middleware', ['web'])], function () {
