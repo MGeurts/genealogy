@@ -16,6 +16,7 @@ This application is build using :
     <li><a href="https://livewire.laravel.com/" target="_blank">Livewire 3</a></li>
     <li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a></li>
     <li><a href="https://tw-elements.com/" target="_blank">Tailwind Elements</a></li>
+    <li><a href="https://filamentphp.com//" target="_blank">Laravel Filament</a></li>
     <li><a href="https://tabler-icons.io/" target="_blank">Tabler Icons</a></li>
 </ul>
 
