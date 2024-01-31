@@ -146,7 +146,7 @@ class UserAndTeamSeeder extends Seeder
     }
 
     // -----------------------------------------------------------------------------------
-    protected function createTeamPersonal(User $user, string $suffix = "'s TEAM", string $description = null): void
+    protected function createTeamPersonal(User $user, string $suffix = "'s TEAM", ?string $description = null): void
     {
         $user->ownedTeams()->save(Team::forceCreate([
             'user_id' => $user->id,
@@ -157,7 +157,7 @@ class UserAndTeamSeeder extends Seeder
     }
 
     // -----------------------------------------------------------------------------------
-    protected function createTeamBig(string $email, string $name, string $description = null): Team
+    protected function createTeamBig(string $email, string $name, ?string $description = null): Team
     {
         $user = Jetstream::findUserByEmailOrFail($email);
 
