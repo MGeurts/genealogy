@@ -98,8 +98,8 @@ return [
 
     // Photo
     'photo_deleted' => 'Afbeelding verwijderd',
-    'reupload_photo' => 'Afbeelding (opnieuw) uploaden',
     'upload_photo' => 'Afbeelding uploaden',
+    'upload_photo_primary' => 'Primaire afbeelding (opnieuw) uploaden',
     'update_photo' => 'Afbeelding wijzigen',
 
     'spouses_count' => 'Number of Spouse',

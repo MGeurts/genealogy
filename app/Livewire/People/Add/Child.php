@@ -28,16 +28,6 @@ class Child extends Component
         return Gender::select('id', 'name')->orderBy('name')->get()->toArray();
     }
 
-    public function mount()
-    {
-        $this->childForm->firstname = null;
-        $this->childForm->surname = null;
-        $this->childForm->sex = null;
-        $this->childForm->gender_id = null;
-
-        $this->childForm->person_id = null;
-    }
-
     public function saveChild()
     {
         if ($this->isDirty()) {
@@ -63,6 +53,7 @@ class Child extends Component
                         'sex' => $validated['sex'],
                         'gender_id' => ! empty($validated['gender_id']) ? $validated['gender_id'] : null,
                         'father_id' => $this->person->id,
+                        'team_id' => $this->person->team_id,
                     ]);
                 } else {
                     $new_person = Person::create([
@@ -71,6 +62,7 @@ class Child extends Component
                         'sex' => $validated['sex'],
                         'gender_id' => ! empty($validated['gender_id']) ? $validated['gender_id'] : null,
                         'mother_id' => $this->person->id,
+                        'team_id' => $this->person->team_id,
                     ]);
                 }
 

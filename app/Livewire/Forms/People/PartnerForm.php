@@ -7,15 +7,15 @@ use Livewire\Form;
 class PartnerForm extends Form
 {
     // -----------------------------------------------------------------------
-    public $person2_id;
+    public $person2_id = null;
 
-    public $date_start;
+    public $date_start = null;
 
-    public $date_end;
+    public $date_end = null;
 
-    public $is_married;
+    public $is_married = false;
 
-    public $has_ended;
+    public $has_ended = false;
 
     // -----------------------------------------------------------------------
     protected $rules = [

@@ -14,25 +14,27 @@ class PersonForm extends Form
     public $iteration = 0;      // needed for reset upload input
 
     // -----------------------------------------------------------------------
-    public $firstname;
+    public $firstname = null;
 
-    public $surname;
+    public $surname = null;
 
-    public $birthname;
+    public $birthname = null;
 
-    public $nickname;
+    public $nickname = null;
 
-    public $sex;
+    public $sex = null;
 
-    public $gender_id;
+    public $gender_id = null;
 
-    public $yob;
+    public $yob = null;
 
-    public $dob;
+    public $dob = null;
 
-    public $pob;
+    public $pob = null;
 
-    public $photo;
+    public $photo = null;
+
+    public $team_id = null;
 
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]
@@ -58,6 +60,8 @@ class PersonForm extends Form
 
         'photo' => ['nullable', 'string', 'max:255'],
         'image' => ['nullable', 'sometimes', 'image', 'mimes:jpeg,png,jpg,svg,webp', 'max:1024'],
+
+        'team_id' => ['nullable', 'integer'],
     ];
 
     public function messages()
@@ -82,6 +86,8 @@ class PersonForm extends Form
 
             'photo' => __('person.photo'),
             'image' => __('person.photo'),
+
+            'team_id' => __('person.team'),
         ];
     }
 

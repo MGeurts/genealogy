@@ -2,6 +2,7 @@
 
 namespace App\Livewire\People;
 
+use Illuminate\Support\Facades\File;
 use Livewire\Component;
 
 class Profile extends Component
@@ -23,9 +24,12 @@ class Profile extends Component
     public function deletePerson()
     {
         if ($this->person->isDeletable()) {
-            toast()->success($this->person->name . '<br/>' . __('app.deleted') . '.', __('app.delete'))->doNotSanitize()->pushOnNextPage();
+            // delete photos
+            File::delete(File::glob(storage_path('app/public/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp')));
 
             $this->person->delete();
+
+            toast()->success($this->person->name . '<br/>' . __('app.deleted') . '.', __('app.delete'))->doNotSanitize()->pushOnNextPage();
 
             $this->redirect('/search');
         }

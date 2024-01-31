@@ -9,21 +9,21 @@ use Livewire\Form;
 class ContactForm extends Form
 {
     // -----------------------------------------------------------------------
-    public $street;
+    public $street = null;
 
-    public $number;
+    public $number = null;
 
-    public $postal_code;
+    public $postal_code = null;
 
-    public $city;
+    public $city = null;
 
-    public $province;
+    public $province = null;
 
-    public $state;
+    public $state = null;
 
-    public $country_id;
+    public $country_id = null;
 
-    public $phone;
+    public $phone = null;
 
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]

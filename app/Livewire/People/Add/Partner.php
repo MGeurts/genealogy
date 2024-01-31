@@ -21,17 +21,6 @@ class Partner extends Component
     public PartnerForm $partnerForm;
 
     // -----------------------------------------------------------------------
-    public function mount()
-    {
-        $this->partnerForm->person2_id = null;
-
-        $this->partnerForm->date_start = null;
-        $this->partnerForm->date_end = null;
-
-        $this->partnerForm->is_married = false;
-        $this->partnerForm->has_ended = false;
-    }
-
     public function savePartner()
     {
         if ($this->isDirty()) {

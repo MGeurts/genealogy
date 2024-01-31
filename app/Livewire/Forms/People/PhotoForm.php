@@ -12,7 +12,7 @@ class PhotoForm extends Form
     public $iteration = 0;      // needed for reset upload input
 
     // -----------------------------------------------------------------------
-    public $photo;
+    public $photo = null;
 
     // -----------------------------------------------------------------------
     protected $rules = [

@@ -3,18 +3,18 @@
 namespace App\Livewire;
 
 use App\Models\User;
-use Filament\Tables;
-use Livewire\Component;
-use Filament\Tables\Table;
+use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
+use Filament\Tables;
+use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\SelectFilter;
-use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Filters\TernaryFilter;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Tables\Concerns\InteractsWithTable;
+use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Livewire\Component;
 
 class Users extends Component implements HasForms, HasTable
 {

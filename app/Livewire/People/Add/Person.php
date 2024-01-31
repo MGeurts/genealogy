@@ -23,19 +23,7 @@ class Person extends Component
     // -----------------------------------------------------------------------
     public function mount()
     {
-        $this->personForm->firstname = null;
-        $this->personForm->surname = null;
-        $this->personForm->birthname = null;
-        $this->personForm->nickname = null;
-
-        $this->personForm->sex = null;
-        $this->personForm->gender_id = null;
-
-        $this->personForm->yob = null;
-        $this->personForm->dob = null;
-        $this->personForm->pob = null;
-
-        $this->personForm->photo = null;
+        $this->personForm->team_id = auth()->user()->current_team_id;
     }
 
     public function savePerson()
@@ -49,15 +37,19 @@ class Person extends Component
                 $person = \App\Models\Person::create($validated);
 
                 if ($this->personForm->image) {
-                    // upload (new) photo
-                    $image_width = env('IMAGE_UPLOAD_MAX_WIDTH', 600);
-                    $image_height = env('IMAGE_UPLOAD_MAX_HEIGHT', 800);
-                    $image_quality = env('IMAGE_UPLOAD_QUALITY', 80);
-                    $image_type = env('IMAGE_UPLOAD_TYPE', 'webp');
-                    $image_name = $person->id . '_001_' . now()->format('YmdHis') . '.' . $image_type;
+                    // if needed, create team photo folder
+                    $path = storage_path('app/public/photos/' . $this->personForm->team_id);
 
-                    // delete old photos
-                    File::delete(File::glob(storage_path('app/public/*/' . $person->id . '_001_*.webp')));
+                    if (! File::isDirectory($path)) {
+                        File::makeDirectory($path, 0777, true, true);
+                    }
+
+                    // upload (new) photo
+                    $image_width = intval(env('IMAGE_UPLOAD_MAX_WIDTH', 600));
+                    $image_height = intval(env('IMAGE_UPLOAD_MAX_HEIGHT', 800));
+                    $image_quality = intval(env('IMAGE_UPLOAD_QUALITY', 80));
+                    $image_type = env('IMAGE_UPLOAD_TYPE', 'webp');
+                    $image_name = $this->personForm->team_id . '/' . $person->id . '_001_' . now()->format('YmdHis') . '.' . $image_type;
 
                     // resize (new) photo, add watermark and save it
                     $manager = new ImageManager(new Driver());
@@ -67,7 +59,7 @@ class Person extends Component
                         ->toWebp(quality: $image_quality);
 
                     if ($new_image) {
-                        $new_image->save(public_path('storage/photos/' . $image_name));
+                        $new_image->save(storage_path('app/public/photos/' . $image_name));
 
                         $person->update(['photo' => $image_name]);
 

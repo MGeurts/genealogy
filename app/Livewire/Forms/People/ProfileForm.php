@@ -14,25 +14,25 @@ class ProfileForm extends Form
     public $iteration = 0;      // needed for reset upload input
 
     // -----------------------------------------------------------------------
-    public $firstname;
+    public $firstname = null;
 
-    public $surname;
+    public $surname = null;
 
-    public $birthname;
+    public $birthname = null;
 
-    public $nickname;
+    public $nickname = null;
 
-    public $sex;
+    public $sex = null;
 
-    public $gender_id;
+    public $gender_id = null;
 
-    public $yob;
+    public $yob = null;
 
-    public $dob;
+    public $dob = null;
 
-    public $pob;
+    public $pob = null;
 
-    public $photo;
+    public $photo = null;
 
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]

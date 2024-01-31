@@ -98,8 +98,8 @@ return [
 
     // Photo
     'photo_deleted' => 'Photo deleted',
-    'reupload_photo' => 'Re-upload photo',
     'upload_photo' => 'Upload photo',
+    'upload_photo_primary' => 'Upload (or re-upload) primary photo',
     'update_photo' => 'Update photo',
 
     'spouses_count' => 'Number of Spouse',

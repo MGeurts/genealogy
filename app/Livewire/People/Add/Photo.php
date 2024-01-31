@@ -21,27 +21,29 @@ class Photo extends Component
     public PhotoForm $photoForm;
 
     // -----------------------------------------------------------------------
-    public function mount()
-    {
-        $this->photoForm->photo = null;
-    }
-
     public function savePhoto()
     {
         if ($this->isDirty()) {
             $this->photoForm->validate();
 
             if ($this->photoForm->image) {
-                $files = File::glob(public_path() . "/storage/photos/{$this->person->id}_*.webp");
+                // if needed, create team photo folder
+                $path = storage_path('app/public/photos/' . $this->person->team_id);
+
+                if (! File::isDirectory($path)) {
+                    File::makeDirectory($path, 0777, true, true);
+                }
+
+                $files = File::glob(public_path() . '/storage/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp');
                 $last_index = substr(last($files), strpos(last($files), '_') + 1, strrpos(last($files), '_') - strpos(last($files), '_') - 1);
                 $next_index = str_pad(intval($last_index) + 1, 3, '0', STR_PAD_LEFT);
 
                 // upload (new) photo
-                $image_width = env('IMAGE_UPLOAD_MAX_WIDTH', 600);
-                $image_height = env('IMAGE_UPLOAD_MAX_HEIGHT', 800);
-                $image_quality = env('IMAGE_UPLOAD_QUALITY', 80);
+                $image_width = intval(env('IMAGE_UPLOAD_MAX_WIDTH', 600));
+                $image_height = intval(env('IMAGE_UPLOAD_MAX_HEIGHT', 800));
+                $image_quality = intval(env('IMAGE_UPLOAD_QUALITY', 80));
                 $image_type = env('IMAGE_UPLOAD_TYPE', 'webp');
-                $image_name = $this->person->id . '_' . $next_index . '_' . now()->format('YmdHis') . '.' . $image_type;
+                $image_name = $this->person->team_id . '/' . $this->person->id . '_' . $next_index . '_' . now()->format('YmdHis') . '.' . $image_type;
 
                 // resize (new) photo, add watermark and save it
                 $manager = new ImageManager(new Driver());
@@ -51,7 +53,7 @@ class Photo extends Component
                     ->toWebp(quality: $image_quality);
 
                 if ($new_image) {
-                    $new_image->save(public_path('storage/photos/' . $image_name));
+                    $new_image->save(storage_path('app/public/photos/' . $image_name));
 
                     if ($this->person->photo == null) {
                         $this->person->update(['photo' => $image_name]);

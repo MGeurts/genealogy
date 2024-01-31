@@ -7,19 +7,19 @@ use Livewire\Form;
 class DeathForm extends Form
 {
     // -----------------------------------------------------------------------
-    public $yod;
+    public $yod = null;
 
-    public $dod;
+    public $dod = null;
 
-    public $pod;
+    public $pod = null;
 
-    public $cemetery_location_name;
+    public $cemetery_location_name = null;
 
-    public $cemetery_location_address;
+    public $cemetery_location_address = null;
 
-    public $cemetery_location_latitude;
+    public $cemetery_location_latitude = null;
 
-    public $cemetery_location_longitude;
+    public $cemetery_location_longitude = null;
 
     // -----------------------------------------------------------------------
     // To Do : add to rules : yod must be equal to dod->format("Y) when dod not null
