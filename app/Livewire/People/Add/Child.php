@@ -57,19 +57,19 @@ class Child extends Component
             } else {
                 if ($this->person->sex === 'm') {
                     $new_person = Person::create([
-                        'firstname' => !empty($validated['firstname']) ? $validated['firstname'] : null,
-                        'surname' => !empty($validated['surname']) ? $validated['surname'] : null,
+                        'firstname' => ! empty($validated['firstname']) ? $validated['firstname'] : null,
+                        'surname' => ! empty($validated['surname']) ? $validated['surname'] : null,
                         'sex' => $validated['sex'],
-                        'gender_id' => !empty($validated['gender_id']) ? $validated['gender_id'] : null,
+                        'gender_id' => ! empty($validated['gender_id']) ? $validated['gender_id'] : null,
                         'father_id' => $this->person->id,
                         'team_id' => $this->person->team_id,
                     ]);
                 } else {
                     $new_person = Person::create([
-                        'firstname' => !empty($validated['firstname']) ? $validated['firstname'] : null,
-                        'surname' => !empty($validated['surname']) ? $validated['surname'] : null,
+                        'firstname' => ! empty($validated['firstname']) ? $validated['firstname'] : null,
+                        'surname' => ! empty($validated['surname']) ? $validated['surname'] : null,
                         'sex' => $validated['sex'],
-                        'gender_id' => !empty($validated['gender_id']) ? $validated['gender_id'] : null,
+                        'gender_id' => ! empty($validated['gender_id']) ? $validated['gender_id'] : null,
                         'mother_id' => $this->person->id,
                         'team_id' => $this->person->team_id,
                     ]);
@@ -79,7 +79,7 @@ class Child extends Component
                     // if needed, create team photo folder
                     $path = storage_path('app/public/photos/' . $new_person->team_id);
 
-                    if (!File::isDirectory($path)) {
+                    if (! File::isDirectory($path)) {
                         File::makeDirectory($path, 0777, true, true);
                     }
 
