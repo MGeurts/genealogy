@@ -21,6 +21,12 @@ class Photo extends Component
     public PhotoForm $photoForm;
 
     // -----------------------------------------------------------------------
+    public function mount()
+    {
+        $this->photoForm->photo = null;
+        $this->photoForm->image = null;
+    }
+
     public function savePhoto()
     {
         if ($this->isDirty()) {
@@ -75,8 +81,6 @@ class Photo extends Component
     public function resetPhoto()
     {
         $this->mount();
-
-        $this->photoForm->image = null;
     }
 
     public function isDirty()
