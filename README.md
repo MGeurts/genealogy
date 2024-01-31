@@ -36,8 +36,8 @@ This application is build using :
 ### Requirements
 
 <ul>
-    <li>At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.2, supporting (upcomming) Laravel 11.</li>
-    <li>At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0.1 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2.2 or equivalent database, supporting <a href="https://dev.mysql.com/doc/refman/8.0/en/with.html" target="_blank">Recursive Common Table Expressions</a>.</li>
+    <li>At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.2, supporting (upcomming) Laravel 11. The application will be upgraded to Laravel 11 as soon as it's released.</li>
+    <li>At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0.1 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2.2 or an equivalent database, supporting <a href="https://dev.mysql.com/doc/refman/8.0/en/with.html" target="_blank">Recursive Common Table Expressions</a>.</li>
 </ul>
 
 ### License
@@ -133,12 +133,12 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 ### To Do ...
 
 <ul>
-    <li>GEDCOM import and export (help needed).</li>
+    <li>GEDCOM import and export (help gladly accepted).</li>
 </ul>
 
 ## Techniques
 
-Both the <b>ancestors</b> and <b>descendants</b> family trees are build using <a href="https://dev.mysql.com/blog-archive/mysql-8-0-labs-recursive-common-table-expressions-in-mysql-ctes" target="_blank">MySQL Recursive Common Table Expressions</a> (Recursive CTE). This prevents the N+1 query problem generating the recursive tree elements and dramatically improves performance.
+Both the <b>ancestors</b> and <b>descendants</b> family trees are build using <a href="https://dev.mysql.com/blog-archive/mysql-8-0-labs-recursive-common-table-expressions-in-mysql-ctes" target="_blank">Recursive Common Table Expressions</a> (Recursive CTE). This prevents the N+1 query problem generating the recursive tree family elements and dramatically improves performance.
 
 ## Installation
 
@@ -177,7 +177,7 @@ Visit the <a href="https://genealogy.kreaweb.be/help" target="_blank">demo proje
 
 ### Sponsoring
 
-If you like this project, please consider giving it a star. Thank you.
+If you like this project, please consider giving it a star and spread the word. Thank you.
 
 ## Impressum
 

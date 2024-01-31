@@ -38,7 +38,8 @@ After registration and optional e-mail verification, users can <b>login</b>.<br/
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-002c.webp" class="rounded" alt="Login">
 
-Authenticated users, without invitation, by default belong to (and own) their own <b>personal team</b>.
+Authenticated users, without invitation, by default belong to (and own) their own <b>personal team</b>.<br/>
+New users, after accepting an invitation by email from another user and registering, by default will be logged in to the team they were invited to. Those users by default also have their own personal team at their disposal.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-002d.webp" class="rounded" alt="Team">
 
