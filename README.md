@@ -30,7 +30,7 @@ This application is build using :
 5. A person can have 0 to many partners (n people), being part of 0 to many couples (opposite or same biological sex)
 6. A person can be part of a couple with the same partner multiple times (remarriage or reunite)
 
-7. A couple can have 0 to many children (based on parents_id as a couple or father_id/mother_id individually)
+7. A couple can have 0 to many children (based on <b>parents_id as a couple</b> or <b>father_id/mother_id individually</b>)
 8. A couple can be married or not, still together or separated in the meantime
 
 ### Requirements
