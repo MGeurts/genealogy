@@ -36,8 +36,13 @@ This application is build using :
 ### Requirements
 
 <ul>
-    <li>At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.2, supporting (upcomming) Laravel 11. The application will be upgraded to Laravel 11 as soon as it's released.</li>
-    <li>At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0.1 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2.2 or an equivalent database, supporting <a href="https://dev.mysql.com/doc/refman/8.0/en/with.html" target="_blank">Recursive Common Table Expressions</a>.</li>
+    <li>
+        At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.2, supporting (upcomming) Laravel 11.<br/>
+        The application will be upgraded to Laravel 11 as soon as it's released.
+    </li>
+    <li>
+        At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0.1 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2.2 or an equivalent database, supporting <a href="https://dev.mysql.com/doc/refman/8.0/en/with.html" target="_blank">Recursive Common Table Expressions</a>.
+    </li>
 </ul>
 
 ### License
