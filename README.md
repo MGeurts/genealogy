@@ -138,7 +138,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 ### To Do ...
 
 <ul>
-    <li>GEDCOM import and export (help gladly accepted).</li>
+    <li><a href="https://www.gedcom.org/" target="_blank">GEDCOM</a> import and export (help gladly accepted).</li>
 </ul>
 
 ## Techniques
