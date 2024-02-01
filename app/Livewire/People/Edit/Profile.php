@@ -40,6 +40,7 @@ class Profile extends Component
         $this->profileForm->pob = $this->person->pob;
 
         $this->profileForm->photo = $this->person->photo;
+        $this->profileForm->image = null;
     }
 
     public function saveProfile()
@@ -96,8 +97,6 @@ class Profile extends Component
     public function resetProfile()
     {
         $this->mount();
-
-        $this->profileForm->image = null;
     }
 
     public function isDirty()

@@ -23,6 +23,21 @@ class Person extends Component
     // -----------------------------------------------------------------------
     public function mount()
     {
+        $this->personForm->firstname = null;
+        $this->personForm->surname = null;
+        $this->personForm->birthname = null;
+        $this->personForm->nickname = null;
+
+        $this->personForm->sex = null;
+        $this->personForm->gender_id = null;
+
+        $this->personForm->yob = null;
+        $this->personForm->dob = null;
+        $this->personForm->pob = null;
+
+        $this->personForm->photo = null;
+        $this->personForm->image = null;
+
         $this->personForm->team_id = auth()->user()->current_team_id;
     }
 
@@ -85,8 +100,6 @@ class Person extends Component
     public function resetPerson()
     {
         $this->mount();
-
-        $this->personForm->image = null;
     }
 
     public function isDirty()
