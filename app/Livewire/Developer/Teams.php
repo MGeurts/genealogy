@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Developer;
 
 use App\Models\person;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -39,6 +39,6 @@ class Teams extends Component implements HasForms, HasTable
 
     public function render(): View
     {
-        return view('livewire.teams');
+        return view('livewire.developer.teams');
     }
 }

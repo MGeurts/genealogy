@@ -10,6 +10,6 @@
     </x-slot>
 
     <div class="py-10 w-full">
-        <livewire:teams />
+        <livewire:developer.teams />
     </div>
 </x-app-layout>

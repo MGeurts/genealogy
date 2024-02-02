@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Developer;
 
 use App\Models\User;
 use Filament\Forms\Concerns\InteractsWithForms;
@@ -131,6 +131,6 @@ class Users extends Component implements HasForms, HasTable
 
     public function render()
     {
-        return view('livewire.users');
+        return view('livewire.developer.users');
     }
 }

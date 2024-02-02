@@ -14,7 +14,7 @@ class PageController extends Controller
 
     public function persons(Request $request)
     {
-        return view('back.persons');
+        return view('back.developer.persons');
     }
 
     public function session(Request $request)
@@ -24,11 +24,11 @@ class PageController extends Controller
 
     public function teams(Request $request)
     {
-        return view('back.teams');
+        return view('back.developer.teams');
     }
 
     public function users(Request $request)
     {
-        return view('back.users');
+        return view('back.developer.users');
     }
 }
