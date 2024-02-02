@@ -99,15 +99,15 @@ return [
     // Photo
     'photo_deleted' => 'Foto gelöscht',
     'upload_photo' => 'Foto hochladen',
-    'upload_photo_primary' => 'Upload (or re-upload) primary photo',
+    'upload_photo_primary' => 'Hauptfoto (erneut) hochladen',
     'update_photo' => 'Foto aktualisieren',
 
     'spouses_count' => 'Anzahl Ehepartner/Ehepartnerinnen',
     'children_count' => 'Anzahl Kinder',
-    'managed_persons' => 'Number of Managed Persons',
-    'managed_couples' => 'Number of Managed Couples',
-    'replacement' => 'Replacement Person',
-    'replace_confirm' => 'Are you sure replace then delete this person?',
-    'replace_delete_text' => 'You must select other person as replacement.',
-    'replace_delete_button' => 'Replace and Delete person',
+    'managed_persons' => 'Anzahl der verwalteten Personen',
+    'managed_couples' => 'Anzahl der verwalteten Paare',
+    'replacement' => 'Ersatzperson',
+    'replace_confirm' => 'Möchtest du diese Person wirklich ersetzen und dann löschen?',
+    'replace_delete_text' => 'Du musst eine andere Person als Ersatz auswählen.',
+    'replace_delete_button' => 'Person ersetzen und löschen',
 ];

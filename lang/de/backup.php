@@ -2,15 +2,15 @@
 
 return [
     // Labels
-    'backup' => 'Backup',
-    'backups' => 'Backups',
-    'no_data' => 'No backups available.',
+    'backup' => 'Sicherung',
+    'backups' => 'Sicherungen',
+    'no_data' => 'Keine Sicherungen verfügbar.',
 
     // Actions
-    'create' => 'New backup',
+    'create' => 'Neue Sicherung',
     'download' => 'Download',
     'delete' => 'Löschen',
-    'delete_backup' => 'this backup',
+    'delete_backup' => 'diese Sicherung',
 
     // Attributes
     'id' => '#',
@@ -21,14 +21,14 @@ return [
     'actions' => 'Aktionen',
 
     // Comments
-    'backup_daily' => 'Backups are created automatically daily (at ' . env('BACKUP_DAILY_RUN') . ' hour).',
-    'backup_email' => 'An e-mail will be send to your applications e-mail address after each backup.',
-    'backup_cron_1' => 'Backups can be automated (run daily) by issuing the following cron job on your production server :',
+    'backup_daily' => 'Sicherungen werden täglich automatisch erstellt (um ' . env('BACKUP_DAILY_RUN') . ' Uhr).',
+    'backup_email' => 'Nach jeder Sicherung wird eine E-Mail an die E-Mail-Adresse deiner Anwendung gesendet.',
+    'backup_cron_1' => 'Sicherungen können automatisiert (täglich ausgeführt) werden, indem du folgenden Cron-Job auf deinem Produktionsserver ausführst:',
     'backup_cron_2' => '* * * * * cd /path_to_your_application && php artisan schedule:run >> /dev/null 2>&1',
 
     // Messages
-    'created' => 'The new backup was saved.',
+    'created' => 'Neue Sicherung wurde erstellt.',
     'deleted' => 'wurde gelöscht.',
-    'downloaded' => 'The download was started.',
-    'not_found' => 'The backup was not found.',
+    'downloaded' => 'Der Download hat begonnen.',
+    'not_found' => 'Sicherung konnte nicht gefunden werden.',
 ];

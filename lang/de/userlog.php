@@ -2,9 +2,9 @@
 
 return [
     // Labels
-    'users_log' => 'Nutzer-Verlauf',
-    'users_origin' => 'Ursprung des Verlaufs',
-    'users_stats' => 'Verlaufsstatistiken',
+    'users_log' => 'Benutzerprotokoll',
+    'users_origin' => 'Ursprung des Benutzerprotokolls',
+    'users_stats' => 'Protokollsstatistiken',
 
     'year' => 'Jahr',
     'month' => 'Monat',
@@ -15,7 +15,7 @@ return [
     'countries' => 'Länder',
     'period' => 'Periode',
     'worldmap' => 'Weltkarte',
-    'timespan' => 'User loggings during the last :months months',
+    'timespan' => 'Benutzerprotokolle während der letzten :months Monate',
 
     // Attributes
     'date' => 'Datum',

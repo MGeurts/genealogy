@@ -13,11 +13,11 @@ return [
     |
     */
 
-    'password' => 'Passwords must be at least six characters and match the confirmation.',
-    'reset' => 'Your password has been reset!',
-    'sent' => 'We have e-mailed your password reset link!',
-    'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that e-mail address.",
-    'old_password' => 'Your current password does not matches with the password you provided. Please try again.',
-    'same_password' => 'New password cannot be same as your current password. Please choose a different password.',
+    'password' => 'Passwörter müssen mindestens sechs Zeichen lang sein und übereinstimmen.',
+    'reset' => 'Dein Passwort wurde zurückgesetzt!',
+    'sent' => 'Wir haben dir einen Link zum Zurücksetzen deines Passworts per E-Mail verschickt!',
+    'token' => 'Der Token zum Zurücksetzen des Passworts ist ungültig.',
+    'user' => 'Wir können keinen Benutzer mit dieser E-Mail-Adresse finden.',
+    'old_password' => 'Dein aktuelles Passwort stimmt nicht mit dem von dir angegebenen Passwort überein. Bitte versuche es erneut.',
+    'same_password' => 'Das neue Passwort darf nicht mit deinem aktuellen Passwort identisch sein. Bitte wähle ein anderes Passwort.',
 ];
