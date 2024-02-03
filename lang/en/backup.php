@@ -1,5 +1,7 @@
 <?php
 
+// checked = OK
+
 return [
     // Labels
     'backup' => 'Backup',
