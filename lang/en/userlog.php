@@ -1,5 +1,7 @@
 <?php
 
+// checked = OK
+
 return [
     // Labels
     'users_log' => 'User logbook',
@@ -21,6 +23,6 @@ return [
     'date' => 'Date',
     'hour' => 'Hour',
     'user' => 'User',
-    'Country_name' => 'Country name',
+    'Country_name' => 'Country',
     'Country_code' => 'Country code',
 ];

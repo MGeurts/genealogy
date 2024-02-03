@@ -1,5 +1,7 @@
 <?php
 
+// checked = OK
+
 return [
     // Labels
     'users_log' => 'Benutzerprotokoll',
@@ -20,7 +22,7 @@ return [
     // Attributes
     'date' => 'Datum',
     'hour' => 'Stunde',
-    'user' => 'Nutzer',
-    'Country_name' => 'Ländername',
-    'Country_code' => 'Ländercode',
+    'user' => 'Benutzer',
+    'Country_name' => 'Land',
+    'Country_code' => 'Landesvorwahl',
 ];

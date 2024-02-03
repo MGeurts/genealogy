@@ -1,5 +1,7 @@
 <?php
 
+// checked = OK
+
 return [
     // Labels
     'users_log' => 'Gebruikers logboek',
