@@ -1,5 +1,7 @@
 <?php
 
+// checked = OK
+
 return [
 
     /*
@@ -13,11 +15,11 @@ return [
     |
     */
 
-    'password' => 'Passwords must be at least six characters and match the confirmation.',
+    'password' => 'Paswoorden moeten ten minste 6 karakters bevatten en overeenkomen met de bevestiging.',
     'reset' => 'Uw wachtwoord is opnieuw ingesteld!',
     'sent' => 'We hebben u uw wachtwoord reset link gemaild!',
-    'token' => 'Deze wachtwoord reset token is ongeldig.',
-    'user' => 'We kunnen geen gebruiker met dat e-mailadres vinden.',
-    'old_password' => 'Your current password does not matches with the password you provided. Please try again.',
-    'same_password' => 'New password cannot be same as your current password. Please choose a different password.',
+    'token' => 'Dit wachtwoord reset token is ongeldig.',
+    'user' => 'We kunnen geen gebruiker met dit e-mailadres vinden.',
+    'old_password' => 'Uw huidig paswoord komt niet overeen met het door u opgegeven paswoord. Gelieve nogmaals te proberen',
+    'same_password' => 'Het nieuwe paswoord moet verschillen van het oude paswoord. Gelieve een ander paswoord te kiezen.',
 ];
