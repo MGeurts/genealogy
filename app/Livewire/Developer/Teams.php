@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Developer;
 
-use App\Models\person;
+use App\Models\Person;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Tables;
@@ -20,7 +20,7 @@ class Teams extends Component implements HasForms, HasTable
     public function table(Table $table): Table
     {
         return $table
-            ->query(person::query())
+            ->query(Person::query())
             ->columns([
                 //
             ])
