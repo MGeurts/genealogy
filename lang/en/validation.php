@@ -1,5 +1,7 @@
 <?php
 
+// checked = OK
+
 return [
 
     /*
@@ -151,6 +153,7 @@ return [
     'url' => 'The :attribute field must be a valid URL.',
     'ulid' => 'The :attribute field must be a valid ULID.',
     'uuid' => 'The :attribute field must be a valid UUID.',
+
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
@@ -161,12 +164,6 @@ return [
     | specify a specific custom language line for a given attribute rule.
     |
     */
-
-    'user' => [
-        'replacement_user_id' => [
-            'required' => 'Please select one.',
-        ],
-    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -180,5 +177,4 @@ return [
     */
 
     'attributes' => [],
-
 ];

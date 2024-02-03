@@ -1,5 +1,7 @@
 <?php
 
+// checked = OK
+
 return [
 
     /*
@@ -163,12 +165,6 @@ return [
     |
     */
 
-    'user' => [
-        'replacement_user_id' => [
-            'required' => 'Please select one.',
-        ],
-    ],
-
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Attributes
@@ -181,5 +177,4 @@ return [
     */
 
     'attributes' => [],
-
 ];
