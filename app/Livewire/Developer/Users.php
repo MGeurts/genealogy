@@ -78,19 +78,19 @@ class Users extends Component implements HasForms, HasTable
                     ->verticallyAlignStart()
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->label(__('user.created_at'))
+                    ->label(__('app.created_at'))
                     ->verticallyAlignStart()
                     ->dateTime('Y-m-d h:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->label(__('user.updated_at'))
+                    ->label(__('app.updated_at'))
                     ->verticallyAlignStart()
                     ->dateTime('Y-m-d h:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('deleted_at')
-                    ->label(__('user.deleted_at'))
+                    ->label(__('app.deleted_at'))
                     ->verticallyAlignStart()
                     ->dateTime('Y-m-d h:i')
                     ->sortable()

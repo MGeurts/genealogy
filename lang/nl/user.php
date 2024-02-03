@@ -1,5 +1,7 @@
 <?php
 
+// checked = OK
+
 return [
     // Labels
     'user' => 'Gebruiker',
@@ -18,9 +20,6 @@ return [
     'developer' => 'Developer',
     'team' => 'Team',
     'current_team' => 'Geselecteerd team',
-    'created_at' => 'Aangemaakt op',
-    'updated_at' => 'Gewijzigd op',
-    'deleted_at' => 'Verwijderd op',
     'email_verified_at' => 'Email geverifieerd op',
     'two_factor_confirmed_at' => '2FA bevestigd op',
 

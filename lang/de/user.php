@@ -1,9 +1,11 @@
 <?php
 
+// checked = OK
+
 return [
     // Labels
-    'user' => 'Nutzer',
-    'users' => 'Nutzer',
+    'user' => 'Benutzer',
+    'users' => 'Benutzer',
 
     // Actions
     'edit' => 'Bearbeiten',
@@ -18,9 +20,6 @@ return [
     'developer' => 'Entwickler',
     'team' => 'Team',
     'current_team' => 'Aktuelles Team',
-    'created_at' => 'Erstellt am',
-    'updated_at' => 'Aktualisiert am',
-    'deleted_at' => 'Gelöscht am',
     'email_verified_at' => 'E-Mail-Adresse bestätigt am',
     'two_factor_confirmed_at' => '2FA bestätigt am',
 
@@ -29,7 +28,7 @@ return [
     'remove_photo' => 'Foto entfernen',
 
     // Deletion confirm attributes
-    'delete' => 'Nutzer löschen',
-    'delete_confirm' => 'Willst du diesen Nutzer wirklich löschen?',
+    'delete' => 'Benutzer löschen',
+    'delete_confirm' => 'Willst du diesen Benutzer wirklich löschen?',
     'delete_confirm_button' => 'Ja, ich bin mir sicher',
 ];
