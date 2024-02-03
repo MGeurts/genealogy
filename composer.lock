@@ -2415,16 +2415,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "3.3.2",
+            "version": "3.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "8494cc91e3906e36ca58acc3dfe70fa331520b88"
+                "reference": "ad8058f5be94110d72d44958a5e5f4a0705c7471"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/8494cc91e3906e36ca58acc3dfe70fa331520b88",
-                "reference": "8494cc91e3906e36ca58acc3dfe70fa331520b88",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/ad8058f5be94110d72d44958a5e5f4a0705c7471",
+                "reference": "ad8058f5be94110d72d44958a5e5f4a0705c7471",
                 "shasum": ""
             },
             "require": {
@@ -2436,6 +2436,7 @@
                 "mockery/mockery": "^1.6",
                 "phpstan/phpstan": "^1",
                 "phpunit/phpunit": "^9",
+                "slevomat/coding-standard": "~8.0",
                 "squizlabs/php_codesniffer": "^3.8"
             },
             "suggest": {
@@ -2470,7 +2471,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Intervention/image/issues",
-                "source": "https://github.com/Intervention/image/tree/3.3.2"
+                "source": "https://github.com/Intervention/image/tree/3.3.3"
             },
             "funding": [
                 {
@@ -2482,7 +2483,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-01-27T19:34:18+00:00"
+            "time": "2024-02-02T15:08:10+00:00"
         },
         {
             "name": "khill/lavacharts",

@@ -86,6 +86,7 @@ return [
     'locale' => 'en',
 
     'available_locales' => [
+        'Deutsch' => 'de',
         'English' => 'en',
         'Nederlands' => 'nl',
     ],
