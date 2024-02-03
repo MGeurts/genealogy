@@ -1,17 +1,18 @@
 <?php
 
+// checked = OK
+
 return [
-    // Labels
+    'date_end' => 'Enddatum',
+    'date_start' => 'Startdatum',
 
-    // Actions
+    'has_ended' => 'beendet',
 
-    // Attributes
+    'is_married' => 'Hochzeit',
+
     'partner' => 'Partner',
     'person1_id' => 'Erste Person',
     'person2_id' => 'Zweite Person',
-    'date_start' => 'Startdatum',
-    'date_end' => 'Enddatum',
-    'is_married' => 'Hochzeit',
-    'has_ended' => 'beendet',
+
     'team_id' => 'Team',
 ];
