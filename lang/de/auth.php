@@ -1,5 +1,7 @@
 <?php
 
+// checked = OK
+
 return [
 
     /*
@@ -36,7 +38,7 @@ return [
     'invitation_accepted' => 'Großartig! Du hast die Einladung angenommen, dem Team :team beizutreten.',
 
     'login' => 'Anmelden',
-    'log_in' => 'Anmelden bei',
+    'log_in' => 'Anmelden',
     'logout' => 'Abmelden',
 
     'need_account' => 'Brauchst du ein Konto?',
@@ -60,5 +62,5 @@ return [
     'send_reset_password_link' => 'Link zum Zurücksetzen des Passworts senden',
 
     'team' => 'Team',
-    'to_join' => 'to join',
+    'to_join' => 'beitreten',
 ];
