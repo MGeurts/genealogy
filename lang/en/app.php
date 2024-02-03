@@ -4,70 +4,47 @@ return [
     // Menus
     'about' => 'About',
     'dependencies' => 'Dependencies',
-    'session' => 'Session',
     'help' => 'Help',
     'home' => 'Home',
     'menu' => 'Menu',
     'privacy_policy' => 'Privacy policy',
+    'session' => 'Session',
     'terms_of_service' => 'Terms of service',
     'useful_links' => 'Useful links',
 
     // Labels
-    'my_profile' => 'My profile',
-    'search' => 'Search',
-    'unknown' => 'Unknown',
-    'male' => 'Male',
-    'female' => 'Female',
-    'male_code' => 'M',
-    'female_code' => 'F',
-    'family_chart' => 'Family chart',
-    'family_tree' => 'Family tree',
-    'child_count' => 'Child count',
-    'grandchild_count' => 'Grandchild count',
-    'example' => 'E.g.',
-    'address' => 'Address',
-    'contact' => 'Contact',
-    'city' => 'City',
-    'phone' => 'Phone',
-    'account' => 'Account',
-    'nothing_recorded' => 'Nothing recorded.',
-    'marriage' => 'Marriage',
-    'level' => 'Level',
-    'current_password' => 'Current password',
-    'new_password' => 'New password',
-    'confirm_password' => 'Confirm password',
-
-    'manage_account' => 'Manage account',
     'api_tokens' => 'API tokens',
-
-    'collection' => 'Collection',
-    'people' => 'People',
-
+    'attention' => 'Attention',
+    'contact' => 'Contact',
     'death' => 'Death',
+    'family_chart' => 'Family chart',
+    'female' => 'Female',
+    'male' => 'Male',
+    'manage_account' => 'Manage account',
+    'my_profile' => 'My profile',
+    'nothing_recorded' => 'Nothing recorded.',
+    'search' => 'Search',
+
+    'created_at' => 'Created at',
+    'updated_at' => 'Updated at',
+    'deleted_at' => 'Deleted at',
+
+    'language' => 'Language',
+    'language_select' => 'Select language',
+    'language_set' => 'Language set to',
 
     // Actions
-    'edit' => 'Edit',
-    'edit_account' => 'Edit account',
-
-    'update' => 'Update',
-    'show_profile' => 'Show profile',
-    'show_family_chart' => 'Show family chart',
-    'show_family_tree' => 'Show family tree',
-    'show_death' => 'Show death',
-    'show_partners' => 'Show partners',
-    'enter_new_name' => 'Enter new name...',
-    'select' => 'Select',
-    'select_from_existing_males' => 'Select from Existing males',
-    'select_from_existing_females' => 'Select from Existing females',
-    'select_from_existing_couples' => 'Select from Existing couples',
-    'restore' => 'Restore',
-    'download' => 'Download',
     'cancel' => 'Cancel',
-    'reset' => 'Reset',
-    'save' => 'Save',
-    'saved' => 'Saved',
     'create' => 'Create',
     'created' => 'Created',
+
+    'show_death' => 'Show death',
+    'show_family_chart' => 'Show family chart',
+    'show_profile' => 'Show profile',
+
+    'save' => 'Save',
+    'saved' => 'Saved',
+    'select' => 'Select',
 
     // Deletion confirm attributes
     'abort_no' => 'No, abort',
@@ -84,14 +61,10 @@ return [
     'disconnect_yes' => 'Yes, disconnect',
 
     // Messages
-
     'image_not_saved' => 'Unable to save image',
 
     'show_on_google_maps' => 'Show on Google Maps',
-    'data_not_available' => 'Data not available.',
-    'language' => 'Language',
-    'language_select' => 'Select language',
-    'language_set' => 'Language set to',
+
     'unsaved_changes' => 'Unsaved changes',
 
     'connected_social' => 'Get connected with us on social networks',
@@ -113,8 +86,6 @@ return [
     'search_family_placeholder' => 'Enter name or nickname ...',
     'persons_found' => '<span class="text-success"><strong>:total</strong></span> found with keyword <span class="text-success"><strong>:keyword</strong></span> in <span class="text-success"><strong>:scope</strong></span>',
     'persons_available' => '<span class="text-success"><strong>:total</strong></span> persons available in <span class="text-success"><strong>:scope</strong></span></span>',
-
-    'attention' => 'Attention',
 
     'whoops' => 'Whoops! Something went wrong.',
 ];

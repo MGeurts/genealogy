@@ -1,7 +1,5 @@
 <?php
 
-// checked = OK
-
 return [
     'cancel' => 'Cancel',
     'couples' => 'Couples',

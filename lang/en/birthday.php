@@ -1,7 +1,5 @@
 <?php
 
-// checked = OK
-
 return [
     'age' => 'Age',
     'birthday' => 'Birthday',

@@ -5,14 +5,13 @@ return [
     'biological' => 'biological',
     'person' => 'Person',
     'people' => 'People',
-    'people_stats' => 'People statistics',
+
     'family' => 'Family',
     'profile' => 'Profile',
-    'spouse' => 'Spouse',
+
     'partner' => 'Partner',
     'partners' => 'Partners',
-    'wifes' => 'Wifes',
-    'husbands' => 'Husbands',
+
     'children' => 'Children',
     'parents' => 'Parents',
     'grandchildren' => 'Grandchildren',
@@ -22,9 +21,7 @@ return [
     'dead' => 'Dead',
     'death' => 'Death',
     'deceased' => 'Deceased',
-    'child_name' => 'Child Name',
-    'child_sex' => 'Child Sex',
-    'child_gender' => 'Child Gender identity',
+
     'grandmother' => 'Grandmother',
     'grandfather' => 'Grandfather',
     'nieces' => 'Nieces',
@@ -39,7 +36,6 @@ return [
 
     // Actions
     'add_child' => 'Add child',
-    'add_child_from_existing_partner' => 'Parent (select spouse of :name)',
     'add_person' => 'Add person',
     'add_photo' => 'Add photo',
     'add_relationship' => 'Add relationship',
@@ -49,13 +45,9 @@ return [
     'edit_contact' => 'Edit contact',
     'edit_death' => 'Edit death',
     'edit_family' => 'Edit family',
-    'edit_person' => 'Editr person',
+    'edit_person' => 'Edit person',
     'edit_profile' => 'Edit profile',
     'edit_relationship' => 'Edit relationship',
-
-    'set_father' => 'Set father',
-    'set_mother' => 'Set mother',
-    'set_parents' => 'Set parents',
 
     'delete_person' => 'Delete person',
 
@@ -88,10 +80,6 @@ return [
     'country' => 'Country',
     'phone' => 'Phone',
     'photo' => 'Photo',
-    'manager' => 'Manager',
-    'created_at' => 'Created at',
-    'updated_at' => 'Updated at',
-    'deleted_at' => 'Deleted at',
 
     'cemetery' => 'Cemetery',
     'cemetery_location' => 'Cemetery Location',
@@ -101,13 +89,4 @@ return [
     'upload_photo' => 'Upload photo',
     'upload_photo_primary' => 'Upload (or re-upload) primary photo',
     'update_photo' => 'Update photo',
-
-    'spouses_count' => 'Number of Spouse',
-    'children_count' => 'Number of Children',
-    'managed_persons' => 'Number of Managed Persons',
-    'managed_couples' => 'Number of Managed Couples',
-    'replacement' => 'Replacement Person',
-    'replace_confirm' => 'Are you sure replace then delete this person?',
-    'replace_delete_text' => 'You must select other person as replacement.',
-    'replace_delete_button' => 'Replace and Delete person',
 ];

@@ -1,7 +1,5 @@
 <?php
 
-// checked = OK
-
 return [
     // Labels
     'user' => 'Benutzer',

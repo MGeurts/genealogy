@@ -88,17 +88,17 @@ class Persons extends Component implements HasForms, HasTable
                 Tables\Columns\TextColumn::make('team.name')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->label(__('person.created_at'))
+                    ->label(__('app.created_at'))
                     ->dateTime('Y-m-d h:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->label(__('person.updated_at'))
+                    ->label(__('app.updated_at'))
                     ->dateTime('Y-m-d h:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('deleted_at')
-                    ->label(__('person.deleted_at'))
+                    ->label(__('app.deleted_at'))
                     ->dateTime('Y-m-d h:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

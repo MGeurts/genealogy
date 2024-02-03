@@ -3,17 +3,16 @@
 namespace App\Livewire\Developer;
 
 use App\Models\Team;
-use Filament\Tables;
-use Livewire\Component;
-use Filament\Tables\Table;
-use Illuminate\Contracts\View\View;
+use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
+use Filament\Tables;
+use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Enums\FiltersLayout;
-use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Filters\TernaryFilter;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Tables\Concerns\InteractsWithTable;
+use Filament\Tables\Table;
+use Illuminate\Contracts\View\View;
+use Livewire\Component;
 
 class Teams extends Component implements HasForms, HasTable
 {

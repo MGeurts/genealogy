@@ -1,7 +1,5 @@
 <?php
 
-// checked = OK
-
 return [
     'date_end' => 'Einddatum',
     'date_start' => 'Begindatum',

@@ -5,14 +5,13 @@ return [
     'biological' => 'biologisch',
     'person' => 'Person',
     'people' => 'Personen',
-    'people_stats' => 'Personenstatistik',
+
     'family' => 'Familie',
     'profile' => 'Profil',
-    'spouse' => 'Ehepartner/Ehepartnerin',
+
     'partner' => 'Partner',
     'partners' => 'Partner',
-    'wifes' => 'Ehefrauen',
-    'husbands' => 'Ehemänner',
+
     'children' => 'Kinder',
     'parents' => 'Eltern',
     'grandchildren' => 'Enkelkinder',
@@ -22,9 +21,7 @@ return [
     'dead' => 'Tot',
     'death' => 'Tod',
     'deceased' => 'Verstorben',
-    'child_name' => 'Name des Kindes',
-    'child_sex' => 'Geschlecht des Kindes',
-    'child_gender' => 'Geschlechtsidentität des Kindes',
+
     'grandmother' => 'Großmutter',
     'grandfather' => 'Großvater',
     'nieces' => 'Nichten',
@@ -39,7 +36,6 @@ return [
 
     // Actions
     'add_child' => 'Kind hinzufügen',
-    'add_child_from_existing_partner' => 'Elternteil (Ehepartner/Ehepartnerin von of :name auswählen)',
     'add_person' => 'Person hinzufügen',
     'add_photo' => 'Foto hinzufügen',
     'add_relationship' => 'Beziehung hinzufügen',
@@ -52,10 +48,6 @@ return [
     'edit_person' => 'Person bearbeiten',
     'edit_profile' => 'Profil bearbeiten',
     'edit_relationship' => 'Beziehung bearbeiten',
-
-    'set_father' => 'Vater festlegen',
-    'set_mother' => 'Mutter festlegen',
-    'set_parents' => 'Eltern festlegen',
 
     'delete_person' => 'Person löschen',
 
@@ -88,10 +80,6 @@ return [
     'country' => 'Land',
     'phone' => 'Telefonnummer',
     'photo' => 'Foto',
-    'manager' => 'Verwalter',
-    'created_at' => 'Erstellt am',
-    'updated_at' => 'Aktualisiert am',
-    'deleted_at' => 'Gelöscht am',
 
     'cemetery' => 'Friedhof',
     'cemetery_location' => 'Ort des Friedhofs',
@@ -101,13 +89,4 @@ return [
     'upload_photo' => 'Foto hochladen',
     'upload_photo_primary' => 'Hauptfoto (erneut) hochladen',
     'update_photo' => 'Foto aktualisieren',
-
-    'spouses_count' => 'Anzahl Ehepartner/Ehepartnerinnen',
-    'children_count' => 'Anzahl Kinder',
-    'managed_persons' => 'Anzahl der verwalteten Personen',
-    'managed_couples' => 'Anzahl der verwalteten Paare',
-    'replacement' => 'Ersatzperson',
-    'replace_confirm' => 'Möchtest du diese Person wirklich ersetzen und dann löschen?',
-    'replace_delete_text' => 'Du musst eine andere Person als Ersatz auswählen.',
-    'replace_delete_button' => 'Person ersetzen und löschen',
 ];
