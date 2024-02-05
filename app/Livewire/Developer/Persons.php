@@ -53,10 +53,10 @@ class Persons extends Component implements HasForms, HasTable
                     ->label(__('person.mother'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('parents.name')
-                    ->label(__('person.parents'))
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                // Tables\Columns\TextColumn::make('parents.name')
+                //     ->label(__('person.parents'))
+                //     ->sortable()
+                //     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('dob')
                     ->label(__('person.dob'))
                     ->dateTime('Y-m-d')

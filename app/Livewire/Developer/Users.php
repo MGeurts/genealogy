@@ -24,7 +24,7 @@ class Users extends Component implements HasForms, HasTable
     public function table(Table $table): Table
     {
         return $table
-            ->query(user::query()->with('ownedTeams'))
+            ->query(user::query()->with(['ownedTeams', 'teams']))
             ->columns([
                 Tables\Columns\TextColumn::make('surname')
                     ->label(__('user.surname'))
@@ -63,8 +63,11 @@ class Users extends Component implements HasForms, HasTable
                     })
                     ->verticallyAlignStart()
                     ->html(),
-                Tables\Columns\TextColumn::make('current_team.name')
+                Tables\Columns\TextColumn::make('current_team')
                     ->label(__('user.current_team'))
+                    ->getStateUsing(function (User $record) {
+                        return $record->currentTeam()->first()->name;
+                    })
                     ->verticallyAlignStart(),
                 Tables\Columns\TextColumn::make('language')
                     ->label(__('user.language'))
