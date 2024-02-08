@@ -186,7 +186,7 @@
                         <div class="px-5 py-2 dark:bg-neutral-700">
                             <ul class="w-full ml-4">
                                 <li class="py-2">
-                                    <x-link href="https://tabler-icons.io/" target="_blank">Tabler Icons (2.46.0)</x-link> - Download and place
+                                    <x-link href="https://tabler-icons.io/" target="_blank">Tabler Icons (2.47.0)</x-link> - Download and place
                                     <x-link href="https://github.com/tabler/tabler-icons/blob/master/packages/icons/tabler-sprite-nostroke.svg" target="_blank">tabler-sprite-nostroke.svg</x-link> in
                                     \public\tabler\
                                 </li>
