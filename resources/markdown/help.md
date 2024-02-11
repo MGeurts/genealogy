@@ -171,7 +171,7 @@ You can also upload the <b>primary photo</b> for the new person.
 Another way to add people is to click on the <b>Add child</b> button on the <b>Children</b> tab of an existing person.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-050.webp" class="rounded" alt="Children">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-051.webp" class="rounded" alt="Add child">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-051a.webp" class="rounded" alt="Add child">
 
 <div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
     You can either create a <b>brand new person</b> or select an <b>existing person</b> as this persons new child.
