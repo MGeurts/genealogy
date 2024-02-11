@@ -32,13 +32,6 @@
                     {{ __('app.family_chart') }}
                 </x-button.secondary>
             </a>
-
-            <a wire:navigate href="/people/{{ $person->id }}/death">
-                <x-button.secondary class="mb-3 mr-3 {{ request()->routeIs('people.death') ? 'bg-warning hover:bg-warning-700' : '' }}" title="{{ __('app.show_death') }}">
-                    <x-icon.tabler icon="coffin" class="mr-1" />
-                    {{ __('app.death') }}
-                </x-button.secondary>
-            </a>
         </div>
     </div>
 </div>

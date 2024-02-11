@@ -40,7 +40,6 @@ Route::middleware([
         Route::get('people/{person}/ancestors', 'ancestors')->name('people.ancestors');
         Route::get('people/{person}/descendants', 'descendants')->name('people.descendants');
         Route::get('people/{person}/chart', 'chart')->name('people.chart');
-        Route::get('people/{person}/death', 'death')->name('people.death');
         Route::get('people/{person}/add-child', 'addChild')->name('people.add-child');
         Route::get('people/{person}/add-partner', 'addPartner')->name('people.add-partner');
         Route::get('people/{person}/add-photo', 'addPhoto')->name('people.add-photo');

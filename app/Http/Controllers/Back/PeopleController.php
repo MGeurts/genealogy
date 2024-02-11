@@ -49,11 +49,6 @@ class PeopleController extends Controller
         return view('back.people.chart')->with(compact('person'));
     }
 
-    public function death(Person $person): View
-    {
-        return view('back.people.show.death')->with(compact('person'));
-    }
-
     public function addChild(Person $person): View
     {
         return view('back.people.add.child')->with(compact('person'));

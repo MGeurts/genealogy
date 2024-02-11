@@ -187,11 +187,11 @@ Another way to add people is to click on the <b>Add child</b> button on the <b>C
 
 The personal overview shows all information about the selected person.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-020.webp" class="rounded" alt="Person overview">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-020a.webp" class="rounded" alt="Person overview">
 
 The navigation bar on top allows you to chose some specific items.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-021.webp" class="rounded" alt="Person menu">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-021a.webp" class="rounded" alt="Person menu">
 
 The <b>Profile</b> card shows all general information about the person.
 
@@ -253,9 +253,9 @@ You can add a child by clicking the green <b>Add</b> button in the Children card
 You can delete a child relationship <span class="text-danger">(not the person itself)</span> by clicking the red <b>Delete</b> button in the child row.<br/>
 The deleted child will remain in the database as a person but just not have the selected person as father or mother anymore.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-051.webp" class="rounded" alt="Partners add">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-051a.webp" class="rounded" alt="Child add">
 
-When adding a child you can either create a brand <b>new person</b> or select an <b>existing person</b>.
+When adding a child you can either create a <b>brand new person</b> or select an <b>existing person</b>.
 
 ### f. Siblings
 
@@ -314,15 +314,16 @@ If a user has the proper rights, additional features are presented.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-006a.webp" class="rounded" alt="Offcanvas menu">
 
-### a. Teams & Persons
+### a. Teams & People
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-090.webp" class="rounded" alt="Persons">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-090a.webp" class="rounded" alt="Teams">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-090b.webp" class="rounded" alt="People">
 
-### b. Users & user logging
+### b. Users & logging
 
 The offcanvas menu allows <b>developers</b> to consult the users and their logging information.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-091.webp" class="rounded" alt="Users">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-091a.webp" class="rounded" alt="Users">
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-093.webp" class="rounded" alt="User logging 1">
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-094.webp" class="rounded" alt="User logging 2">
 
@@ -342,7 +343,7 @@ The <b>Log Viewer</b> menu item allows <b>developers</b> to consult the applicat
 
 The <b>Dependencies</b> menu item allows <b>developers</b> to consult the application dependencies.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-097.webp" class="rounded" alt="Dependencies">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-097a.webp" class="rounded" alt="Dependencies">
 
 ### f. Session
 
