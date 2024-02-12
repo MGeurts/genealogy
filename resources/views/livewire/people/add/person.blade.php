@@ -72,7 +72,7 @@
                 <!-- gender_id -->
                 <div class="col-span-3">
                     <x-label for="gender_id" value="{{ __('person.gender') }}" />
-                    <x-simple-select class="bg-white" wire:dirty.class="bg-warning-100" wire:model="personForm.gender_id" name="gender_id" id="gender_id" :options="$personForm->genders()" value-field='id'
+                    <x-select.select class="bg-white" wire:dirty.class="bg-warning-100" wire:model="personForm.gender_id" name="gender_id" id="gender_id" :options="$personForm->genders()" value-field='id'
                         text-field='name' placeholder="{{ __('app.select') }} ..." search-input-placeholder="{{ __('app.search') }} ..." :searchable="true" :clearable="true"
                         wire:dirty.class="bg-warning-100" no-options="{{ __('app.no_data') }}" no-result="{{ __('app.no_result') }}" class="form-select pl-0 py-0" />
                     <x-input-error for="personForm.gender_id" class="mt-1" />

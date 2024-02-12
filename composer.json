@@ -22,8 +22,7 @@
         "livewire/livewire": "^3.0",
         "spatie/laravel-backup": "^8.5",
         "stevebauman/location": "^7.1",
-        "usernotnull/tall-toasts": "^2.0",
-        "victorybiz/laravel-simple-select": "^1.6"
+        "usernotnull/tall-toasts": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",

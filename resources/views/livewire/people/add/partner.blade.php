@@ -14,7 +14,7 @@
             <!-- person2_id -->
             <div class="col-span-6">
                 <x-label for="person2_id" value="{{ __('person.partner') }}" />
-                <x-simple-select class="bg-white" wire:model="partnerForm.person2_id" name="person2_id" id="person2_id" :options="$persons" value-field='id' text-field='name'
+                <x-select.select class="bg-white" wire:model="partnerForm.person2_id" name="person2_id" id="person2_id" :options="$persons" value-field='id' text-field='name'
                     placeholder="{{ __('app.select') }} ..." search-input-placeholder="{{ __('app.search') }} ..." :searchable="true" :clearable="true" wire:dirty.class="bg-warning-100"
                     no-options="{{ __('app.no_data') }}" no-result="{{ __('app.no_result') }}" class="form-select pl-0 py-0" />
                 <x-input-error for="partnerForm.person2_id" class="mt-1" />

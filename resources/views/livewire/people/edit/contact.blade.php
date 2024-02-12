@@ -60,7 +60,7 @@
                 <!-- country_id -->
                 <div class="col-span-5">
                     <x-label for="country_id" value="{{ __('person.country') }}" />
-                    <x-simple-select class="bg-white" wire:model="contactForm.country_id" name="country_id" id="country_id" :options="$contactForm->countries()" value-field='id' text-field='name'
+                    <x-select.select class="bg-white" wire:model="contactForm.country_id" name="country_id" id="country_id" :options="$contactForm->countries()" value-field='id' text-field='name'
                         placeholder="{{ __('app.select') }} ..." search-input-placeholder="{{ __('app.search') }} ..." :searchable="true" :clearable="true" wire:dirty.class="bg-warning-100"
                         no-options="{{ __('app.no_data') }}" no-result="{{ __('app.no_result') }}" class="form-select pl-0 py-0" />
                     <x-input-error for="contactForm.country_id" class="mt-1" />

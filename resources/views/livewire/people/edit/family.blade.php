@@ -15,7 +15,7 @@
                 <!-- father_id -->
                 <div class="col-span-6">
                     <x-label for="father_id" value="{{ __('person.father') }} ({{ __('person.biological') }})" />
-                    <x-simple-select class="bg-white" wire:model="familyForm.father_id" name="father_id" id="father_id" :options="$fathers" value-field='id' text-field='name'
+                    <x-select.select class="bg-white" wire:model="familyForm.father_id" name="father_id" id="father_id" :options="$fathers" value-field='id' text-field='name'
                         placeholder="{{ __('app.select') }} ..." search-input-placeholder="{{ __('app.search') }} ..." :searchable="true" :clearable="true" wire:dirty.class="bg-warning-100"
                         no-options="{{ __('app.no_data') }}" no-result="{{ __('app.no_result') }}" class="form-select pl-0 py-0" />
                     <x-input-error for="father_id" class="mt-1" />
@@ -24,7 +24,7 @@
                 <!-- mother_id -->
                 <div class="col-span-6">
                     <x-label for="mother_id" value="{{ __('person.mother') }} ({{ __('person.biological') }})" />
-                    <x-simple-select class="bg-white" wire:model="familyForm.mother_id" name="mother_id" id="mother_id" :options="$mothers" value-field='id' text-field='name'
+                    <x-select.select class="bg-white" wire:model="familyForm.mother_id" name="mother_id" id="mother_id" :options="$mothers" value-field='id' text-field='name'
                         placeholder="{{ __('app.select') }} ..." search-input-placeholder="{{ __('app.search') }} ..." :searchable="true" :clearable="true" wire:dirty.class="bg-warning-100"
                         no-options="{{ __('app.no_data') }}" no-result="{{ __('app.no_result') }}" class="form-select pl-0 py-0" />
                     <x-input-error for="mother_id" class="mt-1" />
@@ -40,7 +40,7 @@
                 <!-- parents_id -->
                 <div class="col-span-6">
                     <x-label for="parents_id" value="{{ __('person.parents') }}" />
-                    <x-simple-select class="bg-white" wire:model="familyForm.parents_id" name="parents_id" id="parents_id" :options="$parents" value-field='id' text-field='couple'
+                    <x-select.select class="bg-white" wire:model="familyForm.parents_id" name="parents_id" id="parents_id" :options="$parents" value-field='id' text-field='couple'
                         placeholder="{{ __('app.select') }} ..." search-input-placeholder="{{ __('app.search') }} ..." :searchable="true" :clearable="true" wire:dirty.class="bg-warning-100"
                         no-options="{{ __('app.no_data') }}" no-result="{{ __('app.no_result') }}" class="form-select pl-0 py-0" />
                     <x-input-error for="parents_id" class="mt-1" />

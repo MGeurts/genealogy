@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="w-48">
-                        <x-simple-select class="bg-white" wire:model.live="period" name="period" id="period" :options="$options" :searchable="false" :clearable="false" class="form-select pl-0 py-0" />
+                        <x-select.select class="bg-white" wire:model.live="period" name="period" id="period" :options="$options" :searchable="false" :clearable="false" class="form-select pl-0 py-0" />
                     </div>
 
                     <div class="flex-grow min-w-max max-w-full flex-1 text-end">

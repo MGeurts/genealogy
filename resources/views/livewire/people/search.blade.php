@@ -61,7 +61,7 @@
                 @if ($people->count() > 0)
                     <div class="mt-2 flex flex-wrap gap-2 justify-center items-center">
                         <div class="flex-grow min-w-max max-w-36 flex-1">
-                            <x-simple-select class="bg-white" wire:model.live="perpage" name="perpage" id="perpage" :options="$options" :searchable="false" :clearable="false"
+                            <x-select.select class="bg-white" wire:model.live="perpage" name="perpage" id="perpage" :options="$options" :searchable="false" :clearable="false"
                                 class="form-select pl-0 py-0" />
                         </div>
 
