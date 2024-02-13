@@ -29,15 +29,19 @@ class Persons extends Component implements HasForms, HasTable
             ->columns([
                 Tables\Columns\TextColumn::make('surname')
                     ->label(__('person.surname'))
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('firstname')
                     ->label(__('person.firstname'))
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('birthname')
                     ->label(__('person.birthname'))
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('nickname')
                     ->label(__('person.nickname'))
+                    ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('sex')
                     ->label(__('person.sex'))
