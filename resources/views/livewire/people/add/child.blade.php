@@ -23,8 +23,7 @@
                 <!-- surname -->
                 <div class="col-span-6 md:col-span-3">
                     <x-label for="surname" value="{{ __('person.surname') }}" />
-                    <x-input id="surname" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="childForm.surname" wire:dirty.class="bg-warning-100" autocomplete="surname"
-                        required />
+                    <x-input id="surname" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="childForm.surname" wire:dirty.class="bg-warning-100" autocomplete="surname" />
                     <x-input-error for="childForm.surname" class="mt-1" />
                 </div>
 
