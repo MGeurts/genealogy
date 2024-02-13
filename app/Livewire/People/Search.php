@@ -3,7 +3,7 @@
 namespace App\Livewire\People;
 
 use App\Models\Person;
-use Livewire\Attributes\Url;
+use Livewire\Attributes\Session;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -11,7 +11,7 @@ class Search extends Component
 {
     use WithPagination;
 
-    #[Url(history: true)]
+    #[Session]
     public $search = '%';    // default to '' when application is ready
 
     public $perpage = 10;
