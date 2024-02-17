@@ -136,7 +136,15 @@
                         <!-- others -->
                         <div>{{ Auth::user()->teamRole(auth()->user()->currentTeam)->name }} ...</div>
 
-                        <div><x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" /></div>
+                        <div>
+                            <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+
+                            <p>
+                                <x-nav-link-responsive href="{{ url('log-viewer') }}" target="_blank">
+                                    {{ __('Log Viewer') }}
+                                </x-nav-link-responsive>
+                            </p>
+                        </div>
                     @endif
                 @endif
 
