@@ -11,7 +11,7 @@ class Descendants extends Component
 
     public $descendants;
 
-    public $count = 3;              // default
+    public $count = 3; // default
 
     public $count_min = 1;
 
@@ -38,24 +38,24 @@ class Descendants extends Component
     public function mount()
     {
         $this->descendants = collect(DB::select("
-            WITH RECURSIVE descendants AS ( 
-                SELECT 
-                    id, firstname, surname, sex, father_id, mother_id, dob, dod, yod, photo,
+            WITH RECURSIVE descendants AS (
+                SELECT
+                    id, firstname, surname, sex, father_id, mother_id, dob, yob, dod, yod, photo,
                     0 AS degree,
                     CONCAT(id, '') AS sequence
-                FROM people  
-                WHERE deleted_at IS NULL AND id = " . $this->person->id . " 
-                
-                UNION ALL 
-                
-                SELECT p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dob, p.dod, p.yod, p.photo,
+                FROM people
+                WHERE deleted_at IS NULL AND id = " . $this->person->id . "
+
+                UNION ALL
+
+                SELECT p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dob, p.yob, p.dod, p.yod, p.photo,
                     degree + 1 AS degree,
                     CONCAT(d.sequence, ',', p.id) AS sequence
                 FROM people p, descendants d
                 WHERE deleted_at IS NULL AND (p.father_id = d.id OR p.mother_id = d.id)
-            ) 
-                    
-            SELECT * FROM descendants ORDER BY degree, dob;
+            )
+
+            SELECT * FROM descendants ORDER BY degree, dob, yob;
         "));
 
         $this->count_max = $this->descendants->max('degree') + 1;
