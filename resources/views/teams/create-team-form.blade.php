@@ -13,7 +13,7 @@
 
     <x-slot name="form">
         <div class="col-span-6">
-            <x-label value="{{ __('team.team_owner') }}" />
+            <x-label value="{{ __('team.owner') }}" />
 
             <div class="flex items-center mt-2">
                 <img class="w-12 h-12 rounded-full object-cover" src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}">
@@ -26,7 +26,7 @@
         </div>
 
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="name" value="{{ __('team.team_name') }}" />
+            <x-label for="name" value="{{ __('team.name') }}" />
             <x-input id="name" type="text" class="mt-1 block w-full" wire:model="state.name" autofocus />
             <x-input-error for="name" class="mt-2" />
         </div>
