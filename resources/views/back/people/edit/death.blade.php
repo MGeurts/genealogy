@@ -1,11 +1,11 @@
 @section('title')
-    &vert; {{ __('app.edit_death') }}
+    &vert; {{ __('person.edit_death') }}
 @endsection
 
 <x-app-layout>
     <x-slot name="heading">
         <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-            {{ __('app.edit_death') }}
+            {{ __('person.edit_death') }}
         </h2>
     </x-slot>
 
