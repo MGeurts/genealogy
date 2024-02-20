@@ -67,7 +67,7 @@ class Person extends Model
     protected static function booted(): void
     {
         static::addGlobalScope('team', function (Builder $builder) {
-            if (! auth()) {
+            if (!auth()) {
                 return;
             } elseif (env('GOD_MODE', 'false') && auth()->user()->is_developer) {
                 return true;
@@ -166,7 +166,7 @@ class Person extends Model
             }
         }
 
-        return $age;
+        return $age >= 0 ? $age : null;
     }
 
     protected function getNextBirthdayAttribute(): ?Carbon
@@ -176,8 +176,8 @@ class Person extends Model
             $this_years_birthday = Carbon::parse(date('Y') . substr($this->dob, 4));
 
             return $today->gt($this_years_birthday)
-                ? $this_years_birthday->addYear()
-                : $this_years_birthday;
+            ? $this_years_birthday->addYear()
+            : $this_years_birthday;
         } else {
             return null;
         }
@@ -221,7 +221,7 @@ class Person extends Model
             }
         }
 
-        return $lifetime;        //returns YEAR(dob) - YEAR(dod)
+        return $lifetime; //returns YEAR(dob) - YEAR(dod)
     }
 
     protected function getBirthDateAttribute(): ?string
@@ -394,7 +394,7 @@ class Person extends Model
         return $this->HasManyMerged(Person::class, ['father_id', 'mother_id'])->orderBy('dob');
     }
 
-    public function children_with_children(): HasManyMerged // only used in family chart
+    public function children_with_children(): HasManyMerged// only used in family chart
     {
         return $this->HasManyMerged(Person::class, ['father_id', 'mother_id'])->with('children')->orderBy('dob');
     }
@@ -424,7 +424,7 @@ class Person extends Model
     /* --------------------------------------------------------------------------------- */
     public function getPartnersAttribute(): Collection
     {
-        if (! array_key_exists('partners', $this->relations)) {
+        if (!array_key_exists('partners', $this->relations)) {
             $partners_1 = $this->belongsToMany(Person::class, 'couples', 'person1_id', 'person2_id')
                 ->withPivot(['id', 'date_start', 'date_end', 'is_married', 'has_ended'])
                 ->with('children')
@@ -508,7 +508,7 @@ class Person extends Model
 
     public function siblings(): Collection
     {
-        if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
+        if (!$this->father_id && !$this->mother_id && !$this->parents_id) {
             return collect([]);
         } else {
             $siblings_father = $this->father_id ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->get() : collect([]);
@@ -535,9 +535,9 @@ class Person extends Model
         }
     }
 
-    public function siblings_with_children(): Collection  // only used in family chart
+    public function siblings_with_children(): Collection// only used in family chart
     {
-        if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
+        if (!$this->father_id && !$this->mother_id && !$this->parents_id) {
             return collect([]);
         } else {
             $siblings_father = $this->father_id ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->with('children')->get() : collect([]);
