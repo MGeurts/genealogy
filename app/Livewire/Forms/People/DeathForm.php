@@ -23,6 +23,7 @@ class DeathForm extends Form
 
     // -----------------------------------------------------------------------
     // To Do : add to rules : yod must be equal to dod->format("Y) when dod not null
+    // To Do : add to rules : yod must be greater or equal to yob or dob->format("Y)
     protected $rules = [
         'yod' => ['nullable', 'date_format:Y'],
         'dod' => ['nullable', 'date', 'date_format:Y-m-d', 'before_or_equal:today'],
