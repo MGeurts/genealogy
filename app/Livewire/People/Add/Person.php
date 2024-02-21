@@ -51,7 +51,7 @@ class Person extends Component
                 // if needed, create team photo folder
                 $path = storage_path('app/public/photos/' . $this->personForm->team_id);
 
-                if (!File::isDirectory($path)) {
+                if (! File::isDirectory($path)) {
                     File::makeDirectory($path, 0777, true, true);
                 }
 
