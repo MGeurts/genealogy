@@ -9,9 +9,9 @@ use Livewire\Form;
 class ChildForm extends Form
 {
     // -----------------------------------------------------------------------
-    public $image = null;       // file upload input
+    public $image = null; // file upload input
 
-    public $iteration = 0;      // needed for reset upload input
+    public $iteration = 0; // needed for reset upload input
 
     // -----------------------------------------------------------------------
     public $firstname = null;

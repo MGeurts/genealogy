@@ -89,4 +89,21 @@ return [
     'upload_photo' => 'Foto hochladen',
     'upload_photo_primary' => 'Hauptfoto (erneut) hochladen',
     'update_photo' => 'Foto aktualisieren',
+
+    // Messages
+    'yod_not_matching_dod' => 'Das Sterbejahr muss übereinstimmen mit dem Sterbedatum (:value).',
+    'yod_before_dob' => 'Das Sterbejahr darf nicht vor dem Geburtsdatum (:value) sein.',
+    'yod_before_yob' => 'Das Sterbejahr darf nicht vor dem Geburtsjahr (:value) sein.',
+
+    'dod_not_matching_yod' => 'Das Sterbedatum muss übereinstimmen mit dem Sterbejahr (:value).',
+    'dod_before_dob' => 'Das Sterbedatum darf nicht nach dem Geburtsdatum (:value) sein.',
+    'dod_before_yob' => 'Das Sterbedatum darf nicht nach dem Geburtsjahr (:value) sein.',
+
+    'yob_not_matching_dob' => 'Das Sterbejahr muss übereinstimmen mit dem Sterbedatum (:value).',
+    'yob_after_dod' => 'Das Sterbejahr darf nicht vor dem Geburtsdatum (:value) sein.',
+    'yob_after_yod' => 'Das Sterbejahr darf nicht vor dem Geburtsjahr (:value) sein.',
+
+    'dob_not_matching_yob' => 'Das Geburtsdatum muss übereinstimmen mit dem Geburtsjahr (:value).',
+    'dob_after_dod' => 'Das Geburtsdatum darf nicht nach dem Sterbedatum (:value) sein.',
+    'dob_after_yod' => 'Das Geburtsdatum darf nicht nach dem Sterbejahr (:value) sein.',
 ];

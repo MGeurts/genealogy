@@ -89,4 +89,21 @@ return [
     'upload_photo' => 'Afbeelding uploaden',
     'upload_photo_primary' => 'Primaire afbeelding (opnieuw) uploaden',
     'update_photo' => 'Afbeelding wijzigen',
+
+    // Messages
+    'yod_not_matching_dod' => 'Het Jaar overlijden moet overeenkomen met de Datum overlijden (:value).',
+    'yod_before_dob' => 'Het Jaar overlijden mag niet voor de Datum geboorte (:value) zijn.',
+    'yod_before_yob' => 'Het Jaar overlijden mag niet voor het Jaar geboorte (:value) zijn.',
+
+    'dod_not_matching_yod' => 'De datum overlijden moet overeenkomen met het Jaar overlijden (:value).',
+    'dod_before_dob' => 'De Datum overlijden mag niet voor de Datum geboorte (:value) zijn.',
+    'dod_before_yob' => 'De Datum overlijden mag niet voor de Jaar geboorte (:value) zijn.',
+
+    'yob_not_matching_dob' => 'Het Jaar geboorte moet overeenkomen met de Datum geboorte (:value).',
+    'yob_after_dod' => 'Het Jaar geboorte mag niet na de Datum overlijden (:value) zijn.',
+    'yob_after_yod' => 'Het Jaar geboorte mag niet na het Jaar overlijden (:value) zijn.',
+
+    'dob_not_matching_yob' => 'De Datum geboorte moet overeenkomen met het Jaar geboorte (:value).',
+    'dob_after_dod' => 'De Datum geboorte mag niet na de Datum overlijden (:value) zijn.',
+    'dob_after_yod' => 'De Datum geboorte mag niet na het jaar overlijden (:value) zijn.',
 ];

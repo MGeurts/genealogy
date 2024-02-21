@@ -2,13 +2,21 @@
 
 namespace App\Livewire\Forms\People;
 
+use App\Rules\DodValid;
+use App\Rules\YodValid;
+use Livewire\Attributes\Validate;
 use Livewire\Form;
 
 class DeathForm extends Form
 {
     // -----------------------------------------------------------------------
+    public $person;
+
+    // -----------------------------------------------------------------------
+    #[Validate]
     public $yod = null;
 
+    #[Validate]
     public $dod = null;
 
     public $pod = null;
@@ -21,18 +29,28 @@ class DeathForm extends Form
 
     public $cemetery_location_longitude = null;
 
-    // -----------------------------------------------------------------------
-    // To Do : add to rules : yod must be equal to dod->format("Y) when dod not null
-    // To Do : add to rules : yod must be greater or equal to yob or dob->format("Y)
-    protected $rules = [
-        'yod' => ['nullable', 'date_format:Y'],
-        'dod' => ['nullable', 'date', 'date_format:Y-m-d', 'before_or_equal:today'],
-        'pod' => ['nullable', 'string', 'max:255'],
-        'cemetery_location_name' => ['nullable', 'string', 'max:255'],
-        'cemetery_location_address' => ['nullable', 'string', 'max:255'],
-        'cemetery_location_latitude' => ['required_with:cemetery_location_longitude', 'nullable', 'numeric', 'decimal:0,13', 'min:-90', 'max:90'],
-        'cemetery_location_longitude' => ['required_with:cemetery_location_latitude', 'nullable', 'numeric', 'decimal:0,13', 'min:-180', 'max:180'],
-    ];
+    public function rules()
+    {
+        return [
+            'yod' => [
+                'nullable',
+                'date_format:Y',
+                new YodValid,
+            ],
+            'dod' => [
+                'nullable',
+                'date',
+                'date_format:Y-m-d',
+                'before_or_equal:today',
+                new DodValid,
+            ],
+            'pod' => ['nullable', 'string', 'max:255'],
+            'cemetery_location_name' => ['nullable', 'string', 'max:255'],
+            'cemetery_location_address' => ['nullable', 'string', 'max:255'],
+            'cemetery_location_latitude' => ['required_with:cemetery_location_longitude', 'nullable', 'numeric', 'decimal:0,13', 'min:-90', 'max:90'],
+            'cemetery_location_longitude' => ['required_with:cemetery_location_latitude', 'nullable', 'numeric', 'decimal:0,13', 'min:-180', 'max:180'],
+        ];
+    }
 
     public function messages()
     {
@@ -50,11 +68,5 @@ class DeathForm extends Form
             'cemetery_location_latitude' => __('metadata.latitude'),
             'cemetery_location_longitude' => __('metadata.longitude'),
         ];
-    }
-
-    // -----------------------------------------------------------------------
-    public function YodCorrespondsDod()
-    {
-        return $this->yod && $this->dod ? $this->yod == date('Y', strtotime($this->dod)) : true;
     }
 }

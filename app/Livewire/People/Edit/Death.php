@@ -22,6 +22,8 @@ class Death extends Component
     // -----------------------------------------------------------------------
     public function mount()
     {
+        $this->deathForm->person = $this->person;
+
         $this->deathForm->yod = $this->person->yod;
         $this->deathForm->dod = $this->person->dod?->format('Y-m-d');
         $this->deathForm->pod = $this->person->pod;
@@ -36,35 +38,25 @@ class Death extends Component
     {
         if ($this->isDirty()) {
             $validated = $this->deathForm->validate();
+
+            $this->person->update([
+                'yod' => $this->deathForm->yod ? $this->deathForm->yod : null,
+                'dod' => $this->deathForm->dod ? $this->deathForm->dod : null,
+                'pod' => $this->deathForm->pod ? $this->deathForm->pod : null,
+            ]);
             // ------------------------------------------------------
-            // check yod and dod consistency
+            // update or create metadata
             // ------------------------------------------------------
-            if ($this->deathForm->YodCorrespondsDod()) {
-                // ------------------------------------------------------
-                // update user
-                // ------------------------------------------------------
-                $this->person->update([
-                    'yod' => $this->deathForm->yod ? $this->deathForm->yod : null,
-                    'dod' => $this->deathForm->dod ? $this->deathForm->dod : null,
-                    'pod' => $this->deathForm->pod ? $this->deathForm->pod : null,
-                ]);
-                // ------------------------------------------------------
-                // update or create metadata
-                // ------------------------------------------------------
-                $this->person->updateMetadata(
-                    collect($validated)
-                        ->forget(['yod', 'dod', 'pod'])
-                        ->filter(function ($value, $key) {
-                            return $value != $this->person->getMetadataValue($key);
-                        })
-                );
-                // ------------------------------------------------------
-                $this->dispatch('person_updated');
-                toast()->success(__('app.saved') . '.', __('app.save'))->push();
-            } else {
-                $this->resetDeath();
-                toast()->danger(__('person.yod') . ' ≠ ' . __('person.dod') . '!', __('app.attention'))->push();
-            }
+            $this->person->updateMetadata(
+                collect($validated)
+                    ->forget(['yod', 'dod', 'pod'])
+                    ->filter(function ($value, $key) {
+                        return $value != $this->person->getMetadataValue($key);
+                    })
+            );
+            // ------------------------------------------------------
+            $this->dispatch('person_updated');
+            toast()->success(__('app.saved') . '.', __('app.save'))->push();
         }
     }
 
@@ -76,13 +68,13 @@ class Death extends Component
     public function isDirty()
     {
         return
-            $this->deathForm->yod != $this->person->yod or
-            $this->deathForm->dod != ($this->person->dod ? $this->person->dod->format('Y-m-d') : null) or
-            $this->deathForm->pod != $this->person->pod or
+        $this->deathForm->yod != $this->person->yod or
+        $this->deathForm->dod != ($this->person->dod ? $this->person->dod->format('Y-m-d') : null) or
+        $this->deathForm->pod != $this->person->pod or
 
-            $this->deathForm->cemetery_location_name != $this->person->getMetadataValue('cemetery_location_name') or
-            $this->deathForm->cemetery_location_address != $this->person->getMetadataValue('cemetery_location_address') or
-            $this->deathForm->cemetery_location_latitude != $this->person->getMetadataValue('cemetery_location_latitude') or
-            $this->deathForm->cemetery_location_longitude != $this->person->getMetadataValue('cemetery_location_longitude');
+        $this->deathForm->cemetery_location_name != $this->person->getMetadataValue('cemetery_location_name') or
+        $this->deathForm->cemetery_location_address != $this->person->getMetadataValue('cemetery_location_address') or
+        $this->deathForm->cemetery_location_latitude != $this->person->getMetadataValue('cemetery_location_latitude') or
+        $this->deathForm->cemetery_location_longitude != $this->person->getMetadataValue('cemetery_location_longitude');
     }
 }

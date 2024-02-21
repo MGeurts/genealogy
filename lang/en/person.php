@@ -89,4 +89,21 @@ return [
     'upload_photo' => 'Upload photo',
     'upload_photo_primary' => 'Upload (or re-upload) primary photo',
     'update_photo' => 'Update photo',
+
+    // Messages
+    'yod_not_matching_dod' => 'The Year of death must match the Date of death (:value).',
+    'yod_before_dob' => 'The Year of death can not be before the Date of birth (:value).',
+    'yod_before_yob' => 'The Year of death can not be before the Year of birth (:value).',
+
+    'dod_not_matching_yod' => 'The Date of death must match the Year of death (:value).',
+    'dod_before_dob' => 'The Date of death can not be before the Date of birth (:value).',
+    'dod_before_yob' => 'The Date of death can not be before the Year of birth (:value).',
+
+    'yob_not_matching_dob' => 'The Year of birth must match the Date of birth (:value).',
+    'yob_after_dod' => 'The Year of birth can not be after the Date of death (:value).',
+    'yob_after_yod' => 'The Year of birth can not be after the Year of death (:value).',
+
+    'dob_not_matching_yob' => 'The Date of birth must match the Year of birth (:value).',
+    'dob_after_dod' => 'The Date of birth can not be after the Date of death (:value).',
+    'dob_after_yod' => 'The Date of birth can not be after the Year of death (:value).',
 ];
