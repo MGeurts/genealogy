@@ -517,11 +517,7 @@ class Person extends Model
 
             $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents);
 
-            return $siblings->map(function ($sibling) use (
-                $siblings_father,
-                $siblings_mother,
-                $siblings_parents
-            ) {
+            return $siblings->map(function ($sibling) use ($siblings_father, $siblings_mother, $siblings_parents) {
                 if ($siblings_father->contains('id', $sibling->id) && $siblings_mother->contains('id', $sibling->id)) {
                     $sibling['type'] = '';
                 } elseif ($siblings_father->contains('id', $sibling->id) || $siblings_mother->contains('id', $sibling->id)) {
@@ -546,11 +542,7 @@ class Person extends Model
 
             $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents);
 
-            return $siblings->map(function ($sibling) use (
-                $siblings_father,
-                $siblings_mother,
-                $siblings_parents
-            ) {
+            return $siblings->map(function ($sibling) use ($siblings_father, $siblings_mother, $siblings_parents) {
                 if ($siblings_father->contains('id', $sibling->id) && $siblings_mother->contains('id', $sibling->id)) {
                     $sibling['type'] = '';
                 } elseif ($siblings_father->contains('id', $sibling->id) || $siblings_mother->contains('id', $sibling->id)) {
