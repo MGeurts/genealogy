@@ -127,14 +127,14 @@ class Child extends Component
     public function isDirty()
     {
         return
-            $this->childForm->firstname or
-            $this->childForm->surname or
-            $this->childForm->sex or
-            $this->childForm->gender_id or
+        $this->childForm->firstname or
+        $this->childForm->surname or
+        $this->childForm->sex or
+        $this->childForm->gender_id or
 
-            $this->childForm->image != null or
+        $this->childForm->image != null or
 
-            $this->childForm->person_id;
+        $this->childForm->person_id;
     }
 
     // -----------------------------------------------------------------------
@@ -147,7 +147,10 @@ class Child extends Component
                 ->orderBy('firstname')->orderBy('surname')
                 ->get()
                 ->map(function ($p) {
-                    return ['id' => $p->id, 'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : '')];
+                    return [
+                        'id' => $p->id,
+                        'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
+                    ];
                 })->toArray();
         } else {
             $persons = Person::where('id', '!=', $this->person->id)
@@ -156,7 +159,10 @@ class Child extends Component
                 ->orderBy('firstname')->orderBy('surname')
                 ->get()
                 ->map(function ($p) {
-                    return ['id' => $p->id, 'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : '')];
+                    return [
+                        'id' => $p->id,
+                        'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
+                    ];
                 })->toArray();
         }
 

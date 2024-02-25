@@ -87,11 +87,11 @@ class Partner extends Component
     public function isDirty()
     {
         return
-            $this->partnerForm->person2_id != null or
-            $this->partnerForm->date_start != null or
-            $this->partnerForm->date_end != null or
-            $this->partnerForm->is_married != false or
-            $this->partnerForm->has_ended != false;
+        $this->partnerForm->person2_id != null or
+        $this->partnerForm->date_start != null or
+        $this->partnerForm->date_end != null or
+        $this->partnerForm->is_married != false or
+        $this->partnerForm->has_ended != false;
     }
 
     public function render()
@@ -100,7 +100,10 @@ class Partner extends Component
             ->orderBy('firstname', 'asc')->orderBy('surname', 'asc')
             ->get()
             ->map(function ($p) {
-                return ['id' => $p->id, 'name' => $p->name . ' [' . strtoupper($p->sex) . '] (' . $p->birth_formatted . ')'];
+                return [
+                    'id' => $p->id,
+                    'name' => $p->name . ' [' . strtoupper($p->sex) . '] (' . $p->birth_formatted . ')',
+                ];
             })->toArray();
 
         return view('livewire.people.add.partner')->with(compact('persons'));
