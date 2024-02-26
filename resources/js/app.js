@@ -60,10 +60,10 @@ document.addEventListener('livewire:navigated', () => {
 // -------------------------------------------------------------------------------------
 // Back to top button
 // -------------------------------------------------------------------------------------
-// Get the button
+// get the button
 const mybutton = document.getElementById("btn-back-to-top");
 
-// When the user scrolls down 20px from the top of the document, show the button
+// when the user scrolls down 20px from the top of the document, show the button
 const scrollFunction = () => {
     if (
         document.body.scrollTop > 20 ||
@@ -74,12 +74,13 @@ const scrollFunction = () => {
         mybutton.classList.add("hidden");
     }
 };
+
 // scroll back to top
 const backToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
-// When the user clicks on the button, scroll to the top of the document
+// when the user clicks on the button, scroll to the top of the document
 mybutton.addEventListener("click", backToTop);
 
 window.addEventListener("scroll", scrollFunction);

@@ -24,8 +24,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/chart.js'])
 
     {{-- styles --}}
-    @filamentStyles
     @livewireStyles
+    @filamentStyles
     @stack('styles')
 </head>
 
