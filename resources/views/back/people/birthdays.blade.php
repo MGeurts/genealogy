@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <!-- body -->
+            {{-- body --}}
             <div class="overflow-x-auto">
                 <table class="min-w-full text-left text-sm font-light">
                     <thead class="border-b font-medium dark:border-neutral-500">
@@ -77,7 +77,7 @@
                 </table>
             </div>
 
-            <!-- footer -->
+            {{-- footer --}}
             <div class="h-12 p-2 text-xs rounded-b">
                 <p class="py-0">{{ __('birthday.upcoming_months', ['months' => $months]) }}</p>
             </div>

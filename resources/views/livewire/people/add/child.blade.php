@@ -12,7 +12,7 @@
 
         <div class="p-4 bg-neutral-200">
             <div class="grid grid-cols-6 gap-5">
-                <!-- firstname -->
+                {{-- firstname --}}
                 <div class="col-span-6 md:col-span-3">
                     <x-label for="firstname" value="{{ __('person.firstname') }}" />
                     <x-input id="firstname" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="childForm.firstname" wire:dirty.class="bg-warning-100" autocomplete="firstname"
@@ -20,14 +20,14 @@
                     <x-input-error for="childForm.firstname" class="mt-1" />
                 </div>
 
-                <!-- surname -->
+                {{-- surname --}}
                 <div class="col-span-6 md:col-span-3">
                     <x-label for="surname" value="{{ __('person.surname') }}" />
                     <x-input id="surname" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="childForm.surname" wire:dirty.class="bg-warning-100" autocomplete="surname" />
                     <x-input-error for="childForm.surname" class="mt-1" />
                 </div>
 
-                <!-- sex -->
+                {{-- sex --}}
                 <div class="col-span-3">
                     <x-label for="sex" class="mr-5" value="{{ __('person.sex') }}" />
                     <div class="flex">
@@ -52,7 +52,7 @@
                     <x-input-error for="childForm.sex" class="mt-1" />
                 </div>
 
-                <!-- gender_id -->
+                {{-- gender_id --}}
                 <div class="col-span-3">
                     <x-label for="gender_id" value="{{ __('person.gender') }}" />
                     <x-select.select class="bg-white" wire:dirty.class="bg-warning-100" wire:model="childForm.gender_id" name="gender_id" id="gender_id" :options="$childForm->genders()" value-field='id'
@@ -61,7 +61,7 @@
                     <x-input-error for="childForm.gender_id" class="mt-1" />
                 </div>
 
-                <!-- image -->
+                {{-- image --}}
                 <div class="col-span-6">
                     <x-label for="image" value="{{ __('person.upload_photo') }}" />
                     <x-input type="file" id="image{{ $childForm->iteration }}" accept="image/webp, image/png, image/jpeg" wire:model="childForm.image"
@@ -91,7 +91,7 @@
                     Or you can select an <b>existing person</b> as this persons new child <b>below</b>.
                 </div>
 
-                <!-- person_id -->
+                {{-- person_id --}}
                 <div class="col-span-6">
                     <x-label for="person_id" value="{{ __('person.person') }}" />
                     <x-select.select class="bg-white" wire:dirty.class="bg-warning-100" wire:model="childForm.person_id" name="person_id" id="person_id" :options="$persons" value-field='id'

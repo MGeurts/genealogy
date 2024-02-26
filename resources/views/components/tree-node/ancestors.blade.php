@@ -32,7 +32,7 @@
             </figure>
         </x-link>
 
-        <!-- ancestors (recursive) -->
+        {{-- ancestors (recursive) --}}
         @if ($level_current < $level_max)
             @if ($ancestors_next->count() > 0)
                 <ul>

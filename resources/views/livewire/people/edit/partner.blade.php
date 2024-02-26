@@ -11,7 +11,7 @@
         </div>
 
         <div class="p-4 bg-neutral-200 grid grid-cols-6 gap-5">
-            <!-- person2_id -->
+            {{-- person2_id --}}
             <div class="col-span-6">
                 <x-label for="person2_id" value="{{ __('person.partner') }}" />
                 <x-select.select class="bg-white" wire:model="partnerForm.person2_id" name="person2_id" id="person2_id" :options="$persons" value-field='id' text-field='name'
@@ -20,7 +20,7 @@
                 <x-input-error for="partnerForm.person2_id" class="mt-1" />
             </div>
 
-            <!-- date_start -->
+            {{-- date_start --}}
             <div class="col-span-3">
                 <x-label for="date_start" value="{{ __('couple.date_start') }}" />
                 <div wire:ignore>
@@ -34,7 +34,7 @@
                 <x-input-error for="partnerForm.date_start" class="mt-1" />
             </div>
 
-            <!-- date_end -->
+            {{-- date_end --}}
             <div class="col-span-3">
                 <x-label for="date_end" value="{{ __('couple.date_end') }}" />
                 <div wire:ignore>
@@ -48,7 +48,7 @@
                 <x-input-error for="partnerForm.date_end" class="mt-1" />
             </div>
 
-            <!-- is_married -->
+            {{-- is_married --}}
             <div class="col-span-3">
                 <div class="flex items-center w-full">
                     <x-label for="is_married" class="flex items-center cursor-pointer">
@@ -63,7 +63,7 @@
                 <x-input-error for="partnerForm.is_married="mt-1" />
             </div>
 
-            <!-- has_ended -->
+            {{-- has_ended --}}
             <div class="col-span-3">
                 <div class="flex items-center w-full">
                     <x-label for="has_ended" class="flex items-center cursor-pointer">

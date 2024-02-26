@@ -12,7 +12,7 @@
 
         <div class="p-4 bg-neutral-200">
             <div class="grid grid-cols-6 gap-5">
-                <!-- firstname -->
+                {{-- firstname --}}
                 <div class="col-span-6 md:col-span-3">
                     <x-label for="firstname" value="{{ __('person.firstname') }}" />
                     <x-input id="firstname" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="profileForm.firstname" wire:dirty.class="bg-warning-100" autocomplete="firstname"
@@ -20,7 +20,7 @@
                     <x-input-error for="profileForm.firstname" class="mt-1" />
                 </div>
 
-                <!-- surname -->
+                {{-- surname --}}
                 <div class="col-span-6 md:col-span-3">
                     <x-label for="surname" value="{{ __('person.surname') }}" />
                     <x-input id="surname" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="profileForm.surname" wire:dirty.class="bg-warning-100" autocomplete="surname"
@@ -28,7 +28,7 @@
                     <x-input-error for="profileForm.surname" class="mt-1" />
                 </div>
 
-                <!-- birthname -->
+                {{-- birthname --}}
                 <div class="col-span-6 md:col-span-3">
                     <x-label for="birthname" value="{{ __('person.birthname') }}" />
                     <x-input id="birthname" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="profileForm.birthname" wire:dirty.class="bg-warning-100"
@@ -36,7 +36,7 @@
                     <x-input-error for="profileForm.birthname" class="mt-1" />
                 </div>
 
-                <!-- nickname -->
+                {{-- nickname --}}
                 <div class="col-span-6 md:col-span-3">
                     <x-label for="nickname" value="{{ __('person.nickname') }}" />
                     <x-input id="nickname" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="profileForm.nickname" wire:dirty.class="bg-warning-100"
@@ -45,7 +45,7 @@
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 
-                <!-- sex -->
+                {{-- sex --}}
                 <div class="col-span-3">
                     <x-label for="sex" class="mr-5" value="{{ __('person.sex') }} ({{ __('person.biological') }})" />
                     <div class="flex">
@@ -70,7 +70,7 @@
                     <x-input-error for="profileForm.sex" class="mt-1" />
                 </div>
 
-                <!-- gender_id -->
+                {{-- gender_id --}}
                 <div class="col-span-3">
                     <x-label for="gender_id" value="{{ __('person.gender') }}" />
                     <x-select.select class="bg-white" wire:model="profileForm.gender_id" name="gender_id" id="gender_id" :options="$profileForm->genders()" value-field='id' text-field='name'
@@ -80,14 +80,14 @@
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 
-                <!-- yob -->
+                {{-- yob --}}
                 <div class="col-span-6 md:col-span-3">
                     <x-label for="yob" value="{{ __('person.yob') }}" />
                     <x-input id="yob" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="profileForm.yob" wire:dirty.class="bg-warning-100" autocomplete="yob" />
                     <x-input-error for="profileForm.yob" class="mt-1" />
                 </div>
 
-                <!-- dob -->
+                {{-- dob --}}
                 <div class="col-span-6 md:col-span-3">
                     <x-label for="dob" value="{{ __('person.dob') }}" />
                     <div wire:ignore>
@@ -101,7 +101,7 @@
                     <x-input-error for="profileForm.dob" class="mt-1" />
                 </div>
 
-                <!-- pob -->
+                {{-- pob --}}
                 <div class="col-span-6">
                     <x-label for="pob" value="{{ __('person.pob') }}" />
                     <x-input id="pob" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="profileForm.pob" wire:dirty.class="bg-warning-100" autocomplete="pod" />
@@ -109,7 +109,7 @@
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 
-                <!-- image -->
+                {{-- image --}}
                 <div class="col-span-6">
                     <x-label for="image" class="mb-1" value="{{ __('person.upload_photo_primary') }}" />
                     <x-input type="file" id="image{{ $profileForm->iteration }}" accept="image/webp, image/png, image/jpeg" wire:model="profileForm.image"

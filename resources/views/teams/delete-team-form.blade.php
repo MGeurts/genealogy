@@ -22,7 +22,7 @@
             </x-button.danger>
         </div>
 
-        <!-- Delete Team Confirmation Modal -->
+        {{-- delete team confirmation modal --}}
         <x-confirmation-modal wire:model.live="confirmingTeamDeletion">
             <x-slot name="title">
                 {{ __('team.delete') }}

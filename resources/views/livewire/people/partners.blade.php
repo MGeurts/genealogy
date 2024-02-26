@@ -75,7 +75,7 @@
     @endif
 
     @if ($person->couples->count() > 0)
-        <!-- Delete modal -->
+        {{-- delete modal --}}
         <x-confirmation-modal wire:model.live="deleteConfirmed">
             <x-slot name="title">
                 {{ __('app.delete') }}

@@ -11,7 +11,7 @@
 
     <div class="grow max-w-5xl overflow-x-auto py-5 dark:text-neutral-200">
         <div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50"">
-            <!-- card header -->
+            {{-- card header --}}
             <div class="h-18 min-h-min flex flex-col p-2 border-b-2 border-neutral-100 text-lg font-medium dark:border-neutral-600 dark:text-neutral-50 rounded-t">
                 <div class="flex flex-wrap gap-2 justify-center items-start">
                     <div class="flex-grow min-w-max max-w-full flex-1">
@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-            <!-- card body -->
+            {{-- card body --}}
             <div class="overflow-x-auto">
                 <table class="min-w-full text-left text-sm font-light">
                     <thead class="border-b font-medium dark:border-neutral-500">
@@ -63,7 +63,7 @@
                 </table>
             </div>
 
-            <!-- card footer -->
+            {{-- card footer --}}
             <div class="p-2 border-t-2 text-sm border-neutral-100 dark:border-neutral-600 rounded-b">
                 <p class="py-0">{{ __('userlog.timespan', ['months' => $months]) }}.</p>
             </div>

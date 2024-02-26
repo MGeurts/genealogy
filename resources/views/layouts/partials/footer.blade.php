@@ -4,7 +4,7 @@
             <span>{{ __('app.connected_social') }} :</span>
         </div>
 
-        <!-- Social network icons container -->
+        {{-- social network icons container --}}
         <div class="flex justify-center">
             <a href="https://www.facebook.com/" class="mr-6 text-neutral-600 dark:text-neutral-200" target="_blank" title="Facebook">
                 <x-icon.tabler icon="brand-facebook-filled" class="text-neutral-900 dark:text-neutral-200" />
@@ -32,17 +32,17 @@
         </div>
     </div>
 
-    <!-- Main container -->
+    {{--  main container --}}
     <div class="py-5 px-2 md:px-5 text-center md:text-left bg-neutral-100 dark:bg-neutral-600">
         <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            <!-- Logo section -->
+            {{-- logo section --}}
             <div class="flex justify-center md:justify-start">
                 <a href="{{ route('home') }}" title="Home">
                     <x-svg.genealogy class="size-48 fill-dark dark:fill-neutral-400 hover:fill-primary-300 dark:hover:fill-primary-300" alt="genealogy" />
                 </a>
             </div>
 
-            <!-- Impressum section -->
+            {{-- impressum section --}}
             <div>
                 <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">Impressum</h6>
                 <x-hr.narrow class="w-48 h-1 max-md:mx-auto my-4 bg-gray-100 border-0 rounded dark:bg-gray-700" />
@@ -60,7 +60,7 @@
                 </p>
             </div>
 
-            <!-- Useful links section -->
+            {{-- usefull link section --}}
             <div>
                 <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">{{ __('app.useful_links') }}</h6>
                 <x-hr.narrow class="w-48 h-1 max-md:mx-auto my-4 bg-gray-100 border-0 rounded dark:bg-gray-700" />
@@ -78,7 +78,7 @@
                 </p>
             </div>
 
-            <!-- Contact section -->
+            {{-- contact section --}}
             <div>
                 <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">Contact</h6>
                 <x-hr.narrow class="w-48 h-1 max-md:mx-auto my-4 bg-gray-100 border-0 rounded dark:bg-gray-700" />
@@ -121,6 +121,6 @@
         </div>
     </div>
 
-    <!--Copyright section-->
+    {{-- copyright section --}}
     @include('layouts.partials.copyright')
 </footer>

@@ -11,19 +11,19 @@
 
     <title>{{ config('app.name', 'Genealogy') }} @yield('title')</title>
 
-    <!-- favicon -->
+    {{-- favicon --}}
     <link rel="icon" type="image/png" href="{{ asset('img/favicon/favicon-16x16.png') }}" sizes="16x16">
     <link rel="icon" type="image/png" href="{{ asset('img/favicon/favicon-32x32.png') }}" sizes="32x32">
     <link rel="icon" type="image/png" href="{{ asset('img/favicon/favicon-96x96.png') }}" sizes="96x96">
 
-    <!-- Fonts -->
+    {{-- fonts --}}
     <link href="https://fonts.bunny.net" rel="preconnect">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <!-- Scripts -->
+    {{-- scripts --}}
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/chart.js'])
 
-    <!-- Styles -->
+    {{-- styles --}}
     @filamentStyles
     @livewireStyles
     @stack('styles')
@@ -31,36 +31,36 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-white dark:bg-black">
-        <!-- TALL Notifications -->
+        {{--  tall notifications --}}
         <livewire:toasts />
 
-        <!-- Header -->
+        {{-- header --}}
         @include('layouts.partials.header')
 
-        <!-- Offcanvas -->
+        {{-- offcanvas --}}
         @include('layouts.partials.offcanvas')
 
-        <!-- Heading -->
+        {{-- heading --}}
         @if (isset($heading))
             @include('layouts.partials.heading')
         @endif
 
-        <!-- Banner -->
+        {{-- banner --}}
         <x-banner />
 
-        <!-- Content -->
+        {{-- content --}}
         <main class="mx-auto px-2 md:px-5 flex flex-grow bg-gray-100 dark:bg-gray-900">
             {{ $slot }}
         </main>
 
-        <!-- Footer -->
+        {{-- footer --}}
         @include('layouts.partials.footer')
 
-        <!-- Back to top button -->
+        {{-- back to top button --}}
         @include('layouts.partials.back_to_top')
     </div>
 
-    <!-- Scripts -->
+    {{-- scripts --}}
     @livewireScripts
     @filamentScripts
     @stack('scripts')

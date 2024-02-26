@@ -1,16 +1,16 @@
 <nav x-data="{ open: false }" class="bg-neutral-100 text-neutral-600 dark:bg-neutral-600 dark:text-neutral-200 border-b border-gray-100">
-    <!-- Primary Navigation Menu -->
+    {{-- primary navigation menu --}}
     <div class="px-2 md:px-5">
         <div class="flex min-h-16 gap-5">
             <div class="flex flex-grow gap-5">
-                <!-- Logo -->
+                {{-- logo --}}
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home') }}" title="{{ __('app.home') }}">
                         <x-svg.genealogy class="size-12 fill-dark dark:fill-neutral-400 hover:fill-primary-300 dark:hover:fill-primary-300" alt="genealogy" />
                     </a>
                 </div>
 
-                <!-- Navigation Links -->
+                {{-- navigation links --}}
                 <div class="flex flex-wrap gap-5">
                     <div class="flex items-center gap-5">
                         <x-nav-link wire:navigate href="{{ route('home') }}" :active="request()->routeIs('home')">
@@ -40,7 +40,7 @@
 
             <div class="hidden md:flex md:items-center gap-5">
                 @auth
-                    <!-- Teams Dropdown -->
+                    {{-- teams dropdown --}}
                     @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                         <div class="relative min-w-max">
                             <x-dropdown align="right" width="60">
@@ -59,12 +59,12 @@
 
                                 <x-slot name="content">
                                     <div class="w-60">
-                                        <!-- Team Management -->
+                                        {{-- teams management --}}
                                         <div class="block px-4 py-2 text-xs text-gray-400">
                                             {{ __('team.manage') }}
                                         </div>
 
-                                        <!-- Team Settings -->
+                                        {{-- teams settings --}}
                                         <x-dropdown-link wire:navigate href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
                                             <x-icon.tabler icon="settings" class="mr-1" />
                                             {{ __('team.settings') }}
@@ -77,7 +77,7 @@
                                             </x-dropdown-link>
                                         @endcan
 
-                                        <!-- Team Switcher -->
+                                        {{-- teams switcher --}}
                                         @if (Auth::user()->allTeams()->count() > 1)
                                             <div class="border-t border-gray-200"></div>
 
@@ -95,7 +95,7 @@
                         </div>
                     @endif
 
-                    <!-- Settings Dropdown -->
+                    {{-- settings dropdown --}}
                     <div class="relative min-w-max">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
@@ -118,7 +118,7 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                <!-- Account Management -->
+                                {{-- account management --}}
                                 <div class="block px-4 py-2 text-xs text-gray-400">
                                     {{ __('app.manage_account') }}
                                 </div>
@@ -137,7 +137,7 @@
 
                                 <div class="border-t border-gray-200"></div>
 
-                                <!-- Authentication -->
+                                {{-- authentication --}}
                                 <form method="POST" action="{{ route('logout') }}" x-data>
                                     @csrf
 
@@ -174,7 +174,7 @@
                 </div>
             </div>
 
-            <!-- Hamburger -->
+            {{-- hamburger --}}
             <div class="-mr-2 flex items-center md:hidden">
                 <button @click="open = ! open"
                     class="inline-flex items-center justify-center p-2 rounded text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
@@ -187,7 +187,7 @@
         </div>
     </div>
 
-    <!-- Responsive Navigation Menu -->
+    {{-- responsive navigation menu --}}
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden md:hidden">
         <div class="space-y-1 border-t border-gray-200">
             <x-nav-link-responsive wire:navigate href="{{ route('home') }}" :active="request()->routeIs('home')">
@@ -229,7 +229,7 @@
                 </x-nav-link-responsive>
             </div>
 
-            <!-- Responsive Settings Options -->
+            {{-- responsive settings options --}}
             <div class="pl-4 pt-2 pb-2 border-t border-gray-200">
                 <x-set.language />
             </div>
@@ -257,7 +257,7 @@
                 </div>
 
                 <div class="space-y-1">
-                    <!-- Account Management -->
+                    {{-- account management --}}
                     <x-nav-link-responsive wire:navigate href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                         <x-icon.tabler icon="id" class="mr-1" />
                         {{ __('app.my_profile') }}
@@ -270,7 +270,7 @@
                         </x-nav-link-responsive>
                     @endif
 
-                    <!-- Authentication -->
+                    {{-- authentication --}}
                     <form method="POST" action="{{ route('logout') }}" x-data>
                         @csrf
 
@@ -280,7 +280,7 @@
                         </x-nav-link-responsive>
                     </form>
 
-                    <!-- Team Management -->
+                    {{-- team management --}}
                     @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                         <div class="border-t border-gray-200"></div>
 
@@ -288,7 +288,7 @@
                             {{ __('team.manage') }}
                         </div>
 
-                        <!-- Team Settings -->
+                        {{-- team settings --}}
                         <x-nav-link-responsive wire:navigate href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
                             <x-icon.tabler icon="settings" class="mr-1" />
                             {{ __('team.settings') }}
@@ -301,7 +301,7 @@
                             </x-nav-link-responsive>
                         @endcan
 
-                        <!-- Team Switcher -->
+                        {{-- team switcher --}}
                         @if (Auth::user()->allTeams()->count() > 1)
                             <div class="border-t border-gray-200"></div>
 
@@ -317,7 +317,7 @@
                 </div>
             </div>
 
-            <!-- Responsive Settings Options -->
+            {{-- responsive settings options --}}
             <div class="pl-4 pt-2 pb-2 border-t border-gray-200">
                 <x-set.offcanvas />
             </div>

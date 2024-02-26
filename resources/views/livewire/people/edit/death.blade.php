@@ -12,7 +12,7 @@
 
         <div class="p-4 bg-neutral-200">
             <div class="grid grid-cols-6 gap-5">
-                <!-- yod -->
+                {{-- yod --}}
                 <div class="col-span-3">
                     <x-label for="yod" value="{{ __('person.yod') }}" />
                     <x-input id="yod" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="deathForm.yod" wire:dirty.class="bg-warning-100" autocomplete="yod" autofocus
@@ -20,7 +20,7 @@
                     <x-input-error for="deathForm.yod" class="mt-1" />
                 </div>
 
-                <!-- dod -->
+                {{-- dod --}}
                 <div class="col-span-3">
                     <x-label for="dod" value="{{ __('person.dod') }}" />
                     <div wire:ignore>
@@ -35,7 +35,7 @@
                     <x-input-error for="deathForm.dod" class="mt-1" />
                 </div>
 
-                <!-- pod -->
+                {{-- pod --}}
                 <div class="col-span-6">
                     <x-label for="pod" value="{{ __('person.pod') }}" />
                     <x-input id="pod" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="deathForm.pod" wire:dirty.class="bg-warning-100" autocomplete="pod" />
@@ -46,7 +46,7 @@
                 <div class="col-span-5 h-4">
                     <h4 class="text-lg font-medium text-neutral-800">{{ __('person.cemetery_location') }}</h4>
                 </div>
-                <!-- show on Google Maps button -->
+                {{-- show on google maps button --}}
                 <div class="col-span-1 h-4 text-end">
                     @if ($person->cemetery_google)
                         <x-link target="_blank" href="{{ $person->cemetery_google }}">
@@ -57,7 +57,8 @@
                     @endif
                 </div>
 
-                <!-- cemetery_location_name -->
+
+                {{-- cemetery_location_name --}}
                 <div class="col-span-6">
                     <x-label for="cemetery_location_name" value="{{ __('metadata.location_name') }}" />
                     <x-input id="cemetery_location_name" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="deathForm.cemetery_location_name" wire:dirty.class="bg-warning-100"
@@ -65,7 +66,7 @@
                     <x-input-error for="deathForm.cemetery_location_name" class="mt-1" />
                 </div>
 
-                <!-- cemetery_location_address -->
+                {{-- cemetery_location_address --}}
                 <div class="col-span-6">
                     <x-label for="cemetery_location_address" value="{{ __('metadata.address') }}" />
                     <div class="relative" data-te-input-wrapper-init>
@@ -76,7 +77,7 @@
                     <x-input-error for="deathForm.cemetery_location_address" class="mt-1" />
                 </div>
 
-                <!-- cemetery_location_latitude -->
+                {{-- cemetery_location_latitude --}}
                 <div class="col-span-3">
                     <x-label for="cemetery_location_latitude" value="{{ __('metadata.latitude') }}" />
                     <x-input id="cemetery_location_latitude" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="deathForm.cemetery_location_latitude"
@@ -84,7 +85,7 @@
                     <x-input-error for="deathForm.cemetery_location_latitude" class="mt-1" />
                 </div>
 
-                <!-- cemetery_location_longitude -->
+                {{-- cemetery_location_longitude --}}
                 <div class="col-span-3">
                     <x-label for="cemetery_location_longitude" value="{{ __('metadata.longitude') }}" />
                     <x-input id="cemetery_location_longitude" type="text" class="mt-1 block w-full dark:text-neutral-800" wire:model="deathForm.cemetery_location_longitude"

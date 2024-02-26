@@ -55,22 +55,22 @@
         </div>
     </div>
 
-    <!-- image -->
+    {{-- image --}}
     <div class="grid p-2 justify-center">
         <livewire:people.photos :person="$person" class="max-w-96" />
     </div>
 
-    <!-- lifetime -->
+    {{-- lifetime --}}
     <div class="px-2 text-center">
         {!! $person->lifetime ? $person->lifetime : '&nbsp' !!}
     </div>
 
-    <!-- age -->
+    {{-- age --}}
     <div class="px-2 text-center">
         {!! isset($person->age) ? $person->age . ' ' . trans_choice('person.years', $person->age) : '&nbsp' !!}
     </div>
 
-    <!-- data -->
+    {{-- data --}}
     <div class="p-2">
         <table class="w-full">
             <tbody>
@@ -168,7 +168,7 @@
     </div>
 
     @if ($person->isDeletable())
-        <!-- Delete modal -->
+        {{-- delete modal --}}
         <x-confirmation-modal wire:model.live="deleteConfirmed">
             <x-slot name="title">
                 {{ __('app.delete') }}

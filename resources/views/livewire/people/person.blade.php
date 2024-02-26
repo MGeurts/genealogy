@@ -1,20 +1,20 @@
 <div class="max-w-md flex flex-col justify-end rounded dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
-    <!-- image -->
+    {{-- image --}}
     <div class="p-2">
         <x-image.photo :person="$person" />
     </div>
 
-    <!-- lifetime -->
+    {{-- lifetime --}}
     <div class="px-2 text-center">
         {!! $person->lifetime ? $person->lifetime : '&nbsp' !!}
     </div>
 
-    <!-- age -->
+    {{-- age --}}
     <div class="px-2 text-center">
         {!! isset($person->age) ? $person->age . ' ' . trans_choice('person.years', $person->age) : '&nbsp' !!}
     </div>
 
-    <!-- data -->
+    {{-- data --}}
     <div class="p-2 pb-0">
         <p>
             <x-link wire:navigate href="/people/{{ $person->id }}" class="{{ $person->isDeceased() ? '!text-danger' : '' }}">
@@ -44,7 +44,7 @@
         <x-hr.narrow />
     </div>
 
-    <!-- buttons -->
+    {{-- buttons --}}
     <div class="p-2 flex flex-shrink-0 flex-wrap">
         <div class="flex-grow min-w-max max-w-full flex-1">
             <a href="/people/{{ $person->id }}" title="{{ __('app.show_profile') }}">

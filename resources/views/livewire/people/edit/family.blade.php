@@ -12,7 +12,7 @@
 
         <div class="p-4 bg-neutral-200">
             <div class="grid grid-cols-6 gap-5">
-                <!-- father_id -->
+                {{-- father_id --}}
                 <div class="col-span-6">
                     <x-label for="father_id" value="{{ __('person.father') }} ({{ __('person.biological') }})" />
                     <x-select.select class="bg-white" wire:model="familyForm.father_id" name="father_id" id="father_id" :options="$fathers" value-field='id' text-field='name'
@@ -21,7 +21,7 @@
                     <x-input-error for="father_id" class="mt-1" />
                 </div>
 
-                <!-- mother_id -->
+                {{-- mother_id --}}
                 <div class="col-span-6">
                     <x-label for="mother_id" value="{{ __('person.mother') }} ({{ __('person.biological') }})" />
                     <x-select.select class="bg-white" wire:model="familyForm.mother_id" name="mother_id" id="mother_id" :options="$mothers" value-field='id' text-field='name'
@@ -37,7 +37,7 @@
                     In the latter case, simply leave <b>{{ __('person.father') }}</b> and/or <b>{{ __('person.mother') }}</b> blank.
                 </div>
 
-                <!-- parents_id -->
+                {{-- parents_id --}}
                 <div class="col-span-6">
                     <x-label for="parents_id" value="{{ __('person.parents') }}" />
                     <x-select.select class="bg-white" wire:model="familyForm.parents_id" name="parents_id" id="parents_id" :options="$parents" value-field='id' text-field='couple'

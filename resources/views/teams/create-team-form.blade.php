@@ -31,7 +31,7 @@
             <x-input-error for="name" class="mt-2" />
         </div>
 
-        <!-- Team description -->
+        {{-- team description --}}
         <div class="col-span-6 sm:col-span-4">
             <x-label for="description" value="{{ __('team.description') }}" />
 

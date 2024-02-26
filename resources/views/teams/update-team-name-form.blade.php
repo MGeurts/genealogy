@@ -12,7 +12,7 @@
     </x-slot>
 
     <x-slot name="form">
-        <!-- Team Owner Information -->
+        {{-- team owner information --}}
         <div class="col-span-6">
             <x-label value="{{ __('team.owner') }}" />
 
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <!-- Team Name -->
+        {{-- team name --}}
         <div class="col-span-6 sm:col-span-4">
             <x-label for="name" value="{{ __('team.name') }}" />
 
@@ -35,7 +35,7 @@
             <x-input-error for="name" class="mt-2" />
         </div>
 
-        <!-- Team description -->
+        {{-- team description --}}
         <div class="col-span-6 sm:col-span-4">
             <x-label for="description" value="{{ __('team.description') }}" />
 

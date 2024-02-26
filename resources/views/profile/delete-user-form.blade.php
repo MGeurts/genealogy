@@ -22,7 +22,7 @@
             </x-button.danger>
         </div>
 
-        <!-- Delete User Confirmation Modal -->
+        {{-- delete user confirmation modal --}}
         <x-dialog-modal wire:model.live="confirmingUserDeletion">
             <x-slot name="title">
                 {{ __('Delete Account') }}

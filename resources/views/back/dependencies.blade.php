@@ -15,7 +15,7 @@
 
             {{-- accordion --}}
             <div id="accordionFlushDependencies">
-                <!-- Laravel -->
+                {{-- laravel --}}
                 <div class="rounded-none border border-l-0 border-r-0 border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
                     <h2 class="mb-0" id="flush-heading-1">
                         <button type="button" data-te-collapse-init data-te-target="#flush-collapse-1" aria-expanded="false" aria-controls="flush-collapse-1"
@@ -51,7 +51,7 @@
                     </div>
                 </div>
 
-                <!-- Tailwind -->
+                {{-- tailwind --}}
                 <div class="rounded-none border border-l-0 border-r-0 border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
                     <h2 class="mb-0" id="flush-heading-2">
                         <button type="button" data-te-collapse-init data-te-collapse-collapsed data-te-target="#flush-collapse-2" aria-expanded="false" aria-controls="flush-collapse-2"
@@ -80,7 +80,7 @@
                     </div>
                 </div>
 
-                <!-- Github -->
+                {{-- github --}}
                 <div class="rounded-none border border-l-0 border-r-0 border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
                     <h2 class="mb-0" id="flush-heading-3">
                         <button type="button" data-te-collapse-init data-te-collapse-collapsed data-te-target="#flush-collapse-3" aria-expanded="false" aria-controls="flush-collapse-3"
@@ -138,7 +138,7 @@
                     </div>
                 </div>
 
-                <!-- JS -->
+                {{-- js --}}
                 <div class="rounded-none border border-l-0 border-r-0 border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
                     <h2 class="mb-0" id="flush-heading-4">
                         <button type="button" data-te-collapse-init data-te-collapse-collapsed data-te-target="#flush-collapse-4" aria-expanded="false" aria-controls="flush-collapse-4"
@@ -164,7 +164,7 @@
                     </div>
                 </div>
 
-                <!-- 3rd Party -->
+                {{-- 3rd party --}}
                 <div class="rounded-none border border-b-0 border-l-0 border-r-0 border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
                     <h2 class="mb-0" id="flush-heading-5">
                         <button type="button" data-te-collapse-init data-te-collapse-collapsed data-te-target="#flush-collapse-5" aria-expanded="false" aria-controls="flush-collapse-5"
@@ -192,7 +192,7 @@
                     </div>
                 </div>
 
-                <!-- localized -->
+                {{-- localized --}}
                 <div class="rounded-none border border-l-0 border-r-0 border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
                     <h2 class="mb-0" id="flush-heading-6">
                         <button type="button" data-te-collapse-init data-te-collapse-collapsed data-te-target="#flush-collapse-6" aria-expanded="false" aria-controls="flush-collapse-3"

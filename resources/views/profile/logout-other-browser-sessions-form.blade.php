@@ -18,7 +18,7 @@
 
         @if (count($this->sessions) > 0)
             <div class="mt-5 space-y-6">
-                <!-- Other Browser Sessions -->
+                {{-- other browser sessions --}}
                 @foreach ($this->sessions as $session)
                     <div class="flex items-center">
                         <div>
@@ -67,7 +67,7 @@
             </x-action-message>
         </div>
 
-        <!-- Log Out Other Devices Confirmation Modal -->
+        {{-- log out other devices confirmation modal --}}
         <x-dialog-modal wire:model.live="confirmingLogout">
             <x-slot name="title">
                 {{ __('Log Out Other Browser Sessions') }}

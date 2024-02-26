@@ -16,7 +16,7 @@
                 </button>
             </div>
 
-            <!-- role and permissions-->
+            {{-- role and permissions --}}
             <div class="p-4">
                 <div class="rounded bg-secondary-100 p-4 text-base text-secondary-800" role="alert">
                     <div class="flex flex-row">
@@ -43,11 +43,11 @@
                 </div>
             </div>
 
-            <!-- offcanvas menu -->
+            {{-- offcanvas menu --}}
             <div class="flex-grow overflow-y-auto p-4">
                 @if (Auth::user())
                     @if (Auth::user()->is_developer)
-                        <!-- developer -->
+                        {{-- developer --}}
                         <div>{{ __('auth.developer') }} ...</div>
 
                         <div>
@@ -133,7 +133,7 @@
                             </p>
                         </div>
                     @else
-                        <!-- others -->
+                        {{-- others --}}
                         <div>{{ Auth::user()->teamRole(auth()->user()->currentTeam)->name }} ...</div>
 
                         <div>
@@ -149,7 +149,7 @@
                 @endif
 
                 @guest
-                    <!-- guest -->
+                    {{-- guest --}}
                     <div>{{ __('auth.guest') }} ...</div>
 
                     <div><x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" /></div>

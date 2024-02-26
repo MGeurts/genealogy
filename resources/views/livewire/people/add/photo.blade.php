@@ -12,7 +12,7 @@
 
         <div class="p-4 bg-neutral-200">
             <div class="grid grid-cols-6 gap-5">
-                <!-- image -->
+                {{-- image --}}
                 <div class="col-span-6">
                     <x-label for="image" value="{{ __('person.upload_photo') }}" />
                     <x-input type="file" id="image{{ $photoForm->iteration }}" accept="image/webp, image/png, image/jpeg" wire:model="photoForm.image"

@@ -11,7 +11,7 @@
 
     <div class="grow max-w-5xl py-5 dark:text-neutral-200">
         <div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50"">
-            <!-- card header -->
+            {{-- card header --}}
             <div class="h-14 min-h-min flex flex-col p-2 border-b-2 border-neutral-100 text-lg font-medium dark:border-neutral-600 dark:text-neutral-50 rounded-t">
                 <div class="flex flex-wrap gap-2 justify-center items-start">
                     <div class="flex-grow min-w-max max-w-full flex-1">
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <!-- card body -->
+            {{-- card body --}}
             <div class="p-5 grid grid-cols-1 gap-5">
                 @forelse ($backups as $backup)
                     <div class="block rounded bg-neutral-200 dark:bg-neutral-600 p-3 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
@@ -60,7 +60,7 @@
                 @endforelse
             </div>
 
-            <!-- card footer -->
+            {{-- card footer --}}
             <div class="p-2 text-sm border-t-2 border-neutral-100 dark:border-neutral-600 rounded-b">
                 <p class="py-0">{{ __('backup.backup_daily') }}</p>
                 <p class="py-0">{{ __('backup.backup_email') }}</p>
@@ -76,7 +76,7 @@
     </div>
 
     @if ($backups)
-        <!-- Delete modal -->
+        {{-- delete modal --}}
         <x-confirmation-modal wire:model.live="deleteConfirmed">
             <x-slot name="title">
                 {{ __('app.delete') }}

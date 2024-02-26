@@ -48,7 +48,7 @@
     @endif
 
     @if ($children->count() > 0)
-        <!-- Delete modal -->
+        {{-- delete modal --}}
         <x-confirmation-modal wire:model.live="disconnectConfirmed">
             <x-slot name="title">
                 {{ __('app.disconnect') }}
