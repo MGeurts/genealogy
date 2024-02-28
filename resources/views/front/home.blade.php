@@ -11,7 +11,7 @@
                 <x-authentication-card-logo />
             </div>
 
-            <div class="w-full sm:max-w-5xl mt-6 p-4 bg-white shadow-md overflow-hidden rounded prose">
+            <div class="sm:max-w-5xl mt-6 p-4 bg-white shadow-md overflow-hidden rounded prose">
                 <h1>Welcome ...</h1>
                 <x-hr.narrow class="!my-2" />
 
@@ -78,6 +78,9 @@
                     <p><a href="https://github.com/MGeurts/genealogy/" target="_blank">https://github.com/MGeurts/genealogy</a></p>
                 </div>
             </div>
+
+
+
         </div>
     </div>
 </x-app-layout>

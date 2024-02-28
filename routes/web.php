@@ -6,22 +6,16 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Jetstream\Jetstream;
 
 // -----------------------------------------------------------------------------------------------
-// Frontend routes
-// -----------------------------------------------------------------------------------------------
-// Home
-// -----------------------------------------------------------------------------------------------
-Route::get('/', App\Http\Controllers\Front\HomeController::class)->name('home');
-
-// -----------------------------------------------------------------------------------------------
-// Pages
+// frontend routes
 // -----------------------------------------------------------------------------------------------
 Route::controller(App\Http\Controllers\Front\PageController::class)->group(function () {
+    Route::get('/', 'home')->name('home');
     Route::get('about', 'about')->name('about');
     Route::get('help', 'help')->name('help');
 });
 
 // -----------------------------------------------------------------------------------------------
-// Backend routes
+// backend routes
 // -----------------------------------------------------------------------------------------------
 Route::middleware([
     'auth:sanctum',
@@ -52,9 +46,15 @@ Route::middleware([
 
     Route::middleware('IsDeveloper')->group(function () {
         // -----------------------------------------------------------------------------------------------
-        // backups
+        // pages
         // -----------------------------------------------------------------------------------------------
-        Route::get('backups', App\Livewire\Backups\Manage::class)->name('backups');
+        Route::controller(App\Http\Controllers\Back\PageController::class)->group(function () {
+            Route::get('dependencies', 'dependencies')->name('dependencies');
+            Route::get('persons', 'persons')->name('persons');
+            Route::get('session', 'session')->name('session');
+            Route::get('teams', 'teams')->name('teams');
+            Route::get('users', 'users')->name('users');
+        });
 
         // -----------------------------------------------------------------------------------------------
         // userlog
@@ -65,20 +65,14 @@ Route::middleware([
         Route::get('userlogs/period', App\Livewire\Userlogs\Period::class)->name('userlogs.period');
 
         // -----------------------------------------------------------------------------------------------
-        // Pages
+        // backups
         // -----------------------------------------------------------------------------------------------
-        Route::controller(App\Http\Controllers\Back\PageController::class)->group(function () {
-            Route::get('dependencies', 'dependencies')->name('dependencies');
-            Route::get('persons', 'persons')->name('persons');
-            Route::get('session', 'session')->name('session');
-            Route::get('teams', 'teams')->name('teams');
-            Route::get('users', 'users')->name('users');
-        });
+        Route::get('backups', App\Livewire\Backups\Manage::class)->name('backups');
     });
 });
 
 // -----------------------------------------------------------------------------------------------
-// Language
+// language
 // -----------------------------------------------------------------------------------------------
 Route::get('language/{locale}', function ($locale) {
     app()->setLocale($locale);
@@ -100,12 +94,12 @@ Route::get('language/{locale}', function ($locale) {
 Route::group(['middleware' => config('jetstream.middleware', ['web'])], function () {
 
     $authMiddleware = config('jetstream.guard')
-        ? 'auth:' . config('jetstream.guard')
-        : 'auth';
+    ? 'auth:' . config('jetstream.guard')
+    : 'auth';
 
     $authSessionMiddleware = config('jetstream.auth_session', false)
-        ? config('jetstream.auth_session')
-        : null;
+    ? config('jetstream.auth_session')
+    : null;
 
     Route::group(['middleware' => array_values(array_filter([$authMiddleware, $authSessionMiddleware, 'verified']))], function () {
         // Teams...
