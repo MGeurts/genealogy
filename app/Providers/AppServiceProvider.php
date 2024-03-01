@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -48,5 +49,13 @@ class AppServiceProvider extends ServiceProvider
         Model::handleLazyLoadingViolationUsing(function ($model, $relation) {
             Log::warning("N+1 Query detected.\r\n" . sprintf('N+1 Query detected in model %s on relation %s.', get_class($model), $relation));
         });
+
+        // about
+        AboutCommand::add('Application', [
+            'Name' => 'Genealogy',
+            'author' => 'kreaweb.be',
+            'github' => 'https://github.com/MGeurts/genealogy',
+            'license' => 'MIT License',
+        ]);
     }
 }
