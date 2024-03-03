@@ -75,8 +75,12 @@
         <table class="w-full">
             <tbody>
                 <tr>
-                    <td class="pr-2 border-t-2 border-r-2">{{ __('person.name') }}</td>
-                    <td class="pl-2 border-t-2">{{ $person->name }}</td>
+                    <td class="pr-2 border-t-2 border-r-2">{{ __('person.firstname') }}</td>
+                    <td class="pl-2 border-t-2">{{ $person->firstname }}</td>
+                </tr>
+                <tr>
+                    <td class="pr-2 border-r-2">{{ __('person.surname') }}</td>
+                    <td class="pl-2">{{ $person->surname }}</td>
                 </tr>
                 <tr>
                     <td class="pr-2 border-r-2">{{ __('person.birthname') }}</td>
