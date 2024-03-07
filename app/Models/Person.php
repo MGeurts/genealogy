@@ -67,7 +67,7 @@ class Person extends Model
     protected static function booted(): void
     {
         static::addGlobalScope('team', function (Builder $builder) {
-            if (! auth()) {
+            if (!auth()) {
                 return;
             } elseif (env('GOD_MODE', 'false') && auth()->user()->is_developer) {
                 return true;
@@ -82,10 +82,7 @@ class Person extends Model
     /* -------------------------------------------------------------------------------------------- */
     public function scopeSearch(Builder $query, string $value): void
     {
-        $query->where('firstname', 'like', '%' . $value . '%')
-            ->orWhere('surname', 'like', '%' . $value . '%')
-            ->orWhere('birthname', 'like', '%' . $value . '%')
-            ->orWhere('nickname', 'like', '%' . $value . '%');
+        $query->whereAny(['firstname', 'surname', 'birthname', 'nickname'], 'LIKE', "%$value%");
     }
 
     public function scopeOlderThan(Builder $query, ?string $birth_date, ?string $birth_year): void
@@ -424,7 +421,7 @@ class Person extends Model
     /* --------------------------------------------------------------------------------- */
     public function getPartnersAttribute(): Collection
     {
-        if (! array_key_exists('partners', $this->relations)) {
+        if (!array_key_exists('partners', $this->relations)) {
             $partners_1 = $this->belongsToMany(Person::class, 'couples', 'person1_id', 'person2_id')
                 ->withPivot(['id', 'date_start', 'date_end', 'is_married', 'has_ended'])
                 ->with('children')
@@ -508,7 +505,7 @@ class Person extends Model
 
     public function siblings(): Collection
     {
-        if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
+        if (!$this->father_id && !$this->mother_id && !$this->parents_id) {
             return collect([]);
         } else {
             $siblings_father = $this->father_id ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->get() : collect([]);
@@ -533,7 +530,7 @@ class Person extends Model
 
     public function siblings_with_children(): Collection// only used in family chart
     {
-        if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
+        if (!$this->father_id && !$this->mother_id && !$this->parents_id) {
             return collect([]);
         } else {
             $siblings_father = $this->father_id ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->with('children')->get() : collect([]);
