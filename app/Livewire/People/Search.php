@@ -12,7 +12,7 @@ class Search extends Component
     use WithPagination;
 
     #[Session]
-    public $search = '%';    // default to '' when application is ready
+    public $search = '%'; // default to '' when application goes in production
 
     public $perpage = 10;
 
@@ -31,7 +31,7 @@ class Search extends Component
         if ($this->search) {
             $people = Person::with('father:id,firstname,surname,sex', 'mother:id,firstname,surname,sex')
                 ->search($this->search)
-                ->orderBy('firstname')->orderBy('surname')  // reverse order when application is ready
+                ->orderBy('firstname')->orderBy('surname') // reverse order when application goes in production
                 ->paginate($this->perpage);
         } else {
             $people = collect([]);
