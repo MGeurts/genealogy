@@ -1432,16 +1432,16 @@
         },
         {
             "name": "filament/actions",
-            "version": "v3.2.45",
+            "version": "v3.2.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/actions.git",
-                "reference": "3a859410aaf76fb5bf1c549da9cca2ac652f26f5"
+                "reference": "bfc139b1be968f89eeb3dc39b01c244e960d2cd4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/actions/zipball/3a859410aaf76fb5bf1c549da9cca2ac652f26f5",
-                "reference": "3a859410aaf76fb5bf1c549da9cca2ac652f26f5",
+                "url": "https://api.github.com/repos/filamentphp/actions/zipball/bfc139b1be968f89eeb3dc39b01c244e960d2cd4",
+                "reference": "bfc139b1be968f89eeb3dc39b01c244e960d2cd4",
                 "shasum": ""
             },
             "require": {
@@ -1481,11 +1481,11 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-03-07T13:17:38+00:00"
+            "time": "2024-03-08T12:54:20+00:00"
         },
         {
             "name": "filament/forms",
-            "version": "v3.2.45",
+            "version": "v3.2.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/forms.git",
@@ -1541,7 +1541,7 @@
         },
         {
             "name": "filament/infolists",
-            "version": "v3.2.45",
+            "version": "v3.2.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/infolists.git",
@@ -1592,7 +1592,7 @@
         },
         {
             "name": "filament/notifications",
-            "version": "v3.2.45",
+            "version": "v3.2.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/notifications.git",
@@ -1644,16 +1644,16 @@
         },
         {
             "name": "filament/support",
-            "version": "v3.2.45",
+            "version": "v3.2.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/support.git",
-                "reference": "f60a06fc11ce0520bf8296c350fa6e3ba2556632"
+                "reference": "811a57072a6e8677e42d1b745291def5f26a8d62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/support/zipball/f60a06fc11ce0520bf8296c350fa6e3ba2556632",
-                "reference": "f60a06fc11ce0520bf8296c350fa6e3ba2556632",
+                "url": "https://api.github.com/repos/filamentphp/support/zipball/811a57072a6e8677e42d1b745291def5f26a8d62",
+                "reference": "811a57072a6e8677e42d1b745291def5f26a8d62",
                 "shasum": ""
             },
             "require": {
@@ -1697,20 +1697,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-03-07T13:18:04+00:00"
+            "time": "2024-03-08T12:54:38+00:00"
         },
         {
             "name": "filament/tables",
-            "version": "v3.2.45",
+            "version": "v3.2.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/tables.git",
-                "reference": "2c2587a71b0e3fe3c5c0fae9dc9f70e74005b1c9"
+                "reference": "21a53af2fdfbed6ded3bf659eeb0dfbcd8addf90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/tables/zipball/2c2587a71b0e3fe3c5c0fae9dc9f70e74005b1c9",
-                "reference": "2c2587a71b0e3fe3c5c0fae9dc9f70e74005b1c9",
+                "url": "https://api.github.com/repos/filamentphp/tables/zipball/21a53af2fdfbed6ded3bf659eeb0dfbcd8addf90",
+                "reference": "21a53af2fdfbed6ded3bf659eeb0dfbcd8addf90",
                 "shasum": ""
             },
             "require": {
@@ -1750,7 +1750,7 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-03-07T13:18:08+00:00"
+            "time": "2024-03-08T12:54:38+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -3928,16 +3928,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v3.4.7",
+            "version": "v3.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "05f25dab062cd6a1ec24d8df9e889f890c832cb0"
+                "reference": "0335b8f022ac535fc3cf29fd8a8fcb275353a470"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/05f25dab062cd6a1ec24d8df9e889f890c832cb0",
-                "reference": "05f25dab062cd6a1ec24d8df9e889f890c832cb0",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/0335b8f022ac535fc3cf29fd8a8fcb275353a470",
+                "reference": "0335b8f022ac535fc3cf29fd8a8fcb275353a470",
                 "shasum": ""
             },
             "require": {
@@ -3991,7 +3991,7 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v3.4.7"
+                "source": "https://github.com/livewire/livewire/tree/v3.4.8"
             },
             "funding": [
                 {
@@ -3999,7 +3999,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-05T15:54:03+00:00"
+            "time": "2024-03-08T13:01:50+00:00"
         },
         {
             "name": "masterminds/html5",
