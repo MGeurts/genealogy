@@ -82,10 +82,10 @@ return [
     'no_data' => 'Geen gegevens beschikbaar',
     'no_result' => 'Niets gevonden met de gegeven criteria',
 
-    'search_family' => 'Zoek uw familie',
-    'search_family_placeholder' => 'Geef een naam of bijnaam ...',
-    'persons_found' => '<span class="text-success"><strong>:total</strong></span> gevonden met term <span class="text-success"><strong>:keyword</strong></span> in <span class="text-success"><strong>:scope</strong></span>',
-    'persons_available' => '<span class="text-success"><strong>:total</strong></span> personen beschikbaar in <span class="text-success"><strong>:scope</strong></span></span>',
+    'people_search' => 'Zoek personen in <span class="text-success"><strong>:scope</strong></span></span>',
+    'people_search_placeholder' => 'Geef een naam of bijnaam ...',
+    'people_found' => '<span class="text-success"><strong>:total</strong></span> gevonden met term <span class="text-success"><strong>:keyword</strong></span> in <span class="text-success"><strong>:scope</strong></span>',
+    'people_available' => '<span class="text-success"><strong>:total</strong></span> personen beschikbaar in <span class="text-success"><strong>:scope</strong></span></span>',
 
     'whoops' => 'Oeps! Er liep iets mis.',
 ];

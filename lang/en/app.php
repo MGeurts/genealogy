@@ -82,10 +82,10 @@ return [
     'no_data' => 'No data available',
     'no_result' => 'Nothing found matching your criteria',
 
-    'search_family' => 'Find your family',
-    'search_family_placeholder' => 'Enter name or nickname ...',
-    'persons_found' => '<span class="text-success"><strong>:total</strong></span> found with keyword <span class="text-success"><strong>:keyword</strong></span> in <span class="text-success"><strong>:scope</strong></span>',
-    'persons_available' => '<span class="text-success"><strong>:total</strong></span> persons available in <span class="text-success"><strong>:scope</strong></span></span>',
+    'people_search' => 'Find people in <span class="text-success"><strong>:scope</strong></span></span>',
+    'people_search_placeholder' => 'Enter name or nickname ...',
+    'people_found' => '<span class="text-success"><strong>:total</strong></span> found with keyword <span class="text-success"><strong>:keyword</strong></span> in <span class="text-success"><strong>:scope</strong></span>',
+    'people_available' => '<span class="text-success"><strong>:total</strong></span> people available in <span class="text-success"><strong>:scope</strong></span></span>',
 
     'whoops' => 'Whoops! Something went wrong.',
 ];

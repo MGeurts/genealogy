@@ -82,10 +82,10 @@ return [
     'no_data' => 'Keine Daten verfügbar',
     'no_result' => 'Es wurde nichts gefunden, was deinen Kriterien entspricht',
 
-    'search_family' => 'Finde deine Familie',
-    'search_family_placeholder' => 'Namen oder Spitznamen eingeben ...',
-    'persons_found' => '<span class="text-success"><strong>:total</strong></span> wurden in <span class="text-success"><strong>:scope</strong></span> mit dem Schlagwort <span class="text-success"><strong>:keyword</strong></span> gefunden',
-    'persons_available' => '<span class="text-success"><strong>:total</strong></span> Personen in <span class="text-success"><strong>:scope</strong></span></span> verfügbar',
+    'people_search' => 'Finde personen in <span class="text-success"><strong>:scope</strong></span></span>',
+    'people_search_placeholder' => 'Namen oder Spitznamen eingeben ...',
+    'people_found' => '<span class="text-success"><strong>:total</strong></span> wurden in <span class="text-success"><strong>:scope</strong></span> mit dem Schlagwort <span class="text-success"><strong>:keyword</strong></span> gefunden',
+    'people_available' => '<span class="text-success"><strong>:total</strong></span> Personen in <span class="text-success"><strong>:scope</strong></span></span> verfügbar',
 
     'whoops' => 'Upps! Etwas ist schief gelaufen.',
 ];
