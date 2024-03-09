@@ -7,9 +7,9 @@
 
 # Demo
 
-## Demo credentials
-
 <a href="https://genealogy.kreaweb.be/" target="_blank">https://genealogy.kreaweb.be/</a>
+
+## Demo credentials
 
 <table>
     <thead>
