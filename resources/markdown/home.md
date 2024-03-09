@@ -46,7 +46,7 @@
             <td>to view team <b>KENNEDY</b> as normal <b>member</b></td>
         </tr>
         <tr>
-            <td></td>developer@genealogy.test</b></td>
+            <td><b>developer@genealogy.test</b></td>
             <td>password</td>
             <td>to view options reserved for the <b>developer</b>, like the <b>user management</b> and access to <b>persons in all teams</b></td>
         </tr>
