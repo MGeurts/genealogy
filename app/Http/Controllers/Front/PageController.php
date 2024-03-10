@@ -11,8 +11,6 @@ class PageController extends Controller
 {
     public function home(Request $request)
     {
-        //return view('front.home');
-
         $homeFile = Jetstream::localizedMarkdownPath('home.md');
 
         return view('home', [
