@@ -9,53 +9,42 @@
 
 <a href="https://genealogy.kreaweb.be/" target="_blank">https://genealogy.kreaweb.be/</a>
 
-## Demo credentials
+This demo has 2 family trees implemented, **BRITISH ROYALS** and **KENNEDY**.
 
 <table>
     <thead>
         <tr>
-            <th>E-mail</th>
-            <th>Password</th>
+            <th>Credentials</th>
             <th>Purpose</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><b>administrator@genealogy.test</b></td>
-            <td>password</td>
+            <td><b>administrator@genealogy.test</b><br/>password</td>
             <td>to view teams <b>BRITISH ROYALS</b> and <b>KENNEDY</b> as team <b>owner</b></td>
         </tr>
         <tr>
-            <td><b>manager@genealogy.test</b></td>
-            <td>password</td>
+            <td><b>manager@genealogy.test</b><br/>password</td>
             <td>to view team <b>BRITISH ROYALS</b> as <b>manager</b></td>
         </tr>
         <tr>
-            <td><b>editor@genealogy.test</b></td>
-            <td>password</td>
+            <td><b>editor@genealogy.test</b><br/>password</td>
             <td>to view team <b>KENNEDY</b> as <b>editor</b></td>
         </tr>
         <tr>
-            <td><b>member_1@genealogy.test</b></td>
-            <td>password</td>
+            <td><b>member_1@genealogy.test</b><br/>password</td>
             <td>to view team <b>BRITISH ROYALS</b> as normal <b>member</b></td>
         </tr>
         <tr>
-            <td><b>member_4@genealogy.test</b></td>
-            <td>password</td>
+            <td><b>member_4@genealogy.test</b><br/>password</td>
             <td>to view team <b>KENNEDY</b> as normal <b>member</b></td>
         </tr>
         <tr>
-            <td><b>developer@genealogy.test</b></td>
-            <td>password</td>
+            <td><b>developer@genealogy.test</b><br/>password</td>
             <td>to view options reserved for the <b>developer</b>, like the <b>user management</b> and access to <b>persons in all teams</b></td>
         </tr>
     </tbody>
 </table>
-
-## Demo data
-
-This demo has 2 family trees implemented, **BRITISH ROYALS** and **KENNEDY**.
 
 # Github Repository
 

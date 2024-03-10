@@ -11,13 +11,13 @@ class PageController extends Controller
 {
     public function home(Request $request)
     {
-        return view('front.home');
+        //return view('front.home');
 
-        // $homeFile = Jetstream::localizedMarkdownPath('home.md');
+        $homeFile = Jetstream::localizedMarkdownPath('home.md');
 
-        // return view('home', [
-        //     'home' => Str::markdown(file_get_contents($homeFile)),
-        // ]);
+        return view('home', [
+            'home' => Str::markdown(file_get_contents($homeFile)),
+        ]);
     }
 
     public function about(Request $request)
