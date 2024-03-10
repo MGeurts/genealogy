@@ -44,6 +44,14 @@ Route::middleware([
         Route::get('people/{couple}/{person}/edit-partner', 'editPartner')->name('people.edit-partner');
     });
 
+    // -----------------------------------------------------------------------------------------------
+    // gedcom
+    // -----------------------------------------------------------------------------------------------
+    Route::controller(App\Http\Controllers\Back\GedcomController::class)->group(function () {
+        Route::get('export', 'export')->name('gedcom.export');
+        Route::get('import', 'import')->name('gedcom.import');
+    });
+
     Route::middleware('IsDeveloper')->group(function () {
         // -----------------------------------------------------------------------------------------------
         // pages

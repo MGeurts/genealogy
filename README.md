@@ -1,4 +1,4 @@
-<p align="center"><img src="https://genealogy.kreaweb.be/img/genealogy-logo.svg" width="300px" alt="Genealogy-logo"/></p>
+<p align="center"><img src="https://genealogy.kreaweb.be/img/genealogy.svg" width="300px" alt="Genealogy"/></p>
 
 # Genealogy
 
@@ -10,6 +10,7 @@
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-020a.webp" class="rounded" alt="Genealogy-020a"/>
 
 This application is build using :
+
 <ul>
     <li><a href="https://laravel.com/" target="_blank">Laravel 10</a> (featuring <a href="https://vitejs.dev/" target="_blank">Vite</a>)</li>
     <li><a href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream 4</a> (featuring <a href="https://jetstream.laravel.com/features/teams.html" target="_blank">Teams</a>)</li>
@@ -21,6 +22,7 @@ This application is build using :
 </ul>
 
 ### Logic concept
+
 1. A person can have 1 biological father (1 person, based on <b>father_id</b>)
 2. A person can have 1 biological mother (1 person, based on <b>mother_id</b>)
 3. A person can have 1 set of parents, biological or not (1 couple of 2 people, based on <b>parents_id</b>)
@@ -167,7 +169,6 @@ make the needed changes regarding name, url, database connection & mail server
 
 `php artisan serve` or `npm run dev`
 
-
 ## Docker Installation
 
 `cp env.docker .env`
@@ -199,9 +200,6 @@ run docker containers
 
 `./vendor/bin/sail artisan serve` or `npm run dev`
 
-
-
-
 ## Testing
 
 `php artisan test`
@@ -228,4 +226,3 @@ This application is based on an original idea by <a href="https://github.com/naf
 ### Design & Development (2024)
 
 This Laravel application is designed and developed by <a href="https://www.kreaweb.be" target="_blank">kreaweb.be</a>.
-

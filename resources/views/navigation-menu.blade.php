@@ -58,7 +58,7 @@
                                 </x-slot>
 
                                 <x-slot name="content">
-                                    <div class="w-60">
+                                    <div class="w-80">
                                         {{-- teams management --}}
                                         <div class="block px-4 py-2 text-xs text-gray-400">
                                             {{ __('team.manage') }}
@@ -66,14 +66,27 @@
 
                                         {{-- teams settings --}}
                                         <x-dropdown-link wire:navigate href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
-                                            <x-icon.tabler icon="settings" class="mr-1" />
+                                            <x-icon.tabler icon="droplet-cog" class="mr-1" />
                                             {{ __('team.settings') }}
                                         </x-dropdown-link>
 
                                         @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                             <x-dropdown-link wire:navigate href="{{ route('teams.create') }}">
-                                                <x-icon.tabler icon="settings-plus" class="mr-1" />
+                                                <x-icon.tabler icon="droplet-plus" class="mr-1" />
                                                 {{ __('team.create') }}
+                                            </x-dropdown-link>
+
+                                            <hr />
+
+                                            {{-- gedcom --}}
+                                            <x-dropdown-link wire:navigate href="{{ route('gedcom.import') }}">
+                                                <x-icon.tabler icon="droplet-up" class="mr-1" />
+                                                {{ __('team.gedcom_import') }}
+                                            </x-dropdown-link>
+
+                                            <x-dropdown-link wire:navigate href="{{ route('gedcom.export') }}">
+                                                <x-icon.tabler icon="droplet-down" class="mr-1" />
+                                                {{ __('team.gedcom_export') }}
                                             </x-dropdown-link>
                                         @endcan
 
@@ -290,14 +303,25 @@
 
                         {{-- team settings --}}
                         <x-nav-link-responsive wire:navigate href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
-                            <x-icon.tabler icon="settings" class="mr-1" />
+                            <x-icon.tabler icon="droplet-cog" class="mr-1" />
                             {{ __('team.settings') }}
                         </x-nav-link-responsive>
 
                         @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                             <x-nav-link-responsive wire:navigate href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">
-                                <x-icon.tabler icon="settings-plus" class="mr-1" />
+                                <x-icon.tabler icon="droplet-plus" class="mr-1" />
                                 {{ __('team.create') }}
+                            </x-nav-link-responsive>
+
+                            {{-- gedcom --}}
+                            <x-nav-link-responsive wire:navigate href="{{ route('gedcom.import') }}" :active="request()->routeIs('gedcom.import')">
+                                <x-icon.tabler icon="droplet-up" class="mr-1" />
+                                {{ __('team.gedcom_import') }}
+                            </x-nav-link-responsive>
+
+                            <x-nav-link-responsive wire:navigate href="{{ route('gedcom.export') }}" :active="request()->routeIs('gedcom.export')">
+                                <x-icon.tabler icon="droplet-down" class="mr-1" />
+                                {{ __('team.gedcom_export') }}
                             </x-nav-link-responsive>
                         @endcan
 
