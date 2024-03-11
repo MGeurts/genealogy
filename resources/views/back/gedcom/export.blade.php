@@ -14,7 +14,7 @@
             {{-- card header --}}
             <div class="h-14 min-h-min flex flex-col p-2 border-b-2 border-neutral-100 text-lg dark:border-neutral-600 dark:text-neutral-50 rounded-t">
                 <div class="flex flex-wrap gap-2 justify-center items-start">
-                    <div class="flex-grow min-w-max max-w-full flex-1">UNDER CONSTRUCTION</div>
+                    <div class="flex-grow min-w-max max-w-full flex-1">Under construction</div>
 
                     <div class="flex-grow min-w-max max-w-full flex-1 text-end"></div>
                 </div>
