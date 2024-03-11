@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Paginator::useBootstrapFive(); // needed for Log Viewer
+        Paginator::useBootstrapFive(); // only needed for Log Viewer
 
         // language select for guest users
         // Language will be overruled by language as defined in each authenticated user profile
@@ -37,11 +37,11 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // log all queries when in not in production
-        // if (! app()->isProduction()) {
-        DB::listen(function ($query) {
-            logger(Str::replaceArray('?', $query->bindings, $query->sql));
-        });
-        // }
+        if (!app()->isProduction()) {
+            DB::listen(function ($query) {
+                logger(Str::replaceArray('?', $query->bindings, $query->sql));
+            });
+        }
 
         // log all N+1 queries
         Model::preventLazyLoading();
