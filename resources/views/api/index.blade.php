@@ -1,6 +1,10 @@
+@section('title')
+    &vert; {{ __('API Tokens') }}
+@endsection
+
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800">
+    <x-slot name="heading">
+        <h2 class="font-semibold text-gray-800 dark:text-gray-100">
             {{ __('API Tokens') }}
         </h2>
     </x-slot>

@@ -1,6 +1,10 @@
+@section('title')
+    &vert; {{ __('team.create') }}
+@endsection
+
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+    <x-slot name="heading">
+        <h2 class="font-semibold text-gray-800 dark:text-gray-100">
             {{ __('team.create') }}
         </h2>
     </x-slot>

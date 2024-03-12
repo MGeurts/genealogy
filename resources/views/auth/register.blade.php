@@ -9,11 +9,11 @@
         </x-slot>
 
         @if (session('teamInvitation'))
-            <x-slot name="header">
-                <h4>
+            <x-slot name="heading">
+                <h2 class="font-semibold text-gray-800 dark:text-gray-100">
                     {{ __('auth.register') }} {{ __('auth.or') }} <a class="underline hover:text-primary" href="{{ route('login') }}">{{ __('auth.log_in') }}</a>
                     {{ __('auth.to_join') }} {{ __('auth.team') }} <strong class="text-primary">{{ session('teamInvitation') }}</strong>.
-                </h4>
+                </h2>
             </x-slot>
         @endif
 

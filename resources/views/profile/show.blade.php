@@ -1,6 +1,10 @@
+@section('title')
+    &vert; {{ __('Profile') }}
+@endsection
+
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-gray-800 dark:text-gray-200 leading-tight">
+    <x-slot name="heading">
+        <h2 class="font-semibold text-gray-800 dark:text-gray-100">
             {{ __('Profile') }}
         </h2>
     </x-slot>
