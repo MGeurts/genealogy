@@ -7,7 +7,7 @@
 
     <x-slot name="description">
         <div class="dark:text-gray-100">
-            {{ __('Create a new team to collaborate with others on projects.') }}
+            {{ __('Create a new team to collaborate with others.') }}
         </div>
     </x-slot>
 

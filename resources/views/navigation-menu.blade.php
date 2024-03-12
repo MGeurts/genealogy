@@ -218,11 +218,6 @@
                 {{ __('birthday.birthdays') }}
             </x-nav-link-responsive>
 
-            <x-nav-link-responsive wire:navigate href="{{ route('about') }}" :active="request()->routeIs('about')">
-                <x-icon.tabler icon="info-circle" class="mr-1" />
-                {{ __('app.about') }}
-            </x-nav-link-responsive>
-
             <x-nav-link-responsive wire:navigate href="{{ route('help') }}" :active="request()->routeIs('help')">
                 <x-icon.tabler icon="help" class="mr-1" />
                 {{ __('app.help') }}
