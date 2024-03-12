@@ -49,3 +49,9 @@ This demo has 2 family trees implemented, **BRITISH ROYALS** and **KENNEDY**.
 # Github Repository
 
 <a href="https://github.com/MGeurts/genealogy/" target="_blank">https://github.com/MGeurts/genealogy</a>
+
+# To Do ...
+
+<ul>
+    <li><a href="https://www.gedcom.org/" target="_blank">GEDCOM</a> import and export.</li>
+</ul>
