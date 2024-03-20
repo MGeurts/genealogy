@@ -42,7 +42,7 @@ class Ancestors extends Component
 	            SELECT 
                     id, firstname, surname, sex, father_id, mother_id, dod, yod, photo, 
 		            0 AS degree,
-                    CONCAT(id, '') AS sequence
+                    CAST(CONCAT(id, '') AS CHAR(255)) AS sequence
 	            FROM people  
 	            WHERE deleted_at IS NULL AND id = " . $this->person->id . " 
     
