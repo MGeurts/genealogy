@@ -35,14 +35,14 @@ class DeathForm extends Form
             'yod' => [
                 'nullable',
                 'date_format:Y',
-                // new YodValid, To Do : not working
+                new YodValid,
             ],
             'dod' => [
                 'nullable',
                 'date',
                 'date_format:Y-m-d',
                 'before_or_equal:today',
-                // new DodValid, To Do : not working
+                new DodValid,
             ],
             'pod' => ['nullable', 'string', 'max:255'],
             'cemetery_location_name' => ['nullable', 'string', 'max:255'],
