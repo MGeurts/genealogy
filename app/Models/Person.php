@@ -49,13 +49,16 @@ class Person extends Model
         'team_id',
     ];
 
-    protected $casts = [
-        'dob' => 'date:Y-m-d',
-        'dod' => 'date:Y-m-d',
-
-        'is_deceased' => 'boolean',
-        'is_deletable' => 'boolean',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'dob' => 'date:Y-m-d',
+            'dod' => 'date:Y-m-d',
+    
+            'is_deceased' => 'boolean',
+            'is_deletable' => 'boolean',
+        ];
+    }
 
     protected $appends = [
         'name',

@@ -23,12 +23,15 @@ class Couple extends Model
         'team_id',
     ];
 
-    protected $casts = [
-        'date_start' => 'date:Y-m-d',
-        'date_end' => 'date:Y-m-d',
-        'is_married' => 'boolean',
-        'has_ended' => 'boolean',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'date_start' => 'date:Y-m-d',
+            'date_end' => 'date:Y-m-d',
+            'is_married' => 'boolean',
+            'has_ended' => 'boolean',
+        ];
+    }
 
     protected $appends = [
         'name',

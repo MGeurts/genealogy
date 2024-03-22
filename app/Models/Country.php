@@ -15,9 +15,12 @@ class Country extends Model
         'is_eu',
     ];
 
-    protected $casts = [
-        'is_eu' => 'boolean',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'is_eu' => 'boolean',
+        ];
+    }
 
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
