@@ -26,6 +26,10 @@ class Users extends Component implements HasForms, HasTable
         return $table
             ->query(user::query()->with(['ownedTeams', 'teams']))
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->label(__('user.id'))
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('surname')
                     ->label(__('user.surname'))
                     ->verticallyAlignStart()

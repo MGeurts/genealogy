@@ -25,15 +25,15 @@ class CreateApiTokenTest extends TestCase
             ->set(['createApiTokenForm' => [
                 'name' => 'Test Token',
                 'permissions' => [
-                    'user:read',
-                    'user:update',
+                    'read',
+                    'update',
                 ],
             ]])
             ->call('createApiToken');
 
         $this->assertCount(1, $user->fresh()->tokens);
         $this->assertEquals('Test Token', $user->fresh()->tokens->first()->name);
-        $this->assertTrue($user->fresh()->tokens->first()->can('user:read'));
-        $this->assertFalse($user->fresh()->tokens->first()->can('user:delete'));
+        $this->assertTrue($user->fresh()->tokens->first()->can('read'));
+        $this->assertFalse($user->fresh()->tokens->first()->can('delete'));
     }
 }

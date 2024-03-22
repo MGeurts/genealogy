@@ -29,6 +29,10 @@ class Teams extends Component implements HasForms, HasTable
                     ->withCount('persons')
             )
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->label(__('team.id'))
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('name')
                     ->label(__('team.name'))
                     ->sortable()

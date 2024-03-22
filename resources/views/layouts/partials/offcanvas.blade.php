@@ -7,7 +7,8 @@
                     {{ __('app.menu') }}
                 </h5>
 
-                <button type="button" class="box-content rounded-none border-none opacity-50 hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                <button type="button"
+                    class="box-content rounded-none border-none opacity-50 hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
                     data-te-offcanvas-dismiss>
                     <span
                         class="w-[1em] focus:opacity-100 disabled:pointer-events-none disabled:select-none disabled:opacity-25 [&.disabled]:pointer-events-none [&.disabled]:select-none [&.disabled]:opacity-25">
@@ -22,7 +23,8 @@
                     <div class="flex flex-row">
                         <div class="basis-1/2">
                             {{ __('auth.role') }} :
-                            <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                            <x-hr.narrow
+                                class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
                             {{ __('auth.permissions') }} :
                         </div>
 
@@ -30,13 +32,15 @@
                             @if (Auth::user())
                                 {{ Auth::user()->teamRole(auth()->user()->currentTeam)->name }}
 
-                                <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                                <x-hr.narrow
+                                    class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
                                 @foreach (Auth::user()->teamPermissions(Auth::user()->currentTeam) as $permission)
                                     {{ $permission }}<br />
                                 @endforeach
                             @else
                                 {{ __('auth.guest') }}
-                                <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                                <x-hr.narrow
+                                    class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
                             @endif
                         </div>
                     </div>
@@ -51,7 +55,8 @@
                         <div>{{ __('auth.developer') }} ...</div>
 
                         <div>
-                            <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                            <x-hr.narrow
+                                class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                             <p>
                                 <x-nav-link-responsive href="{{ route('teams') }}" :active="request()->routeIs('teams')">
@@ -66,7 +71,8 @@
                         </div>
 
                         <div>
-                            <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                            <x-hr.narrow
+                                class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                             <p>
                                 <x-nav-link-responsive href="{{ route('users') }}" :active="request()->routeIs('users')">
@@ -75,32 +81,37 @@
                             </p>
 
                             <p>
-                                <x-nav-link-responsive wire:navigate href="{{ route('userlogs.log') }}" :active="request()->routeIs('userlogs.log')">
+                                <x-nav-link-responsive wire:navigate href="{{ route('userlogs.log') }}"
+                                    :active="request()->routeIs('userlogs.log')">
                                     {{ __('userlog.users_log') }}
                                 </x-nav-link-responsive>
                             </p>
 
                             <p>
-                                <x-nav-link-responsive wire:navigate href="{{ route('userlogs.origin') }}" :active="request()->routeIs('userlogs.origin')">
+                                <x-nav-link-responsive wire:navigate href="{{ route('userlogs.origin') }}"
+                                    :active="request()->routeIs('userlogs.origin')">
                                     {{ __('userlog.users_origin') }}
                                 </x-nav-link-responsive>
                             </p>
 
                             <p>
-                                <x-nav-link-responsive wire:navigate href="{{ route('userlogs.origin-map') }}" :active="request()->routeIs('userlogs.origin-map')">
+                                <x-nav-link-responsive wire:navigate href="{{ route('userlogs.origin-map') }}"
+                                    :active="request()->routeIs('userlogs.origin-map')">
                                     {{ __('userlog.users_origin') }} (Map)
                                 </x-nav-link-responsive>
                             </p>
 
                             <p>
-                                <x-nav-link-responsive wire:navigate href="{{ route('userlogs.period') }}" :active="request()->routeIs('userlogs.period')">
+                                <x-nav-link-responsive wire:navigate href="{{ route('userlogs.period') }}"
+                                    :active="request()->routeIs('userlogs.period')">
                                     {{ __('userlog.users_stats') }}
                                 </x-nav-link-responsive>
                             </p>
                         </div>
 
                         <div>
-                            <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                            <x-hr.narrow
+                                class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                             <p>
                                 <x-nav-link-responsive wire:navigate href="{{ route('backups') }}" :active="request()->routeIs('backups')">
@@ -108,7 +119,8 @@
                                 </x-nav-link-responsive>
                             </p>
 
-                            <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                            <x-hr.narrow
+                                class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                             <p>
                                 <x-nav-link-responsive href="{{ url('log-viewer') }}" target="_blank">
@@ -118,10 +130,12 @@
                         </div>
 
                         <div>
-                            <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                            <x-hr.narrow
+                                class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                             <p>
-                                <x-nav-link-responsive wire:navigate href="{{ route('dependencies') }}" :active="request()->routeIs('dependencies')">
+                                <x-nav-link-responsive wire:navigate href="{{ route('dependencies') }}"
+                                    :active="request()->routeIs('dependencies')">
                                     {{ __('app.dependencies') }}
                                 </x-nav-link-responsive>
                             </p>
@@ -137,7 +151,8 @@
                         <div>{{ Auth::user()->teamRole(auth()->user()->currentTeam)->name }} ...</div>
 
                         <div>
-                            <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                            <x-hr.narrow
+                                class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                             <p>
                                 <x-nav-link-responsive href="{{ url('log-viewer') }}" target="_blank">
@@ -152,7 +167,14 @@
                     {{-- guest --}}
                     <div>{{ __('auth.guest') }} ...</div>
 
-                    <div><x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" /></div>
+                    <div><x-hr.narrow
+                            class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" /></div>
+
+                    <p>
+                        <x-nav-link-responsive wire:navigate href="{{ route('session') }}" :active="request()->routeIs('session')">
+                            {{ __('app.session') }}
+                        </x-nav-link-responsive>
+                    </p>
                 @endguest
             </div>
         </div>

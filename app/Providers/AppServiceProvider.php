@@ -2,15 +2,13 @@
 
 namespace App\Providers;
 
+//use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Console\AboutCommand;
-use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-
-// use Illuminate\Support\Str;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Paginator::useBootstrapFive(); // only needed for Log Viewer
+        // RedirectIfAuthenticated::redirectUsing(fn ($request) => route('/'));
 
         // language select for guest users
         // Language will be overruled by language as defined in each authenticated user profile
@@ -37,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // log all queries when in not in production
-        if (!app()->isProduction()) {
+        if (! app()->isProduction()) {
             DB::listen(function ($query) {
                 logger(Str::replaceArray('?', $query->bindings, $query->sql));
             });

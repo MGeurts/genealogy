@@ -2,7 +2,10 @@
 <html dir="ltr" lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data="{
     darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system')
 }" x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))"
-    x-bind:class="{ 'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches) }">
+    x-bind:class="{
+        'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)')
+            .matches)
+    }">
 
 <head>
     <meta charset="utf-8">
@@ -31,7 +34,7 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-white dark:bg-black">
-        {{--  tall notifications --}}
+        {{-- tall notifications --}}
         <livewire:toasts />
 
         {{-- header --}}

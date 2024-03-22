@@ -52,6 +52,7 @@ return [
     'delete_person' => 'Delete person',
 
     // Attributes
+    'id' => 'ID',
     'name' => 'Name',
     'firstname' => 'First name',
     'surname' => 'Surname',

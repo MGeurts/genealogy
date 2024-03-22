@@ -52,6 +52,7 @@ return [
     'delete_person' => 'Verwijder persoon',
 
     // Attributes
+    'id' => 'ID',
     'name' => 'Naam',
     'firstname' => 'Voornaam',
     'surname' => 'Achternaam',

@@ -4,7 +4,7 @@
 
 ## About this project
 
-<b>Genealogy</b> is a free and open-source (family tree) application to record family members and their relationships, build with PHP (Laravel 10).
+<b>Genealogy</b> is a free and open-source (family tree) application to record family members and their relationships, build with PHP (Laravel 11).
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-000.webp" class="rounded" alt="Genealogy-000"/>
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-020a.webp" class="rounded" alt="Genealogy-020a"/>
@@ -12,7 +12,7 @@
 This application is build using :
 
 <ul>
-    <li><a href="https://laravel.com/" target="_blank">Laravel 10</a> (featuring <a href="https://vitejs.dev/" target="_blank">Vite</a>)</li>
+    <li><a href="https://laravel.com/" target="_blank">Laravel 11</a> (featuring <a href="https://vitejs.dev/" target="_blank">Vite</a>)</li>
     <li><a href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream 4</a> (featuring <a href="https://jetstream.laravel.com/features/teams.html" target="_blank">Teams</a>)</li>
     <li><a href="https://livewire.laravel.com/" target="_blank">Livewire 3</a></li>
     <li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a></li>

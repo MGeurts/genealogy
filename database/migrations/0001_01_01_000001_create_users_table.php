@@ -28,12 +28,27 @@ return new class extends Migration
             $table->string('language', 2)->default('en');
             $table->boolean('is_developer')->default(false);
 
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         // Add index on deleted_at
         DB::statement('ALTER TABLE `users` ADD INDEX `users_deleted_at_index` (`deleted_at`)');
+
+        Schema::create('password_reset_tokens', function (Blueprint $table) {
+            $table->string('email')->primary();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
+        });
+
+        Schema::create('sessions', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->foreignId('user_id')->nullable()->index();
+            $table->string('ip_address', 45)->nullable();
+            $table->text('user_agent')->nullable();
+            $table->longText('payload');
+            $table->integer('last_activity')->index();
+        });
     }
 
     /**
@@ -42,5 +57,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('users');
+        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('sessions');
     }
 };

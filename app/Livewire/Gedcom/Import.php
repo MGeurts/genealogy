@@ -3,21 +3,22 @@
 namespace App\Livewire\Gedcom;
 
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
-use Illuminate\Support\Facades\File;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Usernotnull\Toast\Concerns\WireToast;
 
 class Import extends Component
 {
-    use WithFileUploads;
-    use WireToast;
     use TrimStringsAndConvertEmptyStringsToNull;
+    use WireToast;
+    use WithFileUploads;
 
     public $user = null;
 
     public $name = null;
+
     public $description = null;
+
     public $file = null;
 
     public function rules()

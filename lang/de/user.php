@@ -9,6 +9,7 @@ return [
     'edit' => 'Bearbeiten',
 
     // Attributes
+    'id' => 'ID',
     'firstname' => 'Vorname',
     'surname' => 'Nachname',
     'email' => 'E-Mail-Adresse',

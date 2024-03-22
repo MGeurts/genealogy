@@ -27,6 +27,10 @@ class Persons extends Component implements HasForms, HasTable
         return $table
             ->query(Person::query())
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                    ->label(__('person.id'))
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('surname')
                     ->label(__('person.surname'))
                     ->sortable()
