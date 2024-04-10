@@ -39,14 +39,14 @@
                     </span>
                 </div>
 
-                <x-button.secondary class="mt-2 me-2" type="button" x-on:click.prevent="$refs.photo.click()">
+                <x-ts-button color="secondary" class="mt-2 me-2" type="button" x-on:click.prevent="$refs.photo.click()">
                     {{ __('user.select_photo') }}
-                </x-button.secondary>
+                </x-ts-button>
 
                 @if ($this->user->profile_photo_path)
-                    <x-button.secondary type="button" class="mt-2" wire:click="deleteProfilePhoto">
+                    <x-ts-button color="secondary" type="button" class="mt-2" wire:click="deleteProfilePhoto">
                         {{ __('user.remove_photo') }}
-                    </x-button.secondary>
+                    </x-ts-button>
                 @endif
 
                 <x-input-error for="photo" class="mt-2" />
@@ -85,7 +85,7 @@
                 </p>
 
                 @if ($this->verificationLinkSent)
-                    <p class="mt-2 font-medium text-sm text-green-600 dark:text-green-400">
+                    <p class="mt-2 font-medium text-sm text-emerald-600 dark:text-emerald-400">
                         {{ __('A new verification link has been sent to your email address.') }}
                     </p>
                 @endif
@@ -104,12 +104,12 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-action-message class="p-2.5 mr-3 rounded text-xs bg-success-200 text-success-700" role="alert" on="saved">
+        <x-action-message class="px-4 py-2 mr-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
             {{ __('app.saved') }}
         </x-action-message>
 
-        <x-button.primary wire:loading.attr="disabled" wire:target="photo">
+        <x-ts-button color="primary" wire:loading.attr="disabled" wire:target="photo">
             {{ __('app.save') }}
-        </x-button.primary>
+        </x-ts-button>
     </x-slot>
 </x-form-section>

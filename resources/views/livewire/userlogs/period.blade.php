@@ -47,7 +47,7 @@
     </x-slot>
 
     <div class="grow max-w-5xl overflow-x-auto py-5 dark:text-neutral-200">
-        <div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50"">
+        <div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
             {{-- card header --}}
             <div class="h-18 min-h-min flex flex-col p-2 border-b-2 border-neutral-100 text-lg font-medium dark:border-neutral-600 dark:text-neutral-50 rounded-t">
                 <div class="flex flex-wrap gap-2 justify-center items-start">
@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="w-48">
-                        <x-select.select class="bg-white" wire:model.live="period" name="period" id="period" :options="$options" :searchable="false" :clearable="false" class="form-select pl-0 py-0" />
+                        <x-ts-select.styled wire:model.live="period" name="period" id="period" :options="$options" select="label:label|value:value" required />
                     </div>
 
                     <div class="flex-grow min-w-max max-w-full flex-1 text-end">

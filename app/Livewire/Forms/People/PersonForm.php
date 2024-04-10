@@ -15,9 +15,9 @@ class PersonForm extends Form
     public $person = null;
 
     // -----------------------------------------------------------------------
-    public $image = null; // file upload input
+    public $image = null;       // file upload input
 
-    public $iteration = 0; // needed for reset upload input
+    public $iteration = 0;      // needed for reset upload input
 
     // -----------------------------------------------------------------------
     public $firstname = null;

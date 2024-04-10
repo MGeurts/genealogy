@@ -51,13 +51,13 @@
 
     @if (Gate::check('update', $team))
         <x-slot name="actions">
-            <x-action-message class="me-3" on="saved">
-                {{ __('Saved.') }}
+            <x-action-message class="px-4 py-2 mr-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
+                {{ __('app.saved') }}
             </x-action-message>
 
-            <x-button.primary>
-                {{ __('Save') }}
-            </x-button.primary>
+            <x-ts-button color="primary">
+                {{ __('app.save') }}
+            </x-ts-button>
         </x-slot>
     @endif
 </x-form-section>

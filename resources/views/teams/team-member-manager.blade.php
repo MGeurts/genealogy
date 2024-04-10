@@ -50,7 +50,7 @@
                                                 </div>
 
                                                 @if ($addTeamMemberForm['role'] == $role->key)
-                                                    <x-icon.tabler icon="circle-check" class="ms-2 text-success" />
+                                                    <x-icon.tabler icon="circle-check" class="ms-2 text-emerald-600" />
                                                 @endif
                                             </div>
 
@@ -67,13 +67,13 @@
                 </x-slot>
 
                 <x-slot name="actions">
-                    <x-action-message class="me-3" on="saved">
-                        {{ __('Added.') }}
+                    <x-action-message class="px-4 py-2 mr-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
+                        {{ __('app.saved') }}
                     </x-action-message>
 
-                    <x-button.primary>
-                        {{ __('Add') }}
-                    </x-button.primary>
+                    <x-ts-button color="primary">
+                        {{ __('app.add') }}
+                    </x-ts-button>
                 </x-slot>
             </x-form-section>
         </div>
@@ -106,9 +106,9 @@
                                 <div class="flex items-center">
                                     @if (Gate::check('removeTeamMember', $team))
                                         {{-- cancel team invitation --}}
-                                        <button class="cursor-pointer ms-6 text-sm text-red-500 focus:outline-none" wire:click="cancelTeamInvitation({{ $invitation->id }})">
-                                            {{ __('Cancel') }}
-                                        </button>
+                                        <x-ts-button color="danger" wire:click="cancelTeamInvitation({{ $invitation->id }})">
+                                            {{ __('app.cancel') }}
+                                        </x-ts-button>
                                     @endif
                                 </div>
                             </div>
@@ -200,7 +200,7 @@
                                 </div>
 
                                 @if ($currentRole == $role->key)
-                                    <x-icon.tabler icon="circle-check" class="ms-2 text-success" />
+                                    <x-icon.tabler icon="circle-check" class="ms-2 text-emerald-600" />
                                 @endif
                             </div>
 
@@ -215,13 +215,13 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-button.secondary wire:click="stopManagingRole" wire:loading.attr="disabled">
+            <x-ts-button color="secondary" wire:click="stopManagingRole" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
-            </x-button.secondary>
+            </x-ts-button>
 
-            <x-button.primary class="ms-3" wire:click="updateRole" wire:loading.attr="disabled">
+            <x-ts-button color="primary" class="ms-3" wire:click="updateRole" wire:loading.attr="disabled">
                 {{ __('Save') }}
-            </x-button.primary>
+            </x-ts-button>
         </x-slot>
     </x-dialog-modal>
 
@@ -236,13 +236,13 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-button.secondary wire:click="$toggle('confirmingLeavingTeam')" wire:loading.attr="disabled">
+            <x-ts-button color="secondary" wire:click="$toggle('confirmingLeavingTeam')" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
-            </x-button.secondary>
+            </x-ts-button>
 
-            <x-button.danger class="ms-3" wire:click="leaveTeam" wire:loading.attr="disabled">
+            <x-ts-button color="danger" class="ms-3" wire:click="leaveTeam" wire:loading.attr="disabled">
                 {{ __('Leave') }}
-            </x-button.danger>
+            </x-ts-button>
         </x-slot>
     </x-confirmation-modal>
 
@@ -257,13 +257,13 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-button.secondary wire:click="$toggle('confirmingTeamMemberRemoval')" wire:loading.attr="disabled">
+            <x-ts-button color="secondary" wire:click="$toggle('confirmingTeamMemberRemoval')" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
-            </x-button.secondary>
+            </x-ts-button>
 
-            <x-button.danger class="ms-3" wire:click="removeTeamMember" wire:loading.attr="disabled">
+            <x-ts-button color="danger" class="ms-3" wire:click="removeTeamMember" wire:loading.attr="disabled">
                 {{ __('Remove') }}
-            </x-button.danger>
+            </x-ts-button>
         </x-slot>
     </x-confirmation-modal>
 </div>

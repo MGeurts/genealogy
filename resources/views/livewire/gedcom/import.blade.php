@@ -39,12 +39,8 @@
 
         {{-- team description --}}
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="description" value="{{ __('team.description') }}" />
-
             <div class="relative mt-1 mb-3 block w-full">
-                <textarea id="description" wire:model="state.description" class="peer block min-h-[auto] w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded shadow-sm px-3 py-[0.32rem]"
-                    rows="3" required>
-                </textarea>
+                <x-ts-textarea wire:model="state.description" id="description" label="{{ __('team.description') }} *" resize-auto required />
             </div>
 
             <x-input-error for="description" class="mt-2" />
@@ -69,8 +65,8 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-button.primary>
+        <x-ts-button color="primary">
             {{ __('team.create') }}
-        </x-button.primary>
+        </x-ts-button>
     </x-slot>
 </x-form-section>

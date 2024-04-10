@@ -43,9 +43,9 @@
                 {{ __('Created.') }}
             </x-action-message>
 
-            <x-button.primary>
+            <x-ts-button color="primary">
                 {{ __('Create') }}
-            </x-button.primary>
+            </x-ts-button>
         </x-slot>
     </x-form-section>
 
@@ -117,9 +117,9 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-button.secondary wire:click="$set('displayingToken', false)" wire:loading.attr="disabled">
+            <x-ts-button color="secondary" wire:click="$set('displayingToken', false)" wire:loading.attr="disabled">
                 {{ __('Close') }}
-            </x-button.secondary>
+            </x-ts-button>
         </x-slot>
     </x-dialog-modal>
 
@@ -141,13 +141,13 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-button.secondary wire:click="$set('managingApiTokenPermissions', false)" wire:loading.attr="disabled">
+            <x-ts-button color="secondary" wire:click="$set('managingApiTokenPermissions', false)" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
-            </x-button.secondary>
+            </x-ts-button>
 
-            <x-button.primary class="ms-3" wire:click="updateApiToken" wire:loading.attr="disabled">
+            <x-ts-button color="primary" class="ms-3" wire:click="updateApiToken" wire:loading.attr="disabled">
                 {{ __('Save') }}
-            </x-button.primary>
+            </x-ts-button>
         </x-slot>
     </x-dialog-modal>
 
@@ -162,13 +162,13 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-button.secondary wire:click="$toggle('confirmingApiTokenDeletion')" wire:loading.attr="disabled">
+            <x-ts-button color="secondary" wire:click="$toggle('confirmingApiTokenDeletion')" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
-            </x-button.secondary>
+            </x-ts-button>
 
-            <x-button.danger class="ms-3" wire:click="deleteApiToken" wire:loading.attr="disabled">
+            <x-ts-button color="danger" class="ms-3" wire:click="deleteApiToken" wire:loading.attr="disabled">
                 {{ __('Delete') }}
-            </x-button.danger>
+            </x-ts-button>
         </x-slot>
     </x-confirmation-modal>
 </div>

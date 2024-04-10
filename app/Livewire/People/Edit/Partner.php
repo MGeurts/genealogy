@@ -3,12 +3,17 @@
 namespace App\Livewire\People\Edit;
 
 use App\Livewire\Forms\People\PartnerForm;
+use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
 use App\Models\Person;
 use Livewire\Component;
+use Usernotnull\Toast\Concerns\WireToast;
 
 class Partner extends Component
 {
+    use TrimStringsAndConvertEmptyStringsToNull;
+    use WireToast;
+
     // -----------------------------------------------------------------------
     public $person;
 

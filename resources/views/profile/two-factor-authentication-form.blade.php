@@ -82,42 +82,42 @@
         <div class="mt-5">
             @if (!$this->enabled)
                 <x-confirms-password wire:then="enableTwoFactorAuthentication">
-                    <x-button.primary type="button" wire:loading.attr="disabled">
+                    <x-ts-button color="primary" type="button" wire:loading.attr="disabled">
                         {{ __('Enable') }}
-                    </x-button.primary>
+                    </x-ts-button>
                 </x-confirms-password>
             @else
                 @if ($showingRecoveryCodes)
                     <x-confirms-password wire:then="regenerateRecoveryCodes">
-                        <x-button.secondary class="me-3">
+                        <x-ts-button color="secondary" class="me-3">
                             {{ __('Regenerate Recovery Codes') }}
-                        </x-button.secondary>
+                        </x-ts-button>
                     </x-confirms-password>
                 @elseif ($showingConfirmation)
                     <x-confirms-password wire:then="confirmTwoFactorAuthentication">
-                        <x-button.primary type="button" class="me-3" wire:loading.attr="disabled">
+                        <x-ts-button color="primary" type="button" class="me-3" wire:loading.attr="disabled">
                             {{ __('Confirm') }}
-                        </x-button.primary>
+                        </x-ts-button>
                     </x-confirms-password>
                 @else
                     <x-confirms-password wire:then="showRecoveryCodes">
-                        <x-button.secondary class="me-3">
+                        <x-ts-button color="secondary" class="me-3">
                             {{ __('Show Recovery Codes') }}
-                        </x-button.secondary>
+                        </x-ts-button>
                     </x-confirms-password>
                 @endif
 
                 @if ($showingConfirmation)
                     <x-confirms-password wire:then="disableTwoFactorAuthentication">
-                        <x-button.secondary wire:loading.attr="disabled">
+                        <x-ts-button color="secondary" wire:loading.attr="disabled">
                             {{ __('Cancel') }}
-                        </x-button.secondary>
+                        </x-ts-button>
                     </x-confirms-password>
                 @else
                     <x-confirms-password wire:then="disableTwoFactorAuthentication">
-                        <x-button.danger wire:loading.attr="disabled">
+                        <x-ts-button color="danger" wire:loading.attr="disabled">
                             {{ __('Disable') }}
-                        </x-button.danger>
+                        </x-ts-button>
                     </x-confirms-password>
                 @endif
 

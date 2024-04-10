@@ -16,7 +16,7 @@ use Laravel\Sanctum\HasApiTokens;
 // ------------------------------------------------------------------------------------------------------
 // ATTENTION :
 // the user attribute "is_developer" should be set directly in the database
-// by the application developer on the one user account he wants to use to manage the whole applacation
+// by the application developer on the one user account he wants to use to manage the whole application
 // including user management and managing all people in all teams
 // ------------------------------------------------------------------------------------------------------
 

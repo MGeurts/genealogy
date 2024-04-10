@@ -12,11 +12,11 @@
 
 <li>
     @if ($person)
-        <x-link wire:navigate href="/people/{{ $person->id }}" title="{{ $person->sex === 'm' ? __('app.male') : __('app.female') }}">
+        <x-link href="/people/{{ $person->id }}" title="{{ $person->sex === 'm' ? __('app.male') : __('app.female') }}">
             <figure class="w-24">
                 <div class="user-image">
-                    @if ($person->photo && Storage::exists('public/photos/' . $person->photo))
-                        <img src="{{ asset('storage/photos/' . $person->photo) }}" class="w-full rounded shadow-lg dark:shadow-black/30" alt="image {{ $person->id }}" />
+                    @if ($person->photo && Storage::exists('public/photos/' . $person->team_id . '/' . $person->photo))
+                        <img src="{{ asset('storage/photos/' . $person->team_id . '/' . $person->photo) }}" class="w-full rounded shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
                     @else
                         <x-svg.person-no-image class="w-full rounded shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
                     @endif
@@ -26,7 +26,7 @@
                     @endif
                 </div>
 
-                <figcaption class="{{ ($person->dod or $person->yod) ? '!text-danger' : '!text-primary dark:!text-primary-300' }}">
+                <figcaption class="{{ ($person->dod or $person->yod) ? 'text-danger-600 dark:!text-danger-400' : 'text-primary-500 dark:!text-primary-300' }}">
                     {{ implode(' ', array_filter([$person->firstname, $person->surname])) }}
                 </figcaption>
             </figure>
@@ -34,7 +34,7 @@
 
         {{-- ancestors (recursive) --}}
         @if ($level_current < $level_max)
-            @if ($ancestors_next->count() > 0)
+            @if (count($ancestors_next) > 0)
                 <ul>
                     @foreach ($ancestors_next as $ancestor)
                         <x-tree-node.ancestors :person="$ancestor" :ancestors="$ancestors" :level_current="$level_current" :level_max="$level_max" />

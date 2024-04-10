@@ -1,4 +1,4 @@
-<footer class="text-center text-neutral-600 dark:text-neutral-200 lg:text-left">
+<footer class="print:hidden text-center text-neutral-600 dark:text-neutral-200 lg:text-left">
     <div class="flex items-center justify-center border-b-2 border-neutral-200 py-2 px-2 md:px-5 dark:border-neutral-500 lg:justify-between bg-neutral-200 dark:bg-neutral-700">
         <div class="mr-12 hidden lg:block">
             <span>{{ __('app.connected_social') }} :</span>
@@ -48,13 +48,13 @@
                 <x-hr.narrow class="w-48 h-1 max-md:mx-auto my-4 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                 <p class="mb-4">
-                    <x-nav-link-footer wire:navigate href="{{ url('terms-of-service') }}" :active="request()->is('terms-of-service')">
+                    <x-nav-link-footer href="{{ url('terms-of-service') }}" :active="request()->is('terms-of-service')">
                         {{ __('app.terms_of_service') }}
                     </x-nav-link-footer>
                 </p>
 
                 <p class="mb-4">
-                    <x-nav-link-footer wire:navigate href="{{ url('privacy-policy') }}" :active="request()->is('privacy-policy')">
+                    <x-nav-link-footer href="{{ url('privacy-policy') }}" :active="request()->is('privacy-policy')">
                         {{ __('app.privacy_policy') }}
                     </x-nav-link-footer>
                 </p>
@@ -66,13 +66,13 @@
                 <x-hr.narrow class="w-48 h-1 max-md:mx-auto my-4 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                 <p class="mb-4">
-                    <x-nav-link-footer wire:navigate href="{{ route('about') }}" :active="request()->routeIs('about')">
+                    <x-nav-link-footer href="{{ route('about') }}" :active="request()->routeIs('about')">
                         {{ __('app.about') }}
                     </x-nav-link-footer>
                 </p>
 
                 <p class="mb-4">
-                    <x-nav-link-footer wire:navigate href="{{ route('help') }}" :active="request()->routeIs('help')">
+                    <x-nav-link-footer href="{{ route('help') }}" :active="request()->routeIs('help')">
                         {{ __('app.help') }}
                     </x-nav-link-footer>
                 </p>

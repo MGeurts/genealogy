@@ -27,7 +27,7 @@
                     <x-label for="firstname" value="{{ __('user.firstname') }} :" />
                 </div>
                 <div class="md:w-2/3">
-                    <x-input id="firstname" class="block w-full" type="text" name="firstname" :value="old('firstname')" autofocus autocomplete="firstname" x-init="$el.focus();" />
+                    <x-input id="firstname" class="block w-full" type="text" name="firstname" :value="old('firstname')" autofocus autocomplete="firstname" />
                 </div>
             </div>
 
@@ -103,9 +103,9 @@
                     {{ __('auth.already_registered') }}?
                 </a>
 
-                <x-button.primary class="ml-4">
+                <x-ts-button color="primary" class="ml-4">
                     {{ __('auth.register') }}
-                </x-button.primary>
+                </x-ts-button>
             </div>
         </form>
     </x-authentication-card>

@@ -24,7 +24,7 @@
 
                 <div class="mt-4" x-show="! recovery">
                     <x-label for="code" value="{{ __('Code') }}" />
-                    <x-input id="code" class="block mt-1 w-full" type="text" inputmode="numeric" name="code" autofocus x-ref="code" autocomplete="one-time-code" x-init="$el.focus();" />
+                    <x-input id="code" class="block mt-1 w-full" type="text" inputmode="numeric" name="code" autofocus x-ref="code" autocomplete="one-time-code" />
                 </div>
 
                 <div class="mt-4" x-cloak x-show="recovery">
@@ -49,9 +49,9 @@
                         {{ __('Use an authentication code') }}
                     </button>
 
-                    <x-button.primary class="ms-4">
+                    <x-ts-button color="primary" class="ms-4">
                         {{ __('Log in') }}
-                    </x-button.primary>
+                    </x-ts-button>
                 </div>
             </form>
         </div>

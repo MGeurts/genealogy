@@ -5,35 +5,23 @@
                 {{-- header --}}
                 <div class="flex flex-wrap mb-2 text-lg">
                     <div class="flex-grow max-w-full flex-1">
-                        @if ($this->search)
-                            @if (env('GOD_MODE', 'false') && auth()->user()->is_developer)
-                                {!! __('app.people_search', [
-                                    'scope' => 'ALL TEAMS',
-                                ]) !!}
-                            @else
-                                {!! __('app.people_search', [
-                                    'scope' => auth()->user()->currentTeam->name,
-                                ]) !!}
-                            @endif
+                        @if (env('GOD_MODE', 'false') && auth()->user()->is_developer)
+                            {!! __('app.people_search', [
+                                'scope' => strtoupper(__('team.all_teams')),
+                            ]) !!}
                         @else
-                            @if (env('GOD_MODE', 'false') && auth()->user()->is_developer)
-                                {!! __('app.people_search', []) !!}
-                            @else
-                                {!! __('app.people_search', [
-                                    'scope' => auth()->user()->currentTeam->name,
-                                ]) !!}
-                            @endif
+                            {!! __('app.people_search', [
+                                'scope' => auth()->user()->currentTeam->name,
+                            ]) !!}
                         @endif
                     </div>
 
                     <div class="flex-grow max-w-full flex-1 text-center">
                         @if (auth()->user()->hasPermission('person:create'))
-                            <a wire:navigate href="/people/add">
-                                <x-button.success>
-                                    <x-icon.tabler icon="user-plus" class="me-2" />
-                                    {{ __('person.add_person') }}
-                                </x-button.success>
-                            </a>
+                            <x-ts-button href="/people/add" color="emerald" class="text-sm">
+                                <x-icon.tabler icon="user-plus" class="me-2" />
+                                {{ __('person.add_person') }}
+                            </x-ts-button>
                         @endif
                     </div>
 
@@ -42,7 +30,7 @@
                             @if (env('GOD_MODE', 'false') && auth()->user()->is_developer)
                                 {!! __('app.people_found', [
                                     'total' => $people->total(),
-                                    'scope' => 'ALL TEAMS',
+                                    'scope' => strtoupper(__('team.all_teams')),
                                     'keyword' => $this->search,
                                 ]) !!}
                             @else
@@ -56,7 +44,7 @@
                             @if (env('GOD_MODE', 'false') && auth()->user()->is_developer)
                                 {!! __('app.people_available', [
                                     'total' => $people_db,
-                                    'scope' => 'ALL TEAMS',
+                                    'scope' => strtoupper(__('team.all_teams')),
                                 ]) !!}
                             @else
                                 {!! __('app.people_available', [
@@ -69,17 +57,13 @@
                 </div>
 
                 {{-- search box --}}
-                <div class="flex flex-wrap items-stretch">
-                    <input wire:model.live.debounce.500ms="search" type="search" placeholder="{{ __('app.people_search_placeholder') }}" aria-label="Search" x-init="$el.focus();"
-                        class="m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded bg-transparent border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-auto focus:border-primary focus:text-neutral-700 dark:focus:text-neutral-200 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" />
-                </div>
+                <x-ts-input wire:model.live.debounce.500ms="search" type="search" placeholder="{{ __('app.people_search_placeholder') }}" aria-label="Search" />
 
                 {{-- footer : perpage and pagination --}}
-                @if ($people->count() > 0)
+                @if (count($people) > 0)
                     <div class="mt-2 flex flex-wrap gap-2 justify-center items-center">
                         <div class="flex-grow min-w-max max-w-36 flex-1">
-                            <x-select.select class="bg-white" wire:model.live="perpage" name="perpage" id="perpage" :options="$options" :searchable="false" :clearable="false"
-                                class="form-select pl-0 py-0" />
+                            <x-ts-select.styled wire:model.live="perpage" name="perpage" id="perpage" :options="$options" select="label:label|value:value" required />
                         </div>
 
                         <div class="flex-grow min-w-max max-w-full flex-1 text-end">

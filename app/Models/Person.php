@@ -54,7 +54,7 @@ class Person extends Model
         return [
             'dob' => 'date:Y-m-d',
             'dod' => 'date:Y-m-d',
-    
+
             'is_deceased' => 'boolean',
             'is_deletable' => 'boolean',
         ];
@@ -306,7 +306,7 @@ class Person extends Model
         $href_google_geo = 'https://www.google.com/maps/search/?api=1&query=';
 
         if ($this->getMetadataValue('cemetery_location_latitude') && $this->getMetadataValue('cemetery_location_longitude')) {
-            return $href_google_geo . implode('+', [
+            return $href_google_geo . implode('%2C', [
                 $this->getMetadataValue('cemetery_location_latitude'),
                 $this->getMetadataValue('cemetery_location_longitude'),
             ]);
@@ -317,14 +317,14 @@ class Person extends Model
         }
     }
 
-    public function isDeceased(): ?bool
+    public function isDeceased(): bool
     {
-        return $this->dod or $this->yod;
+        return $this->dod != null or $this->yod != null;
     }
 
     public function isDeletable(): bool
     {
-        return $this->children->count() === 0 and $this->couples->count() === 0;
+        return count($this->children) == 0 and count($this->couples) == 0;
     }
 
     public function isBirthdayToday(): bool

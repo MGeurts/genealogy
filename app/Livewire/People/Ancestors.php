@@ -17,10 +17,6 @@ class Ancestors extends Component
 
     public $count_max = 10;
 
-    protected $listeners = [
-        'photo_updated' => 'mount',
-    ];
-
     public function increment()
     {
         if ($this->count < $this->count_max) {
@@ -40,7 +36,7 @@ class Ancestors extends Component
         $this->ancestors = collect(DB::select("
             WITH RECURSIVE ancestors AS ( 
 	            SELECT 
-                    id, firstname, surname, sex, father_id, mother_id, dod, yod, photo, 
+                    id, firstname, surname, sex, father_id, mother_id, dod, yod, team_id, photo, 
 		            0 AS degree,
                     CAST(CONCAT(id, '') AS CHAR(255)) AS sequence
 	            FROM people  
@@ -48,7 +44,7 @@ class Ancestors extends Component
     
 	            UNION ALL 
     
-	            SELECT p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.photo,
+	            SELECT p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo,
 		            degree + 1 AS degree,
                     CONCAT(a.sequence, ',', p.id) AS sequence
 	            FROM people p, ancestors a 

@@ -80,16 +80,21 @@ return [
     'state' => 'State',
     'country' => 'Country',
     'phone' => 'Phone',
-    'photo' => 'Photo',
 
     'cemetery' => 'Cemetery',
     'cemetery_location' => 'Cemetery Location',
 
     // Photo
+    'edit_photos' => 'Edit photos',
     'photo_deleted' => 'Photo deleted',
+    'photo' => 'Photo',
+    'photos' => 'Photos',
+    'photos_existing' => 'Existing photos',
+    'set_primary' => 'Set as primary',
     'upload_photo' => 'Upload photo',
+    'upload_photos' => 'Upload photos',
     'upload_photo_primary' => 'Upload (or re-upload) primary photo',
-    'update_photo' => 'Update photo',
+    'update_photo_tip' => 'Drag and drop your new photos here',
 
     // Messages
     'yod_not_matching_dod' => 'The Year of death must match the Date of death (:value).',

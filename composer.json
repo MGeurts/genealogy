@@ -9,7 +9,6 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "arcanedev/log-viewer": "^11.0",
         "filament/tables": "^3.2",
         "intervention/image": "^3.5",
         "khill/lavacharts": "^3.1",
@@ -19,8 +18,10 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.0",
+        "opcodesio/log-viewer": "^3.7",
         "spatie/laravel-backup": "^8.6",
         "stevebauman/location": "^7.2",
+        "tallstackui/tallstackui": "^1.21",
         "usernotnull/tall-toasts": "^2.0"
     },
     "require-dev": {

@@ -1,55 +1,52 @@
-<div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50"">
+<div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
     <div class="h-14 min-h-min flex flex-col p-2 border-b-2 border-neutral-100 text-lg font-medium dark:border-neutral-600 dark:text-neutral-50 rounded-t">
         <div class="flex flex-wrap gap-2 justify-center items-start">
             <div class="flex-grow min-w-max max-w-full flex-1 align-middle justify-center items-center">
                 {{ __('person.profile') }}
             </div>
 
-            @if (auth()->user()->hasPermission('person:delete'))
-                @if ($person->isDeletable())
-                    <div class="flex-grow min-w-max max-w-min flex-1 text-end">
-                        <x-button.danger class="!p-2" title="{{ __('person.delete_person') }}" wire:click="confirmDeletion()">
-                            <x-icon.tabler icon="trash" class="!size-4" />
-                        </x-button.danger>
-                    </div>
-                @endif
-            @endif
-
-            @if (auth()->user()->hasPermission('person:update'))
+            @if (auth()->user()->hasPermission('person:update') or auth()->user()->hasPermission('person:delete'))
                 <div class="flex-grow min-w-max max-w-min flex-1 text-end">
-                    <div class="relative" data-te-dropdown-ref>
-                        <a href="#" class="pb-1" id="dropdownMenuButton2" data-te-dropdown-toggle-ref aria-expanded="false" data-te-ripple-init data-te-ripple-color="light">
-                            <x-button.primary class="!p-2" title="{{ __('person.edit_person') }}">
-                                <x-icon.tabler icon="edit" class="!size-4" />
-                            </x-button.primary>
-                        </a>
-
-                        <ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
-                            aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
-                            <li>
-                                <a class="block w-full whitespace-nowrap bg-transparent px-2 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-                                    href="/people/{{ $person->id }}/edit-profile" data-te-dropdown-item-ref>
+                    <x-ts-dropdown icon="bars-4" position="bottom-end">
+                        @if (auth()->user()->hasPermission('person:update'))
+                            <a href="/people/{{ $person->id }}/edit-profile">
+                                <x-ts-dropdown.items>
                                     <x-icon.tabler icon="id" class="mr-2" />
-                                    {{ __('person.profile') }}
-                                </a>
-                            </li>
-                            <li>
-                                <a class="block w-full whitespace-nowrap bg-transparent px-2 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-                                    href="/people/{{ $person->id }}/edit-contact" data-te-dropdown-item-ref>
+                                    {{ __('person.edit_profile') }}
+                                </x-ts-dropdown.items>
+                            </a>
+
+                            <a href="/people/{{ $person->id }}/edit-photos">
+                                <x-ts-dropdown.items>
+                                    <x-icon.tabler icon="photo" class="mr-2" />
+                                    {{ __('person.edit_photos') }}
+                                </x-ts-dropdown.items>
+                            </a>
+
+                            <a href="/people/{{ $person->id }}/edit-contact">
+                                <x-ts-dropdown.items>
                                     <x-icon.tabler icon="address-book" class="mr-2" />
-                                    {{ __('app.contact') }}
-                                </a>
-                            </li>
-                            <hr class="my-1 h-0 border border-t-0 border-solid border-neutral-700 opacity-25 dark:border-neutral-200" />
-                            <li>
-                                <a class="block w-full whitespace-nowrap bg-transparent px-2 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-neutral-600"
-                                    href="/people/{{ $person->id }}/edit-death" data-te-dropdown-item-ref>
+                                    {{ __('person.edit_contact') }}
+                                </x-ts-dropdown.items>
+                            </a>
+
+                            <a href="/people/{{ $person->id }}/edit-death">
+                                <x-ts-dropdown.items>
                                     <x-icon.tabler icon="coffin" class="mr-2" />
-                                    {{ __('person.death') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                                    {{ __('person.edit_death') }}
+                                </x-ts-dropdown.items>
+                            </a>
+                        @endif
+
+                        @if (auth()->user()->hasPermission('person:delete') and $person->isDeletable())
+                            <x-ts-dropdown.items separator wire:click="confirmDeletion()">
+                                <span class="text-danger-500">
+                                    <x-icon.tabler icon="trash" class="!size-4" />
+                                    {{ __('person.delete_person') }}
+                                </span>
+                            </x-ts-dropdown.items>
+                        @endif
+                    </x-ts-dropdown>
                 </div>
             @endif
         </div>
@@ -93,7 +90,10 @@
 
                 <tr>
                     <td class="pr-2 border-r-2">{{ __('person.sex') }} ({{ __('person.biological') }})</td>
-                    <td class="pl-2">{{ $person->sex == 'm' ? __('app.male') : __('app.female') }} <x-icon.tabler icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" /></td>
+                    <td class="pl-2">
+                        {{ $person->sex == 'm' ? __('app.male') : __('app.female') }}
+                        <x-icon.tabler icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" />
+                    </td>
                 </tr>
                 <tr class="border-b-2">
                     <td class="pr-2 border-r-2">{{ __('person.gender') }}</td>
@@ -124,7 +124,7 @@
                         <td class="pl-2">
                             {{ $person->death_formatted }}
                             @if ($person->isDeathdayToday())
-                                <x-icon.tabler icon="cake" class="text-warning size-4 " />
+                                <x-icon.tabler icon="cake" class="!size-4 text-warning" />
                             @endif
                         </td>
                     </tr>
@@ -140,9 +140,9 @@
                         <td class="pr-2 border-b-2 border-r-2">
                             @if ($person->cemetery_google)
                                 <a target="_blank" href="{{ $person->cemetery_google }}">
-                                    <x-button.info class="!p-2 mb-2" title="{{ __('app.show_on_google_maps') }}">
+                                    <x-ts-button color="info" class="!p-2 mb-2 text-white" title="{{ __('app.show_on_google_maps') }}">
                                         <x-icon.tabler icon="brand-google-maps" class="size-4" />
-                                    </x-button.info>
+                                    </x-ts-button>
                                 </a>
                             @endif
                         </td>
@@ -154,9 +154,9 @@
                             {{ __('person.address') }}<br />
                             @if ($person->address)
                                 <a target="_blank" href="{{ $person->address_google }}">
-                                    <x-button.info class="!p-2 mb-2" title="{{ __('app.show_on_google_maps') }}">
+                                    <x-ts-button color="info" class="!p-2 mb-2 text-white" title="{{ __('app.show_on_google_maps') }}">
                                         <x-icon.tabler icon="brand-google-maps" class="size-4" />
-                                    </x-button.info>
+                                    </x-ts-button>
                                 </a>
                             @endif
                         </td>
@@ -171,7 +171,7 @@
         </table>
     </div>
 
-    @if ($person->isDeletable())
+    @if (auth()->user()->hasPermission('person:delete') and $person->isDeletable())
         {{-- delete modal --}}
         <x-confirmation-modal wire:model.live="deleteConfirmed">
             <x-slot name="title">
@@ -185,13 +185,13 @@
             </x-slot>
 
             <x-slot name="footer">
-                <x-button.secondary wire:click="$toggle('deleteConfirmed')" wire:loading.attr="disabled">
+                <x-ts-button color="secondary" wire:click="$toggle('deleteConfirmed')" wire:loading.attr="disabled">
                     {{ __('app.abort_no') }}
-                </x-button.secondary>
+                </x-ts-button>
 
-                <x-button.danger class="ml-3" wire:click="deletePerson()" wire:loading.attr="disabled">
+                <x-ts-button color="danger" class="ml-3" wire:click="deletePerson()" wire:loading.attr="disabled">
                     {{ __('app.delete_yes') }}
-                </x-button.danger>
+                </x-ts-button>
             </x-slot>
         </x-confirmation-modal>
     @endif

@@ -1,43 +1,46 @@
-<div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50"">
+<div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
     <div class="h-14 min-h-min flex flex-col p-2 border-b-2 border-neutral-100 text-lg font-medium dark:border-neutral-600 dark:text-neutral-50 rounded-t">
         <div class="flex flex-wrap gap-2 justify-center items-start">
             <div class="flex-grow min-w-max max-w-full flex-1">
-                {{ __('person.children') }} ({{ $children->count() }})
+                {{ __('person.children') }} <x-ts-badge color="emerald" text="{{ count($children) }}" />
             </div>
 
-            <div class="flex-grow min-w-max max-w-full flex-1 text-end">
-                @if (auth()->user()->hasPermission('person:create'))
-                    <a wire:navigate href="/people/{{ $person->id }}/add-child">
-                        <x-button.success class="!p-2" title="{{ __('person.add_child') }}">
-                            <x-icon.tabler icon="user-plus" class="!size-4" />
-                        </x-button.success>
-                    </a>
-                @endif
-            </div>
+            @if (auth()->user()->hasPermission('person:create'))
+                <div class="flex-grow min-w-max max-w-min flex-1 text-end">
+                    <x-ts-dropdown icon="bars-4" position="bottom-end">
+                        <a href="/people/{{ $person->id }}/add-child">
+                            <x-ts-dropdown.items>
+                                <x-icon.tabler icon="user-plus" class="mr-1" />
+                                {{ __('person.add_child') }}
+                            </x-ts-dropdown.items>
+                        </a>
+                    </x-ts-dropdown>
+                </div>
+            @endif
         </div>
     </div>
 
-    @if ($children->count() > 0)
+    @if (count($children) > 0)
         @foreach ($children as $child)
             <div class="p-2 flex flex-wrap gap-2 justify-center items-start @if (!$loop->last) border-b @endif">
                 <div class="flex-grow min-w-max max-w-full flex-1">
-                    <x-link wire:navigate href="/people/{{ $child->id }}" class="{{ $child->isDeceased() ? '!text-danger' : '' }}">
-                        <b>{{ $child->name }}</b>
+                    <x-link href="/people/{{ $child->id }}" class="{{ $child->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+                        {{ $child->name }}
                     </x-link>
 
                     <x-icon.tabler icon="{{ $child->sex == 'm' ? 'gender-male' : 'gender-female' }}" />
                     @if ($child->type)
-                        <x-icon.tabler icon="heart-plus" class="text-success" />
+                        <x-icon.tabler icon="heart-plus" class="text-emerald-600" />
                     @endif
                 </div>
 
                 <div class="flex-grow min-w-max max-w-full flex-1 text-end">
                     @if (!$child->type)
                         @if (auth()->user()->hasPermission('person:update'))
-                            <x-button.danger class="!p-2" title="{{ __('app.disconnect') }} {{ __('app.disconnect_child') }}"
+                            <x-ts-button color="danger" class="!p-2" title="{{ __('app.disconnect') }} {{ __('app.disconnect_child') }}"
                                 wire:click="confirmDisconnect({{ $child->id }} , '{{ $child->name }}')">
                                 <x-icon.tabler icon="user-off" class="!size-4" />
-                            </x-button.danger>
+                            </x-ts-button>
                         @endif
                     @endif
                 </div>
@@ -47,7 +50,7 @@
         <p class="p-2">{{ __('app.nothing_recorded') }}</p>
     @endif
 
-    @if ($children->count() > 0)
+    @if (count($children) > 0)
         {{-- delete modal --}}
         <x-confirmation-modal wire:model.live="disconnectConfirmed">
             <x-slot name="title">
@@ -61,13 +64,13 @@
             </x-slot>
 
             <x-slot name="footer">
-                <x-button.secondary wire:click="$toggle('disconnectConfirmed')" wire:loading.attr="disabled">
+                <x-ts-button color="secondary" wire:click="$toggle('disconnectConfirmed')" wire:loading.attr="disabled">
                     {{ __('app.abort_no') }}
-                </x-button.secondary>
+                </x-ts-button>
 
-                <x-button.danger class="ml-3" wire:click="disconnectChild()" wire:loading.attr="disabled">
+                <x-ts-button color="danger" class="ml-3" wire:click="disconnectChild()" wire:loading.attr="disabled">
                     {{ __('app.disconnect_yes') }}
-                </x-button.danger>
+                </x-ts-button>
             </x-slot>
         </x-confirmation-modal>
     @endif

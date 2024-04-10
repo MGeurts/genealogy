@@ -1,21 +1,31 @@
 <div>
-    <div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50"">
+    <div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
         <div class="h-14 min-h-min p-2 border-b-2 border-neutral-100 text-lg font-medium dark:border-neutral-600 dark:text-neutral-50 rounded-t">
             <div class="flex flex-wrap gap-2 justify-center items-start">
                 <div class="flex-grow min-w-max max-w-full flex-1">
-                    <span class="mr-2">{{ __('person.descendants') }}</span>
+                    <span class="mr-1">{{ __('person.descendants') }}</span>
                     <div class="inline-flex border rounded" role="group">
-                        <button type="button" wire:click="decrement" data-te-ripple-init data-te-ripple-color="light" @if ($count === $count_min) disabled @endif
-                            class="inline-block rounded-l {{ $count === $count_min ? 'bg-danger hover:bg-danger-600 focus:bg-danger-600 active:bg-danger-700' : 'bg-secondary hover:bg-secondary-600 focus:bg-secondary-600 active:bg-secondary-700' }} px-1 text-xs transition duration-150 ease-in-out focus:outline-none focus:ring-0">
-                            <x-icon.tabler icon="minus" />
-                        </button>
+                        @if ($count === $count_min)
+                            <x-ts-button square xs color="danger" class="rounded-l border-0" wire:click="decrement" disabled>
+                                <x-icon.tabler icon="minus" />
+                            </x-ts-button>
+                        @else
+                            <x-ts-button square xs color="secondary" class="rounded-l border-0" wire:click="decrement">
+                                <x-icon.tabler icon="minus" />
+                            </x-ts-button>
+                        @endif
 
                         <div class="w-8 text-center">{{ $count }}</div>
 
-                        <button type="button" wire:click="increment" data-te-ripple-init data-te-ripple-color="light" @if ($count === $count_max) disabled @endif
-                            class="inline-block rounded-r {{ $count === $count_max ? 'bg-danger hover:bg-danger-600 focus:bg-danger-600 active:bg-danger-700' : 'bg-secondary hover:bg-secondary-600 focus:bg-secondary-600 active:bg-secondary-700' }} px-1 text-xs transition duration-150 ease-in-out focus:outline-none focus:ring-0">
-                            <x-icon.tabler icon="plus" />
-                        </button>
+                        @if ($count === $count_max)
+                            <x-ts-button square xs color="danger" class="rounded-r border-0" wire:click="increment" disabled>
+                                <x-icon.tabler icon="plus" />
+                            </x-ts-button>
+                        @else
+                            <x-ts-button square xs color="secondary" class="rounded-r border-0" wire:click="increment">
+                                <x-icon.tabler icon="plus" />
+                            </x-ts-button>
+                        @endif
                     </div>
                 </div>
 

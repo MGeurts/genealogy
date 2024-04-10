@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* -------------------------------------------- */
-[x-cloak] { display: none; }
+[x-cloak] { display: none !important; }
 /* -------------------------------------------- */
 /* User image + ribbon overlay                  */
 /* -------------------------------------------- */

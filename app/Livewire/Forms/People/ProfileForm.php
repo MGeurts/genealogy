@@ -15,11 +15,6 @@ class ProfileForm extends Form
     public $person;
 
     // -----------------------------------------------------------------------
-    public $image = null; // file upload input
-
-    public $iteration = 0; // needed for reset upload input
-
-    // -----------------------------------------------------------------------
     public $firstname = null;
 
     public $surname = null;
@@ -39,8 +34,6 @@ class ProfileForm extends Form
     public $dob = null;
 
     public $pob = null;
-
-    public $photo = null;
 
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]
@@ -74,9 +67,6 @@ class ProfileForm extends Form
             ],
             'pob' => ['nullable', 'string', 'max:255',
             ],
-
-            'photo' => ['nullable', 'string', 'max:255'],
-            'image' => ['nullable', 'sometimes', 'image', 'mimes:jpeg,png,jpg,svg,webp', 'max:1024'],
         ];
     }
 
@@ -99,9 +89,6 @@ class ProfileForm extends Form
             'yob' => __('person.yob'),
             'dob' => __('person.dob'),
             'pob' => __('person.pob'),
-
-            'photo' => __('person.photo'),
-            'image' => __('person.photo'),
         ];
     }
 }

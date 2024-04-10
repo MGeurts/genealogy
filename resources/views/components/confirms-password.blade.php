@@ -27,13 +27,13 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-button.secondary wire:click="stopConfirmingPassword" wire:loading.attr="disabled">
+            <x-ts-button color="secondary" wire:click="stopConfirmingPassword" wire:loading.attr="disabled">
                 {{ __('Cancel') }}
-            </x-button.secondary>
+            </x-ts-button>
 
-            <x-button.primary class="ms-3" dusk="confirm-password-button" wire:click="confirmPassword" wire:loading.attr="disabled">
+            <x-ts-button color="primary" class="ms-3" dusk="confirm-password-button" wire:click="confirmPassword" wire:loading.attr="disabled">
                 {{ $button }}
-            </x-button.primary>
+            </x-ts-button>
         </x-slot>
     </x-dialog-modal>
 @endonce

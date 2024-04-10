@@ -20,7 +20,7 @@
         <x-validation-errors class="mb-4" />
 
         @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
+            <div class="mb-4 font-medium text-sm text-emerald-600">
                 {{ session('status') }}
             </div>
         @endif
@@ -53,9 +53,9 @@
                     </a>
                 @endif
 
-                <x-button.primary class="ms-4">
+                <x-ts-button color="primary" class="ms-4">
                     {{ __('auth.login') }}
-                </x-button.primary>
+                </x-ts-button>
             </div>
         </form>
     </x-authentication-card>

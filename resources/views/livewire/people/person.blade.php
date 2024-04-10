@@ -17,8 +17,8 @@
     {{-- data --}}
     <div class="p-2 pb-0">
         <p>
-            <x-link wire:navigate href="/people/{{ $person->id }}" class="{{ $person->isDeceased() ? '!text-danger' : '' }}">
-                <b>{{ $person->name }}</b>
+            <x-link href="/people/{{ $person->id }}" class="{{ $person->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+                {{ $person->name }}
             </x-link>
             <x-icon.tabler icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" />
         </p>
@@ -27,16 +27,17 @@
         <x-hr.narrow />
         <p class="py-1">{{ __('person.father') }} :
             @if ($person->father)
-                <x-link wire:navigate href="/people/{{ $person->father->id }}" class="{{ $person->father->isDeceased() ? '!text-danger' : '' }}">
-                    <b>{{ $person->father->name }}</b>
+                <x-link href="/people/{{ $person->father->id }}" class="{{ $person->father->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+                    {{ $person->father->name }}
                 </x-link>
                 <x-icon.tabler icon="{{ $person->father->sex == 'm' ? 'gender-male' : 'gender-female' }}" />
             @endif
         </p>
+
         <p class="py-1">{{ __('person.mother') }} :
             @if ($person->mother)
-                <x-link wire:navigate href="/people/{{ $person->mother->id }}" class="{{ $person->mother->isDeceased() ? '!text-danger' : '' }}">
-                    <b>{{ $person->mother->name }}</b>
+                <x-link href="/people/{{ $person->mother->id }}" class="{{ $person->mother->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+                    {{ $person->mother->name }}
                 </x-link>
                 <x-icon.tabler icon="{{ $person->mother->sex == 'm' ? 'gender-male' : 'gender-female' }}" />
             @endif
@@ -48,19 +49,19 @@
     <div class="p-2 flex flex-shrink-0 flex-wrap">
         <div class="flex-grow min-w-max max-w-full flex-1">
             <a href="/people/{{ $person->id }}" title="{{ __('app.show_profile') }}">
-                <x-button.primary class="mr-3">
+                <x-ts-button color="primary" class="text-sm">
                     <x-icon.tabler icon="id" class="mr-1" />
                     {{ __('person.profile') }}
-                </x-button.primary>
+                </x-ts-button>
             </a>
         </div>
 
         <div class="flex-grow min-w-max max-w-full flex-1 text-end">
-            <a wire:navigate href="/people/{{ $person->id }}/chart">
-                <x-button.secondary title="{{ __('app.show_family_chart') }}">
+            <a href="/people/{{ $person->id }}/chart">
+                <x-ts-button color="secondary" class="text-sm">
                     <x-icon.tabler icon="social" class="mr-1" />
                     {{ __('app.family_chart') }}
-                </x-button.secondary>
+                </x-ts-button>
             </a>
         </div>
     </div>

@@ -46,8 +46,8 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-button.primary>
+        <x-ts-button color="primary">
             {{ __('team.create') }}
-        </x-button.primary>
+        </x-ts-button>
     </x-slot>
 </x-form-section>

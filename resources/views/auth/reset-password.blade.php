@@ -17,7 +17,7 @@
 
             <div class="block">
                 <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" x-init="$el.focus();" />
+                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" />
             </div>
 
             <div class="mt-4">
@@ -31,9 +31,9 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-button.primary>
+                <x-ts-button color="primary">
                     {{ __('Reset Password') }}
-                </x-button.primary>
+                </x-ts-button>
             </div>
         </form>
     </x-authentication-card>

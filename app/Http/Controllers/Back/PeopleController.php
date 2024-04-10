@@ -59,11 +59,6 @@ class PeopleController extends Controller
         return view('back.people.add.partner')->with(compact('person'));
     }
 
-    public function addPhoto(Person $person): View
-    {
-        return view('back.people.add.photo')->with(compact('person'));
-    }
-
     public function editContact(Person $person): View
     {
         return view('back.people.edit.contact')->with(compact('person'));
@@ -77,6 +72,11 @@ class PeopleController extends Controller
     public function editFamily(Person $person): View
     {
         return view('back.people.edit.family')->with(compact('person'));
+    }
+
+    public function editPhotos(Person $person): View
+    {
+        return view('back.people.edit.photos')->with(compact('person'));
     }
 
     public function editProfile(Person $person): View

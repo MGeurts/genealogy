@@ -4,6 +4,7 @@ namespace App\Actions\Jetstream;
 
 use App\Models\Team;
 use App\Models\User;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Jetstream\Contracts\CreatesTeams;
@@ -30,9 +31,20 @@ class CreateTeam implements CreatesTeams
 
         $user->switchTeam($team = $user->ownedTeams()->create([
             'name' => $input['name'],
-            'description' => $input['description'],
+            'description' => $input['description'] ?? null,
             'personal_team' => false,
         ]));
+
+        // -----------------------------------------------------------------------
+        // create team photo folder
+        // -----------------------------------------------------------------------
+        $path = storage_path('app/public/photos/' . $team->id);
+
+        if (! File::isDirectory($path)) {
+            File::makeDirectory($path, 0777, true, true);
+        }
+
+        // -----------------------------------------------------------------------
 
         return $team;
     }

@@ -10,14 +10,14 @@
     </x-slot>
 
     <div class="overflow-x-auto py-5 space-y-5">
-        <div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50"">
+        <div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
             <div class="h-14 min-h-min flex flex-col p-2 border-b-2 border-neutral-100 text-lg font-medium dark:border-neutral-600 dark:text-neutral-50 rounded-t">
                 <div class="flex flex-wrap gap-2 justify-center items-start">
                     <div class="flex-grow min-w-max max-w-full flex-1">
                         {{ __('birthday.upcoming_birthdays') }}
                     </div>
 
-                    <div class="flex-grow min-w-max max-w-full flex-1 text-end">
+                    <div class="flex-grow min-w-max max-w-min flex-1 text-end">
                         <x-icon.tabler icon="cake" />
                     </div>
                 </div>
@@ -61,9 +61,8 @@
 
                                     @if ($person->isDeceased())
                                         <br />
-                                        <span class="text-danger">
+                                        <span class="text-danger-600 dark:text-danger-400">
                                             <x-icon.tabler icon="coffin" />
-                                            {{ $person->age }}
                                         </span>
                                     @endif
                                 </td>
@@ -78,8 +77,8 @@
             </div>
 
             {{-- footer --}}
-            <div class="h-12 p-2 text-xs rounded-b">
-                <p class="py-0">{{ __('birthday.upcoming_months', ['months' => $months]) }}</p>
+            <div class="h-12 p-2 text-sm rounded-b">
+                {{ __('birthday.upcoming_months', ['months' => $months]) }}
             </div>
         </div>
     </div>

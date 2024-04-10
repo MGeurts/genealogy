@@ -80,16 +80,21 @@ return [
     'state' => 'Staat',
     'country' => 'Land',
     'phone' => 'Telefoon',
-    'photo' => 'Afbeelding',
 
     'cemetery' => 'Begraafplaats',
     'cemetery_location' => 'Locatie begraafplaats',
 
     // Photo
+    'edit_photos' => 'Editeer afbeeldingen',
     'photo_deleted' => 'Afbeelding verwijderd',
+    'photo' => 'Afbeelding',
+    'photos' => 'Afbeeldingen',
+    'photos_existing' => 'Bestaande afbeeldingen',
+    'set_primary' => 'Als primaire afbeelding instellen',
     'upload_photo' => 'Afbeelding uploaden',
+    'upload_photos' => 'Afbeeldingen uploaden',
     'upload_photo_primary' => 'Primaire afbeelding (opnieuw) uploaden',
-    'update_photo' => 'Afbeelding wijzigen',
+    'update_photo_tip' => 'Sleep uw nieuwe afbeeldingen hierheen',
 
     // Messages
     'yod_not_matching_dod' => 'Het Jaar overlijden moet overeenkomen met de Datum overlijden (:value).',

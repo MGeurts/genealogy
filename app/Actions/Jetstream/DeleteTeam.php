@@ -3,6 +3,7 @@
 namespace App\Actions\Jetstream;
 
 use App\Models\Team;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Jetstream\Contracts\DeletesTeams;
 
 class DeleteTeam implements DeletesTeams
@@ -12,6 +13,12 @@ class DeleteTeam implements DeletesTeams
      */
     public function delete(Team $team): void
     {
+        // -----------------------------------------------------------------------
+        // delete team photo folder
+        // -----------------------------------------------------------------------
+        Storage::disk('photos')->deleteDirectory($team->id);
+        // -----------------------------------------------------------------------
+
         $team->purge();
     }
 }

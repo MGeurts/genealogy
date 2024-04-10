@@ -1,146 +1,216 @@
 <?php
 
-use Arcanedev\LogViewer\Contracts\Utilities\Filesystem;
-
 return [
 
-    /* -----------------------------------------------------------------
-     |  Log files storage path
-     | -----------------------------------------------------------------
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | Log Viewer
+    |--------------------------------------------------------------------------
+    | Log Viewer can be disabled, so it's no longer accessible via browser.
+    |
+    */
 
-    'storage-path' => storage_path('logs'),
+    'enabled' => env('LOG_VIEWER_ENABLED', true),
 
-    /* -----------------------------------------------------------------
-     |  Log files pattern
-     | -----------------------------------------------------------------
-     */
+    'require_auth_in_production' => true,
 
-    'pattern' => [
-        'prefix' => Filesystem::PATTERN_PREFIX,    // 'laravel-'
-        'date' => Filesystem::PATTERN_DATE,      // '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'
-        'extension' => Filesystem::PATTERN_EXTENSION, // '.log'
+    /*
+    |--------------------------------------------------------------------------
+    | Log Viewer Domain
+    |--------------------------------------------------------------------------
+    | You may change the domain where Log Viewer should be active.
+    | If the domain is empty, all domains will be valid.
+    |
+    */
+
+    'route_domain' => null,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Log Viewer Route
+    |--------------------------------------------------------------------------
+    | Log Viewer will be available under this URL.
+    |
+    */
+
+    'route_path' => 'log-viewer',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Back to system URL
+    |--------------------------------------------------------------------------
+    | When set, displays a link to easily get back to this URL.
+    | Set to `null` to hide this link.
+    |
+    | Optional label to display for the above URL.
+    |
+    */
+
+    'back_to_system_url' => config('app.url', null),
+
+    'back_to_system_label' => null, // Displayed by default: "Back to {{ app.name }}"
+
+    /*
+    |--------------------------------------------------------------------------
+    | Log Viewer time zone.
+    |--------------------------------------------------------------------------
+    | The time zone in which to display the times in the UI. Defaults to
+    | the application's timezone defined in config/app.php.
+    |
+    */
+
+    'timezone' => null,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Log Viewer route middleware.
+    |--------------------------------------------------------------------------
+    | Optional middleware to use when loading the initial Log Viewer page.
+    |
+    */
+
+    'middleware' => [
+        'web',
+        \Opcodes\LogViewer\Http\Middleware\AuthorizeLogViewer::class,
     ],
 
-    /* -----------------------------------------------------------------
-     |  Locale
-     | -----------------------------------------------------------------
-     |  Supported locales :
-     |    'auto', 'ar', 'bg', 'de', 'en', 'es', 'et', 'fa', 'fr', 'hu', 'hy', 'id', 'it', 'ja', 'ko', 'nl',
-     |    'pl', 'pt-BR', 'ro', 'ru', 'sv', 'th', 'tr', 'zh-TW', 'zh'
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | Log Viewer API middleware.
+    |--------------------------------------------------------------------------
+    | Optional middleware to use on every API request. The same API is also
+    | used from within the Log Viewer user interface.
+    |
+    */
 
-    'locale' => 'auto',
+    'api_middleware' => [
+        \Opcodes\LogViewer\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+        \Opcodes\LogViewer\Http\Middleware\AuthorizeLogViewer::class,
+    ],
 
-    /* -----------------------------------------------------------------
-     |  Theme
-     | -----------------------------------------------------------------
-     |  Supported themes :
-     |    'bootstrap-5'
-     |    'bootstrap-4'
-     |    'bootstrap-3'
-     |
-     |  You can make your own theme by adding a folder to the views directory and specifying it here.
-     */
+    'api_stateful_domains' => env('LOG_VIEWER_API_STATEFUL_DOMAINS') ? explode(',', env('LOG_VIEWER_API_STATEFUL_DOMAINS')) : null,
 
-    'theme' => 'bootstrap-5',
+    /*
+    |--------------------------------------------------------------------------
+    | Log Viewer Remote hosts.
+    |--------------------------------------------------------------------------
+    | Log Viewer supports viewing Laravel logs from remote hosts. They must
+    | be running Log Viewer as well. Below you can define the hosts you
+    | would like to show in this Log Viewer instance.
+    |
+    */
 
-    /* -----------------------------------------------------------------
-     |  Route settings
-     | -----------------------------------------------------------------
-     */
-
-    'route' => [
-        'enabled' => true,
-
-        'attributes' => [
-            'prefix' => 'log-viewer',
-
-            'middleware' => env('ARCANEDEV_LOGVIEWER_MIDDLEWARE') ? explode(',', env('ARCANEDEV_LOGVIEWER_MIDDLEWARE')) : null,
+    'hosts' => [
+        'local' => [
+            'name' => ucfirst(env('APP_ENV', 'local')),
         ],
 
-        'show' => 'log-viewer::logs.show',
+        // 'staging' => [
+        //     'name' => 'Staging',
+        //     'host' => 'https://staging.example.com/log-viewer',
+        //     'auth' => [      // Example of HTTP Basic auth
+        //         'username' => 'username',
+        //         'password' => 'password',
+        //     ],
+        // ],
+        //
+        // 'production' => [
+        //     'name' => 'Production',
+        //     'host' => 'https://example.com/log-viewer',
+        //     'auth' => [      // Example of Bearer token auth
+        //         'token' => env('LOG_VIEWER_PRODUCTION_TOKEN'),
+        //     ],
+        //     'headers' => [
+        //         'X-Foo' => 'Bar',
+        //     ],
+        // ],
     ],
 
-    /* -----------------------------------------------------------------
-     |  Log entries per page
-     | -----------------------------------------------------------------
-     |  This defines how many logs & entries are displayed per page.
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | Include file patterns
+    |--------------------------------------------------------------------------
+    |
+    */
 
-    'per-page' => 30,
+    'include_files' => [
+        '*.log',
+        '**/*.log',
 
-    /* -----------------------------------------------------------------
-     |  Download settings
-     | -----------------------------------------------------------------
-     */
+        // You can include paths to other log types as well, such as apache, nginx, and more.
+        '/var/log/httpd/*',
+        '/var/log/nginx/*',
 
-    'download' => [
-        'prefix' => 'genealogy-',
+        // MacOS Apple Silicon logs
+        '/opt/homebrew/var/log/nginx/*',
+        '/opt/homebrew/var/log/httpd/*',
+        '/opt/homebrew/var/log/php-fpm.log',
+        '/opt/homebrew/var/log/postgres*log',
+        '/opt/homebrew/var/log/redis*log',
+        '/opt/homebrew/var/log/supervisor*log',
 
-        'extension' => 'log',
+        // '/absolute/paths/supported',
     ],
 
-    /* -----------------------------------------------------------------
-     |  Menu settings
-     | -----------------------------------------------------------------
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | Exclude file patterns.
+    |--------------------------------------------------------------------------
+    | This will take precedence over included files.
+    |
+    */
 
-    'menu' => [
-        'filter-route' => 'log-viewer::logs.filter',
-
-        'icons-enabled' => true,
+    'exclude_files' => [
+        // 'my_secret.log'
     ],
 
-    /* -----------------------------------------------------------------
-     |  Icons
-     | -----------------------------------------------------------------
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | Hide unknown files.
+    |--------------------------------------------------------------------------
+    | The include/exclude options above might catch files which are not
+    | logs supported by Log Viewer. In that case, you can hide them
+    | from the UI and API calls by setting this to true.
+    |
+    */
 
-    'icons' => [
-        /**
-         * Font awesome >= 4.3
-         * http://fontawesome.io/icons/
-         */
-        'all' => 'fa fa-fw fa-list',                 // http://fontawesome.io/icon/list/
-        'emergency' => 'fa fa-fw fa-bug',                  // http://fontawesome.io/icon/bug/
-        'alert' => 'fa fa-fw fa-bullhorn',             // http://fontawesome.io/icon/bullhorn/
-        'critical' => 'fa fa-fw fa-heartbeat',            // http://fontawesome.io/icon/heartbeat/
-        'error' => 'fa fa-fw fa-times-circle',         // http://fontawesome.io/icon/times-circle/
-        'warning' => 'fa fa-fw fa-exclamation-triangle', // http://fontawesome.io/icon/exclamation-triangle/
-        'notice' => 'fa fa-fw fa-exclamation-circle',   // http://fontawesome.io/icon/exclamation-circle/
-        'info' => 'fa fa-fw fa-info-circle',          // http://fontawesome.io/icon/info-circle/
-        'debug' => 'fa fa-fw fa-life-ring',            // http://fontawesome.io/icon/life-ring/
+    'hide_unknown_files' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    |  Shorter stack trace filters.
+    |--------------------------------------------------------------------------
+    | Lines containing any of these strings will be excluded from the full log.
+    | This setting is only active when the function is enabled via the user interface.
+    |
+    */
+
+    'shorter_stack_trace_excludes' => [
+        '/vendor/symfony/',
+        '/vendor/laravel/framework/',
+        '/vendor/barryvdh/laravel-debugbar/',
     ],
 
-    /* -----------------------------------------------------------------
-     |  Colors
-     | -----------------------------------------------------------------
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | Cache driver
+    |--------------------------------------------------------------------------
+    | Cache driver to use for storing the log indices. Indices are used to speed up
+    | log navigation. Defaults to your application's default cache driver.
+    |
+    */
 
-    'colors' => [
-        'levels' => [
-            'empty' => '#D1D1D1',
-            'all' => '#8A8A8A',
-            'emergency' => '#B71C1C',
-            'alert' => '#D32F2F',
-            'critical' => '#F44336',
-            'error' => '#FF5722',
-            'warning' => '#FF9100',
-            'notice' => '#4CAF50',
-            'info' => '#1976D2',
-            'debug' => '#90CAF9',
-        ],
-    ],
+    'cache_driver' => env('LOG_VIEWER_CACHE_DRIVER', null),
 
-    /* -----------------------------------------------------------------
-     |  Strings to highlight in stack trace
-     | -----------------------------------------------------------------
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | Chunk size when scanning log files lazily
+    |--------------------------------------------------------------------------
+    | The size in MB of files to scan before updating the progress bar when searching across all files.
+    |
+    */
 
-    'highlight' => [
-        '^#\d+',
-        '^Stack trace:',
-    ],
+    'lazy_scan_chunk_size_in_mb' => 50,
 
+    'strip_extracted_context' => true,
 ];

@@ -65,7 +65,7 @@ class Person extends Component
                 // resize (new) photo, add watermark and save it
                 $manager = new ImageManager(new Driver());
                 $new_image = $manager->read($this->personForm->image)
-                    ->resizeDown(width: $image_width, height: $image_height)
+                    ->scaleDown(width: $image_width, height: $image_height)
                     ->place(public_path('img/watermark.png'), 'bottom-left', 5, 5)
                     ->toWebp(quality: $image_quality);
 
@@ -73,8 +73,6 @@ class Person extends Component
                     $new_image->save(storage_path('app/public/photos/' . $image_name));
 
                     $person->update(['photo' => $image_name]);
-
-                    $this->dispatch('photo_updated');
 
                     // reset photo upload input
                     $this->personForm->image = null;

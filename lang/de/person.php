@@ -80,16 +80,21 @@ return [
     'state' => 'State',
     'country' => 'Land',
     'phone' => 'Telefonnummer',
-    'photo' => 'Foto',
 
     'cemetery' => 'Friedhof',
     'cemetery_location' => 'Ort des Friedhofs',
 
     // Photo
+    'edit_photos' => 'Editiere Fotos',
     'photo_deleted' => 'Foto gelöscht',
+    'photo' => 'Foto',
+    'photos' => 'Fotos',
+    'photos_existing' => 'Bestehende Fotos',
+    'set_primary' => 'Als Hauptfoto einstellen',
     'upload_photo' => 'Foto hochladen',
+    'upload_photos' => 'Fotos hochladen',
     'upload_photo_primary' => 'Hauptfoto (erneut) hochladen',
-    'update_photo' => 'Foto aktualisieren',
+    'update_photo_tip' => 'Ziehen Sie Ihr neue Fotos hierher',
 
     // Messages
     'yod_not_matching_dod' => 'Das Sterbejahr muss übereinstimmen mit dem Sterbedatum (:value).',

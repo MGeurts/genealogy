@@ -92,7 +92,7 @@
                                 @if ($i == $paginator->currentPage())
                                     <span aria-current="page">
                                         <span
-                                            class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-warning dark:bg-warning-300 border border-gray-300 cursor-default leading-5 select-none">
+                                            class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-warning-300 dark:bg-warning-200 border border-gray-300 cursor-default leading-5 select-none">
                                             {{ $i }}
                                         </span>
                                     </span>

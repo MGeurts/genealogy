@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'all_teams' => 'Alle teams',
     'cancel' => 'Abbrechen',
     'couples' => 'Paare',
     'create' => 'Team erstellen',

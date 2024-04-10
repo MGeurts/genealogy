@@ -10,7 +10,7 @@
     </x-slot>
 
     <div class="grow max-w-5xl py-5 dark:text-neutral-200">
-        <div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50"">
+        <div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
             {{-- card header --}}
             <div class="h-14 min-h-min flex flex-col p-2 border-b-2 border-neutral-100 text-lg font-medium dark:border-neutral-600 dark:text-neutral-50 rounded-t">
                 <div class="flex flex-wrap gap-2 justify-center items-start">
@@ -19,10 +19,10 @@
                     </div>
 
                     <div class="min-w-max flex-grow max-w-full flex-1 text-center">
-                        <x-button.success class="ml-4" wire:click="create()">
-                            <x-icon.tabler icon="circle-plus" class="mr-2" />
+                        <x-ts-button color="emerald" wire:click="create()" class="text-white text-sm">
+                            <x-icon.tabler icon="circle-plus" class="mr-1" />
                             {{ __('backup.create') }}
-                        </x-button.success>
+                        </x-ts-button>
                     </div>
 
                     <div class="flex-grow min-w-max max-w-full flex-1 text-end">
@@ -45,15 +45,15 @@
                             {{ $backup['date_ago'] }}
                         </p>
 
-                        <x-button.primary class="mr-2" wire:click="download('{{ $backup['file_name'] }}')">
-                            <x-icon.tabler icon="download" class="mr-2" />
+                        <x-ts-button color="primary" class="mr-1" wire:click="download('{{ $backup['file_name'] }}')" class="text-white text-sm mr-2">
+                            <x-icon.tabler icon="download" class="mr-1" />
                             {{ __('backup.download') }}
-                        </x-button.primary>
+                        </x-ts-button>
 
-                        <x-button.danger wire:click="confirmDeletion('{{ $backup['file_name'] }}')">
-                            <x-icon.tabler icon="trash" class="mr-2" />
+                        <x-ts-button color="danger" wire:click="confirmDeletion('{{ $backup['file_name'] }}')" class="text-white text-sm">
+                            <x-icon.tabler icon="trash" class="mr-1" />
                             {{ __('backup.delete') }}
-                        </x-button.danger>
+                        </x-ts-button>
                     </div>
                 @empty
                     {{ __('backup.no_data') }}
@@ -89,13 +89,13 @@
             </x-slot>
 
             <x-slot name="footer">
-                <x-button.secondary wire:click="$toggle('deleteConfirmed')" wire:loading.attr="disabled">
+                <x-ts-button color="secondary" wire:click="$toggle('deleteConfirmed')" wire:loading.attr="disabled">
                     {{ __('app.abort_no') }}
-                </x-button.secondary>
+                </x-ts-button>
 
-                <x-button.danger class="ml-3" wire:click="deleteBackup()" wire:loading.attr="disabled">
+                <x-ts-button color="danger" class="ml-3" wire:click="deleteBackup()" wire:loading.attr="disabled">
                     {{ __('app.delete_yes') }}
-                </x-button.danger>
+                </x-ts-button>
             </x-slot>
         </x-confirmation-modal>
     @endif

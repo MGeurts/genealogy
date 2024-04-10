@@ -45,7 +45,7 @@
                                     {{ $session->ip_address }},
 
                                     @if ($session->is_current_device)
-                                        <span class="text-green-500 font-semibold">{{ __('This device') }}</span>
+                                        <span class="text-emerald-500 font-semibold">{{ __('This device') }}</span>
                                     @else
                                         {{ __('Last active') }} {{ $session->last_active }}
                                     @endif
@@ -58,9 +58,9 @@
         @endif
 
         <div class="flex items-center mt-5">
-            <x-button.primary wire:click="confirmLogout" wire:loading.attr="disabled">
+            <x-ts-button color="primary" wire:click="confirmLogout" wire:loading.attr="disabled">
                 {{ __('Log Out Other Browser Sessions') }}
-            </x-button.primary>
+            </x-ts-button>
 
             <x-action-message class="ms-3" on="loggedOut">
                 {{ __('Done.') }}
@@ -85,13 +85,13 @@
             </x-slot>
 
             <x-slot name="footer">
-                <x-button.secondary wire:click="$toggle('confirmingLogout')" wire:loading.attr="disabled">
+                <x-ts-button color="secondary" wire:click="$toggle('confirmingLogout')" wire:loading.attr="disabled">
                     {{ __('Cancel') }}
-                </x-button.secondary>
+                </x-ts-button>
 
-                <x-button.primary class="ms-3" wire:click="logoutOtherBrowserSessions" wire:loading.attr="disabled">
+                <x-ts-button color="primary" class="ms-3" wire:click="logoutOtherBrowserSessions" wire:loading.attr="disabled">
                     {{ __('Log Out Other Browser Sessions') }}
-                </x-button.primary>
+                </x-ts-button>
             </x-slot>
         </x-dialog-modal>
     </x-slot>

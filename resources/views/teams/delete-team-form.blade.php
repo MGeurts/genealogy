@@ -12,14 +12,27 @@
     </x-slot>
 
     <x-slot name="content">
+        <table>
+            <tr>
+                <td>{{ __('team.persons') }} : </td>
+                <td><b>{{ count($team->persons) }}</b></td>
+            </tr>
+            <tr>
+                <td>{{ __('team.couples') }} : </td>
+                <td><b>{{ count($team->couples) }}</b></td>
+            </tr>
+        </table>
+
+        <x-hr.normal />
+
         <div class="max-w-xl text-sm text-gray-600">
             {{ __('Once a team is deleted, all of its resources and data will be permanently deleted. Before deleting this team, please download any data or information regarding this team that you wish to retain.') }}
         </div>
 
         <div class="mt-5">
-            <x-button.danger wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
+            <x-ts-button color="danger" wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
                 {{ __('team.delete') }}
-            </x-button.danger>
+            </x-ts-button>
         </div>
 
         {{-- delete team confirmation modal --}}
@@ -33,13 +46,13 @@
             </x-slot>
 
             <x-slot name="footer">
-                <x-button.secondary wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
+                <x-ts-button color="secondary" wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
                     {{ __('team.cancel') }}
-                </x-button.secondary>
+                </x-ts-button>
 
-                <x-button.danger class="ms-3" wire:click="deleteTeam" wire:loading.attr="disabled">
+                <x-ts-button color="danger" class="ms-3" wire:click="deleteTeam" wire:loading.attr="disabled">
                     {{ __('team.delete') }}
-                </x-button.danger>
+                </x-ts-button>
             </x-slot>
         </x-confirmation-modal>
     </x-slot>

@@ -9,7 +9,7 @@
         </div>
 
         @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
+            <div class="mb-4 font-medium text-sm text-emerald-600">
                 {{ session('status') }}
             </div>
         @endif
@@ -25,9 +25,9 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-button.primary>
+                <x-ts-button color="primary">
                     {{ __('Email Password Reset Link') }}
-                </x-button.primary>
+                </x-ts-button>
             </div>
         </form>
     </x-authentication-card>

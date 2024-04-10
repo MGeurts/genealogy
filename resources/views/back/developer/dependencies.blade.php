@@ -1,0 +1,102 @@
+@section('title')
+    &vert; {{ __('app.dependencies') }}
+@endsection
+
+<x-app-layout>
+    <x-slot name="heading">
+        <h2 class="font-semibold text-gray-800 dark:text-gray-100">
+            {{ __('app.dependencies') }}
+        </h2>
+    </x-slot>
+
+    <div class="grow max-w-5xl overflow-x-auto py-5 dark:text-neutral-200">
+        <x-ts-tab selected="Laravel">
+            {{-- laravel --}}
+            <x-ts-tab.items tab="Laravel">
+                <ul class="w-full ml-4">
+                    <li class="py-2">
+                        <x-link href="https://laravel.com/" target="_blank">Laravel</x-link> 11.x
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream</x-link> (with Teams) 4.x
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://livewire.laravel.com/" target="_blank">Laravel Livewire</x-link> 3.x
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://filamentphp.com/" target="_blank">Laravel Filament</x-link> (only Table Builder) 3.x
+                    </li>
+                </ul>
+            </x-ts-tab.items>
+
+            {{-- tailwind --}}
+            <x-ts-tab.items tab="Tailwind">
+                <ul class="w-full ml-4">
+                    <li class="py-2">
+                        <x-link href="https://tailwindcss.com/docs/" target="_blank">Tailwind CSS</x-link>
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://tallstackui.com/" target="_blank">TallStackUI</x-link>
+                    </li>
+                </ul>
+            </x-ts-tab.items>
+
+            {{-- github --}}
+            <x-ts-tab.items tab="Github">
+                <ul class="w-full ml-4">
+                    <li class="py-2">
+                        <x-link href="https://github.com/csstools/postcss-plugins/" target="_blank">csstools/postcss-plugins</x-link> (needed by Filament Table Builder)
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://github.com/Intervention/image/" target="_blank">intervention/image</x-link>
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://github.com/kevinkhill/lavacharts/" target="_blank">kevinkhill/lavacharts</x-link>
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://github.com/korridor/laravel-has-many-merged/" target="_blank">korridor/laravel-has-many-merged</x-link>
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://github.com/opcodesio/log-viewer/" target="_blank">opcodesio/log-viewer</x-link>
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://github.com/spatie/laravel-backup/" target="_blank">spatie/laravel-backup</x-link>
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://github.com/stevebauman/location/" target="_blank">stevebauman/location</x-link>
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://github.com/usernotnull/tall-toasts/" target="_blank">usernotnull/tall-toasts</x-link>
+                    </li>
+
+                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-4 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+
+                    <li class="py-2">
+                        <x-link href="https://github.com/stefangabos/world_countries/" target="_blank">stefangabos/world_countries</x-link> (candidate)
+                    </li>
+                </ul>
+            </x-ts-tab.items>
+
+            {{-- javascript --}}
+            <x-ts-tab.items tab="Javascript">
+                <ul class="w-full ml-4">
+                    <li class="py-2">
+                        <x-link href="https://www.chartjs.org/" target="_blank">Chart.js</x-link>
+                    </li>
+
+                    <li class="py-2">
+                        <x-link href="https://tabler-icons.io/" target="_blank">Tabler Icons (3.1.0)</x-link>
+                        <br /><br />
+                        <p>
+                            <code>npm install @tabler/icons-sprite --save</code><br /><br />
+                            then periodically copy<br />
+                            <code>\node_modules\@tabler\icons-sprite\dist\tabler-sprite-nostroke.svg</code><br />
+                            to<br />
+                            <code>\public\tabler\tabler-sprite-nostroke.svg</code>
+                        </p>
+                    </li>
+                </ul>
+            </x-ts-tab.items>
+        </x-ts-tab>
+    </div>
+</x-app-layout>

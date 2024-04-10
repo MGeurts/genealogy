@@ -1,4 +1,4 @@
-<x-dropdown align="left" width="48">
+<x-dropdown align="right" width="48">
     <x-slot name="trigger">
         <button type="button" title="{{ __('app.language_select') }}">
             {{ Str::upper($current_locale) }}

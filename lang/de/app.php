@@ -7,7 +7,7 @@ return [
     'help' => 'Hilfe',
     'home' => 'Start',
     'menu' => 'Menü',
-    'privacy_policy' => 'Datenschutzrichtlinie',
+    'privacy_policy' => 'Datenschutzrichtlinien',
     'session' => 'Sitzung',
     'terms_of_service' => 'Nutzungsbedingungen',
     'useful_links' => 'Nützliche Links',
@@ -34,9 +34,12 @@ return [
     'language_set' => 'Sprache gesetzt auf',
 
     // Actions
+    'add' => 'Hinzufügen',
     'cancel' => 'Abbrechen',
     'create' => 'Erstellen',
     'created' => 'Erstellt',
+
+    'download' => 'Herunterladen',
 
     'show_death' => 'Tod anzeigen',
     'show_family_chart' => 'Familiendiagramm anzeigen',
@@ -77,15 +80,14 @@ return [
     'open_offcanvas' => 'Seitenleiste öffnen',
     'enable_light' => 'Hellen Stil nutzen',
     'enable_dark' => 'Dunklen Stil nutzen',
-    'enable_system' => 'System-Stil aktivieren',
 
     'no_data' => 'Keine Daten verfügbar',
     'no_result' => 'Es wurde nichts gefunden, was deinen Kriterien entspricht',
 
-    'people_search' => 'Finde personen in <span class="text-success"><strong>:scope</strong></span></span>',
+    'people_search' => 'Finde personen in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
     'people_search_placeholder' => 'Namen oder Spitznamen eingeben ...',
-    'people_found' => '<span class="text-success"><strong>:total</strong></span> wurden in <span class="text-success"><strong>:scope</strong></span> mit dem Schlagwort <span class="text-success"><strong>:keyword</strong></span> gefunden',
-    'people_available' => '<span class="text-success"><strong>:total</strong></span> Personen in <span class="text-success"><strong>:scope</strong></span></span> verfügbar',
+    'people_found' => '<span class="text-emerald-600"><strong>:total</strong></span> wurden in <span class="text-emerald-600"><strong>:scope</strong></span> mit dem Schlagwort <span class="text-emerald-600"><strong>:keyword</strong></span> gefunden',
+    'people_available' => '<span class="text-emerald-600"><strong>:total</strong></span> Personen in <span class="text-emerald-600"><strong>:scope</strong></span></span> verfügbar',
 
     'whoops' => 'Upps! Etwas ist schief gelaufen.',
 ];

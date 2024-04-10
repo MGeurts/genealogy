@@ -13,7 +13,7 @@
         </div>
 
         @if (session('status') == 'verification-link-sent')
-            <div class="mb-4 font-medium text-sm text-green-600">
+            <div class="mb-4 font-medium text-sm text-emerald-600">
                 {{ __('A new verification link has been sent to the email address you provided in your profile settings.') }}
             </div>
         @endif
@@ -23,9 +23,9 @@
                 @csrf
 
                 <div>
-                    <x-button.primary type="submit">
+                    <x-ts-button color="primary" type="submit">
                         {{ __('Resend Verification Email') }}
-                    </x-button.primary>
+                    </x-ts-button>
                 </div>
             </form>
 

@@ -20,10 +20,10 @@ class Period extends Component
         $this->period = 'month';
 
         $this->options = [
-            ['value' => 'year', 'text' => __('userlog.year')],
-            ['value' => 'month', 'text' => __('userlog.month')],
-            ['value' => 'week', 'text' => __('userlog.week')],
-            ['value' => 'day', 'text' => __('userlog.day')],
+            ['value' => 'year', 'label' => __('userlog.year')],
+            ['value' => 'month', 'label' => __('userlog.month')],
+            ['value' => 'week', 'label' => __('userlog.week')],
+            ['value' => 'day', 'label' => __('userlog.day')],
         ];
 
         $this->updatedPeriod();

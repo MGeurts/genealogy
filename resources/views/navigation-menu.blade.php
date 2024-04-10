@@ -13,24 +13,24 @@
                 {{-- navigation links --}}
                 <div class="flex flex-wrap gap-5">
                     <div class="flex items-center gap-5">
-                        <x-nav-link wire:navigate href="{{ route('home') }}" :active="request()->routeIs('home')">
+                        <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                             <x-icon.tabler icon="home" class="mr-1" />
                             {{ __('app.home') }}
                         </x-nav-link>
 
-                        <x-nav-link wire:navigate href="{{ route('people.search') }}" :active="request()->routeIs('people.search')">
+                        <x-nav-link href="{{ route('people.search') }}" :active="request()->routeIs('people.search')">
                             <x-icon.tabler icon="search" class="mr-1" />
                             {{ __('app.search') }}
                         </x-nav-link>
                     </div>
 
                     <div class="flex items-center gap-5">
-                        <x-nav-link wire:navigate href="{{ route('people.birthdays') }}" :active="request()->routeIs('people.birthdays')">
+                        <x-nav-link href="{{ route('people.birthdays') }}" :active="request()->routeIs('people.birthdays')">
                             <x-icon.tabler icon="cake" class="mr-1" />
                             {{ __('birthday.birthdays') }}
                         </x-nav-link>
 
-                        <x-nav-link wire:navigate href="{{ route('help') }}" :active="request()->routeIs('help')">
+                        <x-nav-link href="{{ route('help') }}" :active="request()->routeIs('help')">
                             <x-icon.tabler icon="help" class="mr-1" />
                             {{ __('app.help') }}
                         </x-nav-link>
@@ -65,13 +65,13 @@
                                         </div>
 
                                         {{-- teams settings --}}
-                                        <x-dropdown-link wire:navigate href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
+                                        <x-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
                                             <x-icon.tabler icon="droplet-cog" class="mr-1" />
                                             {{ __('team.settings') }}
                                         </x-dropdown-link>
 
                                         @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                                            <x-dropdown-link wire:navigate href="{{ route('teams.create') }}">
+                                            <x-dropdown-link href="{{ route('teams.create') }}">
                                                 <x-icon.tabler icon="droplet-plus" class="mr-1" />
                                                 {{ __('team.create') }}
                                             </x-dropdown-link>
@@ -79,12 +79,12 @@
                                             <hr />
 
                                             {{-- gedcom --}}
-                                            <x-dropdown-link wire:navigate href="{{ route('gedcom.import') }}">
+                                            <x-dropdown-link href="{{ route('gedcom.import') }}">
                                                 <x-icon.tabler icon="droplet-up" class="mr-1" />
                                                 {{ __('team.gedcom_import') }}
                                             </x-dropdown-link>
 
-                                            <x-dropdown-link wire:navigate href="{{ route('gedcom.export') }}">
+                                            <x-dropdown-link href="{{ route('gedcom.export') }}">
                                                 <x-icon.tabler icon="droplet-down" class="mr-1" />
                                                 {{ __('team.gedcom_export') }}
                                             </x-dropdown-link>
@@ -136,13 +136,13 @@
                                     {{ __('app.manage_account') }}
                                 </div>
 
-                                <x-dropdown-link wire:navigate href="{{ route('profile.show') }}">
+                                <x-dropdown-link href="{{ route('profile.show') }}">
                                     <x-icon.tabler icon="id" class="mr-1" />
                                     {{ __('app.my_profile') }}
                                 </x-dropdown-link>
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                    <x-dropdown-link wire:navigate href="{{ route('api-tokens.index') }}">
+                                    <x-dropdown-link href="{{ route('api-tokens.index') }}">
                                         <x-icon.tabler icon="api" class="mr-1" />
                                         {{ __('app.api_tokens') }}
                                     </x-dropdown-link>
@@ -163,12 +163,12 @@
                         </x-dropdown>
                     </div>
                 @else
-                    <x-nav-link wire:navigate href="{{ route('login') }}" :active="request()->routeIs('login')">
+                    <x-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
                         <x-icon.tabler icon="login-2" class="mr-1" />
                         {{ __('auth.login') }}
                     </x-nav-link>
 
-                    <x-nav-link wire:navigate href="{{ route('register') }}" :active="request()->routeIs('register')">
+                    <x-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
                         <x-icon.tabler icon="user-plus" class="mr-1" />
                         {{ __('auth.register') }}
                     </x-nav-link>
@@ -179,9 +179,8 @@
 
             <div class="flex flex-col">
                 <div class="min-h-8 hidden md:flex md:items-center md:ml-5 space-x-6">
-                    <x-set.theme />
+                    <x-ts-theme-switch only-icons />
                 </div>
-
                 <div class="min-h-8 hidden md:flex md:items-center md:ml-5 space-x-6">
                     <x-set.offcanvas />
                 </div>
@@ -203,22 +202,22 @@
     {{-- responsive navigation menu --}}
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden md:hidden">
         <div class="space-y-1 border-t border-gray-200">
-            <x-nav-link-responsive wire:navigate href="{{ route('home') }}" :active="request()->routeIs('home')">
+            <x-nav-link-responsive href="{{ route('home') }}" :active="request()->routeIs('home')">
                 <x-icon.tabler icon="home" class="mr-1" />
                 {{ __('app.home') }}
             </x-nav-link-responsive>
 
-            <x-nav-link-responsive wire:navigate href="{{ route('people.search') }}" :active="request()->routeIs('people.search')">
+            <x-nav-link-responsive href="{{ route('people.search') }}" :active="request()->routeIs('people.search')">
                 <x-icon.tabler icon="search" class="mr-1" />
                 {{ __('app.search') }}
             </x-nav-link-responsive>
 
-            <x-nav-link-responsive wire:navigate href="{{ route('people.birthdays') }}" :active="request()->routeIs('people.birthdays')">
+            <x-nav-link-responsive href="{{ route('people.birthdays') }}" :active="request()->routeIs('people.birthdays')">
                 <x-icon.tabler icon="cake" class="mr-1" />
                 {{ __('birthday.birthdays') }}
             </x-nav-link-responsive>
 
-            <x-nav-link-responsive wire:navigate href="{{ route('help') }}" :active="request()->routeIs('help')">
+            <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
                 <x-icon.tabler icon="help" class="mr-1" />
                 {{ __('app.help') }}
             </x-nav-link-responsive>
@@ -226,12 +225,12 @@
 
         @guest
             <div class="space-y-1 border-t border-gray-200">
-                <x-nav-link-responsive wire:navigate href="{{ route('login') }}" :active="request()->routeIs('login')">
+                <x-nav-link-responsive href="{{ route('login') }}" :active="request()->routeIs('login')">
                     <x-icon.tabler icon="login-2" class="mr-1" />
                     {{ __('auth.login') }}
                 </x-nav-link-responsive>
 
-                <x-nav-link-responsive wire:navigate href="{{ route('register') }}" :active="request()->routeIs('register')">
+                <x-nav-link-responsive href="{{ route('register') }}" :active="request()->routeIs('register')">
                     <x-icon.tabler icon="user-plus" class="mr-1" />
                     {{ __('auth.register') }}
                 </x-nav-link-responsive>
@@ -242,10 +241,10 @@
                 <x-set.language />
             </div>
             <div class="pl-4 pt-2 pb-2 border-t border-gray-200">
-                <x-set.offcanvas />
+                <x-ts-theme-switch only-icons />
             </div>
             <div class="pl-4 pt-2 pb-2 border-t border-gray-200">
-                <x-set.theme />
+                <x-set.offcanvas />
             </div>
         @endguest
 
@@ -266,13 +265,13 @@
 
                 <div class="space-y-1">
                     {{-- account management --}}
-                    <x-nav-link-responsive wire:navigate href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+                    <x-nav-link-responsive href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                         <x-icon.tabler icon="id" class="mr-1" />
                         {{ __('app.my_profile') }}
                     </x-nav-link-responsive>
 
                     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                        <x-nav-link-responsive wire:navigate href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
+                        <x-nav-link-responsive href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
                             <x-icon.tabler icon="api" class="mr-1" />
                             {{ __('app.api_tokens') }}
                         </x-nav-link-responsive>
@@ -297,24 +296,24 @@
                         </div>
 
                         {{-- team settings --}}
-                        <x-nav-link-responsive wire:navigate href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
+                        <x-nav-link-responsive href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
                             <x-icon.tabler icon="droplet-cog" class="mr-1" />
                             {{ __('team.settings') }}
                         </x-nav-link-responsive>
 
                         @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                            <x-nav-link-responsive wire:navigate href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">
+                            <x-nav-link-responsive href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">
                                 <x-icon.tabler icon="droplet-plus" class="mr-1" />
                                 {{ __('team.create') }}
                             </x-nav-link-responsive>
 
                             {{-- gedcom --}}
-                            <x-nav-link-responsive wire:navigate href="{{ route('gedcom.import') }}" :active="request()->routeIs('gedcom.import')">
+                            <x-nav-link-responsive href="{{ route('gedcom.import') }}" :active="request()->routeIs('gedcom.import')">
                                 <x-icon.tabler icon="droplet-up" class="mr-1" />
                                 {{ __('team.gedcom_import') }}
                             </x-nav-link-responsive>
 
-                            <x-nav-link-responsive wire:navigate href="{{ route('gedcom.export') }}" :active="request()->routeIs('gedcom.export')">
+                            <x-nav-link-responsive href="{{ route('gedcom.export') }}" :active="request()->routeIs('gedcom.export')">
                                 <x-icon.tabler icon="droplet-down" class="mr-1" />
                                 {{ __('team.gedcom_export') }}
                             </x-nav-link-responsive>
@@ -338,10 +337,10 @@
 
             {{-- responsive settings options --}}
             <div class="pl-4 pt-2 pb-2 border-t border-gray-200">
-                <x-set.offcanvas />
+                <x-ts-theme-switch only-icons />
             </div>
             <div class="pl-4 pt-2 pb-2 border-t border-gray-200">
-                <x-set.theme />
+                <x-set.offcanvas />
             </div>
         @endauth
     </div>

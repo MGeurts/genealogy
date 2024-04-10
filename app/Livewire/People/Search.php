@@ -17,11 +17,11 @@ class Search extends Component
     public $perpage = 10;
 
     public $options = [
-        ['value' => 5, 'text' => 5],
-        ['value' => 10, 'text' => 10],
-        ['value' => 25, 'text' => 25],
-        ['value' => 50, 'text' => 50],
-        ['value' => 100, 'text' => 100],
+        ['value' => 5, 'label' => 5],
+        ['value' => 10, 'label' => 10],
+        ['value' => 25, 'label' => 25],
+        ['value' => 50, 'label' => 50],
+        ['value' => 100, 'label' => 100],
     ];
 
     public function render()
@@ -29,7 +29,7 @@ class Search extends Component
         $people_db = Person::count();
 
         if ($this->search) {
-            $people = Person::with('father:id,firstname,surname,sex', 'mother:id,firstname,surname,sex')
+            $people = Person::with('father:id,firstname,surname,sex,yod,dod', 'mother:id,firstname,surname,sex,yod,dod')
                 ->search($this->search)
                 ->orderBy('firstname')->orderBy('surname') // reverse order when application goes in production
                 ->paginate($this->perpage);

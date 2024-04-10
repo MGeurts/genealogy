@@ -34,9 +34,12 @@ return [
     'language_set' => 'Taal ingesteld op',
 
     // Actions
-    'cancel' => 'Cancel',
+    'add' => 'Toevoegen',
+    'cancel' => 'Annuleren',
     'create' => 'Aanmaken',
     'created' => 'Aangemaakt',
+
+    'download' => 'Download',
 
     'show_death' => 'Toon overlijden',
     'show_family_chart' => 'Toon familie kaart',
@@ -77,15 +80,14 @@ return [
     'open_offcanvas' => 'Open zijdelings menu',
     'enable_light' => 'Licht thema inschakelen',
     'enable_dark' => 'Donker thema inschakelen',
-    'enable_system' => 'Systeem thema inschakelen',
 
     'no_data' => 'Geen gegevens beschikbaar',
     'no_result' => 'Niets gevonden met de gegeven criteria',
 
-    'people_search' => 'Zoek personen in <span class="text-success"><strong>:scope</strong></span></span>',
+    'people_search' => 'Zoek personen in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
     'people_search_placeholder' => 'Geef een naam of bijnaam ...',
-    'people_found' => '<span class="text-success"><strong>:total</strong></span> gevonden met term <span class="text-success"><strong>:keyword</strong></span> in <span class="text-success"><strong>:scope</strong></span>',
-    'people_available' => '<span class="text-success"><strong>:total</strong></span> personen beschikbaar in <span class="text-success"><strong>:scope</strong></span></span>',
+    'people_found' => '<span class="text-emerald-600"><strong>:total</strong></span> gevonden met term <span class="text-emerald-600"><strong>:keyword</strong></span> in <span class="text-emerald-600"><strong>:scope</strong></span>',
+    'people_available' => '<span class="text-emerald-600"><strong>:total</strong></span> personen beschikbaar in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
 
     'whoops' => 'Oeps! Er liep iets mis.',
 ];
