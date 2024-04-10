@@ -4,16 +4,17 @@ namespace App\Providers;
 
 //use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
 use App\Models\Userlog;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use TallStackUi\Facades\TallStackUi;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\QueryException;
-use Illuminate\Foundation\Console\AboutCommand;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
+use Opcodes\LogViewer\Facades\LogViewer;
 use Stevebauman\Location\Facades\Location;
-use TallStackUi\Facades\TallStackUi;
+use Illuminate\Foundation\Console\AboutCommand;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -86,6 +87,13 @@ class AppServiceProvider extends ServiceProvider
             } catch (QueryException $e) {
                 Log::info("User log ERROR: {$e->getMessage()}");
             }
+        });
+
+        // -----------------------------------------------------------------------
+        // Log Viewser : grant access (in production) to developer
+        // -----------------------------------------------------------------------
+        LogViewer::auth(function ($request) {
+            return auth()->user() && auth()->user()->is_developer;
         });
 
         // -----------------------------------------------------------------------
