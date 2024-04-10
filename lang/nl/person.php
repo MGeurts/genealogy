@@ -49,7 +49,9 @@ return [
     'edit_profile' => 'Editeer profiel',
     'edit_relationship' => 'Editeer relatie',
 
+    'delete_child' => 'Kind ontkoppelen',
     'delete_person' => 'Verwijder persoon',
+    'delete_relationship' => 'Verwijder relatie',
 
     // Attributes
     'id' => 'ID',

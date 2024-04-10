@@ -70,7 +70,7 @@ class LogAllRequests
         $message = str_replace('/', '_', trim($request->getPathInfo(), '/'));
 
         // log the gathered information
-        Log::info($message, $data);
+        Log::debug($message, $data);
 
         // return the response
         return $response;

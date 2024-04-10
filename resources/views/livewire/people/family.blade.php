@@ -10,7 +10,7 @@
                     <x-ts-dropdown icon="bars-4" position="bottom-end">
                         <a href="/people/{{ $person->id }}/edit-family">
                             <x-ts-dropdown.items>
-                                <x-icon.tabler icon="edit" class="mr-1" />
+                                <x-icon.tabler icon="edit" class="mr-2 size-6" />
                                 {{ __('person.edit_family') }}
                             </x-ts-dropdown.items>
                         </a>

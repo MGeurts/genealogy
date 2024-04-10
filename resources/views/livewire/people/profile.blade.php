@@ -11,14 +11,14 @@
                         @if (auth()->user()->hasPermission('person:update'))
                             <a href="/people/{{ $person->id }}/edit-profile">
                                 <x-ts-dropdown.items>
-                                    <x-icon.tabler icon="id" class="mr-2" />
+                                    <x-icon.tabler icon="id" class="mr-2 size-6" />
                                     {{ __('person.edit_profile') }}
                                 </x-ts-dropdown.items>
                             </a>
 
                             <a href="/people/{{ $person->id }}/edit-photos">
                                 <x-ts-dropdown.items>
-                                    <x-icon.tabler icon="photo" class="mr-2" />
+                                    <x-icon.tabler icon="photo" class="mr-2 size-6" />
                                     {{ __('person.edit_photos') }}
                                 </x-ts-dropdown.items>
                             </a>
@@ -32,7 +32,7 @@
 
                             <a href="/people/{{ $person->id }}/edit-death">
                                 <x-ts-dropdown.items>
-                                    <x-icon.tabler icon="coffin" class="mr-2" />
+                                    <x-icon.tabler icon="coffin" class="mr-2 size-6" />
                                     {{ __('person.edit_death') }}
                                 </x-ts-dropdown.items>
                             </a>
@@ -41,7 +41,7 @@
                         @if (auth()->user()->hasPermission('person:delete') and $person->isDeletable())
                             <x-ts-dropdown.items separator wire:click="confirmDeletion()">
                                 <span class="text-danger-500">
-                                    <x-icon.tabler icon="trash" class="!size-4" />
+                                    <x-icon.tabler icon="trash" class="mr-2 size-6" />
                                     {{ __('person.delete_person') }}
                                 </span>
                             </x-ts-dropdown.items>

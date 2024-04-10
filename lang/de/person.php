@@ -49,7 +49,9 @@ return [
     'edit_profile' => 'Profil bearbeiten',
     'edit_relationship' => 'Beziehung bearbeiten',
 
+    'delete_child' => 'Untergeordnetes Kind trennen',
     'delete_person' => 'Person löschen',
+    'delete_relationship' => 'Beziehung löschen',
 
     // Attributes
     'id' => 'ID',

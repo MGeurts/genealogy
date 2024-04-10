@@ -85,7 +85,7 @@ class AppServiceProvider extends ServiceProvider
                     ]);
                 }
             } catch (QueryException $e) {
-                Log::info("User log ERROR: {$e->getMessage()}");
+                Log::error("User log ERROR: {$e->getMessage()}");
             }
         });
 
@@ -104,7 +104,7 @@ class AppServiceProvider extends ServiceProvider
             ->block('wrapper.class')->replace('gap-x-2', 'gap-x-0');
 
         TallStackUi::personalize()->slide()
-            ->block('wrapper.first')->replace('bg-gray-400', 'bg-gray-400')->replace('bg-opacity-50', 'bg-opacity-20')
+            ->block('wrapper.first')->replace('bg-opacity-50', 'bg-opacity-20')
             ->block('wrapper.fifth')->replace('dark:bg-dark-700', 'dark:bg-dark-900')
             ->block('footer')->append('dark:text-secondary-600');
 

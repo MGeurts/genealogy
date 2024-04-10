@@ -10,10 +10,20 @@
                     <x-ts-dropdown icon="bars-4" position="bottom-end">
                         <a href="/people/{{ $person->id }}/add-child">
                             <x-ts-dropdown.items>
-                                <x-icon.tabler icon="user-plus" class="mr-1" />
+                                <x-icon.tabler icon="user-plus" class="mr-2 size-6" />
                                 {{ __('person.add_child') }}
                             </x-ts-dropdown.items>
                         </a>
+
+                        @if (auth()->user()->hasPermission('person:update'))
+                            @foreach ($children as $child)
+                                @if (!$child->type)
+                                    <x-ts-dropdown.items class="!text-danger-500" wire:click="confirmDisconnect({{ $child->id }} , '{{ $child->name }}')" title="{{ __('person.delete_child') }}">
+                                        <x-icon.tabler icon="trash" class="mr-2 size-6" /> {{ $child->name }}
+                                    </x-ts-dropdown.items>
+                                @endif
+                            @endforeach
+                        @endif
                     </x-ts-dropdown>
                 </div>
             @endif
@@ -31,17 +41,6 @@
                     <x-icon.tabler icon="{{ $child->sex == 'm' ? 'gender-male' : 'gender-female' }}" />
                     @if ($child->type)
                         <x-icon.tabler icon="heart-plus" class="text-emerald-600" />
-                    @endif
-                </div>
-
-                <div class="flex-grow min-w-max max-w-full flex-1 text-end">
-                    @if (!$child->type)
-                        @if (auth()->user()->hasPermission('person:update'))
-                            <x-ts-button color="danger" class="!p-2" title="{{ __('app.disconnect') }} {{ __('app.disconnect_child') }}"
-                                wire:click="confirmDisconnect({{ $child->id }} , '{{ $child->name }}')">
-                                <x-icon.tabler icon="user-off" class="!size-4" />
-                            </x-ts-button>
-                        @endif
                     @endif
                 </div>
             </div>

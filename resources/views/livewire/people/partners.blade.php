@@ -10,10 +10,37 @@
                     <x-ts-dropdown icon="bars-4" position="bottom-end">
                         <a href="/people/{{ $person->id }}/add-partner">
                             <x-ts-dropdown.items>
-                                <x-icon.tabler icon="user-plus" class="!size-4" />
+                                <x-icon.tabler icon="user-plus" class="mr-2 size-6" />
                                 {{ __('person.add_relationship') }}
                             </x-ts-dropdown.items>
                         </a>
+
+                        @if (auth()->user()->hasPermission('couple:update'))
+                            @foreach ($person->couples->sortBy('date_start') as $couple)
+                                <a href="/people/{{ $couple->id }}/{{ $person->id }}/edit-partner">
+                                    <x-ts-dropdown.items title="{{ __('person.edit_relationship') }}">
+                                        <x-icon.tabler icon="user-edit" class="mr-2 size-6" />
+                                        <div>
+                                            {{ $couple->person2_id === $person->id ? $couple->person_1->name : $couple->person_2->name }}<br />
+                                            {{ $couple->date_start ? $couple->date_start->isoFormat('LL') : '??' }}
+                                        </div>
+                                    </x-ts-dropdown.items>
+                                </a>
+                            @endforeach
+                        @endif
+
+                        @if (auth()->user()->hasPermission('couple:delete'))
+                            @foreach ($person->couples->sortBy('date_start') as $couple)
+                                <x-ts-dropdown.items class="!text-danger-500" wire:click="confirmDeletion({{ $couple->id }} , '{{ $couple->name }}')"
+                                    title="{{ __('person.delete_relationship') }}">
+                                    <x-icon.tabler icon="user-off" class="mr-2 size-6" />
+                                    <div>
+                                        {{ $couple->person2_id === $person->id ? $couple->person_1->name : $couple->person_2->name }}<br />
+                                        {{ $couple->date_start ? $couple->date_start->isoFormat('LL') : '??' }}
+                                    </div>
+                                </x-ts-dropdown.items>
+                            @endforeach
+                        @endif
                     </x-ts-dropdown>
                 </div>
             @endif
@@ -53,21 +80,6 @@
                             {{ $couple->date_end ? $couple->date_end->isoFormat('LL') : '??' }}
                         @endif
                     </p>
-                </div>
-
-                <div class="flex-grow min-w-max max-w-full flex-1 text-end">
-                    @if (auth()->user()->hasPermission('couple:update'))
-                        <x-ts-button href="/people/{{ $couple->id }}/{{ $person->id }}/edit-partner" color="primary" class="!p-2" title="{{ __('person.edit_relationship') }}">
-                            <x-icon.tabler icon="edit" class="!size-4" />
-                        </x-ts-button>
-                    @endif
-
-                    @if (auth()->user()->hasPermission('couple:delete'))
-                        <x-ts-button color="danger" class="!p-2" title="{{ __('app.delete') }} {{ __('app.delete_relationship') }}"
-                            wire:click="confirmDeletion({{ $couple->id }} , '{{ $couple->name }}')">
-                            <x-icon.tabler icon="trash" class="!size-4" />
-                        </x-ts-button>
-                    @endif
                 </div>
             </div>
         @endforeach

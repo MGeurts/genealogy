@@ -49,7 +49,9 @@ return [
     'edit_profile' => 'Edit profile',
     'edit_relationship' => 'Edit relationship',
 
+    'delete_child' => 'Disconnect child',
     'delete_person' => 'Delete person',
+    'delete_relationship' => 'Delete relationship',
 
     // Attributes
     'id' => 'ID',
