@@ -25,7 +25,7 @@
 
                             <a href="/people/{{ $person->id }}/edit-contact">
                                 <x-ts-dropdown.items>
-                                    <x-icon.tabler icon="address-book" class="mr-2" />
+                                    <x-icon.tabler icon="address-book" class="mr-2 size-6" />
                                     {{ __('person.edit_contact') }}
                                 </x-ts-dropdown.items>
                             </a>
