@@ -90,7 +90,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // -----------------------------------------------------------------------
-        // Log Viewser : grant access (in production) to developer
+        // Log-Viewer : grant access (in production) to developer
         // -----------------------------------------------------------------------
         LogViewer::auth(function ($request) {
             return auth()->user() && auth()->user()->is_developer;
