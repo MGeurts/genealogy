@@ -133,8 +133,8 @@
                     <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                     <p>
-                        <x-nav-link-responsive href="{{ url('log-viewer') }}" target="_blank">
-                            {{ __('Log Viewer') }}
+                        <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
+                            {{ __('app.help') }}
                         </x-nav-link-responsive>
                     </p>
                 </div>
@@ -149,8 +149,8 @@
             </div>
 
             <p>
-                <x-nav-link-responsive href="{{ route('session') }}" :active="request()->routeIs('session')">
-                    {{ __('app.session') }}
+                <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
+                    {{ __('app.help') }}
                 </x-nav-link-responsive>
             </p>
         @endguest
