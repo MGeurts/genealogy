@@ -4,17 +4,17 @@ namespace App\Providers;
 
 //use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
 use App\Models\Userlog;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
-use TallStackUi\Facades\TallStackUi;
-use Illuminate\Support\Facades\Event;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\QueryException;
+use Illuminate\Foundation\Console\AboutCommand;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 use Opcodes\LogViewer\Facades\LogViewer;
 use Stevebauman\Location\Facades\Location;
-use Illuminate\Foundation\Console\AboutCommand;
+use TallStackUi\Facades\TallStackUi;
 
 class AppServiceProvider extends ServiceProvider
 {
