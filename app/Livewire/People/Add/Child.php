@@ -59,19 +59,19 @@ class Child extends Component
             } else {
                 if ($this->person->sex === 'm') {
                     $new_person = Person::create([
-                        'firstname' => ! empty($validated['firstname']) ? $validated['firstname'] : null,
-                        'surname' => ! empty($validated['surname']) ? $validated['surname'] : null,
+                        'firstname' => $validated['firstname'],
+                        'surname' => $validated['surname'],
                         'sex' => $validated['sex'],
-                        'gender_id' => ! empty($validated['gender_id']) ? $validated['gender_id'] : null,
+                        'gender_id' => $validated['gender_id'] ?? null,
                         'father_id' => $this->person->id,
                         'team_id' => $this->person->team_id,
                     ]);
                 } else {
                     $new_person = Person::create([
-                        'firstname' => ! empty($validated['firstname']) ? $validated['firstname'] : null,
-                        'surname' => ! empty($validated['surname']) ? $validated['surname'] : null,
+                        'firstname' => $validated['firstname'],
+                        'surname' => $validated['surname'],
                         'sex' => $validated['sex'],
-                        'gender_id' => ! empty($validated['gender_id']) ? $validated['gender_id'] : null,
+                        'gender_id' => $validated['gender_id'] ?? null,
                         'mother_id' => $this->person->id,
                         'team_id' => $this->person->team_id,
                     ]);

@@ -39,9 +39,9 @@ class Death extends Component
             $validated = $this->deathForm->validate();
 
             $this->person->update([
-                'yod' => $this->deathForm->yod ? $this->deathForm->yod : null,
-                'dod' => $this->deathForm->dod ? $this->deathForm->dod : null,
-                'pod' => $this->deathForm->pod ? $this->deathForm->pod : null,
+                'yod' => $this->deathForm->yod ?? null,
+                'dod' => $this->deathForm->dod ?? null,
+                'pod' => $this->deathForm->pod ?? null,
             ]);
             // ------------------------------------------------------
             // update or create metadata

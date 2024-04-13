@@ -42,8 +42,8 @@ class Partner extends Component
                 $couple = Couple::create([
                     'person1_id' => $this->person->id,
                     'person2_id' => $validated['person2_id'],
-                    'date_start' => $validated['date_start'] ? $validated['date_start'] : null,
-                    'date_end' => $validated['date_end'] ? $validated['date_end'] : null,
+                    'date_start' => $validated['date_start'] ?? null,
+                    'date_end' => $validated['date_end'] ?? null,
                     'is_married' => $validated['is_married'],
                     'has_ended' => $validated['has_ended'],
                     'team_id' => auth()->user()->current_team_id,
