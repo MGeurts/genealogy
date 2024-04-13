@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
-use Usernotnull\Toast\Concerns\WireToast;
+use TallStackUi\Traits\Interactions;
 
 class Manage extends Component
 {
-    // ------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------
     // To make this BACKUP controller work, you need to :
-    // ------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------
     //      1. add and configure this to your .env :
     //
     //          BACKUP_DISK="backups"
@@ -31,7 +31,7 @@ class Manage extends Component
     //          MAIL_ENCRYPTION=null
     //          MAIL_FROM_ADDRESS="no-reply@yourdomain.com"
     //          MAIL_FROM_NAME="${APP_NAME}"
-    // ------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------
     //      2. add this to your config/filesystem.php :
     //
     //          env('BACKUP_DISK', 'backups') => [
@@ -39,7 +39,7 @@ class Manage extends Component
     //              'root' => storage_path('app/' . env('BACKUP_DISK', 'backups')),
     //              'throw' => false,
     //          ],
-    // ------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------
     //      3. configure this in your config/backup.php :
     //
     //          // backup --> destination --> disks :
@@ -51,8 +51,8 @@ class Manage extends Component
     //          'disks' => [
     //              env('BACKUP_DISK', 'backups'),
     //          ]
-    // ------------------------------------------------------------------------------
-    use WireToast;
+    // -----------------------------------------------------------------------
+    use Interactions;
 
     public $backups;
 
@@ -60,14 +60,15 @@ class Manage extends Component
 
     public $deleteConfirmed = false;
 
-    public function confirmDeletion(string $file_name)
+    // -----------------------------------------------------------------------
+    public function confirmDeletion(string $file_name): void
     {
         $this->backup_to_delete = $file_name;
 
         $this->deleteConfirmed = true;
     }
 
-    public function mount()
+    public function mount(): void
     {
         $this->backups = collect();
 
@@ -104,14 +105,14 @@ class Manage extends Component
 
             Log::info("Backup (Manually) -- Backup started \r\n" . $output);
 
-            toast()->info(__('backup.created'), __('backup.backup'))->push();
+            $this->toast()->success(__('backup.backup'), __('backup.created'))->flash()->send();
         } catch (Exception $e) {
             Log::info("Backup (Manually) -- Backup failed \r\n" . $e->getMessage());
 
-            toast()->danger($e->getMessage(), __('backup.backup'))->push();
+            $this->toast()->error(__('backup.backup'), $e->getMessage())->flash()->send();
         }
 
-        $this->mount();
+        $this->redirect('/backups');
     }
 
     public function download(string $file_name)
@@ -120,11 +121,11 @@ class Manage extends Component
         $file = config('backup.backup.name') . '/' . $file_name;
 
         if ($disk->exists($file)) {
-            toast()->info(__('backup.downloaded'), __('backup.backup'))->push();
+            $this->toast()->success(__('backup.backup'), __('backup.downloading'))->send();
 
             return Storage::download(env('BACKUP_DISK', 'backups') . '/' . $file);
         } else {
-            toast()->warning(__('backup.not_found'), __('backup.backup'))->push();
+            $this->toast()->error(__('backup.backup'), __('backup.not_found'))->send();
         }
     }
 
@@ -135,14 +136,12 @@ class Manage extends Component
         if ($disk->exists(config('backup.backup.name') . '/' . $this->backup_to_delete)) {
             $disk->delete(config('backup.backup.name') . '/' . $this->backup_to_delete);
 
-            toast()->success($this->backup_to_delete . '<br/>' . __('backup.deleted'), __('backup.backup'))->doNotSanitize()->push();
+            $this->toast()->success(__('backup.backup'), $this->backup_to_delete . ' ' . __('backup.deleted'))->flash()->send();
         } else {
-            toast()->warning(__('backup.not_found'), __('backup.backup'))->push();
+            $this->toast()->error(__('backup.backup'), __('backup.not_found'))->flash()->send();
         }
 
-        $this->deleteConfirmed = false;
-
-        $this->mount();
+        $this->redirect('/backups');
     }
 
     protected function humanFilesize(mixed $bytes, int $decimals = 2)
@@ -153,6 +152,7 @@ class Manage extends Component
         return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . ' ' . @$sz[$factor];
     }
 
+    // -----------------------------------------------------------------------
     public function render()
     {
         return view('livewire.backups.manage');

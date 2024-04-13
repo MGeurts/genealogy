@@ -12,6 +12,7 @@ class Family extends Component
         'couple_deleted' => 'render',
     ];
 
+    // ------------------------------------------------------------------------------
     public function render()
     {
         return view('livewire.people.family');

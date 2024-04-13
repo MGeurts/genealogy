@@ -11,6 +11,7 @@ class Search extends Component
 {
     use WithPagination;
 
+    // ------------------------------------------------------------------------------
     #[Session]
     public $search = '%'; // default to '' when application goes in production
 
@@ -24,6 +25,7 @@ class Search extends Component
         ['value' => 100, 'label' => 100],
     ];
 
+    // ------------------------------------------------------------------------------
     public function render()
     {
         $people_db = Person::count();

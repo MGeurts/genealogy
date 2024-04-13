@@ -17,6 +17,7 @@ class Descendants extends Component
 
     public $count_max = 10;
 
+    // ------------------------------------------------------------------------------
     public function increment()
     {
         if ($this->count < $this->count_max) {
@@ -61,6 +62,7 @@ class Descendants extends Component
         }
     }
 
+    // ------------------------------------------------------------------------------
     public function render()
     {
         return view('livewire.people.descendants');

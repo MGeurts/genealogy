@@ -65,9 +65,6 @@
                     <li class="py-2">
                         <x-link href="https://github.com/stevebauman/location/" target="_blank">stevebauman/location</x-link>
                     </li>
-                    <li class="py-2">
-                        <x-link href="https://github.com/usernotnull/tall-toasts/" target="_blank">usernotnull/tall-toasts</x-link>
-                    </li>
 
                     <x-hr.narrow class="w-full h-1 max-md:mx-auto my-4 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 

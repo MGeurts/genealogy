@@ -29,6 +29,6 @@ return [
     // Messages
     'created' => 'De nieuwe backup werd bewaard.',
     'deleted' => 'is verwijderd.',
-    'downloaded' => 'De download is gestart.',
+    'downloading' => 'De download is gestart.',
     'not_found' => 'De backup werd niet gevonden.',
 ];

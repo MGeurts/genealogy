@@ -4,19 +4,24 @@ namespace App\Livewire\People;
 
 use Illuminate\Support\Facades\File;
 use Livewire\Component;
+use TallStackUi\Traits\Interactions;
 
 class Profile extends Component
 {
+    use Interactions;
+
+    // -----------------------------------------------------------------------
     public $person;
 
     public $deleteConfirmed = false;
 
+    // -----------------------------------------------------------------------
     protected $listeners = [
         'person_updated' => 'render',
         'couple_deleted' => 'render',
     ];
 
-    public function confirmDeletion()
+    public function confirmDeletion(): void
     {
         $this->deleteConfirmed = true;
     }
@@ -29,12 +34,13 @@ class Profile extends Component
 
             $this->person->delete();
 
-            toast()->success($this->person->name . '<br/>' . __('app.deleted') . '.', __('app.delete'))->doNotSanitize()->pushOnNextPage();
+            $this->toast()->success(__('app.delete'), $this->person->name . ' ' . __('app.deleted') . '.')->flash()->send();
 
-            $this->redirect('/search');
+            return $this->redirect('/search');
         }
     }
 
+    // ------------------------------------------------------------------------------
     public function render()
     {
         return view('livewire.people.profile');

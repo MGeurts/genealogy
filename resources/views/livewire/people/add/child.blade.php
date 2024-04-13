@@ -30,10 +30,10 @@
                     <x-label for="sex" class="mr-5" value="{{ __('person.sex') }} ({{ __('person.biological') }})" />
                     <div class="flex">
                         <div class="mt-3 mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
-                            <x-ts-radio color="primary" wire:model="profileForm.sex" name="sex" id="sexM" value="m" label="{{ __('app.male') }}" />
+                            <x-ts-radio color="primary" wire:model="childForm.sex" name="sex" id="sexM" value="m" label="{{ __('app.male') }}" />
                         </div>
                         <div class="mt-3 mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
-                            <x-ts-radio color="primary" wire:model="profileForm.sex" name="sex" id="sexF" value="f" label="{{ __('app.female') }}" />
+                            <x-ts-radio color="primary" wire:model="childForm.sex" name="sex" id="sexF" value="f" label="{{ __('app.female') }}" />
                         </div>
                     </div>
                 </div>

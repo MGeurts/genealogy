@@ -10,12 +10,12 @@ use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Usernotnull\Toast\Concerns\WireToast;
+use TallStackUi\Traits\Interactions;
 
 class Child extends Component
 {
+    use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;
-    use WireToast;
     use WithFileUploads;
 
     // -----------------------------------------------------------------------
@@ -24,7 +24,7 @@ class Child extends Component
     public ChildForm $childForm;
 
     // -----------------------------------------------------------------------
-    public function mount()
+    public function mount(): void
     {
         $this->childForm->firstname = null;
         $this->childForm->surname = null;
@@ -47,13 +47,15 @@ class Child extends Component
                     Person::findOrFail($validated['person_id'])->update([
                         'father_id' => $this->person->id,
                     ]);
+
+                    $this->toast()->success(__('app.save'), $this->person->name . ' ' . __('app.saved') . '.')->flash()->send();
                 } else {
                     Person::findOrFail($validated['person_id'])->update([
                         'mother_id' => $this->person->id,
                     ]);
-                }
 
-                toast()->success(__('app.saved') . '.', __('app.saved'))->pushOnNextPage();
+                    $this->toast()->success(__('app.save'), $this->person->name . ' ' . __('app.saved') . '.')->flash()->send();
+                }
             } else {
                 if ($this->person->sex === 'm') {
                     $new_person = Person::create([
@@ -106,23 +108,18 @@ class Child extends Component
                         $this->childForm->image = null;
                         $this->childForm->iteration++;
                     } else {
-                        toast()->danger(__('app.image_not_saved') . '.', __('app.save'))->pushOnNextPage();
+                        $this->toast()->error(__('app.save'), __('app.image_not_saved') . '.')->flash()->send();
                     }
                 }
 
-                toast()->success(__('app.created') . '.', __('app.create'))->pushOnNextPage();
+                $this->toast()->success(__('app.create'), $new_person->name . ' ' . __('app.created') . '.')->flash()->send();
             }
 
-            $this->redirect('/people/' . $this->person->id);
+            return $this->redirect('/people/' . $this->person->id);
         }
     }
 
-    public function resetChild()
-    {
-        $this->mount();
-    }
-
-    public function isDirty()
+    public function isDirty(): bool
     {
         return
         $this->childForm->firstname or

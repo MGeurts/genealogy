@@ -6,21 +6,20 @@ use App\Livewire\Forms\People\ProfileForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
 use Livewire\Component;
-use Usernotnull\Toast\Concerns\WireToast;
+use TallStackUi\Traits\Interactions;
 
 class Profile extends Component
 {
+    use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;
-    use WireToast;
 
     // -----------------------------------------------------------------------
     public Person $person;
 
-    // -----------------------------------------------------------------------
     public ProfileForm $profileForm;
 
     // -----------------------------------------------------------------------
-    public function mount()
+    public function mount(): void
     {
         $this->profileForm->person = $this->person;
 
@@ -44,18 +43,18 @@ class Profile extends Component
 
             $this->person->update($validated);
 
-            toast()->success(__('app.saved') . '.', __('app.save'))->pushOnNextPage();
+            $this->toast()->success(__('app.save'), __('app.saved'))->flash()->send();
 
-            $this->redirect('/people/' . $this->person->id);
+            return $this->redirect('/people/' . $this->person->id);
         }
     }
 
-    public function resetProfile()
+    public function resetProfile(): void
     {
         $this->mount();
     }
 
-    public function isDirty()
+    public function isDirty(): bool
     {
         return
         $this->profileForm->firstname != $this->person->firstname or

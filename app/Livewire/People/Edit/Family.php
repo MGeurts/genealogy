@@ -7,21 +7,20 @@ use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
 use App\Models\Person;
 use Livewire\Component;
-use Usernotnull\Toast\Concerns\WireToast;
+use TallStackUi\Traits\Interactions;
 
 class Family extends Component
 {
+    use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;
-    use WireToast;
 
     // -----------------------------------------------------------------------
     public $person;
 
-    // -----------------------------------------------------------------------
     public FamilyForm $familyForm;
 
     // -----------------------------------------------------------------------
-    public function mount()
+    public function mount(): void
     {
         $this->familyForm->father_id = $this->person->father_id;
         $this->familyForm->mother_id = $this->person->mother_id;
@@ -35,17 +34,18 @@ class Family extends Component
 
             $this->person->update($validated);
 
-            toast()->success(__('app.saved') . '.', __('app.save'))->pushOnNextPage();
-            $this->redirect('/people/' . $this->person->id);
+            $this->toast()->success(__('app.save'), __('app.saved'))->flash()->send();
+
+            return $this->redirect('/people/' . $this->person->id);
         }
     }
 
-    public function resetFamily()
+    public function resetFamily(): void
     {
         $this->mount();
     }
 
-    public function isDirty()
+    public function isDirty(): bool
     {
         return
         $this->familyForm->father_id != $this->person->father_id or
@@ -53,6 +53,7 @@ class Family extends Component
         $this->familyForm->parents_id != $this->person->parents_id;
     }
 
+    // ------------------------------------------------------------------------------
     public function render()
     {
         $persons = Person::where('id', '!=', $this->person->id)

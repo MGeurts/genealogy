@@ -6,21 +6,20 @@ use App\Livewire\Forms\People\DeathForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
 use Livewire\Component;
-use Usernotnull\Toast\Concerns\WireToast;
+use TallStackUi\Traits\Interactions;
 
 class Death extends Component
 {
+    use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;
-    use WireToast;
 
     // -----------------------------------------------------------------------
     public Person $person;
 
-    // -----------------------------------------------------------------------
     public DeathForm $deathForm;
 
     // -----------------------------------------------------------------------
-    public function mount()
+    public function mount(): void
     {
         $this->deathForm->person = $this->person;
 
@@ -34,7 +33,7 @@ class Death extends Component
         $this->deathForm->cemetery_location_longitude = $this->person->getMetadataValue('cemetery_location_longitude');
     }
 
-    public function saveDeath()
+    public function saveDeath(): void
     {
         if ($this->isDirty()) {
             $validated = $this->deathForm->validate();
@@ -56,16 +55,17 @@ class Death extends Component
             );
             // ------------------------------------------------------
             $this->dispatch('person_updated');
-            toast()->success(__('app.saved') . '.', __('app.save'))->push();
+
+            $this->toast()->success(__('app.save'), __('app.saved'))->send();
         }
     }
 
-    public function resetDeath()
+    public function resetDeath(): void
     {
         $this->mount();
     }
 
-    public function isDirty()
+    public function isDirty(): bool
     {
         return
         $this->deathForm->yod != $this->person->yod or

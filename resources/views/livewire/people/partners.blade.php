@@ -16,6 +16,8 @@
                         </a>
 
                         @if (auth()->user()->hasPermission('couple:update'))
+                            <hr />
+
                             @foreach ($person->couples->sortBy('date_start') as $couple)
                                 <a href="/people/{{ $couple->id }}/{{ $person->id }}/edit-partner">
                                     <x-ts-dropdown.items title="{{ __('person.edit_relationship') }}">
@@ -30,6 +32,8 @@
                         @endif
 
                         @if (auth()->user()->hasPermission('couple:delete'))
+                            <hr />
+
                             @foreach ($person->couples->sortBy('date_start') as $couple)
                                 <x-ts-dropdown.items class="!text-danger-500" wire:click="confirmDeletion({{ $couple->id }} , '{{ $couple->name }}')"
                                     title="{{ __('person.delete_relationship') }}">

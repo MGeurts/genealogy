@@ -16,6 +16,8 @@
                         </a>
 
                         @if (auth()->user()->hasPermission('person:update'))
+                            <hr />
+
                             @foreach ($children as $child)
                                 @if (!$child->type)
                                     <x-ts-dropdown.items class="!text-danger-500" wire:click="confirmDisconnect({{ $child->id }} , '{{ $child->name }}')" title="{{ __('person.delete_child') }}">

@@ -29,9 +29,6 @@
 
 <body class="font-sans antialiased">
     <div class="min-h-screen">
-        {{-- tall notifications --}}
-        <livewire:toasts />
-
         {{-- TallStackUI notifications --}}
         <x-ts-toast />
 

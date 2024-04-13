@@ -4,12 +4,13 @@ namespace App\Livewire\People;
 
 use App\Models\Couple;
 use Livewire\Component;
-use Usernotnull\Toast\Concerns\WireToast;
+use TallStackUi\Traits\Interactions;
 
 class Partners extends Component
 {
-    use WireToast;
+    use Interactions;
 
+    // ------------------------------------------------------------------------------
     public $person;
 
     public $couple_to_delete_id;
@@ -22,7 +23,8 @@ class Partners extends Component
         'couple_deleted' => 'render',
     ];
 
-    public function confirmDeletion(int $id, string $name)
+    // ------------------------------------------------------------------------------
+    public function confirmDeletion(int $id, string $name): void
     {
         $this->deleteConfirmed = true;
 
@@ -36,10 +38,12 @@ class Partners extends Component
 
         $this->deleteConfirmed = false;
 
-        toast()->success($this->couple_to_delete_name . '<br/>' . __('app.deleted') . '.', __('app.delete'))->doNotSanitize()->pushOnNextPage();
-        $this->redirect('/people/' . $this->person->id);
+        $this->toast()->success(__('app.delete'), $this->couple_to_delete_name . ' ' . __('app.deleted') . '.')->flash()->send();
+
+        return $this->redirect('/people/' . $this->person->id);
     }
 
+    // ------------------------------------------------------------------------------
     public function render()
     {
         return view('livewire.people.partners');

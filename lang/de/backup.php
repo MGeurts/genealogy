@@ -29,6 +29,6 @@ return [
     // Messages
     'created' => 'Neue Sicherung wurde erstellt.',
     'deleted' => 'wurde gelöscht.',
-    'downloaded' => 'Der Download hat begonnen.',
+    'downloading' => 'Der Download hat begonnen.',
     'not_found' => 'Sicherung konnte nicht gefunden werden.',
 ];

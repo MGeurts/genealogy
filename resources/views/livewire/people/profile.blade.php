@@ -39,6 +39,8 @@
                         @endif
 
                         @if (auth()->user()->hasPermission('person:delete') and $person->isDeletable())
+                            <hr />
+
                             <x-ts-dropdown.items separator wire:click="confirmDeletion()">
                                 <span class="text-danger-500">
                                     <x-icon.tabler icon="trash" class="mr-2 size-6" />

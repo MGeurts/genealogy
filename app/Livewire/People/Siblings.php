@@ -8,6 +8,7 @@ class Siblings extends Component
 {
     public $person;
 
+    // ------------------------------------------------------------------------------
     public function render()
     {
         $siblings = $this->person->siblings();

@@ -6,21 +6,20 @@ use App\Livewire\Forms\People\ContactForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
 use Livewire\Component;
-use Usernotnull\Toast\Concerns\WireToast;
+use TallStackUi\Traits\Interactions;
 
 class Contact extends Component
 {
+    use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;
-    use WireToast;
 
     // -----------------------------------------------------------------------
     public Person $person;
 
-    // -----------------------------------------------------------------------
     public ContactForm $contactForm;
 
     // -----------------------------------------------------------------------
-    public function mount()
+    public function mount(): void
     {
         $this->contactForm->street = $this->person->street;
         $this->contactForm->number = $this->person->number;
@@ -32,7 +31,7 @@ class Contact extends Component
         $this->contactForm->phone = $this->person->phone;
     }
 
-    public function saveContact()
+    public function saveContact(): void
     {
         if ($this->isDirty()) {
             $validated = $this->contactForm->validate();
@@ -40,16 +39,17 @@ class Contact extends Component
             $this->person->update($validated);
 
             $this->dispatch('person_updated');
-            toast()->success(__('app.saved') . '.', __('app.save'))->push();
+
+            $this->toast()->success(__('app.save'), __('app.saved'))->send();
         }
     }
 
-    public function resetContact()
+    public function resetContact(): void
     {
         $this->mount();
     }
 
-    public function isDirty()
+    public function isDirty(): bool
     {
         return
             $this->contactForm->street != $this->person->street or

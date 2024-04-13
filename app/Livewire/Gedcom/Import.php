@@ -5,14 +5,15 @@ namespace App\Livewire\Gedcom;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Usernotnull\Toast\Concerns\WireToast;
+use TallStackUi\Traits\Interactions;
 
 class Import extends Component
 {
+    use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;
-    use WireToast;
     use WithFileUploads;
 
+    // -----------------------------------------------------------------------
     public $user = null;
 
     public $name = null;
@@ -21,6 +22,7 @@ class Import extends Component
 
     public $file = null;
 
+    // -----------------------------------------------------------------------
     public function rules()
     {
         return $rules = [
@@ -44,7 +46,7 @@ class Import extends Component
         ];
     }
 
-    public function mount()
+    public function mount(): void
     {
         $this->user = Auth()->user();
     }
@@ -58,17 +60,18 @@ class Import extends Component
 
             }
 
-            toast()->success(__('app.created') . '.', __('app.save'))->pushOnNextPage();
-            $this->redirect('/search/');
+            $this->toast()->success(__('app.create'), __('app.created'))->flash()->send();
+
+            return $this->redirect('/search');
         }
     }
 
-    public function resetTeam()
+    public function resetTeam(): void
     {
         $this->mount();
     }
 
-    public function isDirty()
+    public function isDirty(): bool
     {
         return
         $this->name != null or
@@ -76,6 +79,7 @@ class Import extends Component
         $this->file != null;
     }
 
+    // -----------------------------------------------------------------------
     public function render()
     {
         return view('livewire.gedcom.import');

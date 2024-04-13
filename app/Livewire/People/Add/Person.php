@@ -9,19 +9,19 @@ use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Usernotnull\Toast\Concerns\WireToast;
+use TallStackUi\Traits\Interactions;
 
 class Person extends Component
 {
+    use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;
-    use WireToast;
     use WithFileUploads;
 
     // -----------------------------------------------------------------------
     public PersonForm $personForm;
 
     // -----------------------------------------------------------------------
-    public function mount()
+    public function mount(): void
     {
         $this->personForm->firstname = null;
         $this->personForm->surname = null;
@@ -78,21 +78,22 @@ class Person extends Component
                     $this->personForm->image = null;
                     $this->personForm->iteration++;
                 } else {
-                    toast()->danger(__('app.image_not_saved') . '.', __('app.save'))->pushOnNextPage();
+                    $this->toast()->error(__('app.save'), __('app.image_not_saved') . '.')->flash()->send();
                 }
             }
 
-            toast()->success(__('app.created') . '.', __('app.save'))->pushOnNextPage();
-            $this->redirect('/people/' . $person->id);
+            $this->toast()->success(__('app.save'), $person->name . ' ' . __('app.created'))->flash()->send();
+
+            return $this->redirect('/people/' . $person->id);
         }
     }
 
-    public function resetPerson()
+    public function resetPerson(): void
     {
         $this->mount();
     }
 
-    public function isDirty()
+    public function isDirty(): bool
     {
         return
         $this->personForm->firstname != null or
@@ -110,6 +111,7 @@ class Person extends Component
         $this->personForm->image != null;
     }
 
+    // ------------------------------------------------------------------------------
     public function render()
     {
         return view('livewire.people.add.person');

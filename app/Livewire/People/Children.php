@@ -4,9 +4,13 @@ namespace App\Livewire\People;
 
 use App\Models\Person;
 use Livewire\Component;
+use TallStackUi\Traits\Interactions;
 
 class Children extends Component
 {
+    use Interactions;
+
+    // ------------------------------------------------------------------------------
     public $person;
 
     public $child_to_disconnect_id;
@@ -15,7 +19,8 @@ class Children extends Component
 
     public $disconnectConfirmed = false;
 
-    public function confirmDisconnect(int $id, string $name)
+    // ------------------------------------------------------------------------------
+    public function confirmDisconnect(int $id, string $name): void
     {
         $this->disconnectConfirmed = true;
 
@@ -37,12 +42,12 @@ class Children extends Component
             ]);
         }
 
-        $this->disconnectConfirmed = false;
+        $this->toast()->success(__('app.disconnect'), $child->name . ' ' . __('app.disconnected') . '.')->flash()->send();
 
-        toast()->success($this->child_to_disconnect_name . '<br/>' . __('app.disconnected') . '.', __('app.disconnect'))->doNotSanitize()->pushOnNextPage();
-        $this->redirect('/people/' . $this->person->id);
+        return $this->redirect('/people/' . $this->person->id);
     }
 
+    // ------------------------------------------------------------------------------
     public function render()
     {
         $children = $this->person->childrenNaturalAll();

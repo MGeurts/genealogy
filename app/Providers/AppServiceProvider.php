@@ -32,11 +32,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // -----------------------------------------------------------------------
-        // ????
-        // -----------------------------------------------------------------------
-        // RedirectIfAuthenticated::redirectUsing(fn ($request) => route('/'));
-
-        // -----------------------------------------------------------------------
         // language select for guest users
         // Language will be overruled by language as defined in each authenticated user profile
         // -----------------------------------------------------------------------

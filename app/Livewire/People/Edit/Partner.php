@@ -7,24 +7,22 @@ use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
 use App\Models\Person;
 use Livewire\Component;
-use Usernotnull\Toast\Concerns\WireToast;
+use TallStackUi\Traits\Interactions;
 
 class Partner extends Component
 {
+    use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;
-    use WireToast;
 
     // -----------------------------------------------------------------------
     public $person;
 
-    // -----------------------------------------------------------------------
     public $couple;
 
-    // -----------------------------------------------------------------------
     public PartnerForm $partnerForm;
 
     // -----------------------------------------------------------------------
-    public function mount()
+    public function mount(): void
     {
         $this->partnerForm->person2_id = ($this->couple->person1_id === $this->person->id) ? $this->couple->person2_id : $this->couple->person1_id;
 
@@ -49,17 +47,18 @@ class Partner extends Component
                 'has_ended' => ($validated['date_end'] or $validated['has_ended']) ? true : false,
             ]);
 
-            toast()->success(__('app.saved') . '.', __('app.saved'))->pushOnNextPage();
-            $this->redirect('/people/' . $this->person->id);
+            $this->toast()->success(__('app.save'), __('app.saved'))->flash()->send();
+
+            return $this->redirect('/people/' . $this->person->id);
         }
     }
 
-    public function resetPartner()
+    public function resetPartner(): void
     {
         $this->mount();
     }
 
-    public function isDirty()
+    public function isDirty(): bool
     {
         return
             $this->partnerForm->person2_id != $this->couple->person2_id or
@@ -71,6 +70,7 @@ class Partner extends Component
             $this->partnerForm->has_ended != $this->couple->has_ended;
     }
 
+    // ------------------------------------------------------------------------------
     public function render()
     {
         $couple = Couple::findOrFail($this->couple->id)->with(['person_1', 'person_2']);

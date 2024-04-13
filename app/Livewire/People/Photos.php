@@ -53,6 +53,7 @@ class Photos extends Component
         $this->selected = $index;
     }
 
+    // ------------------------------------------------------------------------------
     public function render()
     {
         return view('livewire.people.photos');
