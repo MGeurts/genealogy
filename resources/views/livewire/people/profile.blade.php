@@ -16,13 +16,6 @@
                                 </x-ts-dropdown.items>
                             </a>
 
-                            <a href="/people/{{ $person->id }}/edit-photos">
-                                <x-ts-dropdown.items>
-                                    <x-icon.tabler icon="photo" class="mr-2 size-6" />
-                                    {{ __('person.edit_photos') }}
-                                </x-ts-dropdown.items>
-                            </a>
-
                             <a href="/people/{{ $person->id }}/edit-contact">
                                 <x-ts-dropdown.items>
                                     <x-icon.tabler icon="address-book" class="mr-2 size-6" />
@@ -34,6 +27,14 @@
                                 <x-ts-dropdown.items>
                                     <x-icon.tabler icon="coffin" class="mr-2 size-6" />
                                     {{ __('person.edit_death') }}
+                                </x-ts-dropdown.items>
+                            </a>
+
+                            <hr />
+                            <a href="/people/{{ $person->id }}/edit-photos">
+                                <x-ts-dropdown.items>
+                                    <x-icon.tabler icon="photo" class="mr-2 size-6" />
+                                    {{ __('person.edit_photos') }}
                                 </x-ts-dropdown.items>
                             </a>
                         @endif
