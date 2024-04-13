@@ -100,7 +100,7 @@ class Photos extends Component
         $this->photos = collect($file)->unique(fn (UploadedFile $item) => $item->getClientOriginalName())->toArray();
     }
 
-    public function savePhotos(): void
+    public function savePhotos()
     {
         // determine last index
         $files = File::glob(public_path() . '/storage/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp');
@@ -135,9 +135,11 @@ class Photos extends Component
                 }
             }
         }
+
+        return $this->redirect('/people/' . $this->person->id . '/edit-photos');
     }
 
-    public function deletePhoto($photo): void
+    public function deletePhoto($photo)
     {
         Storage::disk('photos')->delete($this->person->team_id . '/' . $photo);
 
@@ -149,13 +151,17 @@ class Photos extends Component
                 'photo' => $files ? substr($files[0], strrpos($files[0], '/') + 1) : null,
             ]);
         }
+
+        return $this->redirect('/people/' . $this->person->id . '/edit-photos');
     }
 
-    public function setPrimary($photo): void
+    public function setPrimary($photo)
     {
         $this->person->update([
             'photo' => $photo,
         ]);
+
+        return $this->redirect('/people/' . $this->person->id . '/edit-photos');
     }
 
     public function render()

@@ -36,7 +36,7 @@
             </div>
 
             <div class="p-4 bg-neutral-200 rounded-b">
-                <div class="grid grid-cols-3 gap-2">
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     @foreach ($images as $image)
                         <x-ts-card class="!p-2">
                             <x-slot:header>
