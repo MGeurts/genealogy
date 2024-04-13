@@ -56,6 +56,11 @@ class Partner extends Component
         }
     }
 
+    public function resetPartner(): void
+    {
+        $this->mount();
+    }
+
     private function hasOverlap($start, $end): bool
     {
         $is_overlap = false;

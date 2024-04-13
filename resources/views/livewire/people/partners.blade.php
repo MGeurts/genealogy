@@ -37,7 +37,7 @@
                             @foreach ($person->couples->sortBy('date_start') as $couple)
                                 <x-ts-dropdown.items class="!text-danger-500" wire:click="confirmDeletion({{ $couple->id }} , '{{ $couple->name }}')"
                                     title="{{ __('person.delete_relationship') }}">
-                                    <x-icon.tabler icon="user-off" class="mr-2 size-6" />
+                                    <x-icon.tabler icon="trash" class="mr-2 size-6" />
                                     <div>
                                         {{ $couple->person2_id === $person->id ? $couple->person_1->name : $couple->person_2->name }}<br />
                                         {{ $couple->date_start ? $couple->date_start->isoFormat('LL') : '??' }}

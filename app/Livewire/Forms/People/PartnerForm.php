@@ -20,8 +20,8 @@ class PartnerForm extends Form
     // -----------------------------------------------------------------------
     protected $rules = [
         'person2_id' => ['required', 'integer'],
-        'date_start' => ['nullable', 'date', 'date_format:Y-m-d', 'before_or_equal:today', 'before:date_end'],
-        'date_end' => ['nullable', 'date', 'date_format:Y-m-d', 'before_or_equal:today', 'after:date_start'],
+        'date_start' => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', 'before:date_end'],
+        'date_end' => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', 'after:date_start'],
         'is_married' => ['required', 'boolean'],
         'has_ended' => ['required', 'boolean'],
     ];

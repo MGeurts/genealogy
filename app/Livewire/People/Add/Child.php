@@ -119,6 +119,11 @@ class Child extends Component
         }
     }
 
+    public function resetChild(): void
+    {
+        $this->mount();
+    }
+
     public function isDirty(): bool
     {
         return

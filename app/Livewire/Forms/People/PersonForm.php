@@ -64,15 +64,16 @@ class PersonForm extends Form
 
             'yob' => [
                 'nullable',
-                'date_format:Y',
-                new YobValid,
+                'integer',
+                'min:1',
+                'max:' . date("Y"),
+                new YobValid
             ],
             'dob' => [
                 'nullable',
-                'date',
                 'date_format:Y-m-d',
                 'before_or_equal:today',
-                new DobValid,
+                new DobValid
             ],
             'pob' => ['nullable', 'string', 'max:255'],
 

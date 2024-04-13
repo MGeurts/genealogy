@@ -21,7 +21,7 @@
                             @foreach ($children as $child)
                                 @if (!$child->type)
                                     <x-ts-dropdown.items class="!text-danger-500" wire:click="confirmDisconnect({{ $child->id }} , '{{ $child->name }}')" title="{{ __('person.delete_child') }}">
-                                        <x-icon.tabler icon="trash" class="mr-2 size-6" /> {{ $child->name }}
+                                        <x-icon.tabler icon="plug-connected-x" class="mr-2 size-6" /> {{ $child->name }}
                                     </x-ts-dropdown.items>
                                 @endif
                             @endforeach
