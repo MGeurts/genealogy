@@ -103,11 +103,11 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 <ul>
     <li>Light/Dark</li>
     <li>Fully responsive</li>
-    <li>Multi-language, German, English and Dutch already implemented, language setting saved in authenticated users profile</li>
+    <li>Multi-language, English, Dutch and German already implemented, language setting saved in authenticated users profile</li>
     <li>Multi-tenancy by Jetstream Teams</li>
     <li>Security through Jetstream Teams Roles & Permissions, 2FA & API can be enabled</li>
     <li>Offcanvas menu</li>
-    <li>Multiple image upload with possibility of watermarking, photo carousel</li>
+    <li>Multiple image upload with possibility of watermarking, photo carousel with navigation</li>
 </ul>
 
 ### Special features
@@ -132,7 +132,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 <p>This application has a built-in <b>User management & logging</b>, available to the developer :
     <ul>
         <li>User statistics by country of origin</li>
-        <li>User statistics by year/month/week/day</li>
+        <li>User statistics by year, month, week or day</li>
    </ul>
 </p>
 
@@ -205,7 +205,7 @@ run docker containers
 
 ## Contributing
 
-Feel free to submit <b>Issues</b> (for bugs or suggestions) and <b>Pull Requests</b>.
+Feel free to submit <b>Issues</b> or <b>Pull Requests</b>, for bugs, suggestions or feature requests.
 
 ## Documentation
 
