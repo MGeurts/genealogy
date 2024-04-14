@@ -10,7 +10,7 @@ return [
     'export' => 'Exporteren',
     'gedcom_export' => 'Team exporteren naar GEDCOM',
     'gedcom_file' => 'GEDCOM bestand',
-    'gedcom_import' => 'Team toevoegen van GEDCOM',
+    'gedcom_import' => 'Team importeren van GEDCOM',
     'id' => 'ID',
     'import' => 'Importeren',
     'manage' => 'Teambeheer',
