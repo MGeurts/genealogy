@@ -152,8 +152,8 @@ The results are shown below the search box, each person is represented in one ca
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-012.webp" class="rounded" alt="Menu">
 
-Click on the <b>Profile</b> or <b>Family chart</b> button to see details about that person.
-Click on the name of the father or the mother to go that person.
+Click on the <b>Profile</b> or <b>Family chart</b> button to see details about that person.<br/>
+Click on the father's or mother's name to visit the parent.
 
 <hr />
 
