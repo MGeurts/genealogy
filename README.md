@@ -16,7 +16,7 @@ This application is build using :
     <li><a href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream 4</a> (featuring <a href="https://jetstream.laravel.com/features/teams.html" target="_blank">Teams</a>)</li>
     <li><a href="https://livewire.laravel.com/" target="_blank">Livewire 3</a></li>
     <li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a></li>
-    <li><a href="https://tallstackui.com//" target="_blank">TallStackUI</a></li>
+    <li><a href="https://tallstackui.com//" target="_blank">TallStackUI</a> (featuring <a href="https://tabler.io/icons" target="_blank">Tabler Icons</a>)</li>
     <li><a href="https://filamentphp.com//" target="_blank">Laravel Filament</a> (only Table Builder)</li>
 </ul>
 
