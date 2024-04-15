@@ -50,7 +50,7 @@
                                                 </div>
 
                                                 @if ($addTeamMemberForm['role'] == $role->key)
-                                                    <x-ts-icon icon="circle-check" class="size-5 inline-block ms-2 text-emerald-600" />
+                                                    <x-ts-icon icon="check" class="size-5 inline-block ms-2 text-emerald-600" />
                                                 @endif
                                             </div>
 
@@ -200,7 +200,7 @@
                                 </div>
 
                                 @if ($currentRole == $role->key)
-                                    <x-ts-icon icon="circle-check" class="size-5 inline-block ms-2 text-emerald-600" />
+                                    <x-ts-icon icon="check" class="size-5 inline-block ms-2 text-emerald-600" />
                                 @endif
                             </div>
 
