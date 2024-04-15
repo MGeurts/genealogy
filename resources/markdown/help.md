@@ -34,7 +34,8 @@
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-002aa.webp" class="rounded" alt="Menu">
 
-Users can <b>register</b> themselves. At least a surname, a valid e-mail address and a password is needed.
+Users can <b>register</b> themselves.<br/>
+At least a <b>surname</b>, a valid <b>e-mail</b> address, a <b>language</b>, a <b>timezone</b> and a <b>password</b> are required.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-002bb.webp" class="rounded" alt="Register">
 
@@ -51,20 +52,27 @@ New users, after accepting an invitation by email from another user and register
     <b>Two Factor Authentification</b> (2FA) and <b>E-mail Verification</b> are enabled by default but can be configured in <b>config/fortify.php</b>.
 </div>
 
-### b. Teams
+### b. User account and profile
+
+Authenticated users can manage their account and user profile by using the dropdown menu in the top right-hand corner of the menu bar.
+
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-003a.webp" class="rounded" alt="Profile settings">
+
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-005a.webp" class="rounded" alt="User profile">
+
+### c. Teams
 
 This application uses <a href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream 4</a> with the <a href="https://jetstream.laravel.com/features/teams.html" target="_blank">Teams</a> option to implement and enforce <a href="https://en.wikipedia.org/wiki/Multitenancy" target="_blank">multi-tenancy</a>.
 
-Authenticated users can manage their own user profile and teams settings by using the dropdown menus in the top right-hand corner of the menu bar.
+Authenticated users can manage their teams and teams settings by using the dropdown menu in the top right-hand corner of the menu bar.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-003a.webp" class="rounded" alt="Profile settings">
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-004a.webp" class="rounded" alt="Team settings">
 
 Users can manage either their personal team or create new teams.<br/>
 <span class="text-danger">The personal team and all teams created by a user are also <b>owned</b> by that user.<br/>
 Only the owner can invite other (new or already registered) users (by e-mail) to join the owned teams</span>.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-005.webp" class="rounded" alt="Team management">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-005b.webp" class="rounded" alt="Team management">
 
 <div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
     Create a <b>new and seperate team</b> for each <b>family tree</b> you want to manage and invite other users to it</b>.<br/>
@@ -78,7 +86,7 @@ Authenticated users can only see people and couples:
     <li>created by the teams they were invited to by the team owner as administrator, manager or editor</li>
 </ul>
 
-### c. Roles & permissions
+### d. Roles & permissions
 
 <table>
     <thead>
