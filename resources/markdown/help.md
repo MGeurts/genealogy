@@ -71,21 +71,21 @@ Only the owner can invite other (new or already registered) users (by e-mail) to
     By assigning users the proper <b>role</b> you can define the rights they have in the selected team.
 </div>
 
-Authenticated users can only see persons and couples:
+Authenticated users can only see people and couples:
 
 <ul>
     <li>created by the teams they own</li>
     <li>created by the teams they were invited to by the team owner as administrator, manager or editor</li>
 </ul>
 
-### c. Roles & Permissions
+### c. Roles & permissions
 
 <table>
     <thead>
         <tr>
-            <th>Role</th>
-            <th>Model</th>
-            <th>Permissions</th>
+            <th style="text-align:left">Role</th>
+            <th style="text-align:left">Model</th>
+            <th style="text-align:left">Permissions</th>
         </tr>
     </thead>
     <tbody>
@@ -145,8 +145,8 @@ After login and <span class="text-danger">selecting the proper team</span>, clic
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-010a.webp" class="rounded" alt="Search">
 
 Enter a search value in the <b>search box</b>. You can use the character <b class="text-danger">%</b> as a wildcard character.<br/>
-Above the search box the number of persons available to / found in the <b>current team</b> are shown.<br/>
-You can use the pagination buttons. You can also change the number of persons shown per page.<br/>
+Above the search box the number of people available to / found in the <b>current team</b> are shown.<br/>
+You can use the pagination buttons. You can also change the number of people shown per page.<br/>
 
 The results are shown below the search box, each person is represented in one card.
 
@@ -159,7 +159,7 @@ Click on the father's or mother's name to visit the parent.
 
 <!-- ---------------------------------------------------------------------------------- -->
 
-## 3. Adding persons
+## 3. Adding people
 
 After login and <span class="text-danger">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
 
@@ -178,7 +178,7 @@ Another way to add people is to click on the <b>Add child</b> tab in the <b>Chil
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-051b.webp" class="rounded" alt="Add child">
 
 <div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
-    You can either create a <b>brand new person</b> or select an <b>existing person</b> as this persons new child.
+    You can either create a <b>brand new person</b> or select an <b>existing person</b> as this person's new child.
 </div>
 
 <hr />
@@ -201,7 +201,7 @@ The <b>Profile</b> card shows all general information about the person.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-022aa.webp" class="rounded" alt="Profile deceased">
 
-Notice this card shows different data for <b>living</b> and <b>deceased</b> persons.
+Notice this card shows different data for <b>living</b> and <b>deceased</b> people.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-022bb.webp" class="rounded" alt="Profile living">
 
@@ -228,7 +228,7 @@ You can also set the primary image by clicking the <b>1</b> button.
 
 ### c. Family
 
-The <b>Family</b> card shows the persons parents and the current partner.
+The <b>Family</b> card shows the person's parents and the current partner.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-033a.webp" class="rounded" alt="Family">
 
@@ -271,14 +271,14 @@ A sibling can be <b>plus</b>: neither the biological father nor the biological m
 
 ### g. Ancestors
 
-This shows the selected persons ancestors.<br/>
+This shows the selected person's ancestors.<br/>
 You can change the tree depth by using the control in the Ancestors card header.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-070.webp" class="rounded" alt="Ancestors">
 
 ### h. Descendants
 
-This shows the selected persons descendants.<br/>
+This shows the selected person's descendants.<br/>
 You can change the tree depth by using the control in the Descendants card header.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-071.webp" class="rounded" alt="Descendants">
@@ -286,7 +286,7 @@ You can change the tree depth by using the control in the Descendants card heade
 ### i. Family chart
 
 This shows the compleet family chart, 3 generations deep.<br/>
-Click on a family member name to see that persons details.
+Click on a family member name to see that person's details.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-072.webp" class="rounded" alt="Family chart">
 
