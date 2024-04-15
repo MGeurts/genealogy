@@ -65,7 +65,9 @@ return [
     |
     */
 
-    'timezone' => env('APP_TIMEZONE', 'UTC'),
+    'timezone' => env('APP_TIMEZONE', 'UTC'),  // don't you dare change this
+
+    'timezone_display' => 'Europe/Brussels',   // default application timezone, will be overridded by authenticated user's tmezone
 
     /*
     |--------------------------------------------------------------------------

@@ -29,6 +29,7 @@ class UserAndTeamSeeder extends Seeder
             'email' => 'kreaweb@genealogy.test',
             'is_developer' => true,
             'language' => 'nl',
+            'timezone' => 'Europe/Brussels',
         ])
             ->withPersonalTeam()
             ->create();

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('profile_photo_path', 2048)->nullable();
 
             $table->string('language', 2)->default('en');
+            $table->string('timezone')->default('UTC');
             $table->boolean('is_developer')->default(false);
 
             $table->timestamps();

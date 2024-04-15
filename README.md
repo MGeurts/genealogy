@@ -104,6 +104,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <li>Light/Dark</li>
     <li>Fully responsive</li>
     <li>Multi-language, English, Dutch and German already implemented, language setting saved in authenticated users profile</li>
+    <li>Multi-timezone, timezone setting saved in authenticated users profile</li>
     <li>Multi-tenancy by Jetstream Teams</li>
     <li>Security through Jetstream Teams Roles & Permissions, 2FA & API can be enabled</li>
     <li>Offcanvas menu</li>

@@ -18,6 +18,7 @@ return [
     'new_password' => 'New password',
     'confirm_password' => 'Confirm new password',
     'language' => 'Language',
+    'timezone' => 'Timezone',
     'developer' => 'Developer',
     'team' => 'Team',
     'current_team' => 'Current team',

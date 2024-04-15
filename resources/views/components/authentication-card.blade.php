@@ -1,6 +1,6 @@
 @props(['logo' => '', 'header' => ''])
 
-<div class="w-full min-h-192 flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
+<div class="w-full min-h-192 flex flex-col sm:justify-center items-center pt-6 sm:pt-0 mb-5">
     <div>
         {{ $logo }}
     </div>

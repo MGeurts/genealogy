@@ -22,7 +22,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
-            'language' => ['required', 'string', 'max:2'],
+            'language' => ['required', Rule::in(array_values(config('app.available_locales')))],
+            'timezone' => ['required', Rule::in(array_values(timezone_identifiers_list()))],
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -37,6 +38,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'surname' => $input['surname'],
                 'email' => $input['email'],
                 'language' => $input['language'],
+                'timezone' => $input['timezone'],
             ])->save();
         }
     }
@@ -54,6 +56,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'email' => $input['email'],
             'email_verified_at' => null,
             'language' => $input['language'],
+            'timezone' => $input['timezone'],
         ])->save();
 
         $user->sendEmailVerificationNotification();

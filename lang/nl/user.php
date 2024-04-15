@@ -18,6 +18,7 @@ return [
     'new_password' => 'Nieuw paswoord',
     'confirm_password' => 'Bevestig nieuw paswoord',
     'language' => 'Taal',
+    'timezone' => 'Tijdzone',
     'developer' => 'Developer',
     'team' => 'Team',
     'current_team' => 'Geselecteerd team',

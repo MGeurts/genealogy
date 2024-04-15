@@ -4,6 +4,7 @@ namespace App\Providers;
 
 //use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
 use App\Models\Userlog;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Console\AboutCommand;
@@ -119,6 +120,17 @@ class AppServiceProvider extends ServiceProvider
             'github' => 'https://github.com/MGeurts/genealogy',
             'license' => 'MIT License',
         ]);
+
+        // -----------------------------------------------------------------------
+        // timezone management
+        // -----------------------------------------------------------------------
+        Carbon::macro('inApplicationTimezone', function () {
+            return $this->tz(config('app.timezone_display'));
+        });
+
+        Carbon::macro('inUserTimezone', function () {
+            return $this->tz(auth()->user()?->timezone ?? config('app.timezone_display'));
+        });
 
         // -----------------------------------------------------------------------
     }

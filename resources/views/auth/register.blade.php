@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <div class="md:flex md:items-center mt-2">
+            <div class="md:flex md:items-center mt-1">
                 <div class="md:w-1/3">
                     <x-label for="surname" value="{{ __('user.surname') }} :" />
                 </div>
@@ -40,12 +40,40 @@
                 </div>
             </div>
 
-            <div class="md:flex md:items-center mt-2">
+            <div class="md:flex md:items-center mt-1">
                 <div class="md:w-1/3">
                     <x-label for="email" value="{{ __('user.email') }} :" />
                 </div>
                 <div class="md:w-2/3">
                     <x-input id="email" class="block w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                </div>
+            </div>
+
+            <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
+
+            <div class="md:flex md:items-center mt-2">
+                <div class="md:w-1/3">
+                    <x-label for="language" value="{{ __('user.language') }} :" />
+                </div>
+                <div class="md:w-2/3">
+                    <select id="language" class="block w-full rounded" name="language" required>
+                        @foreach (config('app.available_locales') as $locale_name => $available_locale)
+                            <option value="{{ $available_locale }}" @if ($available_locale == 'en') selected @endif>{{ $locale_name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="md:flex md:items-center mt-1">
+                <div class="md:w-1/3">
+                    <x-label for="timezone" value="{{ __('user.timezone') }} :" />
+                </div>
+                <div class="md:w-2/3">
+                    <select id="timezone" class="block w-full rounded" name="timezone" required>
+                        @foreach (timezone_identifiers_list() as $timezone)
+                            <option value="{{ $timezone }}">{{ $timezone }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
 
@@ -109,4 +137,17 @@
             </div>
         </form>
     </x-authentication-card>
+
+    <script>
+        setSelectedValue(document.getElementById('timezone'), Intl.DateTimeFormat().resolvedOptions().timeZone);
+
+        function setSelectedValue(selectObj, valueToSet) {
+            for (var i = 0; i < selectObj.options.length; i++) {
+                if (selectObj.options[i].text == valueToSet) {
+                    selectObj.options[i].selected = true;
+                    return;
+                }
+            }
+        }
+    </script>
 </x-app-layout>

@@ -49,6 +49,7 @@ class User extends Authenticatable
         'password',
 
         'language',
+        'timezone',
     ];
 
     /**

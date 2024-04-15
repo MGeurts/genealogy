@@ -9,8 +9,6 @@ use Illuminate\Support\Carbon;
 
 class Userlog extends Model
 {
-    public $timestamps = false;
-
     protected $fillable = [
         'user_id',
         'country_name',
@@ -23,14 +21,14 @@ class Userlog extends Model
     protected function date(): Attribute
     {
         return new Attribute(
-            get: fn (mixed $value, array $attributes) => Carbon::parse($attributes['created_at'])->isoFormat('dddd LL'),
+            get: fn (mixed $value, array $attributes) => Carbon::parse($attributes['created_at'])->inUserTimezone()->isoFormat('dddd LL'),
         );
     }
 
     protected function time(): Attribute
     {
         return new Attribute(
-            get: fn (mixed $value, array $attributes) => Carbon::parse($attributes['created_at'])->format('H:i:s'),
+            get: fn (mixed $value, array $attributes) => Carbon::parse($attributes['created_at'])->inUserTimezone()->format('H:i:s'),
         );
     }
 

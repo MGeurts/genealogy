@@ -95,9 +95,19 @@
         {{-- language --}}
         <div class="col-span-6 md:col-span-4">
             <x-label for="language" value="{{ __('user.language') }}" />
-            <select id="language" class="block mt-1 w-full rounded" name="language" wire:model="state.language" data-te-select-init data-te-select-clear-button="true" required>
+            <select id="language" class="block mt-1 w-full rounded" name="language" wire:model="state.language" required>
                 @foreach (config('app.available_locales') as $locale_name => $available_locale)
                     <option value="{{ $available_locale }}" @if (old('language') == '{{ $available_locale }}') selected @endif>{{ $locale_name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        {{-- timezone --}}
+        <div class="col-span-6 md:col-span-4">
+            <x-label for="timezone" value="{{ __('user.timezone') }}" />
+            <select id="timezone" class="block mt-1 w-full rounded" name="timezone" wire:model="state.timezone" required>
+                @foreach (timezone_identifiers_list() as $timezone)
+                    <option value="{{ $timezone }}" @if (old('language') == '{{ $timezone }}') selected @endif>{{ $timezone }}</option>
                 @endforeach
             </select>
         </div>
