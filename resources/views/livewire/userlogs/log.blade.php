@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="flex-grow min-w-max max-w-full flex-1 text-end">
-                        <x-icon.tabler icon="calendar-user" />
+                        <x-ts-icon icon="calendar-user" class="inline-block" />
                     </div>
                 </div>
             </div>

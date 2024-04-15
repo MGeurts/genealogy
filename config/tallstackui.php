@@ -58,9 +58,9 @@ return [
         |----------------------------------
         | Default and in-use icon type.
         |----------------------------------
-        | Allowed: heroicons, phosphoricons, google.
+        | Allowed: heroicons, phosphoricons, google, tablericons.
         */
-        'type' => 'heroicons',
+        'type' => env('TALLSTACKUI_ICON_TYPE', 'tablericons'),
 
         /*
         |----------------------------------
@@ -71,8 +71,9 @@ return [
         | Heroicons: solid, outline
         | Phosphoricons: thin, light, regular, bold, duotone
         | Google: default
+        | Tablericons: default
         */
-        'style' => 'solid',
+        'style' => env('TALLSTACKUI_ICON_STYLE', 'default'),
 
         /*
         |----------------------------------

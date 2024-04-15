@@ -55,7 +55,7 @@
                 <div class="col-span-1 pt-5 h-4 text-end">
                     @if ($person->address_google)
                         <x-ts-button href="{{ $person->address_google }}" target="_blank" color="info" class="!p-2 text-white" title="{{ __('app.show_on_google_maps') }}">
-                            <x-icon.tabler icon="brand-google-maps" class="!size-4" />
+                            <x-ts-icon icon="brand-google-maps" class="size-5" />
                         </x-ts-button>
                     @endif
                 </div>

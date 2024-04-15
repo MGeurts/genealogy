@@ -40,7 +40,7 @@
                     @if ($person->cemetery_google)
                         <a target="_blank" href="{{ $person->cemetery_google }}">
                             <x-ts-button color="info" class="!p-2 mb-2 text-white" title="{{ __('app.show_on_google_maps') }}">
-                                <x-icon.tabler icon="brand-google-maps" class="!size-4" />
+                                <x-ts-icon icon="brand-google-maps" class="size-5" />
                             </x-ts-button>
                         </a>
                     @endif

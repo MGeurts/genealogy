@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="flex-grow min-w-max max-w-min flex-1 text-end">
-                        <x-icon.tabler icon="chart-bar" />
+                        <x-ts-icon icon="chart-bar" class="inline-block" />
                     </div>
                 </div>
             </div>

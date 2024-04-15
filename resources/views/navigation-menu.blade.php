@@ -14,24 +14,24 @@
                 <div class="flex flex-wrap gap-5">
                     <div class="flex items-center gap-5">
                         <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                            <x-icon.tabler icon="home" class="mr-1" />
+                            <x-ts-icon icon="home" class="size-5 mr-1" />
                             {{ __('app.home') }}
                         </x-nav-link>
 
                         <x-nav-link href="{{ route('people.search') }}" :active="request()->routeIs('people.search')">
-                            <x-icon.tabler icon="search" class="mr-1" />
+                            <x-ts-icon icon="search" class="size-5 mr-1" />
                             {{ __('app.search') }}
                         </x-nav-link>
                     </div>
 
                     <div class="flex items-center gap-5">
                         <x-nav-link href="{{ route('people.birthdays') }}" :active="request()->routeIs('people.birthdays')">
-                            <x-icon.tabler icon="cake" class="mr-1" />
+                            <x-ts-icon icon="cake" class="size-5 mr-1" />
                             {{ __('birthday.birthdays') }}
                         </x-nav-link>
 
                         <x-nav-link href="{{ route('help') }}" :active="request()->routeIs('help')">
-                            <x-icon.tabler icon="help" class="mr-1" />
+                            <x-ts-icon icon="help" class="size-5 mr-1" />
                             {{ __('app.help') }}
                         </x-nav-link>
                     </div>
@@ -66,13 +66,13 @@
 
                                         {{-- teams settings --}}
                                         <x-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
-                                            <x-icon.tabler icon="droplet-cog" class="mr-1" />
+                                            <x-ts-icon icon="droplet-cog" class="size-5 inline-block mr-1" />
                                             {{ __('team.settings') }}
                                         </x-dropdown-link>
 
                                         @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                             <x-dropdown-link href="{{ route('teams.create') }}">
-                                                <x-icon.tabler icon="droplet-plus" class="mr-1" />
+                                                <x-ts-icon icon="droplet-plus" class="size-5 inline-block mr-1" />
                                                 {{ __('team.create') }}
                                             </x-dropdown-link>
 
@@ -80,12 +80,12 @@
 
                                             {{-- gedcom --}}
                                             <x-dropdown-link href="{{ route('gedcom.import') }}">
-                                                <x-icon.tabler icon="droplet-up" class="mr-1" />
+                                                <x-ts-icon icon="droplet-up" class="size-5 inline-block mr-1" />
                                                 {{ __('team.gedcom_import') }}
                                             </x-dropdown-link>
 
                                             <x-dropdown-link href="{{ route('gedcom.export') }}">
-                                                <x-icon.tabler icon="droplet-down" class="mr-1" />
+                                                <x-ts-icon icon="droplet-down" class="size-5 inline-block mr-1" />
                                                 {{ __('team.gedcom_export') }}
                                             </x-dropdown-link>
                                         @endcan
@@ -137,13 +137,13 @@
                                 </div>
 
                                 <x-dropdown-link href="{{ route('profile.show') }}">
-                                    <x-icon.tabler icon="id" class="mr-1" />
+                                    <x-ts-icon icon="id" class="size-5 inline-block mr-1" />
                                     {{ __('app.my_profile') }}
                                 </x-dropdown-link>
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                     <x-dropdown-link href="{{ route('api-tokens.index') }}">
-                                        <x-icon.tabler icon="api" class="mr-1" />
+                                        <x-ts-icon icon="api" class="size-5 inline-block mr-1" />
                                         {{ __('app.api_tokens') }}
                                     </x-dropdown-link>
                                 @endif
@@ -155,7 +155,7 @@
                                     @csrf
 
                                     <x-dropdown-link href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                                        <x-icon.tabler icon="logout" class="mr-1" />
+                                        <x-ts-icon icon="logout" class="size-5 inline-block mr-1" />
                                         {{ __('auth.logout') }}
                                     </x-dropdown-link>
                                 </form>
@@ -164,12 +164,12 @@
                     </div>
                 @else
                     <x-nav-link href="{{ route('login') }}" :active="request()->routeIs('login')">
-                        <x-icon.tabler icon="login-2" class="mr-1" />
+                        <x-ts-icon icon="login-2" class="size-5 inline-block mr-1" />
                         {{ __('auth.login') }}
                     </x-nav-link>
 
                     <x-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
-                        <x-icon.tabler icon="user-plus" class="mr-1" />
+                        <x-ts-icon icon="user-plus" class="size-5 inline-block mr-1" />
                         {{ __('auth.register') }}
                     </x-nav-link>
 
@@ -203,22 +203,22 @@
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden md:hidden">
         <div class="space-y-1 border-t border-gray-200">
             <x-nav-link-responsive href="{{ route('home') }}" :active="request()->routeIs('home')">
-                <x-icon.tabler icon="home" class="mr-1" />
+                <x-ts-icon icon="home" class="size-5 inline-block mr-1" />
                 {{ __('app.home') }}
             </x-nav-link-responsive>
 
             <x-nav-link-responsive href="{{ route('people.search') }}" :active="request()->routeIs('people.search')">
-                <x-icon.tabler icon="search" class="mr-1" />
+                <x-ts-icon icon="search" class="size-5 inline-block mr-1" />
                 {{ __('app.search') }}
             </x-nav-link-responsive>
 
             <x-nav-link-responsive href="{{ route('people.birthdays') }}" :active="request()->routeIs('people.birthdays')">
-                <x-icon.tabler icon="cake" class="mr-1" />
+                <x-ts-icon icon="cake" class="size-5 inline-block mr-1" />
                 {{ __('birthday.birthdays') }}
             </x-nav-link-responsive>
 
             <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
-                <x-icon.tabler icon="help" class="mr-1" />
+                <x-ts-icon icon="help" class="size-5 inline-block mr-1" />
                 {{ __('app.help') }}
             </x-nav-link-responsive>
         </div>
@@ -226,12 +226,12 @@
         @guest
             <div class="space-y-1 border-t border-gray-200">
                 <x-nav-link-responsive href="{{ route('login') }}" :active="request()->routeIs('login')">
-                    <x-icon.tabler icon="login-2" class="mr-1" />
+                    <x-ts-icon icon="login-2" class="size-5 inline-block mr-1" />
                     {{ __('auth.login') }}
                 </x-nav-link-responsive>
 
                 <x-nav-link-responsive href="{{ route('register') }}" :active="request()->routeIs('register')">
-                    <x-icon.tabler icon="user-plus" class="mr-1" />
+                    <x-ts-icon icon="user-plus" class="size-5 inline-block mr-1" />
                     {{ __('auth.register') }}
                 </x-nav-link-responsive>
             </div>
@@ -266,13 +266,13 @@
                 <div class="space-y-1">
                     {{-- account management --}}
                     <x-nav-link-responsive href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                        <x-icon.tabler icon="id" class="mr-1" />
+                        <x-ts-icon icon="id" class="size-5 inline-block mr-1" />
                         {{ __('app.my_profile') }}
                     </x-nav-link-responsive>
 
                     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                         <x-nav-link-responsive href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
-                            <x-icon.tabler icon="api" class="mr-1" />
+                            <x-ts-icon icon="api" class="size-5 inline-block mr-1" />
                             {{ __('app.api_tokens') }}
                         </x-nav-link-responsive>
                     @endif
@@ -282,7 +282,7 @@
                         @csrf
 
                         <x-nav-link-responsive href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                            <x-icon.tabler icon="logout" class="mr-1" />
+                            <x-ts-icon icon="logout" class="size-5 inline-block mr-1" />
                             {{ __('auth.logout') }}
                         </x-nav-link-responsive>
                     </form>
@@ -297,24 +297,24 @@
 
                         {{-- team settings --}}
                         <x-nav-link-responsive href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
-                            <x-icon.tabler icon="droplet-cog" class="mr-1" />
+                            <x-ts-icon icon="droplet-cog" class="size-5 inline-block mr-1" />
                             {{ __('team.settings') }}
                         </x-nav-link-responsive>
 
                         @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                             <x-nav-link-responsive href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">
-                                <x-icon.tabler icon="droplet-plus" class="mr-1" />
+                                <x-ts-icon icon="droplet-plus" class="size-5 inline-block mr-1" />
                                 {{ __('team.create') }}
                             </x-nav-link-responsive>
 
                             {{-- gedcom --}}
                             <x-nav-link-responsive href="{{ route('gedcom.import') }}" :active="request()->routeIs('gedcom.import')">
-                                <x-icon.tabler icon="droplet-up" class="mr-1" />
+                                <x-ts-icon icon="droplet-up" class="size-5 inline-block mr-1" />
                                 {{ __('team.gedcom_import') }}
                             </x-nav-link-responsive>
 
                             <x-nav-link-responsive href="{{ route('gedcom.export') }}" :active="request()->routeIs('gedcom.export')">
-                                <x-icon.tabler icon="droplet-down" class="mr-1" />
+                                <x-ts-icon icon="droplet-down" class="size-5 inline-block mr-1" />
                                 {{ __('team.gedcom_export') }}
                             </x-nav-link-responsive>
                         @endcan

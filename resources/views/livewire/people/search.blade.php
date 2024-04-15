@@ -19,7 +19,7 @@
                     <div class="flex-grow max-w-full flex-1 text-center">
                         @if (auth()->user()->hasPermission('person:create'))
                             <x-ts-button href="/people/add" color="emerald" class="text-sm">
-                                <x-icon.tabler icon="user-plus" class="me-2" />
+                                <x-ts-icon icon="user-plus" class="me-2" />
                                 {{ __('person.add_person') }}
                             </x-ts-button>
                         @endif

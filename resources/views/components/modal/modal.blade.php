@@ -13,7 +13,7 @@
             <div class="px-4 py-3 flex items-center justify-between border-b border-gray-300">
                 <div class="text-xl text-gray-800">{{ $title }}</div>
                 <button x-on:click="$dispatch('close-modal')">
-                    <x-icon.tabler icon="x" class="!size-6" />
+                    <x-ts-icon icon="x" />
                 </button>
             </div>
         @endif

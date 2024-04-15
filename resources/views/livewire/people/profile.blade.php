@@ -7,25 +7,25 @@
 
             @if (auth()->user()->hasPermission('person:update') or auth()->user()->hasPermission('person:delete'))
                 <div class="flex-grow min-w-max max-w-min flex-1 text-end">
-                    <x-ts-dropdown icon="bars-4" position="bottom-end">
+                    <x-ts-dropdown icon="menu-2" position="bottom-end">
                         @if (auth()->user()->hasPermission('person:update'))
                             <a href="/people/{{ $person->id }}/edit-profile">
                                 <x-ts-dropdown.items>
-                                    <x-icon.tabler icon="id" class="mr-2 size-6" />
+                                    <x-ts-icon icon="id" class="mr-2" />
                                     {{ __('person.edit_profile') }}
                                 </x-ts-dropdown.items>
                             </a>
 
                             <a href="/people/{{ $person->id }}/edit-contact">
                                 <x-ts-dropdown.items>
-                                    <x-icon.tabler icon="address-book" class="mr-2 size-6" />
+                                    <x-ts-icon icon="address-book" class="mr-2" />
                                     {{ __('person.edit_contact') }}
                                 </x-ts-dropdown.items>
                             </a>
 
                             <a href="/people/{{ $person->id }}/edit-death">
                                 <x-ts-dropdown.items>
-                                    <x-icon.tabler icon="coffin" class="mr-2 size-6" />
+                                    <x-ts-icon icon="coffin" class="mr-2" />
                                     {{ __('person.edit_death') }}
                                 </x-ts-dropdown.items>
                             </a>
@@ -33,7 +33,7 @@
                             <hr />
                             <a href="/people/{{ $person->id }}/edit-photos">
                                 <x-ts-dropdown.items>
-                                    <x-icon.tabler icon="photo" class="mr-2 size-6" />
+                                    <x-ts-icon icon="photo" class="mr-2" />
                                     {{ __('person.edit_photos') }}
                                 </x-ts-dropdown.items>
                             </a>
@@ -44,7 +44,7 @@
 
                             <x-ts-dropdown.items separator wire:click="confirmDeletion()">
                                 <span class="text-danger-500">
-                                    <x-icon.tabler icon="trash" class="mr-2 size-6" />
+                                    <x-ts-icon icon="trash" class="mr-2" />
                                     {{ __('person.delete_person') }}
                                 </span>
                             </x-ts-dropdown.items>
@@ -95,7 +95,7 @@
                     <td class="pr-2 border-r-2">{{ __('person.sex') }} ({{ __('person.biological') }})</td>
                     <td class="pl-2">
                         {{ $person->sex == 'm' ? __('app.male') : __('app.female') }}
-                        <x-icon.tabler icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" />
+                        <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />
                     </td>
                 </tr>
                 <tr class="border-b-2">
@@ -108,7 +108,7 @@
                     <td class="pl-2">
                         {{ $person->birth_formatted }}
                         @if ($person->isBirthdayToday())
-                            <x-icon.tabler icon="cake" class="!size-4 text-warning" />
+                            <x-ts-icon icon="cake" class="size-5 text-warning" />
                         @endif
                     </td>
                 </tr>
@@ -127,7 +127,7 @@
                         <td class="pl-2">
                             {{ $person->death_formatted }}
                             @if ($person->isDeathdayToday())
-                                <x-icon.tabler icon="cake" class="!size-4 text-warning" />
+                                <x-ts-icon icon="cake" class="size-5 text-warning" />
                             @endif
                         </td>
                     </tr>
@@ -144,7 +144,7 @@
                             @if ($person->cemetery_google)
                                 <a target="_blank" href="{{ $person->cemetery_google }}">
                                     <x-ts-button color="info" class="!p-2 mb-2 text-white" title="{{ __('app.show_on_google_maps') }}">
-                                        <x-icon.tabler icon="brand-google-maps" class="size-4" />
+                                        <x-ts-icon icon="brand-google-maps" class="size-5" />
                                     </x-ts-button>
                                 </a>
                             @endif
@@ -158,7 +158,7 @@
                             @if ($person->address)
                                 <a target="_blank" href="{{ $person->address_google }}">
                                     <x-ts-button color="info" class="!p-2 mb-2 text-white" title="{{ __('app.show_on_google_maps') }}">
-                                        <x-icon.tabler icon="brand-google-maps" class="size-4" />
+                                        <x-ts-icon icon="brand-google-maps" class="size-5" />
                                     </x-ts-button>
                                 </a>
                             @endif

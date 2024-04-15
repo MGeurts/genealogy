@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="flex-grow min-w-max max-w-full flex-1 text-end">
-                        <x-icon.tabler icon="world-pin" />
+                        <x-ts-icon icon="world-pin" class="inline-block" />
                     </div>
                 </div>
             </div>

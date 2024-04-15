@@ -80,18 +80,6 @@
                     <li class="py-2">
                         <x-link href="https://www.chartjs.org/" target="_blank">Chart.js</x-link>
                     </li>
-
-                    <li class="py-2">
-                        <x-link href="https://tabler-icons.io/" target="_blank">Tabler Icons (3.1.0)</x-link>
-                        <br /><br />
-                        <p>
-                            <code>npm install @tabler/icons-sprite --save</code><br /><br />
-                            then periodically copy<br />
-                            <code>\node_modules\@tabler\icons-sprite\dist\tabler-sprite-nostroke.svg</code><br />
-                            to<br />
-                            <code>\public\tabler\tabler-sprite-nostroke.svg</code>
-                        </p>
-                    </li>
                 </ul>
             </x-ts-tab.items>
         </x-ts-tab>

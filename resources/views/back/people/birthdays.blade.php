@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="flex-grow min-w-max max-w-min flex-1 text-end">
-                        <x-icon.tabler icon="cake" />
+                        <x-ts-icon icon="cake" />
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                                     <x-link wire:navigate href="/people/{{ $person->id }}" class="{{ $person->isDeceased() ? '!text-danger' : '' }}">
                                         <b>{{ $person->name }}</b>
                                     </x-link>
-                                    <x-icon.tabler icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" />
+                                    <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />
                                 </td>
                                 <td class="whitespace-nowrap p-2 text-end">
                                     {{ $person->dob ? $person->dob->isoFormat('LL') : '' }}
@@ -62,7 +62,7 @@
                                     @if ($person->isDeceased())
                                         <br />
                                         <span class="text-danger-600 dark:text-danger-400">
-                                            <x-icon.tabler icon="coffin" />
+                                            <x-ts-icon icon="coffin" class="inline-block" />
                                         </span>
                                     @endif
                                 </td>

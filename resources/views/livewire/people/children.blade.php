@@ -7,10 +7,10 @@
 
             @if (auth()->user()->hasPermission('person:create'))
                 <div class="flex-grow min-w-max max-w-min flex-1 text-end">
-                    <x-ts-dropdown icon="bars-4" position="bottom-end">
+                    <x-ts-dropdown icon="menu-2" position="bottom-end">
                         <a href="/people/{{ $person->id }}/add-child">
                             <x-ts-dropdown.items>
-                                <x-icon.tabler icon="user-plus" class="mr-2 size-6" />
+                                <x-ts-icon icon="user-plus" class="mr-2" />
                                 {{ __('person.add_child') }}
                             </x-ts-dropdown.items>
                         </a>
@@ -21,7 +21,7 @@
                             @foreach ($children as $child)
                                 @if (!$child->type)
                                     <x-ts-dropdown.items class="!text-danger-500" wire:click="confirmDisconnect({{ $child->id }} , '{{ $child->name }}')" title="{{ __('person.delete_child') }}">
-                                        <x-icon.tabler icon="plug-connected-x" class="mr-2 size-6" /> {{ $child->name }}
+                                        <x-ts-icon icon="plug-connected-x" class="mr-2" /> {{ $child->name }}
                                     </x-ts-dropdown.items>
                                 @endif
                             @endforeach
@@ -40,9 +40,9 @@
                         {{ $child->name }}
                     </x-link>
 
-                    <x-icon.tabler icon="{{ $child->sex == 'm' ? 'gender-male' : 'gender-female' }}" />
+                    <x-ts-icon icon="{{ $child->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />
                     @if ($child->type)
-                        <x-icon.tabler icon="heart-plus" class="text-emerald-600" />
+                        <x-ts-icon icon="heart-plus" class="size-5 inline-block text-emerald-600" />
                     @endif
                 </div>
             </div>

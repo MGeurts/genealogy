@@ -54,18 +54,18 @@
                             <x-slot:footer>
                                 @if ($image['name'] != $person->photo)
                                     <x-ts-button color="secondary" class="!p-2" title="{{ __('person.set_primary') }}" wire:click="setPrimary('{{ $image['name'] }}')">
-                                        <x-icon.tabler icon="number-1" class="!size-4" />
+                                        <x-ts-icon icon="number-1" class="size-5" />
                                     </x-ts-button>
                                 @endif
 
                                 <x-ts-button href="{{ $image['url'] }}" color="secondary" class="!p-2" title="{{ __('app.download') }}" download="{{ $image['name_download'] }}">
-                                    <x-icon.tabler icon="download" class="!size-4" />
+                                    <x-ts-icon icon="download" class="size-5" />
                                 </x-ts-button>
 
                                 <div class="text-sm">{{ $image['size'] }}</div>
 
                                 <x-ts-button color="danger" class="!p-2" title="{{ __('app.delete') }}" wire:click="deletePhoto('{{ $image['name'] }}')">
-                                    <x-icon.tabler icon="trash" class="!size-4" />
+                                    <x-ts-icon icon="trash" class="size-5" />
                                 </x-ts-button>
                             </x-slot:footer>
                         </x-ts-card>

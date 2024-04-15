@@ -7,27 +7,27 @@
         {{-- social network icons container --}}
         <div class="flex justify-center">
             <a href="https://www.facebook.com/" class="mr-6 text-neutral-600 dark:text-neutral-200" target="_blank" title="Facebook">
-                <x-icon.tabler icon="brand-facebook-filled" class="text-neutral-900 dark:text-neutral-200" />
+                <x-ts-icon icon="brand-facebook" class="text-neutral-900 dark:text-neutral-200" />
             </a>
 
             <a href="https://www.x.com/" class="mr-6 text-neutral-600 dark:text-neutral-200" target="_blank" title="X">
-                <x-icon.tabler icon="brand-x-filled" class="text-neutral-900 dark:text-neutral-200" />
+                <x-ts-icon icon="brand-x" class="text-neutral-900 dark:text-neutral-200" />
             </a>
 
             <a href="https://www.instagram.com/" class="mr-6 text-neutral-600 dark:text-neutral-200" target="_blank" title="Instagram">
-                <x-icon.tabler icon="brand-instagram" class="text-neutral-900 dark:text-neutral-200" />
+                <x-ts-icon icon="brand-instagram" class="text-neutral-900 dark:text-neutral-200" />
             </a>
 
             <a href="https://www.linkedin.com/" class="mr-6 text-neutral-600 dark:text-neutral-200" target="_blank" title="LinkedIn">
-                <x-icon.tabler icon="brand-linkedin" class="text-neutral-900 dark:text-neutral-200" />
+                <x-ts-icon icon="brand-linkedin" class="text-neutral-900 dark:text-neutral-200" />
             </a>
 
             <a href="https://www.youtube.com/" class="mr-6 text-neutral-600 dark:text-neutral-200" target="_blank" title="YouTube">
-                <x-icon.tabler icon="brand-youtube" class="text-neutral-900 dark:text-neutral-200" />
+                <x-ts-icon icon="brand-youtube" class="text-neutral-900 dark:text-neutral-200" />
             </a>
 
             <a href="https://github.com/MGeurts" class="text-neutral-600 dark:text-neutral-200" target="_blank" title="GitHub">
-                <x-icon.tabler icon="brand-github-filled" class="text-neutral-900 dark:text-neutral-200" />
+                <x-ts-icon icon="brand-github" class="text-neutral-900 dark:text-neutral-200" />
             </a>
         </div>
     </div>

@@ -13,7 +13,7 @@
                 <x-link href="/people/{{ $sibling->id }}" class="{{ $sibling->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
                     {{ $sibling->name }}
                 </x-link>
-                <x-icon.tabler icon="{{ $sibling->sex == 'm' ? 'gender-male' : 'gender-female' }}" />
+                <x-ts-icon icon="{{ $sibling->sex == 'm' ? 'gender-male' : 'gender-female' }}" />
                 <span class="text-warning-500">{{ $sibling->type }}</span>
             </p>
         @endforeach

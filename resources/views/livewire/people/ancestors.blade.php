@@ -7,11 +7,11 @@
                     <div class="inline-flex border rounded" role="group">
                         @if ($count === $count_min)
                             <x-ts-button square xs color="danger" class="rounded-l border-0" wire:click="decrement" disabled>
-                                <x-icon.tabler icon="minus" />
+                                <x-ts-icon icon="minus" class="size-5" />
                             </x-ts-button>
                         @else
                             <x-ts-button square xs color="secondary" class="rounded-l border-0" wire:click="decrement">
-                                <x-icon.tabler icon="minus" />
+                                <x-ts-icon icon="minus" class="size-5" />
                             </x-ts-button>
                         @endif
 
@@ -19,18 +19,18 @@
 
                         @if ($count === $count_max)
                             <x-ts-button square xs color="danger" class="rounded-r border-0" wire:click="increment" disabled>
-                                <x-icon.tabler icon="plus" />
+                                <x-ts-icon icon="plus" class="size-5" />
                             </x-ts-button>
                         @else
                             <x-ts-button square xs color="secondary" class="rounded-r border-0" wire:click="increment">
-                                <x-icon.tabler icon="plus" />
+                                <x-ts-icon icon="plus" class="size-5" />
                             </x-ts-button>
                         @endif
                     </div>
                 </div>
 
                 <div class="flex-grow min-w-max max-w-full flex-1 text-end">
-                    <x-icon.tabler icon="binary-tree" class="me-2 rotate-180" />
+                    <x-ts-icon icon="binary-tree" class="inline-block me-2 rotate-180" />
                 </div>
             </div>
         </div>

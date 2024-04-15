@@ -18,7 +18,6 @@ This application is build using :
     <li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a></li>
     <li><a href="https://tallstackui.com//" target="_blank">TallStackUI</a></li>
     <li><a href="https://filamentphp.com//" target="_blank">Laravel Filament</a> (only Table Builder)</li>
-    <li><a href="https://tabler-icons.io/" target="_blank">Tabler Icons</a></li>
 </ul>
 
 ### Logic concept
