@@ -164,8 +164,6 @@ make the needed changes regarding name, url, database connection & mail server
 
 `php artisan migrate:fresh --seed`
 
-`php artisan tallstackui:setup-icon`
-
 `npm install & npm run build`
 
 `php artisan serve` or `npm run dev`
@@ -196,8 +194,6 @@ run docker containers
 `./vendor/bin/sail artisan storage:link`
 
 `./vendor/bin/sail artisan migrate:fresh --seed`
-
-`./vendor/bin/sail artisan tallstackui:setup-icon`
 
 `./vendor/bin/sail npm install & npm run build`
 
