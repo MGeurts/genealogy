@@ -28,7 +28,7 @@ class LogAllRequests
             'path' => $request->getPathInfo(),
             'method' => $request->getMethod(),
             'ip' => $request->ip(),
-            'http_version' => $_SERVER['SERVER_PROTOCOL'],
+            //'http_version' => $_SERVER['SERVER_PROTOCOL'],
             'timestamp' => $dt->toDateTimeString(),
             'headers' => [
                 // get all the required headers to log

@@ -37,6 +37,8 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
             'profile_photo_path' => null,
             'current_team_id' => null,
+            'language' => 'en',
+            'timezone' => 'UTC',
             'is_developer' => 0,
         ];
     }
@@ -63,7 +65,7 @@ class UserFactory extends Factory
         return $this->has(
             Team::factory()
                 ->state(fn (array $attributes, User $user) => [
-                    'name' => $user->name.'\'s Team',
+                    'name' => $user->name . '\'s Team',
                     'user_id' => $user->id,
                     'personal_team' => true,
                 ])
