@@ -9,7 +9,7 @@
         {{ $header }}
     </div>
 
-    <div class="w-full sm:max-w-xl mt-6 px-6 py-4 bg-white shadow-md overflow-hidden rounded">
+    <div class="w-full sm:max-w-2xl mt-6 px-6 py-4 bg-white shadow-md overflow-hidden rounded">
         {{ $slot }}
     </div>
 </div>

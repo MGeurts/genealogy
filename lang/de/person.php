@@ -71,7 +71,7 @@ return [
     'dod' => 'Sterbedatum',
     'yod' => 'Sterbejahr',
     'pod' => 'Sterbeort',
-    'email' => 'E-Mail-Adresse',
+    'email' => 'E-Mail Adresse',
     'password' => 'Passwort',
     'address' => 'Adresse',
     'street' => 'Straße',

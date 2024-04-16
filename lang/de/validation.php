@@ -48,7 +48,7 @@ return [
     'distinct' => 'Das Feld :attribute hat einen doppelten Wert.',
     'doesnt_end_with' => 'Das Feld :attribute darf nicht mit einem der folgenden enden: :values.',
     'doesnt_start_with' => 'Das Feld :attribute darf nicht mit einem der folgenden beginnen: :values.',
-    'email' => 'Das Feld :attribute muss eine gültige E-Mail-Adresse sein.',
+    'email' => 'Das Feld :attribute muss eine gültige E-Mail Adresse sein.',
     'ends_with' => 'Das Feld :attribute muss mit einem der folgenden enden: :values.',
     'enum' => 'Das ausgewählte :attribute ist ungültig.',
     'exists' => 'Das ausgewählte :attribute ist ungültig.',

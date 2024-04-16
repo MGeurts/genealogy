@@ -12,7 +12,7 @@ return [
     'id' => 'ID',
     'firstname' => 'Vorname',
     'surname' => 'Nachname',
-    'email' => 'E-Mail-Adresse',
+    'email' => 'E-Mail Adresse',
     'password' => 'Passwort',
     'current_password' => 'Actuelles Passwort',
     'new_password' => 'Neues Passwort',
@@ -22,7 +22,7 @@ return [
     'developer' => 'Entwickler',
     'team' => 'Team',
     'current_team' => 'Aktuelles Team',
-    'email_verified_at' => 'E-Mail-Adresse bestätigt am',
+    'email_verified_at' => 'E-Mail Adresse bestätigt am',
     'two_factor_confirmed_at' => '2FA bestätigt am',
 
     // Photo

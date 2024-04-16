@@ -24,7 +24,7 @@ return [
 
     'developer' => 'Entwickler',
 
-    'email' => 'E-Mail-Adresse',
+    'email' => 'E-Mail Adresse',
 
     'failed' => 'Es gibt keinen Benutzer mit diesen Anmeldeinformationen.',
     'forgot_password' => 'Passwort vergessen?',

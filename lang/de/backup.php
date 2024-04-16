@@ -22,7 +22,7 @@ return [
 
     // Comments
     'backup_daily' => 'Sicherungen werden täglich automatisch erstellt (um ' . env('BACKUP_DAILY_RUN') . ' Uhr).',
-    'backup_email' => 'Nach jeder Sicherung wird eine E-Mail an die E-Mail-Adresse deiner Anwendung gesendet.',
+    'backup_email' => 'Nach jeder Sicherung wird eine E-Mail an die E-Mail Adresse deiner Anwendung gesendet.',
     'backup_cron_1' => 'Sicherungen können automatisiert (täglich ausgeführt) werden, indem du folgenden Cron-Job auf deinem Produktionsserver ausführst:',
     'backup_cron_2' => '* * * * * cd /path_to_your_application && php artisan schedule:run >> /dev/null 2>&1',
 

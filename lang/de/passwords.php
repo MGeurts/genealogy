@@ -17,7 +17,7 @@ return [
     'reset' => 'Dein Passwort wurde zurückgesetzt!',
     'sent' => 'Wir haben dir einen Link zum Zurücksetzen deines Passworts per E-Mail verschickt!',
     'token' => 'Der Token zum Zurücksetzen des Passworts ist ungültig.',
-    'user' => 'Wir können keinen Benutzer mit dieser E-Mail-Adresse finden.',
+    'user' => 'Wir können keinen Benutzer mit dieser E-Mail Adresse finden.',
     'old_password' => 'Dein aktuelles Passwort stimmt nicht mit dem von dir angegebenen Passwort überein. Bitte versuche es erneut.',
     'same_password' => 'Das neue Passwort darf nicht mit deinem aktuellen Passwort identisch sein. Bitte wähle ein anderes Passwort.',
 ];
