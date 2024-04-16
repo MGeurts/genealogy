@@ -1,4 +1,14 @@
+@section('title')
+    &vert; {{ __('auth.forgot_password') }}
+@endsection
+
 <x-app-layout>
+    <x-slot name="heading">
+        <h2 class="font-semibold text-gray-800 dark:text-gray-100">
+            {{ __('auth.forgot_password') }}
+        </h2>
+    </x-slot>
+
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />

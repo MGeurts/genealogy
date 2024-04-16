@@ -3,6 +3,12 @@
 @endsection
 
 <x-app-layout>
+    <x-slot name="heading">
+        <h2 class="font-semibold text-gray-800 dark:text-gray-100">
+            {{ __('auth.verify-email') }}
+        </h2>
+    </x-slot>
+
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />

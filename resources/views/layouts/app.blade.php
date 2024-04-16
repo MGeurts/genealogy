@@ -44,7 +44,7 @@
         @endif
 
         {{-- banner --}}
-        <x-banner />
+        {{-- <x-banner /> --}}
 
         {{-- content --}}
         <main class="mx-auto px-2 md:px-5 flex flex-grow">

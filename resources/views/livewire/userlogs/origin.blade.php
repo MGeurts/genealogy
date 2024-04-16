@@ -37,7 +37,7 @@
     }
 }">
     @section('title')
-        &vert; {{ __('userlog.users_log') }}
+        &vert; {{ __('user.users') }}
     @endsection
 
     <x-slot name="heading">

@@ -118,12 +118,6 @@
                             {{ __('app.session') }}
                         </x-nav-link-responsive>
                     </p>
-
-                    <p>
-                        <x-nav-link-responsive href="{{ route('test') }}" :active="request()->routeIs('test')">
-                            {{ __('Test') }}
-                        </x-nav-link-responsive>
-                    </p>
                 </div>
             @else
                 {{-- others --}}
