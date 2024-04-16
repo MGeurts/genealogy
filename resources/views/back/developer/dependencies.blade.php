@@ -18,13 +18,14 @@
                         <x-link href="https://laravel.com/" target="_blank">Laravel</x-link> 11.x
                     </li>
                     <li class="py-2">
-                        <x-link href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream</x-link> (with Teams) 4.x
+                        <x-link href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream</x-link>4.x (featuring <x-link href="https://jetstream.laravel.com/features/teams.html"
+                            target="_blank">Teams</x-link>)
                     </li>
                     <li class="py-2">
                         <x-link href="https://livewire.laravel.com/" target="_blank">Laravel Livewire</x-link> 3.x
                     </li>
                     <li class="py-2">
-                        <x-link href="https://filamentphp.com/" target="_blank">Laravel Filament</x-link> (only Table Builder) 3.x
+                        <x-link href="https://filamentphp.com/" target="_blank">Laravel Filament</x-link>3.x (only Table Builder)
                     </li>
                 </ul>
             </x-ts-tab.items>
@@ -36,7 +37,7 @@
                         <x-link href="https://tailwindcss.com/docs/" target="_blank">Tailwind CSS</x-link>
                     </li>
                     <li class="py-2">
-                        <x-link href="https://tallstackui.com/" target="_blank">TallStackUI</x-link>
+                        <x-link href="https://tallstackui.com/" target="_blank">TallStackUI</x-link> (featuring <x-link href="https://tabler.io/icons" target="_blank">Tabler Icons</x-link>)
                     </li>
                 </ul>
             </x-ts-tab.items>

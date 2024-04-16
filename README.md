@@ -12,7 +12,7 @@
 This application is build using :
 
 <ul>
-    <li><a href="https://laravel.com/" target="_blank">Laravel 11</a> (featuring <a href="https://vitejs.dev/" target="_blank">Vite</a>)</li>
+    <li><a href="https://laravel.com/" target="_blank">Laravel 11</a></li>
     <li><a href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream 4</a> (featuring <a href="https://jetstream.laravel.com/features/teams.html" target="_blank">Teams</a>)</li>
     <li><a href="https://livewire.laravel.com/" target="_blank">Livewire 3</a></li>
     <li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a></li>
