@@ -15,17 +15,17 @@
             <x-ts-tab.items tab="Laravel">
                 <ul class="w-full ml-4">
                     <li class="py-2">
-                        <x-link href="https://laravel.com/" target="_blank">Laravel</x-link> 11.x
+                        <x-link href="https://laravel.com/" target="_blank">Laravel</x-link> 11
                     </li>
                     <li class="py-2">
-                        <x-link href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream</x-link>4.x (featuring <x-link href="https://jetstream.laravel.com/features/teams.html"
+                        <x-link href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream</x-link>5 (featuring <x-link href="https://jetstream.laravel.com/features/teams.html"
                             target="_blank">Teams</x-link>)
                     </li>
                     <li class="py-2">
-                        <x-link href="https://livewire.laravel.com/" target="_blank">Laravel Livewire</x-link> 3.x
+                        <x-link href="https://livewire.laravel.com/" target="_blank">Laravel Livewire</x-link> 3
                     </li>
                     <li class="py-2">
-                        <x-link href="https://filamentphp.com/" target="_blank">Laravel Filament</x-link>3.x (only Table Builder)
+                        <x-link href="https://filamentphp.com/" target="_blank">Laravel Filament</x-link>3 (only Table Builder)
                     </li>
                 </ul>
             </x-ts-tab.items>
