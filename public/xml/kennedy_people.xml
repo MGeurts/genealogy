@@ -11,10 +11,10 @@
 <father_id></father_id>
 <mother_id></mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1988-09-06</dob>
 <yob>1888</yob>
 <birth_place></birth_place>
-<dod></dod>
+<dod>1969-11-18</dod>
 <yod>1969</yod>
 <death_place></death_place>
 </people>
@@ -29,10 +29,10 @@
 <father_id></father_id>
 <mother_id></mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1890-07-22</dob>
 <yob>1890</yob>
 <birth_place></birth_place>
-<dod></dod>
+<dod>1995-01-22</dod>
 <yod>1995</yod>
 <death_place></death_place>
 </people>
@@ -47,10 +47,10 @@
 <father_id>501</father_id>
 <mother_id>502</mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1915-07-25</dob>
 <yob>1915</yob>
 <birth_place></birth_place>
-<dod></dod>
+<dod>1944-08-12</dod>
 <yod>1944</yod>
 <death_place></death_place>
 </people>
@@ -65,28 +65,28 @@
 <father_id>501</father_id>
 <mother_id>502</mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1917-05-29</dob>
 <yob>1917</yob>
 <birth_place></birth_place>
-<dod></dod>
+<dod>1963-11-22</dod>
 <yod>1963</yod>
-<death_place></death_place>
+<death_place>Dallas, Texas, USA</death_place>
 </people>
 
 <people>
 <id>505</id>
-<firstname>Rose Mary</firstname>
+<firstname>Rose Marie</firstname>
 <surname>Kennedy</surname>
 <birthname></birthname>
-<nickname>Rosemary</nickname>
+<nickname>Rosemary or Rosie</nickname>
 <sex>F</sex>
 <father_id>501</father_id>
 <mother_id>502</mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1918-09-13</dob>
 <yob>1918</yob>
 <birth_place></birth_place>
-<dod></dod>
+<dod>2005-01-07</dod>
 <yod>2005</yod>
 <death_place></death_place>
 </people>
@@ -101,9 +101,9 @@
 <father_id>501</father_id>
 <mother_id>502</mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1920-02-20</dob>
 <yob>1920</yob>
-<birth_place></birth_place>
+<birth_place>Brookline, Massachusetts, USA</birth_place>
 <dod></dod>
 <yod>1948</yod>
 <death_place></death_place>
@@ -119,12 +119,12 @@
 <father_id>501</father_id>
 <mother_id>502</mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1921-07-10</dob>
 <yob>1921</yob>
-<birth_place></birth_place>
-<dod></dod>
+<birth_place>Brookline, Massachusetts, USA</birth_place>
+<dod>2009-08-11</dod>
 <yod>2009</yod>
-<death_place></death_place>
+<death_place>Hyannis, Massachusetts, USA</death_place>
 </people>
 
 <people>
@@ -137,12 +137,12 @@
 <father_id>501</father_id>
 <mother_id>502</mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1924-06-05</dob>
 <yob>1924</yob>
-<birth_place></birth_place>
-<dod></dod>
+<birth_place>Brookline, Massachusetts, USA</birth_place>
+<dod>2006-09-17</dod>
 <yod>2006</yod>
-<death_place></death_place>
+<death_place>New York, USA</death_place>
 </people>
 
 <people>
@@ -155,10 +155,10 @@
 <father_id>501</father_id>
 <mother_id>502</mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1925-11-20</dob>
 <yob>1925</yob>
-<birth_place></birth_place>
-<dod></dod>
+<birth_place>Brookline, Massachusetts, USA</birth_place>
+<dod>1968-06-06</dod>
 <yod>1968</yod>
 <death_place></death_place>
 </people>
@@ -173,11 +173,11 @@
 <father_id>501</father_id>
 <mother_id>502</mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1928-02-20</dob>
 <yob>1928</yob>
 <birth_place></birth_place>
-<dod></dod>
-<yod></yod>
+<dod>2020-06-17</dod>
+<yod>2020</yod>
 <death_place></death_place>
 </people>
 
@@ -191,12 +191,12 @@
 <father_id>501</father_id>
 <mother_id>502</mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1932-02-22</dob>
 <yob>1932</yob>
-<birth_place></birth_place>
-<dod></dod>
+<birth_place>Boston, Massachusetts, UAS</birth_place>
+<dod>2009-08-25</dod>
 <yod>2009</yod>
-<death_place></death_place>
+<death_place>Hyannis Port, Massachusetts, USA</death_place>
 </people>
 
 <people>
@@ -209,12 +209,12 @@
 <father_id></father_id>
 <mother_id></mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1929-07-28</dob>
 <yob>1929</yob>
-<birth_place></birth_place>
-<dod></dod>
+<birth_place>Southampton, New York, USA</birth_place>
+<dod>1994-05-19</dod>
 <yod>1994</yod>
-<death_place></death_place>
+<death_place>New York Cyty, USA</death_place>
 </people>
 
 <people>

@@ -1,11 +1,11 @@
-# Welcome ...
+## Welcome ...
 
 **Genealogy** is a free and open-source family tree application to record family members and their relationships.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-000.webp" class="rounded" alt="Genealogy-000">
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-020b.webp" class="rounded" alt="Genealogy-020a">
 
-# Demo
+## Demo
 
 <a href="https://genealogy.kreaweb.be/" target="_blank">https://genealogy.kreaweb.be/</a>
 
@@ -46,12 +46,6 @@ This demo has 2 family trees implemented, **BRITISH ROYALS** and **KENNEDY**.
     </tbody>
 </table>
 
-# Github Repository
+## Github Repository
 
 <a href="https://github.com/MGeurts/genealogy/" target="_blank">https://github.com/MGeurts/genealogy</a>
-
-# To Do ...
-
-<ul>
-    <li><a href="https://www.gedcom.org/" target="_blank">GEDCOM</a> import and export.</li>
-</ul>

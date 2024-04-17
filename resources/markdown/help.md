@@ -1,4 +1,4 @@
-# Help
+## Help
 
 <hr />
 
@@ -339,7 +339,7 @@ The offcanvas menu allows <b>developers</b> to consult the users and their loggi
 
 ### c. Backups
 
-The <b>Backups</b> menu item allows <b>developers</b> to make database backups.
+The <b>Backups</b> menu item allows <b>developers</b> to manage database backups.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-095.webp" class="rounded" alt="Backups">
 
@@ -357,7 +357,7 @@ The <b>Dependencies</b> menu item allows <b>developers</b> to consult the applic
 
 ### f. Session
 
-The <b>Dependencies</b> menu item allows <b>developers</b> to consult the application session.
+The <b>Session</b> menu item allows <b>developers</b> to consult the application session.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-098.webp" class="rounded" alt="Session">
 
@@ -365,7 +365,7 @@ The <b>Dependencies</b> menu item allows <b>developers</b> to consult the applic
 
 <!-- ---------------------------------------------------------------------------------- -->
 
-## 7. Language
+## 7. Language & Timezone
 
 ### a. Visitors
 
@@ -376,8 +376,8 @@ De default application language is English.
 
 ### b. Authenticated users
 
-Authenticated users can change the language in the top right-hand menu by using the <b>profile editor</b>.<br/>
-The selected language is saved in the database for further use.
+Authenticated users can change the language and the timezone in the top right-hand menu by using the <b>profile editor</b>.<br/>
+The selected language and timezone are saved in the database for further use.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-002dd.webp" class="rounded" alt="Profile editor">
 
@@ -387,6 +387,6 @@ The selected language is saved in the database for further use.
 
 ## 8. Color theme
 
-Visitors and authenticated users can change the color theme in the top right-hand menu by using the <b>theme selctor</b>.<br/>
+Users can change the color theme in the top right-hand menu by using the <b>theme selector</b>.<br/>
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-002aa.webp" class="rounded" alt="Theme selector">

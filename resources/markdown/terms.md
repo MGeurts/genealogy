@@ -1,4 +1,4 @@
-# Terms of Service
+## Terms of Service
 
 Please read these terms of service carefully before using this website operated by <b>[organization]</b>.
 
