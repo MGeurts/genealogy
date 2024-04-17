@@ -31,7 +31,7 @@ class Profile extends Component
         $this->profileForm->sex = $this->person->sex;
         $this->profileForm->gender_id = $this->person->gender_id;
 
-        $this->profileForm->yob = $this->person->yob ? $this->person->yob : null;
+        $this->profileForm->yob = $this->person->yob ?? null;
         $this->profileForm->dob = $this->person->dob?->format('Y-m-d');
         $this->profileForm->pob = $this->person->pob;
     }

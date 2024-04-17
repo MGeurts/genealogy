@@ -42,17 +42,17 @@ class Teams extends Component implements HasForms, HasTable
                     ->searchable(),
                 Tables\Columns\TextColumn::make('users_count')
                     ->label(__('team.users'))
-                    ->formatStateUsing(fn (string $state): string => $state ? $state : '')
+                    ->formatStateUsing(fn (string $state): string => $state ?? '')
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('persons_count')
                     ->label(__('team.persons'))
-                    ->formatStateUsing(fn (string $state): string => $state ? $state : '')
+                    ->formatStateUsing(fn (string $state): string => $state ?? '')
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('couples_count')
                     ->label(__('team.couples'))
-                    ->formatStateUsing(fn (string $state): string => $state ? $state : '')
+                    ->formatStateUsing(fn (string $state): string => $state ?? '')
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('owner.name')
