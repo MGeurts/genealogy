@@ -227,12 +227,12 @@
 <father_id></father_id>
 <mother_id></mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1917-12-10</dob>
 <yob>1917</yob>
-<birth_place></birth_place>
-<dod></dod>
+<birth_place>London, England</birth_place>
+<dod>1944-09-09</dod>
 <yod>1944</yod>
-<death_place></death_place>
+<death_place>Heppen, Belgium</death_place>
 </people>
 
 <people>
@@ -245,10 +245,10 @@
 <father_id></father_id>
 <mother_id></mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1915-11-09</dob>
 <yob>1915</yob>
 <birth_place></birth_place>
-<dod></dod>
+<dod>2011-01-18</dod>
 <yod>2011</yod>
 <death_place></death_place>
 </people>
@@ -257,18 +257,18 @@
 <id>515</id>
 <firstname>Peter Sydney Ernest</firstname>
 <surname>Lawford</surname>
-<birthname></birthname>
+<birthname>Aylen</birthname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id></father_id>
 <mother_id></mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1923-09-07</dob>
 <yob>1923</yob>
-<birth_place></birth_place>
-<dod></dod>
+<birth_place>London, England</birth_place>
+<dod>1984-12-24</dod>
 <yod>1984</yod>
-<death_place></death_place>
+<death_place>Los Angeles, California, USA</death_place>
 </people>
 
 <people>
@@ -281,9 +281,9 @@
 <father_id></father_id>
 <mother_id></mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1928-04-11</dob>
 <yob>1928</yob>
-<birth_place></birth_place>
+<birth_place>Chicago, Illinois, USA</birth_place>
 <dod></dod>
 <yod></yod>
 <death_place></death_place>
@@ -299,12 +299,12 @@
 <father_id></father_id>
 <mother_id></mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1927-09-24</dob>
 <yob>1927</yob>
-<birth_place></birth_place>
-<dod></dod>
+<birth_place>Bayport, Suffolk County, New York, USA</birth_place>
+<dod>1990-08-19</dod>
 <yod>1990</yod>
-<death_place></death_place>
+<death_place>Manhattan, New York County, New York, USA</death_place>
 </people>
 
 <people>
@@ -317,9 +317,9 @@
 <father_id></father_id>
 <mother_id></mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1936-09-26</dob>
 <yob>1936</yob>
-<birth_place></birth_place>
+<birth_place>New York City, USA</birth_place>
 <dod></dod>
 <yod></yod>
 <death_place></death_place>
@@ -335,7 +335,7 @@
 <father_id></father_id>
 <mother_id></mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1954-02-26</dob>
 <yob>1954</yob>
 <birth_place></birth_place>
 <dod></dod>
@@ -911,9 +911,9 @@
 <father_id></father_id>
 <mother_id></mother_id>
 <parents_id></parents_id>
-<dob></dob>
+<dob>1947-07-30</dob>
 <yob>1947</yob>
-<birth_place></birth_place>
+<birth_place>Thal, Styria, Austria</birth_place>
 <dod></dod>
 <yod></yod>
 <death_place></death_place>

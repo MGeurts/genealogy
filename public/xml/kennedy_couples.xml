@@ -6,7 +6,7 @@
 <person1_id>501</person1_id>
 <person2_id>502</person2_id>
 <status>1</status>
-<date_start>1914-01-01</date_start>
+<date_start>1914-10-07</date_start>
 <note>Joseph Patrick Kennedy / Rose Elizabeth Fitzgerald</note>
 </couples>
 
@@ -15,7 +15,7 @@
 <person1_id>504</person1_id>
 <person2_id>512</person2_id>
 <status>1</status>
-<date_start>1953-01-01</date_start>
+<date_start>1953-09-12</date_start>
 <note>John Fitzgerald Kennedy / Jaqueline Lee Bouvier</note>
 </couples>
 
@@ -24,7 +24,7 @@
 <person1_id>506</person1_id>
 <person2_id>513</person2_id>
 <status>1</status>
-<date_start>1944-01-01</date_start>
+<date_start>1944-05-06</date_start>
 <note>Kathleen Agnes Kennedy / William Cavendish</note>
 </couples>
 
@@ -33,7 +33,7 @@
 <person1_id>507</person1_id>
 <person2_id>514</person2_id>
 <status>1</status>
-<date_start>1953-01-01</date_start>
+<date_start>1953-05-23</date_start>
 <note>Eunice Mary Kennedy / Robert Sergent Jr. Shriver</note>
 </couples>
 
@@ -42,7 +42,7 @@
 <person1_id>508</person1_id>
 <person2_id>515</person2_id>
 <status>1</status>
-<date_start>1954-01-01</date_start>
+<date_start>1954-04-23</date_start>
 <note>Patricia Kennedy / Peter Lawford</note>
 </couples>
 
@@ -51,7 +51,7 @@
 <person1_id>509</person1_id>
 <person2_id>516</person2_id>
 <status>1</status>
-<date_start>1953-01-01</date_start>
+<date_start>1950-06-17</date_start>
 <note>Robert Francis Kennedy / Ethel Skakel</note>
 </couples>
 
@@ -60,7 +60,7 @@
 <person1_id>510</person1_id>
 <person2_id>517</person2_id>
 <status>1</status>
-<date_start>1956-01-01</date_start>
+<date_start>1956-05-19</date_start>
 <note>Jean Ann Kennedy / Stephen Edward Smith</note>
 </couples>
 
@@ -69,7 +69,8 @@
 <person1_id>511</person1_id>
 <person2_id>518</person2_id>
 <status>2</status>
-<date_start>1958-01-01</date_start>
+<date_start>1958-11-29</date_start>
+<date_end>1982-12-06</date_end>
 <note>Edward More Kennedy / Virginia Jean Bennett</note>
 </couples>
 
@@ -78,7 +79,7 @@
 <person1_id>511</person1_id>
 <person2_id>519</person2_id>
 <status>1</status>
-<date_start>1992-01-01</date_start>
+<date_start>1992-10-05</date_start>
 <note>Edward More Kennedy / Victoria Reggie</note>
 </couples>
 
@@ -87,8 +88,8 @@
 <person1_id>525</person1_id>
 <person2_id>551</person2_id>
 <status>2</status>
-<date_start>1986-01-01</date_start>
-<date_end>2011-01-01</date_end>
+<date_start>1986-04-26</date_start>
+<date_end>2021-12-28</date_end>
 <note>Maria Owings Shriver / Arnold Alois Schwarzenegger</note>
 </couples>
 
