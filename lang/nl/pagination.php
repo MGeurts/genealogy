@@ -14,11 +14,11 @@ return [
     */
 
     'previous' => '&laquo; Vorige',
-    'next' => 'Volgende &raquo;',
+    'next'     => 'Volgende &raquo;',
 
     'showing' => 'Toont',
-    'to' => 'tot',
-    'of' => 'van',
+    'to'      => 'tot',
+    'of'      => 'van',
     'results' => 'resultaten',
 
     'per_page' => 'Per pagina',

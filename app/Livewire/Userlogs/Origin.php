@@ -17,7 +17,7 @@ class Origin extends Component
 
         $chart_data = json_encode([
             'labels' => $statistics->pluck('country_name'),
-            'data' => $statistics->pluck('visitors'),
+            'data'   => $statistics->pluck('visitors'),
         ]);
 
         return view('livewire.userlogs.origin')->with([

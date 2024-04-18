@@ -2,25 +2,25 @@
 
 return [
     // Labels
-    'users_log' => 'User logbook',
+    'users_log'    => 'User logbook',
     'users_origin' => 'User origin',
-    'users_stats' => 'User statictics',
+    'users_stats'  => 'User statictics',
 
-    'year' => 'Year',
+    'year'  => 'Year',
     'month' => 'Month',
-    'week' => 'Week',
-    'day' => 'Day',
+    'week'  => 'Week',
+    'day'   => 'Day',
 
-    'log' => 'Log',
+    'log'       => 'Log',
     'countries' => 'Countries',
-    'period' => 'Period',
-    'worldmap' => 'World map',
-    'timespan' => 'User loggings during the last :months months',
+    'period'    => 'Period',
+    'worldmap'  => 'World map',
+    'timespan'  => 'User loggings during the last :months months',
 
     // Attributes
-    'date' => 'Date',
-    'hour' => 'Hour',
-    'user' => 'User',
+    'date'         => 'Date',
+    'hour'         => 'Hour',
+    'user'         => 'User',
     'Country_name' => 'Country',
     'Country_code' => 'Country code',
 ];

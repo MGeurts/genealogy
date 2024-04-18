@@ -46,11 +46,11 @@ class ProfileForm extends Form
     {
         return [
             'firstname' => ['nullable', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
+            'surname'   => ['required', 'string', 'max:255'],
             'birthname' => ['nullable', 'string', 'max:255'],
-            'nickname' => ['nullable', 'string', 'max:255'],
+            'nickname'  => ['nullable', 'string', 'max:255'],
 
-            'sex' => ['required', 'in:m,f'],
+            'sex'       => ['required', 'in:m,f'],
             'gender_id' => ['nullable', 'integer'],
 
             'yob' => [
@@ -79,11 +79,11 @@ class ProfileForm extends Form
     {
         return [
             'firstname' => __('person.firstname'),
-            'surname' => __('person.surname'),
+            'surname'   => __('person.surname'),
             'birthname' => __('person.birthname'),
-            'nickname' => __('person.nickname'),
+            'nickname'  => __('person.nickname'),
 
-            'sex' => __('person.sex'),
+            'sex'       => __('person.sex'),
             'gender_id' => __('person.gender'),
 
             'yob' => __('person.yob'),

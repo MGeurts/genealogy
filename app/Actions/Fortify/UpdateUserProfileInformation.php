@@ -19,11 +19,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     {
         Validator::make($input, [
             'firstname' => ['nullable', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
-            'photo' => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
-            'language' => ['required', Rule::in(array_values(config('app.available_locales')))],
-            'timezone' => ['required', Rule::in(array_values(timezone_identifiers_list()))],
+            'surname'   => ['required', 'string', 'max:255'],
+            'email'     => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
+            'photo'     => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
+            'language'  => ['required', Rule::in(array_values(config('app.available_locales')))],
+            'timezone'  => ['required', Rule::in(array_values(timezone_identifiers_list()))],
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {
@@ -35,10 +35,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         } else {
             $user->forceFill([
                 'firstname' => $input['firstname'] ?? null,
-                'surname' => $input['surname'],
-                'email' => $input['email'],
-                'language' => $input['language'],
-                'timezone' => $input['timezone'],
+                'surname'   => $input['surname'],
+                'email'     => $input['email'],
+                'language'  => $input['language'],
+                'timezone'  => $input['timezone'],
             ])->save();
         }
     }
@@ -51,12 +51,12 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     protected function updateVerifiedUser(User $user, array $input): void
     {
         $user->forceFill([
-            'firstname' => $input['firstname'] ?? null,
-            'surname' => $input['surname'],
-            'email' => $input['email'],
+            'firstname'         => $input['firstname'] ?? null,
+            'surname'           => $input['surname'],
+            'email'             => $input['email'],
             'email_verified_at' => null,
-            'language' => $input['language'],
-            'timezone' => $input['timezone'],
+            'language'          => $input['language'],
+            'timezone'          => $input['timezone'],
         ])->save();
 
         $user->sendEmailVerificationNotification();

@@ -83,8 +83,8 @@ return [
     'locale' => env('APP_LOCALE', 'en'),
 
     'available_locales' => [
-        'Deutsch' => 'de',
-        'English' => 'en',
+        'Deutsch'    => 'de',
+        'English'    => 'en',
         'Nederlands' => 'nl',
     ],
 
@@ -128,7 +128,7 @@ return [
 
     'maintenance' => [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
-        'store' => env('APP_MAINTENANCE_STORE', 'database'),
+        'store'  => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
 ];

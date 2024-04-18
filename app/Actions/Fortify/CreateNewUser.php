@@ -24,22 +24,22 @@ class CreateNewUser implements CreatesNewUsers
     {
         Validator::make($input, [
             'firstname' => ['nullable', 'string', 'max:255'],
-            'surname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'language' => ['required', Rule::in(array_values(config('app.available_locales')))],
-            'timezone' => ['required', Rule::in(array_values(timezone_identifiers_list()))],
-            'password' => $this->passwordRules(),
-            'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
+            'surname'   => ['required', 'string', 'max:255'],
+            'email'     => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'language'  => ['required', Rule::in(array_values(config('app.available_locales')))],
+            'timezone'  => ['required', Rule::in(array_values(timezone_identifiers_list()))],
+            'password'  => $this->passwordRules(),
+            'terms'     => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();
 
         return DB::transaction(function () use ($input) {
             return tap(User::create([
                 'firstname' => $input['firstname'] ?? null,
-                'surname' => $input['surname'],
-                'email' => $input['email'],
-                'language' => $input['language'],
-                'timezone' => $input['timezone'],
-                'password' => Hash::make($input['password']),
+                'surname'   => $input['surname'],
+                'email'     => $input['email'],
+                'language'  => $input['language'],
+                'timezone'  => $input['timezone'],
+                'password'  => Hash::make($input['password']),
             ]), function (User $user) {
                 $this->createTeam($user);
             });
@@ -52,8 +52,8 @@ class CreateNewUser implements CreatesNewUsers
     protected function createTeam(User $user): void
     {
         $user->ownedTeams()->save(Team::forceCreate([
-            'user_id' => $user->id,
-            'name' => $user->name . "'s Team",
+            'user_id'       => $user->id,
+            'name'          => $user->name . "'s Team",
             'personal_team' => true,
         ]));
     }

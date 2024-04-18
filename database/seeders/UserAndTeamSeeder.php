@@ -15,21 +15,21 @@ class UserAndTeamSeeder extends Seeder
         // create developer users
         // -----------------------------------------------------------------------------------
         User::factory([
-            'firstname' => '_',
-            'surname' => 'Developer',
-            'email' => 'developer@genealogy.test',
+            'firstname'    => '_',
+            'surname'      => 'Developer',
+            'email'        => 'developer@genealogy.test',
             'is_developer' => true,
         ])
             ->withPersonalTeam()
             ->create();
 
         User::factory([
-            'firstname' => 'Kreaweb',
-            'surname' => 'Developer',
-            'email' => 'kreaweb@genealogy.test',
+            'firstname'    => 'Kreaweb',
+            'surname'      => 'Developer',
+            'email'        => 'kreaweb@genealogy.test',
             'is_developer' => true,
-            'language' => 'nl',
-            'timezone' => 'Europe/Brussels',
+            'language'     => 'nl',
+            'timezone'     => 'Europe/Brussels',
         ])
             ->withPersonalTeam()
             ->create();
@@ -39,8 +39,8 @@ class UserAndTeamSeeder extends Seeder
         // -----------------------------------------------------------------------------------
         $administrator = User::factory([
             'firstname' => '_',
-            'surname' => 'Administrator',
-            'email' => 'administrator@genealogy.test',
+            'surname'   => 'Administrator',
+            'email'     => 'administrator@genealogy.test',
         ])
             ->withPersonalTeam()
             ->create();
@@ -49,7 +49,7 @@ class UserAndTeamSeeder extends Seeder
         // create demo teams (owned by administrator)
         // -----------------------------------------------------------------------------------
         $team_british_royals = $this->createTeamBig('administrator@genealogy.test', 'BRITISH ROYALS', 'Part of the British Royal family around Queen Elizabeth II');
-        $team_kennedy = $this->createTeamBig('administrator@genealogy.test', 'KENNEDY', 'Part of the Kennedy family around former US President John Fitzgerald Kennedy');
+        $team_kennedy        = $this->createTeamBig('administrator@genealogy.test', 'KENNEDY', 'Part of the Kennedy family around former US President John Fitzgerald Kennedy');
 
         $administrator->update([
             'current_team_id' => $team_british_royals->id,
@@ -70,9 +70,9 @@ class UserAndTeamSeeder extends Seeder
         // -----------------------------------------------------------------------------------
         // manager
         $manager = User::factory([
-            'firstname' => '_',
-            'surname' => 'Manager',
-            'email' => 'manager@genealogy.test',
+            'firstname'       => '_',
+            'surname'         => 'Manager',
+            'email'           => 'manager@genealogy.test',
             'current_team_id' => $team_british_royals->id,
         ])
             ->withPersonalTeam()
@@ -85,9 +85,9 @@ class UserAndTeamSeeder extends Seeder
 
         // editor
         $editor = User::factory([
-            'firstname' => '_',
-            'surname' => 'Editor',
-            'email' => 'editor@genealogy.test',
+            'firstname'       => '_',
+            'surname'         => 'Editor',
+            'email'           => 'editor@genealogy.test',
             'current_team_id' => $team_kennedy->id,
         ])
             ->withPersonalTeam()
@@ -104,9 +104,9 @@ class UserAndTeamSeeder extends Seeder
         if (true) {
             for ($i = 1; $i <= 3; $i++) {
                 $user = User::factory([
-                    'firstname' => '__',
-                    'surname' => 'Member ' . $i,
-                    'email' => 'member_' . $i . '@genealogy.test',
+                    'firstname'       => '__',
+                    'surname'         => 'Member ' . $i,
+                    'email'           => 'member_' . $i . '@genealogy.test',
                     'current_team_id' => $team_british_royals,
                 ])
                     ->withPersonalTeam()
@@ -120,9 +120,9 @@ class UserAndTeamSeeder extends Seeder
 
             for ($i = 4; $i <= 6; $i++) {
                 $user = User::factory([
-                    'firstname' => '__',
-                    'surname' => 'Member ' . $i,
-                    'email' => 'member_' . $i . '@genealogy.test',
+                    'firstname'       => '__',
+                    'surname'         => 'Member ' . $i,
+                    'email'           => 'member_' . $i . '@genealogy.test',
                     'current_team_id' => $team_kennedy,
                 ])
                     ->withPersonalTeam()
@@ -137,8 +137,8 @@ class UserAndTeamSeeder extends Seeder
             for ($i = 7; $i <= 10; $i++) {
                 $user = User::factory([
                     'firstname' => '___',
-                    'surname' => 'Member ' . $i,
-                    'email' => 'member_' . $i . '@genealogy.test',
+                    'surname'   => 'Member ' . $i,
+                    'email'     => 'member_' . $i . '@genealogy.test',
                 ])
                     ->withPersonalTeam()
                     ->create();
@@ -150,9 +150,9 @@ class UserAndTeamSeeder extends Seeder
     protected function createTeamPersonal(User $user, string $suffix = "'s TEAM", ?string $description = null): void
     {
         $user->ownedTeams()->save(Team::forceCreate([
-            'user_id' => $user->id,
-            'name' => $user->name . ' ' . $suffix,
-            'description' => $description,
+            'user_id'       => $user->id,
+            'name'          => $user->name . ' ' . $suffix,
+            'description'   => $description,
             'personal_team' => true,
         ]));
     }
@@ -163,9 +163,9 @@ class UserAndTeamSeeder extends Seeder
         $user = Jetstream::findUserByEmailOrFail($email);
 
         $team = Team::forceCreate([
-            'user_id' => $user->id,
-            'name' => $name,
-            'description' => $description,
+            'user_id'       => $user->id,
+            'name'          => $name,
+            'description'   => $description,
             'personal_team' => false,
         ]);
 

@@ -23,18 +23,18 @@ class LogAllRequests
 
         $headers = $request->header();
 
-        $dt = new Carbon();
+        $dt   = new Carbon();
         $data = [
-            'path' => $request->getPathInfo(),
-            'method' => $request->getMethod(),
-            'ip' => $request->ip(),
+            'path'         => $request->getPathInfo(),
+            'method'       => $request->getMethod(),
+            'ip'           => $request->ip(),
             'http_version' => $_SERVER['SERVER_PROTOCOL'] ?? null,
-            'timestamp' => $dt->toDateTimeString(),
-            'headers' => [
+            'timestamp'    => $dt->toDateTimeString(),
+            'headers'      => [
                 // get all the required headers to log
                 'user-agent' => $headers['user-agent'] ?? null,
-                'referer' => $headers['referer'] ?? null,
-                'origin' => $headers['origin'] ?? null,
+                'referer'    => $headers['referer'] ?? null,
+                'origin'     => $headers['origin'] ?? null,
             ],
         ];
 

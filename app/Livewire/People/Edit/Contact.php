@@ -21,14 +21,14 @@ class Contact extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->contactForm->street = $this->person->street;
-        $this->contactForm->number = $this->person->number;
+        $this->contactForm->street      = $this->person->street;
+        $this->contactForm->number      = $this->person->number;
         $this->contactForm->postal_code = $this->person->postal_code;
-        $this->contactForm->city = $this->person->city;
-        $this->contactForm->province = $this->person->province;
-        $this->contactForm->state = $this->person->state;
-        $this->contactForm->country_id = $this->person->country_id;
-        $this->contactForm->phone = $this->person->phone;
+        $this->contactForm->city        = $this->person->city;
+        $this->contactForm->province    = $this->person->province;
+        $this->contactForm->state       = $this->person->state;
+        $this->contactForm->country_id  = $this->person->country_id;
+        $this->contactForm->phone       = $this->person->phone;
     }
 
     public function saveContact(): void

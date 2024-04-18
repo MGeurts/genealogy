@@ -27,10 +27,10 @@ class Partner extends Component
         $this->partnerForm->person2_id = ($this->couple->person1_id === $this->person->id) ? $this->couple->person2_id : $this->couple->person1_id;
 
         $this->partnerForm->date_start = $this->couple->date_start?->format('Y-m-d');
-        $this->partnerForm->date_end = $this->couple->date_end?->format('Y-m-d');
+        $this->partnerForm->date_end   = $this->couple->date_end?->format('Y-m-d');
 
         $this->partnerForm->is_married = $this->couple->is_married;
-        $this->partnerForm->has_ended = $this->couple->has_ended;
+        $this->partnerForm->has_ended  = $this->couple->has_ended;
     }
 
     public function savePartner()
@@ -42,9 +42,9 @@ class Partner extends Component
                 'person1_id' => $this->person->id,
                 'person2_id' => $validated['person2_id'],
                 'date_start' => $validated['date_start'] ?? null,
-                'date_end' => $validated['date_end'] ?? null,
+                'date_end'   => $validated['date_end'] ?? null,
                 'is_married' => $validated['is_married'],
-                'has_ended' => ($validated['date_end'] or $validated['has_ended']) ? true : false,
+                'has_ended'  => ($validated['date_end'] or $validated['has_ended']) ? true : false,
             ]);
 
             $this->toast()->success(__('app.save'), __('app.saved'))->flash()->send();
@@ -79,7 +79,7 @@ class Partner extends Component
             ->get()
             ->map(function ($p) {
                 return [
-                    'id' => $p->id,
+                    'id'   => $p->id,
                     'name' => $p->name . ' [' . strtoupper($p->sex) . '] (' . $p->birth_formatted . ')',
                 ];
             })->toArray();

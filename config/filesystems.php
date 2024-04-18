@@ -32,53 +32,53 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
-            'throw' => false,
+            'root'   => storage_path('app'),
+            'throw'  => false,
         ],
 
         // backup disk
         env('BACKUP_DISK', 'backups') => [
             'driver' => 'local',
-            'root' => storage_path('app/' . env('BACKUP_DISK', 'backups')),
-            'throw' => false,
+            'root'   => storage_path('app/' . env('BACKUP_DISK', 'backups')),
+            'throw'  => false,
         ],
 
         //photos
         'photos' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public/photos'),
-            'url' => env('APP_URL') . '/storage/photos',
+            'driver'     => 'local',
+            'root'       => storage_path('app/public/photos'),
+            'url'        => env('APP_URL') . '/storage/photos',
             'visibility' => 'public',
-            'throw' => false,
+            'throw'      => false,
         ],
 
         //profile-pictures
         'profiles' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public/profiles'),
-            'url' => env('APP_URL') . '/storage/profiles',
+            'driver'     => 'local',
+            'root'       => storage_path('app/public/profiles'),
+            'url'        => env('APP_URL') . '/storage/profiles',
             'visibility' => 'public',
-            'throw' => false,
+            'throw'      => false,
         ],
 
         'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'driver'     => 'local',
+            'root'       => storage_path('app/public'),
+            'url'        => env('APP_URL') . '/storage',
             'visibility' => 'public',
-            'throw' => false,
+            'throw'      => false,
         ],
 
         's3' => [
-            'driver' => 's3',
-            'key' => env('AWS_ACCESS_KEY_ID'),
-            'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION'),
-            'bucket' => env('AWS_BUCKET'),
-            'url' => env('AWS_URL'),
-            'endpoint' => env('AWS_ENDPOINT'),
+            'driver'                  => 's3',
+            'key'                     => env('AWS_ACCESS_KEY_ID'),
+            'secret'                  => env('AWS_SECRET_ACCESS_KEY'),
+            'region'                  => env('AWS_DEFAULT_REGION'),
+            'bucket'                  => env('AWS_BUCKET'),
+            'url'                     => env('AWS_URL'),
+            'endpoint'                => env('AWS_ENDPOINT'),
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
-            'throw' => false,
+            'throw'                   => false,
         ],
 
     ],

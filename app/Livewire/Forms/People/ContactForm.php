@@ -34,14 +34,14 @@ class ContactForm extends Form
 
     // -----------------------------------------------------------------------
     protected $rules = [
-        'street' => ['nullable', 'string', 'max:100'],
-        'number' => ['nullable', 'string', 'max:20'],
+        'street'      => ['nullable', 'string', 'max:100'],
+        'number'      => ['nullable', 'string', 'max:20'],
         'postal_code' => ['nullable', 'string', 'max:20'],
-        'city' => ['nullable', 'string', 'max:100'],
-        'province' => ['nullable', 'string', 'max:100'],
-        'state' => ['nullable', 'string', 'max:100'],
-        'country_id' => ['nullable', 'integer'],
-        'phone' => ['nullable', 'string', 'max:50'],
+        'city'        => ['nullable', 'string', 'max:100'],
+        'province'    => ['nullable', 'string', 'max:100'],
+        'state'       => ['nullable', 'string', 'max:100'],
+        'country_id'  => ['nullable', 'integer'],
+        'phone'       => ['nullable', 'string', 'max:50'],
     ];
 
     public function messages()
@@ -52,14 +52,14 @@ class ContactForm extends Form
     public function validationAttributes()
     {
         return [
-            'street' => __('person.street'),
-            'number' => __('person.number'),
+            'street'      => __('person.street'),
+            'number'      => __('person.number'),
             'postal_code' => __('person.postal_code'),
-            'city' => __('person.city'),
-            'province' => __('person.province'),
-            'state' => __('person.state'),
-            'country_id' => __('person.country'),
-            'phone' => __('person.phone'),
+            'city'        => __('person.city'),
+            'province'    => __('person.province'),
+            'state'       => __('person.state'),
+            'country_id'  => __('person.country'),
+            'phone'       => __('person.phone'),
         ];
     }
 }

@@ -4,6 +4,6 @@ return [
     'address' => 'Adres',
 
     'location_name' => 'Benaming locatie',
-    'latitude' => 'Lengtegraad',
-    'longitude' => 'Breedtegraad',
+    'latitude'      => 'Lengtegraad',
+    'longitude'     => 'Breedtegraad',
 ];

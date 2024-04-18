@@ -26,9 +26,9 @@ class Import extends Component
     public function rules()
     {
         return $rules = [
-            'name' => ['required', 'string', 'max:255'],
+            'name'        => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
-            'file' => ['required', 'file', 'mimes:ged', 'max:1024'],
+            'file'        => ['required', 'file', 'mimes:ged', 'max:1024'],
         ];
     }
 
@@ -40,9 +40,9 @@ class Import extends Component
     public function validationAttributes()
     {
         return [
-            'name' => __('team.name'),
+            'name'        => __('team.name'),
             'description' => __('team.description'),
-            'file' => __('team.gedcom_file'),
+            'file'        => __('team.gedcom_file'),
         ];
     }
 
@@ -57,7 +57,6 @@ class Import extends Component
             $validated = $this->validate();
 
             if ($this->personForm->image) {
-
             }
 
             $this->toast()->success(__('app.create'), __('app.created'))->flash()->send();

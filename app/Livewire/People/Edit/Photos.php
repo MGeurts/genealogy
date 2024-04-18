@@ -39,13 +39,13 @@ class Photos extends Component
         $images_person = Finder::create()->in(public_path('storage/photos/' . $this->person->team_id))->name($this->person->id . '_*.webp');
 
         $this->images = collect($images_person)->map(fn (SplFileInfo $file) => [
-            'name' => $file->getFilename(),
+            'name'          => $file->getFilename(),
             'name_download' => $this->person->name . ' - ' . $file->getFilename(),
-            'extension' => $file->getExtension(),
-            'size' => $this->size_as_kb($file->getSize()),
-            'path' => $file->getPath(),
-            'url' => Storage::url('photos/' . $this->person->team_id . '/' . $file->getFilename()),
-        ]);
+            'extension'     => $file->getExtension(),
+            'size'          => $this->size_as_kb($file->getSize()),
+            'path'          => $file->getPath(),
+            'url'           => Storage::url('photos/' . $this->person->team_id . '/' . $file->getFilename()),
+        ])->sortBy('name');
     }
 
     public function deleteUpload(array $content): void
@@ -103,14 +103,14 @@ class Photos extends Component
     public function savePhotos()
     {
         // determine last index
-        $files = File::glob(public_path() . '/storage/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp');
+        $files      = File::glob(public_path() . '/storage/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp');
         $last_index = $files ? intval(substr(last($files), strpos(last($files), '_') + 1, strrpos(last($files), '_') - strpos(last($files), '_') - 1)) : 0;
 
         // set image parameters
-        $image_width = intval(env('IMAGE_UPLOAD_MAX_WIDTH', 600));
-        $image_height = intval(env('IMAGE_UPLOAD_MAX_HEIGHT', 800));
+        $image_width   = intval(env('IMAGE_UPLOAD_MAX_WIDTH', 600));
+        $image_height  = intval(env('IMAGE_UPLOAD_MAX_HEIGHT', 800));
         $image_quality = intval(env('IMAGE_UPLOAD_QUALITY', 80));
-        $image_type = env('IMAGE_UPLOAD_TYPE', 'webp');
+        $image_type    = env('IMAGE_UPLOAD_TYPE', 'webp');
 
         // set image manager
         $manager = new ImageManager(new Driver());

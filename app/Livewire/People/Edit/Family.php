@@ -22,8 +22,8 @@ class Family extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->familyForm->father_id = $this->person->father_id;
-        $this->familyForm->mother_id = $this->person->mother_id;
+        $this->familyForm->father_id  = $this->person->father_id;
+        $this->familyForm->mother_id  = $this->person->mother_id;
         $this->familyForm->parents_id = $this->person->parents_id;
     }
 
@@ -63,14 +63,14 @@ class Family extends Component
 
         $fathers = $persons->where('sex', 'm')->map(function ($p) {
             return [
-                'id' => $p->id,
+                'id'   => $p->id,
                 'name' => $p->name . ' (' . $p->birth_formatted . ')',
             ];
         })->values()->toArray();
 
         $mothers = $persons->where('sex', 'f')->map(function ($p) {
             return [
-                'id' => $p->id,
+                'id'   => $p->id,
                 'name' => $p->name . ' (' . $p->birth_formatted . ')',
             ];
         })->values()->toArray();
@@ -81,7 +81,7 @@ class Family extends Component
             ->sortBy('name')
             ->map(function ($couple) {
                 return [
-                    'id' => $couple->id,
+                    'id'     => $couple->id,
                     'couple' => $couple->name . (($couple->date_start) ? ' (' . $couple->date_start_formatted . ')' : ''),
                 ];
             })->values()->toArray();

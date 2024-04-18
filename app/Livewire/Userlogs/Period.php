@@ -59,7 +59,7 @@ class Period extends Component
 
         $this->chart_data = json_encode([
             'labels' => $this->statistics->pluck('period'),
-            'data' => $this->statistics->pluck('visitors'),
+            'data'   => $this->statistics->pluck('visitors'),
         ]);
     }
 

@@ -24,11 +24,11 @@ class Profile extends Component
         $this->profileForm->person = $this->person;
 
         $this->profileForm->firstname = $this->person->firstname;
-        $this->profileForm->surname = $this->person->surname;
+        $this->profileForm->surname   = $this->person->surname;
         $this->profileForm->birthname = $this->person->birthname;
-        $this->profileForm->nickname = $this->person->nickname;
+        $this->profileForm->nickname  = $this->person->nickname;
 
-        $this->profileForm->sex = $this->person->sex;
+        $this->profileForm->sex       = $this->person->sex;
         $this->profileForm->gender_id = $this->person->gender_id;
 
         $this->profileForm->yob = $this->person->yob ?? null;

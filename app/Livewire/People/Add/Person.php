@@ -24,11 +24,11 @@ class Person extends Component
     public function mount(): void
     {
         $this->personForm->firstname = null;
-        $this->personForm->surname = null;
+        $this->personForm->surname   = null;
         $this->personForm->birthname = null;
-        $this->personForm->nickname = null;
+        $this->personForm->nickname  = null;
 
-        $this->personForm->sex = null;
+        $this->personForm->sex       = null;
         $this->personForm->gender_id = null;
 
         $this->personForm->yob = null;
@@ -45,7 +45,7 @@ class Person extends Component
     {
         if ($this->isDirty()) {
             $validated = $this->personForm->validate();
-            $person = \App\Models\Person::create($validated);
+            $person    = \App\Models\Person::create($validated);
 
             if ($this->personForm->image) {
                 // if needed, create team photo folder
@@ -56,14 +56,14 @@ class Person extends Component
                 }
 
                 // upload (new) photo
-                $image_width = intval(env('IMAGE_UPLOAD_MAX_WIDTH', 600));
-                $image_height = intval(env('IMAGE_UPLOAD_MAX_HEIGHT', 800));
+                $image_width   = intval(env('IMAGE_UPLOAD_MAX_WIDTH', 600));
+                $image_height  = intval(env('IMAGE_UPLOAD_MAX_HEIGHT', 800));
                 $image_quality = intval(env('IMAGE_UPLOAD_QUALITY', 80));
-                $image_type = env('IMAGE_UPLOAD_TYPE', 'webp');
-                $image_name = $this->personForm->team_id . '/' . $person->id . '_001_' . now()->format('YmdHis') . '.' . $image_type;
+                $image_type    = env('IMAGE_UPLOAD_TYPE', 'webp');
+                $image_name    = $this->personForm->team_id . '/' . $person->id . '_001_' . now()->format('YmdHis') . '.' . $image_type;
 
                 // resize (new) photo, add watermark and save it
-                $manager = new ImageManager(new Driver());
+                $manager   = new ImageManager(new Driver());
                 $new_image = $manager->read($this->personForm->image)
                     ->scaleDown(width: $image_width, height: $image_height)
                     ->place(public_path('img/watermark.png'), 'bottom-left', 5, 5)

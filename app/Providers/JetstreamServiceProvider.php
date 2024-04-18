@@ -65,9 +65,9 @@ class JetstreamServiceProvider extends ServiceProvider
         // Get Session Link for Login View
         Fortify::loginView(function () {
             if (session('link')) {
-                $myPath = session('link');
+                $myPath    = session('link');
                 $loginPath = url('/login');
-                $previous = url()->previous();
+                $previous  = url()->previous();
 
                 if ($previous = $loginPath) {
                     session(['link' => $myPath]);

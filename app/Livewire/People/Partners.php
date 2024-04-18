@@ -28,7 +28,7 @@ class Partners extends Component
     {
         $this->deleteConfirmed = true;
 
-        $this->couple_to_delete_id = $id;
+        $this->couple_to_delete_id   = $id;
         $this->couple_to_delete_name = $name;
     }
 

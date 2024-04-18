@@ -24,7 +24,7 @@ class Children extends Component
     {
         $this->disconnectConfirmed = true;
 
-        $this->child_to_disconnect_id = $id;
+        $this->child_to_disconnect_id   = $id;
         $this->child_to_disconnect_name = $name;
     }
 

@@ -25,10 +25,10 @@ class Partner extends Component
         $this->partnerForm->person2_id = null;
 
         $this->partnerForm->date_start = null;
-        $this->partnerForm->date_end = null;
+        $this->partnerForm->date_end   = null;
 
         $this->partnerForm->is_married = false;
-        $this->partnerForm->has_ended = false;
+        $this->partnerForm->has_ended  = false;
     }
 
     public function savePartner()
@@ -43,10 +43,10 @@ class Partner extends Component
                     'person1_id' => $this->person->id,
                     'person2_id' => $validated['person2_id'],
                     'date_start' => $validated['date_start'] ?? null,
-                    'date_end' => $validated['date_end'] ?? null,
+                    'date_end'   => $validated['date_end'] ?? null,
                     'is_married' => $validated['is_married'],
-                    'has_ended' => $validated['has_ended'],
-                    'team_id' => auth()->user()->current_team_id,
+                    'has_ended'  => $validated['has_ended'],
+                    'team_id'    => auth()->user()->current_team_id,
                 ]);
 
                 $this->toast()->success(__('app.create'), __('app.created'))->flash()->send();
@@ -98,7 +98,7 @@ class Partner extends Component
             ->get()
             ->map(function ($p) {
                 return [
-                    'id' => $p->id,
+                    'id'   => $p->id,
                     'name' => $p->name . ' [' . strtoupper($p->sex) . '] (' . $p->birth_formatted . ')',
                 ];
             })->toArray();

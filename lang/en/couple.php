@@ -1,14 +1,14 @@
 <?php
 
 return [
-    'date_end' => 'End date',
+    'date_end'   => 'End date',
     'date_start' => 'Start date',
 
     'has_ended' => 'Ended',
 
     'is_married' => 'Marriage',
 
-    'partner' => 'Partner',
+    'partner'    => 'Partner',
     'person1_id' => 'First person',
     'person2_id' => 'Second person',
 

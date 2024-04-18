@@ -38,19 +38,19 @@ class OriginMap extends Component
             ->addRows($data);
 
         $lava->GeoChart('Visitors', $visitors, [
-            'colorAxis' => ['minValue' => 0,  'colors' => ['#BCD2E8', '#1E3F66']],   // ColorAxis Options
-            'datalessRegionColor' => '#d0d0d0',
-            'displayMode' => 'auto',
+            'colorAxis'                 => ['minValue' => 0,  'colors' => ['#BCD2E8', '#1E3F66']],   // ColorAxis Options
+            'datalessRegionColor'       => '#d0d0d0',
+            'displayMode'               => 'auto',
             'enableRegionInteractivity' => true,
-            'keepAspectRatio' => true,
-            'region' => 'world',
-            'magnifyingGlass' => ['enable' => true, 'zoomFactor' => 7.5],            // MagnifyingGlass Options
-            'markerOpacity' => 1.0,
-            'resolution' => 'countries',
-            'sizeAxis' => null,
-            'backgroundColor' => '#ffffff',
-            'geochartVersion' => 11,
-            'regioncoderVersion' => 1,
+            'keepAspectRatio'           => true,
+            'region'                    => 'world',
+            'magnifyingGlass'           => ['enable' => true, 'zoomFactor' => 7.5],            // MagnifyingGlass Options
+            'markerOpacity'             => 1.0,
+            'resolution'                => 'countries',
+            'sizeAxis'                  => null,
+            'backgroundColor'           => '#ffffff',
+            'geochartVersion'           => 11,
+            'regioncoderVersion'        => 1,
         ]);
 
         return view('livewire.userlogs.origin-map')->with([

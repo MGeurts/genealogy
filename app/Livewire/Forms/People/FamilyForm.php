@@ -15,8 +15,8 @@ class FamilyForm extends Form
 
     // -----------------------------------------------------------------------
     protected $rules = [
-        'father_id' => ['nullable', 'integer'],
-        'mother_id' => ['nullable', 'integer'],
+        'father_id'  => ['nullable', 'integer'],
+        'mother_id'  => ['nullable', 'integer'],
         'parents_id' => ['nullable', 'integer'],
     ];
 
@@ -28,8 +28,8 @@ class FamilyForm extends Form
     public function validationAttributes()
     {
         return [
-            'father_id' => __('person.father'),
-            'mother_id' => __('person.mother'),
+            'father_id'  => __('person.father'),
+            'mother_id'  => __('person.mother'),
             'parents_id' => __('parents.father'),
         ];
     }

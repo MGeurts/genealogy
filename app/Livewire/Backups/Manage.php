@@ -72,7 +72,7 @@ class Manage extends Component
     {
         $this->backups = collect();
 
-        $disk = Storage::disk(env('BACKUP_DISK', 'backups'));
+        $disk  = Storage::disk(env('BACKUP_DISK', 'backups'));
         $files = $disk->files(config('backup.backup.name'));
 
         // make a collection of existing backup files, with their filesize and creation date
@@ -80,10 +80,10 @@ class Manage extends Component
             // only take zip files into account
             if (substr($file, -4) == '.zip' && $disk->exists($file)) {
                 $this->backups->push([
-                    'file_name' => str_replace(config('backup.backup.name') . '/', '', $file),
-                    'file_size' => $this->humanFilesize($disk->size($file)),
+                    'file_name'    => str_replace(config('backup.backup.name') . '/', '', $file),
+                    'file_size'    => $this->humanFilesize($disk->size($file)),
                     'date_created' => Carbon::createFromTimestamp($disk->lastModified($file))->format('d-m-Y H:i:s'),
-                    'date_ago' => Carbon::createFromTimestamp($disk->lastModified($file))->diffForHumans(Carbon::now()),
+                    'date_ago'     => Carbon::createFromTimestamp($disk->lastModified($file))->diffForHumans(Carbon::now()),
                 ]);
             }
         }
@@ -146,7 +146,7 @@ class Manage extends Component
 
     protected function humanFilesize(mixed $bytes, int $decimals = 2)
     {
-        $sz = 'BKMGTP';
+        $sz     = 'BKMGTP';
         $factor = floor((strlen($bytes) - 1) / 3);
 
         return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . ' ' . @$sz[$factor];

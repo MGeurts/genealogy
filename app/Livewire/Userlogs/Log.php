@@ -19,7 +19,7 @@ class Log extends Component
 
         return view('livewire.userlogs.log')->with([
             'userlogs_by_date' => $userlogs_by_date,
-            'months' => $months,
+            'months'           => $months,
         ]);
     }
 }

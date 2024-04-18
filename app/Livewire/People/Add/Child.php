@@ -27,8 +27,8 @@ class Child extends Component
     public function mount(): void
     {
         $this->childForm->firstname = null;
-        $this->childForm->surname = null;
-        $this->childForm->sex = null;
+        $this->childForm->surname   = null;
+        $this->childForm->sex       = null;
         $this->childForm->gender_id = null;
 
         $this->childForm->photo = null;
@@ -60,20 +60,20 @@ class Child extends Component
                 if ($this->person->sex === 'm') {
                     $new_person = Person::create([
                         'firstname' => $validated['firstname'],
-                        'surname' => $validated['surname'],
-                        'sex' => $validated['sex'],
+                        'surname'   => $validated['surname'],
+                        'sex'       => $validated['sex'],
                         'gender_id' => $validated['gender_id'] ?? null,
                         'father_id' => $this->person->id,
-                        'team_id' => $this->person->team_id,
+                        'team_id'   => $this->person->team_id,
                     ]);
                 } else {
                     $new_person = Person::create([
                         'firstname' => $validated['firstname'],
-                        'surname' => $validated['surname'],
-                        'sex' => $validated['sex'],
+                        'surname'   => $validated['surname'],
+                        'sex'       => $validated['sex'],
                         'gender_id' => $validated['gender_id'] ?? null,
                         'mother_id' => $this->person->id,
-                        'team_id' => $this->person->team_id,
+                        'team_id'   => $this->person->team_id,
                     ]);
                 }
 
@@ -86,14 +86,14 @@ class Child extends Component
                     }
 
                     // upload (new) photo
-                    $image_width = intval(env('IMAGE_UPLOAD_MAX_WIDTH', 600));
-                    $image_height = intval(env('IMAGE_UPLOAD_MAX_HEIGHT', 800));
+                    $image_width   = intval(env('IMAGE_UPLOAD_MAX_WIDTH', 600));
+                    $image_height  = intval(env('IMAGE_UPLOAD_MAX_HEIGHT', 800));
                     $image_quality = intval(env('IMAGE_UPLOAD_QUALITY', 80));
-                    $image_type = env('IMAGE_UPLOAD_TYPE', 'webp');
-                    $image_name = $new_person->team_id . '/' . $new_person->id . '_001_' . now()->format('YmdHis') . '.' . $image_type;
+                    $image_type    = env('IMAGE_UPLOAD_TYPE', 'webp');
+                    $image_name    = $new_person->team_id . '/' . $new_person->id . '_001_' . now()->format('YmdHis') . '.' . $image_type;
 
                     // resize (new) photo, add watermark and save it
-                    $manager = new ImageManager(new Driver());
+                    $manager   = new ImageManager(new Driver());
                     $new_image = $manager->read($this->childForm->image)
                         ->scaleDown(width: $image_width, height: $image_height)
                         ->place(public_path('img/watermark.png'), 'bottom-left', 5, 5)
@@ -148,7 +148,7 @@ class Child extends Component
                 ->get()
                 ->map(function ($p) {
                     return [
-                        'id' => $p->id,
+                        'id'   => $p->id,
                         'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
                     ];
                 })->toArray();
@@ -160,7 +160,7 @@ class Child extends Component
                 ->get()
                 ->map(function ($p) {
                     return [
-                        'id' => $p->id,
+                        'id'   => $p->id,
                         'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
                     ];
                 })->toArray();

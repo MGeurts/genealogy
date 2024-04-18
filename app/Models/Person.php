@@ -55,7 +55,7 @@ class Person extends Model
             'dob' => 'date:Y-m-d',
             'dod' => 'date:Y-m-d',
 
-            'is_deceased' => 'boolean',
+            'is_deceased'  => 'boolean',
             'is_deletable' => 'boolean',
         ];
     }
@@ -172,7 +172,7 @@ class Person extends Model
     protected function getNextBirthdayAttribute(): ?Carbon
     {
         if ($this->dob) {
-            $today = Carbon::parse(date('Y-m-d') . ' 00:00:00');
+            $today               = Carbon::parse(date('Y-m-d') . ' 00:00:00');
             $this_years_birthday = Carbon::parse(date('Y') . substr($this->dob, 4));
 
             return $today->gt($this_years_birthday)
@@ -303,7 +303,7 @@ class Person extends Model
     protected function getCemeteryGoogleAttribute(): ?string
     {
         $href_google_address = 'https://www.google.com/maps/search/';
-        $href_google_geo = 'https://www.google.com/maps/search/?api=1&query=';
+        $href_google_geo     = 'https://www.google.com/maps/search/?api=1&query=';
 
         if ($this->getMetadataValue('cemetery_location_latitude') && $this->getMetadataValue('cemetery_location_longitude')) {
             return $href_google_geo . implode('%2C', [
@@ -495,7 +495,7 @@ class Person extends Model
                     [
                         // find using ...
                         'person_id' => $this->id,
-                        'key' => $key,
+                        'key'       => $key,
                     ],
                     [
                         // update or create using above and ...
@@ -511,8 +511,8 @@ class Person extends Model
         if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
             return collect([]);
         } else {
-            $siblings_father = $this->father_id ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->get() : collect([]);
-            $siblings_mother = $this->mother_id ? Person::where('id', '!=', $this->id)->where('mother_id', $this->mother_id)->get() : collect([]);
+            $siblings_father  = $this->father_id ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->get() : collect([]);
+            $siblings_mother  = $this->mother_id ? Person::where('id', '!=', $this->id)->where('mother_id', $this->mother_id)->get() : collect([]);
             $siblings_parents = $this->parents_id ? Person::where('id', '!=', $this->id)->where('parents_id', $this->parents_id)->get() : collect([]);
 
             $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents);
@@ -536,8 +536,8 @@ class Person extends Model
         if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
             return collect([]);
         } else {
-            $siblings_father = $this->father_id ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->with('children')->get() : collect([]);
-            $siblings_mother = $this->mother_id ? Person::where('id', '!=', $this->id)->where('mother_id', $this->mother_id)->with('children')->get() : collect([]);
+            $siblings_father  = $this->father_id ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->with('children')->get() : collect([]);
+            $siblings_mother  = $this->mother_id ? Person::where('id', '!=', $this->id)->where('mother_id', $this->mother_id)->with('children')->get() : collect([]);
             $siblings_parents = $this->parents_id ? Person::where('id', '!=', $this->id)->where('parents_id', $this->parents_id)->with('children')->get() : collect([]);
 
             $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents);

@@ -97,7 +97,6 @@ Route::get('language/{locale}', function ($locale) {
 // Ref : https://mariogiancini.com/making-laravel-jetstream-team-invitations-better
 // -----------------------------------------------------------------------------------------------
 Route::group(['middleware' => config('jetstream.middleware', ['web'])], function () {
-
     $authMiddleware = config('jetstream.guard') ? 'auth:' . config('jetstream.guard') : 'auth';
 
     $authSessionMiddleware = config('jetstream.auth_session', false) ? config('jetstream.auth_session') : null;

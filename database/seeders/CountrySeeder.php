@@ -12,7 +12,6 @@ class CountrySeeder extends Seeder
      */
     public function run(): void
     {
-
         DB::Statement("
             INSERT INTO `countries` (`iso2`, `name_nl`, `name`, `iso3`, `isd`, `is_eu`) VALUES
             ('AD', 'Andorra', 'Andorra', 'AND', '376', 0),

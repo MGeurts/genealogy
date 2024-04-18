@@ -2,25 +2,25 @@
 
 return [
     // Labels
-    'users_log' => 'Benutzerprotokoll',
+    'users_log'    => 'Benutzerprotokoll',
     'users_origin' => 'Ursprung des Benutzerprotokolls',
-    'users_stats' => 'Protokollsstatistiken',
+    'users_stats'  => 'Protokollsstatistiken',
 
-    'year' => 'Jahr',
+    'year'  => 'Jahr',
     'month' => 'Monat',
-    'week' => 'Woche',
-    'day' => 'Tag',
+    'week'  => 'Woche',
+    'day'   => 'Tag',
 
-    'log' => 'Verlauf',
+    'log'       => 'Verlauf',
     'countries' => 'Länder',
-    'period' => 'Periode',
-    'worldmap' => 'Weltkarte',
-    'timespan' => 'Benutzerprotokolle während der letzten :months Monate',
+    'period'    => 'Periode',
+    'worldmap'  => 'Weltkarte',
+    'timespan'  => 'Benutzerprotokolle während der letzten :months Monate',
 
     // Attributes
-    'date' => 'Datum',
-    'hour' => 'Stunde',
-    'user' => 'Benutzer',
+    'date'         => 'Datum',
+    'hour'         => 'Stunde',
+    'user'         => 'Benutzer',
     'Country_name' => 'Land',
     'Country_code' => 'Landesvorwahl',
 ];

@@ -13,20 +13,20 @@ return [
     |
     */
 
-    'agree' => 'Ich stimme den :terms_of_service und :privacy_policy zu.',
+    'agree'              => 'Ich stimme den :terms_of_service und :privacy_policy zu.',
     'already_registered' => 'Bereits registriert',
 
     'back' => 'Zurück',
 
-    'change_password' => 'Passwort ändern',
+    'change_password'         => 'Passwort ändern',
     'change_password_success' => 'Dein Passwort wurde geändert',
-    'change_password_error' => 'Uh-oh, dein Passwort konnte nicht geändert werden',
+    'change_password_error'   => 'Uh-oh, dein Passwort konnte nicht geändert werden',
 
     'developer' => 'Entwickler',
 
     'email' => 'E-Mail Adresse',
 
-    'failed' => 'Es gibt keinen Benutzer mit diesen Anmeldeinformationen.',
+    'failed'          => 'Es gibt keinen Benutzer mit diesen Anmeldeinformationen.',
     'forgot_password' => 'Passwort vergessen?',
 
     'guest' => 'Gast',
@@ -35,30 +35,30 @@ return [
 
     'invitation_accepted' => 'Großartig! Du hast die Einladung angenommen, dem Team :team beizutreten.',
 
-    'login' => 'Anmelden',
+    'login'  => 'Anmelden',
     'log_in' => 'Anmelden',
     'logout' => 'Abmelden',
 
-    'need_account' => 'Brauchst du ein Konto?',
-    'new_password' => 'Neues Passwort',
+    'need_account'              => 'Brauchst du ein Konto?',
+    'new_password'              => 'Neues Passwort',
     'new_password_confirmation' => 'Neues Passwort wiederholen',
 
     'throttle' => 'Zu viele Anmeldeversuche. Bitte versuche es in :seconds Sekunden erneut.',
 
     'old_password' => 'Altes Passwort',
-    'or' => 'oder',
+    'or'           => 'oder',
 
-    'password' => 'Passwort',
+    'password'              => 'Passwort',
     'password_confirmation' => 'Passwort wiederholen',
-    'permissions' => 'Berechtigungen',
+    'permissions'           => 'Berechtigungen',
 
-    'register' => 'Register',
-    'remember_me' => 'Angemeldet bleiben',
+    'register'       => 'Register',
+    'remember_me'    => 'Angemeldet bleiben',
     'reset_password' => 'Passwort zurücksetzen',
-    'role' => 'Rolle',
+    'role'           => 'Rolle',
 
     'send_reset_password_link' => 'Link zum Zurücksetzen des Passworts senden',
 
-    'team' => 'Team',
+    'team'    => 'Team',
     'to_join' => 'beitreten',
 ];

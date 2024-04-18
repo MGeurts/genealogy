@@ -33,7 +33,7 @@ class UpdatePasswordRequest extends FormRequest
     {
         return [
             'old_password.current_password' => trans('passwords.old_password'),
-            'new_password.same_password' => trans('passwords.same_password'),
+            'new_password.same_password'    => trans('passwords.same_password'),
         ];
     }
 }

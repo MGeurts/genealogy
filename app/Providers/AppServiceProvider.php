@@ -75,7 +75,7 @@ class AppServiceProvider extends ServiceProvider
                 // To Do : Remove the kreaweb filter in production
                 if ($event->user->email != 'kreaweb@genealogy.test') {
                     Userlog::create([
-                        'user_id' => $event->user->id,
+                        'user_id'      => $event->user->id,
                         'country_name' => $country_name,
                         'country_code' => $country_code,
                     ]);
@@ -115,9 +115,9 @@ class AppServiceProvider extends ServiceProvider
         // about
         // -----------------------------------------------------------------------
         AboutCommand::add('Application', [
-            'Name' => 'Genealogy',
-            'author' => 'kreaweb.be',
-            'github' => 'https://github.com/MGeurts/genealogy',
+            'Name'    => 'Genealogy',
+            'author'  => 'kreaweb.be',
+            'github'  => 'https://github.com/MGeurts/genealogy',
             'license' => 'MIT License',
         ]);
 
