@@ -66,12 +66,6 @@
                     <li class="py-2">
                         <x-link href="https://github.com/stevebauman/location/" target="_blank">stevebauman/location</x-link>
                     </li>
-
-                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-4 bg-gray-100 border-0 rounded dark:bg-gray-700" />
-
-                    <li class="py-2">
-                        <x-link href="https://github.com/stefangabos/world_countries/" target="_blank">stefangabos/world_countries</x-link> (candidate)
-                    </li>
                 </ul>
             </x-ts-tab.items>
 

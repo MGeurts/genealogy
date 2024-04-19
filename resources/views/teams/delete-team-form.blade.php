@@ -12,16 +12,17 @@
     </x-slot>
 
     <x-slot name="content">
-        <table>
-            <tr>
-                <td>{{ __('team.persons') }} : </td>
-                <td><b>{{ count($team->persons) }}</b></td>
-            </tr>
-            <tr>
-                <td>{{ __('team.couples') }} : </td>
-                <td><b>{{ count($team->couples) }}</b></td>
-            </tr>
-        </table>
+        @php
+            $headers = [['index' => 'object', 'label' => $team->name], ['index' => 'count', 'label' => '#']];
+
+            $rows = [
+                ['object' => __('team.users'), 'count' => count($team->users)],
+                ['object' => __('team.persons'), 'count' => count($team->persons)],
+                ['object' => __('team.couples'), 'count' => count($team->couples)],
+            ];
+        @endphp
+
+        <x-ts-table :$headers :$rows />
 
         <x-hr.normal />
 

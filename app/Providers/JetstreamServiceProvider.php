@@ -59,7 +59,7 @@ class JetstreamServiceProvider extends ServiceProvider
         });
 
         // ----------------------------------------------------------------------------------------------------
-        // Let uss redirect the user to the page he was before he tried to log in
+        // Let us redirect the user to the page he was before he tried to log in
         // Ref: https://laracasts.com/discuss/channels/laravel/redirect-to-intended-url-jetstream-fortify
         // ----------------------------------------------------------------------------------------------------
         // Get Session Link for Login View
