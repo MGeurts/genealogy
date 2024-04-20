@@ -104,7 +104,7 @@ class User extends Authenticatable
     /* -------------------------------------------------------------------------------------------- */
     // Relations
     /* -------------------------------------------------------------------------------------------- */
-    /* OK : returns ALL USERLOG (N USERLOG) */
+    /* returns ALL USERLOGS (n Userlog) */
     public function userlogs(): HasMany
     {
         return $this->hasMany(Userlog::class);

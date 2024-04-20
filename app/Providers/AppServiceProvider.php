@@ -72,7 +72,6 @@ class AppServiceProvider extends ServiceProvider
         // This is done by the middleware \Http\Middleware\LogAllRequests.php
         // and can be enabled/disable in \Bootstrap\app.php
 
-
         // -----------------------------------------------------------------------
         // log all users
         // -----------------------------------------------------------------------
@@ -99,7 +98,6 @@ class AppServiceProvider extends ServiceProvider
             }
         });
 
-
         // -----------------------------------------------------------------------
         // TallStackUI personalization
         // Ref : https://tallstackui.com/docs/personalization/soft
@@ -119,7 +117,6 @@ class AppServiceProvider extends ServiceProvider
             ->block('footer.wrapper', 'text-secondary-700 dark:text-dark-300 dark:border-t-dark-600 rounded rounded-t-none border-t p-2')
             ->block('footer.text', 'flex items-center justify-end gap-2');
 
-
         // -----------------------------------------------------------------------
         // about
         // -----------------------------------------------------------------------
@@ -129,7 +126,6 @@ class AppServiceProvider extends ServiceProvider
             'github'  => 'https://github.com/MGeurts/genealogy',
             'license' => 'MIT License',
         ]);
-
 
         // -----------------------------------------------------------------------
         // timezone management

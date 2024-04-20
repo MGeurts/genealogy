@@ -50,13 +50,13 @@ class Team extends JetstreamTeam
     /* -------------------------------------------------------------------------------------------- */
     // Relations
     /* -------------------------------------------------------------------------------------------- */
-    /* OK : returns ALL PERSON (n Person) */
+    /* returns ALL PERSONS (n Person) */
     public function persons(): HasMany
     {
         return $this->hasMany(Person::class);
     }
 
-    /* OK : returns ALL COUPLE (n Couple) */
+    /* returns ALL COUPLES (n Couple) */
     public function couples(): HasMany
     {
         return $this->hasMany(Couple::class);

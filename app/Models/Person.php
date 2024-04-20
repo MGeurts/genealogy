@@ -340,66 +340,48 @@ class Person extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Relations
     /* -------------------------------------------------------------------------------------------- */
-    /* ------------------------------------------------- */
-    /* team                                              */
-    /* OK : returns TEAM (1 Team) based on team_id       */
-    /* ------------------------------------------------- */
+    /* returns TEAM (1 Team) based on team_id  */
     public function team(): BelongsTo
     {
         return $this->BelongsTo(Team::class);
     }
 
-    /* ------------------------------------------------- */
-    /* gender                                            */
-    /* OK : lookup table                                 */
-    /* ------------------------------------------------- */
+    /* lookup table */
     public function gender(): BelongsTo
     {
         return $this->BelongsTo(Gender::class);
     }
 
-    /* ------------------------------------------------- */
-    /* father                                            */
-    /* OK : returns FATHER (1 Person) based on father_id */
-    /* ------------------------------------------------- */
+    /* returns FATHER (1 Person) based on father_id */
     public function father(): BelongsTo
     {
         return $this->belongsTo(Person::class);
     }
 
-    /* ------------------------------------------------- */
-    /* mother                                            */
-    /* OK : returns MOTHER (1 Person) based on mother_id */
-    /* ------------------------------------------------- */
+    /* returns MOTHER (1 Person) based on mother_id */
     public function mother(): BelongsTo
     {
         return $this->belongsTo(Person::class);
     }
 
-    /* ---------------------------------------------------- */
-    /* parents                                              */
-    /* OK : returns PARENTS (1 Couple) based on parents_id  */
-    /* ---------------------------------------------------- */
+    /* returns PARENTS (1 Couple) based on parents_id  */
     public function parents(): BelongsTo
     {
         return $this->belongsTo(Couple::class)->with(['person_1', 'person_2']);
     }
 
-    /* -------------------------------------------------------------------------------------------- */
-    /* children                                                                                     */
-    /* OK : returns OWN NATURAL CHILDREN (n Person) based on father_id OR mother_id, ordered by dob */
-    /* -------------------------------------------------------------------------------------------- */
+    /* returns OWN NATURAL CHILDREN (n Person) based on father_id OR mother_id, ordered by dob */
     public function children(): HasManyMerged
     {
         return $this->HasManyMerged(Person::class, ['father_id', 'mother_id'])->orderBy('dob');
     }
 
-    public function children_with_children(): HasManyMerged// only used in family chart
+    public function children_with_children(): HasManyMerged // only used in family chart
     {
         return $this->HasManyMerged(Person::class, ['father_id', 'mother_id'])->with('children')->orderBy('dob');
     }
 
-    /* OK : returns ALL NATURAL CHILDREN (n Person) (OWN + CURRENT PARTNER), ordered by type and dob */
+    /* returns ALL NATURAL CHILDREN (n Person) (OWN + CURRENT PARTNER), ordered by type and dob */
     public function childrenNaturalAll(): Collection
     {
         $children_natural = $this->children;
@@ -418,10 +400,7 @@ class Person extends Model
         })->sortby('dob')->sortBy('type');
     }
 
-    /* --------------------------------------------------------------------------------- */
-    /* partners                                                                          */
-    /* OK : returns ALL PARTNERS (n Person) related to the person, ordered by date_start */
-    /* --------------------------------------------------------------------------------- */
+    /* returns ALL PARTNERS (n Person) related to the person, ordered by date_start */
     public function getPartnersAttribute(): Collection
     {
         if (! array_key_exists('partners', $this->relations)) {
@@ -443,40 +422,32 @@ class Person extends Model
         return $this->getRelation('partners');
     }
 
-    /* OK : returns CURRENT PARTNER (1 Person) related to the person, where relation not_ended and date_end = null */
+    /* returns CURRENT PARTNER (1 Person) related to the person, where relation not_ended and date_end == null */
     public function currentPartner(): ?Person
     {
         return $this->partners->where('pivot.has_ended', false)->whereNull('pivot.date_end')->sortBy('pivot.date_start')->last();
     }
 
-    /* ------------------------------------------------------------------------------------- */
-    /* couples                                                                               */
-    /* OK : returns ALL PARTNERSHIPS (n Couple) related to the person, ordered by date_start */
-    /* ------------------------------------------------------------------------------------- */
+
+    /* returns ALL PARTNERSHIPS (n Couple) related to the person, ordered by date_start */
     public function couples(): HasManyMerged
     {
         return $this->HasManyMerged(Couple::class, ['person1_id', 'person2_id'])->with(['person_1', 'person_2']);
     }
 
-    /* --------------------------------------------------- */
-    /* country                                             */
-    /* OK : returns country related to the persons address */
-    /* --------------------------------------------------- */
+    /* returns country related to the persons address */
     public function country(): BelongsTo
     {
         return $this->BelongsTo(Country::class);
     }
 
-    /* ------------------------------------------------------------------ */
-    /* metadata                                                           */
-    /* OK : returns ALL METADATA (n PersonMetadata) related to the person */
-    /* ------------------------------------------------------------------ */
+    /* returns ALL METADATA (n PersonMetadata) related to the person */
     public function metadata(): HasMany
     {
         return $this->hasMany(PersonMetadata::class);
     }
 
-    /* OK : returns 1 METADATA (1 value) related to the person */
+    /* returns 1 METADATA (1 PersonMetadata value) related to the person */
     public function getMetadataValue($key = null): ?string
     {
         if ($key) {
@@ -486,7 +457,7 @@ class Person extends Model
         }
     }
 
-    /* OK : updates or creates 1 to n METADATA related to the person */
+    /* updates or creates 1 to n METADATA related to the person */
     public function updateMetadata(Collection $personMetadata)
     {
         foreach (PersonMetadata::METADATA_KEYS as $key) {
@@ -506,6 +477,7 @@ class Person extends Model
         }
     }
 
+    /* returns ALL SIBLINGS (n Person) related to the person, either through father_id, mother_id or parents_id ordered by birth */
     public function siblings(): Collection
     {
         if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
@@ -531,7 +503,7 @@ class Person extends Model
         }
     }
 
-    public function siblings_with_children(): Collection// only used in family chart
+    public function siblings_with_children(): Collection // only used in family chart
     {
         if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
             return collect([]);

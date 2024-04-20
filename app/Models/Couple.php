@@ -97,25 +97,25 @@ class Couple extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Relations
     /* -------------------------------------------------------------------------------------------- */
-    /* OK : returns PARTNER 1 (1 Person) based on person1_id on COUPLE model */
+    /* returns PARTNER 1 (1 Person) based on person1_id in Couple model */
     public function person_1(): BelongsTo
     {
         return $this->belongsTo(Person::class, 'person1_id')->withDefault(['name' => 'N/A']);
     }
 
-    /* OK : returns PARTNER 2 (1 Person based on person2_id on COUPLE model */
+    /* returns PARTNER 2 (1 Person) based on person2_id in Couple model */
     public function person_2(): BelongsTo
     {
         return $this->belongsTo(Person::class, 'person2_id')->withDefault(['name' => 'N/A']);
     }
 
-    /* OK : returns CHILDREN (n Persons) based on parents_id on Person model*/
+    /* returns ALL CHILDREN (n Person) based on parents_id in Person model */
     public function children(): HasMany
     {
         return $this->hasMany(Person::class, 'parents_id');
     }
 
-    /* OK : returns TEAM (1 Team) based on team_id on Team model*/
+    /* returns TEAM (1 Team) based on team_id in Team model */
     public function team(): BelongsTo
     {
         return $this->belongsTo(Team::class);
