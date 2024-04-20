@@ -428,7 +428,6 @@ class Person extends Model
         return $this->partners->where('pivot.has_ended', false)->whereNull('pivot.date_end')->sortBy('pivot.date_start')->last();
     }
 
-
     /* returns ALL PARTNERSHIPS (n Couple) related to the person, ordered by date_start */
     public function couples(): HasManyMerged
     {

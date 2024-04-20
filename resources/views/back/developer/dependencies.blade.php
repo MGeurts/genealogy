@@ -10,9 +10,9 @@
     </x-slot>
 
     <div class="grow max-w-5xl overflow-x-auto py-5 dark:text-neutral-200">
-        <x-ts-tab selected="Laravel">
-            {{-- laravel --}}
-            <x-ts-tab.items tab="Laravel">
+        <x-ts-tab selected="TallStack">
+            {{-- tallstack --}}
+            <x-ts-tab.items tab="TallStack">
                 <ul class="w-full ml-4">
                     <li class="py-2">
                         <x-link href="https://laravel.com/" target="_blank">Laravel</x-link> 11
@@ -25,14 +25,12 @@
                         <x-link href="https://livewire.laravel.com/" target="_blank">Laravel Livewire</x-link> 3
                     </li>
                     <li class="py-2">
+                        <x-link href="https://alpinejs.dev/" target="_blank">Alpine.js</x-link> 3
+                    </li>
+                    <li class="py-2">
                         <x-link href="https://filamentphp.com/" target="_blank">Laravel Filament</x-link>3 (only Table Builder)
                     </li>
-                </ul>
-            </x-ts-tab.items>
 
-            {{-- tailwind --}}
-            <x-ts-tab.items tab="Tailwind">
-                <ul class="w-full ml-4">
                     <li class="py-2">
                         <x-link href="https://tailwindcss.com/docs/" target="_blank">Tailwind CSS</x-link>
                     </li>
@@ -40,6 +38,27 @@
                         <x-link href="https://tallstackui.com/" target="_blank">TallStackUI</x-link> (featuring <x-link href="https://tabler.io/icons" target="_blank">Tabler Icons</x-link>)
                     </li>
                 </ul>
+
+                <div class="max-w-96 grid grid-cols-4 gap-4 justify-items-center ml-4 mt-4">
+                    <div class="max-w-24 content-center">
+                        <img src="img/logo/laravel.webp" class="rounded" alt="laravel" />
+                    </div>
+                    <div class="max-w-24 content-center">
+                        <img src="img/logo/livewire.webp" class="rounded" alt="livewire" />
+                    </div>
+                    <div class="max-w-24 content-center">
+                        <img src="img/logo/alpinejs.webp" class="rounded" alt="alpinejs" />
+                    </div>
+                    <div class="max-w-24 content-center">
+                        <img src="img/logo/tailwindcss.webp" class="rounded" alt="tailwindcss" />
+                    </div>
+                    <div class="max-w-24 content-center col-span-2">
+                        <img src="img/logo/tallstackui.webp" class="rounded" alt="talstackui" />
+                    </div>
+                    <div class="max-w-24 content-center col-span-2">
+                        <img src="img/logo/filament.webp" class="rounded" alt="filament" />
+                    </div>
+                </div>
             </x-ts-tab.items>
 
             {{-- github --}}
