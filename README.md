@@ -21,6 +21,8 @@ This TallStack application is build using :
     <li><a href="https://filamentphp.com//" target="_blank">Laravel Filament</a> 3 (only Table Builder)</li>
 </ul>
 
+<img src="https://genealogy.kreaweb.be/img/help/tall-stack.webp" class="rounded" alt="tall-stack"/>
+
 ### Logic concept
 
 1. A person can have 1 biological father (1 person, based on <b>father_id</b>)
