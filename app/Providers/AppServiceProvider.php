@@ -49,7 +49,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // -----------------------------------------------------------------------
-        // LOG-VIEWER : log all queries when in not in production
+        // LOG-VIEWER : log all queries (when in not in production)
         // -----------------------------------------------------------------------
         // if (! app()->isProduction()) {
         //     DB::listen(function ($query) {
@@ -70,33 +70,34 @@ class AppServiceProvider extends ServiceProvider
         // LOG-VIEWER : log all requests
         // -----------------------------------------------------------------------
         // This is done by the middleware \Http\Middleware\LogAllRequests.php
-        // and can be enabled/disable in \Bootstrap\app.php
+        // and can be enabled/disable in \bootstrap\app.php
 
         // -----------------------------------------------------------------------
-        // log all users
+        // log users (except developers, only in production)
         // -----------------------------------------------------------------------
-        Event::listen(\Illuminate\Auth\Events\Login::class, function ($event) {
-            try {
-                if ($position = Location::get()) {
-                    $country_name = $position->countryName;
-                    $country_code = $position->countryCode;
-                } else {
-                    $country_name = null;
-                    $country_code = null;
-                }
+        if (! app()->isProduction()) {
+            Event::listen(\Illuminate\Auth\Events\Login::class, function ($event) {
+                try {
+                    if ($position = Location::get()) {
+                        $country_name = $position->countryName;
+                        $country_code = $position->countryCode;
+                    } else {
+                        $country_name = null;
+                        $country_code = null;
+                    }
 
-                // To Do : Remove the kreaweb filter in production
-                if ($event->user->email != 'kreaweb@genealogy.test') {
-                    Userlog::create([
-                        'user_id'      => $event->user->id,
-                        'country_name' => $country_name,
-                        'country_code' => $country_code,
-                    ]);
+                    if (! $event->user->is_developer) {
+                        Userlog::create([
+                            'user_id'      => $event->user->id,
+                            'country_name' => $country_name,
+                            'country_code' => $country_code,
+                        ]);
+                    }
+                } catch (QueryException $e) {
+                    Log::error("User log ERROR: {$e->getMessage()}");
                 }
-            } catch (QueryException $e) {
-                Log::error("User log ERROR: {$e->getMessage()}");
-            }
-        });
+            });
+        }
 
         // -----------------------------------------------------------------------
         // TallStackUI personalization
