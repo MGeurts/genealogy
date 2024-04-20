@@ -9,12 +9,13 @@
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-000.webp" class="rounded" alt="Genealogy-000"/>
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-020b.webp" class="rounded" alt="Genealogy-020b"/>
 
-This application is build using :
+This TallStack application is build using :
 
 <ul>
     <li><a href="https://laravel.com/" target="_blank">Laravel</a> 11</li>
     <li><a href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream</a> 5 (featuring <a href="https://jetstream.laravel.com/features/teams.html" target="_blank">Teams</a>)</li>
     <li><a href="https://livewire.laravel.com/" target="_blank">Livewire</a> 3</li>
+    <li><a href="https://alpinejs.dev/" target="_blank">Alpine.js</a> 3</li>
     <li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a></li>
     <li><a href="https://tallstackui.com//" target="_blank">TallStackUI</a> (featuring <a href="https://tabler.io/icons" target="_blank">Tabler Icons</a>)</li>
     <li><a href="https://filamentphp.com//" target="_blank">Laravel Filament</a> 3 (only Table Builder)</li>
@@ -100,7 +101,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 ## Features
 
 <ul>
-    <li>Light/Dark</li>
+    <li>Light/Dark theme</li>
     <li>Fully responsive</li>
     <li>Multi-language, English, Dutch and German already implemented, language setting saved in authenticated users profile</li>
     <li>Multi-timezone, timezone setting saved in authenticated users profile</li>
@@ -120,10 +121,11 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
    </ul>
 </p>
 
-<p>This application has a built-in <b>Log Viewer</b> showing :
+<p>This application has a built-in <b>Log Viewer</b>, on demand showing :
     <ul>
         <li>INFO    : All scheduled backups</li>
         <li>DEBUG   : All executed database queries, but only in local development mode</li>
+        <li>DEBUG   : All executed requests</li>
         <li>WARNING : All detected N+1 queries, but only in local development mode</li>
         <li>ERROR   : All detected errors</li>
    </ul>
@@ -209,7 +211,7 @@ Feel free to submit <b>Issues</b> or <b>Pull Requests</b>, for bugs, suggestions
 
 ## Documentation
 
-The documentation is built-in the applications help.
+The documentation is included in the applications help.
 Visit the <a href="https://genealogy.kreaweb.be/help" target="_blank">demo project</a> to read the documentation.
 
 ### Sponsoring

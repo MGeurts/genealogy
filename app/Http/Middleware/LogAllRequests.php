@@ -19,6 +19,9 @@ class LogAllRequests
     {
         $response = $next($request);
 
+        // -----------------------------------------------------------------------
+        // LOG-VIEWER : log all requests
+        // -----------------------------------------------------------------------
         $contents = json_decode($response->getContent(), true, 512);
 
         $headers = $request->header();

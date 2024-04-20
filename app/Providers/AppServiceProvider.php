@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // -----------------------------------------------------------------------
-        // language select for guest users
+        // Language select for guest users
         // Language will be overruled by language as defined in each authenticated user profile
         // -----------------------------------------------------------------------
         view()->composer('components.set.language', function ($view) {
@@ -42,7 +42,14 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // -----------------------------------------------------------------------
-        // log all queries when in not in production
+        // LOG-VIEWER : grant access (in production) to developer
+        // -----------------------------------------------------------------------
+        LogViewer::auth(function ($request) {
+            return auth()->user() && auth()->user()->is_developer;
+        });
+
+        // -----------------------------------------------------------------------
+        // LOG-VIEWER : log all queries when in not in production
         // -----------------------------------------------------------------------
         // if (! app()->isProduction()) {
         //     DB::listen(function ($query) {
@@ -51,13 +58,20 @@ class AppServiceProvider extends ServiceProvider
         // }
 
         // -----------------------------------------------------------------------
-        // log all N+1 queries
+        // LOG-VIEWER : log all N+1 queries
         // -----------------------------------------------------------------------
         // Model::preventLazyLoading();
 
         // Model::handleLazyLoadingViolationUsing(function ($model, $relation) {
         //     Log::warning("N+1 Query detected.\r\n" . sprintf('N+1 Query detected in model %s on relation %s.', get_class($model), $relation));
         // });
+
+        // -----------------------------------------------------------------------
+        // LOG-VIEWER : log all requests
+        // -----------------------------------------------------------------------
+        // This is done by the middleware \Http\Middleware\LogAllRequests.php
+        // and can be enabled/disable in \Bootstrap\app.php
+
 
         // -----------------------------------------------------------------------
         // log all users
@@ -85,12 +99,6 @@ class AppServiceProvider extends ServiceProvider
             }
         });
 
-        // -----------------------------------------------------------------------
-        // Log-Viewer : grant access (in production) to developer
-        // -----------------------------------------------------------------------
-        LogViewer::auth(function ($request) {
-            return auth()->user() && auth()->user()->is_developer;
-        });
 
         // -----------------------------------------------------------------------
         // TallStackUI personalization
@@ -111,6 +119,7 @@ class AppServiceProvider extends ServiceProvider
             ->block('footer.wrapper', 'text-secondary-700 dark:text-dark-300 dark:border-t-dark-600 rounded rounded-t-none border-t p-2')
             ->block('footer.text', 'flex items-center justify-end gap-2');
 
+
         // -----------------------------------------------------------------------
         // about
         // -----------------------------------------------------------------------
@@ -120,6 +129,7 @@ class AppServiceProvider extends ServiceProvider
             'github'  => 'https://github.com/MGeurts/genealogy',
             'license' => 'MIT License',
         ]);
+
 
         // -----------------------------------------------------------------------
         // timezone management
