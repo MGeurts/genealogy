@@ -6,15 +6,12 @@ use App\Models\Couple;
 use App\Models\Person;
 use App\Models\PersonMetadata;
 use Illuminate\Database\Seeder;
-use Ramsey\Uuid\Type\Integer;
 
 class DemoSeeder extends Seeder
 {
     protected $british_royals_team = 3;
 
     protected $kennedy_team = 4;
-
-    protected $managers_team = 5;
 
     protected $editors_team = 6;
 
@@ -29,8 +26,6 @@ class DemoSeeder extends Seeder
 
         $this->importKennedyPeople();
         $this->importKennedyCouples();
-
-        // $this->generateTreeDepthTestData();
     }
 
     protected function importBritishRoyalsPeople(): void
@@ -401,31 +396,5 @@ class DemoSeeder extends Seeder
                 'team_id' => $this->kennedy_team,
             ]);
         }
-    }
-
-    protected function generateTreeDepthTestData(): void
-    {
-        // -----------------------------------------------------------------------
-        // create a big tree to test the ancesters / descendants algorithm
-        // -----------------------------------------------------------------------
-        $level_max        = 100;           // maximum level depth
-        $level_people_max = 10;     // maximum number of people in the same level
-
-        for ($level = 0; $level <= $level_max; $level++) {
-
-            // UNDER CONSTRUCTION
-
-        }
-    }
-
-    protected function createPerson($father)
-    {
-        return Person::create([
-            'firstname' => 'Firstname',
-            'surname'   => 'Surname',
-            'sex'       => 'm',
-            'father_id' => $father->id,
-            'team_id'   => $this->managers_team,
-        ]);
     }
 }
