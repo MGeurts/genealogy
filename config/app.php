@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => env('APP_TIMEZONE', 'UTC'),  // don't you dare change this
+    'timezone' => env('APP_TIMEZONE', 'UTC'),  // don't you dare change this!
 
     'timezone_display' => 'Europe/Brussels',   // default application timezone, will be overridded by authenticated user's tmezone
 
@@ -82,6 +82,7 @@ return [
 
     'locale' => env('APP_LOCALE', 'en'),
 
+    // add all available translations here, after providing the needed translation files in \lang\
     'available_locales' => [
         'Deutsch'    => 'de',
         'English'    => 'en',

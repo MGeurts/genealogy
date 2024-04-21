@@ -49,7 +49,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // -----------------------------------------------------------------------
-        // LOG-VIEWER : log all queries (when in not in production)
+        // LOG-VIEWER : log all queries (not in production)
         // -----------------------------------------------------------------------
         // if (! app()->isProduction()) {
         //     DB::listen(function ($query) {
@@ -119,16 +119,6 @@ class AppServiceProvider extends ServiceProvider
             ->block('footer.text', 'flex items-center justify-end gap-2');
 
         // -----------------------------------------------------------------------
-        // about
-        // -----------------------------------------------------------------------
-        AboutCommand::add('Application', [
-            'Name'    => 'Genealogy',
-            'author'  => 'kreaweb.be',
-            'github'  => 'https://github.com/MGeurts/genealogy',
-            'license' => 'MIT License',
-        ]);
-
-        // -----------------------------------------------------------------------
         // timezone management
         // -----------------------------------------------------------------------
         Carbon::macro('inApplicationTimezone', function () {
@@ -139,6 +129,15 @@ class AppServiceProvider extends ServiceProvider
             return $this->tz(auth()->user()?->timezone ?? config('app.timezone_display'));
         });
 
+        // -----------------------------------------------------------------------
+        // about
+        // -----------------------------------------------------------------------
+        AboutCommand::add('Application', [
+            'Name'    => 'Genealogy',
+            'author'  => 'kreaweb.be',
+            'github'  => 'https://github.com/MGeurts/genealogy',
+            'license' => 'MIT License',
+        ]);
         // -----------------------------------------------------------------------
     }
 }
