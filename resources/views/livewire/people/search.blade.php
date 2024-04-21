@@ -5,7 +5,7 @@
                 {{-- header --}}
                 <div class="flex flex-wrap mb-2 text-lg">
                     <div class="flex-grow max-w-full flex-1">
-                        @if (env('GOD_MODE', 'false') && auth()->user()->is_developer)
+                        @if (config('app.god_mode') && auth()->user()->is_developer)
                             {!! __('app.people_search', [
                                 'scope' => strtoupper(__('team.all_teams')),
                             ]) !!}
@@ -27,7 +27,7 @@
 
                     <div class="flex-grow max-w-full flex-1 text-end">
                         @if ($this->search)
-                            @if (env('GOD_MODE', 'false') && auth()->user()->is_developer)
+                            @if (config('app.god_mode') && auth()->user()->is_developer)
                                 {!! __('app.people_found', [
                                     'total' => $people->total(),
                                     'scope' => strtoupper(__('team.all_teams')),
@@ -41,7 +41,7 @@
                                 ]) !!}
                             @endif
                         @else
-                            @if (env('GOD_MODE', 'false') && auth()->user()->is_developer)
+                            @if (config('app.god_mode') && auth()->user()->is_developer)
                                 {!! __('app.people_available', [
                                     'total' => $people_db,
                                     'scope' => strtoupper(__('team.all_teams')),

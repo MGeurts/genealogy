@@ -132,4 +132,21 @@ return [
         'store'  => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Custom values used in the application outside of the config files
+    |--------------------------------------------------------------------------
+    */
+
+    'god_mode' => (bool) env('GOD_MODE', false),
+
+    'backup_disk'          => env('BACKUP_DISK', 'backups'),
+    'backup_daily_cleanup' => env('BACKUP_DAILY_CLEANUP', '22:30'),
+    'backup_daily_run'     => env('BACKUP_DAILY_RUN', '23:00'),
+    'backup_mail_address'  => env('BACKUP_MAIL_ADDRESS', 'webmaster@yourdomain.com'),
+
+    'image_upload_max_width'  => (int) env('IMAGE_UPLOAD_MAX_WIDTH', 600),
+    'image_upload_max_height' => (int) env('IMAGE_UPLOAD_MAX_HEIGHT', 800),
+    'image_upload_quality'    => (int) env('IMAGE_UPLOAD_QUALITY', 80),
+    'image_upload_type'       => env('IMAGE_UPLOAD_TYPE', 'webp'),
 ];

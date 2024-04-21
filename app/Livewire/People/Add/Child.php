@@ -86,10 +86,10 @@ class Child extends Component
                     }
 
                     // upload (new) photo
-                    $image_width   = intval(env('IMAGE_UPLOAD_MAX_WIDTH', 600));
-                    $image_height  = intval(env('IMAGE_UPLOAD_MAX_HEIGHT', 800));
-                    $image_quality = intval(env('IMAGE_UPLOAD_QUALITY', 80));
-                    $image_type    = env('IMAGE_UPLOAD_TYPE', 'webp');
+                    $image_width   = config('app.image_upload_max_width');
+                    $image_height  = config('app.image_upload_max_height');
+                    $image_quality = config('app.image_upload_quality');
+                    $image_type    = config('app.image_upload_type');
                     $image_name    = $new_person->team_id . '/' . $new_person->id . '_001_' . now()->format('YmdHis') . '.' . $image_type;
 
                     // resize (new) photo, add watermark and save it

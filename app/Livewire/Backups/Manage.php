@@ -72,7 +72,7 @@ class Manage extends Component
     {
         $this->backups = collect();
 
-        $disk  = Storage::disk(env('BACKUP_DISK', 'backups'));
+        $disk  = Storage::disk(config('app.backup_disk'));
         $files = $disk->files(config('backup.backup.name'));
 
         // make a collection of existing backup files, with their filesize and creation date
@@ -117,13 +117,13 @@ class Manage extends Component
 
     public function download(string $file_name)
     {
-        $disk = Storage::disk(env('BACKUP_DISK', 'backups'));
+        $disk = Storage::disk(config('app.backup_disk'));
         $file = config('backup.backup.name') . '/' . $file_name;
 
         if ($disk->exists($file)) {
             $this->toast()->success(__('backup.backup'), __('backup.downloading'))->send();
 
-            return Storage::download(env('BACKUP_DISK', 'backups') . '/' . $file);
+            return Storage::download(config('app.backup_disk') . '/' . $file);
         } else {
             $this->toast()->error(__('backup.backup'), __('backup.not_found'))->send();
         }
@@ -131,7 +131,7 @@ class Manage extends Component
 
     public function deleteBackup()
     {
-        $disk = Storage::disk(env('BACKUP_DISK', 'backups'));
+        $disk = Storage::disk(config('app.backup_disk'));
 
         if ($disk->exists(config('backup.backup.name') . '/' . $this->backup_to_delete)) {
             $disk->delete(config('backup.backup.name') . '/' . $this->backup_to_delete);
