@@ -43,7 +43,10 @@ class LogAllRequests
 
         // if request if authenticated
         if ($request->user()) {
-            $data['user_id'] = $request->user()->id;
+            $data['user'] = [
+                'id'   => $request->user()->id,
+                'name' => $request->user()->name,
+            ];
         }
 
         // if you want to log all the request body
@@ -75,7 +78,6 @@ class LogAllRequests
         // log the gathered information
         Log::debug($message, $data);
 
-        // return the response
         return $response;
     }
 }
