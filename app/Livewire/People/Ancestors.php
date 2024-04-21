@@ -11,11 +11,11 @@ class Ancestors extends Component
 
     public $ancestors;
 
-    public $count = 3;              // default
+    public $count = 3; // default
 
     public $count_min = 1;
 
-    public $count_max = 10;
+    public $count_max = 50; // maximum level depth
 
     // ------------------------------------------------------------------------------
     public function increment()
@@ -39,7 +39,7 @@ class Ancestors extends Component
 	            SELECT 
                     id, firstname, surname, sex, father_id, mother_id, dod, yod, team_id, photo, 
 		            0 AS degree,
-                    CAST(CONCAT(id, '') AS CHAR(255)) AS sequence
+                    CAST(CONCAT(id, '') AS CHAR(1024)) AS sequence
 	            FROM people  
 	            WHERE deleted_at IS NULL AND id = " . $this->person->id . " 
     
@@ -55,7 +55,7 @@ class Ancestors extends Component
             SELECT * FROM ancestors ORDER BY degree, sex DESC;
         "));
 
-        $this->count_max = $this->ancestors->max('degree') + 1;
+        $this->count_max = $this->ancestors->max('degree') <= 99 ? $this->ancestors->max('degree') + 1 : $this->count_max;
 
         if ($this->count > $this->count_max) {
             $this->count = $this->count_max;
