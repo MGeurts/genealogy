@@ -59,6 +59,19 @@
 
                                 <x-slot name="content">
                                     <div class="w-80">
+                                        {{-- teams switcher --}}
+                                        @if (Auth::user()->allTeams()->count() > 1)
+                                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                                {{ __('team.switch') }}
+                                            </div>
+
+                                            @foreach (Auth::user()->allTeams() as $team)
+                                                <x-switchable-team :team="$team" />
+                                            @endforeach
+
+                                            <hr />
+                                        @endif
+
                                         {{-- teams management --}}
                                         <div class="block px-4 py-2 text-xs text-gray-400">
                                             {{ __('team.manage') }}
@@ -89,19 +102,6 @@
                                                 {{ __('team.gedcom_export') }}
                                             </x-dropdown-link>
                                         @endcan
-
-                                        {{-- teams switcher --}}
-                                        @if (Auth::user()->allTeams()->count() > 1)
-                                            <div class="border-t border-gray-200"></div>
-
-                                            <div class="block px-4 py-2 text-xs text-gray-400">
-                                                {{ __('team.switch') }}
-                                            </div>
-
-                                            @foreach (Auth::user()->allTeams() as $team)
-                                                <x-switchable-team :team="$team" />
-                                            @endforeach
-                                        @endif
                                     </div>
                                 </x-slot>
                             </x-dropdown>
