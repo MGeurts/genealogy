@@ -9,11 +9,11 @@ use Illuminate\Database\Seeder;
 
 class DemoSeeder extends Seeder
 {
-    protected $british_royals_team = 4;
+    protected $british_royals_team = 3;
 
-    protected $kennedy_team = 5;
+    protected $kennedy_team = 4;
 
-    protected $editors_team = 7;
+    protected $editors_team = 6;
 
     /**
      * Run the database seeds.
