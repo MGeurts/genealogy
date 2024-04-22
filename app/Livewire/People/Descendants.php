@@ -18,7 +18,7 @@ class Descendants extends Component
     public $count_max = 50;  // maximum level depth
 
     // ------------------------------------------------------------------------------------------------
-    // REMARK : The maximum length of the comma separated seqeunce of all id's in
+    // REMARK : The maximum length of the comma separated sequence of all id's in
     //          the tree must NOT succeed 1024 characters!
     //          So, when the id's are 4 digits, the maximum level depth is 1024 / (4 + 1) = 204 levels
     //          So, when the id's are 5 digits, the maximum level depth is 1024 / (5 + 1) = 170 levels
