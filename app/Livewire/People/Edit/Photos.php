@@ -6,13 +6,13 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Number;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
-use Illuminate\Support\Number;
 
 class Photos extends Component
 {
@@ -43,7 +43,7 @@ class Photos extends Component
             'name'          => $file->getFilename(),
             'name_download' => $this->person->name . ' - ' . $file->getFilename(),
             'extension'     => $file->getExtension(),
-            'size'          => Number::fileSize($file->getSize(),1),
+            'size'          => Number::fileSize($file->getSize(), 1),
             'path'          => $file->getPath(),
             'url'           => Storage::url('photos/' . $this->person->team_id . '/' . $file->getFilename()),
         ])->sortBy('name');

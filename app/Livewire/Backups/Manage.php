@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Number;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -81,7 +82,7 @@ class Manage extends Component
             if (substr($file, -4) == '.zip' && $disk->exists($file)) {
                 $this->backups->push([
                     'file_name'    => str_replace(config('backup.backup.name') . '/', '', $file),
-                    'file_size'    => $this->humanFilesize($disk->size($file)),
+                    'file_size'    => Number::fileSize($disk->size($file), 2),
                     'date_created' => Carbon::createFromTimestamp($disk->lastModified($file))->format('d-m-Y H:i:s'),
                     'date_ago'     => Carbon::createFromTimestamp($disk->lastModified($file))->diffForHumans(Carbon::now()),
                 ]);
@@ -142,14 +143,6 @@ class Manage extends Component
         }
 
         $this->redirect('/backups');
-    }
-
-    protected function humanFilesize(mixed $bytes, int $decimals = 2)
-    {
-        $sz     = 'BKMGTP';
-        $factor = floor((strlen($bytes) - 1) / 3);
-
-        return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . ' ' . @$sz[$factor];
     }
 
     // -----------------------------------------------------------------------
