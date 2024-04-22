@@ -25,7 +25,7 @@
 
                             <a href="/people/{{ $person->id }}/edit-death">
                                 <x-ts-dropdown.items>
-                                    <x-ts-icon icon="coffin" class="mr-2" />
+                                    <x-ts-icon icon="grave-2" class="mr-2" />
                                     {{ __('person.edit_death') }}
                                 </x-ts-dropdown.items>
                             </a>

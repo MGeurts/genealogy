@@ -6,7 +6,9 @@
                     {{ __('person.edit_contact') }}
                 </div>
 
-                <div class="flex-grow min-w-max max-w-full flex-1 text-end"></div>
+                <div class="flex-grow min-w-max max-w-full flex-1 text-end">
+                    <x-ts-icon icon="address-book" class="inline-block" />
+                </div>
             </div>
         </div>
 

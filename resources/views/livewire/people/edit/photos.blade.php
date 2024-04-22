@@ -6,7 +6,9 @@
                     {{ __('person.upload_photos') }}
                 </div>
 
-                <div class="flex-grow min-w-max max-w-full flex-1 text-end"></div>
+                <div class="flex-grow min-w-max max-w-full flex-1 text-end">
+                    <x-ts-icon icon="photo" class="inline-block" />
+                </div>
             </div>
         </div>
 
@@ -31,7 +33,9 @@
                         {{ __('person.photos_existing') }} <x-ts-badge color="emerald" text="{{ count($images) }}" />
                     </div>
 
-                    <div class="flex-grow min-w-max max-w-full flex-1 text-end"></div>
+                    <div class="flex-grow min-w-max max-w-full flex-1 text-end">
+                        <x-ts-icon icon="library-photo" class="inline-block" />
+                    </div>
                 </div>
             </div>
 
