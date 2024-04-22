@@ -12,6 +12,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
+use Illuminate\Support\Number;
 
 class Photos extends Component
 {
@@ -42,7 +43,7 @@ class Photos extends Component
             'name'          => $file->getFilename(),
             'name_download' => $this->person->name . ' - ' . $file->getFilename(),
             'extension'     => $file->getExtension(),
-            'size'          => $this->size_as_kb($file->getSize()),
+            'size'          => Number::fileSize($file->getSize(),1),
             'path'          => $file->getPath(),
             'url'           => Storage::url('photos/' . $this->person->team_id . '/' . $file->getFilename()),
         ])->sortBy('name');
@@ -168,17 +169,4 @@ class Photos extends Component
     {
         return view('livewire.people.edit.photos');
     }
-
-    // -----------------------------------------------------------------------
-    private function size_as_kb($size): string
-    {
-        if ($size < 1024) {
-            return $size . ' bytes';
-        } elseif ($size < 1048576) {
-            return round($size / 1024) . ' KB';
-        } else {
-            return round($size / 1048576, 1) . ' MB';
-        }
-    }
-    // -----------------------------------------------------------------------
 }
