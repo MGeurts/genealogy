@@ -15,11 +15,6 @@ class PersonForm extends Form
     public $person = null;
 
     // -----------------------------------------------------------------------
-    public $image = null;       // file upload input
-
-    public $iteration = 0;      // needed for reset upload input
-
-    // -----------------------------------------------------------------------
     public $firstname = null;
 
     public $surname = null;
@@ -78,7 +73,6 @@ class PersonForm extends Form
             'pob' => ['nullable', 'string', 'max:255'],
 
             'photo' => ['nullable', 'string', 'max:255'],
-            'image' => ['nullable', 'sometimes', 'image', 'mimes:jpeg,png,jpg,svg,webp', 'max:1024'],
 
             'team_id' => ['nullable', 'integer'],
         ];
@@ -105,7 +99,6 @@ class PersonForm extends Form
             'pob' => __('person.pob'),
 
             'photo' => __('person.photo'),
-            'image' => __('person.photo'),
 
             'team_id' => __('person.team'),
         ];

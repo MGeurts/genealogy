@@ -93,24 +93,11 @@
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 
-                {{-- image --}}
+                {{-- images --}}
                 <div class="col-span-6">
-                    <x-label for="image" value="{{ __('person.upload_photo') }}" />
-                    <x-input type="file" id="image{{ $personForm->iteration }}" accept="image/webp, image/png, image/jpeg" wire:model="personForm.image"
-                        class="relative m-0 block w-full min-w-0 flex-auto cursor-pointer rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal leading-[1.60] text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:cursor-pointer file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-800 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary" />
-
-                    <span class="text-xs dark:text-neutral-800">Format: <b>jpeg/jpg</b>, <b>png</b> ,<b>svg</b> or <b>webp</b>, Max: <b>1024 Kb</b>. </span>
-
-                    <div class="col-span-6">
-                        <div wire:loading wire:target="image" role="status"
-                            class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]">
-                            <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
-                        </div>
-
-                        @if ($personForm->image)
-                            <img class="block mt-2 rounded w-36" src="{{ $personForm->image->temporaryUrl() }}" alt="image preview" />
-                        @endif
-                    </div>
+                    <x-ts-upload id="photos" wire:model="photos" accept=".jpeg, .jpg, gif, .png, .svg, .webp"
+                        hint="Format: <b>jpeg/jpg</b>, <b>gif</b>, <b>png</b> ,<b>svg</b> or <b>webp</b><br/>Max: <b>1024 KB</b>" tip="{{ __('person.update_photo_tip') }} ..." multiple delete>
+                    </x-ts-upload>
                 </div>
             </div>
         </div>
