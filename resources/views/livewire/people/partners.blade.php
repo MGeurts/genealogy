@@ -15,7 +15,7 @@
                             </x-ts-dropdown.items>
                         </a>
 
-                        @if (auth()->user()->hasPermission('couple:update'))
+                        @if (auth()->user()->hasPermission('couple:update') and $person->couples->count() > 0)
                             <hr />
 
                             @foreach ($person->couples->sortBy('date_start') as $couple)
@@ -31,7 +31,7 @@
                             @endforeach
                         @endif
 
-                        @if (auth()->user()->hasPermission('couple:delete'))
+                        @if (auth()->user()->hasPermission('couple:delete') and $person->couples->count() > 0)
                             <hr />
 
                             @foreach ($person->couples->sortBy('date_start') as $couple)

@@ -15,7 +15,7 @@
                             </x-ts-dropdown.items>
                         </a>
 
-                        @if (auth()->user()->hasPermission('person:update'))
+                        @if (auth()->user()->hasPermission('person:update') and $person->children->count() > 0)
                             <hr />
 
                             @foreach ($children as $child)
