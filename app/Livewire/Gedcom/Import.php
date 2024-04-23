@@ -56,7 +56,7 @@ class Import extends Component
         if ($this->isDirty()) {
             $validated = $this->validate();
 
-            if ($this->personForm->image) {
+            if ($this->file) {
             }
 
             $this->toast()->success(__('app.create'), __('app.created'))->flash()->send();
