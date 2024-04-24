@@ -12,6 +12,29 @@
     </x-slot>
 
     <x-slot name="content">
+        @php
+            $headers = [
+                ['index' => 'object', 'label' => __('team.team')],
+                ['index' => 'count_users', 'label' => __('team.users')],
+                ['index' => 'count_persons', 'label' => __('team.persons')],
+                ['index' => 'count_couples', 'label' => __('team.couples')],
+            ];
+
+            $rows = [];
+
+            foreach (Auth::user()->allTeams() as $team) {
+                array_push($rows, [
+                    'object' => $team->name,
+                    'count_users' => count($team->users),
+                    'count_persons' => count($team->persons),
+                    'count_couples' => count($team->couples),
+                ]);
+            }
+        @endphp
+
+        <x-ts-table :$headers :$rows />
+
+        <x-hr.normal />
         <div class="max-w-xl text-sm text-gray-600 dark:text-gray-400">
             {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
         </div>
