@@ -10,7 +10,7 @@
                 <x-ts-icon icon="brand-facebook" class="text-neutral-900 dark:text-neutral-200" />
             </a>
 
-            <a href="https://www.x.com/" class="mr-6 text-neutral-600 dark:text-neutral-200" target="_blank" title="X">
+            <a href="https://twitter.com/Kreaweb_be" class="mr-6 text-neutral-600 dark:text-neutral-200" target="_blank" title="X">
                 <x-ts-icon icon="brand-x" class="text-neutral-900 dark:text-neutral-200" />
             </a>
 
