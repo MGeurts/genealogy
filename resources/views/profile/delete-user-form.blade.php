@@ -22,7 +22,7 @@
 
             $rows = [];
 
-            foreach (Auth::user()->allTeams() as $team) {
+            foreach (auth()->user()->allTeams() as $team) {
                 array_push($rows, [
                     'object' => $team->name,
                     'count_users' => count($team->users),

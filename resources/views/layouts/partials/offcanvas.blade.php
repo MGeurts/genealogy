@@ -14,11 +14,11 @@
                 </div>
 
                 <div class="basis-1/2">
-                    @if (Auth::user())
-                        {{ Auth::user()->teamRole(auth()->user()->currentTeam)->name }}
+                    @if (auth()->check())
+                        {{ auth()->user()->teamRole(auth()->user()->currentTeam)->name }}
 
                         <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
-                        @foreach (Auth::user()->teamPermissions(Auth::user()->currentTeam) as $permission)
+                        @foreach (auth()->user()->teamPermissions(auth()->user()->currentTeam) as $permission)
                             {{ $permission }}<br />
                         @endforeach
                     @else
@@ -32,8 +32,8 @@
 
     {{-- offcanvas menu --}}
     <div class="flex-grow overflow-y-auto">
-        @if (Auth::user())
-            @if (Auth::user()->is_developer)
+        @if (auth()->check())
+            @if (auth()->user()->is_developer)
                 {{-- developer --}}
                 <div>{{ __('auth.developer') }} ...</div>
 
@@ -121,7 +121,7 @@
                 </div>
             @else
                 {{-- others --}}
-                <div>{{ Auth::user()->teamRole(auth()->user()->currentTeam)->name }} ...</div>
+                <div>{{ auth()->user()->teamRole(auth()->user()->currentTeam)->name }} ...</div>
 
                 <div>
                     <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />

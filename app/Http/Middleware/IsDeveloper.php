@@ -15,7 +15,7 @@ class IsDeveloper
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user() && auth()->user()->is_developer) {
+        if (auth()->check() && auth()->user()->is_developer) {
             return $next($request);
         }
 

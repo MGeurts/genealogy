@@ -26,7 +26,7 @@ class TeamInvitationController extends Controller
         );
 
         // Since the user just accepted invite to this team, set that as the current.
-        Auth::user()->switchTeam($invitation->team);
+        auth()->user()->switchTeam($invitation->team);
 
         $invitation->delete();
 
