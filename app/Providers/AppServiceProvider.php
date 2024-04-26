@@ -77,24 +77,22 @@ class AppServiceProvider extends ServiceProvider
         // -----------------------------------------------------------------------
         if (app()->isProduction()) {
             Event::listen(\Illuminate\Auth\Events\Login::class, function ($event) {
-                if (! $event->user->is_developer) {
-                    try {
-                        if ($position = Location::get()) {
-                            $country_name = $position->countryName;
-                            $country_code = $position->countryCode;
-                        } else {
-                            $country_name = null;
-                            $country_code = null;
-                        }
-
-                        Userlog::create([
-                            'user_id'      => $event->user->id,
-                            'country_name' => $country_name,
-                            'country_code' => $country_code,
-                        ]);
-                    } catch (QueryException $e) {
-                        Log::error("User log ERROR: {$e->getMessage()}");
+                try {
+                    if ($position = Location::get()) {
+                        $country_name = $position->countryName;
+                        $country_code = $position->countryCode;
+                    } else {
+                        $country_name = null;
+                        $country_code = null;
                     }
+
+                    Userlog::create([
+                        'user_id'      => $event->user->id,
+                        'country_name' => $country_name,
+                        'country_code' => $country_code,
+                    ]);
+                } catch (QueryException $e) {
+                    Log::error("User log ERROR: {$e->getMessage()}");
                 }
             });
         }
