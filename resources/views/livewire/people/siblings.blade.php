@@ -2,7 +2,10 @@
     <div class="h-14 min-h-min flex flex-col p-2 border-b-2 border-neutral-100 text-lg font-medium dark:border-neutral-600 dark:text-neutral-50 rounded-t">
         <div class="flex flex-wrap gap-2 justify-center items-start">
             <div class="flex-grow min-w-max max-w-full flex-1">
-                {{ __('person.siblings') }} <x-ts-badge color="emerald" text="{{ count($siblings) }}" />
+                {{ __('person.siblings') }}
+                @if (count($person->couples) > 0)
+                    <x-ts-badge color="emerald" text="{{ count($siblings) }}" />
+                @endif
             </div>
         </div>
     </div>
