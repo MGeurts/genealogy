@@ -8,7 +8,7 @@
             @if (auth()->user()->hasPermission('person:create'))
                 <div class="flex-grow min-w-max max-w-min flex-1 text-end">
                     <x-ts-dropdown icon="menu-2" position="bottom-end">
-                        <a href="/people/{{ $person->id }}/add-child">
+                        <a href="/people/{{ $person->id }}/add-child#form">
                             <x-ts-dropdown.items>
                                 <x-ts-icon icon="user-plus" class="mr-2" />
                                 {{ __('person.add_child') }}

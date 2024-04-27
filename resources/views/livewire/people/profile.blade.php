@@ -9,21 +9,21 @@
                 <div class="flex-grow min-w-max max-w-min flex-1 text-end">
                     <x-ts-dropdown icon="menu-2" position="bottom-end">
                         @if (auth()->user()->hasPermission('person:update'))
-                            <a href="/people/{{ $person->id }}/edit-profile">
+                            <a href="/people/{{ $person->id }}/edit-profile#form">
                                 <x-ts-dropdown.items>
                                     <x-ts-icon icon="id" class="mr-2" />
                                     {{ __('person.edit_profile') }}
                                 </x-ts-dropdown.items>
                             </a>
 
-                            <a href="/people/{{ $person->id }}/edit-contact">
+                            <a href="/people/{{ $person->id }}/edit-contact#form">
                                 <x-ts-dropdown.items>
                                     <x-ts-icon icon="address-book" class="mr-2" />
                                     {{ __('person.edit_contact') }}
                                 </x-ts-dropdown.items>
                             </a>
 
-                            <a href="/people/{{ $person->id }}/edit-death">
+                            <a href="/people/{{ $person->id }}/edit-death#form">
                                 <x-ts-dropdown.items>
                                     <x-ts-icon icon="grave-2" class="mr-2" />
                                     {{ __('person.edit_death') }}
@@ -31,7 +31,7 @@
                             </a>
 
                             <hr />
-                            <a href="/people/{{ $person->id }}/edit-photos">
+                            <a href="/people/{{ $person->id }}/edit-photos#form">
                                 <x-ts-dropdown.items>
                                     <x-ts-icon icon="photo" class="mr-2" />
                                     {{ __('person.edit_photos') }}

@@ -8,7 +8,7 @@
             @if (auth()->user()->hasPermission('person:update'))
                 <div class="flex-grow min-w-max max-w-min flex-1 text-end">
                     <x-ts-dropdown icon="menu-2" position="bottom-end">
-                        <a href="/people/{{ $person->id }}/edit-family">
+                        <a href="/people/{{ $person->id }}/edit-family#form">
                             <x-ts-dropdown.items>
                                 <x-ts-icon icon="edit" class="mr-2" />
                                 {{ __('person.edit_family') }}
