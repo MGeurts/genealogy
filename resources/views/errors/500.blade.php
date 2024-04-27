@@ -10,23 +10,46 @@
     </x-slot>
 
     <div class="grow max-w-5xl overflow-x-auto py-5 dark:text-neutral-200">
-        <x-ts-alert icon="bug" color="cyan">
-            <x-slot:title>
-                {{ $exception->getStatuscode() }}
-            </x-slot:title>
+        <div class="hidden dark:flex">
+            <x-ts-alert icon="bug" color="white">
+                <x-slot:title>
+                    {{ $exception->getStatuscode() }}
+                </x-slot:title>
 
-            <div class="my-10">
-                {{ $exception->getMessage() }}
-            </div>
-
-            <x-slot:footer>
-                <div class="flex justify-end">
-                    <x-ts-button href="/" color="slate" class="text-sm">
-                        <x-ts-icon icon="home" class="size-5 mr-1" />
-                        {{ __('app.home') }}
-                    </x-ts-button>
+                <div class="my-10">
+                    {{ $exception->getMessage() }}
                 </div>
-            </x-slot:footer>
-        </x-ts-alert>
+
+                <x-slot:footer>
+                    <div class="flex justify-end">
+                        <x-ts-button href="/" color="slate" class="text-sm">
+                            <x-ts-icon icon="home" class="size-5 mr-1" />
+                            {{ __('app.home') }}
+                        </x-ts-button>
+                    </div>
+                </x-slot:footer>
+            </x-ts-alert>
+        </div>
+
+        <div class="flex dark:hidden">
+            <x-ts-alert icon="bug" color="black">
+                <x-slot:title>
+                    {{ $exception->getStatuscode() }}
+                </x-slot:title>
+
+                <div class="my-10">
+                    {{ $exception->getMessage() }}
+                </div>
+
+                <x-slot:footer>
+                    <div class="flex justify-end">
+                        <x-ts-button href="/" color="slate" class="text-sm">
+                            <x-ts-icon icon="home" class="size-5 mr-1" />
+                            {{ __('app.home') }}
+                        </x-ts-button>
+                    </div>
+                </x-slot:footer>
+            </x-ts-alert>
+        </div>
     </div>
 </x-app-layout>
