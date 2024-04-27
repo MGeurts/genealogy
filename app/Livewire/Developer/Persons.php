@@ -97,16 +97,19 @@ class Persons extends Component implements HasForms, HasTable
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('app.created_at'))
+                    ->timezone(auth()->user()->timezone)
                     ->dateTime('Y-m-d h:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label(__('app.updated_at'))
+                    ->timezone(auth()->user()->timezone)
                     ->dateTime('Y-m-d h:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('deleted_at')
                     ->label(__('app.deleted_at'))
+                    ->timezone(auth()->user()->timezone)
                     ->dateTime('Y-m-d h:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

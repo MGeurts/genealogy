@@ -81,12 +81,14 @@ class Users extends Component implements HasForms, HasTable
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('app.created_at'))
                     ->verticallyAlignStart()
+                    ->timezone(auth()->user()->timezone)
                     ->dateTime('Y-m-d h:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label(__('app.updated_at'))
                     ->verticallyAlignStart()
+                    ->timezone(auth()->user()->timezone)
                     ->dateTime('Y-m-d h:i')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -94,6 +96,7 @@ class Users extends Component implements HasForms, HasTable
                     ->label(__('app.deleted_at'))
                     ->verticallyAlignStart()
                     ->dateTime('Y-m-d h:i')
+                    ->timezone(auth()->user()->timezone)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
