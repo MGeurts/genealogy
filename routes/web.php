@@ -89,7 +89,7 @@ Route::get('language/{locale}', function ($locale) {
     Carbon::setLocale($locale);
     session()->put('locale', $locale);
 
-    return redirect()->back();
+    return back();
 });
 
 // -----------------------------------------------------------------------------------------------
