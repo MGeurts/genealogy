@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="basis-1/2">
-                    @if (auth()->check())
+                    @auth
                         {{ auth()->user()->teamRole(auth()->user()->currentTeam)->name }}
 
                         <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
@@ -24,7 +24,7 @@
                     @else
                         {{ __('auth.guest') }}
                         <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
-                    @endif
+                    @endauth
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
 
     {{-- offcanvas menu --}}
     <div class="flex-grow overflow-y-auto">
-        @if (auth()->check())
+        @auth
             @if (auth()->user()->is_developer)
                 {{-- developer --}}
                 <div>{{ __('auth.developer') }} ...</div>
@@ -133,10 +133,7 @@
                     </p>
                 </div>
             @endif
-        @endif
-
-        @guest
-            {{-- guest --}}
+        @else
             <div>{{ __('auth.guest') }} ...</div>
 
             <div><x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
@@ -147,7 +144,7 @@
                     {{ __('app.help') }}
                 </x-nav-link-responsive>
             </p>
-        @endguest
+        @endauth
     </div>
 
     <x-slot:footer end>
