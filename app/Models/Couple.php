@@ -62,7 +62,7 @@ class Couple extends Model
             return;
         } else {
             $query->where(function ($q) use ($date_start) {
-                $q->whereNull('date_start')->orWhere('date_start', '<', $date_start);
+                $q->whereNull('date_start')->orWhere('date_start', '<=', $date_start);
             });
         }
     }
@@ -73,7 +73,7 @@ class Couple extends Model
             return;
         } else {
             $query->where(function ($q) use ($date_start) {
-                $q->whereNull('date_start')->orWhere('date_start', '>', $date_start);
+                $q->whereNull('date_start')->orWhere('date_start', '=>', $date_start);
             });
         }
     }
