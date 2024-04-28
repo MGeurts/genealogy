@@ -15,7 +15,7 @@
         </div>
 
         <div class="p-4 bg-neutral-200">
-            <x-ts-errors icon="exclamation-circle" class="mb-2" close />
+            {{-- <x-ts-errors icon="exclamation-circle" class="mb-2" close /> --}}
 
             <div class="grid grid-cols-6 gap-5">
                 {{-- father_id --}}
