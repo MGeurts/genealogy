@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Team;
 use App\Models\User;
+use App\Models\Userlog;
 use Illuminate\Database\Seeder;
 use Laravel\Jetstream\Jetstream;
 
@@ -14,7 +15,7 @@ class UserAndTeamSeeder extends Seeder
         // -----------------------------------------------------------------------------------
         // create developer users
         // -----------------------------------------------------------------------------------
-        User::factory([
+        $developer = User::factory([
             'firstname'    => '_',
             'surname'      => 'Developer',
             'email'        => 'developer@genealogy.test',
@@ -22,6 +23,10 @@ class UserAndTeamSeeder extends Seeder
         ])
             ->withPersonalTeam()
             ->create();
+
+        if (! app()->isProduction()) {
+            $this->createUserlogs($developer);
+        }
 
         // -----------------------------------------------------------------------------------
         // create administrator user
@@ -33,6 +38,10 @@ class UserAndTeamSeeder extends Seeder
         ])
             ->withPersonalTeam()
             ->create();
+
+        if (! app()->isProduction()) {
+            $this->createUserlogs($administrator);
+        }
 
         // -----------------------------------------------------------------------------------
         // create demo teams (owned by administrator)
@@ -67,6 +76,10 @@ class UserAndTeamSeeder extends Seeder
             ->withPersonalTeam()
             ->create();
 
+        if (! app()->isProduction()) {
+            $this->createUserlogs($manager);
+        }
+
         $team_british_royals->users()->attach(
             Jetstream::findUserByEmailOrFail($manager->email),
             ['role' => 'manager']
@@ -81,6 +94,10 @@ class UserAndTeamSeeder extends Seeder
         ])
             ->withPersonalTeam()
             ->create();
+
+        if (! app()->isProduction()) {
+            $this->createUserlogs($editor);
+        }
 
         $team_kennedy->users()->attach(
             Jetstream::findUserByEmailOrFail($editor->email),
@@ -101,6 +118,10 @@ class UserAndTeamSeeder extends Seeder
                     ->withPersonalTeam()
                     ->create();
 
+                if (! app()->isProduction()) {
+                    $this->createUserlogs($user);
+                }
+
                 $team_british_royals->users()->attach(
                     Jetstream::findUserByEmailOrFail($user->email),
                     ['role' => 'member']
@@ -117,6 +138,10 @@ class UserAndTeamSeeder extends Seeder
                     ->withPersonalTeam()
                     ->create();
 
+                if (! app()->isProduction()) {
+                    $this->createUserlogs($user);
+                }
+
                 $team_kennedy->users()->attach(
                     Jetstream::findUserByEmailOrFail($user->email),
                     ['role' => 'member']
@@ -131,7 +156,21 @@ class UserAndTeamSeeder extends Seeder
                 ])
                     ->withPersonalTeam()
                     ->create();
+
+                if (! app()->isProduction()) {
+                    $this->createUserlogs($user);
+                }
             }
+        }
+    }
+
+    // -----------------------------------------------------------------------------------
+    protected function createUserlogs(User $user): void
+    {
+        for ($i = 1; $i <= rand(20, 200); $i++) {
+            Userlog::factory([
+                'user_id' => $user->id,
+            ])->create();
         }
     }
 
