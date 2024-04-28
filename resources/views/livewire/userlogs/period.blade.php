@@ -55,8 +55,12 @@
                         {{ __('userlog.period') }}
                     </div>
 
-                    <div class="w-48">
-                        <x-ts-select.styled wire:model.live="period" name="period" id="period" :options="$options" select="label:label|value:value" required />
+                    <div class="w-32">
+                        <x-ts-select.styled wire:model.live="year" name="year" id="year" :options="$years" select="label:label|value:value" required />
+                    </div>
+
+                    <div class="w-32">
+                        <x-ts-select.styled wire:model.live="period" name="period" id="period" :options="$periods" select="label:label|value:value" required />
                     </div>
 
                     <div class="flex-grow min-w-max max-w-full flex-1 text-end">
