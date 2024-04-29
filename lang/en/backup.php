@@ -30,5 +30,6 @@ return [
     'created'     => 'The new backup was saved.',
     'deleted'     => 'is deleted.',
     'downloading' => 'The download is started.',
+    'failed'      => 'The backup failed.',
     'not_found'   => 'The backup was not found.',
 ];

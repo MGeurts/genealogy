@@ -30,5 +30,6 @@ return [
     'created'     => 'De nieuwe backup werd bewaard.',
     'deleted'     => 'is verwijderd.',
     'downloading' => 'De download is gestart.',
+    'failed'      => 'De backup is mislukt.',
     'not_found'   => 'De backup werd niet gevonden.',
 ];

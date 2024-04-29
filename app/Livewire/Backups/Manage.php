@@ -16,14 +16,17 @@ class Manage extends Component
     // -----------------------------------------------------------------------
     // To make this BACKUP controller work, you need to :
     // -----------------------------------------------------------------------
-    //      1. add and configure this to your .env :
+    //      1. install laravel-backup
+    //         https://github.com/spatie/laravel-backup
+    //
+    //      2. add and configure this to your .env :
     //
     //          BACKUP_DISK="backups"
     //          BACKUP_DAILY_CLEANUP="22:30"
     //          BACKUP_DAILY_RUN="23:00"
     //          BACKUP_MAIL_ADDRESS="webmaster@yourdomain.com"
     //
-    //      2. configure this to a working mail system in your .env :
+    //      3. configure this to a working mail system in your .env :
     //          MAIL_MAILER=smtp
     //          MAIL_HOST=mailpit
     //          MAIL_PORT=1025
@@ -33,7 +36,7 @@ class Manage extends Component
     //          MAIL_FROM_ADDRESS="no-reply@yourdomain.com"
     //          MAIL_FROM_NAME="${APP_NAME}"
     // -----------------------------------------------------------------------
-    //      2. add this to your config/filesystem.php :
+    //      4. add this to your config/filesystem.php :
     //
     //          env('BACKUP_DISK', 'backups') => [
     //              'driver' => 'local',
@@ -41,7 +44,7 @@ class Manage extends Component
     //              'throw' => false,
     //          ],
     // -----------------------------------------------------------------------
-    //      3. configure this in your config/backup.php :
+    //      5. configure this in your config/backup.php :
     //
     //          // backup --> destination --> disks :
     //          'disks' => [
@@ -94,23 +97,23 @@ class Manage extends Component
 
     public function create()
     {
-        try {
-            if (! defined('STDIN')) {
-                define('STDIN', fopen('php://stdin', 'r'));
-            }
+        if (! defined('STDIN')) {
+            define('STDIN', fopen('php://stdin', 'r'));
+        }
 
-            Artisan::call('backup:run --only-db');
-            //Artisan::call('backup:run --only-db', ['--force' => true]);
-            //Artisan::queue('backup:run --only-db');
-            $output = Artisan::output();
+        $exitCode = Artisan::call('backup:run --only-db');
+        //$exitCode = Artisan::call('backup:run --only-db', ['--force' => true]);
+        //$exitCode = Artisan::queue('backup:run --only-db');
+        $output = Artisan::output();
 
+        if($exitCode == 0) {
             Log::info("Backup (Manually) -- Backup started \r\n" . $output);
 
             $this->toast()->success(__('backup.backup'), __('backup.created'))->flash()->send();
-        } catch (Exception $e) {
-            Log::info("Backup (Manually) -- Backup failed \r\n" . $e->getMessage());
+        } else {
+            Log::error("Backup (Manually) -- Backup failed \r\n" . $output);
 
-            $this->toast()->error(__('backup.backup'), $e->getMessage())->flash()->send();
+            $this->toast()->error(__('backup.backup'), __('backup.failed'))->flash()->send();
         }
 
         $this->redirect('/backups');

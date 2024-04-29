@@ -30,5 +30,6 @@ return [
     'created'     => 'Neue Sicherung wurde erstellt.',
     'deleted'     => 'wurde gelöscht.',
     'downloading' => 'Der Download hat begonnen.',
+    'failed'      => 'Die Sicherung ist fehlgeschlagen.',
     'not_found'   => 'Sicherung konnte nicht gefunden werden.',
 ];
