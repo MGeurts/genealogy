@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-//use Illuminate\Auth\Middleware\RedirectIfAuthenticated;
 use App\Models\Userlog;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;

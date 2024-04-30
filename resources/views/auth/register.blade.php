@@ -14,15 +14,6 @@
             <x-authentication-card-logo />
         </x-slot>
 
-        @if (session('teamInvitation'))
-            <x-slot name="heading">
-                <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-                    {{ __('auth.register') }} {{ __('auth.or') }} <a class="underline hover:text-primary" href="{{ route('login') }}">{{ __('auth.log_in') }}</a>
-                    {{ __('auth.to_join') }} {{ __('auth.team') }} <strong class="text-primary">{{ session('teamInvitation') }}</strong>.
-                </h2>
-            </x-slot>
-        @endif
-
         <x-validation-errors class="mb-4" />
 
         <form method="POST" action="{{ route('register') }}">
