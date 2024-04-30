@@ -106,7 +106,7 @@ class Manage extends Component
         //$exitCode = Artisan::queue('backup:run --only-db');
         $output = Artisan::output();
 
-        if($exitCode == 0) {
+        if ($exitCode == 0) {
             Log::info("Backup (Manually) -- Backup started \r\n" . $output);
 
             $this->toast()->success(__('backup.backup'), __('backup.created'))->flash()->send();
