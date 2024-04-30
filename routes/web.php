@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\TeamInvitationController;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
-use Laravel\Jetstream\Jetstream;
 
 // -----------------------------------------------------------------------------------------------
 // frontend routes
