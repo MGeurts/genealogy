@@ -2,6 +2,9 @@
 
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Schedule;
+
+Schedule::command('app:backup')->daily((config('app.backup_daily_run')));
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());

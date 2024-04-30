@@ -102,9 +102,7 @@ class Manage extends Component
         }
 
         $exitCode = Artisan::call('backup:run --only-db');
-        //$exitCode = Artisan::call('backup:run --only-db', ['--force' => true]);
-        //$exitCode = Artisan::queue('backup:run --only-db');
-        $output = Artisan::output();
+        $output   = Artisan::output();
 
         if ($exitCode == 0) {
             Log::info("Backup (Manually) -- Backup started \r\n" . $output);
