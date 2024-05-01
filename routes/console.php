@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schedule;
 
@@ -24,7 +22,3 @@ Schedule::command('backup:run --only-db')->daily()->at(config('app.backup_daily_
         Log::warning('Backup (Scheduled) -- Backup failed');
     });
 // --------------------------------------------------------------------------------
-
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
-})->purpose('Display an inspiring quote')->hourly();
