@@ -3,7 +3,6 @@
 namespace App\Livewire\Backups;
 
 use Carbon\Carbon;
-use Exception;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -80,7 +79,7 @@ class Manage extends Component
         $files = $disk->files(config('backup.backup.name'));
 
         // make a collection of existing backup files, with their filesize and creation date
-        foreach ($files as $index => $file) {
+        foreach ($files as $file) {
             // only take zip files into account
             if (substr($file, -4) == '.zip' && $disk->exists($file)) {
                 $this->backups->push([

@@ -69,9 +69,9 @@ class DemoSeeder extends Seeder
         // -----------------------------------------------------
         // Metadata
         // -----------------------------------------------------
-        $king_george_chapel = [1, 2, 31, 32, 33, 37];
+        $buried_at_king_george_chapel = [1, 2, 31, 32, 33, 37];
 
-        foreach ($king_george_chapel as $person) {
+        foreach ($buried_at_king_george_chapel as $person) {
             PersonMetadata::create([
                 'person_id' => $person,
                 'key'       => 'cemetery_location_name',
