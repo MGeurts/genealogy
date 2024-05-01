@@ -32,19 +32,16 @@
         {{-- TallStackUI notifications --}}
         <x-ts-toast />
 
+        {{-- offcanvas menu --}}
+        @include('layouts.partials.offcanvas')
+
         {{-- header --}}
         @include('layouts.partials.header')
-
-        {{-- offcanvas --}}
-        @include('layouts.partials.offcanvas')
 
         {{-- heading --}}
         @if (isset($heading))
             @include('layouts.partials.heading')
         @endif
-
-        {{-- banner --}}
-        {{-- <x-banner /> --}}
 
         {{-- content --}}
         <main class="mx-auto px-2 md:px-5 flex flex-grow">
