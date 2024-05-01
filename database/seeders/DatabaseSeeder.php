@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         //
         // - the DEMO DATA seeder call above
         // - the database seeder /database/seeders/DemoSeeder.php
+        // - the database seeder /database/seeders/TreeSeeder.php
         // - the database seeder /database/seeders/UserAndTeamSeeder.php
         //
         // - the folder /public/xml
