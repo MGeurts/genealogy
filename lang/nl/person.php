@@ -35,11 +35,11 @@ return [
     'years'         => '[0,1] Jaar|[2,*] Jaar',
 
     // Actions
-    'add_child'        => 'Kind toevoegen',
-    'add_person'       => 'Persoon toevoegen',
-    'add_person_in_team' => 'Persoon toevoegen aan team :team',
-    'add_photo'        => 'Foto toevoegen',
-    'add_relationship' => 'Relatie toevoegen',
+    'add_child'          => 'Kind toevoegen',
+    'add_person'         => 'Persoon toevoegen',
+    'add_person_in_team' => 'Persoon toevoegen aan team : :team',
+    'add_photo'          => 'Foto toevoegen',
+    'add_relationship'   => 'Relatie toevoegen',
 
     'edit'              => 'Editeer',
     'edit_children'     => 'Editeer kinderen',
