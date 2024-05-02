@@ -37,6 +37,7 @@ return [
     // Actions
     'add_child'        => 'Add child',
     'add_person'       => 'Add person',
+    'add_person_in_team' => 'Add person in team :team',
     'add_photo'        => 'Add photo',
     'add_relationship' => 'Add relationship',
 

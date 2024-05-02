@@ -59,11 +59,11 @@ class AppServiceProvider extends ServiceProvider
         // -----------------------------------------------------------------------
         // LOG-VIEWER : log all N+1 queries
         // -----------------------------------------------------------------------
-        // Model::preventLazyLoading();
+        Model::preventLazyLoading();
 
-        // Model::handleLazyLoadingViolationUsing(function ($model, $relation) {
-        //     Log::warning("N+1 Query detected.\r\n" . sprintf('N+1 Query detected in model %s on relation %s.', get_class($model), $relation));
-        // });
+        Model::handleLazyLoadingViolationUsing(function ($model, $relation) {
+            Log::warning("N+1 Query detected.\r\n" . sprintf('N+1 Query detected in model %s on relation %s.', get_class($model), $relation));
+        });
 
         // -----------------------------------------------------------------------
         // LOG-VIEWER : log all requests

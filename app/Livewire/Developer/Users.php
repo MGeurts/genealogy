@@ -108,7 +108,15 @@ class Users extends Component implements HasForms, HasTable
                     ->label(__('user.developer') . '?'),
             ], layout: FiltersLayout::AboveContent)
             ->actions([
-                Tables\Actions\DeleteAction::make()->iconButton(),
+                Tables\Actions\DeleteAction::make()
+                ->iconButton()
+                ->before(function ($record, $action) {
+                    if(true) {
+                        // prevent delete when users ownes teams having persons and/or couples
+
+                        $action->cancel();
+                    }
+                }),
                 Tables\Actions\ForceDeleteAction::make()->iconButton(),
                 Tables\Actions\RestoreAction::make()->iconButton(),
             ])

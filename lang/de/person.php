@@ -37,6 +37,7 @@ return [
     // Actions
     'add_child'        => 'Kind hinzufügen',
     'add_person'       => 'Person hinzufügen',
+    'add_person_in_team' => 'Person hinzufügen in Team :team',
     'add_photo'        => 'Foto hinzufügen',
     'add_relationship' => 'Beziehung hinzufügen',
 

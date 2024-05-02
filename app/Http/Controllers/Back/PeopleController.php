@@ -26,7 +26,7 @@ class PeopleController extends Controller
 
     public function add(): View
     {
-        return view('back.people.add');
+        return view('back.people.add.person');
     }
 
     public function show(Person $person): View
