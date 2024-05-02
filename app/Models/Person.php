@@ -107,9 +107,9 @@ class Person extends Model
             return;
         } else {
             $query->where(function ($q) use ($birth_date) {
-                $q->whereNull('dob')->orWhere('dob', '=>', $birth_date);
+                $q->whereNull('dob')->orWhere('dob', '>=', $birth_date);
             })->where(function ($q) use ($birth_year) {
-                $q->whereNull('yob')->orWhere('yob', '=>', $birth_year);
+                $q->whereNull('yob')->orWhere('yob', '>=', $birth_year);
             });
         }
     }
