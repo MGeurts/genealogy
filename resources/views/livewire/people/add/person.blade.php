@@ -41,7 +41,7 @@
                 <x-hr.narrow class="col-span-6 !my-0" />
 
                 {{-- sex --}}
-                <div class="col-span-3">
+                <div class="col-span-6 md:col-span-3">
                     <x-label for="sex" class="mr-5" value="{{ __('person.sex') }} ({{ __('person.biological') }})" />
                     <div class="flex">
                         <div class="mt-3 mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
@@ -54,7 +54,7 @@
                 </div>
 
                 {{-- gender_id --}}
-                <div class="col-span-3">
+                <div class="col-span-6 md:col-span-3">
                     <x-ts-select.styled wire:model="gender_id" id="gender_id" label="{{ __('person.gender') }}" :options="$personForm->genders()" select="label:name|value:id" placeholder="{{ __('app.select') }} ..."
                         wire:dirty.class="bg-warning-100 dark:text-black" searchable />
                 </div>
@@ -79,8 +79,8 @@
 
                 {{-- images --}}
                 <div class="col-span-6">
-                    <x-ts-upload id="photos" wire:model="photos" accept=".jpeg, .jpg, gif, .png, .svg, .webp"
-                        hint="Format: <b>jpeg/jpg</b>, <b>gif</b>, <b>png</b> ,<b>svg</b> or <b>webp</b><br/>Max: <b>1024 KB</b>" tip="{{ __('person.update_photo_tip') }} ..." multiple delete>
+                    <x-ts-upload id="photos" wire:model="photos" label="{{ __('person.photos') }}" accept=".jpeg, .jpg, .gif, .png, .svg, .webp"
+                        hint="Max: 1024 KB, Format: jpeg/jpg, gif, png,svg or webp" tip="{{ __('person.update_photo_tip') }} ..." multiple delete>
                     </x-ts-upload>
                 </div>
             </div>

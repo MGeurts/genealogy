@@ -102,7 +102,7 @@ class Person extends Component
     {
         if ($this->isDirty()) {
             $validated = $this->personForm->validate();
-            $person    = \App\Models\Person::create($validated);
+            $person    = Person::create($validated);
 
             if ($this->photos) {
                 // if needed, create team photo folder

@@ -103,6 +103,11 @@ class AppServiceProvider extends ServiceProvider
         TallStackUi::personalize()->button()
             ->block('wrapper.class')->replace('gap-x-2', 'gap-x-0');
 
+        TallStackUi::personalize()->tab()
+            ->block('base.wrapper')->replace('rounded-lg', 'rounded')
+            ->block('base.wrapper')->replace('dark:bg-dark-700', 'dark:bg-neutral-700')
+            ->block('item.select')->replace('dark:text-dark-300', 'dark:text-neutral-50');
+
         TallStackUi::personalize()->slide()
             ->block('wrapper.first')->replace('bg-opacity-50', 'bg-opacity-20')
             ->block('wrapper.fifth')->replace('dark:bg-dark-700', 'dark:bg-dark-900')
