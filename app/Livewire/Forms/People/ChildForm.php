@@ -8,5 +8,4 @@ class ChildForm extends PersonForm
     public $person_id = null;
 
     // -----------------------------------------------------------------------
-
 }
