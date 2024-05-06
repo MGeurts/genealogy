@@ -169,7 +169,7 @@ Click on the father's or mother's name to visit the parent.
 
 ## 4. Adding people
 
-### New person
+### a. New person
 
 After login and <span class="text-danger">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
 
@@ -180,7 +180,7 @@ You can add a new person by clicking the <b>Add person</b> button above the sear
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-010a.webp" class="rounded" alt="Add person">
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-011b.webp" class="rounded" alt="Add person">
 
-### New person being a partner
+### b. New person being a partner
 
 A second way to add people is to click on the <b>Add relationship</b> tab in the <b>Partners</b> context menu of an existing person.
 
@@ -191,7 +191,7 @@ A second way to add people is to click on the <b>Add relationship</b> tab in the
     You can either create a <b>brand new person</b> or select an <b>existing person</b> as this person's new partner.
 </div>
 
-### New person being a child
+### c. New person being a child
 
 A third way to add people is to click on the <b>Add child</b> tab in the <b>Children</b> context menu of an existing person.
 
