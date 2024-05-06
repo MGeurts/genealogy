@@ -167,7 +167,7 @@ Click on the father's or mother's name to visit the parent.
 
 <!-- ---------------------------------------------------------------------------------- -->
 
-## 3. Adding people
+## 4. Adding people
 
 After login and <span class="text-danger">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
 
@@ -176,24 +176,31 @@ After login and <span class="text-danger">selecting the proper team</span>, clic
 You can add new person by clicking the <b>Add person</b> button above the search bar.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-010a.webp" class="rounded" alt="Add person">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-011a.webp" class="rounded" alt="Add person">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-011b.webp" class="rounded" alt="Add person">
 
-You can also upload the <b>primary photo</b> for the new person.
-
-Another way to add people is to click on the <b>Add child</b> tab in the <b>Children</b> context menu of an existing person.
+A second way to add people is to click on the <b>Add child</b> tab in the <b>Children</b> context menu of an existing person.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-050a.webp" class="rounded" alt="Children">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-051b.webp" class="rounded" alt="Add child">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-051c.webp" class="rounded" alt="Add child">
 
 <div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
     You can either create a <b>brand new person</b> or select an <b>existing person</b> as this person's new child.
+</div>
+
+A third way to add people is to click on the <b>Add relationship</b> tab in the <b>Partners</b> context menu of an existing person.
+
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-055.webp" class="rounded" alt="Partners">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-056.webp" class="rounded" alt="Add relationship">
+
+<div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
+    You can either create a <b>brand new person</b> or select an <b>existing person</b> as this person's new partner.
 </div>
 
 <hr />
 
 <!-- ---------------------------------------------------------------------------------- -->
 
-## 4. Persons and relationships
+## 5. Persons and relationships
 
 ### a. Profile
 
@@ -252,8 +259,15 @@ You can edit the family data by clicking the blue <b>Edit</b> button in the card
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-040a.webp" class="rounded" alt="Partners">
 
 You can <b>add</b>, <b>edit</b> or <b>delete</b> a relationship by choosing the corresponding tab in the context menu.
+When deleting a relationship, the ex-partner stays in the collection as a separate person.
+Under normal circumstances, you should only delete relationships when entered by mistake.
+You can end every exiting relationship by setting the relation as ended, with or without specifying the end date.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-041a.webp" class="rounded" alt="Partners add">
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-041b.webp" class="rounded" alt="Partners add">
+
+When adding a partner you can either create a brand new person or select an axisting person as the new partner.
+
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-055.webp" class="rounded" alt="Partners add">
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-042a.webp" class="rounded" alt="Partners edit">
 
 ### e. Children
@@ -263,6 +277,7 @@ You can <b>add</b>, <b>edit</b> or <b>delete</b> a relationship by choosing the 
 You can add a child or disconnect existing children by choosing the corresponding tab in the context menu.
 The disconnected child will remain in the database as a person but just not have the selected person as father or mother anymore.
 
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-052.webp" class="rounded" alt="Child add">
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-051b.webp" class="rounded" alt="Child add">
 
 When adding a child you can either create a <b>brand new person</b> or select an <b>existing person</b>.
@@ -302,7 +317,7 @@ Click on a family member name to see that person's details.
 
 <!-- ---------------------------------------------------------------------------------- -->
 
-## 5. Birthdays
+## 6. Birthdays
 
 After login and selecting the proper team, click on the <b>Birthdays</b> button in the top navigation menu.
 
@@ -316,7 +331,7 @@ This shows the upcomming birthdays.
 
 <!-- ---------------------------------------------------------------------------------- -->
 
-## 6. Offcanvas menu
+## 7. Offcanvas menu
 
 Users can click a button in the top right-hand menu to open the <b>offcanvas menu</b>.<br/>
 On top the users role and permissions in the current team are shown.<br/>
@@ -365,7 +380,7 @@ The <b>Session</b> menu item allows <b>developers</b> to consult the application
 
 <!-- ---------------------------------------------------------------------------------- -->
 
-## 7. Language & Timezone
+## 8. Language & Timezone
 
 ### a. Visitors
 
@@ -385,7 +400,7 @@ The selected language and timezone are saved in the database for further use.
 
 <!-- ---------------------------------------------------------------------------------- -->
 
-## 8. Color theme
+## 9. Color theme
 
 Users can change the color theme in the top right-hand menu by using the <b>theme selector</b>.<br/>
 
