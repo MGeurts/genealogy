@@ -42,8 +42,6 @@ class Person extends Component
         $this->personForm->pob = null;
 
         $this->personForm->photo = null;
-
-        $this->personForm->team_id = auth()->user()->current_team_id;
     }
 
     public function deleteUpload(array $content): void
@@ -102,7 +100,20 @@ class Person extends Component
     {
         if ($this->isDirty()) {
             $validated = $this->personForm->validate();
-            $person    = Person::create($validated);
+           
+            $new_person = \App\Models\Person::create([
+                'firstname' => $validated['firstname'],
+                'surname'   => $validated['surname'],
+                'birthname' => $validated['birthname'],
+                'nickname'  => $validated['nickname'],
+                'sex'       => $validated['sex'],
+                'gender_id' => $validated['gender_id'] ?? null,
+                'yob'       => $validated['yob'],
+                'dob'       => $validated['dob'],
+                'pob'       => $validated['pob'],
+                'father_id' => $this->person->id,
+                'team_id'   => $this->person->team_id,
+            ]);
 
             if ($this->photos) {
                 // if needed, create team photo folder
@@ -147,9 +158,9 @@ class Person extends Component
                 }
             }
 
-            $this->toast()->success(__('app.save'), $person->name . ' ' . __('app.created'))->flash()->send();
+            $this->toast()->success(__('app.save'), $new_person->name . ' ' . __('app.created'))->flash()->send();
 
-            return $this->redirect('/people/' . $person->id);
+            return $this->redirect('/people/' . $new_person->id);
         }
     }
 

@@ -35,13 +35,15 @@ return [
     'years'         => '[0,1] Jaar|[2,*] Jaar',
 
     // Actions
-    'add_child'                    => 'Kind toevoegen',
-    'add_new_person_as_child'      => 'NIEUWE persoon als kind toevoegen',
-    'add_existing_person_as_child' => 'BESTAANDE persoon als kind toevoegen',
-    'add_person'                   => 'Persoon toevoegen',
-    'add_person_in_team'           => 'Persoon toevoegen aan team : :team',
-    'add_photo'                    => 'Foto toevoegen',
-    'add_relationship'             => 'Relatie toevoegen',
+    'add_child'                      => 'Kind toevoegen',
+    'add_new_person_as_child'        => 'NIEUWE persoon als kind toevoegen',
+    'add_existing_person_as_child'   => 'BESTAANDE persoon als kind toevoegen',
+    'add_person'                     => 'Persoon toevoegen',
+    'add_new_person_as_partner'      => 'NIEUWE persoon als partner toevoegen',
+    'add_existing_person_as_partner' => 'BESTAANDE persoon als partner toevoegen',
+    'add_person_in_team'             => 'Persoon toevoegen aan team : :team',
+    'add_photo'                      => 'Foto toevoegen',
+    'add_relationship'               => 'Relatie toevoegen',
 
     'edit'              => 'Editeer',
     'edit_children'     => 'Editeer kinderen',

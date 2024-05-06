@@ -47,8 +47,6 @@ class Child extends Component
         $this->childForm->photo = null;
 
         $this->childForm->person_id = null;
-
-        $this->childForm->team_id = auth()->user()->current_team_id;
     }
 
     public function deleteUpload(array $content): void
@@ -155,7 +153,7 @@ class Child extends Component
 
                 if ($this->photos) {
                     // if needed, create team photo folder
-                    $path = storage_path('app/public/photos/' . $this->childForm->team_id);
+                    $path = storage_path('app/public/photos/' . $this->person->team_id);
 
                     if (! File::isDirectory($path)) {
                         File::makeDirectory($path, 0777, true, true);
@@ -222,8 +220,6 @@ class Child extends Component
         $this->childForm->yob != null or
         $this->childForm->dob != null or
         $this->childForm->pob != null or
-
-        $this->childForm->photo != null or
 
         $this->childForm->person_id;
     }

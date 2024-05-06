@@ -6,22 +6,47 @@ use App\Livewire\Forms\People\PartnerForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
 use App\Models\Person;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\ImageManager;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
+use Illuminate\Support\Arr;
 
 class Partner extends Component
 {
     use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;
+    use WithFileUploads;
 
     // -----------------------------------------------------------------------
     public $person;
 
     public PartnerForm $partnerForm;
 
+    public $photos = [];
+
+    public $backup = [];
+
     // -----------------------------------------------------------------------
     public function mount(): void
     {
+        $this->partnerForm->firstname = null;
+        $this->partnerForm->surname   = null;
+        $this->partnerForm->birthname = null;
+        $this->partnerForm->nickname  = null;
+
+        $this->partnerForm->sex       = null;
+        $this->partnerForm->gender_id = null;
+
+        $this->partnerForm->yob = null;
+        $this->partnerForm->dob = null;
+        $this->partnerForm->pob = null;
+
+        $this->partnerForm->photo = null;
+
         $this->partnerForm->person2_id = null;
 
         $this->partnerForm->date_start = null;
@@ -31,28 +56,156 @@ class Partner extends Component
         $this->partnerForm->has_ended  = false;
     }
 
+    public function deleteUpload(array $content): void
+    {
+        /*
+        the $content contains:
+        [
+            'temporary_name',
+            'real_name',
+            'extension',
+            'size',
+            'path',
+            'url',
+        ]
+        */
+
+        if (! $this->photos) {
+            return;
+        }
+
+        $files = Arr::wrap($this->photos);
+
+        /** @var UploadedFile $file */
+        $file = collect($files)->filter(fn (UploadedFile $item) => $item->getFilename() === $content['temporary_name'])->first();
+
+        // here we delete the file.
+        // even if we have a error here, we simply ignore it because as long as the file is not persisted, it is temporary and will be deleted at some point if there is a failure here
+        rescue(fn () => $file->delete(), report: false);
+
+        $collect = collect($files)->filter(fn (UploadedFile $item) => $item->getFilename() !== $content['temporary_name']);
+
+        // we guarantee restore of remaining files regardless of upload type, whether you are dealing with multiple or single uploads
+        $this->photos = is_array($this->photos) ? $collect->toArray() : $collect->first();
+    }
+
+    public function updatingPhotos(): void
+    {
+        // we store the uploaded files in the temporary property
+        $this->backup = $this->photos;
+    }
+
+    public function updatedPhotos(): void
+    {
+        if (! $this->photos) {
+            return;
+        }
+
+        // we merge the newly uploaded files with the saved ones
+        $file = Arr::flatten(array_merge($this->backup, [$this->photos]));
+
+        // we finishing by removing the duplicates
+        $this->photos = collect($file)->unique(fn (UploadedFile $item) => $item->getClientOriginalName())->toArray();
+    }
+
     public function savePartner()
     {
         if ($this->isDirty()) {
             $validated = $this->partnerForm->validate();
 
-            if ($this->hasOverlap($validated['date_start'], $validated['date_end'])) {
-                $this->toast()->error(__('app.create'), 'RELATIONSHIP OVERLAP !!')->send();
+            if (isset($validated['person2_id'])) {
+                if ($this->hasOverlap($validated['date_start'], $validated['date_end'])) {
+                    $this->toast()->error(__('app.create'), 'RELATIONSHIP OVERLAP !!')->send();
+                } else {
+                    $couple = Couple::create([
+                        'person1_id' => $this->person->id,
+                        'person2_id' => $validated['person2_id'],
+                        'date_start' => $validated['date_start'] ?? null,
+                        'date_end'   => $validated['date_end'] ?? null,
+                        'is_married' => $validated['is_married'],
+                        'has_ended'  => $validated['has_ended'],
+                        'team_id'    => $this->person->team_id,
+                    ]);
+
+                    $this->toast()->success(__('app.create'), $couple->name . ' ' . __('app.created'))->flash()->send();
+                }
             } else {
-                $couple = Couple::create([
-                    'person1_id' => $this->person->id,
-                    'person2_id' => $validated['person2_id'],
-                    'date_start' => $validated['date_start'] ?? null,
-                    'date_end'   => $validated['date_end'] ?? null,
-                    'is_married' => $validated['is_married'],
-                    'has_ended'  => $validated['has_ended'],
-                    'team_id'    => auth()->user()->current_team_id,
-                ]);
+                if ($this->hasOverlap($validated['date_start'], $validated['date_end'])) {
+                    $this->toast()->error(__('app.create'), 'RELATIONSHIP OVERLAP !!')->send();
+                } else {
+                    $new_person = Person::create([
+                        'firstname' => $validated['firstname'],
+                        'surname'   => $validated['surname'],
+                        'birthname' => $validated['birthname'],
+                        'nickname'  => $validated['nickname'],
+                        'sex'       => $validated['sex'],
+                        'gender_id' => $validated['gender_id'] ?? null,
+                        'yob'       => $validated['yob'],
+                        'dob'       => $validated['dob'],
+                        'pob'       => $validated['pob'],
+                        'team_id'   => $this->person->team_id,
+                    ]);
 
-                $this->toast()->success(__('app.create'), __('app.created'))->flash()->send();
+                    if ($this->photos) {
+                        // if needed, create team photo folder
+                        $path = storage_path('app/public/photos/' . $this->person->team_id);
 
-                return $this->redirect('/people/' . $this->person->id);
+                        if (! File::isDirectory($path)) {
+                            File::makeDirectory($path, 0777, true, true);
+                        }
+
+                        // set image parameters
+                        $image_width   = config('app.image_upload_max_width');
+                        $image_height  = config('app.image_upload_max_height');
+                        $image_quality = config('app.image_upload_quality');
+                        $image_type    = config('app.image_upload_type');
+
+                        // set image manager
+                        $manager = new ImageManager(new Driver());
+
+                        $last_index = 0;
+
+                        foreach ($this->photos as $current_photo) {
+                            // name
+                            $next_index = str_pad(++$last_index, 3, '0', STR_PAD_LEFT);
+                            $image_name = $new_person->id . '_' . $next_index . '_' . now()->format('YmdHis') . '.' . $image_type;
+
+                            // resize, add watermark
+                            $new_image = $manager->read($current_photo)
+                                ->scaleDown(width: $image_width, height: $image_height)
+                                ->place(public_path('img/watermark.png'), 'bottom-left', 5, 5)
+                                ->toWebp(quality: $image_quality);
+
+                            // save
+                            if ($new_image) {
+                                $new_image->save(storage_path('app/public/photos/' . $new_person->team_id . '/' . $image_name));
+
+                                if (! isset($new_person->photo)) {
+                                    $new_person->update(['photo' => $image_name]);
+                                }
+                            } else {
+                                $this->toast()->error(__('app.save'), __('app.image_not_saved') . '.')->flash()->send();
+                            }
+                        }
+                    }
+
+                    $this->toast()->success(__('app.create'), $new_person->name . ' ' . __('app.created') . '.')->flash()->send();
+
+                    $couple = Couple::create([
+                        'person1_id' => $this->person->id,
+                        'person2_id' => $new_person->id,
+                        'date_start' => $validated['date_start'] ?? null,
+                        'date_end'   => $validated['date_end'] ?? null,
+                        'is_married' => $validated['is_married'],
+                        'has_ended'  => $validated['has_ended'],
+                        'team_id'    => $this->person->team_id,
+                    ]);
+
+                    $this->toast()->success(__('app.create'), $couple->name . ' ' . __('app.created') . '.')->flash()->send();
+                }
             }
+
+            return $this->redirect('/people/' . $this->person->id);
         }
     }
 
@@ -83,6 +236,18 @@ class Partner extends Component
     public function isDirty(): bool
     {
         return
+        $this->partnerForm->firstname != null or
+        $this->partnerForm->surname != null or
+        $this->partnerForm->birthname != null or
+        $this->partnerForm->nickname != null or
+
+        $this->partnerForm->sex != null or
+        $this->partnerForm->gender_id != null or
+
+        $this->partnerForm->yob != null or
+        $this->partnerForm->dob != null or
+        $this->partnerForm->pob != null or
+
         $this->partnerForm->person2_id != null or
         $this->partnerForm->date_start != null or
         $this->partnerForm->date_end != null or

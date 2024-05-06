@@ -37,10 +37,6 @@ class PersonForm extends Form
 
     public $photo = null;
 
-    public $team_id = null;
-
-    public $person_id = null;
-
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]
     public function genders()
@@ -52,11 +48,11 @@ class PersonForm extends Form
     {
         return $rules = [
             'firstname' => ['nullable', 'string', 'max:255'],
-            'surname'   => ['required_without:person_id', 'nullable', 'string', 'max:255'],
+            'surname'   => ['required', 'string', 'max:255'],
             'birthname' => ['nullable', 'string', 'max:255'],
             'nickname'  => ['nullable', 'string', 'max:255'],
 
-            'sex'       => ['required_without:person_id', 'nullable', 'in:m,f'],
+            'sex'       => ['required', 'in:m,f'],
             'gender_id' => ['nullable', 'integer'],
 
             'yob' => [
@@ -75,10 +71,6 @@ class PersonForm extends Form
             'pob' => ['nullable', 'string', 'max:255'],
 
             'photo' => ['nullable', 'string', 'max:255'],
-
-            'team_id' => ['nullable', 'integer'],
-
-            'person_id' => ['required_without_all:firstname,surname,sex', 'nullable', 'integer'],
         ];
     }
 
@@ -103,8 +95,6 @@ class PersonForm extends Form
             'pob' => __('person.pob'),
 
             'photo' => __('person.photo'),
-
-            'team_id' => __('person.team'),
         ];
     }
 }

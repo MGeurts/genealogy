@@ -35,13 +35,15 @@ return [
     'years'         => '[1] Jahr|[0,2,*] Jahre',
 
     // Actions
-    'add_child'                    => 'Kind hinzufügen',
-    'add_new_person_as_child'      => 'NEUE Person als Kind hinzufügen',
-    'add_existing_person_as_child' => 'VORHANDENE Person als Kind hinzufügen',
-    'add_person'                   => 'Person hinzufügen',
-    'add_person_in_team'           => 'Person hinzufügen in Team : :team',
-    'add_photo'                    => 'Foto hinzufügen',
-    'add_relationship'             => 'Beziehung hinzufügen',
+    'add_child'                      => 'Kind hinzufügen',
+    'add_new_person_as_child'        => 'NEUE Person als Kind hinzufügen',
+    'add_existing_person_as_child'   => 'VORHANDENE Person als Kind hinzufügen',
+    'add_person'                     => 'Person hinzufügen',
+    'add_new_person_as_partner'      => 'NEUE Person als Partner hinzufügen',
+    'add_existing_person_as_partner' => 'VORHANDENE Person als Partner hinzufügen',
+    'add_person_in_team'             => 'Person hinzufügen in Team : :team',
+    'add_photo'                      => 'Foto hinzufügen',
+    'add_relationship'               => 'Beziehung hinzufügen',
 
     'edit'              => 'Bearbeiten',
     'edit_children'     => 'Kinder bearbeiten',
