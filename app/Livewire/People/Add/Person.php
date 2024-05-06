@@ -111,13 +111,12 @@ class Person extends Component
                 'yob'       => $validated['yob'],
                 'dob'       => $validated['dob'],
                 'pob'       => $validated['pob'],
-                'father_id' => $this->person->id,
-                'team_id'   => $this->person->team_id,
+                'team_id'   => auth()->user()->currentTeam->id,
             ]);
 
             if ($this->photos) {
                 // if needed, create team photo folder
-                $path = storage_path('app/public/photos/' . $this->new_person->team_id);
+                $path = storage_path('app/public/photos/' . $new_person->team_id);
 
                 if (! File::isDirectory($path)) {
                     File::makeDirectory($path, 0777, true, true);
