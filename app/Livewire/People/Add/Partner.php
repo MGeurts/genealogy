@@ -7,13 +7,13 @@ use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
 use App\Models\Person;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
-use Illuminate\Support\Arr;
 
 class Partner extends Component
 {
@@ -148,7 +148,7 @@ class Partner extends Component
 
                     if ($this->photos) {
                         // if needed, create team photo folder
-                        $path = storage_path('app/public/photos/' . $this->person->team_id);
+                        $path = storage_path('app/public/photos/' . $this->new_person->team_id);
 
                         if (! File::isDirectory($path)) {
                             File::makeDirectory($path, 0777, true, true);

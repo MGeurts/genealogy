@@ -100,7 +100,7 @@ class Person extends Component
     {
         if ($this->isDirty()) {
             $validated = $this->personForm->validate();
-           
+
             $new_person = \App\Models\Person::create([
                 'firstname' => $validated['firstname'],
                 'surname'   => $validated['surname'],
@@ -117,7 +117,7 @@ class Person extends Component
 
             if ($this->photos) {
                 // if needed, create team photo folder
-                $path = storage_path('app/public/photos/' . $this->personForm->team_id);
+                $path = storage_path('app/public/photos/' . $this->new_person->team_id);
 
                 if (! File::isDirectory($path)) {
                     File::makeDirectory($path, 0777, true, true);
@@ -137,7 +137,7 @@ class Person extends Component
                 foreach ($this->photos as $current_photo) {
                     // name
                     $next_index = str_pad(++$last_index, 3, '0', STR_PAD_LEFT);
-                    $image_name = $person->id . '_' . $next_index . '_' . now()->format('YmdHis') . '.' . $image_type;
+                    $image_name = $new_person->id . '_' . $next_index . '_' . now()->format('YmdHis') . '.' . $image_type;
 
                     // resize, add watermark
                     $new_image = $manager->read($current_photo)
@@ -147,10 +147,10 @@ class Person extends Component
 
                     // save
                     if ($new_image) {
-                        $new_image->save(storage_path('app/public/photos/' . $person->team_id . '/' . $image_name));
+                        $new_image->save(storage_path('app/public/photos/' . $new_person->team_id . '/' . $image_name));
 
-                        if (! isset($person->photo)) {
-                            $person->update(['photo' => $image_name]);
+                        if (! isset($new_person->photo)) {
+                            $new_person->update(['photo' => $image_name]);
                         }
                     } else {
                         $this->toast()->error(__('app.save'), __('app.image_not_saved') . '.')->flash()->send();

@@ -153,7 +153,7 @@ class Child extends Component
 
                 if ($this->photos) {
                     // if needed, create team photo folder
-                    $path = storage_path('app/public/photos/' . $this->person->team_id);
+                    $path = storage_path('app/public/photos/' . $this->new_person->team_id);
 
                     if (! File::isDirectory($path)) {
                         File::makeDirectory($path, 0777, true, true);
