@@ -48,7 +48,7 @@ class Couple extends Model
             } elseif (config('app.god_mode') && auth()->user()->is_developer) {
                 return true;
             } else {
-                $builder->where('couples.team_id', auth()->user()->current_team_id);
+                $builder->where('couples.team_id', auth()->user()->currentTeam->id);
             }
         });
     }
