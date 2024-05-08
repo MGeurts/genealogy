@@ -22,8 +22,10 @@ return [
     'developer'               => 'Developer',
     'team'                    => 'Team',
     'current_team'            => 'Current team',
+    'email_verified'          => 'Email verified',
     'email_verified_at'       => 'Email verified at',
     'two_factor_confirmed_at' => '2FA confirmed at',
+    'seen_at'                 => 'Last seen at',
 
     // Photo
     'select_photo' => 'Select a new photo',

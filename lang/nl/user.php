@@ -22,8 +22,10 @@ return [
     'developer'               => 'Developer',
     'team'                    => 'Team',
     'current_team'            => 'Geselecteerd team',
+    'email_verified'          => 'Email geverifieerd',
     'email_verified_at'       => 'Email geverifieerd op',
     'two_factor_confirmed_at' => '2FA bevestigd op',
+    'seen_at'                 => 'Laatst gezien op',
 
     // Photo
     'select_photo' => 'Selecteer een nieuw afbeelding',

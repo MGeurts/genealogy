@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('timezone')->default('UTC');
             $table->boolean('is_developer')->default(false);
 
+            $table->timestamp('seen_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

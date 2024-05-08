@@ -2,18 +2,14 @@
 
 namespace App\Providers;
 
-use App\Models\Userlog;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Opcodes\LogViewer\Facades\LogViewer;
-use Stevebauman\Location\Facades\Location;
 use TallStackUi\Facades\TallStackUi;
 
 class AppServiceProvider extends ServiceProvider
@@ -68,33 +64,13 @@ class AppServiceProvider extends ServiceProvider
         // -----------------------------------------------------------------------
         // LOG-VIEWER : log all requests
         // -----------------------------------------------------------------------
-        // This is done by the middleware \Http\Middleware\LogAllRequests.php
+        // This is done by the middleware \app\Http\Middleware\LogAllRequests.php
         // and can be enabled/disable in \bootstrap\app.php
 
         // -----------------------------------------------------------------------
-        // log users (except developers, only in production)
+        // log users (seen_at)
         // -----------------------------------------------------------------------
-        if (app()->isProduction()) {
-            Event::listen(\Illuminate\Auth\Events\Login::class, function ($event) {
-                try {
-                    if ($position = Location::get()) {
-                        $country_name = $position->countryName;
-                        $country_code = $position->countryCode;
-                    } else {
-                        $country_name = null;
-                        $country_code = null;
-                    }
-
-                    Userlog::create([
-                        'user_id'      => $event->user->id,
-                        'country_name' => $country_name,
-                        'country_code' => $country_code,
-                    ]);
-                } catch (QueryException $e) {
-                    Log::error("User log ERROR: {$e->getMessage()}");
-                }
-            });
-        }
+        // This is done by the event listener \app\Listeners\UserLogin.php
 
         // -----------------------------------------------------------------------
         // TallStackUI personalization

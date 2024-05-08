@@ -44,16 +44,21 @@ class Users extends Component implements HasForms, HasTable
                     ->label(__('user.email'))
                     ->verticallyAlignStart()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('email_verified_at')
-                    ->label(__('user.email_verified_at'))
+                Tables\Columns\IconColumn::make('email_verified')
+                    ->label(__('user.email_verified') . '?')
                     ->verticallyAlignStart()
-                    ->dateTime('Y-m-d h:i')
-                    ->sortable(),
+                    ->getStateUsing(function (User $record) {
+                        return $record->email_verified_at;
+                    })
+                    ->boolean(),
                 Tables\Columns\TextColumn::make('two_factor_confirmed_at')
                     ->label(__('user.two_factor_confirmed_at'))
                     ->verticallyAlignStart()
-                    ->dateTime('Y-m-d h:i')
-                    ->sortable(),
+                    ->dateTime('Y-m-d h:i')->timezone(auth()->user()->timezone),
+                Tables\Columns\TextColumn::make('seen_at')
+                    ->label(__('user.seen_at'))
+                    ->verticallyAlignStart()
+                    ->dateTime('Y-m-d h:i')->timezone(auth()->user()->timezone),
                 Tables\Columns\TextColumn::make('team_personal')
                     ->label(__('team.team_personal'))
                     ->verticallyAlignStart()
@@ -78,25 +83,27 @@ class Users extends Component implements HasForms, HasTable
                     ->label(__('user.developer') . '?')
                     ->verticallyAlignStart()
                     ->boolean(),
+                Tables\Columns\TextColumn::make('email_verified_at')
+                    ->label(__('user.email_verified_at'))
+                    ->verticallyAlignStart()
+                    ->dateTime('Y-m-d h:i')->timezone(auth()->user()->timezone)
+                    ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('app.created_at'))
                     ->verticallyAlignStart()
-                    ->timezone(auth()->user()->timezone)
-                    ->dateTime('Y-m-d h:i')
+                    ->dateTime('Y-m-d h:i')->timezone(auth()->user()->timezone)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label(__('app.updated_at'))
                     ->verticallyAlignStart()
-                    ->timezone(auth()->user()->timezone)
-                    ->dateTime('Y-m-d h:i')
+                    ->dateTime('Y-m-d h:i')->timezone(auth()->user()->timezone)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('deleted_at')
                     ->label(__('app.deleted_at'))
                     ->verticallyAlignStart()
-                    ->dateTime('Y-m-d h:i')
-                    ->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d h:i')->timezone(auth()->user()->timezone)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
