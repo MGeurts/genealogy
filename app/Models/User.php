@@ -49,6 +49,8 @@ class User extends Authenticatable
 
         'language',
         'timezone',
+
+        'seen_at',
     ];
 
     /**

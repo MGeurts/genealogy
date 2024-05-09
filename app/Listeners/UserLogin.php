@@ -3,7 +3,6 @@
 namespace App\Listeners;
 
 use App\Models\Userlog;
-use Carbon\Carbon;
 use Illuminate\Auth\Events\Login;
 use Stevebauman\Location\Facades\Location;
 
@@ -23,13 +22,14 @@ class UserLogin
     public function handle(Login $event): void
     {
         // -----------------------------------------------------------------------
-        // log users (seen_at)
+        // log user (seen_at)
         // -----------------------------------------------------------------------
-        $event->user->seen_at = Carbon::now();
-        $event->user->save();
+        $event->user->timestamps = false;
+        $event->user->seen_at = now()->getTimestamp();
+        $event->user->saveQuietly();
 
         // -----------------------------------------------------------------------
-        // log users (only in production)
+        // log user (only in production)
         // -----------------------------------------------------------------------
         if (app()->isProduction()) {
             if ($position = Location::get()) {
