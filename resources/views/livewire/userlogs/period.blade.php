@@ -1,8 +1,8 @@
 <div class="w-full" x-data="{
     init() {
-        const cData = {{ $chart_data }};
+        let cData = {{ $chart_data }};
 
-        const data = {
+        let data = {
             labels: cData.labels,
             datasets: [{
                 label: 'Visitors',
@@ -11,7 +11,7 @@
             }]
         };
 
-        const config = {
+        let config = {
             type: 'bar',
             data: data,
             options: {
