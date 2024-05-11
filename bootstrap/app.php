@@ -16,7 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
             App\Http\Middleware\Localization::class,
             App\Http\Middleware\SetLocale::class,
 
-            // App\Http\Middleware\LogAllRequests::class,
+            App\Http\Middleware\LogAllRequests::class,
         ]);
 
         $middleware->alias([]);
