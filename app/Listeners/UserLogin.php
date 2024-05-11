@@ -25,7 +25,7 @@ class UserLogin
         // log user (seen_at)
         // -----------------------------------------------------------------------
         $event->user->timestamps = false;
-        $event->user->seen_at = now()->getTimestamp();
+        $event->user->seen_at    = now()->getTimestamp();
         $event->user->saveQuietly();
 
         // -----------------------------------------------------------------------
@@ -40,11 +40,13 @@ class UserLogin
                 $country_code = null;
             }
 
-            Userlog::create([
-                'user_id'      => $event->user->id,
-                'country_name' => $country_name,
-                'country_code' => $country_code,
-            ]);
+            if ($country_code != 'BE') { // remove in production
+                Userlog::create([
+                    'user_id'      => $event->user->id,
+                    'country_name' => $country_name,
+                    'country_code' => $country_code,
+                ]);
+            }
         }
         // -----------------------------------------------------------------------
     }
