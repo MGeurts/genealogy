@@ -137,7 +137,7 @@ class Manage extends Component
         if ($disk->exists(config('backup.backup.name') . '/' . $this->backup_to_delete)) {
             $disk->delete(config('backup.backup.name') . '/' . $this->backup_to_delete);
 
-            $this->toast()->success(__('backup.backup'), $this->backup_to_delete . ' ' . __('backup.deleted'))->flash()->send();
+            $this->toast()->success(__('backup.backup'), $this->backup_to_delete . ' ' . __('backup.deleted'))->expandable(false) ->flash()->send();
         } else {
             $this->toast()->error(__('backup.backup'), __('backup.not_found'))->flash()->send();
         }
