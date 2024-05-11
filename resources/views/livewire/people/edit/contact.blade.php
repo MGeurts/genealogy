@@ -20,39 +20,39 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- street --}}
                 <div class="col-span-4">
-                    <x-ts-input wire:model="contactForm.street" id="street" label="{{ __('person.street') }}" autocomplete="street" wire:dirty.class="bg-warning-100 dark:text-black" autofocus />
+                    <x-ts-input wire:model="contactForm.street" id="street" label="{{ __('person.street') }}" autocomplete="street" wire:dirty.class="bg-warning-200 dark:text-black" autofocus />
                 </div>
 
                 {{-- number --}}
                 <div class="col-span-2">
-                    <x-ts-input wire:model="contactForm.number" id="number" label="{{ __('person.number') }}" autocomplete="number" wire:dirty.class="bg-warning-100 dark:text-black" />
+                    <x-ts-input wire:model="contactForm.number" id="number" label="{{ __('person.number') }}" autocomplete="number" wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
 
                 {{-- postal_code --}}
                 <div class="col-span-2">
                     <x-ts-input wire:model="contactForm.postal_code" id="postal_code" label="{{ __('person.postal_code') }}" autocomplete="postal_code"
-                        wire:dirty.class="bg-warning-100 dark:text-black" />
+                        wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
 
                 {{-- city --}}
                 <div class="col-span-4">
-                    <x-ts-input wire:model="contactForm.city" id="postal_code" label="{{ __('person.city') }}" autocomplete="city" wire:dirty.class="bg-warning-100 dark:text-black" />
+                    <x-ts-input wire:model="contactForm.city" id="postal_code" label="{{ __('person.city') }}" autocomplete="city" wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
 
                 {{-- province --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="contactForm.province" id="province" label="{{ __('person.province') }}" autocomplete="province" wire:dirty.class="bg-warning-100 dark:text-black" />
+                    <x-ts-input wire:model="contactForm.province" id="province" label="{{ __('person.province') }}" autocomplete="province" wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
 
                 {{-- state --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="contactForm.state" id="province" label="{{ __('person.state') }}" autocomplete="state" wire:dirty.class="bg-warning-100 dark:text-black" />
+                    <x-ts-input wire:model="contactForm.state" id="province" label="{{ __('person.state') }}" autocomplete="state" wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
 
                 {{-- country_id --}}
                 <div class="col-span-5">
                     <x-ts-select.styled wire:model="contactForm.country_id" id="country_id" label="{{ __('person.country') }}" :options="$contactForm->countries()" select="label:name|value:id"
-                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-100 dark:text-black" searchable />
+                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
 
                 {{-- show on google maps button --}}
@@ -67,7 +67,7 @@
 
                 {{-- phone --}}
                 <div class="col-span-6">
-                    <x-ts-input wire:model="contactForm.phone" id="phone" label="{{ __('person.phone') }}" autocomplete="phone" wire:dirty.class="bg-warning-100 dark:text-black" />
+                    <x-ts-input wire:model="contactForm.phone" id="phone" label="{{ __('person.phone') }}" autocomplete="phone" wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
             </div>
         </div>

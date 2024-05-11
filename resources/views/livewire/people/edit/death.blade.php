@@ -20,18 +20,18 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- yod --}}
                 <div class="col-span-3">
-                    <x-ts-input wire:model="deathForm.yod" id="yod" label="{{ __('person.yod') }}" wire:dirty.class="bg-warning-100 dark:text-black" autofocus />
+                    <x-ts-input wire:model="deathForm.yod" id="yod" label="{{ __('person.yod') }}" wire:dirty.class="bg-warning-200 dark:text-black" autofocus />
                 </div>
 
                 {{-- dod --}}
                 <div class="col-span-3">
-                    <x-ts-date wire:model="deathForm.dod" id="dod" label="{{ __('person.dod') }}" wire:dirty.class="bg-warning-100 dark:text-black" format="YYYY-MM-DD" :max-date="now()"
+                    <x-ts-date wire:model="deathForm.dod" id="dod" label="{{ __('person.dod') }}" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD" :max-date="now()"
                         placeholder="{{ __('app.select') }} ..." />
                 </div>
 
                 {{-- pod --}}
                 <div class="col-span-6">
-                    <x-ts-input wire:model="deathForm.pod" id="pod" label="{{ __('person.pod') }}" wire:dirty.class="bg-warning-100 dark:text-black" />
+                    <x-ts-input wire:model="deathForm.pod" id="pod" label="{{ __('person.pod') }}" wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 
@@ -53,25 +53,25 @@
                 {{-- cemetery_location_name --}}
                 <div class="col-span-6">
                     <x-ts-input wire:model="deathForm.cemetery_location_name" id="cemetery_location_name" label="{{ __('metadata.location_name') }}"
-                        wire:dirty.class="bg-warning-100 dark:text-black" />
+                        wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
 
                 {{-- cemetery_location_address --}}
                 <div class="col-span-6">
                     <x-ts-textarea wire:model="deathForm.cemetery_location_address" id="cemetery_location_address" label="{{ __('metadata.address') }}"
-                        wire:dirty.class="bg-warning-100 dark:text-black" resize-auto />
+                        wire:dirty.class="bg-warning-200 dark:text-black" resize-auto />
                 </div>
 
                 {{-- cemetery_location_latitude --}}
                 <div class="col-span-3">
                     <x-ts-input wire:model="deathForm.cemetery_location_latitude" id="cemetery_location_latitude" label="{{ __('metadata.latitude') }}"
-                        wire:dirty.class="bg-warning-100 dark:text-black" />
+                        wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
 
                 {{-- cemetery_location_longitude --}}
                 <div class="col-span-3">
                     <x-ts-input wire:model="deathForm.cemetery_location_longitude" id="cemetery_location_longitude" label="{{ __('metadata.longitude') }}"
-                        wire:dirty.class="bg-warning-100 dark:text-black" />
+                        wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
             </div>
         </div>

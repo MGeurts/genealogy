@@ -20,22 +20,22 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- firstname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="profileForm.firstname" id="firstname" label="{{ __('person.firstname') }} *" wire:dirty.class="bg-warning-100 dark:text-black" required autofocus />
+                    <x-ts-input wire:model="profileForm.firstname" id="firstname" label="{{ __('person.firstname') }} *" wire:dirty.class="bg-warning-200 dark:text-black" required autofocus />
                 </div>
 
                 {{-- surname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="profileForm.surname" id="surname" label="{{ __('person.surname') }} *" wire:dirty.class="bg-warning-100 dark:text-black" required />
+                    <x-ts-input wire:model="profileForm.surname" id="surname" label="{{ __('person.surname') }} *" wire:dirty.class="bg-warning-200 dark:text-black" required />
                 </div>
 
                 {{-- birthname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="profileForm.birthname" id="birthname" label="{{ __('person.birthname') }}" wire:dirty.class="bg-warning-100 dark:text-black" />
+                    <x-ts-input wire:model="profileForm.birthname" id="birthname" label="{{ __('person.birthname') }}" wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
 
                 {{-- nickname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="profileForm.nickname" id="nickname" label="{{ __('person.nickname') }}" wire:dirty.class="bg-warning-100 dark:text-black" />
+                    <x-ts-input wire:model="profileForm.nickname" id="nickname" label="{{ __('person.nickname') }}" wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 
@@ -55,24 +55,24 @@
                 {{-- gender_id --}}
                 <div class="col-span-3">
                     <x-ts-select.styled wire:model="profileForm.gender_id" id="gender_id" label="{{ __('person.gender') }}" :options="$profileForm->genders()" select="label:name|value:id"
-                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-100 dark:text-black" searchable />
+                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 
                 {{-- yob --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="profileForm.yob" id="yob" label="{{ __('person.yob') }}" wire:dirty.class="bg-warning-100 dark:text-black" />
+                    <x-ts-input wire:model="profileForm.yob" id="yob" label="{{ __('person.yob') }}" wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
 
                 {{-- dob --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-date wire:model="profileForm.dob" id="dob" name="dob" label="{{ __('person.dob') }}" wire:dirty.class="bg-warning-100 dark:text-black" format="YYYY-MM-DD"
+                    <x-ts-date wire:model="profileForm.dob" id="dob" name="dob" label="{{ __('person.dob') }}" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD"
                         :max-date="now()" placeholder="{{ __('app.select') }} ..." />
                 </div>
 
                 {{-- pob --}}
                 <div class="col-span-6">
-                    <x-ts-input wire:model="profileForm.pob" id="pob" label="{{ __('person.pob') }}" wire:dirty.class="bg-warning-100 dark:text-black" autocomplete="pod" />
+                    <x-ts-input wire:model="profileForm.pob" id="pob" label="{{ __('person.pob') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="pod" />
                 </div>
             </div>
         </div>

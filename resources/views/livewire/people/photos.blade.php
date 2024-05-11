@@ -23,7 +23,7 @@
                 @foreach (range(0, count($images) - 1) as $i)
                     @if ($i == $selected)
                         <span
-                            class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-warning-300 dark:bg-warning-200 border border-gray-300 cursor-default leading-5 select-none">
+                            class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-warning-500 dark:bg-warning-200 border border-gray-300 cursor-default leading-5 select-none">
                             {{ $i + 1 }}
                         </span>
                     @else
@@ -53,7 +53,7 @@
                     @if ($i >= $selected - 1 && $i <= $selected + 1)
                         @if ($i == $selected)
                             <span
-                                class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-warning-300 dark:bg-warning-200 border border-gray-300 cursor-default leading-5 select-none">
+                                class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-500 bg-warning-500 dark:bg-warning-200 border border-gray-300 cursor-default leading-5 select-none">
                                 {{ $i + 1 }}
                             </span>
                         @else

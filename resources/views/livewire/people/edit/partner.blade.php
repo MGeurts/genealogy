@@ -21,18 +21,18 @@
                 {{-- person2_id --}}
                 <div class="col-span-6">
                     <x-ts-select.styled wire:model="partnerForm.person2_id" id="person2_id" label="{{ __('person.partner') }}" :options="$persons" select="label:name|value:id"
-                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-100 dark:text-black" searchable />
+                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
 
                 {{-- date_start --}}
                 <div class="col-span-3">
-                    <x-ts-date wire:model="partnerForm.date_start" id="date_start" label="{{ __('couple.date_start') }}" wire:dirty.class="bg-warning-100 dark:text-black" format="YYYY-MM-DD"
+                    <x-ts-date wire:model="partnerForm.date_start" id="date_start" label="{{ __('couple.date_start') }}" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD"
                         :max-date="now()" placeholder="{{ __('app.select') }} ..." />
                 </div>
 
                 {{-- date_end --}}
                 <div class="col-span-3">
-                    <x-ts-date wire:model="partnerForm.date_end" id="date_end" label="{{ __('couple.date_end') }}" wire:dirty.class="bg-warning-100 dark:text-black" format="YYYY-MM-DD"
+                    <x-ts-date wire:model="partnerForm.date_end" id="date_end" label="{{ __('couple.date_end') }}" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD"
                         :max-date="now()" placeholder="{{ __('app.select') }} ..." />
                 </div>
 

@@ -9,22 +9,22 @@
                 <div class="grid grid-cols-6 gap-5">
                     {{-- firstname --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-ts-input wire:model="partnerForm.firstname" id="firstname" label="{{ __('person.firstname') }}" wire:dirty.class="bg-warning-100 dark:text-black" autocomplete="firstname" />
+                        <x-ts-input wire:model="partnerForm.firstname" id="firstname" label="{{ __('person.firstname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="firstname" />
                     </div>
 
                     {{-- surname --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-ts-input wire:model="partnerForm.surname" id="surname" label="{{ __('person.surname') }}" wire:dirty.class="bg-warning-100 dark:text-black" autocomplete="surname" />
+                        <x-ts-input wire:model="partnerForm.surname" id="surname" label="{{ __('person.surname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="surname" />
                     </div>
 
                     {{-- birthname --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-ts-input wire:model="partnerForm.birthname" id="birthname" label="{{ __('person.birthname') }}" wire:dirty.class="bg-warning-100 dark:text-black" autocomplete="birthname" />
+                        <x-ts-input wire:model="partnerForm.birthname" id="birthname" label="{{ __('person.birthname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="birthname" />
                     </div>
 
                     {{-- nickname --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-ts-input wire:model="partnerForm.nickname" id="nickname" label="{{ __('person.nickname') }}" wire:dirty.class="bg-warning-100 dark:text-black" autocomplete="nickname" />
+                        <x-ts-input wire:model="partnerForm.nickname" id="nickname" label="{{ __('person.nickname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="nickname" />
                     </div>
                     <x-hr.narrow class="col-span-6 !my-0" />
 
@@ -44,24 +44,24 @@
                     {{-- gender_id --}}
                     <div class="col-span-6 md:col-span-3">
                         <x-ts-select.styled wire:model="partnerForm.gender_id" id="gender_id" label="{{ __('person.gender') }}" :options="$partnerForm->genders()" select="label:name|value:id"
-                            placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-100 dark:text-black" searchable />
+                            placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                     </div>
                     <x-hr.narrow class="col-span-6 !my-0" />
 
                     {{-- yob --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-ts-input wire:model="partnerForm.yob" id="yob" label="{{ __('person.yob') }}" wire:dirty.class="bg-warning-100 dark:text-black" autocomplete="yob" />
+                        <x-ts-input wire:model="partnerForm.yob" id="yob" label="{{ __('person.yob') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="yob" />
                     </div>
 
                     {{-- dob --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-ts-date wire:model="partnerForm.dob" id="dob" label="{{ __('person.dob') }}" wire:dirty.class="bg-warning-100 dark:text-black" format="YYYY-MM-DD" :max-date="now()"
+                        <x-ts-date wire:model="partnerForm.dob" id="dob" label="{{ __('person.dob') }}" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD" :max-date="now()"
                             placeholder="{{ __('app.select') }} ..." />
                     </div>
 
                     {{-- pob --}}
                     <div class="col-span-6">
-                        <x-ts-input wire:model="partnerForm.pob" id="pob" label="{{ __('person.pob') }}" wire:dirty.class="bg-warning-100 dark:text-black" autocomplete="pod" />
+                        <x-ts-input wire:model="partnerForm.pob" id="pob" label="{{ __('person.pob') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="pod" />
                     </div>
                     <x-hr.narrow class="col-span-6 !my-0" />
 
@@ -80,13 +80,13 @@
                 <div class="grid grid-cols-6 gap-5">
                     {{-- date_start --}}
                     <div class="col-span-3">
-                        <x-ts-date wire:model="partnerForm.date_start" id="date_start" label="{{ __('couple.date_start') }}" wire:dirty.class="bg-warning-100 dark:text-black" format="YYYY-MM-DD"
+                        <x-ts-date wire:model="partnerForm.date_start" id="date_start" label="{{ __('couple.date_start') }}" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD"
                             :max-date="now()" placeholder="{{ __('app.select') }} ..." />
                     </div>
 
                     {{-- date_end --}}
                     <div class="col-span-3">
-                        <x-ts-date wire:model="partnerForm.date_end" id="date_end" label="{{ __('couple.date_end') }}" wire:dirty.class="bg-warning-100 dark:text-black" format="YYYY-MM-DD"
+                        <x-ts-date wire:model="partnerForm.date_end" id="date_end" label="{{ __('couple.date_end') }}" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD"
                             :max-date="now()" placeholder="{{ __('app.select') }} ..." />
                     </div>
 
@@ -133,18 +133,18 @@
                     {{-- person2_id --}}
                     <div class="col-span-6">
                         <x-ts-select.styled wire:model="partnerForm.person2_id" id="person2_id" label="{{ __('person.partner') }}" :options="$persons" select="label:name|value:id"
-                            placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-100 dark:text-black" searchable required />
+                            placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable required />
                     </div>
 
                     {{-- date_start --}}
                     <div class="col-span-3">
-                        <x-ts-date wire:model="partnerForm.date_start" id="date_start" label="{{ __('couple.date_start') }}" wire:dirty.class="bg-warning-100 dark:text-black" format="YYYY-MM-DD"
+                        <x-ts-date wire:model="partnerForm.date_start" id="date_start" label="{{ __('couple.date_start') }}" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD"
                             :max-date="now()" placeholder="{{ __('app.select') }} ..." />
                     </div>
 
                     {{-- date_end --}}
                     <div class="col-span-3">
-                        <x-ts-date wire:model="partnerForm.date_end" id="date_end" label="{{ __('couple.date_end') }}" wire:dirty.class="bg-warning-100 dark:text-black" format="YYYY-MM-DD"
+                        <x-ts-date wire:model="partnerForm.date_end" id="date_end" label="{{ __('couple.date_end') }}" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD"
                             :max-date="now()" placeholder="{{ __('app.select') }} ..." />
                     </div>
 

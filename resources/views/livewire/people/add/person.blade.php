@@ -20,23 +20,23 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- firstname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.firstname" id="firstname" label="{{ __('person.firstname') }}" wire:dirty.class="bg-warning-100 dark:text-black" autocomplete="firstname"
+                    <x-ts-input wire:model="personForm.firstname" id="firstname" label="{{ __('person.firstname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="firstname"
                         autofocus />
                 </div>
 
                 {{-- surname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.surname" id="surname" label="{{ __('person.surname') }}" wire:dirty.class="bg-warning-100 dark:text-black" autocomplete="surname" />
+                    <x-ts-input wire:model="personForm.surname" id="surname" label="{{ __('person.surname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="surname" />
                 </div>
 
                 {{-- birthname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.birthname" id="birthname" label="{{ __('person.birthname') }}" wire:dirty.class="bg-warning-100 dark:text-black" autocomplete="birthname" />
+                    <x-ts-input wire:model="personForm.birthname" id="birthname" label="{{ __('person.birthname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="birthname" />
                 </div>
 
                 {{-- nickname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.nickname" id="nickname" label="{{ __('person.nickname') }}" wire:dirty.class="bg-warning-100 dark:text-black" autocomplete="nickname" />
+                    <x-ts-input wire:model="personForm.nickname" id="nickname" label="{{ __('person.nickname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="nickname" />
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 
@@ -56,24 +56,24 @@
                 {{-- gender_id --}}
                 <div class="col-span-6 md:col-span-3">
                     <x-ts-select.styled wire:model="gender_id" id="gender_id" label="{{ __('person.gender') }}" :options="$personForm->genders()" select="label:name|value:id" placeholder="{{ __('app.select') }} ..."
-                        wire:dirty.class="bg-warning-100 dark:text-black" searchable />
+                        wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 
                 {{-- yob --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.yob" id="yob" label="{{ __('person.yob') }}" wire:dirty.class="bg-warning-100 dark:text-black" autocomplete="yob" />
+                    <x-ts-input wire:model="personForm.yob" id="yob" label="{{ __('person.yob') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="yob" />
                 </div>
 
                 {{-- dob --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-date wire:model="personForm.dob" id="dob" label="{{ __('person.dob') }}" wire:dirty.class="bg-warning-100 dark:text-black" format="YYYY-MM-DD" :max-date="now()"
+                    <x-ts-date wire:model="personForm.dob" id="dob" label="{{ __('person.dob') }}" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD" :max-date="now()"
                         placeholder="{{ __('app.select') }} ..." />
                 </div>
 
                 {{-- pob --}}
                 <div class="col-span-6">
-                    <x-ts-input wire:model="personForm.pob" id="pob" label="{{ __('person.pob') }}" wire:dirty.class="bg-warning-100 dark:text-black" autocomplete="pod" />
+                    <x-ts-input wire:model="personForm.pob" id="pob" label="{{ __('person.pob') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="pod" />
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 

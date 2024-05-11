@@ -46,7 +46,7 @@
                     @foreach ($images as $image)
                         <x-ts-card class="!p-2">
                             <x-slot:header>
-                                <div class="text-sm {{ $image['name'] == $person->photo ? ' text-primary-500' : '' }}">
+                                <div class="text-sm {{ $image['name'] == $person->photo ? ' text-warning-500 dark:text-warning-200' : '' }}">
                                     {{ $image['name'] }}
                                 </div>
                             </x-slot:header>

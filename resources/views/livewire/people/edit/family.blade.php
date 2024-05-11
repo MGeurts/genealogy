@@ -21,13 +21,13 @@
                 {{-- father_id --}}
                 <div class="col-span-6">
                     <x-ts-select.styled wire:model="familyForm.father_id" id="father_id" label="{{ __('person.father') }} ({{ __('person.biological') }})" :options="$fathers"
-                        select="label:name|value:id" placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-100 dark:text-black" searchable />
+                        select="label:name|value:id" placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
 
                 {{-- mother_id --}}
                 <div class="col-span-6">
                     <x-ts-select.styled wire:model="familyForm.mother_id" id="mother_id" label="{{ __('person.mother') }} ({{ __('person.biological') }})" :options="$mothers"
-                        select="label:name|value:id" placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-100 dark:text-black" searchable />
+                        select="label:name|value:id" placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
 
                 <div class="col-span-6 text-sm rounded bg-warning-200 p-3 text-warning-700" role="alert">
@@ -40,7 +40,7 @@
                 {{-- parents_id --}}
                 <div class="col-span-6">
                     <x-ts-select.styled wire:model="familyForm.parents_id" id="parents_id" label="{{ __('person.parents') }}" :options="$parents" select="label:couple|value:id"
-                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-100 dark:text-black" searchable />
+                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
             </div>
         </div>

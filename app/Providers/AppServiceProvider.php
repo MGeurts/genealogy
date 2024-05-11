@@ -92,8 +92,9 @@ class AppServiceProvider extends ServiceProvider
         TallStackUi::personalize()->card()
             ->block('wrapper.first')->replace('gap-4', 'gap-2')
             ->block('wrapper.second')->replace('rounded-lg', 'rounded')
-            ->block('header.wrapper', 'dark:border-b-dark-600 flex items-center justify-between border-b border-b-gray-100 p-2')
-            ->block('footer.wrapper', 'text-secondary-700 dark:text-dark-300 dark:border-t-dark-600 rounded rounded-t-none border-t p-2')
+            ->block('wrapper.second')->replace('dark:bg-dark-700', 'dark:bg-neutral-700')
+            ->block('header.wrapper', 'dark:border-b-neutral-600 flex items-center justify-between border-b border-b-gray-100 p-2')
+            ->block('footer.wrapper', 'text-secondary-700 dark:text-dark-300 dark:border-t-neutral-600 rounded rounded-t-none border-t p-2')
             ->block('footer.text', 'flex items-center justify-end gap-2');
 
         // -----------------------------------------------------------------------
