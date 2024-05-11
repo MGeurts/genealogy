@@ -59,7 +59,8 @@ class Users extends Component implements HasForms, HasTable
                     ->label(__('user.seen_at'))
                     ->verticallyAlignStart()
                     ->timezone(auth()->user()->timezone)
-                    ->dateTime('Y-m-d H:i'),
+                    ->dateTime('Y-m-d H:i')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('team_personal')
                     ->label(__('team.team_personal'))
                     ->verticallyAlignStart()
