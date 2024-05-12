@@ -13,7 +13,7 @@ class DemoSeeder extends Seeder
 
     protected $kennedy_team = 4;
 
-    protected $editors_team = 6;
+    protected $developer_team = 1;
 
     /**
      * Run the database seeds.
@@ -316,7 +316,7 @@ class DemoSeeder extends Seeder
             'sex'       => 'm',
             'dob'       => '1960-01-01',
 
-            'team_id' => $this->editors_team,
+            'team_id' => $this->developer_team,
         ]);
 
         Person::create([
@@ -326,7 +326,7 @@ class DemoSeeder extends Seeder
             'sex'       => 'm',
             'dob'       => '2000-01-01',
 
-            'team_id' => $this->editors_team,
+            'team_id' => $this->developer_team,
         ]);
     }
 
