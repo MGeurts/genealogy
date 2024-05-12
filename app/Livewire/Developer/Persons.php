@@ -49,9 +49,7 @@ class Persons extends Component implements HasForms, HasTable
                     ->searchable(),
                 Tables\Columns\TextColumn::make('sex')
                     ->label(__('person.sex'))
-                    ->getStateUsing(function (Person $record) {
-                        return strtoupper($record->sex);
-                    })
+                    ->getStateUsing(function (Person $record) {return strtoupper($record->sex);})
                     ->searchable(),
                 Tables\Columns\TextColumn::make('father.name')
                     ->label(__('person.father'))
@@ -89,9 +87,7 @@ class Persons extends Component implements HasForms, HasTable
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\IconColumn::make('photo')
                     ->label(__('person.photo'))
-                    ->getStateUsing(function (Person $record) {
-                        return $record->photo ? true : false;
-                    })
+                    ->getStateUsing(function (Person $record) {return $record->photo ? true : false;})
                     ->boolean(),
                 Tables\Columns\TextColumn::make('team.name')
                     ->sortable(),
