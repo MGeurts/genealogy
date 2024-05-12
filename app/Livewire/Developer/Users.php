@@ -47,7 +47,9 @@ class Users extends Component implements HasForms, HasTable
                 Tables\Columns\IconColumn::make('email_verified')
                     ->label(__('user.email_verified') . '?')
                     ->verticallyAlignStart()
-                    ->getStateUsing(function (User $record) {return $record->email_verified_at;})
+                    ->getStateUsing(function (User $record) {
+                        return $record->email_verified_at;
+                    })
                     ->boolean(),
                 Tables\Columns\TextColumn::make('two_factor_confirmed_at')
                     ->label(__('user.two_factor_confirmed_at'))
@@ -62,16 +64,22 @@ class Users extends Component implements HasForms, HasTable
                 Tables\Columns\TextColumn::make('team_personal')
                     ->label(__('team.team_personal'))
                     ->verticallyAlignStart()
-                    ->getStateUsing(function (User $record) {return $record->personalTeam()->name;}),
+                    ->getStateUsing(function (User $record) {
+                        return $record->personalTeam()->name;
+                    }),
                 Tables\Columns\TextColumn::make('teams')
                     ->label(__('team.teams'))
-                    ->getStateUsing(function (User $record) {return implode('<br/>', $record->allTeams()->where('personal_team', false)->pluck('name')->toArray());})
+                    ->getStateUsing(function (User $record) {
+                        return implode('<br/>', $record->allTeams()->where('personal_team', false)->pluck('name')->toArray());
+                    })
                     ->verticallyAlignStart()
                     ->html(),
                 Tables\Columns\TextColumn::make('language')
                     ->label(__('user.language'))
                     ->verticallyAlignStart()
-                    ->getStateUsing(function (User $record) {return strtoupper($record->language);})
+                    ->getStateUsing(function (User $record) {
+                        return strtoupper($record->language);
+                    })
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_developer')
                     ->label(__('user.developer') . '?')

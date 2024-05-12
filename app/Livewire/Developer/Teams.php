@@ -23,10 +23,9 @@ class Teams extends Component implements HasForms, HasTable
     {
         return $table
             ->query(
-                Team::query()->with('owner')
-                    ->withCount('users')
-                    ->withCount('couples')
-                    ->withCount('persons')
+                Team::query()
+                    ->with('owner')
+                    ->withCount(['users', 'couples', 'persons'])
             )
             ->columns([
                 Tables\Columns\TextColumn::make('id')
@@ -43,17 +42,23 @@ class Teams extends Component implements HasForms, HasTable
                 Tables\Columns\TextColumn::make('users_count')
                     ->label(__('team.users'))
                     ->badge()
-                    ->color(static function ($state): string {return $state > 0 ? 'primary' : 'gray';})
+                    ->color(static function ($state): string {
+                        return $state > 0 ? 'primary' : 'gray';
+                    })
                     ->sortable(),
                 Tables\Columns\TextColumn::make('persons_count')
                     ->label(__('team.persons'))
                     ->badge()
-                    ->color(static function ($state): string {return $state > 0 ? 'primary' : 'gray';})
+                    ->color(static function ($state): string {
+                        return $state > 0 ? 'primary' : 'gray';
+                    })
                     ->sortable(),
                 Tables\Columns\TextColumn::make('couples_count')
                     ->label(__('team.couples'))
                     ->badge()
-                    ->color(static function ($state): string {return $state > 0 ? 'primary' : 'gray';})
+                    ->color(static function ($state): string {
+                        return $state > 0 ? 'primary' : 'gray';
+                    })
                     ->sortable(),
                 Tables\Columns\TextColumn::make('owner.name')
                     ->label(__('team.owner'))
