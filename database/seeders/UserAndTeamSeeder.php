@@ -175,7 +175,7 @@ class UserAndTeamSeeder extends Seeder
     }
 
     // -----------------------------------------------------------------------------------
-    protected function createTeamPersonal(User $user, string $prefix = "Team ", ?string $description = null): void
+    protected function createTeamPersonal(User $user, string $prefix = 'Team ', ?string $description = null): void
     {
         $user->ownedTeams()->save(Team::forceCreate([
             'user_id'       => $user->id,
