@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use Termwind\Components\Raw;
 
 // -------------------------------------------------------------------------------------------
 // ATTENTION :
@@ -101,6 +103,18 @@ class User extends Authenticatable
     public function hasPermission(string $permission): bool
     {
         return $this->hasTeamPermission($this->currentTeam, $permission);
+    }
+
+    public function teams_statistics()
+    {
+        return DB::select('
+            SELECT 
+                `id`, `name`, `personal_team`,
+                (SELECT COUNT(*) FROM `users` INNER JOIN `team_user` ON `users`.`id` = `team_user`.`user_id` WHERE `teams`.`id` = `team_user`.`team_id` AND `users`.`deleted_at` IS NULL) AS `users_count`,
+                (SELECT COUNT(*) FROM `people` WHERE `teams`.`id` = `people`.`team_id` AND `people`.`deleted_at` IS NULL) AS `persons_count`, 
+                (SELECT COUNT(*) FROM `couples` WHERE `teams`.`id` = `couples`.`team_id`) AS `couples_count` 
+            FROM `teams` WHERE `user_id` = ' . $this->id . ' ORDER BY `name` ASC;
+        ');
     }
 
     /* -------------------------------------------------------------------------------------------- */

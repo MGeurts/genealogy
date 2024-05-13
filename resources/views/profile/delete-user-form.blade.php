@@ -14,20 +14,22 @@
     <x-slot name="content">
         @php
             $headers = [
-                ['index' => 'object', 'label' => __('team.team')],
-                ['index' => 'count_users', 'label' => __('team.users')],
-                ['index' => 'count_persons', 'label' => __('team.persons')],
-                ['index' => 'count_couples', 'label' => __('team.couples')],
+                ['index' => 'team', 'label' => __('team.team')],
+                ['index' => 'users', 'label' => __('team.users')],
+                ['index' => 'persons', 'label' => __('team.persons')],
+                ['index' => 'couples', 'label' => __('team.couples')],
+                ['index' => 'personal', 'label' => __('team.team_personal') . '?'],
             ];
 
             $rows = [];
 
-            foreach (auth()->user()->allTeams() as $team) {
+            foreach (auth()->user()->teams_statistics() as $team) {
                 array_push($rows, [
-                    'object' => $team->name,
-                    'count_users' => count($team->users),
-                    'count_persons' => count($team->persons),
-                    'count_couples' => count($team->couples),
+                    'team' => $team->name,
+                    'users' => $team->users_count > 0 ?? '',
+                    'persons' => $team->persons_count > 0 ?? '',
+                    'couples' => $team->couples_count > 0 ?? '',
+                    'personal' => $team->personal_team ? __('app.yes') : '',
                 ]);
             }
         @endphp
