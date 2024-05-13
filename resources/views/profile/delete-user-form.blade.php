@@ -26,9 +26,9 @@
             foreach (auth()->user()->teams_statistics() as $team) {
                 array_push($rows, [
                     'team' => $team->name,
-                    'users' => $team->users_count > 0 ?? '',
-                    'persons' => $team->persons_count > 0 ?? '',
-                    'couples' => $team->couples_count > 0 ?? '',
+                    'users' => $team->users_count > 0 ? $team->users_count : '',
+                    'persons' => $team->persons_count > 0 ? $team->persons_count : '',
+                    'couples' => $team->couples_count > 0 ? $team->couples_count : '',
                     'personal' => $team->personal_team ? __('app.yes') : '',
                 ]);
             }
