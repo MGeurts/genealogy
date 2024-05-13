@@ -24,6 +24,8 @@ return [
     'my_profile'       => 'Mein Profil',
     'nothing_recorded' => 'Nichts erfasst.',
     'search'           => 'Suche',
+    'yes'              => 'Ja',
+    'no'               => 'Nein',
 
     'created_at' => 'Erstellt am',
     'updated_at' => 'Aktualisiert am',

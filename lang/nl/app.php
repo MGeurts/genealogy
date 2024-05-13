@@ -24,6 +24,8 @@ return [
     'my_profile'       => 'Mijn profiel',
     'nothing_recorded' => 'Niets geregistreerd.',
     'search'           => 'Zoek',
+    'yes'              => 'Ja',
+    'no'               => 'Neen',
 
     'created_at' => 'Aangemaakt op',
     'updated_at' => 'Gewijzigd op',

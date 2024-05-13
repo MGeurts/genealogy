@@ -24,6 +24,8 @@ return [
     'my_profile'       => 'My profile',
     'nothing_recorded' => 'Nothing recorded.',
     'search'           => 'Search',
+    'yes'              => 'Yes',
+    'no'               => 'No',
 
     'created_at' => 'Created at',
     'updated_at' => 'Updated at',
