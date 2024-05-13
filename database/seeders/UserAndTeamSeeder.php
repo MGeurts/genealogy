@@ -13,7 +13,7 @@ class UserAndTeamSeeder extends Seeder
     public function run()
     {
         // -----------------------------------------------------------------------------------
-        // create developer users
+        // create developer user
         // -----------------------------------------------------------------------------------
         $developer = User::factory([
             'firstname'    => '_',
@@ -64,7 +64,7 @@ class UserAndTeamSeeder extends Seeder
         );
 
         // -----------------------------------------------------------------------------------
-        // create special users
+        // create other special users
         // -----------------------------------------------------------------------------------
         // manager
         $manager = User::factory([

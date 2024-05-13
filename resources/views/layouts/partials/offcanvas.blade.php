@@ -35,7 +35,7 @@
         @auth
             @if (auth()->user()->is_developer)
                 {{-- developer --}}
-                <div>{{ __('auth.developer') }} ...</div>
+                <div class="text-warning-500 dark:text-warning-200">{{ __('auth.developer') }} ...</div>
 
                 <div>
                     <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
@@ -121,7 +121,7 @@
                 </div>
             @else
                 {{-- others --}}
-                <div>{{ auth()->user()->teamRole(auth()->user()->currentTeam)->name }} ...</div>
+                <div class="text-warning-500 dark:text-warning-200">{{ auth()->user()->teamRole(auth()->user()->currentTeam)->name }} ...</div>
 
                 <div>
                     <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
