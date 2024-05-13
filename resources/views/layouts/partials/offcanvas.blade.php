@@ -46,7 +46,7 @@
                         </x-nav-link-responsive>
                     </p>
                     <p>
-                        <x-nav-link-responsive href="{{ route('persons') }}" :active="request()->routeIs('persons')">
+                        <x-nav-link-responsive href="{{ route('people') }}" :active="request()->routeIs('people')">
                             {{ __('person.people') }}
                         </x-nav-link-responsive>
                     </p>

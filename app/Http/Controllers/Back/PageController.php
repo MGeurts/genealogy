@@ -24,9 +24,9 @@ class PageController extends Controller
 
     // --------------------------------------------------------------------------------
 
-    public function persons(Request $request)
+    public function people(Request $request)
     {
-        return view('back.developer.persons');
+        return view('back.developer.people');
     }
 
     public function teams(Request $request)

@@ -59,7 +59,7 @@ Route::middleware([
             Route::get('session', 'session')->name('session');
             Route::get('test', 'test')->name('test');
 
-            Route::get('persons', 'persons')->name('persons');
+            Route::get('people', 'people')->name('people');
             Route::get('teams', 'teams')->name('teams');
             Route::get('users', 'users')->name('users');
         });
