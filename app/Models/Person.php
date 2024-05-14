@@ -54,9 +54,6 @@ class Person extends Model
         return [
             'dob' => 'date:Y-m-d',
             'dod' => 'date:Y-m-d',
-
-            'is_deceased'  => 'boolean',
-            'is_deletable' => 'boolean',
         ];
     }
 

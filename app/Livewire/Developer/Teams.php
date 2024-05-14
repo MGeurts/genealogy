@@ -83,14 +83,6 @@ class Teams extends Component implements HasForms, HasTable
                     ->label(__('team.team_personal') . '?')
                     ->default(false),
             ], layout: FiltersLayout::AboveContent)
-            ->actions([
-                //
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    //
-                ]),
-            ])
             ->defaultSort('name')
             ->striped();
     }

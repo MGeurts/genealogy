@@ -19,7 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
             App\Http\Middleware\LogAllRequests::class,
         ]);
 
-        $middleware->alias([]);
+        // $middleware->alias([]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

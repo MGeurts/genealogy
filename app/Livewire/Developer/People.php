@@ -137,8 +137,8 @@ class People extends Component implements HasForms, HasTable
                     ->label(__('person.sex'))
                     ->collapsible(),
             ])
-            ->defaultSort('name', 'asc')
             ->defaultGroup('team.name')
+            ->defaultSort('name')
             ->striped();
     }
 
