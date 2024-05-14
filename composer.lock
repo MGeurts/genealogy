@@ -1299,7 +1299,7 @@
         },
         {
             "name": "filament/actions",
-            "version": "v3.2.77",
+            "version": "v3.2.78",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/actions.git",
@@ -1352,16 +1352,16 @@
         },
         {
             "name": "filament/forms",
-            "version": "v3.2.77",
+            "version": "v3.2.78",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/forms.git",
-                "reference": "c301b770584bf2e936282dd71a1c4575c388d25d"
+                "reference": "af5b751fdb19bdeebe2963c49247dd81c2a5ada0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/forms/zipball/c301b770584bf2e936282dd71a1c4575c388d25d",
-                "reference": "c301b770584bf2e936282dd71a1c4575c388d25d",
+                "url": "https://api.github.com/repos/filamentphp/forms/zipball/af5b751fdb19bdeebe2963c49247dd81c2a5ada0",
+                "reference": "af5b751fdb19bdeebe2963c49247dd81c2a5ada0",
                 "shasum": ""
             },
             "require": {
@@ -1404,11 +1404,11 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-05-13T11:04:37+00:00"
+            "time": "2024-05-14T12:08:03+00:00"
         },
         {
             "name": "filament/infolists",
-            "version": "v3.2.77",
+            "version": "v3.2.78",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/infolists.git",
@@ -1459,7 +1459,7 @@
         },
         {
             "name": "filament/notifications",
-            "version": "v3.2.77",
+            "version": "v3.2.78",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/notifications.git",
@@ -1511,7 +1511,7 @@
         },
         {
             "name": "filament/support",
-            "version": "v3.2.77",
+            "version": "v3.2.78",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/support.git",
@@ -1569,16 +1569,16 @@
         },
         {
             "name": "filament/tables",
-            "version": "v3.2.77",
+            "version": "v3.2.78",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/tables.git",
-                "reference": "634619557fee4fd48be90c82d9838fe4abc126a6"
+                "reference": "c1265e97447aa6acaaa18026851f516e3ddbcbd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/tables/zipball/634619557fee4fd48be90c82d9838fe4abc126a6",
-                "reference": "634619557fee4fd48be90c82d9838fe4abc126a6",
+                "url": "https://api.github.com/repos/filamentphp/tables/zipball/c1265e97447aa6acaaa18026851f516e3ddbcbd3",
+                "reference": "c1265e97447aa6acaaa18026851f516e3ddbcbd3",
                 "shasum": ""
             },
             "require": {
@@ -1618,7 +1618,7 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-05-13T11:05:14+00:00"
+            "time": "2024-05-14T12:08:22+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -8727,16 +8727,16 @@
         },
         {
             "name": "tallstackui/tallstackui",
-            "version": "v1.25.2",
+            "version": "v1.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tallstackui/tallstackui.git",
-                "reference": "bb965a6855ed58ac120eb7b9f710b41a15769003"
+                "reference": "4960786d70ec19dbd48da37c8f6010f61b522344"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/bb965a6855ed58ac120eb7b9f710b41a15769003",
-                "reference": "bb965a6855ed58ac120eb7b9f710b41a15769003",
+                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/4960786d70ec19dbd48da37c8f6010f61b522344",
+                "reference": "4960786d70ec19dbd48da37c8f6010f61b522344",
                 "shasum": ""
             },
             "require": {
@@ -8780,7 +8780,7 @@
             "description": "TallStackUI is a powerful suite of Blade components that elevate your workflow of Livewire applications.",
             "support": {
                 "issues": "https://github.com/tallstackui/tallstackui/issues",
-                "source": "https://github.com/tallstackui/tallstackui/tree/v1.25.2"
+                "source": "https://github.com/tallstackui/tallstackui/tree/v1.26.0"
             },
             "funding": [
                 {
@@ -8788,7 +8788,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-03T15:16:10+00:00"
+            "time": "2024-05-14T13:37:51+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
