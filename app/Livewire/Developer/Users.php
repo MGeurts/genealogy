@@ -114,24 +114,13 @@ class Users extends Component implements HasForms, HasTable
             ->actions([
                 Tables\Actions\DeleteAction::make()
                     ->iconButton()
-                    ->before(function ($record, $action) {
-                        if (true) {
-                            // prevent delete when users ownes teams having persons and/or couples
-
-                            $action->cancel();
-                        }
+                    ->visible(function (User $record) {
+                        return $record->isDeletable();
                     }),
                 Tables\Actions\ForceDeleteAction::make()->iconButton(),
                 Tables\Actions\RestoreAction::make()->iconButton(),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\ForceDeleteBulkAction::make(),
-                    Tables\Actions\RestoreBulkAction::make(),
-                ]),
-            ])
-            ->defaultSort('name', 'asc')
+            ->defaultSort('name')
             ->striped();
     }
 

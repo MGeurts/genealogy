@@ -13,6 +13,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use PhpParser\Node\Expr\BinaryOp\BooleanOr;
 use Termwind\Components\Raw;
 
 // -------------------------------------------------------------------------------------------
@@ -105,16 +106,21 @@ class User extends Authenticatable
         return $this->hasTeamPermission($this->currentTeam, $permission);
     }
 
-    public function teams_statistics()
+    public function teamsStatistics()
     {
-        return DB::select('
+        return collect(DB::select('
             SELECT 
                 `id`, `name`, `personal_team`,
                 (SELECT COUNT(*) FROM `users` INNER JOIN `team_user` ON `users`.`id` = `team_user`.`user_id` WHERE `teams`.`id` = `team_user`.`team_id` AND `users`.`deleted_at` IS NULL) AS `users_count`,
                 (SELECT COUNT(*) FROM `people` WHERE `teams`.`id` = `people`.`team_id` AND `people`.`deleted_at` IS NULL) AS `persons_count`, 
                 (SELECT COUNT(*) FROM `couples` WHERE `teams`.`id` = `couples`.`team_id`) AS `couples_count` 
             FROM `teams` WHERE `user_id` = ' . $this->id . ' ORDER BY `name` ASC;
-        ');
+        '));
+    }
+
+    public function isDeletable(): bool
+    {
+        return $this->teamsStatistics()->sum('persons_count') + $this->teamsStatistics()->sum('couples_count') === 0;
     }
 
     /* -------------------------------------------------------------------------------------------- */

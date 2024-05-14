@@ -23,7 +23,7 @@
 
             $rows = [];
 
-            foreach (auth()->user()->teams_statistics() as $team) {
+            foreach (auth()->user()->teamsStatistics() as $team) {
                 array_push($rows, [
                     'team' => $team->name,
                     'users' => $team->users_count > 0 ? $team->users_count : '',
