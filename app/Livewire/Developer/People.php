@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Livewire\Component;
 
-class Persons extends Component implements HasForms, HasTable
+class People extends Component implements HasForms, HasTable
 {
     use InteractsWithForms;
     use InteractsWithTable;
@@ -31,14 +31,11 @@ class Persons extends Component implements HasForms, HasTable
                     ->label(__('person.id'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('surname')
-                    ->label(__('person.surname'))
-                    ->sortable()
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('firstname')
-                    ->label(__('person.firstname'))
-                    ->sortable()
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('name')
+                    ->label(__('user.name'))
+                    ->verticallyAlignStart()
+                    ->sortable(['surname', 'firstname'])
+                    ->searchable(['surname', 'firstname']),
                 Tables\Columns\TextColumn::make('birthname')
                     ->label(__('person.birthname'))
                     ->sortable()
@@ -140,11 +137,7 @@ class Persons extends Component implements HasForms, HasTable
                     ->label(__('person.sex'))
                     ->collapsible(),
             ])
-            ->defaultSort(function (Builder $query): Builder {
-                return $query
-                    ->orderBy('surname')
-                    ->orderBy('firstname');
-            })
+            ->defaultSort('name', 'asc')
             ->defaultGroup('team.name')
             ->striped();
     }
