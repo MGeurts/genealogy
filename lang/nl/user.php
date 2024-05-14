@@ -10,8 +10,9 @@ return [
 
     // Attributes
     'id'                      => 'ID',
+    'name'                    => 'Naam',
     'firstname'               => 'Voornaam',
-    'surname'                 => 'Naam',
+    'surname'                 => 'Achternaam',
     'email'                   => 'E-mail',
     'password'                => 'Paswoord',
     'current_password'        => 'Huidig paswoord',

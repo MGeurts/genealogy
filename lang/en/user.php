@@ -10,6 +10,7 @@ return [
 
     // Attributes
     'id'                      => 'ID',
+    'name'                    => 'Name',
     'firstname'               => 'Firstname',
     'surname'                 => 'Surname',
     'email'                   => 'Email',

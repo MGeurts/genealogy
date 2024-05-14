@@ -30,16 +30,11 @@ class Users extends Component implements HasForms, HasTable
                     ->label(__('user.id'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('surname')
-                    ->label(__('user.surname'))
+                Tables\Columns\TextColumn::make('name')
+                    ->label(__('user.name'))
                     ->verticallyAlignStart()
-                    ->sortable()
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('firstname')
-                    ->label(__('user.firstname'))
-                    ->verticallyAlignStart()
-                    ->sortable()
-                    ->searchable(),
+                    ->sortable(['surname', 'firstname'])
+                    ->searchable(['surname', 'firstname']),
                 Tables\Columns\TextColumn::make('email')
                     ->label(__('user.email'))
                     ->verticallyAlignStart()
@@ -136,9 +131,7 @@ class Users extends Component implements HasForms, HasTable
                     Tables\Actions\RestoreBulkAction::make(),
                 ]),
             ])
-            ->defaultSort(function (Builder $query): Builder {
-                return $query->orderBy('surname')->orderBy('firstname');
-            })
+            ->defaultSort('name', 'asc')
             ->striped();
     }
 
