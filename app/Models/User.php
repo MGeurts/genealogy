@@ -13,11 +13,10 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
-use PhpParser\Node\Expr\BinaryOp\BooleanOr;
-use Termwind\Components\Raw;
 
 // -------------------------------------------------------------------------------------------
 // ATTENTION :
+// -------------------------------------------------------------------------------------------
 // the user attribute "is_developer" should be set directly in the database
 // by the application developer on the one user account needed to manage the whole application
 // including user management and managing all people in all teams
@@ -120,7 +119,13 @@ class User extends Authenticatable
 
     public function isDeletable(): bool
     {
-        return $this->teamsStatistics()->sum('persons_count') + $this->teamsStatistics()->sum('couples_count') === 0;
+        foreach ($this->ownedTeams as $team) {
+            if (! $team->isDeletable()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /* -------------------------------------------------------------------------------------------- */

@@ -23,29 +23,41 @@
 
             $rows = [];
 
-            foreach (auth()->user()->teamsStatistics() as $team) {
+            $teams = auth()->user()->teamsStatistics();
+
+            foreach ($teams as $team) {
                 array_push($rows, [
                     'team' => $team->name,
                     'users' => $team->users_count > 0 ? $team->users_count : '',
                     'persons' => $team->persons_count > 0 ? $team->persons_count : '',
                     'couples' => $team->couples_count > 0 ? $team->couples_count : '',
-                    'personal' => $team->personal_team ? __('app.yes') : '',
+                    'personal' => $team->personal_team,
                 ]);
             }
         @endphp
 
-        <x-ts-table :$headers :$rows />
+        <x-ts-table :$headers :$rows>
+            @interact('column_personal', $row)
+                @if ($row['personal'])
+                    <x-ts-icon icon="circle-check" class="size-5 text-emerald-600" />
+                @endif
+            @endinteract
+        </x-ts-table>
 
         <x-hr.normal />
-        <div class="max-w-xl text-sm text-gray-600 dark:text-gray-400">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
-        </div>
+        @if (auth()->user()->isDeletable())
+            <div class="max-w-xl text-sm text-gray-600 dark:text-gray-400">
+                {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
+            </div>
 
-        <div class="mt-5">
-            <x-ts-button color="danger" wire:click="confirmUserDeletion" wire:loading.attr="disabled">
-                {{ __('Delete Account') }}
-            </x-ts-button>
-        </div>
+            <div class="mt-5">
+                <x-ts-button color="danger" wire:click="confirmUserDeletion" wire:loading.attr="disabled">
+                    {{ __('Delete Account') }}
+                </x-ts-button>
+            </div>
+        @else
+            <x-ts-alert title="{{ __('Delete Account') }}" text="{{ __('Your account can not be deleted because it contains valid data.') }}" color="cyan" />
+        @endif
 
         {{-- delete user confirmation modal --}}
         <x-dialog-modal wire:model.live="confirmingUserDeletion">

@@ -24,7 +24,7 @@ class Users extends Component implements HasForms, HasTable
     public function table(Table $table): Table
     {
         return $table
-            ->query(user::query()->with(['ownedTeams', 'teams']))
+            ->query(user::query()->with(['teams', 'ownedTeams', 'ownedTeams.couples', 'ownedTeams.persons']))
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->label(__('user.id'))
