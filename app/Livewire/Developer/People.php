@@ -25,7 +25,7 @@ class People extends Component implements HasForms, HasTable
     public function table(Table $table): Table
     {
         return $table
-            ->query(Person::query())
+            ->query(Person::query()->with(['children', 'couples']))
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->label(__('person.id'))
