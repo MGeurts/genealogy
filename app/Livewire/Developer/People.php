@@ -118,16 +118,13 @@ class People extends Component implements HasForms, HasTable
                     ->label(__('person.sex')),
             ], layout: FiltersLayout::AboveContent)
             ->actions([
-                Tables\Actions\DeleteAction::make()->iconButton(),
+                Tables\Actions\DeleteAction::make()
+                    ->iconButton()
+                    ->visible(function (Person $record) {
+                        return $record->isDeletable();
+                    }),
                 Tables\Actions\ForceDeleteAction::make()->iconButton(),
                 Tables\Actions\RestoreAction::make()->iconButton(),
-            ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                    Tables\Actions\ForceDeleteBulkAction::make(),
-                    Tables\Actions\RestoreBulkAction::make(),
-                ]),
             ])
             ->groups([
                 Group::make('team.name')
