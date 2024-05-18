@@ -125,4 +125,7 @@ return [
     'dob_not_matching_yob' => 'De Datum geboorte moet overeenkomen met het Jaar geboorte (:value).',
     'dob_after_dod'        => 'De Datum geboorte mag niet na de Datum overlijden (:value) zijn.',
     'dob_after_yod'        => 'De Datum geboorte mag niet na het jaar overlijden (:value) zijn.',
+
+    'not_found'            => 'Persoon niet gevonden',
+    'use_tab'              => 'Gebruik tab',
 ];

@@ -133,7 +133,13 @@
                     {{-- person2_id --}}
                     <div class="col-span-6">
                         <x-ts-select.styled wire:model="partnerForm.person2_id" id="person2_id" label="{{ __('person.partner') }}" :options="$persons" select="label:name|value:id"
-                            placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable required />
+                            placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable required>
+                            <x-slot:after>
+                                <div class="px-2 mb-2 w-full">
+                                    <x-ts-alert title="{{ __('person.not_found') }}" text="{{ __('person.use_tab') . ' : ' . __('person.add_new_person_as_partner') }}" color="cyan" />
+                                </div>
+                            </x-slot:after>
+                        </x-ts-select.styled>
                     </div>
 
                     {{-- date_start --}}

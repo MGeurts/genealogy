@@ -101,7 +101,13 @@
                 {{-- person_id --}}
                 <div class="col-span-6">
                     <x-ts-select.styled wire:model="fatherForm.person_id" id="person_id" label="{{ __('person.person') }}" :options="$persons" select="label:name|value:id"
-                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
+                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable>
+                        <x-slot:after>
+                            <div class="px-2 mb-2 w-full">
+                                <x-ts-alert title="{{ __('person.not_found') }}" text="{{ __('person.use_tab') . ' : ' . __('person.add_new_person_as_father') }}" color="cyan" />
+                            </div>
+                        </x-slot:after>
+                    </x-ts-select.styled>
                 </div>
             </div>
 
