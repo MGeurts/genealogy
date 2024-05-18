@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class PersonMetadata extends Model
 {
+    use LogsActivity;
+
     const METADATA_KEYS = [
         'cemetery_location_name',
         'cemetery_location_address',
@@ -19,6 +23,14 @@ class PersonMetadata extends Model
         'key',
         'value',
     ];
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Log activity
+    /* -------------------------------------------------------------------------------------------- */
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()->logFillable();
+    }
 
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators

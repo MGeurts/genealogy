@@ -12,10 +12,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Person extends Model
 {
     use HasManyMergedRelation;
+    use LogsActivity;
     use SoftDeletes;
 
     protected $fillable = [
@@ -60,6 +63,14 @@ class Person extends Model
     protected $appends = [
         'name',
     ];
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Log activity
+    /* -------------------------------------------------------------------------------------------- */
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()->logFillable();
+    }
 
     /* -------------------------------------------------------------------------------------------- */
     // Scopes (Global)

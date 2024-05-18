@@ -7,9 +7,13 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Couple extends Model
 {
+    use LogsActivity;
+
     protected $fillable = [
         'person1_id',
         'person2_id',
@@ -36,6 +40,14 @@ class Couple extends Model
     protected $appends = [
         'name',
     ];
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Log activity
+    /* -------------------------------------------------------------------------------------------- */
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()->logFillable();
+    }
 
     /* -------------------------------------------------------------------------------------------- */
     // Scopes (Global)
