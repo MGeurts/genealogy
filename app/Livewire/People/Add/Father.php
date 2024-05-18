@@ -5,11 +5,9 @@ namespace App\Livewire\People\Add;
 use App\Livewire\Forms\People\FatherForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
+use App\Tools\Photos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\File;
-use Intervention\Image\Drivers\Gd\Driver;
-use Intervention\Image\ImageManager;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
@@ -126,46 +124,7 @@ class Father extends Component
                 ]);
 
                 if ($this->photos) {
-                    // if needed, create team photo folder
-                    $path = storage_path('app/public/photos/' . $new_person->team_id);
-
-                    if (! File::isDirectory($path)) {
-                        File::makeDirectory($path, 0777, true, true);
-                    }
-
-                    // set image parameters
-                    $image_width   = config('app.image_upload_max_width');
-                    $image_height  = config('app.image_upload_max_height');
-                    $image_quality = config('app.image_upload_quality');
-                    $image_type    = config('app.image_upload_type');
-
-                    // set image manager
-                    $manager = new ImageManager(new Driver());
-
-                    $last_index = 0;
-
-                    foreach ($this->photos as $current_photo) {
-                        // name
-                        $next_index = str_pad(++$last_index, 3, '0', STR_PAD_LEFT);
-                        $image_name = $new_person->id . '_' . $next_index . '_' . now()->format('YmdHis') . '.' . $image_type;
-
-                        // resize, add watermark
-                        $new_image = $manager->read($current_photo)
-                            ->scaleDown(width: $image_width, height: $image_height)
-                            ->place(public_path('img/watermark.png'), 'bottom-left', 5, 5)
-                            ->toWebp(quality: $image_quality);
-
-                        // save
-                        if ($new_image) {
-                            $new_image->save(storage_path('app/public/photos/' . $new_person->team_id . '/' . $image_name));
-
-                            if (! isset($new_person->photo)) {
-                                $new_person->update(['photo' => $image_name]);
-                            }
-                        } else {
-                            $this->toast()->error(__('app.save'), __('app.image_not_saved') . '.')->flash()->send();
-                        }
-                    }
+                    Photos::save($new_person, $this->photos);
                 }
 
                 $this->person->update([
