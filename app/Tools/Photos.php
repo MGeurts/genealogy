@@ -6,23 +6,22 @@ use App\Models\Person;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
-use TallStackUi\Traits\Interactions;
 
 class Photos
 {
-    use Interactions;
-
     // -----------------------------------------------------------------------
     // save all photos and create avatars
     // -----------------------------------------------------------------------
     public static function save(Person $person, $photos)
     {
         if ($person and $photos) {
-            // if needed, create team photo folder
-            $path = storage_path('app/public/photos/' . $person->team_id);
+            // if needed, create folders
+            if (! File::isDirectory(storage_path('app/public/photos/' . $person->team_id))) {
+                File::makeDirectory(storage_path('app/public/photos/' . $person->team_id), 0777, true, true);
+            }
 
-            if (! File::isDirectory($path)) {
-                File::makeDirectory($path, 0777, true, true);
+            if (! File::isDirectory(storage_path('app/public/avatars/' . $person->team_id))) {
+                File::makeDirectory(storage_path('app/public/avatars/' . $person->team_id), 0777, true, true);
             }
 
             // set image parameters
@@ -41,19 +40,19 @@ class Photos
                 $next_index = str_pad(++$last_index, 3, '0', STR_PAD_LEFT);
                 $image_name = $person->id . '_' . $next_index . '_' . now()->format('YmdHis') . '.' . $image_type;
 
-                // image : resize, add watermark and save
+                // image: resize, add watermark and save
                 $manager->read($current_photo)
                     ->scaleDown(width: $image_width, height: $image_height)
                     ->place(public_path('img/watermark.png'), 'bottom-left', 5, 5)
                     ->toWebp(quality: $image_quality)
                     ->save(storage_path('app/public/photos/' . $person->team_id . '/' . $image_name));
 
-                // update person photo
+                // update person: photo
                 if (! isset($person->photo)) {
                     $person->update(['photo' => $image_name]);
                 }
 
-                // avatar : resize and save
+                // avatar: resize and save
                 $manager->read($current_photo)
                     ->scaleDown(width: 80, height: 80)
                     ->toWebp(quality: $image_quality)
