@@ -140,6 +140,8 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
    </ul>
 </p>
 
+<p>All activities (create, update, delete) on <b>persons</b> and <b>couples</b> are logged in the database.</p>
+
 ### To Do ...
 
 <ul>
