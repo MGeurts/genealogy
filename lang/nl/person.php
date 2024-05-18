@@ -35,6 +35,12 @@ return [
     'years'         => '[0,1] Jaar|[2,*] Jaar',
 
     // Actions
+    'add_father'                     => 'Vader toevoegen',
+    'add_new_person_as_father'       => 'NIEUWE persoon als vader toevoegen',
+    'add_existing_person_as_father'  => 'BESTAANDE persoon als vader toevoegen',
+    'add_mother'                     => 'Moeder toevoegen',
+    'add_new_person_as_mother'       => 'NIEUWE persoon als moeder toevoegen',
+    'add_existing_person_as_mother'  => 'BESTAANDE persoon als moeder toevoegen',
     'add_child'                      => 'Kind toevoegen',
     'add_new_person_as_child'        => 'NIEUWE persoon als kind toevoegen',
     'add_existing_person_as_child'   => 'BESTAANDE persoon als kind toevoegen',

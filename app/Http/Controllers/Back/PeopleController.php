@@ -49,6 +49,16 @@ class PeopleController extends Controller
         return view('back.people.chart')->with(compact('person'));
     }
 
+    public function addFather(Person $person): View
+    {
+        return view('back.people.add.father')->with(compact('person'));
+    }
+
+    public function addMother(Person $person): View
+    {
+        return view('back.people.add.mother')->with(compact('person'));
+    }
+
     public function addChild(Person $person): View
     {
         return view('back.people.add.child')->with(compact('person'));

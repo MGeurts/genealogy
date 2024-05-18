@@ -35,6 +35,12 @@ return [
     'years'         => '[0,1] Year|[2,*] Years',
 
     // Actions
+    'add_father'                     => 'Add father',
+    'add_new_person_as_father'       => 'Add NEW person as father',
+    'add_existing_person_as_father'  => 'Add EXISTING person as father',
+    'add_mother'                     => 'Add mother',
+    'add_new_person_as_mother'       => 'Add NEW person as mother',
+    'add_existing_person_as_mother'  => 'Add EXISTING person as mother',
     'add_child'                      => 'Add child',
     'add_new_person_as_child'        => 'Add NEW person as child',
     'add_existing_person_as_child'   => 'Add EXISTING person as child',
