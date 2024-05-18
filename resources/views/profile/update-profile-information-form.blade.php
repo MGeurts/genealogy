@@ -107,7 +107,7 @@
             <x-label for="timezone" value="{{ __('user.timezone') }}" />
             <select id="timezone" class="block mt-1 w-full rounded" name="timezone" wire:model="state.timezone" required>
                 @foreach (timezone_identifiers_list() as $timezone)
-                    <option value="{{ $timezone }}" @if (old('language') == '{{ $timezone }}') selected @endif>{{ $timezone }}</option>
+                    <option value="{{ $timezone }}" @if (old('timezone') == '{{ $timezone }}') selected @endif>{{ $timezone }}</option>
                 @endforeach
             </select>
         </div>
