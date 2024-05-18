@@ -126,6 +126,6 @@ return [
     'dob_after_dod'        => 'Das Geburtsdatum darf nicht nach dem Sterbedatum (:value) sein.',
     'dob_after_yod'        => 'Das Geburtsdatum darf nicht nach dem Sterbejahr (:value) sein.',
 
-    'not_found'            => 'Person nicht gefunden',
-    'use_tab'              => 'Benutze tab',
+    'not_found' => 'Person nicht gefunden',
+    'use_tab'   => 'Benutze tab',
 ];

@@ -126,6 +126,6 @@ return [
     'dob_after_dod'        => 'The Date of birth can not be after the Date of death (:value).',
     'dob_after_yod'        => 'The Date of birth can not be after the Year of death (:value).',
 
-    'not_found'            => 'Person not found',
-    'use_tab'              => 'Use tab',
+    'not_found' => 'Person not found',
+    'use_tab'   => 'Use tab',
 ];
