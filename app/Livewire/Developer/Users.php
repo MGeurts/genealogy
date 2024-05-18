@@ -30,6 +30,12 @@ class Users extends Component implements HasForms, HasTable
                     ->label(__('user.id'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\ImageColumn::make('profile_photo_path')
+                    ->label(__('user.avatar'))
+                    ->getStateUsing(function (User $record) {
+                        return $record->profile_photo_path ? url('storage/' . $record->profile_photo_path) : url('/img/avatar.png');
+                    })
+                    ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('name')
                     ->label(__('user.name'))
                     ->verticallyAlignStart()

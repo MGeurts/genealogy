@@ -29,6 +29,7 @@ return [
     'seen_at'                 => 'Laatst gezien op',
 
     // Photo
+    'avatar'       => 'Avatar',
     'select_photo' => 'Selecteer een nieuw afbeelding',
     'remove_photo' => 'Verwijder afbeelding',
 

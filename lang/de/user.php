@@ -29,6 +29,7 @@ return [
     'seen_at'                 => 'Zuletzt gesehen am',
 
     // Photo
+    'avatar'       => 'Benutzerbild',
     'select_photo' => 'Neues Foto auswählen',
     'remove_photo' => 'Foto entfernen',
 

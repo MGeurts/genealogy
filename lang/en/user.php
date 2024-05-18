@@ -29,6 +29,7 @@ return [
     'seen_at'                 => 'Last seen at',
 
     // Photo
+    'avatar'       => 'Avatar',
     'select_photo' => 'Select a new photo',
     'remove_photo' => 'Remove photo',
 

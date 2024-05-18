@@ -98,6 +98,7 @@ return [
     'cemetery_location' => 'Ort des Friedhofs',
 
     // Photo
+    'avatar'               => 'Benutzerbild',
     'edit_photos'          => 'Editiere Fotos',
     'photo_deleted'        => 'Foto gelöscht',
     'photo'                => 'Foto',

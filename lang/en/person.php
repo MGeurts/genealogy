@@ -98,6 +98,7 @@ return [
     'cemetery_location' => 'Cemetery Location',
 
     // Photo
+    'avatar'               => 'Avatar',
     'edit_photos'          => 'Edit photos',
     'photo_deleted'        => 'Photo deleted',
     'photo'                => 'Photo',

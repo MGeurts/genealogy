@@ -98,6 +98,7 @@ return [
     'cemetery_location' => 'Locatie begraafplaats',
 
     // Photo
+    'avatar'               => 'Avatar',
     'edit_photos'          => 'Editeer afbeeldingen',
     'photo_deleted'        => 'Afbeelding verwijderd',
     'photo'                => 'Afbeelding',

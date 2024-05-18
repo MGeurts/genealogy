@@ -31,8 +31,14 @@ class People extends Component implements HasForms, HasTable
                     ->label(__('person.id'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\ImageColumn::make('photo')
+                    ->label(__('person.avatar'))
+                    ->getStateUsing(function (Person $record) {
+                        return $record->photo ? url('storage/photos/' . $record->team_id . '/' . $record->photo) : url('/img/avatar.png');
+                    })
+                    ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('name')
-                    ->label(__('user.name'))
+                    ->label(__('person.name'))
                     ->verticallyAlignStart()
                     ->sortable(['surname', 'firstname'])
                     ->searchable(['surname', 'firstname']),
@@ -84,12 +90,6 @@ class People extends Component implements HasForms, HasTable
                     ->label(__('person.pod'))
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\IconColumn::make('photo')
-                    ->label(__('person.photo'))
-                    ->getStateUsing(function (Person $record) {
-                        return $record->photo ? true : false;
-                    })
-                    ->boolean(),
                 Tables\Columns\TextColumn::make('team.name')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
