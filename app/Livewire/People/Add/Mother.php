@@ -169,7 +169,7 @@ class Mother extends Component
                 }
 
                 $this->person->update([
-                    'mother_id' =>  $new_person->id,
+                    'mother_id' => $new_person->id,
                 ]);
 
                 $this->toast()->success(__('app.create'), $new_person->name . ' ' . __('app.created') . '.')->flash()->send();
@@ -215,7 +215,6 @@ class Mother extends Component
                     'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
                 ];
             })->toArray();
-
 
         return view('livewire.people.add.mother')->with(compact('persons'));
     }
