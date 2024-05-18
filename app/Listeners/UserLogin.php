@@ -40,13 +40,11 @@ class UserLogin
                 $country_code = null;
             }
 
-            if ($country_code != 'BE') { // remove in production
-                Userlog::create([
-                    'user_id'      => $event->user->id,
-                    'country_name' => $country_name,
-                    'country_code' => $country_code,
-                ]);
-            }
+            Userlog::create([
+                'user_id'      => $event->user->id,
+                'country_name' => $country_name,
+                'country_code' => $country_code,
+            ]);
         }
         // -----------------------------------------------------------------------
     }
