@@ -173,7 +173,7 @@ class Mother extends Component
                     'id'   => $p->id,
                     'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
                 ];
-            })->toArray();
+            });
 
         return view('livewire.people.add.mother')->with(compact('persons'));
     }

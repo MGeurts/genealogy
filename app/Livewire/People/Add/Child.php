@@ -197,7 +197,7 @@ class Child extends Component
                         'id'   => $p->id,
                         'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
                     ];
-                })->toArray();
+                });
         } else {
             $persons = Person::where('id', '!=', $this->person->id)
                 ->whereNull('mother_id')
@@ -209,7 +209,7 @@ class Child extends Component
                         'id'   => $p->id,
                         'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
                     ];
-                })->toArray();
+                });
         }
 
         return view('livewire.people.add.child')->with(compact('persons'));

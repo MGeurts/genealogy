@@ -84,7 +84,7 @@ class Family extends Component
                     'id'     => $couple->id,
                     'couple' => $couple->name . (($couple->date_start) ? ' (' . $couple->date_start_formatted . ')' : ''),
                 ];
-            })->values()->toArray();
+            })->values();
 
         return view('livewire.people.edit.family')->with(compact('fathers', 'mothers', 'parents'));
     }

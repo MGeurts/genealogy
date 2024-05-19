@@ -173,7 +173,7 @@ class Father extends Component
                     'id'   => $p->id,
                     'name' => $p->name . ' ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
                 ];
-            })->toArray();
+            });
 
         return view('livewire.people.add.father')->with(compact('persons'));
     }

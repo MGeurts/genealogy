@@ -82,7 +82,7 @@ class Partner extends Component
                     'id'   => $p->id,
                     'name' => $p->name . ' [' . strtoupper($p->sex) . '] (' . $p->birth_formatted . ')',
                 ];
-            })->toArray();
+            });
 
         return view('livewire.people.edit.partner')->with(compact('couple', 'persons'));
     }
