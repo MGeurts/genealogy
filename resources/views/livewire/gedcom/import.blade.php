@@ -12,7 +12,10 @@
 
         <div class="dark:text-gray-100">
             <br />
-            <p>Reference : <a href="https://gedcom.io/specifications/FamilySearchGEDCOMv7.html" target="_blank" title="GEDCOM">GEDCOM</a></p>
+            <p>Reference : <x-link href="https://gedcom.io/specifications/FamilySearchGEDCOMv7.html" target="_blank">GEDCOM</x-link></p>
+            <p><x-link href="https://gedcom.io/specifications/FamilySearchGEDCOMv7.html" target="_blank">
+                    <x-svg.gedcom class="size-36 dark:fill-white hover:fill-primary-300 dark:hover:fill-primary-300" alt="gedcom" /></x-link>
+            </p>
         </div>
     </x-slot>
 
