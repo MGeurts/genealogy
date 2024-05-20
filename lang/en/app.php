@@ -36,9 +36,9 @@ return [
     'language_select' => 'Select language',
     'language_set'    => 'Language set to',
 
-    'attribute'       => 'Attribute',
-    'old'             => 'Old',
-    'new'             => 'New',
+    'attribute' => 'Attribute',
+    'old'       => 'Old',
+    'new'       => 'New',
 
     // Actions
     'add'     => 'Add',

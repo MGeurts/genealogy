@@ -35,10 +35,10 @@ return [
     'language'        => 'Sprache',
     'language_select' => 'Sprache auswählen',
     'language_set'    => 'Sprache gesetzt auf',
-    
-    'attribute'       => 'Attribuut',
-    'old'             => 'Alt',
-    'new'             => 'Neu',
+
+    'attribute' => 'Attribuut',
+    'old'       => 'Alt',
+    'new'       => 'Neu',
 
     // Actions
     'add'     => 'Hinzufügen',

@@ -35,10 +35,10 @@ return [
     'language'        => 'Taal',
     'language_select' => 'Selecteer taal',
     'language_set'    => 'Taal ingesteld op',
-   
-    'attribute'       => 'Attribuut',
-    'old'             => 'Oud',
-    'new'             => 'Nieuw',
+
+    'attribute' => 'Attribuut',
+    'old'       => 'Oud',
+    'new'       => 'Nieuw',
 
     // Actions
     'add'     => 'Toevoegen',
