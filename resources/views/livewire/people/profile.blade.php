@@ -58,14 +58,10 @@
         <livewire:people.photos :person="$person" class="max-w-96" />
     </div>
 
-    {{-- lifetime --}}
-    <div class="px-2 text-center">
-        {!! $person->lifetime ? $person->lifetime : '&nbsp' !!}
-    </div>
-
-    {{-- age --}}
-    <div class="px-2 text-center">
-        {!! isset($person->age) ? $person->age . ' ' . trans_choice('person.years', $person->age) : '&nbsp' !!}
+    {{-- lifetime & age --}}
+    <div class="flex px-2">
+        <div class="flex-grow">{!! $person->lifetime ? $person->lifetime : '&nbsp' !!}</div>
+        <div class="flex-grow text-end">{!! isset($person->age) ? $person->age . ' ' . trans_choice('person.years', $person->age) : '&nbsp' !!}</div>
     </div>
 
     {{-- data --}}
