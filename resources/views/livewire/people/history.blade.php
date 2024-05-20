@@ -17,11 +17,12 @@
         </div>
 
         {{-- card body --}}
-        <div class="p-5 grid grid-cols-1 gap-5">
+        <div class="p-2 grid grid-cols-1 gap-5">
             @foreach ($activities as $activity)
                 <div class="block rounded bg-neutral-200 dark:bg-neutral-600 p-3 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
                     <h5 class="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                        {{ $activity['created_at'] . ' : ' . $activity['event'] . ' ' . ($activity['causer'] ? ' by ' . $activity['causer'] : '') }}
+                        {{ $activity['created_at'] . ' : ' . $activity['event'] }}<br />
+                        {{ $activity['causer'] ? $activity['causer'] : '' }}
                     </h5>
 
                     <p class="mb-2 text-base text-neutral-600 dark:text-neutral-200">
