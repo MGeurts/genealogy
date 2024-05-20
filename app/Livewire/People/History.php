@@ -15,7 +15,8 @@ class History extends Component
     // ------------------------------------------------------------------------------
     public function mount()
     {
-        $this->activities = Activity::where('subject_type', 'App\Models\Person')->where('subject_id', $this->person->id)
+        $this->activities = Activity::with('causer')
+            ->where('subject_type', 'App\Models\Person')->where('subject_id', $this->person->id)
             ->orderBy('created_at', 'DESC')
             ->get()
             ->map(function ($p) {
