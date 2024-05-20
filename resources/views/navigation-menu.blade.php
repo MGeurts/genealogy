@@ -42,7 +42,7 @@
                 @auth
                     {{-- settings dropdown --}}
                     <div class="relative min-w-max">
-                        <x-dropdown align="right" width="48">
+                        <x-dropdown align="left" width="48">
                             <x-slot name="trigger">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                     <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
@@ -288,6 +288,19 @@
                         </x-nav-link-responsive>
                     </form>
 
+                    {{-- team switcher --}}
+                    @if (auth()->user()->allTeams()->count() > 1)
+                        <div class="border-t border-gray-200"></div>
+
+                        <div class="block px-4 py-2 text-xs text-gray-400">
+                            {{ __('team.switch') }}
+                        </div>
+
+                        @foreach (auth()->user()->allTeams() as $team)
+                            <x-switchable-team :team="$team" component="nav-link-responsive" />
+                        @endforeach
+                    @endif
+
                     {{-- team management --}}
                     @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                         <div class="border-t border-gray-200"></div>
@@ -319,19 +332,6 @@
                                 {{ __('team.gedcom_export') }}
                             </x-nav-link-responsive>
                         @endcan
-
-                        {{-- team switcher --}}
-                        @if (auth()->user()->allTeams()->count() > 1)
-                            <div class="border-t border-gray-200"></div>
-
-                            <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('team.switch') }}
-                            </div>
-
-                            @foreach (auth()->user()->allTeams() as $team)
-                                <x-switchable-team :team="$team" component="nav-link-responsive" />
-                            @endforeach
-                        @endif
                     @endif
                 </div>
             </div>

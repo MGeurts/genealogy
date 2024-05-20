@@ -307,7 +307,7 @@ class DemoSeeder extends Seeder
         ]);
 
         // -----------------------------------------------------------------------
-        // people in other teams (than BRITISH ROYALS)
+        // people in other teams (beside BRITISH ROYALS)
         // -----------------------------------------------------------------------
         Person::create([
             'id'        => 209,
