@@ -32,58 +32,58 @@
 
 ### a. Users
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-002aa.webp" class="rounded" alt="Menu">
+<img src="img/help/genealogy-002aa.webp" class="rounded" alt="Menu">
 
 Users can <b>register</b> themselves.<br/>
 At least a <b>surname</b>, a valid <b>e-mail</b> address, a <b>language</b>, a <b>timezone</b> and a <b>password</b> are required.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-002bb.webp" class="rounded" alt="Register">
+<img src="img/help/genealogy-002bb.webp" class="rounded" alt="Register">
 
 After registration and optional e-mail verification, users can <b>login</b>.<br/>
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-002cc.webp" class="rounded" alt="Login">
+<img src="img/help/genealogy-002cc.webp" class="rounded" alt="Login">
 
 Authenticated users, without invitation, by default belong to (and own) their own <b>personal team</b>.<br/>
 New users, after accepting an invitation by email from another user and registering, by default will be logged in to the team they were invited to. Those users by default also have their own personal team at their disposal.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-002dd.webp" class="rounded" alt="Team">
+<img src="img/help/genealogy-002d.webp" class="rounded" alt="Team">
 
 <div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
-    <b>Two Factor Authentification</b> (2FA) and <b>E-mail Verification</b> are enabled by default but can be configured in <b>config/fortify.php</b>.
+    <b>Two Factor Authentification</b> (2FA) and <b>E-mail Verification</b> can be enabled and configured in <b>config/fortify.php</b>.
 </div>
 
 ### b. User account and profile
 
 Authenticated users can manage their account and user profile by using the dropdown menu in the top right-hand corner of the menu bar.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-003a.webp" class="rounded" alt="Profile settings">
+<img src="img/help/genealogy-003.webp" class="rounded" alt="Profile settings">
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-005a.webp" class="rounded" alt="User profile">
+<img src="img/help/genealogy-005aa.webp" class="rounded" alt="User profile">
 
 ### c. Teams
 
-This application uses <a href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream 4</a> with the <a href="https://jetstream.laravel.com/features/teams.html" target="_blank">Teams</a> option to implement and enforce <a href="https://en.wikipedia.org/wiki/Multitenancy" target="_blank">multi-tenancy</a>.
+This application uses <a href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream</a> with the <a href="https://jetstream.laravel.com/features/teams.html" target="_blank">Teams</a> option to implement and enforce <a href="https://en.wikipedia.org/wiki/Multitenancy" target="_blank">multi-tenancy</a>.
 
 Authenticated users can manage their teams and teams settings by using the dropdown menu in the top right-hand corner of the menu bar.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-004a.webp" class="rounded" alt="Team settings">
+<img src="img/help/genealogy-004.webp" class="rounded" alt="Team settings">
 
 Users can manage either their personal team or create new teams.<br/>
 <span class="text-danger">The personal team and all teams created by a user are also <b>owned</b> by that user.<br/>
 Only the owner can invite other (new or already registered) users (by e-mail) to join the owned teams</span>.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-005b.webp" class="rounded" alt="Team management">
+<img src="img/help/genealogy-005bb.webp" class="rounded" alt="Team management">
 
 <div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
     Create a <b>new and seperate team</b> for each <b>family tree</b> you want to manage and invite other users to it</b>.<br/>
     By assigning users the proper <b>role</b> you can define the rights they have in the selected team.
 </div>
 
-Authenticated users can only see people and couples:
+Authenticated users can only see <b>people</b> and <b>couples</b>:
 
 <ul>
-    <li>created by the teams they own</li>
-    <li>created by the teams they were invited to by the team owner as administrator, manager or editor</li>
+    <li>created by the teams they <b>own</b></li>
+    <li>created by the teams they were invited to by the team owner as <b>administrator</b>, <b>manager</b> or <b>editor</b></li>
 </ul>
 
 ### d. Roles & permissions
@@ -146,11 +146,11 @@ Authenticated users can only see people and couples:
 
 ## 3. Search
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-001.webp" class="rounded" alt="Menu">
+<img src="img/help/genealogy-001.webp" class="rounded" alt="Menu">
 
 After login and <span class="text-danger">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-010a.webp" class="rounded" alt="Search">
+<img src="img/help/genealogy-010a.webp" class="rounded" alt="Search">
 
 Enter a search value in the <b>search box</b>. You can use the character <b class="text-danger">%</b> as a wildcard character.<br/>
 Above the search box the number of people available to / found in the <b>current team</b> are shown.<br/>
@@ -158,10 +158,10 @@ You can use the pagination buttons. You can also change the number of people sho
 
 The results are shown below the search box, each person is represented in one card.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-012.webp" class="rounded" alt="Menu">
+<img src="img/help/genealogy-012.webp" class="rounded" alt="Menu">
 
 Click on the <b>Profile</b> or <b>Family chart</b> button to see details about that person.<br/>
-Click on the father's or mother's name to visit the parent.
+Click on the father's or mother's name to visit the parents.
 
 <hr />
 
@@ -173,33 +173,46 @@ Click on the father's or mother's name to visit the parent.
 
 After login and <span class="text-danger">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-001.webp" class="rounded" alt="Search">
+<img src="img/help/genealogy-001.webp" class="rounded" alt="Search">
 
 You can add a new person by clicking the <b>Add person</b> button above the search bar.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-010a.webp" class="rounded" alt="Add person">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-011b.webp" class="rounded" alt="Add person">
+<img src="img/help/genealogy-010a.webp" class="rounded" alt="Add person">
+<img src="img/help/genealogy-011b.webp" class="rounded" alt="Add person">
 
-### b. New person being a partner
+### b. New person being a father or mother
 
-A second way to add people is to click on the <b>Add relationship</b> tab in the <b>Partners</b> context menu of an existing person.
+Another way to add people is to click on the <b>Add father</b> or <b>Add mother</b> tab in the <b>Family</b> context menu of an existing person.<br/>
+These options are only available if the existing person doesn't have a father or mother yet.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-055.webp" class="rounded" alt="Partners">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-056.webp" class="rounded" alt="Add relationship">
+<img src="img/help/genealogy-033a.webp" class="rounded" alt="Partners">
+<img src="img/help/genealogy-035a.webp" class="rounded" alt="Add father">
+<img src="img/help/genealogy-036a.webp" class="rounded" alt="Add mother">
 
 <div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
-    You can either create a <b>brand new person</b> or select an <b>existing person</b> as this person's new partner.
+    You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new father or mother.
 </div>
 
-### c. New person being a child
+### c. New person being a partner
 
-A third way to add people is to click on the <b>Add child</b> tab in the <b>Children</b> context menu of an existing person.
+Another way to add people is to click on the <b>Add relationship</b> tab in the <b>Partners</b> context menu of an existing person.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-050a.webp" class="rounded" alt="Children">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-051c.webp" class="rounded" alt="Add child">
+<img src="img/help/genealogy-055.webp" class="rounded" alt="Partners">
+<img src="img/help/genealogy-056.webp" class="rounded" alt="Add relationship">
 
 <div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
-    You can either create a <b>brand new person</b> or select an <b>existing person</b> as this person's new child.
+    You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new partner.
+</div>
+
+### d. New person being a child
+
+A last way to add people is to click on the <b>Add child</b> tab in the <b>Children</b> context menu of an existing person.
+
+<img src="img/help/genealogy-050a.webp" class="rounded" alt="Children">
+<img src="img/help/genealogy-051c.webp" class="rounded" alt="Add child">
+
+<div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
+    You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new child.
 </div>
 
 <hr />
@@ -212,35 +225,36 @@ A third way to add people is to click on the <b>Add child</b> tab in the <b>Chil
 
 The personal overview shows all information about the selected person.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-020b.webp" class="rounded" alt="Person overview">
+<img src="img/help/genealogy-020.webp" class="rounded" alt="Person overview">
 
 The navigation bar on top allows you to chose some specific items.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-021a.webp" class="rounded" alt="Person menu">
+<img src="img/help/genealogy-021b.webp" class="rounded" alt="Person menu">
 
 The <b>Profile</b> card shows all general information about the person.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-022aa.webp" class="rounded" alt="Profile deceased">
+<img src="img/help/genealogy-022aa.webp" class="rounded" alt="Profile deceased">
 
 Notice this card shows different data for <b>living</b> and <b>deceased</b> people.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-022bb.webp" class="rounded" alt="Profile living">
+<img src="img/help/genealogy-022bb.webp" class="rounded" alt="Profile living">
 
 You can edit the <b>profile</b>, <b>contact</b> and <b>death</b> data by choosing the corresponding tab in the context menu.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-023a.webp" class="rounded" alt="Profile edit">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-024a.webp" class="rounded" alt="Profile edit profile">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-025a.webp" class="rounded" alt="Profile edit contact">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-026a.webp" class="rounded" alt="Profile edit death">
+<img src="img/help/genealogy-023a.webp" class="rounded" alt="Profile edit">
+<img src="img/help/genealogy-024a.webp" class="rounded" alt="Profile edit profile">
+<img src="img/help/genealogy-025a.webp" class="rounded" alt="Profile edit contact">
+<img src="img/help/genealogy-026a.webp" class="rounded" alt="Profile edit death">
 
 ### b. Photos
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-022cc.webp" class="rounded" alt="Photo editing">
+<img src="img/help/genealogy-022cc.webp" class="rounded" alt="Photo editing">
 
 You can browse through the available photos by using the navigation bar above the photo carousel.<br/>
 You can manage photos by choosing the corresponding tab in the context menu.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-027a.webp" class="rounded" alt="Photo add">
+<img src="img/help/genealogy-023a.webp" class="rounded" alt="Profile edit">
+<img src="img/help/genealogy-027a.webp" class="rounded" alt="Photo add">
 
 You can <b>upload</b> (multiple) new images.<br/>
 You can <b>download</b> or <b>delete</b> existing images.<br/>
@@ -251,40 +265,42 @@ You can also set the primary image by clicking the <b>1</b> button.
 
 The <b>Family</b> card shows the person's parents and the current partner.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-033a.webp" class="rounded" alt="Family">
+<img src="img/help/genealogy-033.webp" class="rounded" alt="Family">
 
 <b>Father</b> and <b>Mother</b> are always referring to the <b>biological</b> father and mother.<br/>
 Non-biological parent can be defined by the <b>Parents</b> link.
 
-You can edit the family data by clicking the blue <b>Edit</b> button in the card header.
+You can edit the family data by selecting the <b>Edit</b> option in the family context menu.<br/>
+In case the person's father or mother are not yet known, you can add or edit them directly in the family context menu.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-034a.webp" class="rounded" alt="Family edit">
+<img src="img/help/genealogy-033a.webp" class="rounded" alt="Family edit">
+<img src="img/help/genealogy-034.webp" class="rounded" alt="Family">
 
 ### d. Partners (Couples)
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-040a.webp" class="rounded" alt="Partners">
+<img src="img/help/genealogy-040a.webp" class="rounded" alt="Partners">
 
 You can <b>add</b>, <b>edit</b> or <b>delete</b> a relationship by choosing the corresponding tab in the context menu.
 When deleting a relationship, the ex-partner stays in the collection as a separate person.
 Under normal circumstances, you should only delete relationships when entered by mistake.
 You can end every exiting relationship by setting the relation as ended, with or without specifying the end date.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-041b.webp" class="rounded" alt="Partners add">
+<img src="img/help/genealogy-041b.webp" class="rounded" alt="Partners add">
 
-When adding a partner you can either create a brand new person or select an axisting person as the new partner.
+When adding a partner you can either create a brand new person or select an existing person as the new partner.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-055.webp" class="rounded" alt="Partners add">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-042a.webp" class="rounded" alt="Partners edit">
+<img src="img/help/genealogy-055.webp" class="rounded" alt="Partners add">
+<img src="img/help/genealogy-042a.webp" class="rounded" alt="Partners edit">
 
 ### e. Children
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-050a.webp" class="rounded" alt="Children">
+<img src="img/help/genealogy-050a.webp" class="rounded" alt="Children">
 
 You can add a child or disconnect existing children by choosing the corresponding tab in the context menu.
 The disconnected child will remain in the database as a person but just not have the selected person as father or mother anymore.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-052.webp" class="rounded" alt="Child add">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-051b.webp" class="rounded" alt="Child add">
+<img src="img/help/genealogy-052.webp" class="rounded" alt="Child add">
+<img src="img/help/genealogy-051c.webp" class="rounded" alt="Child add">
 
 When adding a child you can either create a <b>brand new person</b> or select an <b>existing person</b>.
 
@@ -292,7 +308,7 @@ When adding a child you can either create a <b>brand new person</b> or select an
 
 Siblings are shown on the siblings card.<br/>
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-060a.webp" class="rounded" alt="Siblings">
+<img src="img/help/genealogy-060a.webp" class="rounded" alt="Siblings">
 
 A sibling can be <b>full</b>: both the same biological parents as the selected person.<br/>
 A sibling can be <b>half</b>: only the biological mother or the biological father are common.<br/>
@@ -303,21 +319,27 @@ A sibling can be <b>plus</b>: neither the biological father nor the biological m
 This shows the selected person's ancestors.<br/>
 You can change the tree depth by using the control in the Ancestors card header.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-070.webp" class="rounded" alt="Ancestors">
+<img src="img/help/genealogy-070.webp" class="rounded" alt="Ancestors">
 
 ### h. Descendants
 
 This shows the selected person's descendants.<br/>
 You can change the tree depth by using the control in the Descendants card header.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-071.webp" class="rounded" alt="Descendants">
+<img src="img/help/genealogy-071.webp" class="rounded" alt="Descendants">
 
 ### i. Family chart
 
 This shows the compleet family chart, 3 generations deep.<br/>
-Click on a family member name to see that person's details.
+Click on a family member name to see that person's family chart.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-072.webp" class="rounded" alt="Family chart">
+<img src="img/help/genealogy-072.webp" class="rounded" alt="Family chart">
+
+### j. History
+
+This shows the history of the selected person.<br/>
+
+<img src="img/help/genealogy-073.webp" class="rounded" alt="History">
 
 <hr />
 
@@ -327,11 +349,11 @@ Click on a family member name to see that person's details.
 
 After login and selecting the proper team, click on the <b>Birthdays</b> button in the top navigation menu.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-001.webp" class="rounded" alt="Menu">
+<img src="img/help/genealogy-001.webp" class="rounded" alt="Menu">
 
 This shows the upcomming birthdays.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-080.webp" class="rounded" alt="Birthdays">
+<img src="img/help/genealogy-080.webp" class="rounded" alt="Birthdays">
 
 <hr />
 
@@ -343,44 +365,44 @@ Users can click a button in the top right-hand menu to open the <b>offcanvas men
 On top the users role and permissions in the current team are shown.<br/>
 If a user has the proper rights, additional features are presented.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-006b.webp" class="rounded" alt="Offcanvas menu">
+<img src="img/help/genealogy-006b.webp" class="rounded" alt="Offcanvas menu">
 
 ### a. Teams & people
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-090a.webp" class="rounded" alt="Teams">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-090b.webp" class="rounded" alt="People">
+<img src="img/help/genealogy-090aa.webp" class="rounded" alt="Teams">
+<img src="img/help/genealogy-090bb.webp" class="rounded" alt="People">
 
 ### b. Users & logging
 
 The offcanvas menu allows <b>developers</b> to consult the users and their logging information.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-091a.webp" class="rounded" alt="Users">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-093.webp" class="rounded" alt="User logging 1">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-094.webp" class="rounded" alt="User logging 2">
+<img src="img/help/genealogy-091aa.webp" class="rounded" alt="Users">
+<img src="img/help/genealogy-093.webp" class="rounded" alt="User logging 1">
+<img src="img/help/genealogy-094.webp" class="rounded" alt="User logging 2">
 
 ### c. Backups
 
 The <b>Backups</b> menu item allows <b>developers</b> to manage database backups.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-095.webp" class="rounded" alt="Backups">
+<img src="img/help/genealogy-095.webp" class="rounded" alt="Backups">
 
 ### d. Log viewer
 
 The <b>Log Viewer</b> menu item allows <b>developers</b> to consult the application log files.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-096a.webp" class="rounded" alt="Log viewer">
+<img src="img/help/genealogy-096a.webp" class="rounded" alt="Log viewer">
 
 ### e. Dependencies
 
 The <b>Dependencies</b> menu item allows <b>developers</b> to consult the application dependencies.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-097a.webp" class="rounded" alt="Dependencies">
+<img src="img/help/genealogy-097.webp" class="rounded" alt="Dependencies">
 
 ### f. Session
 
 The <b>Session</b> menu item allows <b>developers</b> to consult the application session.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-098.webp" class="rounded" alt="Session">
+<img src="img/help/genealogy-098.webp" class="rounded" alt="Session">
 
 <hr />
 
@@ -393,14 +415,14 @@ The <b>Session</b> menu item allows <b>developers</b> to consult the application
 Visitor can change the language in the top right-hand menu by using the <b>language selector</b>.<br/>
 De default application language is English.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-002aa.webp" class="rounded" alt="Language menu">
+<img src="img/help/genealogy-002aa.webp" class="rounded" alt="Language menu">
 
 ### b. Authenticated users
 
 Authenticated users can change the language and the timezone in the top right-hand menu by using the <b>profile editor</b>.<br/>
 The selected language and timezone are saved in the database for further use.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-002dd.webp" class="rounded" alt="Profile editor">
+<img src="img/help/genealogy-002d.webp" class="rounded" alt="Profile editor">
 
 <hr />
 
@@ -410,4 +432,4 @@ The selected language and timezone are saved in the database for further use.
 
 Users can change the color theme in the top right-hand menu by using the <b>theme selector</b>.<br/>
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-002aa.webp" class="rounded" alt="Theme selector">
+<img src="img/help/genealogy-002aa.webp" class="rounded" alt="Theme selector">

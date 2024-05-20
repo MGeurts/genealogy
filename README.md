@@ -6,7 +6,7 @@
 
 <b>Genealogy</b> is a free and open-source (family tree) application to record family members and their relationships, build with PHP (Laravel 11).
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-000.webp" class="rounded" alt="Genealogy-000"/>
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-000a.webp" class="rounded" alt="Genealogy-000a"/>
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-020b.webp" class="rounded" alt="Genealogy-020b"/>
 
 This TallStack application is build using :
@@ -70,32 +70,86 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
         <tr>
             <td><b>administrator@genealogy.test</b></td>
             <td>password</td>
-            <td>to view teams <b>BRITISH ROYALS</b> and <b>KENNEDY</b> as team <b>owner</b></td>
+            <td>to access teams <b>BRITISH ROYALS</b> and <b>KENNEDY</b> as team <b>owner</b></td>
         </tr>
         <tr>
             <td><b>manager@genealogy.test</b></td>
             <td>password</td>
-            <td>to view team <b>BRITISH ROYALS</b> as <b>manager</b></td>
+            <td>to access team <b>BRITISH ROYALS</b> as <b>manager</b></td>
         </tr>
         <tr>
             <td><b>editor@genealogy.test</b></td>
             <td>password</td>
-            <td>to view team <b>KENNEDY</b> as <b>editor</b></td>
+            <td>to access team <b>KENNEDY</b> as <b>editor</b></td>
         </tr>
         <tr>
             <td><b>member_1@genealogy.test</b></td>
             <td>password</td>
-            <td>to view team <b>BRITISH ROYALS</b> as normal <b>member</b></td>
+            <td>to access team <b>BRITISH ROYALS</b> as normal <b>member</b></td>
         </tr>
         <tr>
             <td><b>member_4@genealogy.test</b></td>
             <td>password</td>
-            <td>to view team <b>KENNEDY</b> as normal <b>member</b></td>
+            <td>to access team <b>KENNEDY</b> as normal <b>member</b></td>
         </tr>
         <tr>
             <td><b>developer@genealogy.test</b></td>
             <td>password</td>
-            <td>to view options reserved for the <b>developer</b>, like the <b>user management</b> and access to <b>all persons in all teams</b></td>
+            <td>to access options reserved for the <b>developer</b>, like the <b>user management</b> and access to <b>all persons</b> in <b>all teams</b></td>
+        </tr>
+    </tbody>
+</table>
+
+## Roles & permissions
+
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">Role</th>
+            <th style="text-align:left">Model</th>
+            <th style="text-align:left">Permissions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="3"><b>Administrator</b></td>
+            <td>user</td>
+            <td>create, read, update, delete</td>
+        </tr>
+        <tr>
+            <td>person</td>
+            <td>create, read, update, delete</td>
+        </tr>
+        <tr>
+            <td>couple</td>
+            <td>create, read, update, delete</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><b>Manager</b></td>
+            <td>person</td>
+            <td>create, read, update, delete</td>
+        </tr>
+        <tr>
+            <td>couple</td>
+            <td>create, read, update, delete</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><b>Editor</b></td>
+            <td>person</td>
+            <td>create, read, update</td>
+        </tr>
+        <tr>
+            <td>couple</td>
+            <td>create, read, update</td>
+        </tr>
+        <tr>
+            <td rowspan="2"><b>Member</b></td>
+            <td>person</td>
+            <td>read</td>
+        </tr>
+        <tr>
+            <td>couple</td>
+            <td>read</td>
         </tr>
     </tbody>
 </table>
@@ -107,8 +161,8 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <li>Fully responsive</li>
     <li>Multi-language, English, Dutch and German already implemented, language setting saved in authenticated users profile</li>
     <li>Multi-timezone, timezone setting saved in authenticated users profile</li>
-    <li>Multi-tenancy by Jetstream Teams</li>
-    <li>Security through Jetstream Teams Roles & Permissions, 2FA & API can be enabled</li>
+    <li>Multi-tenancy by Laravel Jetstream Teams</li>
+    <li>Security through Laravel Jetstream Teams Roles & Permissions, 2FA & API can be enabled</li>
     <li>Offcanvas menu</li>
     <li>Multiple image upload with possibility of watermarking, photo carousel with navigation</li>
 </ul>
@@ -140,12 +194,15 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
    </ul>
 </p>
 
-<p>All activities (create, update, delete) on <b>persons</b> and <b>couples</b> are logged in the database.</p>
+<p>
+    All activities (create, update, delete) on <b>persons</b> and <b>couples</b> are logged in the database.<br/>
+    Change history available on Persons.
+</p>
 
 ### To Do ...
 
 <ul>
-    <li><a href="https://www.gedcom.org/" target="_blank">GEDCOM</a> import and export (help gladly accepted).</li>
+    <li><a href="https://www.gedcom.org/" target="_blank">GEDCOM</a> import and export.</li>
 </ul>
 
 ## Techniques
