@@ -19,6 +19,7 @@ return [
     'death'            => 'Overlijden',
     'family_chart'     => 'Familie kaart',
     'female'           => 'Vrouw',
+    'history'          => 'Geschiedenis',
     'male'             => 'Man',
     'manage_account'   => 'Accountbeheer',
     'my_profile'       => 'Mijn profiel',
@@ -34,6 +35,10 @@ return [
     'language'        => 'Taal',
     'language_select' => 'Selecteer taal',
     'language_set'    => 'Taal ingesteld op',
+   
+    'attribute'       => 'Attribuut',
+    'old'             => 'Oud',
+    'new'             => 'Nieuw',
 
     // Actions
     'add'     => 'Toevoegen',

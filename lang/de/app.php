@@ -19,6 +19,7 @@ return [
     'death'            => 'Tod',
     'family_chart'     => 'Familiendiagramm',
     'female'           => 'Weiblich',
+    'history'          => 'Geschichte',
     'male'             => 'Männlich',
     'manage_account'   => 'Konto verwalten',
     'my_profile'       => 'Mein Profil',
@@ -34,6 +35,10 @@ return [
     'language'        => 'Sprache',
     'language_select' => 'Sprache auswählen',
     'language_set'    => 'Sprache gesetzt auf',
+    
+    'attribute'       => 'Attribuut',
+    'old'             => 'Alt',
+    'new'             => 'Neu',
 
     // Actions
     'add'     => 'Hinzufügen',

@@ -32,6 +32,7 @@ Route::middleware([
         Route::get('people/{person}/ancestors', 'ancestors')->name('people.ancestors');
         Route::get('people/{person}/descendants', 'descendants')->name('people.descendants');
         Route::get('people/{person}/chart', 'chart')->name('people.chart');
+        Route::get('people/{person}/history', 'history')->name('people.history');
         Route::get('people/{person}/add-father', 'addFather')->name('people.add-father');
         Route::get('people/{person}/add-mother', 'addMother')->name('people.add-mother');
         Route::get('people/{person}/add-child', 'addChild')->name('people.add-child');

@@ -19,6 +19,7 @@ return [
     'death'            => 'Death',
     'family_chart'     => 'Family chart',
     'female'           => 'Female',
+    'history'          => 'History',
     'male'             => 'Male',
     'manage_account'   => 'Manage account',
     'my_profile'       => 'My profile',
@@ -34,6 +35,10 @@ return [
     'language'        => 'Language',
     'language_select' => 'Select language',
     'language_set'    => 'Language set to',
+
+    'attribute'       => 'Attribute',
+    'old'             => 'Old',
+    'new'             => 'New',
 
     // Actions
     'add'     => 'Add',
