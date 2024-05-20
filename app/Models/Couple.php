@@ -55,7 +55,7 @@ class Couple extends Model
     protected static function booted(): void
     {
         static::addGlobalScope('team', function (Builder $builder) {
-            if (! auth()) {
+            if (! auth()->user()) {
                 return;
             } elseif (config('app.god_mode') && auth()->user()->is_developer) {
                 return true;
