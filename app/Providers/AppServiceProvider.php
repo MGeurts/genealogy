@@ -97,6 +97,10 @@ class AppServiceProvider extends ServiceProvider
             ->block('footer.wrapper', 'text-secondary-700 dark:text-dark-300 dark:border-t-neutral-600 rounded rounded-t-none border-t p-2')
             ->block('footer.text', 'flex items-center justify-end gap-2');
 
+        TallStackUi::personalize()->table()
+            ->block('wrapper.class')->replace('rounded-lg', 'rounded')
+            ->block('table.td')->replace('py-4', 'py-2');
+
         // -----------------------------------------------------------------------
         // timezone management
         // -----------------------------------------------------------------------
