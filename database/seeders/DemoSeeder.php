@@ -5,7 +5,9 @@ namespace Database\Seeders;
 use App\Models\Couple;
 use App\Models\Person;
 use App\Models\PersonMetadata;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Activitylog\Facades\CauserResolver;
 
 class DemoSeeder extends Seeder
 {
@@ -20,6 +22,8 @@ class DemoSeeder extends Seeder
      */
     public function run(): void
     {
+        CauserResolver::setCauser(User::findOrFail(1));
+
         $this->importBritishRoyalsPeople();
         $this->importBritishRoyalsCouples();
         $this->generateBritishRoyalsTestData();
@@ -327,6 +331,16 @@ class DemoSeeder extends Seeder
             'dob'       => '2000-01-01',
 
             'team_id' => $this->developer_team,
+        ]);
+
+        // -----------------------------------------------------------------------
+        // address
+        // -----------------------------------------------------------------------
+        Person::findOrFail(5)->update([
+            'street'      => 'Royal Lodge',
+            'postal_code' => 'SL4 2JD',
+            'city'        => 'Windsor',
+            'country_id'  => 77,
         ]);
     }
 
