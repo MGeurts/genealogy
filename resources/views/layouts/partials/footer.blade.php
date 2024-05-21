@@ -22,7 +22,7 @@
                 <x-ts-icon icon="brand-linkedin" class="text-neutral-900 dark:text-neutral-200" />
             </a>
 
-            <a href="https://www.youtube.com/" class="mr-6 text-neutral-600 dark:text-neutral-200" target="_blank" title="YouTube">
+            <a href="https://www.youtube.com/channel/UClUVszEUeb-nY7qM00ERCHg" class="mr-6 text-neutral-600 dark:text-neutral-200" target="_blank" title="YouTube">
                 <x-ts-icon icon="brand-youtube" class="text-neutral-900 dark:text-neutral-200" />
             </a>
 
