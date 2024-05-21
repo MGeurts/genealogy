@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="flex-grow min-w-max max-w-full flex-1 text-end">
-                    <x-ts-icon icon="binary-tree" class="inline-block me-2" />
+                    <x-ts-icon icon="binary-tree" class="inline-block" />
                 </div>
             </div>
         </div>

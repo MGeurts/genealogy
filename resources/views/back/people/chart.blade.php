@@ -20,6 +20,10 @@
                     <div class="flex-grow min-w-max max-w-full flex-1">
                         {{ __('app.family_chart') }}
                     </div>
+
+                    <div class="flex-grow min-w-max max-w-full flex-1 text-end">
+                        <x-ts-icon icon="social" class="inline-block size-5" />
+                    </div>
                 </div>
             </div>
 
