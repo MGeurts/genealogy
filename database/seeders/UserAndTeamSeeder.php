@@ -20,6 +20,7 @@ class UserAndTeamSeeder extends Seeder
             'surname'      => 'Developer',
             'email'        => 'developer@genealogy.test',
             'is_developer' => true,
+            'timezone'     => 'Europe/Brussels',
         ])
             ->withPersonalTeam()
             ->create();
