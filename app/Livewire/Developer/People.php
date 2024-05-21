@@ -40,6 +40,8 @@ class People extends Component implements HasForms, HasTable
                 Tables\Columns\TextColumn::make('name')
                     ->label(__('person.name'))
                     ->verticallyAlignStart()
+                    ->url(fn(Person $record) => 'people/' . $record->id)
+                    ->color('info')
                     ->sortable(['surname', 'firstname'])
                     ->searchable(['surname', 'firstname']),
                 Tables\Columns\TextColumn::make('birthname')
