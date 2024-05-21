@@ -136,8 +136,7 @@
         @else
             <div>{{ __('auth.guest') }} ...</div>
 
-            <div><x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
-            </div>
+            <div><x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" /></div>
 
             <p>
                 <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
