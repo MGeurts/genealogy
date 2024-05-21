@@ -36,9 +36,15 @@ class CreateTeam implements CreatesTeams
         ]));
 
         // -----------------------------------------------------------------------
-        // create team photo folder
+        // create team photo and avatar folders
         // -----------------------------------------------------------------------
         $path = storage_path('app/public/photos/' . $team->id);
+
+        if (! File::isDirectory($path)) {
+            File::makeDirectory($path, 0777, true, true);
+        }
+
+        $path = storage_path('app/public/avatars/' . $team->id);
 
         if (! File::isDirectory($path)) {
             File::makeDirectory($path, 0777, true, true);
