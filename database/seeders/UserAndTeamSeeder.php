@@ -21,7 +21,6 @@ class UserAndTeamSeeder extends Seeder
             'email'              => 'developer@genealogy.test',
             'is_developer'       => true,
             'timezone'           => 'Europe/Brussels',
-            'profile_photo_path' => 'profile-photos/avatar.png',
         ])
             ->withPersonalTeam()
             ->create();
@@ -37,7 +36,6 @@ class UserAndTeamSeeder extends Seeder
             'firstname'          => '_',
             'surname'            => 'Administrator',
             'email'              => 'administrator@genealogy.test',
-            'profile_photo_path' => 'profile-photos/avatar.png',
         ])
             ->withPersonalTeam()
             ->create();
@@ -74,7 +72,6 @@ class UserAndTeamSeeder extends Seeder
             'firstname'          => '_',
             'surname'            => 'Manager',
             'email'              => 'manager@genealogy.test',
-            'profile_photo_path' => 'profile-photos/avatar.png',
             'current_team_id'    => $team_british_royals->id,
         ])
             ->withPersonalTeam()
@@ -94,7 +91,6 @@ class UserAndTeamSeeder extends Seeder
             'firstname'          => '_',
             'surname'            => 'Editor',
             'email'              => 'editor@genealogy.test',
-            'profile_photo_path' => 'profile-photos/avatar.png',
             'current_team_id'    => $team_kennedy->id,
         ])
             ->withPersonalTeam()
