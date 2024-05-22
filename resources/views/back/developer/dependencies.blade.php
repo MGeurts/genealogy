@@ -106,6 +106,21 @@
                     </li>
                 </ul>
             </x-ts-tab.items>
+
+            {{-- gedcom --}}
+            <x-ts-tab.items tab="GEDCOM">
+                <ul class="w-full ml-4">
+                    <li class="py-2">
+                        <x-link href="https://gedcom.io/" target="_blank">FamilySearch GEDCOM</x-link>
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://gedcom.io/specs/" target="_blank">FamilySearch GEDCOM - Specifications</x-link>
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://gedcom.io/tools/" target="_blank">FamilySearch GEDCOM - Tools</x-link>
+                    </li>
+                </ul>
+            </x-ts-tab.items>
         </x-ts-tab>
     </div>
 </x-app-layout>
