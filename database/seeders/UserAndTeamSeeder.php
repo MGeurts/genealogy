@@ -16,11 +16,11 @@ class UserAndTeamSeeder extends Seeder
         // create developer user
         // -----------------------------------------------------------------------------------
         $developer = User::factory([
-            'firstname'          => '_',
-            'surname'            => 'Developer',
-            'email'              => 'developer@genealogy.test',
-            'is_developer'       => true,
-            'timezone'           => 'Europe/Brussels',
+            'firstname'    => '_',
+            'surname'      => 'Developer',
+            'email'        => 'developer@genealogy.test',
+            'is_developer' => true,
+            'timezone'     => 'Europe/Brussels',
         ])
             ->withPersonalTeam()
             ->create();
@@ -33,9 +33,9 @@ class UserAndTeamSeeder extends Seeder
         // create administrator user
         // -----------------------------------------------------------------------------------
         $administrator = User::factory([
-            'firstname'          => '_',
-            'surname'            => 'Administrator',
-            'email'              => 'administrator@genealogy.test',
+            'firstname' => '_',
+            'surname'   => 'Administrator',
+            'email'     => 'administrator@genealogy.test',
         ])
             ->withPersonalTeam()
             ->create();
@@ -69,10 +69,10 @@ class UserAndTeamSeeder extends Seeder
         // -----------------------------------------------------------------------------------
         // manager
         $manager = User::factory([
-            'firstname'          => '_',
-            'surname'            => 'Manager',
-            'email'              => 'manager@genealogy.test',
-            'current_team_id'    => $team_british_royals->id,
+            'firstname'       => '_',
+            'surname'         => 'Manager',
+            'email'           => 'manager@genealogy.test',
+            'current_team_id' => $team_british_royals->id,
         ])
             ->withPersonalTeam()
             ->create();
@@ -88,10 +88,10 @@ class UserAndTeamSeeder extends Seeder
 
         // editor
         $editor = User::factory([
-            'firstname'          => '_',
-            'surname'            => 'Editor',
-            'email'              => 'editor@genealogy.test',
-            'current_team_id'    => $team_kennedy->id,
+            'firstname'       => '_',
+            'surname'         => 'Editor',
+            'email'           => 'editor@genealogy.test',
+            'current_team_id' => $team_kennedy->id,
         ])
             ->withPersonalTeam()
             ->create();

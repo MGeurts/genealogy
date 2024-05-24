@@ -12,9 +12,10 @@
 
         <div class="dark:text-gray-100">
             <br />
-            <p>Reference : <x-link href="https://gedcom.io/specs/" target="_blank">GEDCOM</x-link></p>
-            <p><x-link href="https://gedcom.io/specifications/FamilySearchGEDCOMv7.html" target="_blank">
-                    <x-svg.gedcom class="size-36 dark:fill-white hover:fill-primary-300 dark:hover:fill-primary-300" alt="gedcom" /></x-link>
+            <p>Reference :
+                <x-link href="https://gedcom.io/specs/" target="_blank" title="GEDCOM Specifications">
+                    <x-svg.gedcom class="size-36 dark:fill-white hover:fill-primary-300 dark:hover:fill-primary-300" alt="gedcom" />
+                </x-link>
             </p>
         </div>
     </x-slot>
@@ -35,7 +36,7 @@
 
         {{-- team name --}}
         <div class="col-span-6 sm:col-span-4">
-            <x-ts-input id="name" type="text" class="mt-1 block w-full" wire:model="state.name" autofocus required label="{{ __('team.name') }}" />
+            <x-ts-input id="name" type="text" class="mt-1 block w-full" wire:model="state.name" autofocus required label="{{ __('team.name') }} *" />
         </div>
 
         {{-- team description --}}
@@ -49,19 +50,14 @@
 
         {{-- gedcom file input --}}
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="file" value="{{ __('team.gedcom_file') }}" />
-
-            <x-input type="file" id="file" accept="text/ged" wire:model="file" required
-                class="relative m-0 block w-full min-w-0 flex-auto cursor-pointer rounded border border-solid border-neutral-300 bg-clip-padding px-3 py-[0.32rem] text-base font-normal leading-[1.60] text-neutral-700 transition duration-300 ease-in-out file:-mx-3 file:-my-[0.32rem] file:cursor-pointer file:overflow-hidden file:rounded-none file:border-0 file:border-solid file:border-inherit file:bg-neutral-100 file:px-3 file:py-[0.32rem] file:text-neutral-700 file:transition file:duration-150 file:ease-in-out file:[border-inline-end-width:1px] file:[margin-inline-end:0.75rem] hover:file:bg-neutral-200 focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:border-neutral-600 dark:text-neutral-800 dark:file:bg-neutral-700 dark:file:text-neutral-100 dark:focus:border-primary" />
-
-            <x-input-error for="file" />
-
-            <div class="col-span-6">
-                <div wire:loading wire:target="file" role="status"
-                    class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]">
-                    <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
-                </div>
-            </div>
+            <x-ts-upload accept=".ged" wire:model="file" label="{{ __('team.gedcom_file') }} *" hint="Let's create a team based on your GEDCOM file" tip="Drag and drop your GEDCOM file here"
+                required>
+                <x-slot:footer>
+                    <x-button class="w-full">
+                        Maximal GEDCOM version 5.5.5
+                    </x-button>
+                </x-slot:footer>
+            </x-ts-upload>
         </div>
     </x-slot>
 
