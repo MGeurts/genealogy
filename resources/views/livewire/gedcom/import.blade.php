@@ -1,19 +1,19 @@
 <x-form-section submit="createTeam">
     <x-slot name="title">
         <div class="dark:text-gray-400">
-            {{ __('Team Details') }}
+            {{ __('team.team_details') }}
         </div>
     </x-slot>
 
     <x-slot name="description">
         <div class="dark:text-gray-100">
-            {{ __('Create a new team, imported from a GEDCOM file, to collaborate with others.') }}
+            {{ __('team.team_create_new_gedcom') }}
         </div>
 
         <div class="dark:text-gray-100">
             <br />
-            <p>Reference :
-                <x-link href="https://gedcom.io/specs/" target="_blank" title="GEDCOM Specifications">
+            <p>{{ __('team.team_gedcom_reference') }} :
+                <x-link href="https://gedcom.io/specs/" target="_blank" title="{{ __('team.team_gedcom_specifications') }}">
                     <x-svg.gedcom class="size-36 dark:fill-white hover:fill-primary-300 dark:hover:fill-primary-300" alt="gedcom" />
                 </x-link>
             </p>
@@ -50,12 +50,9 @@
 
         {{-- gedcom file input --}}
         <div class="col-span-6 sm:col-span-4">
-            <x-ts-upload accept=".ged" wire:model="file" label="{{ __('team.gedcom_file') }} *" hint="Let's create a team based on your GEDCOM file" tip="Drag and drop your GEDCOM file here"
-                required>
+            <x-ts-upload accept=".ged" wire:model="file" label="{{ __('team.gedcom_file') }} *" hint="{{ __('team.team_gedcom_hint') }}" tip="{{ __('team.team_gedcom_tip') }}" required>
                 <x-slot:footer>
-                    <x-button class="w-full">
-                        Maximal GEDCOM version 5.5.5
-                    </x-button>
+                    <x-button class="w-full">{{ __('team.team_gedcom_version') }}</x-button>
                 </x-slot:footer>
             </x-ts-upload>
         </div>

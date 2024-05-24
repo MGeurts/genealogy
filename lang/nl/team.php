@@ -23,4 +23,40 @@ return [
     'team_personal' => 'Persoonlijk team',
     'teams'         => 'Teams',
     'users'         => 'Gebruikers',
+
+    // Messages
+    'team_details' => 'Teamdetails',
+    'team_create_new' => 'Creëer een nieuw team om met anderen samen te werken.',
+    'team_create_new_gedcom' => 'Creëer een nieuw team, geïmporteerd uit een GEDCOM-bestand, om met anderen samen te werken.',
+    'team_gedcom_reference' => 'Referentie',
+    'team_gedcom_specifications' => 'GEDCOM Specificaties',
+    'team_gedcom_version' => 'Maximaal GEDCOM versie 5.5.5',
+    'team_gedcom_hint' => 'Laten we een team creëren op basis van een GEDCOM-bestand',
+    'team_gedcom_tip' => 'Sleep uw GEDCOM-bestand hierheen',
+
+    'team_name' => 'Teamnaam',
+    'team_information' => 'De naam van het team en informatie over de eigenaar.',
+    'team_add_member' => 'Teamlid toevoegen',
+    'team_add_member_message' => 'Voeg een nieuw teamlid toe aan uw team, zodat deze met u kan samenwerken.',
+    'team_provide' => 'Geef het e-mailadres op van de persoon die u aan dit team wilt toevoegen.',
+    'email' => 'E-mail',
+    'role' => 'Rol',
+
+    'team_pending' => 'Teamuitnodigingen in behandeling',
+    'team_pending_message' => 'Deze mensen zijn uitgenodigd voor uw team en hebben een uitnodigingsmail ontvangen. Ze kunnen lid worden van het team door de uitnodiging in de e-mail te accepteren.',
+
+    'team_members' => 'Leden van het team',
+    'team_members_message' => 'Alle personen die deel uitmaken van dit team.',
+    'manage_role' => 'Rol beheren',
+    'leave' => 'Verlaten',
+    'leave_team' => 'Verlaat team',
+    'leave_team_sure' => 'Weet je zeker dat je dit team wilt verlaten?',
+    'remove' => 'Verwijder',
+    'remove_member' => 'Teamlid verwijderen',
+    'remove_member_sure' => 'Weet u zeker dat u deze persoon uit het team wilt verwijderen?',
+
+    'delete_team_meassage' => 'Verwijder dit team definitief.',
+    'delete_team_text' => 'Zodra een team is verwijderd, worden alle bronnen en gegevens permanent verwijderd. Voordat u dit team verwijdert, downloadt u alle gegevens of informatie over dit team die u wilt behouden.',
+    'delete_team_sure' => 'Weet u zeker dat u dit team wilt verwijderen? Zodra een team is verwijderd, worden alle bronnen en gegevens permanent verwijderd.',
+
 ];
