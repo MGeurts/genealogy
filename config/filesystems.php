@@ -43,7 +43,7 @@ return [
             'throw'  => false,
         ],
 
-        //photos
+        // photos
         'photos' => [
             'driver'     => 'local',
             'root'       => storage_path('app/public/photos'),
@@ -52,7 +52,16 @@ return [
             'throw'      => false,
         ],
 
-        //profile-pictures
+        // avatars
+        'photos' => [
+            'driver'     => 'local',
+            'root'       => storage_path('app/public/avatars'),
+            'url'        => env('APP_URL') . '/storage/avatars',
+            'visibility' => 'public',
+            'throw'      => false,
+        ],
+
+        // profile-pictures
         'profiles' => [
             'driver'     => 'local',
             'root'       => storage_path('app/public/profiles'),
