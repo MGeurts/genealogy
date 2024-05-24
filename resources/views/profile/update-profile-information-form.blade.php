@@ -1,13 +1,13 @@
 <x-form-section submit="updateProfileInformation">
     <x-slot name="title">
         <div class="dark:text-gray-400">
-            {{ __('Profile Information') }}
+            {{ __('user.profile_information') }}
         </div>
     </x-slot>
 
     <x-slot name="description">
         <div class="dark:text-gray-100">
-            {{ __('Update your account\'s profile information and email address.') }}
+            {{ __('user.profile_information_update') }}
         </div>
     </x-slot>
 
@@ -26,7 +26,7 @@
                                     reader.readAsDataURL($refs.photo.files[0]);
                             " />
 
-                <x-label for="photo" value="{{ __('Photo') }}" />
+                <x-label for="photo" value="{{ __('user.photo') }}" />
 
                 {{-- current profile photo --}}
                 <div class="mt-2" x-show="! photoPreview">
