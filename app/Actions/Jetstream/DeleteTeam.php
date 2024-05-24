@@ -17,6 +17,11 @@ class DeleteTeam implements DeletesTeams
         // delete team photo folder
         // -----------------------------------------------------------------------
         Storage::disk('photos')->deleteDirectory($team->id);
+        
+        // -----------------------------------------------------------------------
+        // delete team avatars folder
+        // -----------------------------------------------------------------------
+        Storage::disk('avatars')->deleteDirectory($team->id);
         // -----------------------------------------------------------------------
 
         $team->purge();

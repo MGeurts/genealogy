@@ -7,7 +7,7 @@
 
     <x-slot name="description">
         <div class="dark:text-gray-100">
-            {{ __('Permanently delete this team.') }}
+            {{ __('team.delete_team_meassage') }}
         </div>
     </x-slot>
 
@@ -27,7 +27,7 @@
         <x-hr.normal />
 
         <div class="max-w-xl text-sm text-gray-600">
-            {{ __('Once a team is deleted, all of its resources and data will be permanently deleted. Before deleting this team, please download any data or information regarding this team that you wish to retain.') }}
+            {{ __('team.delete_team_text') }}
         </div>
 
         <div class="mt-5">
@@ -43,7 +43,7 @@
             </x-slot>
 
             <x-slot name="content">
-                {{ __('Are you sure you want to delete this team? Once a team is deleted, all of its resources and data will be permanently deleted.') }}
+                {{ __('team.delete_team_sure') }}
             </x-slot>
 
             <x-slot name="footer">
