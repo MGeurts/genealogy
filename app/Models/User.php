@@ -119,13 +119,15 @@ class User extends Authenticatable
 
     public function isDeletable(): bool
     {
-        foreach ($this->ownedTeams as $team) {
-            if (! $team->isDeletable()) {
-                return false;
-            }
-        }
+        $count = DB::select('
+            SELECT 
+                SUM((SELECT COUNT(*) FROM `users` INNER JOIN `team_user` ON `users`.`id` = `team_user`.`user_id` WHERE `teams`.`id` = `team_user`.`team_id` AND `users`.`deleted_at` IS NULL)) +
+                SUM((SELECT COUNT(*) FROM `people` WHERE `teams`.`id` = `people`.`team_id` AND `people`.`deleted_at` IS NULL)) +
+                SUM((SELECT COUNT(*) FROM `couples` WHERE `teams`.`id` = `couples`.`team_id`)) AS `items_count` 
+            FROM `teams` WHERE `user_id` = ' . $this->id . ';
+        ');
 
-        return true;
+        return (int) reset($count[0]) == 0;
     }
 
     /* -------------------------------------------------------------------------------------------- */
