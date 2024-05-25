@@ -26,9 +26,9 @@ return [
 
     'email' => 'E-Mail Adresse',
 
-    'failed'          => 'Es gibt keinen Benutzer mit diesen Anmeldeinformationen.',
-    'forgot_password' => 'Passwort vergessen?',
-    'forgot_password_message' => 'Haben Sie Ihr Passwort vergessen? Kein Problem. Teilen Sie uns einfach Ihre E-Mail-Adresse mit und wir senden Ihnen per E-Mail einen Link zum Zurücksetzen Ihres Passworts, mit dem Sie ein neues Passwort auswählen können.',
+    'failed'                    => 'Es gibt keinen Benutzer mit diesen Anmeldeinformationen.',
+    'forgot_password'           => 'Passwort vergessen?',
+    'forgot_password_message'   => 'Haben Sie Ihr Passwort vergessen? Kein Problem. Teilen Sie uns einfach Ihre E-Mail-Adresse mit und wir senden Ihnen per E-Mail einen Link zum Zurücksetzen Ihres Passworts, mit dem Sie ein neues Passwort auswählen können.',
     'email_password_reset_link' => 'Link senden',
 
     'guest' => 'Gast',
@@ -63,19 +63,19 @@ return [
     'team'    => 'Team',
     'to_join' => 'beitreten',
 
-    '2fa' => '2FA',
+    '2fa'                       => '2FA',
     '2_factor_authentification' => '2-Faktor-Authentifizierung',
-    'confirm_code' => 'Bitte bestätigen Sie den Zugriff auf Ihr Konto, indem Sie den von Ihrer Authentifizierungsanwendung bereitgestellten Authentifizierungscode eingeben.',
-    'confirm_recovery_code' => 'Bitte bestätigen Sie den Zugriff auf Ihr Konto, indem Sie einen Ihrer Notfall-Wiederherstellungscodes eingeben.',
-    'code' => 'Code',
-    'recovery_code' => 'Wiederherstellungscode',
-    'use_recovery_code' => 'Verwende einen Wiederherstellungscode',
+    'confirm_code'              => 'Bitte bestätigen Sie den Zugriff auf Ihr Konto, indem Sie den von Ihrer Authentifizierungsanwendung bereitgestellten Authentifizierungscode eingeben.',
+    'confirm_recovery_code'     => 'Bitte bestätigen Sie den Zugriff auf Ihr Konto, indem Sie einen Ihrer Notfall-Wiederherstellungscodes eingeben.',
+    'code'                      => 'Code',
+    'recovery_code'             => 'Wiederherstellungscode',
+    'use_recovery_code'         => 'Verwende einen Wiederherstellungscode',
     'use_authentification_code' => 'Verwenden Sie einen Authentifizierungscode',
 
-    'confirm_password' => 'Bestätige das Passwort',
+    'confirm_password'         => 'Bestätige das Passwort',
     'confirm_password_message' => 'Bitte bestätigen Sie zu Ihrer Sicherheit Ihr Passwort, um fortzufahren.',
-    'secure_area' => 'Dies ist ein sicherer Bereich der Anwendung. Bitte bestätigen Sie Ihr Passwort, bevor Sie fortfahren.',
-    'cancel' => 'Stornieren',
-    'confirm' => 'Bestätigen',
+    'secure_area'              => 'Dies ist ein sicherer Bereich der Anwendung. Bitte bestätigen Sie Ihr Passwort, bevor Sie fortfahren.',
+    'cancel'                   => 'Stornieren',
+    'confirm'                  => 'Bestätigen',
 
 ];

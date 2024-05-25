@@ -26,9 +26,9 @@ return [
 
     'email' => 'Email',
 
-    'failed'          => 'These credentials do not match our records.',
-    'forgot_password' => 'Forgot Password?',
-    'forgot_password_message' => 'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.',
+    'failed'                    => 'These credentials do not match our records.',
+    'forgot_password'           => 'Forgot Password?',
+    'forgot_password_message'   => 'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.',
     'email_password_reset_link' => 'Send Link',
 
     'guest' => 'Guest',
@@ -63,19 +63,19 @@ return [
     'team'    => 'team',
     'to_join' => 'to join',
 
-    '2fa' => '2FA',
+    '2fa'                       => '2FA',
     '2_factor_authentification' => 'Two Factor Authentifacation',
-    'confirm_code' => 'Please confirm access to your account by entering the authentication code provided by your authenticator application.',
-    'confirm_recovery_code' => 'Please confirm access to your account by entering one of your emergency recovery codes.',
-    'code' => 'Code',
-    'recovery_code' => 'Recovery Code',
-    'use_recovery_code' => 'Use a recovery code',
+    'confirm_code'              => 'Please confirm access to your account by entering the authentication code provided by your authenticator application.',
+    'confirm_recovery_code'     => 'Please confirm access to your account by entering one of your emergency recovery codes.',
+    'code'                      => 'Code',
+    'recovery_code'             => 'Recovery Code',
+    'use_recovery_code'         => 'Use a recovery code',
     'use_authentification_code' => 'Use an authentication code',
 
-    'confirm_password' => 'Confirm Password',
+    'confirm_password'         => 'Confirm Password',
     'confirm_password_message' => 'For your security, please confirm your password to continue.',
-    'secure_area' => 'This is a secure area of the application. Please confirm your password before continuing.',
-    'cancel' => 'Cancel',
-    'confirm' => 'Confirm',
+    'secure_area'              => 'This is a secure area of the application. Please confirm your password before continuing.',
+    'cancel'                   => 'Cancel',
+    'confirm'                  => 'Confirm',
 
 ];
