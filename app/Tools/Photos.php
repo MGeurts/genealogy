@@ -3,7 +3,7 @@
 namespace App\Tools;
 
 use App\Models\Person;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 
@@ -16,12 +16,12 @@ class Photos
     {
         if ($person and $photos) {
             // if needed, create folders
-            if (! File::isDirectory(storage_path('app/public/photos/' . $person->team_id))) {
-                File::makeDirectory(storage_path('app/public/photos/' . $person->team_id), 0777, true, true);
+            if (! storage::disk('photos')->exists($person->team_id)) {
+                Storage::disk('photos')->makeDirectory($person->team_id);
             }
 
-            if (! File::isDirectory(storage_path('app/public/avatars/' . $person->team_id))) {
-                File::makeDirectory(storage_path('app/public/avatars/' . $person->team_id), 0777, true, true);
+            if (! storage::disk('avatars')->exists($person->team_id)) {
+                Storage::disk('avatars')->makeDirectory($person->team_id);
             }
 
             // set image parameters

@@ -4,8 +4,8 @@ namespace App\Actions\Jetstream;
 
 use App\Models\Team;
 use App\Models\User;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Jetstream\Contracts\CreatesTeams;
 use Laravel\Jetstream\Events\AddingTeam;
@@ -36,20 +36,15 @@ class CreateTeam implements CreatesTeams
         ]));
 
         // -----------------------------------------------------------------------
-        // create team photo and avatar folders
+        // create team photos and avatars folders
         // -----------------------------------------------------------------------
-        $path = storage_path('app/public/photos/' . $team->id);
-
-        if (! File::isDirectory($path)) {
-            File::makeDirectory($path, 0777, true, true);
+        if (! storage::disk('photos')->exists($team->id)) {
+            Storage::disk('photos')->makeDirectory($team->id);
         }
 
-        $path = storage_path('app/public/avatars/' . $team->id);
-
-        if (! File::isDirectory($path)) {
-            File::makeDirectory($path, 0777, true, true);
+        if (! storage::disk('avatars')->exists($team->id)) {
+            Storage::disk('avatars')->makeDirectory($team->id);
         }
-
         // -----------------------------------------------------------------------
 
         return $team;
