@@ -1,4 +1,4 @@
-@props(['title' => __('Confirm Password'), 'content' => __('For your security, please confirm your password to continue.'), 'button' => __('Confirm')])
+@props(['title' => __('auth.confirm_password'), 'content' => __('auth.confirm_password_message'), 'button' => __('auth.confirm')])
 
 @php
     $confirmableId = md5($attributes->wire('then'));
@@ -19,7 +19,7 @@
             {{ $content }}
 
             <div class="mt-4" x-data="{}" x-on:confirming-password.window="setTimeout(() => $refs.confirmable_password.focus(), 250)">
-                <x-input type="password" class="mt-1 block w-3/4" placeholder="{{ __('Password') }}" autocomplete="current-password" x-ref="confirmable_password" wire:model="confirmablePassword"
+                <x-input type="password" class="mt-1 block w-3/4" placeholder="{{ __('auth.password') }}" autocomplete="current-password" x-ref="confirmable_password" wire:model="confirmablePassword"
                     wire:keydown.enter="confirmPassword" />
 
                 <x-input-error for="confirmable_password" class="mt-2" />
@@ -28,7 +28,7 @@
 
         <x-slot name="footer">
             <x-ts-button color="secondary" wire:click="stopConfirmingPassword" wire:loading.attr="disabled">
-                {{ __('Cancel') }}
+                {{ __('auth.cancel') }}
             </x-ts-button>
 
             <x-ts-button color="primary" class="ms-3" dusk="confirm-password-button" wire:click="confirmPassword" wire:loading.attr="disabled">

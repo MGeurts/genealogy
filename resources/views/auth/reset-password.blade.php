@@ -1,5 +1,5 @@
 @section('title')
-    &vert; {{ __('auth.reset-password') }}
+    &vert; {{ __('auth.reset_password') }}
 @endsection
 
 <x-app-layout>
@@ -22,23 +22,23 @@
             <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
             <div class="block">
-                <x-label for="email" value="{{ __('Email') }}" />
+                <x-label for="email" value="{{ __('auth.email') }}" />
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" />
             </div>
 
             <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
+                <x-label for="password" value="{{ __('auth.password') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-label for="password_confirmation" value="{{ __('auth.confirm_password') }}" />
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 <x-ts-button color="primary">
-                    {{ __('Reset Password') }}
+                    {{ __('auth.reset_password') }}
                 </x-ts-button>
             </div>
         </form>
