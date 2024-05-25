@@ -39,7 +39,7 @@ class UserFactory extends Factory
             'current_team_id'           => null,
             'language'                  => 'en',
             'timezone'                  => 'UTC',
-            'is_developer'              => 0,
+            'is_developer'              => false,
         ];
     }
 
@@ -66,6 +66,7 @@ class UserFactory extends Factory
             Team::factory()
                 ->state(fn (array $attributes, User $user) => [
                     'name'          => 'Team ' . $user->name,
+                    'description'   => 'Personal Team',
                     'user_id'       => $user->id,
                     'personal_team' => true,
                 ])
