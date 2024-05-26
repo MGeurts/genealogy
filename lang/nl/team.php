@@ -55,8 +55,21 @@ return [
     'remove_member'        => 'Teamlid verwijderen',
     'remove_member_sure'   => 'Weet u zeker dat u deze persoon uit het team wilt verwijderen?',
 
+    'user_not_found'       => 'We konden geen geregistreerde gebruiker met dit e-mailadres vinden.',
+    'user_already_in_team' => 'Deze gebruiker behoort al tot het team.',
+    'user_already_invited' => 'Deze gebruiker is al uitgenodigd voor het team.',
+    'user_not_leave'       => 'Je mag een team dat je hebt aangemaakt niet verlaten.',
+
     'delete_team_meassage' => 'Verwijder dit team definitief.',
     'delete_team_text'     => 'Zodra een team is verwijderd, worden alle bronnen en gegevens permanent verwijderd. Voordat u dit team verwijdert, downloadt u alle gegevens of informatie over dit team die u wilt behouden.',
     'delete_team_sure'     => 'Weet u zeker dat u dit team wilt verwijderen? Zodra een team is verwijderd, worden alle bronnen en gegevens permanent verwijderd.',
+
+    'been_invited'               => 'Je bent uitgenodigd om deel uit te maken van het :team team!',
+    'no_account'                 => 'Als u nog geen account heeft, kunt u er één aanmaken door op de onderstaande knop te klikken. Nadat u een account heeft aangemaakt, kunt u op de knop voor het accepteren van de uitnodiging in deze e-mail klikken om de teamuitnodiging te accepteren:',
+    'create_account'             => 'Account aanmaken',
+    'may_accept_already_account' => 'Als u al een account heeft, kunt u deze uitnodiging accepteren door op de onderstaande knop te klikken:',
+    'may_accept'                 => 'U kunt deze uitnodiging accepteren door op de onderstaande knop te klikken:',
+    'accept_invitation'          => 'Uitnodiging accepteren',
+    'discard'                    => 'Als u niet verwachtte een uitnodiging voor dit team te ontvangen, kunt u deze e-mail weggooien.',
 
 ];

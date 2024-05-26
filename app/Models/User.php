@@ -121,7 +121,7 @@ class User extends Authenticatable
     {
         return array_sum(collect(json_decode(json_encode($this->teamsStatistics()), true))->pipe(function ($collection) {
             return collect([
-                'users_count' => $collection->sum('users_count'),
+                'users_count'   => $collection->sum('users_count'),
                 'persons_count' => $collection->sum('persons_count'),
                 'couples_count' => $collection->sum('couples_count'),
             ]);

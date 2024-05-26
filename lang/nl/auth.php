@@ -78,4 +78,9 @@ return [
     'cancel'                   => 'Annuleren',
     'confirm'                  => 'Bevestigen',
 
+    'verify_email' => 'Kunt u, voordat u verdergaat, uw e-mailadres verifiëren door op de link te klikken die we zojuist naar u hebben gemaild? Als u de e-mail niet heeft ontvangen, sturen wij u graag een nieuwe.',
+    'link_send'    => 'Er is een nieuwe verificatielink verzonden naar het e-mailadres dat u in uw profielinstellingen heeft opgegeven.',
+    'resend'       => 'Verificatie-e-mail opnieuw verzenden',
+    'edit_profile' => 'Bewerk profiel',
+
 ];

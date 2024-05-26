@@ -45,6 +45,7 @@ return [
 
     'update_password'        => 'Vernieuw wachtwoord',
     'update_password_secure' => 'Zorg ervoor dat uw account een lang, willekeurig wachtwoord gebruikt om veilig te blijven.',
+    'password_no_match'      => 'Het opgegeven wachtwoord komt niet overeen met uw huidige wachtwoord.',
 
     '2fa'              => 'Twee-factor-authenticatie',
     '2fa_add'          => 'Voeg extra beveiliging toe aan uw account met behulp van tweefactorauthenticatie.',

@@ -45,6 +45,7 @@ return [
 
     'update_password'        => 'Update Password',
     'update_password_secure' => 'Ensure your account is using a long, random password to stay secure.',
+    'password_no_match'      => 'The provided password does not match your current password.',
 
     '2fa'              => 'Two Factor Authentication',
     '2fa_add'          => 'Add additional security to your account using two factor authentication.',

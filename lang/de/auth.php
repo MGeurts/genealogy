@@ -78,4 +78,9 @@ return [
     'cancel'                   => 'Stornieren',
     'confirm'                  => 'Bestätigen',
 
+    'verify_email' => 'Bevor Sie fortfahren, könnten Sie Ihre E-Mail-Adresse bestätigen, indem Sie auf den Link klicken, den wir Ihnen gerade per E-Mail zugesandt haben? Wenn Sie die E-Mail nicht erhalten haben, senden wir Ihnen gerne eine neue zu.',
+    'link_send'    => 'Ein neuer Bestätigungslink wurde an die E-Mail-Adresse gesendet, die Sie in Ihren Profileinstellungen angegeben haben.',
+    'resend'       => 'Bestätigungsmail erneut senden',
+    'edit_profile' => 'Profil bearbeiten',
+
 ];

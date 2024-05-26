@@ -45,6 +45,7 @@ return [
 
     'update_password'        => 'Kennwort aktualisieren',
     'update_password_secure' => 'Stellen Sie sicher, dass Ihr Konto ein langes, zufälliges Passwort verwendet, um die Sicherheit zu gewährleisten.',
+    'password_no_match'      => 'Das angegebene Passwort stimmt nicht mit Ihrem aktuellen Passwort überein.',
 
     '2fa'              => 'Zwei-Faktor-Authentifizierung',
     '2fa_add'          => 'Fügen Sie Ihrem Konto zusätzliche Sicherheit durch die Zwei-Faktor-Authentifizierung hinzu.',

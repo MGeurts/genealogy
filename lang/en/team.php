@@ -55,8 +55,21 @@ return [
     'remove_member'        => 'Remove Team Member',
     'remove_member_sure'   => 'Are you sure you would like to remove this person from the team?',
 
+    'user_not_found'       => 'We were unable to find a registered user with this email address.',
+    'user_already_in_team' => 'This user already belongs to the team.',
+    'user_already_invited' => 'This user has already been invited to the team.',
+    'user_not_leave'       => 'You may not leave a team that you created.',
+
     'delete_team_meassage' => 'Permanently delete this team.',
     'delete_team_text'     => 'Once a team is deleted, all of its resources and data will be permanently deleted. Before deleting this team, please download any data or information regarding this team that you wish to retain.',
     'delete_team_sure'     => 'Are you sure you want to delete this team? Once a team is deleted, all of its resources and data will be permanently deleted.',
+
+    'been_invited'               => 'You have been invited to join the :team team!',
+    'no_account'                 => 'If you do not have an account, you may create one by clicking the button below. After creating an account, you may click the invitation acceptance button in this email to accept the team invitation:',
+    'create_account'             => 'Create Account',
+    'may_accept_already_account' => 'If you already have an account, you may accept this invitation by clicking the button below:',
+    'may_accept'                 => 'You may accept this invitation by clicking the button below:',
+    'accept_invitation'          => 'Accept Invitation',
+    'discard'                    => 'If you did not expect to receive an invitation to this team, you may discard this email.',
 
 ];
