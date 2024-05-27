@@ -17,7 +17,8 @@ return [
     'password'                => 'Passwort',
     'current_password'        => 'Actuelles Passwort',
     'new_password'            => 'Neues Passwort',
-    'confirm_password'        => 'Neues Passwort bestätigen',
+    'confirm_password'        => 'Passwort bestätigen',
+    'confirm_new_password'    => 'Neues Passwort bestätigen',
     'language'                => 'Sprache',
     'timezone'                => 'Zeitzone',
     'developer'               => 'Entwickler',
@@ -81,5 +82,9 @@ return [
     'sure'                       => 'Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Sobald Ihr Konto gelöscht wird, werden alle seine Ressourcen und Daten dauerhaft gelöscht. Bitte geben Sie Ihr Passwort ein, um zu bestätigen, dass Sie Ihr Konto dauerhaft löschen möchten.',
     'password'                   => 'Passwort',
     'can_not_delete'             => 'Ihr Konto kann nicht gelöscht werden, da es gültige Daten enthält.',
+
+    'email_unverified'               => 'Ihre E-Mail-Adresse ist nicht bestätigt.',
+    'click_resend_verification_mail' => 'Klicken Sie hier, um die Bestätigungs-E-Mail erneut zu senden.',
+    'verififacion_mail_send'         => 'Ein neuer Bestätigungslink wurde an Ihre E-Mail-Adresse gesendet.',
 
 ];

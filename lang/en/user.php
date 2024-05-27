@@ -17,7 +17,8 @@ return [
     'password'                => 'Password',
     'current_password'        => 'Current password',
     'new_password'            => 'New password',
-    'confirm_password'        => 'Confirm new password',
+    'confirm_password'        => 'Confirm password',
+    'confirm_new_password'    => 'Confirm new password',
     'language'                => 'Language',
     'timezone'                => 'Timezone',
     'developer'               => 'Developer',
@@ -81,5 +82,9 @@ return [
     'sure'                       => 'Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.',
     'password'                   => 'Password',
     'can_not_delete'             => 'Your account can not be deleted because it contains valid data.',
+
+    'email_unverified'               => 'Your email address is unverified.',
+    'click_resend_verification_mail' => 'Click here to re-send the verification email.',
+    'verififacion_mail_send'         => 'A new verification link has been sent to your email address.',
 
 ];

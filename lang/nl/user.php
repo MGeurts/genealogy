@@ -17,7 +17,8 @@ return [
     'password'                => 'Paswoord',
     'current_password'        => 'Huidig paswoord',
     'new_password'            => 'Nieuw paswoord',
-    'confirm_password'        => 'Bevestig nieuw paswoord',
+    'confirm_password'        => 'Bevestig paswoord',
+    'confirm_new_password'    => 'Bevestig nieuw paswoord',
     'language'                => 'Taal',
     'timezone'                => 'Tijdzone',
     'developer'               => 'Developer',
@@ -81,5 +82,9 @@ return [
     'sure'                       => 'Weet u zeker dat u uw account wilt verwijderen? Zodra uw account is verwijderd, worden alle bronnen en gegevens permanent verwijderd. Voer uw wachtwoord in om te bevestigen dat u uw account definitief wilt verwijderen.',
     'password'                   => 'Paswoord',
     'can_not_delete'             => 'Uw account kan niet worden verwijderd omdat deze geldige gegevens bevat.',
+
+    'email_unverified'               => 'Uw e-mailadres is niet geverifieerd.',
+    'click_resend_verification_mail' => 'Klik hier om de verificatie-e-mail opnieuw te verzenden.',
+    'verififacion_mail_send'         => 'Er is een nieuwe verificatielink naar uw e-mailadres verzonden.',
 
 ];

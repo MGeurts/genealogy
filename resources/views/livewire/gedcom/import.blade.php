@@ -22,7 +22,7 @@
 
     <x-slot name="form" enctype="multipart/form-data">
         <div class="col-span-6">
-            <x-label value="{{ __('team.owner') }}" />
+            <x-label value="{{ __('team.owner') }} :" />
 
             <div class="flex items-center mt-2">
                 <img class="w-12 h-12 rounded-full object-cover" src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}">
@@ -36,13 +36,13 @@
 
         {{-- team name --}}
         <div class="col-span-6 sm:col-span-4">
-            <x-ts-input id="name" type="text" class="mt-1 block w-full" wire:model="state.name" autofocus required label="{{ __('team.name') }} *" />
+            <x-ts-input id="name" type="text" class="mt-1 block w-full" wire:model="state.name" autofocus required label="{{ __('team.name') }} : *" />
         </div>
 
         {{-- team description --}}
         <div class="col-span-6 sm:col-span-4">
             <div class="relative mt-1 mb-3 block w-full">
-                <x-ts-textarea wire:model="state.description" id="description" label="{{ __('team.description') }} *" resize-auto required />
+                <x-ts-textarea wire:model="state.description" id="description" label="{{ __('team.description') }} : *" resize-auto required />
             </div>
 
             <x-input-error for="description" class="mt-2" />
@@ -50,7 +50,7 @@
 
         {{-- gedcom file input --}}
         <div class="col-span-6 sm:col-span-4">
-            <x-ts-upload accept=".ged" wire:model="file" label="{{ __('team.gedcom_file') }} *" hint="{{ __('team.team_gedcom_hint') }}" tip="{{ __('team.team_gedcom_tip') }}" required>
+            <x-ts-upload accept=".ged" wire:model="file" label="{{ __('team.gedcom_file') }} : *" hint="{{ __('team.team_gedcom_hint') }}" tip="{{ __('team.team_gedcom_tip') }}" required>
                 <x-slot:footer>
                     <x-button class="w-full">{{ __('team.team_gedcom_version') }}</x-button>
                 </x-slot:footer>

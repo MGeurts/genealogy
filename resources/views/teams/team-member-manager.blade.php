@@ -26,7 +26,7 @@
 
                     {{-- member email --}}
                     <div class="col-span-6 sm:col-span-4">
-                        <x-label for="email" value="{{ __('team.email') }}" />
+                        <x-label for="email" value="{{ __('team.email') }} :" />
                         <x-input id="email" type="email" class="mt-1 block w-full" wire:model="addTeamMemberForm.email" />
                         <x-input-error for="email" class="mt-2" />
                     </div>
@@ -34,7 +34,7 @@
                     {{-- role --}}
                     @if (count($this->roles) > 0)
                         <div class="col-span-6 lg:col-span-4">
-                            <x-label for="role" value="{{ __('team.role') }}" />
+                            <x-label for="role" value="{{ __('team.role') }} :" />
                             <x-input-error for="role" class="mt-2" />
 
                             <div class="relative z-0 mt-1 border border-gray-200 dark:border-gray-700 rounded cursor-pointer">

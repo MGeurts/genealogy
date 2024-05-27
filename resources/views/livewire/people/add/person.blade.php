@@ -20,29 +20,29 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- firstname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.firstname" id="firstname" label="{{ __('person.firstname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="firstname"
+                    <x-ts-input wire:model="personForm.firstname" id="firstname" label="{{ __('person.firstname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="firstname"
                         autofocus />
                 </div>
 
                 {{-- surname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.surname" id="surname" label="{{ __('person.surname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="surname" />
+                    <x-ts-input wire:model="personForm.surname" id="surname" label="{{ __('person.surname') }} : *" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="surname" />
                 </div>
 
                 {{-- birthname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.birthname" id="birthname" label="{{ __('person.birthname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="birthname" />
+                    <x-ts-input wire:model="personForm.birthname" id="birthname" label="{{ __('person.birthname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="birthname" />
                 </div>
 
                 {{-- nickname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.nickname" id="nickname" label="{{ __('person.nickname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="nickname" />
+                    <x-ts-input wire:model="personForm.nickname" id="nickname" label="{{ __('person.nickname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="nickname" />
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 
                 {{-- sex --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-label for="sex" class="mr-5" value="{{ __('person.sex') }} ({{ __('person.biological') }})" />
+                    <x-label for="sex" class="mr-5" value="{{ __('person.sex') }} ({{ __('person.biological') }}) : *" />
                     <div class="flex">
                         <div class="mt-3 mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
                             <x-ts-radio color="primary" wire:model="personForm.sex" name="sex" id="sexM" value="m" label="{{ __('app.male') }}" />
@@ -55,31 +55,31 @@
 
                 {{-- gender_id --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-select.styled wire:model="gender_id" id="gender_id" label="{{ __('person.gender') }}" :options="$personForm->genders()" select="label:name|value:id" placeholder="{{ __('app.select') }} ..."
-                        wire:dirty.class="bg-warning-200 dark:text-black" searchable />
+                    <x-ts-select.styled wire:model="gender_id" id="gender_id" label="{{ __('person.gender') }} : *" :options="$personForm->genders()" select="label:name|value:id"
+                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 
                 {{-- yob --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.yob" id="yob" label="{{ __('person.yob') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="yob" />
+                    <x-ts-input wire:model="personForm.yob" id="yob" label="{{ __('person.yob') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="yob" />
                 </div>
 
                 {{-- dob --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-date wire:model="personForm.dob" id="dob" label="{{ __('person.dob') }}" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD" :max-date="now()"
+                    <x-ts-date wire:model="personForm.dob" id="dob" label="{{ __('person.dob') }} :" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD" :max-date="now()"
                         placeholder="{{ __('app.select') }} ..." />
                 </div>
 
                 {{-- pob --}}
                 <div class="col-span-6">
-                    <x-ts-input wire:model="personForm.pob" id="pob" label="{{ __('person.pob') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="pod" />
+                    <x-ts-input wire:model="personForm.pob" id="pob" label="{{ __('person.pob') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="pod" />
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 
                 {{-- images --}}
                 <div class="col-span-6">
-                    <x-ts-upload id="photos" wire:model="photos" label="{{ __('person.photos') }}" accept=".jpeg, .jpg, .gif, .png, .svg, .webp"
+                    <x-ts-upload id="photos" wire:model="photos" label="{{ __('person.photos') }} :" accept=".jpeg, .jpg, .gif, .png, .svg, .webp"
                         hint="Max: 1024 KB, Format: jpeg/jpg, gif, png,svg or webp" tip="{{ __('person.update_photo_tip') }} ..." multiple delete>
                     </x-ts-upload>
                 </div>

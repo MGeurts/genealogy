@@ -20,13 +20,13 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- father_id --}}
                 <div class="col-span-6">
-                    <x-ts-select.styled wire:model="familyForm.father_id" id="father_id" label="{{ __('person.father') }} ({{ __('person.biological') }})" :options="$fathers"
+                    <x-ts-select.styled wire:model="familyForm.father_id" id="father_id" label="{{ __('person.father') }} ({{ __('person.biological') }}) :" :options="$fathers"
                         select="label:name|value:id" placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
 
                 {{-- mother_id --}}
                 <div class="col-span-6">
-                    <x-ts-select.styled wire:model="familyForm.mother_id" id="mother_id" label="{{ __('person.mother') }} ({{ __('person.biological') }})" :options="$mothers"
+                    <x-ts-select.styled wire:model="familyForm.mother_id" id="mother_id" label="{{ __('person.mother') }} ({{ __('person.biological') }}) :" :options="$mothers"
                         select="label:name|value:id" placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
 
@@ -39,7 +39,7 @@
 
                 {{-- parents_id --}}
                 <div class="col-span-6">
-                    <x-ts-select.styled wire:model="familyForm.parents_id" id="parents_id" label="{{ __('person.parents') }}" :options="$parents" select="label:couple|value:id"
+                    <x-ts-select.styled wire:model="familyForm.parents_id" id="parents_id" label="{{ __('person.parents') }} :" :options="$parents" select="label:couple|value:id"
                         placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
             </div>

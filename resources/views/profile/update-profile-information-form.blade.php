@@ -26,7 +26,7 @@
                                     reader.readAsDataURL($refs.photo.files[0]);
                             " />
 
-                <x-label for="photo" value="{{ __('user.photo') }}" />
+                <x-label for="photo" value="{{ __('user.photo') }} :" />
 
                 {{-- current profile photo --}}
                 <div class="mt-2" x-show="! photoPreview">
@@ -55,38 +55,38 @@
 
         {{-- firstname --}}
         <div class="col-span-6 md:col-span-4">
-            <x-label for="firstname" value="{{ __('user.firstname') }}" />
+            <x-label for="firstname" value="{{ __('user.firstname') }} :" />
             <x-input id="firstname" name="firstname" type="text" class="mt-1 block w-full" wire:model.defer="state.firstname" autocomplete="firstname" />
             <x-input-error for="firstname" class="mt-1" />
         </div>
 
         {{-- surname --}}
         <div class="col-span-6 md:col-span-4">
-            <x-label for="surname" value="{{ __('user.surname') }}" />
+            <x-label for="surname" value="{{ __('user.surname') }} :" />
             <x-input id="surname" name="surname" type="text" class="mt-1 block w-full" wire:model.defer="state.surname" required autocomplete="surname" />
             <x-input-error for="surname" class="mt-1" />
         </div>
 
         {{-- email --}}
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="email" value="{{ __('Email') }}" />
+            <x-label for="email" value="{{ __('user.email') }} :" />
             <x-input id="email" type="email" class="mt-1 block w-full" wire:model="state.email" required autocomplete="username" />
             <x-input-error for="email" class="mt-2" />
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && !$this->user->hasVerifiedEmail())
                 <p class="text-sm mt-2 dark:text-white">
-                    {{ __('Your email address is unverified.') }}
+                    {{ __('user.email_unverified') }}
 
                     <button type="button"
                         class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                         wire:click.prevent="sendEmailVerification">
-                        {{ __('Click here to re-send the verification email.') }}
+                        {{ __('user.click_resend_mail') }}
                     </button>
                 </p>
 
                 @if ($this->verificationLinkSent)
                     <p class="mt-2 font-medium text-sm text-emerald-600 dark:text-emerald-400">
-                        {{ __('A new verification link has been sent to your email address.') }}
+                        {{ __('user.verififacion_mail_send') }}
                     </p>
                 @endif
             @endif
@@ -94,7 +94,7 @@
 
         {{-- language --}}
         <div class="col-span-6 md:col-span-4">
-            <x-label for="language" value="{{ __('user.language') }}" />
+            <x-label for="language" value="{{ __('user.language') }} :" />
             <select id="language" class="block mt-1 w-full rounded" name="language" wire:model="state.language" required>
                 @foreach (config('app.available_locales') as $locale_name => $available_locale)
                     <option value="{{ $available_locale }}" @if (old('language') == '{{ $available_locale }}') selected @endif>{{ $locale_name }}</option>
@@ -104,7 +104,7 @@
 
         {{-- timezone --}}
         <div class="col-span-6 md:col-span-4">
-            <x-label for="timezone" value="{{ __('user.timezone') }}" />
+            <x-label for="timezone" value="{{ __('user.timezone') }} :" />
             <select id="timezone" class="block mt-1 w-full rounded" name="timezone" wire:model="state.timezone" required>
                 @foreach (timezone_identifiers_list() as $timezone)
                     <option value="{{ $timezone }}" @if (old('timezone') == '{{ $timezone }}') selected @endif>{{ $timezone }}</option>

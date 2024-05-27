@@ -9,28 +9,29 @@
                 <div class="grid grid-cols-6 gap-5">
                     {{-- firstname --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-ts-input wire:model="motherForm.firstname" id="firstname" label="{{ __('person.firstname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="firstname" />
+                        <x-ts-input wire:model="motherForm.firstname" id="firstname" label="{{ __('person.firstname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="firstname" />
                     </div>
 
                     {{-- surname --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-ts-input wire:model="motherForm.surname" id="surname" label="{{ __('person.surname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="surname" />
+                        <x-ts-input wire:model="motherForm.surname" id="surname" label="{{ __('person.surname') }} : *" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="surname" />
                     </div>
 
                     {{-- birthname --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-ts-input wire:model="motherForm.birthname" id="birthname" label="{{ __('person.birthname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="birthname" />
+                        <x-ts-input wire:model="motherForm.birthname" id="birthname" label="{{ __('person.birthname') }} :" wire:dirty.class="bg-warning-200 dark:text-black"
+                            autocomplete="birthname" />
                     </div>
 
                     {{-- nickname --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-ts-input wire:model="motherForm.nickname" id="nickname" label="{{ __('person.nickname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="nickname" />
+                        <x-ts-input wire:model="motherForm.nickname" id="nickname" label="{{ __('person.nickname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="nickname" />
                     </div>
                     <x-hr.narrow class="col-span-6 !my-0" />
 
                     {{-- sex --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-label for="sex" class="mr-5" value="{{ __('person.sex') }} ({{ __('person.biological') }})" />
+                        <x-label for="sex" class="mr-5" value="{{ __('person.sex') }} ({{ __('person.biological') }}) : *" />
                         <div class="flex">
                             <div class="mt-3 mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem] text-gray-700">
                                 {{ __('app.female') }}
@@ -40,31 +41,31 @@
 
                     {{-- gender_id --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-ts-select.styled wire:model="motherForm.gender_id" id="gender_id" label="{{ __('person.gender') }}" :options="$motherForm->genders()" select="label:name|value:id"
+                        <x-ts-select.styled wire:model="motherForm.gender_id" id="gender_id" label="{{ __('person.gender') }} :" :options="$motherForm->genders()" select="label:name|value:id"
                             placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                     </div>
                     <x-hr.narrow class="col-span-6 !my-0" />
 
                     {{-- yob --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-ts-input wire:model="motherForm.yob" id="yob" label="{{ __('person.yob') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="yob" />
+                        <x-ts-input wire:model="motherForm.yob" id="yob" label="{{ __('person.yob') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="yob" />
                     </div>
 
                     {{-- dob --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-ts-date wire:model="motherForm.dob" id="dob" label="{{ __('person.dob') }}" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD" :max-date="now()"
+                        <x-ts-date wire:model="motherForm.dob" id="dob" label="{{ __('person.dob') }} :" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD" :max-date="now()"
                             placeholder="{{ __('app.select') }} ..." />
                     </div>
 
                     {{-- pob --}}
                     <div class="col-span-6">
-                        <x-ts-input wire:model="motherForm.pob" id="pob" label="{{ __('person.pob') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="pod" />
+                        <x-ts-input wire:model="motherForm.pob" id="pob" label="{{ __('person.pob') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="pod" />
                     </div>
                     <x-hr.narrow class="col-span-6 !my-0" />
 
                     {{-- images --}}
                     <div class="col-span-6">
-                        <x-ts-upload id="photos" wire:model="photos" label="{{ __('person.photos') }}" accept=".jpeg, .jpg, .gif, .png, .svg, .webp"
+                        <x-ts-upload id="photos" wire:model="photos" label="{{ __('person.photos') }} :" accept=".jpeg, .jpg, .gif, .png, .svg, .webp"
                             hint="Max: 1024 KB, Format: jpeg/jpg, gif, png,svg or webp" tip="{{ __('person.update_photo_tip') }} ..." multiple delete>
                         </x-ts-upload>
                     </div>
@@ -100,7 +101,7 @@
 
                 {{-- person_id --}}
                 <div class="col-span-6">
-                    <x-ts-select.styled wire:model="motherForm.person_id" id="person_id" label="{{ __('person.person') }}" :options="$persons" select="label:name|value:id"
+                    <x-ts-select.styled wire:model="motherForm.person_id" id="person_id" label="{{ __('person.person') }} : *" :options="$persons" select="label:name|value:id"
                         placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable>
                         <x-slot:after>
                             <div class="px-2 mb-2 w-full">
