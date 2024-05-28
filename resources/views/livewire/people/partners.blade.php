@@ -11,7 +11,7 @@
             @if (auth()->user()->hasPermission('couple:create'))
                 <div class="flex-grow min-w-max max-w-min flex-1 text-end">
                     <x-ts-dropdown icon="menu-2" position="bottom-end">
-                        <a href="/people/{{ $person->id }}/add-partner#form">
+                        <a href="/people/{{ $person->id }}/add-partner">
                             <x-ts-dropdown.items>
                                 <x-ts-icon icon="user-plus" class="mr-2" />
                                 {{ __('person.add_relationship') }}
@@ -22,7 +22,7 @@
                             <hr />
 
                             @foreach ($person->couples->sortBy('date_start') as $couple)
-                                <a href="/people/{{ $person->id }}/{{ $couple->id }}/edit-partner#form">
+                                <a href="/people/{{ $person->id }}/{{ $couple->id }}/edit-partner">
                                     <x-ts-dropdown.items title="{{ __('person.edit_relationship') }}">
                                         <x-ts-icon icon="user-edit" class="mr-2" />
                                         <div>

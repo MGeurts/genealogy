@@ -137,7 +137,7 @@ class Photos extends Component
             }
         }
 
-        return $this->redirect('/people/' . $this->person->id . '/edit-photos#form');
+        return $this->redirect('/people/' . $this->person->id . '/edit-photos');
     }
 
     public function deletePhoto($photo)
@@ -153,7 +153,7 @@ class Photos extends Component
             ]);
         }
 
-        return $this->redirect('/people/' . $this->person->id . '/edit-photos#form');
+        return $this->redirect('/people/' . $this->person->id . '/edit-photos');
     }
 
     public function setPrimary($photo)
@@ -162,7 +162,7 @@ class Photos extends Component
             'photo' => $photo,
         ]);
 
-        return $this->redirect('/people/' . $this->person->id . '/edit-photos#form');
+        return $this->redirect('/people/' . $this->person->id . '/edit-photos');
     }
 
     public function render()

@@ -10,7 +10,7 @@
                     <x-ts-dropdown icon="menu-2" position="bottom-end">
                         @if (!isset($person->father_id) or !isset($person->mother_id))
                             @if (!isset($person->father_id))
-                                <a href="/people/{{ $person->id }}/add-father#form">
+                                <a href="/people/{{ $person->id }}/add-father">
                                     <x-ts-dropdown.items>
                                         <x-ts-icon icon="user-plus" class="mr-2" />
                                         {{ __('person.add_father') }}
@@ -19,7 +19,7 @@
                             @endif
 
                             @if (!isset($person->mother_id))
-                                <a href="/people/{{ $person->id }}/add-mother#form">
+                                <a href="/people/{{ $person->id }}/add-mother">
                                     <x-ts-dropdown.items>
                                         <x-ts-icon icon="user-plus" class="mr-2" />
                                         {{ __('person.add_mother') }}
@@ -30,7 +30,7 @@
                             <hr />
                         @endif
 
-                        <a href="/people/{{ $person->id }}/edit-family#form">
+                        <a href="/people/{{ $person->id }}/edit-family">
                             <x-ts-dropdown.items>
                                 <x-ts-icon icon="edit" class="mr-2" />
                                 {{ __('person.edit_family') }}
