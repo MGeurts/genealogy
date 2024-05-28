@@ -58,7 +58,7 @@
             </div>
 
             {{-- search box --}}
-            <x-ts-input wire:model.live.debounce.500ms="search" type="search" icon="search" placeholder="{{ __('app.people_search_placeholder') }}" />
+            <x-ts-input wire:model.live.debounce.500ms="search" type="search" icon="search" hint="{{ __('person.insert_tip') }}" placeholder="{{ __('app.people_search_placeholder') }}" />
 
             {{-- footer : perpage and pagination --}}
             @if (count($people) > 0)

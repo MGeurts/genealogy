@@ -129,4 +129,6 @@ return [
 
     'not_found' => 'Person not found',
     'use_tab'   => 'Use tab',
+
+    'insert_tip' => 'Insert either a surname, a firstname, a birthname or a nickname. Do not combine!',
 ];

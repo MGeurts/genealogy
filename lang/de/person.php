@@ -129,4 +129,6 @@ return [
 
     'not_found' => 'Person nicht gefunden',
     'use_tab'   => 'Benutze tab',
+
+    'insert_tip' => 'Geben Sie entweder einen Nachnamen, einen Vornamen, einen Geburtsnamen oder einen Spitznamen ein. Nicht kombinieren!',
 ];

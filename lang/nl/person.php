@@ -129,4 +129,6 @@ return [
 
     'not_found' => 'Persoon niet gevonden',
     'use_tab'   => 'Gebruik tab',
+
+    'insert_tip' => 'Voer een achternaam, een voornaam, een geboortenaam of een bijnaam in. Niet combineren!',
 ];
