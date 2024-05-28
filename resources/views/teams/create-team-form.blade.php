@@ -19,8 +19,8 @@
                 <img class="w-12 h-12 rounded-full object-cover" src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}">
 
                 <div class="ms-4 leading-tight">
-                    <div class="text-gray-900 dark:text-white">{{ $this->user->name }}</div>
-                    <div class="text-gray-700 dark:text-gray-700 text-sm">{{ $this->user->email }}</div>
+                    <div class="text-gray-700 text-sm">{{ $this->user->name }}</div>
+                    <div class="text-gray-700 text-sm">{{ $this->user->email }}</div>
                 </div>
             </div>
         </div>

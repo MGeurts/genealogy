@@ -20,7 +20,7 @@
                 <img class="w-12 h-12 rounded-full object-cover" src="{{ $team->owner->profile_photo_url }}" alt="{{ $team->owner->name }}">
 
                 <div class="ms-4 leading-tight">
-                    <div class="text-gray-900">{{ $team->owner->name }}</div>
+                    <div class="text-gray-700 text-sm">{{ $team->owner->name }}</div>
                     <div class="text-gray-700 text-sm">{{ $team->owner->email }}</div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
             <x-label for="description" value="{{ __('team.description') }} :" />
 
             <div class="relative mt-1 mb-3 block w-full">
-                <textarea id="description" wire:model="state.description" :disabled="!Gate::check('update', $team)"
+                <textarea id="description" wire:model="state.description" disabled="!Gate::check('update', $team)"
                     class="peer block min-h-[auto] w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded shadow-sm px-3 py-[0.32rem]" rows="3">
                 </textarea>
             </div>
