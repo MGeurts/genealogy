@@ -95,7 +95,7 @@ class User extends Authenticatable
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
-    protected function getNameAttribute(): ?string
+    public function getNameAttribute(): ?string
     {
         return implode(' ', array_filter([$this->firstname, $this->surname]));
     }
