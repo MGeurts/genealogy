@@ -153,6 +153,7 @@ After login and <span class="text-danger">selecting the proper team</span>, clic
 <img src="img/help/genealogy-010a.webp" class="rounded" alt="Search">
 
 Enter a search value in the <b>search box</b>. You can use the character <b class="text-danger">%</b> as a wildcard character.<br/>
+Insert either a <b>surname</b>, a <b>firstname</b>, a <b>birthname</b> or a <b>nickname</b>. Do not combine!<br/>
 Above the search box the number of people available to / found in the <b>current team</b> are shown.<br/>
 You can use the pagination buttons. You can also change the number of people shown per page.<br/>
 
