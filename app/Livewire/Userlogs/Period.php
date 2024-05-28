@@ -15,8 +15,6 @@ class Period extends Component
 
     public $periods;
 
-    public $statistics;
-
     public $chart_data;
 
     public function mount()
@@ -53,7 +51,7 @@ class Period extends Component
 
     protected function prepare()
     {
-        $this->statistics = match ($this->period) {
+        $statistics = match ($this->period) {
             'year' => Userlog::selectRaw('YEAR(created_at) AS period')
                 ->selectRaw('COUNT(*) AS visitors')
                 ->groupBy('period')
@@ -80,8 +78,8 @@ class Period extends Component
         };
 
         $this->chart_data = json_encode([
-            'labels' => $this->statistics->pluck('period'),
-            'data'   => $this->statistics->pluck('visitors'),
+            'labels' => $statistics->pluck('period'),
+            'data'   => $statistics->pluck('visitors'),
         ]);
     }
 
