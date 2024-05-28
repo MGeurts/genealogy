@@ -35,7 +35,7 @@ class PersonMetadata extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
-    protected function key(): Attribute
+    public function key(): Attribute
     {
         return new Attribute(
             set: fn ($value) => $value ? strtolower($value) : null,

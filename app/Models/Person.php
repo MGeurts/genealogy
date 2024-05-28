@@ -325,22 +325,22 @@ class Person extends Model
         }
     }
 
-    protected function isDeceased(): bool
+    public function isDeceased(): bool
     {
         return $this->dod != null or $this->yod != null;
     }
 
-    protected function isDeletable(): bool
+    public function isDeletable(): bool
     {
         return count($this->children) == 0 and count($this->couples) == 0;
     }
 
-    protected function isBirthdayToday(): bool
+    public function isBirthdayToday(): bool
     {
         return $this->dob ? $this->dob->isBirthday() : false;
     }
 
-    protected function isDeathdayToday(): bool
+    public function isDeathdayToday(): bool
     {
         return $this->dod ? $this->dod->isBirthday() : false;
     }

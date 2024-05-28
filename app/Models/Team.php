@@ -50,7 +50,7 @@ class Team extends JetstreamTeam
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
-    protected function isDeletable(): bool
+    public function isDeletable(): bool
     {
         return $this->persons->count() == 0 and $this->couples->count() and $this->users->count() == 0;
     }

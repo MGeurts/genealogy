@@ -100,12 +100,12 @@ class User extends Authenticatable
         return implode(' ', array_filter([$this->firstname, $this->surname]));
     }
 
-    protected function hasPermission(string $permission): bool
+    public function hasPermission(string $permission): bool
     {
         return $this->hasTeamPermission($this->currentTeam, $permission);
     }
 
-    protected function teamsStatistics()
+    public function teamsStatistics()
     {
         return collect(DB::select('
             SELECT 
@@ -117,7 +117,7 @@ class User extends Authenticatable
         '));
     }
 
-    protected function isDeletable(): bool
+    public function isDeletable(): bool
     {
         return array_sum(collect(json_decode(json_encode($this->teamsStatistics()), true))->pipe(function ($collection) {
             return collect([

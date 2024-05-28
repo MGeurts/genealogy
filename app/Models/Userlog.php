@@ -21,14 +21,14 @@ class Userlog extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
-    protected function date(): Attribute
+    public function date(): Attribute
     {
         return new Attribute(
             get: fn (mixed $value, array $attributes) => Carbon::parse($attributes['created_at'])->inUserTimezone()->isoFormat('dddd LL'),
         );
     }
 
-    protected function time(): Attribute
+    public function time(): Attribute
     {
         return new Attribute(
             get: fn (mixed $value, array $attributes) => Carbon::parse($attributes['created_at'])->inUserTimezone()->format('H:i:s'),
