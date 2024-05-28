@@ -42,7 +42,7 @@ Route::middleware([
         Route::get('people/{person}/edit-family', 'editFamily')->name('people.edit-family');
         Route::get('people/{person}/edit-photos', 'editPhotos')->name('people.edit-photos');
         Route::get('people/{person}/edit-profile', 'editProfile')->name('people.edit-profile');
-        Route::get('people/{couple}/{person}/edit-partner', 'editPartner')->name('people.edit-partner');
+        Route::get('people/{person}/{couple}/edit-partner', 'editPartner')->name('people.edit-partner');
     });
 
     // -----------------------------------------------------------------------------------------------

@@ -99,8 +99,8 @@ class PeopleController extends Controller
         return view('back.people.edit.profile')->with(compact('person'));
     }
 
-    public function editPartner(Couple $couple, Person $person): View
+    public function editPartner(Person $person, Couple $couple): View
     {
-        return view('back.people.edit.partner')->with(compact('couple', 'person'));
+        return view('back.people.edit.partner')->with(compact('person', 'couple'));
     }
 }

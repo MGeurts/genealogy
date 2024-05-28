@@ -22,7 +22,7 @@
                             <hr />
 
                             @foreach ($person->couples->sortBy('date_start') as $couple)
-                                <a href="/people/{{ $couple->id }}/{{ $person->id }}/edit-partner#form">
+                                <a href="/people/{{ $person->id }}/{{ $couple->id }}/edit-partner#form">
                                     <x-ts-dropdown.items title="{{ __('person.edit_relationship') }}">
                                         <x-ts-icon icon="user-edit" class="mr-2" />
                                         <div>
