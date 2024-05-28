@@ -37,6 +37,22 @@ class AppServiceProvider extends ServiceProvider
         });
 
         // -----------------------------------------------------------------------
+        // Use Strict Mode (not in production)
+        // 1. Prevent Lazy Loading
+        // 2. Prevent Silently Discarding Attributes
+        // 3. Prevent Access Missing Attributes
+        // https://coderflex.com/blog/laravel-strict-mode-all-what-you-need-to-know
+        // -----------------------------------------------------------------------
+        Model::shouldBeStrict(! app()->isProduction());
+
+        // -----------------------------------------------------------------------
+        // LOG-VIEWER : log all N+1 queries
+        // -----------------------------------------------------------------------
+        Model::handleLazyLoadingViolationUsing(function ($model, $relation) {
+            Log::warning("N+1 Query detected.\r\n" . sprintf('N+1 Query detected in model %s on relation %s.', get_class($model), $relation));
+        });
+
+        // -----------------------------------------------------------------------
         // LOG-VIEWER : grant access (in production) to developer
         // -----------------------------------------------------------------------
         LogViewer::auth(function ($request) {
@@ -51,15 +67,6 @@ class AppServiceProvider extends ServiceProvider
         //         logger(Str::replaceArray('?', $query->bindings, $query->sql));
         //     });
         // }
-
-        // -----------------------------------------------------------------------
-        // LOG-VIEWER : log all N+1 queries
-        // -----------------------------------------------------------------------
-        Model::preventLazyLoading();
-
-        Model::handleLazyLoadingViolationUsing(function ($model, $relation) {
-            Log::warning("N+1 Query detected.\r\n" . sprintf('N+1 Query detected in model %s on relation %s.', get_class($model), $relation));
-        });
 
         // -----------------------------------------------------------------------
         // LOG-VIEWER : log all requests
