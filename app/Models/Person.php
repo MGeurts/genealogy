@@ -141,12 +141,12 @@ class Person extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
-    protected function getNameAttribute(): ?string
+    public function getNameAttribute(): ?string
     {
         return implode(' ', array_filter([$this->firstname, $this->surname]));
     }
 
-    protected function getAgeAttribute(): ?int
+    public function getAgeAttribute(): ?int
     {
         $age = null;
 
@@ -177,7 +177,7 @@ class Person extends Model
         return $age >= 0 ? $age : null;
     }
 
-    protected function getNextBirthdayAttribute(): ?Carbon
+    public function getNextBirthdayAttribute(): ?Carbon
     {
         if ($this->dob) {
             $today               = Carbon::parse(date('Y-m-d') . ' 00:00:00');
@@ -191,17 +191,17 @@ class Person extends Model
         }
     }
 
-    protected function getNextBirthdayAgeAttribute(): ?int
+    public function getNextBirthdayAgeAttribute(): ?int
     {
         return $this->dob ? Carbon::parse($this->dob)->diffInYears() + 1 : null;
     }
 
-    protected function getNextBirthdayRemainingDaysAttribute(): ?int
+    public function getNextBirthdayRemainingDaysAttribute(): ?int
     {
         return $this->dob ? Carbon::now()->subDay()->diffInDays($this->next_birthday, false) : null;
     }
 
-    protected function getLifetimeAttribute(): ?string
+    public function getLifetimeAttribute(): ?string
     {
         $lifetime = null;
 
@@ -232,7 +232,7 @@ class Person extends Model
         return $lifetime; //returns YEAR(dob) - YEAR(dod)
     }
 
-    protected function getBirthDateAttribute(): ?string
+    public function getBirthDateAttribute(): ?string
     {
         if ($this->dob) {
             $dob = $this->dob;
@@ -245,7 +245,7 @@ class Person extends Model
         return $dob;
     }
 
-    protected function getBirthYearAttribute(): ?string
+    public function getBirthYearAttribute(): ?string
     {
         if ($this->dob) {
             $yob = Carbon::parse($this->dob)->isoFormat('Y');
@@ -258,7 +258,7 @@ class Person extends Model
         return $yob;
     }
 
-    protected function getBirthFormattedAttribute(): ?string
+    public function getBirthFormattedAttribute(): ?string
     {
         if ($this->dob) {
             $dob = Carbon::parse($this->dob)->isoFormat('LL');
@@ -271,7 +271,7 @@ class Person extends Model
         return $dob;
     }
 
-    protected function getDeathFormattedAttribute(): ?string
+    public function getDeathFormattedAttribute(): ?string
     {
         if ($this->dod) {
             $dod = Carbon::parse($this->dod)->isoFormat('LL');
@@ -284,7 +284,7 @@ class Person extends Model
         return $dod;
     }
 
-    protected function getAddressAttribute(): ?string
+    public function getAddressAttribute(): ?string
     {
         return implode("\n", array_filter([
             implode(' ', array_filter([$this->street, $this->number])),
@@ -294,7 +294,7 @@ class Person extends Model
         ]));
     }
 
-    protected function getAddressGoogleAttribute(): ?string
+    public function getAddressGoogleAttribute(): ?string
     {
         $href_google_address = 'https://www.google.com/maps/search/';
 
@@ -308,7 +308,7 @@ class Person extends Model
         return $address ? $href_google_address . $address : '';
     }
 
-    protected function getCemeteryGoogleAttribute(): ?string
+    public function getCemeteryGoogleAttribute(): ?string
     {
         $href_google_address = 'https://www.google.com/maps/search/';
         $href_google_geo     = 'https://www.google.com/maps/search/?api=1&query=';

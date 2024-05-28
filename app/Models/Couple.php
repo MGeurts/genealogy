@@ -101,7 +101,7 @@ class Couple extends Model
         ]));
     }
 
-    protected function getDateStartFormattedAttribute(): ?string
+    public function getDateStartFormattedAttribute(): ?string
     {
         return $this->date_start ? Carbon::parse($this->date_start)->isoFormat('LL') : '';
     }
