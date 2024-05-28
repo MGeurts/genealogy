@@ -95,17 +95,17 @@ class User extends Authenticatable
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
-    public function getNameAttribute(): ?string
+    protected function getNameAttribute(): ?string
     {
         return implode(' ', array_filter([$this->firstname, $this->surname]));
     }
 
-    public function hasPermission(string $permission): bool
+    protected function hasPermission(string $permission): bool
     {
         return $this->hasTeamPermission($this->currentTeam, $permission);
     }
 
-    public function teamsStatistics()
+    protected function teamsStatistics()
     {
         return collect(DB::select('
             SELECT 
@@ -117,7 +117,7 @@ class User extends Authenticatable
         '));
     }
 
-    public function isDeletable(): bool
+    protected function isDeletable(): bool
     {
         return array_sum(collect(json_decode(json_encode($this->teamsStatistics()), true))->pipe(function ($collection) {
             return collect([

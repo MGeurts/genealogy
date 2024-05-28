@@ -141,12 +141,12 @@ class Person extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
-    public function getNameAttribute(): ?string
+    protected function getNameAttribute(): ?string
     {
         return implode(' ', array_filter([$this->firstname, $this->surname]));
     }
 
-    public function getAgeAttribute(): ?int
+    protected function getAgeAttribute(): ?int
     {
         $age = null;
 
@@ -177,7 +177,7 @@ class Person extends Model
         return $age >= 0 ? $age : null;
     }
 
-    public function getNextBirthdayAttribute(): ?Carbon
+    protected function getNextBirthdayAttribute(): ?Carbon
     {
         if ($this->dob) {
             $today               = Carbon::parse(date('Y-m-d') . ' 00:00:00');
@@ -191,17 +191,17 @@ class Person extends Model
         }
     }
 
-    public function getNextBirthdayAgeAttribute(): ?int
+    protected function getNextBirthdayAgeAttribute(): ?int
     {
         return $this->dob ? Carbon::parse($this->dob)->diffInYears() + 1 : null;
     }
 
-    public function getNextBirthdayRemainingDaysAttribute(): ?int
+    protected function getNextBirthdayRemainingDaysAttribute(): ?int
     {
         return $this->dob ? Carbon::now()->subDay()->diffInDays($this->next_birthday, false) : null;
     }
 
-    public function getLifetimeAttribute(): ?string
+    protected function getLifetimeAttribute(): ?string
     {
         $lifetime = null;
 
@@ -232,7 +232,7 @@ class Person extends Model
         return $lifetime; //returns YEAR(dob) - YEAR(dod)
     }
 
-    public function getBirthDateAttribute(): ?string
+    protected function getBirthDateAttribute(): ?string
     {
         if ($this->dob) {
             $dob = $this->dob;
@@ -245,7 +245,7 @@ class Person extends Model
         return $dob;
     }
 
-    public function getBirthYearAttribute(): ?string
+    protected function getBirthYearAttribute(): ?string
     {
         if ($this->dob) {
             $yob = Carbon::parse($this->dob)->isoFormat('Y');
@@ -258,7 +258,7 @@ class Person extends Model
         return $yob;
     }
 
-    public function getBirthFormattedAttribute(): ?string
+    protected function getBirthFormattedAttribute(): ?string
     {
         if ($this->dob) {
             $dob = Carbon::parse($this->dob)->isoFormat('LL');
@@ -271,7 +271,7 @@ class Person extends Model
         return $dob;
     }
 
-    public function getDeathFormattedAttribute(): ?string
+    protected function getDeathFormattedAttribute(): ?string
     {
         if ($this->dod) {
             $dod = Carbon::parse($this->dod)->isoFormat('LL');
@@ -284,7 +284,7 @@ class Person extends Model
         return $dod;
     }
 
-    public function getAddressAttribute(): ?string
+    protected function getAddressAttribute(): ?string
     {
         return implode("\n", array_filter([
             implode(' ', array_filter([$this->street, $this->number])),
@@ -294,7 +294,7 @@ class Person extends Model
         ]));
     }
 
-    public function getAddressGoogleAttribute(): ?string
+    protected function getAddressGoogleAttribute(): ?string
     {
         $href_google_address = 'https://www.google.com/maps/search/';
 
@@ -308,7 +308,7 @@ class Person extends Model
         return $address ? $href_google_address . $address : '';
     }
 
-    public function getCemeteryGoogleAttribute(): ?string
+    protected function getCemeteryGoogleAttribute(): ?string
     {
         $href_google_address = 'https://www.google.com/maps/search/';
         $href_google_geo     = 'https://www.google.com/maps/search/?api=1&query=';
@@ -325,22 +325,22 @@ class Person extends Model
         }
     }
 
-    public function isDeceased(): bool
+    protected function isDeceased(): bool
     {
         return $this->dod != null or $this->yod != null;
     }
 
-    public function isDeletable(): bool
+    protected function isDeletable(): bool
     {
         return count($this->children) == 0 and count($this->couples) == 0;
     }
 
-    public function isBirthdayToday(): bool
+    protected function isBirthdayToday(): bool
     {
         return $this->dob ? $this->dob->isBirthday() : false;
     }
 
-    public function isDeathdayToday(): bool
+    protected function isDeathdayToday(): bool
     {
         return $this->dod ? $this->dod->isBirthday() : false;
     }

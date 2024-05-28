@@ -93,7 +93,7 @@ class Couple extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
-    public function getNameAttribute(): ?string
+    protected function getNameAttribute(): ?string
     {
         return implode(' - ', array_filter([
             implode(' ', array_filter([$this->person_1->firstname, $this->person_1->surname])),
@@ -101,7 +101,7 @@ class Couple extends Model
         ]));
     }
 
-    public function getDateStartFormattedAttribute(): ?string
+    protected function getDateStartFormattedAttribute(): ?string
     {
         return $this->date_start ? Carbon::parse($this->date_start)->isoFormat('LL') : '';
     }
