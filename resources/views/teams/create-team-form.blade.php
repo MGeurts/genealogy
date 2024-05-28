@@ -36,9 +36,7 @@
             <x-label for="description" value="{{ __('team.description') }} :" />
 
             <div class="relative mt-1 mb-3 block w-full">
-                <textarea id="description" wire:model="state.description" class="peer block min-h-[auto] w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded shadow-sm px-3 py-[0.32rem]"
-                    rows="3">
-                </textarea>
+                <x-textarea id="description" wire:model="state.description" rows="3"></x-textarea>
             </div>
 
             <x-input-error for="description" class="mt-2" />
