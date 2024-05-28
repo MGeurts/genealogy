@@ -49,7 +49,7 @@ class Family extends Component
     {
         return
         $this->familyForm->father_id != $this->person->father_id or
-        $this->familyForm->mother_id != $this->person->mothe_id or
+        $this->familyForm->mother_id != $this->person->mother_id or
         $this->familyForm->parents_id != $this->person->parents_id;
     }
 
