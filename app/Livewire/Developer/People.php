@@ -93,6 +93,7 @@ class People extends Component implements HasForms, HasTable
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('team.name')
+                    ->label(__('user.team'))
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('app.created_at'))

@@ -76,8 +76,8 @@ class AppServiceProvider extends ServiceProvider
         // TallStackUI personalization
         // Ref : https://tallstackui.com/docs/personalization/soft
         // -----------------------------------------------------------------------
-        TallStackUi::personalize()->button()
-            ->block('wrapper.class')->replace('gap-x-2', 'gap-x-0');
+        // TallStackUi::personalize()->button()
+        //     ->block('wrapper.class')->replace('gap-x-2', 'gap-x-0');
 
         TallStackUi::personalize()->tab()
             ->block('base.wrapper')->replace('rounded-lg', 'rounded')
@@ -100,6 +100,10 @@ class AppServiceProvider extends ServiceProvider
         TallStackUi::personalize()->table()
             ->block('wrapper.class')->replace('rounded-lg', 'rounded')
             ->block('table.td')->replace('py-4', 'py-2');
+
+        TallStackUi::personalize()->form('input')
+            ->block('input.wrapper')->replace('rounded-md', 'rounded')
+            ->block('input.base')->replace('rounded-md', 'rounded');
 
         // -----------------------------------------------------------------------
         // timezone management

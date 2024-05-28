@@ -71,7 +71,7 @@ class Users extends Component implements HasForms, HasTable
                 Tables\Columns\TextColumn::make('teams')
                     ->label(__('team.teams'))
                     ->getStateUsing(function (User $record) {
-                        return implode('<br/>', $record->allTeams()->where('personal_team', false)->pluck('name')->toArray());
+                        return implode('<br/>', $record->allTeams()->where('personal_team', false)->pluck(['name'])->toArray());
                     })
                     ->verticallyAlignStart()
                     ->html(),
