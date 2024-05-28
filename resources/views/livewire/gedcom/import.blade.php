@@ -1,4 +1,4 @@
-<x-form-section submit="createTeam">
+<x-form-section submit="importTeam">
     <x-slot name="title">
         <div class="dark:text-gray-400">
             {{ __('team.team_details') }}
@@ -28,21 +28,21 @@
                 <img class="w-12 h-12 rounded-full object-cover" src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}">
 
                 <div class="ms-4 leading-tight">
-                    <div class="text-gray-900 dark:text-white">{{ $this->user->name }}</div>
-                    <div class="text-gray-700 dark:text-gray-700 text-sm">{{ $this->user->email }}</div>
+                    <div class="text-gray-700 text-sm">{{ $this->user->name }}</div>
+                    <div class="text-gray-700 text-sm">{{ $this->user->email }}</div>
                 </div>
             </div>
         </div>
 
         {{-- team name --}}
         <div class="col-span-6 sm:col-span-4">
-            <x-ts-input id="name" type="text" class="mt-1 block w-full" wire:model="state.name" autofocus required label="{{ __('team.name') }} : *" />
+            <x-ts-input id="name" name="name" type="text" class="mt-1 block w-full" wire:model="name" autofocus required label="{{ __('team.name') }} : *" />
         </div>
 
         {{-- team description --}}
         <div class="col-span-6 sm:col-span-4">
             <div class="relative mt-1 mb-3 block w-full">
-                <x-ts-textarea wire:model="state.description" id="description" label="{{ __('team.description') }} : *" resize-auto required />
+                <x-ts-textarea id="description" name="description" wire:model="description" label="{{ __('team.description') }} :" resize-auto />
             </div>
 
             <x-input-error for="description" class="mt-2" />
@@ -50,7 +50,8 @@
 
         {{-- gedcom file input --}}
         <div class="col-span-6 sm:col-span-4">
-            <x-ts-upload accept=".ged" wire:model="file" label="{{ __('team.gedcom_file') }} : *" hint="{{ __('team.team_gedcom_hint') }}" tip="{{ __('team.team_gedcom_tip') }}" required>
+            <x-ts-upload id="file" name="file" accept=".ged" wire:model="file" label="{{ __('team.gedcom_file') }} : *" hint="{{ __('team.team_gedcom_hint') }}"
+                tip="{{ __('team.team_gedcom_tip') }}" required>
                 <x-slot:footer>
                     <x-button class="w-full">{{ __('team.team_gedcom_version') }}</x-button>
                 </x-slot:footer>

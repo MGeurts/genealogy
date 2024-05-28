@@ -27,8 +27,8 @@ class Import extends Component
     {
         return $rules = [
             'name'        => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
-            'file'        => ['required', 'file', 'mimes:ged', 'max:1024'],
+            'description' => ['nullable', 'string', 'max:255'],
+            'file'        => ['required', 'file', 'mimes:ged'],
         ];
     }
 
@@ -48,21 +48,36 @@ class Import extends Component
 
     public function mount(): void
     {
-        $this->user = Auth()->user();
+        $this->user        = Auth()->user();
+        $this->name        = null;
+        $this->description = null;
+        $this->file        = null;
     }
 
-    public function createTeam()
+    public function importTeam()
     {
-        if ($this->isDirty()) {
-            $validated = $this->validate();
+        //        if ($this->isDirty()) {
+        $validated = $this->validate();
 
-            if ($this->file) {
-            }
-
-            $this->toast()->success(__('app.create'), __('app.created'))->flash()->send();
-
-            return $this->redirect('/search');
+        if (isset($validated['file'])) {
+            $this->file = $validated['file'];
         }
+
+        dump('test');
+
+        if ($this->file) {
+            $parser = new \PhpGedcom\Parser();
+            $gedcom = $parser->parse($this->file);
+
+            foreach ($gedcom->getIndi() as $individual) {
+                echo $individual->getId() . ': ' . current($individual->getName())->getSurn();
+            }
+        }
+
+        $this->toast()->success(__('app.create'), $this->file)->flash()->send();
+
+        // return $this->redirect('/search');
+        //        }
     }
 
     public function resetTeam(): void
