@@ -22,6 +22,7 @@
         "opcodesio/log-viewer": "^3.7",
         "spatie/laravel-activitylog": "^4.8",
         "spatie/laravel-backup": "^8.6",
+        "spatie/laravel-medialibrary": "^11.5",
         "stevebauman/location": "^7.2",
         "tallstackui/tallstackui": "^1.21"
     },
