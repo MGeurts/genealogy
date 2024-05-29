@@ -5,7 +5,7 @@ namespace App\Livewire\People\Add;
 use App\Livewire\Forms\People\MotherForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
-use App\Tools\Photos;
+use App\Tools\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Livewire\Component;
@@ -124,7 +124,7 @@ class Mother extends Component
                 ]);
 
                 if ($this->photos) {
-                    Photos::save($new_person, $this->photos);
+                    PersonPhotos::save($new_person, $this->photos);
                 }
 
                 $this->person->update([

@@ -4,7 +4,7 @@ namespace App\Livewire\People\Add;
 
 use App\Livewire\Forms\People\PersonForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
-use App\Tools\Photos;
+use App\Tools\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Livewire\Component;
@@ -113,7 +113,7 @@ class Person extends Component
             ]);
 
             if ($this->photos) {
-                Photos::save($new_person, $this->photos);
+                PersonPhotos::save($new_person, $this->photos);
             }
 
             $this->toast()->success(__('app.save'), $new_person->name . ' ' . __('app.created'))->flash()->send();

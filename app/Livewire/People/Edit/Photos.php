@@ -2,13 +2,12 @@
 
 namespace App\Livewire\People\Edit;
 
+use App\Tools\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Number;
-use Intervention\Image\Drivers\Gd\Driver;
-use Intervention\Image\ImageManager;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Symfony\Component\Finder\Finder;
@@ -103,38 +102,8 @@ class Photos extends Component
 
     public function savePhotos()
     {
-        // determine last index
-        $files      = File::glob(public_path() . '/storage/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp');
-        $last_index = $files ? intval(substr(last($files), strpos(last($files), '_') + 1, strrpos(last($files), '_') - strpos(last($files), '_') - 1)) : 0;
-
-        // set image parameters
-        $image_width   = config('app.image_upload_max_width');
-        $image_height  = config('app.image_upload_max_height');
-        $image_quality = config('app.image_upload_quality');
-        $image_type    = config('app.image_upload_type');
-
-        // set image manager
-        $manager = new ImageManager(new Driver());
-
-        foreach ($this->photos as $current_photo) {
-            // name
-            $next_index = str_pad(++$last_index, 3, '0', STR_PAD_LEFT);
-            $image_name = $this->person->id . '_' . $next_index . '_' . now()->format('YmdHis') . '.' . $image_type;
-
-            // resize, add watermark
-            $new_image = $manager->read($current_photo)
-                ->scaleDown(width: $image_width, height: $image_height)
-                ->place(public_path('img/watermark.png'), 'bottom-left', 5, 5)
-                ->toWebp(quality: $image_quality);
-
-            // save
-            if ($new_image) {
-                $new_image->save(storage_path('app/public/photos/' . $this->person->team_id . '/' . $image_name));
-
-                if (! isset($this->person->photo)) {
-                    $this->person->update(['photo' => $image_name]);
-                }
-            }
+        if ($this->photos) {
+            PersonPhotos::save($this->person, $this->photos);
         }
 
         return $this->redirect('/people/' . $this->person->id . '/edit-photos');

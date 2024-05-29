@@ -3,11 +3,12 @@
 namespace App\Tools;
 
 use App\Models\Person;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 
-class Photos
+class PersonPhotos
 {
     // -----------------------------------------------------------------------
     // save all photos and create avatars
@@ -33,7 +34,9 @@ class Photos
             // set image manager
             $manager = new ImageManager(new Driver());
 
-            $last_index = 0;
+            // determine last index
+            $files      = File::glob(public_path() . '/storage/photos/' . $person->team_id . '/' . $person->id . '_*.webp');
+            $last_index = $files ? intval(substr(last($files), strpos(last($files), '_') + 1, strrpos(last($files), '_') - strpos(last($files), '_') - 1)) : 0;
 
             foreach ($photos as $current_photo) {
                 // image name

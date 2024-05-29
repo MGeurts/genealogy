@@ -6,7 +6,7 @@ use App\Livewire\Forms\People\PartnerForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
 use App\Models\Person;
-use App\Tools\Photos;
+use App\Tools\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Livewire\Component;
@@ -145,7 +145,7 @@ class Partner extends Component
                     ]);
 
                     if ($this->photos) {
-                        Photos::save($new_person, $this->photos);
+                        PersonPhotos::save($new_person, $this->photos);
                     }
 
                     $this->toast()->success(__('app.create'), $new_person->name . ' ' . __('app.created') . '.')->flash()->send();
