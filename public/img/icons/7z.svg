@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 303.188 303.188" xml:space="preserve">
+<g>
+	<polygon style="fill:#E4E4E4;" points="219.821,0 32.842,0 32.842,303.188 270.346,303.188 270.346,50.525 	"/>
+	<polygon style="fill:#FB9200;" points="227.64,25.263 32.842,25.263 32.842,0 219.821,0 	"/>
+	<g>
+		<rect x="185.948" y="87.902" style="fill:#A4A9AD;" width="14.419" height="62.587"/>
+		<g>
+			<polygon style="fill:#D1D3D3;" points="203.589,133.525 182.727,137.298 182.727,143.689 203.589,139.916 			"/>
+			<polygon style="fill:#D1D3D3;" points="203.589,120.584 182.727,124.357 182.727,130.748 203.589,126.976 			"/>
+			<polygon style="fill:#D1D3D3;" points="203.589,107.644 182.727,111.416 182.727,117.807 203.589,114.035 			"/>
+			<polygon style="fill:#D1D3D3;" points="203.589,94.703 182.727,98.475 182.727,104.865 203.589,101.094 			"/>
+		</g>
+		<rect x="188.365" y="155" style="fill:#A4A9AD;" width="9.585" height="18.043"/>
+		<polygon style="fill:#A4A9AD;" points="182.727,147.951 163.274,155.281 104.368,155.281 111.417,167.123 163.274,167.123 
+			182.727,159.793 203.589,159.793 203.589,147.951 		"/>
+		<polygon style="fill:#A4A9AD;" points="182.727,90.439 163.274,83.11 104.368,83.11 111.417,71.27 163.274,71.27 182.727,78.6 
+			203.589,78.6 203.589,90.439 		"/>
+		<g>
+			<rect x="89.692" y="83.11" style="fill:#FB9200;" width="71.053" height="72.171"/>
+			<g>
+				<rect x="100.176" y="92.184" style="fill:#FF671B;" width="50.086" height="22.827"/>
+				<rect x="117.142" y="98.818" style="fill:#FFFFFF;" width="16.154" height="3.953"/>
+			</g>
+			<g>
+				<rect x="100.176" y="123.38" style="fill:#FF671B;" width="50.086" height="22.827"/>
+				<rect x="117.142" y="130.013" style="fill:#FFFFFF;" width="16.154" height="3.954"/>
+			</g>
+		</g>
+		<rect x="182.727" y="167.123" style="fill:#A4A9AD;" width="20.862" height="11.84"/>
+	</g>
+	<g>
+		<path style="fill:#A4A9AD;" d="M120.983,273.871l16.475-37.182h-20.773v-10.732h34.623v7.646l-16.901,40.268H120.983z"/>
+		<path style="fill:#A4A9AD;" d="M185.896,273.871h-30.782v-7.318l15.391-20.051H156v-9.813h29.175v7.941l-14.735,19.428h15.457
+			v9.813H185.896z"/>
+	</g>
+	<polygon style="fill:#D1D3D3;" points="219.821,50.525 270.346,50.525 219.821,0 	"/>
+</g>
+</svg>
