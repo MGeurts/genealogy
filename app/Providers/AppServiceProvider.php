@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Opcodes\LogViewer\Facades\LogViewer;
@@ -133,5 +134,13 @@ class AppServiceProvider extends ServiceProvider
             'license' => 'MIT License',
         ]);
         // -----------------------------------------------------------------------
+    }
+
+    // -----------------------------------------------------------------------
+    // enforce https (in production)
+    // -----------------------------------------------------------------------
+    protected function configureUrl(): void
+    {
+        app()->isProduction() && URL::forceScheme('https');
     }
 }
