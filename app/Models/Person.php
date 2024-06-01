@@ -14,10 +14,15 @@ use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Image\Enums\Fit;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Person extends Model
+class Person extends Model implements HasMedia
 {
     use HasManyMergedRelation;
+    use InteractsWithMedia;
     use LogsActivity;
     use SoftDeletes;
 
@@ -136,6 +141,17 @@ class Person extends Model
                 $q->whereNull('yob')->orWhereBetween('yob', [$birth_year - $offset, $birth_year + $offset]);
             });
         }
+    }
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Spatie MediaLibrary
+    /* -------------------------------------------------------------------------------------------- */
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        $this
+            ->addMediaConversion('preview')
+            ->fit(Fit::Contain, 300, 300)
+            ->nonQueued();
     }
 
     /* -------------------------------------------------------------------------------------------- */

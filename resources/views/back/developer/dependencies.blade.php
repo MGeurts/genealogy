@@ -71,26 +71,30 @@
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/Intervention/image/" target="_blank">intervention/image</x-link>
-                        <x-button xs href="https://image.intervention.io/" target="_blank" class="ms-5">Documentation</x-button>
+                        <x-button xs href="https://image.intervention.io/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-button>
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/kevinkhill/lavacharts/" target="_blank">kevinkhill/lavacharts</x-link>
-                        <x-button xs href="https://lavacharts.com/" target="_blank" class="ms-5">Documentation</x-button>
+                        <x-button xs href="https://lavacharts.com/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-button>
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/korridor/laravel-has-many-merged/" target="_blank">korridor/laravel-has-many-merged</x-link>
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/opcodesio/log-viewer/" target="_blank">opcodesio/log-viewer</x-link>
-                        <x-button xs href="https://log-viewer.opcodes.io/" target="_blank" class="ms-5">Documentation</x-button>
+                        <x-button xs href="https://log-viewer.opcodes.io/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-button>
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/spatie/laravel-activitylog/" target="_blank">spatie/activity-log</x-link>
-                        <x-button xs href="https://spatie.be/docs/laravel-activitylog/" target="_blank" class="ms-5">Documentation</x-button>
+                        <x-button xs href="https://spatie.be/docs/laravel-activitylog/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-button>
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/spatie/laravel-backup/" target="_blank">spatie/laravel-backup</x-link>
-                        <x-button xs href="https://spatie.be/docs/laravel-backup/" target="_blank" class="ms-5">Documentation</x-button>
+                        <x-button xs href="https://spatie.be/docs/laravel-backup/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-button>
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://github.com/spatie/laravel-medialibrary/" target="_blank">spatie/laravel-medialibrary</x-link>
+                        <x-button xs href="https://spatie.be/docs/laravel-medialibrary/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-button>
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/stevebauman/location/" target="_blank">stevebauman/location</x-link>
@@ -103,6 +107,20 @@
                 <ul class="w-full ml-4">
                     <li class="py-2">
                         <x-link href="https://www.chartjs.org/" target="_blank">Chart.js</x-link>
+                    </li>
+                </ul>
+            </x-ts-tab.items>
+
+            {{-- 3rd Party --}}
+            <x-ts-tab.items tab="3rd-Party">
+                <ul class="w-full ml-4">
+                    <li class="py-2">
+                        <x-link href="https://tabler.io/icons/" target="_blank">tabler.io</x-link> - Icons
+                    </li>
+                </ul>
+                <ul class="w-full ml-4">
+                    <li class="py-2">
+                        <x-link href="https://www.svgrepo.com/" target="_blank">svgrepo.com</x-link> - SVG Repository
                     </li>
                 </ul>
             </x-ts-tab.items>

@@ -19,6 +19,7 @@ class Partners extends Component
 
     public $deleteConfirmed = false;
 
+    // -----------------------------------------------------------------------
     protected $listeners = [
         'couple_deleted' => 'render',
     ];

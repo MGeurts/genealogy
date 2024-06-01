@@ -21,6 +21,7 @@ class Profile extends Component
         'couple_deleted' => 'render',
     ];
 
+    // -----------------------------------------------------------------------
     public function confirmDeletion(): void
     {
         $this->deleteConfirmed = true;

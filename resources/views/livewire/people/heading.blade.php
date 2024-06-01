@@ -29,6 +29,11 @@
                 {{ __('app.family_chart') }}
             </x-ts-button>
 
+            <x-ts-button href="/people/{{ $person->id }}/files" color="{{ request()->routeIs('people.files') ? 'warning' : 'secondary' }}" class="text-white text-sm mr-2 mb-3">
+                <x-ts-icon icon="files" class="size-5 mr-1" />
+                {{ __('person.files') }}
+            </x-ts-button>
+
             <x-ts-button href="/people/{{ $person->id }}/history" color="{{ request()->routeIs('people.history') ? 'warning' : 'info' }}" class="text-white text-sm mr-2 mb-3">
                 <x-ts-icon icon="history" class="size-5 mr-1" />
                 {{ __('app.history') }}

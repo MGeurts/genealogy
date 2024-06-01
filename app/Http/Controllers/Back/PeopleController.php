@@ -49,6 +49,11 @@ class PeopleController extends Controller
         return view('back.people.chart')->with(compact('person'));
     }
 
+    public function files(Person $person): View
+    {
+        return view('back.people.files')->with(compact('person'));
+    }
+
     public function history(Person $person): View
     {
         return view('back.people.history')->with(compact('person'));

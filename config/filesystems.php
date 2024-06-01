@@ -61,11 +61,11 @@ return [
             'throw'      => false,
         ],
 
-        // media
-        'avatars' => [
+        // files
+        'files' => [
             'driver'     => 'local',
-            'root'       => storage_path('app/public/media'),
-            'url'        => env('APP_URL') . '/storage/media',
+            'root'       => storage_path('app/public/files'),
+            'url'        => env('APP_URL') . '/storage/files',
             'visibility' => 'public',
             'throw'      => false,
         ],
