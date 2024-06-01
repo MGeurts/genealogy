@@ -2,7 +2,7 @@
 
 namespace App\Livewire\People\Edit;
 
-use App\Tools\PersonPhotos;
+use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
@@ -24,7 +24,7 @@ class Photos extends Component
 
     public $backup = [];
 
-    public $images = [];
+    public $images = null;
 
     // -----------------------------------------------------------------------
     public function mount(): void
@@ -100,16 +100,22 @@ class Photos extends Component
         $this->photos = collect($file)->unique(fn (UploadedFile $item) => $item->getClientOriginalName())->toArray();
     }
 
-    public function savePhotos()
+    public function save()
     {
         if ($this->photos) {
             PersonPhotos::save($this->person, $this->photos);
-        }
 
-        return $this->redirect('/people/' . $this->person->id . '/edit-photos');
+            // -----------------------------------------------------------------------
+            // TO DO : dispatch not working properly
+            // -----------------------------------------------------------------------
+            // $this->dispatch('photos_updated');
+
+            return $this->redirect('/people/' . $this->person->id . '/edit-photos');
+            // -----------------------------------------------------------------------
+        }
     }
 
-    public function deletePhoto($photo)
+    public function deletePhoto($photo): void
     {
         Storage::disk('photos')->delete($this->person->team_id . '/' . $photo);
 
@@ -122,18 +128,21 @@ class Photos extends Component
             ]);
         }
 
-        return $this->redirect('/people/' . $this->person->id . '/edit-photos');
+        $this->dispatch('photos_updated');
+
+        $this->mount();
     }
 
-    public function setPrimary($photo)
+    public function setPrimary($photo): void
     {
         $this->person->update([
             'photo' => $photo,
         ]);
 
-        return $this->redirect('/people/' . $this->person->id . '/edit-photos');
+        $this->dispatch('photos_updated');
     }
 
+    // -----------------------------------------------------------------------
     public function render()
     {
         return view('livewire.people.edit.photos');

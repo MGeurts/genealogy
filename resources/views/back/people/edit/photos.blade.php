@@ -1,11 +1,11 @@
 @section('title')
-    &vert; {{ __('person.edit_photos') }}
+    &vert; {{ __('person.photos') }}
 @endsection
 
 <x-app-layout>
     <x-slot name="heading">
         <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-            {{ __('person.edit_photos') }}
+            {{ __('person.photos') }}
         </h2>
     </x-slot>
 

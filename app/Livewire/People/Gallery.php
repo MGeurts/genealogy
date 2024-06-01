@@ -5,13 +5,18 @@ namespace App\Livewire\People;
 use Illuminate\Support\Facades\File;
 use Livewire\Component;
 
-class Photos extends Component
+class Gallery extends Component
 {
     public $person;
 
-    public $images = [];
+    public $images = null;
 
     public $selected = null;
+
+    // -----------------------------------------------------------------------
+    protected $listeners = [
+        'photos_updated' => 'mount',
+    ];
 
     // -----------------------------------------------------------------------
     public function mount()
@@ -56,6 +61,6 @@ class Photos extends Component
     // ------------------------------------------------------------------------------
     public function render()
     {
-        return view('livewire.people.photos');
+        return view('livewire.people.gallery');
     }
 }

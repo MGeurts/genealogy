@@ -55,7 +55,7 @@
 
     {{-- image --}}
     <div class="grid p-2 justify-center">
-        <livewire:people.photos :person="$person" class="max-w-96" />
+        <livewire:people.gallery :person="$person" class="max-w-96" />
     </div>
 
     {{-- lifetime & age --}}
