@@ -53,7 +53,7 @@ return [
     ],
 
     'upload' => [
-        'placeholder' => 'Kies een bestand',
+        'placeholder' => 'Kies een (of meerdere) bestand(en) ...',
         'size' => 'Grootte',
         'upload' => 'Klik hier om op te laden',
         'uploaded' => [

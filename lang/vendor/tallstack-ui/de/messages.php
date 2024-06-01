@@ -53,7 +53,7 @@ return [
     ],
 
     'upload' => [
-        'placeholder' => 'Wähle eine datei',
+        'placeholder' => 'Wählen Sie eine (oder mehrere) Datei(en) ...',
         'size' => 'Größe',
         'upload' => 'Klicken sie hier, um zu senden',
         'uploaded' => [

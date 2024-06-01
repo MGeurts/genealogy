@@ -97,18 +97,22 @@ return [
     'cemetery'          => 'Cemetery',
     'cemetery_location' => 'Cemetery Location',
 
+    // files
+    'upload_files'     => 'Upload files',
+    'files'            => 'Files',
+    'file'             => 'File',
+    'update_files_tip' => 'Drag and drop your new files here',
+
     // Photo
-    'avatar'               => 'Avatar',
-    'edit_photos'          => 'Edit photos',
-    'photo_deleted'        => 'Photo deleted',
-    'photo'                => 'Photo',
-    'photos'               => 'Photos',
-    'photos_existing'      => 'Existing photos',
-    'set_primary'          => 'Set as primary',
-    'upload_photo'         => 'Upload photo',
-    'upload_photos'        => 'Upload photos',
-    'upload_photo_primary' => 'Upload (or re-upload) primary photo',
-    'update_photo_tip'     => 'Drag and drop your new photos here',
+    'avatar'            => 'Avatar',
+    'edit_photos'       => 'Edit photos',
+    'photo_deleted'     => 'Photo deleted',
+    'photo'             => 'Photo',
+    'photos'            => 'Photos',
+    'photos_existing'   => 'Existing photos',
+    'set_primary'       => 'Set as primary',
+    'upload_photos'     => 'Upload photos',
+    'update_photos_tip' => 'Drag and drop your new photos here',
 
     // Messages
     'yod_not_matching_dod' => 'The Year of death must match the Date of death (:value).',

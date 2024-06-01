@@ -17,6 +17,7 @@ return [
     'attention'        => 'Achtung',
     'contact'          => 'Kontakt',
     'death'            => 'Tod',
+    'documentation'    => 'Documentation',
     'family_chart'     => 'Familiendiagramm',
     'female'           => 'Weiblich',
     'history'          => 'Geschichte',

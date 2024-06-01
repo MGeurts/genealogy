@@ -97,18 +97,22 @@ return [
     'cemetery'          => 'Begraafplaats',
     'cemetery_location' => 'Locatie begraafplaats',
 
+    // Files
+    'upload_files'     => 'Bestanden uploaden',
+    'files'            => 'Bestanden',
+    'file'             => 'Bestand',
+    'update_files_tip' => 'Sleep uw nieuwe bestanden hierheen',
+
     // Photo
-    'avatar'               => 'Avatar',
-    'edit_photos'          => 'Editeer afbeeldingen',
-    'photo_deleted'        => 'Afbeelding verwijderd',
-    'photo'                => 'Afbeelding',
-    'photos'               => 'Afbeeldingen',
-    'photos_existing'      => 'Bestaande afbeeldingen',
-    'set_primary'          => 'Als primaire afbeelding instellen',
-    'upload_photo'         => 'Afbeelding uploaden',
-    'upload_photos'        => 'Afbeeldingen uploaden',
-    'upload_photo_primary' => 'Primaire afbeelding (opnieuw) uploaden',
-    'update_photo_tip'     => 'Sleep uw nieuwe afbeeldingen hierheen',
+    'avatar'            => 'Avatar',
+    'edit_photos'       => 'Editeer afbeeldingen',
+    'photo_deleted'     => 'Afbeelding verwijderd',
+    'photo'             => 'Afbeelding',
+    'photos'            => 'Afbeeldingen',
+    'photos_existing'   => 'Bestaande afbeeldingen',
+    'set_primary'       => 'Als primaire afbeelding instellen',
+    'upload_photos'     => 'Afbeeldingen uploaden',
+    'update_photos_tip' => 'Sleep uw nieuwe afbeeldingen hierheen',
 
     // Messages
     'yod_not_matching_dod' => 'Het Jaar overlijden moet overeenkomen met de Datum overlijden (:value).',
