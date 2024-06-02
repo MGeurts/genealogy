@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Jetstream;
 
 class PageController extends Controller
 {
-    public function home(Request $request)
+    public function home()
     {
         $homeFile = Jetstream::localizedMarkdownPath('home.md');
 
@@ -18,7 +17,7 @@ class PageController extends Controller
         ]);
     }
 
-    public function about(Request $request)
+    public function about()
     {
         $aboutFile = Jetstream::localizedMarkdownPath('about.md');
 
@@ -27,7 +26,7 @@ class PageController extends Controller
         ]);
     }
 
-    public function help(Request $request)
+    public function help()
     {
         $helpFile = Jetstream::localizedMarkdownPath('help.md');
 
