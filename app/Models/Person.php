@@ -150,8 +150,8 @@ class Person extends Model implements HasMedia
     {
         $this
             ->addMediaConversion('preview')
-            ->fit(Fit::Contain, 300, 300)
-            ->nonQueued();
+            //->nonQueued()
+            ->fit(Fit::Contain, 300, 300);
     }
 
     /* -------------------------------------------------------------------------------------------- */

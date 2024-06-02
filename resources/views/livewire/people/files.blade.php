@@ -54,21 +54,39 @@
                             </div>
 
                             <div class="basis-3/4 text-end">
-                                <x-ts-input id="{{ $file['uuid'] }}" value="{{ $file['file_name'] }}" />
-                                <x-ts-button color="primary" class="!p-2 mt-2" title="{{ __('app.delete') }}" wire:click="updateFile('{{ $file['id'] }}')">
+                                {{-- <form id="form_{{ $file->id }}"> --}}
+                                <x-ts-input id="id_{{ $file['uuid'] }}" value="{{ $file['id'] }}" />
+                                <x-ts-input id="name_{{ $file['uuid'] }}" value="{{ $file['file_name'] }}" />
+
+                                <x-ts-button color="primary" class="!p-2 mt-2" title="{{ __('app.save') }}" wire:click="updateFile({{ $file['id'] }})">
                                     <x-ts-icon icon="device-floppy" class="size-5" />
                                 </x-ts-button>
+                                {{-- </form> --}}
                             </div>
                         </div>
 
                         <x-slot:footer>
+                            <div class="container">
+                                @if ($file->order_column < count($files))
+                                    <x-ts-button color="secondary" class="!p-2" title="{{ __('app.move_down') }}" wire:click="moveFile({{ $file->order_column }}, 'down')">
+                                        <x-ts-icon icon="arrow-move-down" class="size-5" />
+                                    </x-ts-button>
+                                @endif
+
+                                @if ($file->order_column > 1)
+                                    <x-ts-button color="secondary" class="!p-2" title="{{ __('app.move_up') }}" wire:click="moveFile({{ $file->order_column }}, 'up')">
+                                        <x-ts-icon icon="arrow-move-up" class="size-5" />
+                                    </x-ts-button>
+                                @endif
+                            </div>
+
                             <div class="text-sm">{{ strtoupper($file_type) }}</div>
 
                             <x-ts-button href="{{ $file->getUrl() }}" color="secondary" class="!p-2" title="{{ __('app.download') }}" download="{{ $file['name'] }}">
                                 <x-ts-icon icon="download" class="size-5" />
                             </x-ts-button>
 
-                            <div class="text-sm">{{ Number::fileSize($file['size'], 1) }}</div>
+                            <div class="text-sm text-end">{{ Number::fileSize($file['size'], 1) }}</div>
 
                             <x-ts-button color="danger" class="!p-2" title="{{ __('app.delete') }}" wire:click="deleteFile({{ $file->id }})">
                                 <x-ts-icon icon="trash" class="size-5" />

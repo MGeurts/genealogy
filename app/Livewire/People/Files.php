@@ -6,6 +6,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Files extends Component
 {
@@ -94,11 +95,61 @@ class Files extends Component
         }
 
         $this->files = $this->person->getMedia('files');
+
+        $this->reorderFiles();
+    }
+
+    private function reorderFiles()
+    {
+        // renumber positions sequentially
+        $i = 0;
+
+        foreach ($this->files as $file) {
+            $file->order_column = ++$i;
+        }
+
+        $ordered = [];
+
+        foreach ($this->files as $file) {
+            array_push($ordered, $file->id);
+        }
+
+        Media::setNewOrder($ordered);
+    }
+
+    public function moveFile($position, $direction)
+    {
+        if ($direction == 'up') {
+            // move up
+            foreach ($this->files as $file) {
+                if ($file->order_column == $position - 1) {
+                    $file->order_column = $file->order_column + 1;
+                } elseif ($file->order_column == $position) {
+                    $file->order_column = $file->order_column - 1;
+                }
+
+                $file->save();
+            }
+        } else {
+            // move down
+            foreach ($this->files as $file) {
+                if ($file->order_column == $position) {
+                    $file->order_column = $file->order_column + 1;
+                } elseif ($file->order_column == $position + 1) {
+                    $file->order_column = $file->order_column - 1;
+                }
+
+                $file->save();
+            }
+        }
+
+        $this->files = $this->person->getMedia('files');
     }
 
     public function updateFile($id)
     {
         // update file->name
+        // dump($id);
     }
 
     // ------------------------------------------------------------------------------

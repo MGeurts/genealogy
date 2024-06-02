@@ -49,6 +49,9 @@ return [
 
     'download' => 'Herunterladen',
 
+    'move_down' => 'Runter',
+    'move_up'   => 'Hoch',
+
     'show_death'        => 'Tod anzeigen',
     'show_family_chart' => 'Familiendiagramm anzeigen',
     'show_profile'      => 'Profil anzeigen',

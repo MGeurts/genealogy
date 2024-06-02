@@ -49,6 +49,9 @@ return [
 
     'download' => 'Download',
 
+    'move_down' => 'Naar beneden',
+    'move_up'   => 'Naar boven',
+
     'show_death'        => 'Toon overlijden',
     'show_family_chart' => 'Toon familie kaart',
     'show_profile'      => 'Toon profiel',

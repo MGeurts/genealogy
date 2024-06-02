@@ -49,6 +49,9 @@ return [
 
     'download' => 'Download',
 
+    'move_down' => 'Move down',
+    'move_up'   => 'Move up',
+
     'show_death'        => 'Show death',
     'show_family_chart' => 'Show family chart',
     'show_profile'      => 'Show profile',
