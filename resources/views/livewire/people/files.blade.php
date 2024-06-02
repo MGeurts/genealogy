@@ -16,7 +16,7 @@
     <div class="p-5 grid grid-cols-1 gap-5">
         {{-- file upload --}}
         <form id="form">
-            <x-ts-upload id="uploads" wire:model="uploads" hint="Max: 1024 KB, Format: jpeg/jpg, gif, png, svg, webp" tip="{{ __('person.update_files_tip') }} ..." multiple delete>
+            <x-ts-upload id="uploads" wire:model="uploads" hint="Max: 10 MB" tip="{{ __('person.update_files_tip') }} ..." multiple delete>
                 <x-slot:footer when-uploaded>
                     <x-ts-button class="w-full" wire:click="save()">
                         {{ __('app.save') }}
@@ -55,8 +55,8 @@
 
                             <div class="basis-3/4 text-end">
                                 {{-- <form id="form_{{ $file->id }}"> --}}
-                                <x-ts-input id="id_{{ $file['uuid'] }}" value="{{ $file['id'] }}" />
-                                <x-ts-input id="name_{{ $file['uuid'] }}" value="{{ $file['file_name'] }}" />
+                                <x-ts-input id="id_{{ $file['id'] }}" value="{{ $file['id'] }}" />
+                                <x-ts-input id="name_{{ $file['id'] }}" value="{{ $file['file_name'] }}" />
 
                                 <x-ts-button color="primary" class="!p-2 mt-2" title="{{ __('app.save') }}" wire:click="updateFile({{ $file['id'] }})">
                                     <x-ts-icon icon="device-floppy" class="size-5" />
