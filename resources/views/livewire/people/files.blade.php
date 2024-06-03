@@ -45,8 +45,8 @@
                         <div class="flex flex-row gap-2">
                             <div class="basis-1/4">
                                 @if (in_array($file_type, ['gif', 'jpg', 'png', 'svg', 'tiff']))
-                                    <a href="{{ $file->getUrl() }}" target="_blank" title="Show">
-                                        <img src="{{ $file->getUrl() }}" alt="{{ $file['name'] }}" class="rounded" />
+                                    <a href="{{ $file->getUrl() }}" target="_blank" title="{{ __('app.show') }}">
+                                        <img src="{{ $file->getAvailableUrl(['preview']) }}" alt="{{ $file['name'] }}" class="rounded" />
                                     </a>
                                 @else
                                     <img src="{{ url('img/icons/' . $file_type . '.svg') }}" width="80px" alt="{{ $file['name'] }}" class="rounded" />
@@ -54,14 +54,14 @@
                             </div>
 
                             <div class="basis-3/4 text-end">
-                                {{-- <form id="form_{{ $file->id }}"> --}}
-                                <x-ts-input id="id_{{ $file['id'] }}" value="{{ $file['id'] }}" />
-                                <x-ts-input id="name_{{ $file['id'] }}" value="{{ $file['file_name'] }}" />
+                                <form id="form_{{ $file->id }}">
+                                    <x-ts-input id="id_{{ $file['id'] }}" value="{{ $file['id'] }}" />
+                                    <x-ts-input id="name_{{ $file['id'] }}" value="{{ $file['file_name'] }}" />
 
-                                <x-ts-button color="primary" class="!p-2 mt-2" title="{{ __('app.save') }}" wire:click="updateFile({{ $file['id'] }})">
-                                    <x-ts-icon icon="device-floppy" class="size-5" />
-                                </x-ts-button>
-                                {{-- </form> --}}
+                                    <x-ts-button color="primary" class="!p-2 mt-2" title="{{ __('app.save') }}" wire:click="updateFile()">
+                                        <x-ts-icon icon="device-floppy" class="size-5" />
+                                    </x-ts-button>
+                                </form>
                             </div>
                         </div>
 

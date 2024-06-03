@@ -2,14 +2,18 @@
 
 namespace App\Livewire\People;
 
+use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use TallStackUi\Traits\Interactions;
 
 class Files extends Component
 {
+    use Interactions;
     use WithFileUploads;
 
     // -----------------------------------------------------------------------
@@ -20,6 +24,10 @@ class Files extends Component
     public $backup = [];
 
     public $files = null;
+
+    public $id = null;
+
+    public $name = null;
 
     // ------------------------------------------------------------------------------
     public function mount()
@@ -84,6 +92,10 @@ class Files extends Component
         foreach ($this->uploads as $upload) {
             $this->person->addMedia($upload)->toMediaCollection('files', 'files');
         }
+
+        $this->toast()->success(__('app.save'), count($this->files) .  ' ' . __('app.saved'))->flash()->send();
+
+        return $this->redirect('/people/' . $this->person->id . '/files');
     }
 
     public function deleteFile($id)
@@ -146,10 +158,12 @@ class Files extends Component
         $this->files = $this->person->getMedia('files');
     }
 
-    public function updateFile($id)
+    public function updateFile(Request $request)
     {
         // update file->name
-        // dump($id);
+        Log::info($request);
+
+        dump($request->name);
     }
 
     // ------------------------------------------------------------------------------

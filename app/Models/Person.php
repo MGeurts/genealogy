@@ -17,6 +17,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\File;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Person extends Model implements HasMedia
@@ -144,14 +145,11 @@ class Person extends Model implements HasMedia
     }
 
     /* -------------------------------------------------------------------------------------------- */
-    // Spatie MediaLibrary
+    // Spatie Media-Library
     /* -------------------------------------------------------------------------------------------- */
     public function registerMediaConversions(?Media $media = null): void
     {
-        $this
-            ->addMediaConversion('preview')
-            //->nonQueued()
-            ->fit(Fit::Contain, 300, 300);
+        $this->addMediaConversion('preview')->fit(Fit::Contain, 300, 300)->nonQueued();
     }
 
     /* -------------------------------------------------------------------------------------------- */
