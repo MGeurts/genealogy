@@ -34,7 +34,7 @@ class People extends Component implements HasForms, HasTable
                 Tables\Columns\ImageColumn::make('photo')
                     ->label(__('person.avatar'))
                     ->getStateUsing(function (Person $record) {
-                        return $record->photo ? url('storage/avatars/' . $record->team_id . '/' . $record->photo) : url('/img/avatar.png');
+                        return $record->photo ? url('storage/photos-096/' . $record->team_id . '/' . $record->photo) : url('/img/avatar.png');
                     })
                     ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('name')

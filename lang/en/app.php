@@ -59,6 +59,7 @@ return [
     'save'   => 'Save',
     'saved'  => 'Saved',
     'select' => 'Select',
+    'show'   => 'Show',
 
     // Deletion confirm attributes
     'abort_no'            => 'No, abort',

@@ -19,7 +19,7 @@ class PersonPhotos
     }
 
     // -----------------------------------------------------------------------
-    // save all photos and create avatars
+    // save all photos
     // -----------------------------------------------------------------------
     public static function save(?Person $person = null, $photos = []): void
     {
@@ -27,10 +27,8 @@ class PersonPhotos
             // if needed, create folders
             if (! storage::disk('photos')->exists($person->team_id)) {
                 Storage::disk('photos')->makeDirectory($person->team_id);
-            }
-
-            if (! storage::disk('avatars')->exists($person->team_id)) {
-                Storage::disk('avatars')->makeDirectory($person->team_id);
+                Storage::disk('photos-096')->makeDirectory($person->team_id);
+                Storage::disk('photos-384')->makeDirectory($person->team_id);
             }
 
             // set image parameters
@@ -58,11 +56,17 @@ class PersonPhotos
                     ->toWebp(quality: $image_quality)
                     ->save(storage_path('app/public/photos/' . $person->team_id . '/' . $image_name));
 
-                // avatar: resize and save
+                // image : resize width 96px and save
                 $manager->read($current_photo)
-                    ->scaleDown(width: 80, height: 80)
+                ->scaleDown(width: 96, height: 96)
+                ->toWebp(quality: $image_quality)
+                ->save(storage_path('app/public/photos-096/' . $person->team_id . '/' . $image_name));
+
+                // image : resize width 384px and save
+                $manager->read($current_photo)
+                    ->scaleDown(width: 384, height: 384)
                     ->toWebp(quality: $image_quality)
-                    ->save(storage_path('app/public/avatars/' . $person->team_id . '/' . $image_name));
+                    ->save(storage_path('app/public/photos-384/' . $person->team_id . '/' . $image_name));
 
                 // update person: photo
                 if (! isset($person->photo)) {

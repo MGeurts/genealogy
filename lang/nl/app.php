@@ -59,6 +59,7 @@ return [
     'save'   => 'Bewaren',
     'saved'  => 'Bewaard',
     'select' => 'Selecteer',
+    'show'   => 'Tonen',
 
     // Deletion confirm attributes
     'abort_no'            => 'Neen, afbreken',

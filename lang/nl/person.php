@@ -100,6 +100,7 @@ return [
     // Files
     'upload_files'     => 'Bestanden uploaden',
     'files'            => 'Bestanden',
+    'files_saved'      => '[0] Geen bestand bewaard|[1] Bestand bewaard|[2,*] Bestanden bewaard',
     'file'             => 'Bestand',
     'update_files_tip' => 'Sleep uw nieuwe bestanden hierheen',
 
@@ -109,6 +110,7 @@ return [
     'photo_deleted'     => 'Afbeelding verwijderd',
     'photo'             => 'Afbeelding',
     'photos'            => 'Afbeeldingen',
+    'photos_saved'      => '[0] Geen afbeelding bewaard|[1] Afbeelding bewaard|[2,*] Afbeeldingen bewaard',
     'photos_existing'   => 'Bestaande afbeeldingen',
     'set_primary'       => 'Als primaire afbeelding instellen',
     'upload_photos'     => 'Afbeeldingen uploaden',

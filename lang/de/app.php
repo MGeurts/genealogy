@@ -59,6 +59,7 @@ return [
     'save'   => 'Speichern',
     'saved'  => 'Gespeichert',
     'select' => 'Auswählen',
+    'show'   => 'Zeigen',
 
     // Deletion confirm attributes
     'abort_no'            => 'Nein, abbrechen',

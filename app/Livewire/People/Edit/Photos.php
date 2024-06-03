@@ -12,9 +12,11 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
+use TallStackUi\Traits\Interactions;
 
 class Photos extends Component
 {
+    use Interactions;
     use WithFileUploads;
 
     // -----------------------------------------------------------------------
@@ -29,8 +31,20 @@ class Photos extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        // if needed, create team photo folder
+        // if needed, create team photo folders
         $path = storage_path('app/public/photos/' . $this->person->team_id);
+
+        if (! File::isDirectory($path)) {
+            File::makeDirectory($path, 0777, true, true);
+        }
+
+        $path = storage_path('app/public/photos-096/' . $this->person->team_id);
+
+        if (! File::isDirectory($path)) {
+            File::makeDirectory($path, 0777, true, true);
+        }
+
+        $path = storage_path('app/public/photos-384/' . $this->person->team_id);
 
         if (! File::isDirectory($path)) {
             File::makeDirectory($path, 0777, true, true);
@@ -44,7 +58,7 @@ class Photos extends Component
             'extension'     => $file->getExtension(),
             'size'          => Number::fileSize($file->getSize(), 1),
             'path'          => $file->getPath(),
-            'url'           => Storage::url('photos/' . $this->person->team_id . '/' . $file->getFilename()),
+            'url'           => Storage::url('photos-384/' . $this->person->team_id . '/' . $file->getFilename()),
         ])->sortBy('name');
     }
 
@@ -108,16 +122,20 @@ class Photos extends Component
             // -----------------------------------------------------------------------
             // TO DO : dispatch not working properly
             // -----------------------------------------------------------------------
-            // $this->dispatch('photos_updated');
+           // $this->dispatch('photos_updated');
+            // -----------------------------------------------------------------------
+
+            $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', count($this->photos)))->send();
 
             return $this->redirect('/people/' . $this->person->id . '/edit-photos');
-            // -----------------------------------------------------------------------
         }
     }
 
     public function deletePhoto($photo): void
     {
         Storage::disk('photos')->delete($this->person->team_id . '/' . $photo);
+        Storage::disk('photos-096')->delete($this->person->team_id . '/' . $photo);
+        Storage::disk('photos-384')->delete($this->person->team_id . '/' . $photo);
 
         // set new primary
         if ($photo == $this->person->photo) {
@@ -127,6 +145,8 @@ class Photos extends Component
                 'photo' => $files ? substr($files[0], strrpos($files[0], '/') + 1) : null,
             ]);
         }
+
+        $this->toast()->success(__('app.delete'), __('person.photo_deleted'))->send();
 
         $this->dispatch('photos_updated');
 
