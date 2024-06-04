@@ -16,7 +16,8 @@
     <div class="p-5 grid grid-cols-1 gap-5">
         {{-- file upload --}}
         <form id="form">
-            <x-ts-upload id="uploads" wire:model="uploads" hint="Max: 10 MB" tip="{{ __('person.update_files_tip') }} ..." multiple delete>
+            <x-ts-upload id="uploads" wire:model="uploads" accept=".pdf, .txt, .doc, .docx, .xls, .xlsx" hint="Max: 10 MB, Format: pdf, txt, doc(x), xls(x)"
+                tip="{{ __('person.update_files_tip') }} ..." multiple delete>
                 <x-slot:footer when-uploaded>
                     <x-ts-button class="w-full" wire:click="save()">
                         {{ __('app.save') }}
@@ -28,7 +29,7 @@
 
     {{-- card body --}}
     <div class="p-2 text-sm border-t-2 border-neutral-100 dark:border-neutral-600 rounded-b bg-neutral-200">
-        <div class="grid grid-cols-1 gap-2">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
             @if (count($files) > 0)
                 @foreach ($files as $file)
                     <x-ts-card class="!p-2">
@@ -42,28 +43,7 @@
                             $file_type = substr($file['file_name'], strpos($file['file_name'], '.') + 1);
                         @endphp
 
-                        <div class="flex flex-row gap-2">
-                            <div class="basis-1/4">
-                                @if (in_array($file_type, ['gif', 'jpg', 'png', 'svg', 'tiff']))
-                                    <a href="{{ $file->getUrl() }}" target="_blank" title="{{ __('app.show') }}">
-                                        <img src="{{ $file->getAvailableUrl(['preview']) }}" alt="{{ $file['name'] }}" class="rounded" />
-                                    </a>
-                                @else
-                                    <img src="{{ url('img/icons/' . $file_type . '.svg') }}" width="80px" alt="{{ $file['name'] }}" class="rounded" />
-                                @endif
-                            </div>
-
-                            <div class="basis-3/4 text-end">
-                                <form id="form_{{ $file->id }}">
-                                    <x-ts-input id="id_{{ $file['id'] }}" value="{{ $file['id'] }}" />
-                                    <x-ts-input id="name_{{ $file['id'] }}" value="{{ $file['file_name'] }}" />
-
-                                    <x-ts-button color="primary" class="!p-2 mt-2" title="{{ __('app.save') }}" wire:click="updateFile()">
-                                        <x-ts-icon icon="device-floppy" class="size-5" />
-                                    </x-ts-button>
-                                </form>
-                            </div>
-                        </div>
+                        <img src="{{ url('img/icons/' . $file_type . '.svg') }}" width="80px" alt="{{ $file['name'] }}" class="rounded" />
 
                         <x-slot:footer>
                             <div class="container">
@@ -95,7 +75,7 @@
                     </x-ts-card>
                 @endforeach
             @else
-                <x-ts-alert title="{{ __('person.files') }}" text="{{ __('app.nothing_recorded') }}" color="secondary" />
+                <x-ts-alert title="{{ __('person.photos') }}" text="{{ __('app.nothing_recorded') }}" color="secondary" />
             @endif
         </div>
     </div>

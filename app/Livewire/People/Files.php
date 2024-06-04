@@ -25,10 +25,6 @@ class Files extends Component
 
     public $files = null;
 
-    public $id = null;
-
-    public $name = null;
-
     // ------------------------------------------------------------------------------
     public function mount()
     {
@@ -93,7 +89,7 @@ class Files extends Component
             $this->person->addMedia($upload)->toMediaCollection('files', 'files');
         }
 
-        $this->toast()->success(__('app.save'), count($this->files) .  ' ' . __('app.saved'))->flash()->send();
+        $this->toast()->success(__('app.save'), trans_choice('person.files_saved', count($this->uploads)))->flash()->send();
 
         return $this->redirect('/people/' . $this->person->id . '/files');
     }
@@ -105,6 +101,10 @@ class Files extends Component
                 $file->delete();
             }
         }
+
+        $this->toast()->success(__('app.delete'), __('person.file_deleted'))->send();
+
+        $this->dispatch('files_updated');
 
         $this->files = $this->person->getMedia('files');
 
@@ -156,14 +156,6 @@ class Files extends Component
         }
 
         $this->files = $this->person->getMedia('files');
-    }
-
-    public function updateFile(Request $request)
-    {
-        // update file->name
-        Log::info($request);
-
-        dump($request->name);
     }
 
     // ------------------------------------------------------------------------------

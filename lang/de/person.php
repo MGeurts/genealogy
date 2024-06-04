@@ -101,7 +101,8 @@ return [
     'upload_files'     => 'Dateien hochladen',
     'files'            => 'Dateien',
     'files_saved'      => '[0] Keine Dateien gespeicherd|[1] Datei gespeicherd|[2,*] Dateien gespeicherd',
-    'file'             => 'Datei',
+    'file'             => 'Datei gelöscht',
+    'file_deleted'     => 'Datei',
     'update_files_tip' => 'Ziehen Sie Ihr neue Dateien hierher',
 
     // Photo
@@ -110,7 +111,7 @@ return [
     'photo_deleted'     => 'Foto gelöscht',
     'photo'             => 'Foto',
     'photos'            => 'Fotos',
-    'photos_saved'      => '[0] Keine Fotos gespeicherd|[1] Fotos gespeicherd|[2,*] Fotos gespeicherd',
+    'photos_saved'      => '[0] Keine Fotos gespeicherd|[1] Foto gespeicherd|[2,*] Fotos gespeicherd',
     'photos_existing'   => 'Bestehende Fotos',
     'set_primary'       => 'Als Hauptfoto einstellen',
     'upload_photos'     => 'Fotos hochladen',

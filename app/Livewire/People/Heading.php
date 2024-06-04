@@ -8,6 +8,11 @@ class Heading extends Component
 {
     public $person;
 
+    // -----------------------------------------------------------------------
+    protected $listeners = [
+        'files_updated' => 'render',
+    ];
+
     // ------------------------------------------------------------------------------
     public function render()
     {

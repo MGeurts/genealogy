@@ -145,14 +145,6 @@ class Person extends Model implements HasMedia
     }
 
     /* -------------------------------------------------------------------------------------------- */
-    // Spatie Media-Library
-    /* -------------------------------------------------------------------------------------------- */
-    public function registerMediaConversions(?Media $media = null): void
-    {
-        $this->addMediaConversion('preview')->fit(Fit::Contain, 300, 300)->nonQueued();
-    }
-
-    /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
     protected function getNameAttribute(): ?string

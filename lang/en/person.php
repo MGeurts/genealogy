@@ -100,8 +100,9 @@ return [
     // files
     'upload_files'     => 'Upload files',
     'files'            => 'Files',
-    'files_Saved'      => '[0] No files saved|[1] File saved|[2,*] Files saved',
+    'files_saved'      => '[0] No files saved|[1] File saved|[2,*] Files saved',
     'file'             => 'File',
+    'file_deleted'     => 'File deleted',
     'update_files_tip' => 'Drag and drop your new files here',
 
     // Photo
@@ -110,7 +111,7 @@ return [
     'photo_deleted'     => 'Photo deleted',
     'photo'             => 'Photo',
     'photos'            => 'Photos',
-    'photos_saved'      => '[0] No photos saved|[1] One photo saved|[2,*] (:value) Photos saved',
+    'photos_saved'      => '[0] No photos saved|[1] Photo saved|[2,*] Photos saved',
     'photos_existing'   => 'Existing photos',
     'set_primary'       => 'Set as primary',
     'upload_photos'     => 'Upload photos',
