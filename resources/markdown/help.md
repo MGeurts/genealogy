@@ -336,7 +336,14 @@ Click on a family member name to see that person's family chart.
 
 <img src="img/help/genealogy-072.webp" class="rounded" alt="Family chart">
 
-### j. History
+### j. Files
+
+This shows the files attached to the person.<br/>
+You can use this feature to attach documentation.
+
+<img src="img/help/genealogy-074.webp" class="rounded" alt="Files">
+
+### k. History
 
 This shows the history of the selected person.<br/>
 
