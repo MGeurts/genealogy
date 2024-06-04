@@ -260,7 +260,7 @@ You can manage photos by choosing the corresponding tab in the context menu.
 You can <b>upload</b> (multiple) new images.<br/>
 You can <b>download</b> or <b>delete</b> existing images.<br/>
 After deleting the primary photo, the first image in the collection wil become the new primary photo.<br/>
-You can also set the primary image by clicking the <b>1</b> button.
+You can also set the primary image by clicking the <b>Star</b> button.
 
 ### c. Family
 
@@ -342,6 +342,11 @@ This shows the files attached to the person.<br/>
 You can use this feature to attach documentation.
 
 <img src="img/help/genealogy-074.webp" class="rounded" alt="Files">
+
+You can upload (multiple) new documents.<br/>
+You can rearrange the order of the documents by clicking the <b>Up</b> or <b>Down</b> buttons.<br/>
+You can download documents by clicking the <b>Download</b> button or open them in a seperate window by clicking on the document icon.<br/>
+You can delete a document by clicking on the <b>Delete</b> button.
 
 ### k. History
 
