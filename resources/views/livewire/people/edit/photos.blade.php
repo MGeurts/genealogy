@@ -41,7 +41,9 @@
                             </div>
                         </x-slot:header>
 
-                        <img src="{{ $image['url'] }}" alt="{{ $image['name'] }}" class="rounded" />
+                        <x-ts-link href="{{ $image['url_original'] }}" target="_blank" title="{{ __('app.show') }}">
+                            <img src="{{ $image['url'] }}" alt="{{ $image['name'] }}" class="rounded" />
+                        </x-ts-link>
 
                         <x-slot:footer>
                             <div class="container">

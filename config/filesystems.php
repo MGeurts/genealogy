@@ -60,7 +60,7 @@ return [
             'visibility' => 'public',
             'throw'      => false,
         ],
-        
+
         // photos-384
         'photos-384' => [
             'driver'     => 'local',

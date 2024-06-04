@@ -58,9 +58,9 @@ class PersonPhotos
 
                 // image : resize width 96px and save
                 $manager->read($current_photo)
-                ->scaleDown(width: 96, height: 96)
-                ->toWebp(quality: $image_quality)
-                ->save(storage_path('app/public/photos-096/' . $person->team_id . '/' . $image_name));
+                    ->scaleDown(width: 96, height: 96)
+                    ->toWebp(quality: $image_quality)
+                    ->save(storage_path('app/public/photos-096/' . $person->team_id . '/' . $image_name));
 
                 // image : resize width 384px and save
                 $manager->read($current_photo)

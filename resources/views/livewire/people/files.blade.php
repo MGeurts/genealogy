@@ -43,7 +43,9 @@
                             $file_type = substr($file['file_name'], strpos($file['file_name'], '.') + 1);
                         @endphp
 
-                        <img src="{{ url('img/icons/' . $file_type . '.svg') }}" width="80px" alt="{{ $file['name'] }}" class="rounded" />
+                        <x-ts-link href="{{ $file->getUrl() }}" target="_blank" title="{{ __('app.show') }}">
+                            <img src="{{ url('img/icons/' . $file_type . '.svg') }}" width="80px" alt="{{ $file['name'] }}" class="rounded" />
+                        </x-ts-link>
 
                         <x-slot:footer>
                             <div class="container">

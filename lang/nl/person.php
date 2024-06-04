@@ -102,7 +102,7 @@ return [
     'files'            => 'Bestanden',
     'files_saved'      => '[0] Geen bestand bewaard|[1] Bestand bewaard|[2,*] Bestanden bewaard',
     'file'             => 'Bestand',
-    'file_deleted'     => 'Bestand verwijderd', 
+    'file_deleted'     => 'Bestand verwijderd',
     'update_files_tip' => 'Sleep uw nieuwe bestanden hierheen',
 
     // Photo

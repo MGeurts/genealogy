@@ -59,6 +59,7 @@ class Photos extends Component
             'size'          => Number::fileSize($file->getSize(), 1),
             'path'          => $file->getPath(),
             'url'           => Storage::url('photos-384/' . $this->person->team_id . '/' . $file->getFilename()),
+            'url_original'  => Storage::url('photos/' . $this->person->team_id . '/' . $file->getFilename()),
         ])->sortBy('name');
     }
 
@@ -122,7 +123,7 @@ class Photos extends Component
             // -----------------------------------------------------------------------
             // TO DO : dispatch not working properly
             // -----------------------------------------------------------------------
-           // $this->dispatch('photos_updated');
+            // $this->dispatch('photos_updated');
             // -----------------------------------------------------------------------
 
             $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', count($this->photos)))->send();
