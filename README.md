@@ -165,6 +165,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <li>Security through Laravel Jetstream Teams Roles & Permissions, 2FA & API can be enabled</li>
     <li>Offcanvas menu</li>
     <li>Multiple image upload with possibility of watermarking, photo carousel with navigation</li>
+    <li>Multiple documents upload</li>
 </ul>
 
 ### Special features
