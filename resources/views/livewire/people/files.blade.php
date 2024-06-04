@@ -77,7 +77,7 @@
                     </x-ts-card>
                 @endforeach
             @else
-                <x-ts-alert title="{{ __('person.photos') }}" text="{{ __('app.nothing_recorded') }}" color="secondary" />
+                <x-ts-alert title="{{ __('person.files') }}" text="{{ __('app.nothing_recorded') }}" color="secondary" />
             @endif
         </div>
     </div>
