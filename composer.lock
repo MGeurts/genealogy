@@ -2270,16 +2270,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.9.2",
+            "version": "v11.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "2b3e8d75f10b0ed17416282946355dc026bf326c"
+                "reference": "99b4255194912044b75ab72329f8c19e6345720e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/2b3e8d75f10b0ed17416282946355dc026bf326c",
-                "reference": "2b3e8d75f10b0ed17416282946355dc026bf326c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/99b4255194912044b75ab72329f8c19e6345720e",
+                "reference": "99b4255194912044b75ab72329f8c19e6345720e",
                 "shasum": ""
             },
             "require": {
@@ -2471,20 +2471,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-05-30T09:40:11+00:00"
+            "time": "2024-06-04T13:45:55+00:00"
         },
         {
             "name": "laravel/jetstream",
-            "version": "v5.1.1",
+            "version": "v5.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/jetstream.git",
-                "reference": "30bde139ca1c41d10a58c67f8daa2e8cd3a0be93"
+                "reference": "cdcd6fad35a369080f37420cbcc0124756af9710"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/jetstream/zipball/30bde139ca1c41d10a58c67f8daa2e8cd3a0be93",
-                "reference": "30bde139ca1c41d10a58c67f8daa2e8cd3a0be93",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/cdcd6fad35a369080f37420cbcc0124756af9710",
+                "reference": "cdcd6fad35a369080f37420cbcc0124756af9710",
                 "shasum": ""
             },
             "require": {
@@ -2538,7 +2538,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
-            "time": "2024-05-13T17:01:27+00:00"
+            "time": "2024-05-30T14:23:31+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -5998,16 +5998,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "8.8.0",
+            "version": "8.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "7e74431fc5c46319a27daa44897df1c7bf4afe5a"
+                "reference": "a9c2d2f726f4c60c2dc5d7c0c8380f72492638c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/7e74431fc5c46319a27daa44897df1c7bf4afe5a",
-                "reference": "7e74431fc5c46319a27daa44897df1c7bf4afe5a",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/a9c2d2f726f4c60c2dc5d7c0c8380f72492638c2",
+                "reference": "a9c2d2f726f4c60c2dc5d7c0c8380f72492638c2",
                 "shasum": ""
             },
             "require": {
@@ -6081,7 +6081,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-backup/issues",
-                "source": "https://github.com/spatie/laravel-backup/tree/8.8.0"
+                "source": "https://github.com/spatie/laravel-backup/tree/8.8.1"
             },
             "funding": [
                 {
@@ -6093,20 +6093,20 @@
                     "type": "other"
                 }
             ],
-            "time": "2024-05-02T13:09:01+00:00"
+            "time": "2024-06-04T11:31:33+00:00"
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "11.5.2",
+            "version": "11.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "99760ad7865a418708474cf594e736a381b45c0e"
+                "reference": "1272f88ae2aad57ab9362ba180455c437301fc27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/99760ad7865a418708474cf594e736a381b45c0e",
-                "reference": "99760ad7865a418708474cf594e736a381b45c0e",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/1272f88ae2aad57ab9362ba180455c437301fc27",
+                "reference": "1272f88ae2aad57ab9362ba180455c437301fc27",
                 "shasum": ""
             },
             "require": {
@@ -6189,7 +6189,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/11.5.2"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/11.5.4"
             },
             "funding": [
                 {
@@ -6201,7 +6201,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-27T09:07:25+00:00"
+            "time": "2024-06-04T11:38:00+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
@@ -6401,16 +6401,16 @@
         },
         {
             "name": "stevebauman/location",
-            "version": "v7.2.1",
+            "version": "v7.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stevebauman/location.git",
-                "reference": "c95c397bf54a109f9cdb335377887047408dc8bc"
+                "reference": "603d75b13da2e1c181bdf75a658dcc3ddb7fc9b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stevebauman/location/zipball/c95c397bf54a109f9cdb335377887047408dc8bc",
-                "reference": "c95c397bf54a109f9cdb335377887047408dc8bc",
+                "url": "https://api.github.com/repos/stevebauman/location/zipball/603d75b13da2e1c181bdf75a658dcc3ddb7fc9b6",
+                "reference": "603d75b13da2e1c181bdf75a658dcc3ddb7fc9b6",
                 "shasum": ""
             },
             "require": {
@@ -6463,9 +6463,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stevebauman/location/issues",
-                "source": "https://github.com/stevebauman/location/tree/v7.2.1"
+                "source": "https://github.com/stevebauman/location/tree/v7.2.2"
             },
-            "time": "2024-04-09T17:05:20+00:00"
+            "time": "2024-06-04T21:41:15+00:00"
         },
         {
             "name": "symfony/console",
