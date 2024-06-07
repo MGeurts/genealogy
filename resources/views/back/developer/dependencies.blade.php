@@ -71,30 +71,30 @@
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/Intervention/image/" target="_blank">intervention/image</x-link>
-                        <x-button xs href="https://image.intervention.io/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-button>
+                        <x-ts-button xs href="https://image.intervention.io/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/kevinkhill/lavacharts/" target="_blank">kevinkhill/lavacharts</x-link>
-                        <x-button xs href="https://lavacharts.com/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-button>
+                        <x-ts-button xs href="https://lavacharts.com/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/korridor/laravel-has-many-merged/" target="_blank">korridor/laravel-has-many-merged</x-link>
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/opcodesio/log-viewer/" target="_blank">opcodesio/log-viewer</x-link>
-                        <x-button xs href="https://log-viewer.opcodes.io/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-button>
+                        <x-ts-button xs href="https://log-viewer.opcodes.io/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/spatie/laravel-activitylog/" target="_blank">spatie/activity-log</x-link>
-                        <x-button xs href="https://spatie.be/docs/laravel-activitylog/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-button>
+                        <x-ts-button xs href="https://spatie.be/docs/laravel-activitylog/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/spatie/laravel-backup/" target="_blank">spatie/laravel-backup</x-link>
-                        <x-button xs href="https://spatie.be/docs/laravel-backup/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-button>
+                        <x-ts-button xs href="https://spatie.be/docs/laravel-backup/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/spatie/laravel-medialibrary/" target="_blank">spatie/laravel-medialibrary</x-link>
-                        <x-button xs href="https://spatie.be/docs/laravel-medialibrary/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-button>
+                        <x-ts-button xs href="https://spatie.be/docs/laravel-medialibrary/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/stevebauman/location/" target="_blank">stevebauman/location</x-link>

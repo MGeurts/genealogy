@@ -53,7 +53,7 @@
             <x-ts-upload id="file" name="file" accept=".ged" wire:model="file" label="{{ __('team.gedcom_file') }} : *" hint="{{ __('team.team_gedcom_hint') }}"
                 tip="{{ __('team.team_gedcom_tip') }}" required>
                 <x-slot:footer>
-                    <x-button class="w-full">{{ __('team.team_gedcom_version') }}</x-button>
+                    <x-ts-alert class="w-full">{{ __('team.team_gedcom_version') }}</x-ts-alert>
                 </x-slot:footer>
             </x-ts-upload>
         </div>
