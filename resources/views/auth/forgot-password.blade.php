@@ -35,7 +35,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-ts-button color="primary">
+                <x-ts-button type="submit" color="primary">
                     {{ __('auth.email_password_reset_link') }}
                 </x-ts-button>
             </div>

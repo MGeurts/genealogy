@@ -29,7 +29,7 @@
             </div>
 
             <div class="flex justify-end mt-4">
-                <x-ts-button color="primary" class="ms-4">
+                <x-ts-button type="submit" color="primary" class="ms-4">
                     {{ __('auth.confirm') }}
                 </x-ts-button>
             </div>

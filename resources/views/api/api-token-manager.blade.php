@@ -43,7 +43,7 @@
                 {{ __('api.created.') }}
             </x-action-message>
 
-            <x-ts-button color="primary">
+            <x-ts-button type="submit" color="primary">
                 {{ __('api.create') }}
             </x-ts-button>
         </x-slot>

@@ -1942,16 +1942,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "3.6.4",
+            "version": "3.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "193324ec88bc5ad4039e57ce9b926ae28dfde813"
+                "reference": "d428433aa74836ab75e8d4a5241628bebb7f4077"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/193324ec88bc5ad4039e57ce9b926ae28dfde813",
-                "reference": "193324ec88bc5ad4039e57ce9b926ae28dfde813",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/d428433aa74836ab75e8d4a5241628bebb7f4077",
+                "reference": "d428433aa74836ab75e8d4a5241628bebb7f4077",
                 "shasum": ""
             },
             "require": {
@@ -1998,7 +1998,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Intervention/image/issues",
-                "source": "https://github.com/Intervention/image/tree/3.6.4"
+                "source": "https://github.com/Intervention/image/tree/3.6.5"
             },
             "funding": [
                 {
@@ -2010,7 +2010,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-08T13:53:15+00:00"
+            "time": "2024-06-06T17:15:24+00:00"
         },
         {
             "name": "khill/lavacharts",
@@ -8766,16 +8766,16 @@
         },
         {
             "name": "tallstackui/tallstackui",
-            "version": "v1.28.0",
+            "version": "v1.28.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tallstackui/tallstackui.git",
-                "reference": "f20cc1dd78ebc5c3b09d1a91de0a67d33399adc8"
+                "reference": "fac7cf35234a5fe49c696046a592085c068f83f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/f20cc1dd78ebc5c3b09d1a91de0a67d33399adc8",
-                "reference": "f20cc1dd78ebc5c3b09d1a91de0a67d33399adc8",
+                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/fac7cf35234a5fe49c696046a592085c068f83f9",
+                "reference": "fac7cf35234a5fe49c696046a592085c068f83f9",
                 "shasum": ""
             },
             "require": {
@@ -8819,7 +8819,7 @@
             "description": "TallStackUI is a powerful suite of Blade components that elevate your workflow of Livewire applications.",
             "support": {
                 "issues": "https://github.com/tallstackui/tallstackui/issues",
-                "source": "https://github.com/tallstackui/tallstackui/tree/v1.28.0"
+                "source": "https://github.com/tallstackui/tallstackui/tree/v1.28.1"
             },
             "funding": [
                 {
@@ -8827,7 +8827,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-06-03T04:02:16+00:00"
+            "time": "2024-06-06T21:13:26+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

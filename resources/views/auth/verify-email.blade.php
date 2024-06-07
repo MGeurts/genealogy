@@ -29,7 +29,7 @@
                 @csrf
 
                 <div>
-                    <x-ts-button color="primary" type="submit">
+                    <x-ts-button type="submit" color="primary">
                         {{ __('auth.resend') }}
                     </x-ts-button>
                 </div>

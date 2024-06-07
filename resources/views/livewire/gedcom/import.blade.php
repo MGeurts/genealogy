@@ -60,7 +60,7 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-ts-button color="primary">
+        <x-ts-button type="submit" color="primary">
             {{ __('team.create') }}
         </x-ts-button>
     </x-slot>

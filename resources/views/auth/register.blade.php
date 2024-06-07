@@ -128,7 +128,7 @@
                     {{ __('auth.already_registered') }}?
                 </a>
 
-                <x-ts-button color="primary" class="ml-4">
+                <x-ts-button type="submit" color="primary" class="ml-4">
                     {{ __('auth.register') }}
                 </x-ts-button>
             </div>

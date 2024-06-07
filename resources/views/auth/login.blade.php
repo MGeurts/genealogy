@@ -50,7 +50,7 @@
                     </a>
                 @endif
 
-                <x-ts-button color="primary" class="ms-4">
+                <x-ts-button type="submit" color="primary" class="ms-4">
                     {{ __('auth.login') }}
                 </x-ts-button>
             </div>

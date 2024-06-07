@@ -88,7 +88,7 @@
                         {{ __('app.cancel') }}
                     </x-ts-button>
 
-                    <x-ts-button color="primary">
+                    <x-ts-button type="submit" color="primary">
                         {{ __('app.save') }}
                     </x-ts-button>
                 </div>
@@ -128,7 +128,7 @@
                         {{ __('app.cancel') }}
                     </x-ts-button>
 
-                    <x-ts-button color="primary">
+                    <x-ts-button type="submit" color="primary">
                         {{ __('app.save') }}
                     </x-ts-button>
                 </div>

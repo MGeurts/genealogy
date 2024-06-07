@@ -118,7 +118,7 @@
             {{ __('app.saved') }}
         </x-action-message>
 
-        <x-ts-button color="primary" wire:loading.attr="disabled" wire:target="photo">
+        <x-ts-button type="submit" color="primary" wire:loading.attr="disabled" wire:target="photo">
             {{ __('app.save') }}
         </x-ts-button>
     </x-slot>

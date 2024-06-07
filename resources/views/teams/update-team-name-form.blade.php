@@ -53,7 +53,7 @@
                 {{ __('app.saved') }}
             </x-action-message>
 
-            <x-ts-button color="primary">
+            <x-ts-button type="submit" color="primary">
                 {{ __('app.save') }}
             </x-ts-button>
         </x-slot>

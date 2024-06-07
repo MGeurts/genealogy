@@ -37,7 +37,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-ts-button color="primary">
+                <x-ts-button type="submit" color="primary">
                     {{ __('auth.reset_password') }}
                 </x-ts-button>
             </div>
