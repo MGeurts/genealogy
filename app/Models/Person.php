@@ -14,11 +14,8 @@ use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
-use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\MediaLibrary\MediaCollections\File;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Person extends Model implements HasMedia
 {
@@ -189,9 +186,7 @@ class Person extends Model implements HasMedia
             $today               = Carbon::parse(date('Y-m-d') . ' 00:00:00');
             $this_years_birthday = Carbon::parse(date('Y') . substr($this->dob, 4));
 
-            return $today->gt($this_years_birthday)
-            ? $this_years_birthday->addYear()
-            : $this_years_birthday;
+            return $today->gt($this_years_birthday) ? $this_years_birthday->addYear() : $this_years_birthday;
         } else {
             return null;
         }
