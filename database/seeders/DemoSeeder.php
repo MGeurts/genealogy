@@ -318,7 +318,8 @@ class DemoSeeder extends Seeder
             'firstname' => 'John',
             'surname'   => 'DOE',
             'sex'       => 'm',
-            'dob'       => '1960-01-01',
+            'dob'       => '1963-01-01',
+            'photo'     => '209_001_demo.webp',
 
             'team_id' => $this->developer_team,
         ]);
@@ -328,7 +329,8 @@ class DemoSeeder extends Seeder
             'firstname' => 'Fu',
             'surname'   => 'BAR',
             'sex'       => 'm',
-            'dob'       => '2000-01-01',
+            'dob'       => '1963-01-01',
+            'photo'     => '210_001_demo.webp',
 
             'team_id' => $this->developer_team,
         ]);
