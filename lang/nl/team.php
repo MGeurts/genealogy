@@ -38,7 +38,8 @@ return [
     'team_information'        => 'De naam van het team en informatie over de eigenaar.',
     'team_add_member'         => 'Teamlid toevoegen',
     'team_add_member_message' => 'Voeg een nieuw teamlid toe aan uw team, zodat deze met u kan samenwerken.',
-    'team_provide'            => 'Geef het e-mailadres op van de persoon die u aan dit team wilt toevoegen.',
+    'team_provide_email'      => 'Geef het e-mailadres op van de nieuwe gebruiker die u aan dit team wilt toevoegen.',
+    'team_provide_role'       => 'Selecteer vervolgens de rol voor het nieuwe teamlid.',
     'email'                   => 'E-mail',
     'role'                    => 'Rol',
 

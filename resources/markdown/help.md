@@ -83,7 +83,7 @@ Authenticated users can only see <b>people</b> and <b>couples</b>:
 
 <ul>
     <li>created by the teams they <b>own</b></li>
-    <li>created by the teams they were invited to by the team owner as <b>administrator</b>, <b>manager</b> or <b>editor</b></li>
+    <li>created by the teams they were invited to by the team owner as <b>administrator</b>, <b>manager</b> or <b>editor</b> or <b>member</b></li>
 </ul>
 
 ### d. Roles & permissions

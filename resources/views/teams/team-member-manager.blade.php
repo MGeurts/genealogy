@@ -20,7 +20,8 @@
                 <x-slot name="form">
                     <div class="col-span-6">
                         <div class="max-w-xl text-sm text-gray-600">
-                            {{ __('team.team_provide') }}
+                            {{ __('team.team_provide_email') }}<br />
+                            {{ __('team.team_provide_role') }}
                         </div>
                     </div>
 
@@ -46,7 +47,7 @@
                                             {{-- role name --}}
                                             <div class="flex items-center">
                                                 <div class="text-sm text-gray-600 {{ $addTeamMemberForm['role'] == $role->key ? 'font-semibold' : '' }}">
-                                                    {{ $role->name }}
+                                                    <b>{{ $role->name }}</b>
                                                 </div>
 
                                                 @if ($addTeamMemberForm['role'] == $role->key)

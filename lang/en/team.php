@@ -38,7 +38,8 @@ return [
     'team_information'        => 'The team\'s name and owner information.',
     'team_add_member'         => 'Add Team Member',
     'team_add_member_message' => 'Add a new team member to your team, allowing them to collaborate with you.',
-    'team_provide'            => 'Please provide the email address of the person you would like to add to this team.',
+    'team_provide_email'      => 'Please provide the email address of the new user you would like to add to this team.',
+    'team_provide_role'       => 'Then select the role for the new user.',
     'email'                   => 'Email',
     'role'                    => 'Role',
 

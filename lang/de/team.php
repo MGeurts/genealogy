@@ -38,7 +38,8 @@ return [
     'team_information'        => 'Der Name und die Eigentümerinformationen des Teams.',
     'team_add_member'         => 'Teammitglied hinzufügen',
     'team_add_member_message' => 'Fügen Sie Ihrem Team ein neues Teammitglied hinzu, damit es mit Ihnen zusammenarbeiten kann.',
-    'team_provide'            => 'Bitte geben Sie die E-Mail-Adresse der Person an, die Sie diesem Team hinzufügen möchten.',
+    'team_provide_email'      => 'Bitte geben Sie die E-Mail-Adresse des neuen Benutzers an, den Sie diesem Team hinzufügen möchten.',
+    'team_provide_role'       => 'Wählen Sie dann die Rolle für den neuen Benutzer aus.',
     'email'                   => 'Email',
     'role'                    => 'Rolle',
 
