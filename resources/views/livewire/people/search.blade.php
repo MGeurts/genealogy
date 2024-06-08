@@ -59,7 +59,9 @@
         <form>
             @csrf
 
-            <x-ts-input wire:model.live.debounce.500ms="search" type="search" icon="search" hint="{{ __('person.insert_tip') }}" placeholder="{{ __('app.people_search_placeholder') }}" />
+            <x-ts-input wire:model.live.debounce.500ms="search" type="search" icon="search"
+                hint="{{ __('person.insert_tip_1') }} <span class='text-danger-600 dark:!text-danger-400'>{{ __('person.insert_tip_2') }}</span>"
+                placeholder="{{ __('app.people_search_placeholder') }}" />
         </form>
 
         {{-- footer : perpage and pagination --}}
