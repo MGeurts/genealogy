@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'role_administrator_name'        => 'Administrator 2',
+    'role_administrator_name'        => 'Administrator',
     'role_administrator_description' => 'Administratoren können beliebige Aktionen ausführen und die Anwendung verwalten.',
 
     'role_manager_name'        => 'Manager',
