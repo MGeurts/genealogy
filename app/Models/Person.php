@@ -96,7 +96,9 @@ class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     public function scopeSearch(Builder $query, string $value): void
     {
-        $query->whereAny(['firstname', 'surname', 'birthname', 'nickname'], 'LIKE', "%$value%");
+        if ($value != '%') {
+            $query->whereAny(['firstname', 'surname', 'birthname', 'nickname'], 'LIKE', "%$value%");
+        }
     }
 
     public function scopeOlderThan(Builder $query, ?string $birth_date, ?string $birth_year): void
