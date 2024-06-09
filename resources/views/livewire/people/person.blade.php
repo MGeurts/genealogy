@@ -42,7 +42,7 @@
     </div>
 
     {{-- buttons --}}
-    <div class="p-2 flex flex-shrink-0 flex-wrap">
+    <div class="print:hidden p-2 flex flex-shrink-0 flex-wrap">
         <div class="flex-grow min-w-max max-w-full flex-1">
             <a href="/people/{{ $person->id }}" title="{{ __('app.show_profile') }}">
                 <x-ts-button color="primary" class="text-sm">
