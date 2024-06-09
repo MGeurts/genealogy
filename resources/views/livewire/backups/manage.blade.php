@@ -4,9 +4,7 @@
     @endsection
 
     <x-slot name="heading">
-        <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-            {{ __('backup.backups') }}
-        </h2>
+        {{ __('backup.backups') }}
     </x-slot>
 
     <div class="grow max-w-5xl py-5 dark:text-neutral-200">

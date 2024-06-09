@@ -4,9 +4,7 @@
 
 <x-app-layout>
     <x-slot name="heading">
-        <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-            {{ __('app.session') }}
-        </h2>
+        {{ __('app.session') }}
     </x-slot>
 
     <div class="grow max-w-5xl overflow-x-auto py-5 dark:text-neutral-200">

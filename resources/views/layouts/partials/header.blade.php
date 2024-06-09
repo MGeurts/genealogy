@@ -5,7 +5,9 @@
     {{-- heading --}}
     @if (isset($heading))
         <div class="mx-auto p-2 bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-200 shadow">
-            {{ $heading }}
+            <h2>
+                {{ $heading }}
+            </h2>
         </div>
     @endif
 </header>

@@ -4,9 +4,7 @@
 
 <x-app-layout>
     <x-slot name="heading">
-        <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-            {{ __('auth.verify_email') }}
-        </h2>
+        {{ __('auth.verify_email') }}
     </x-slot>
 
     <x-authentication-card>

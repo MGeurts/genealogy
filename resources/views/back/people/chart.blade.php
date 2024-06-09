@@ -4,9 +4,7 @@
 
 <x-app-layout>
     <x-slot name="heading">
-        <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-            {{ __('app.family_chart') }}
-        </h2>
+        {{ __('app.family_chart') }}
     </x-slot>
 
     <div class="w-full py-5 space-y-5">

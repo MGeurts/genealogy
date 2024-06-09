@@ -4,9 +4,7 @@
 
 <x-app-layout>
     <x-slot name="heading">
-        <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-            {{ __('team.teams') }}
-        </h2>
+        {{ __('team.teams') }}
     </x-slot>
 
     <div class="py-10 w-full">

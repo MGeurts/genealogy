@@ -4,9 +4,7 @@
 
 <x-app-layout>
     <x-slot name="heading">
-        <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-            {{ __('birthday.birthdays') }}
-        </h2>
+        {{ __('birthday.birthdays') }}
     </x-slot>
 
     <div class="overflow-x-auto py-5 space-y-5">

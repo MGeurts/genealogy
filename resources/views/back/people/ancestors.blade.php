@@ -4,9 +4,7 @@
 
 <x-app-layout>
     <x-slot name="heading">
-        <h2 class="font-semibold text-gray-800 dark:text-gray-100">
-            {{ __('person.ancestors') }}
-        </h2>
+        {{ __('person.ancestors') }}
     </x-slot>
 
     <div class="w-full py-5 space-y-5">
