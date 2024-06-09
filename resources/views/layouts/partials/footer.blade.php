@@ -1,5 +1,5 @@
 <footer class="print:hidden text-center text-neutral-600 dark:text-neutral-200 lg:text-left">
-    <div class="flex items-center justify-center border-b-2 border-neutral-200 py-2 px-2 md:px-5 dark:border-neutral-500 lg:justify-between bg-neutral-200 dark:bg-neutral-700">
+    <div class="flex items-center justify-center border-b-2 border-neutral-200 p-2 dark:border-neutral-500 lg:justify-between bg-neutral-200 dark:bg-neutral-700">
         <div class="mr-12 hidden lg:block">
             <span>{{ __('app.connected_social') }} :</span>
         </div>
@@ -33,7 +33,7 @@
     </div>
 
     {{--  main container --}}
-    <div class="py-5 px-2 md:px-5 text-center md:text-left bg-neutral-100 dark:bg-neutral-600">
+    <div class="py-5 px-2 text-center md:text-left bg-neutral-100 dark:bg-neutral-600">
         <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {{-- logo section --}}
             <div class="flex justify-center md:justify-start">

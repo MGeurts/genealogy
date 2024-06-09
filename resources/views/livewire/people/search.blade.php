@@ -1,6 +1,6 @@
 <div>
     {{-- search box --}}
-    <div class="mb-5 p-5 flex flex-col justify-end rounded dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+    <div class="mb-5 p-5 flex flex-col rounded dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
         {{-- header --}}
         <div class="flex flex-wrap mb-2 text-lg">
             <div class="flex-grow max-w-full flex-1">
@@ -79,7 +79,7 @@
     </div>
 
     {{-- people grid --}}
-    <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
         @foreach ($people as $person)
             <livewire:people.person :person="$person" :key="$person->id" />
         @endforeach
