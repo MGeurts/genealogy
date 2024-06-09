@@ -15,19 +15,17 @@
         </div>
     </div>
 
-    <div class="p-5 grid grid-cols-1 gap-5">
-        {{-- image upload --}}
-        <form id="form">
-            <x-ts-upload id="photos" wire:model="photos" accept=".jpeg, .jpg, .gif, .png, .svg, .webp" hint="Max: 1024 KB, Format: jpeg/jpg, gif, png, svg, webp"
-                tip="{{ __('person.update_photos_tip') }} ..." multiple delete>
-                <x-slot:footer when-uploaded>
-                    <x-ts-button class="w-full" wire:click="save()">
-                        {{ __('app.save') }}
-                    </x-ts-button>
-                </x-slot:footer>
-            </x-ts-upload>
-        </form>
-    </div>
+    {{-- image upload --}}
+    <form id="form" class="print:hidden p-5 grid grid-cols-1 gap-5">
+        <x-ts-upload id="photos" wire:model="photos" accept=".jpeg, .jpg, .gif, .png, .svg, .webp" hint="Max: 1024 KB, Format: jpeg/jpg, gif, png, svg, webp"
+            tip="{{ __('person.update_photos_tip') }} ..." multiple delete>
+            <x-slot:footer when-uploaded>
+                <x-ts-button class="w-full" wire:click="save()">
+                    {{ __('app.save') }}
+                </x-ts-button>
+            </x-slot:footer>
+        </x-ts-upload>
+    </form>
 
     {{-- card body --}}
     <div class="p-2 text-sm border-t-2 border-neutral-100 dark:border-neutral-600 rounded-b bg-neutral-200">

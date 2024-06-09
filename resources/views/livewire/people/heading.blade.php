@@ -8,7 +8,7 @@
             @endif
         </div>
 
-        <div class="flex-grow max-w-full flex-1 text-end">
+        <div class="print:hidden flex-grow max-w-full flex-1 text-end">
             <x-ts-button href="/people/{{ $person->id }}" color="{{ request()->routeIs('people.show') ? 'warning' : 'primary' }}" class="text-white text-sm mr-2 mb-3">
                 <x-ts-icon icon="id" class="size-5 mr-1" />
                 {{ __('person.profile') }}
