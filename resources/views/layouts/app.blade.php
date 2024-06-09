@@ -38,11 +38,6 @@
         {{-- header --}}
         @include('layouts.partials.header')
 
-        {{-- heading --}}
-        @if (isset($heading))
-            @include('layouts.partials.heading')
-        @endif
-
         {{-- content --}}
         <main class="mx-auto px-2 md:px-5 flex flex-grow">
             {{ $slot }}
