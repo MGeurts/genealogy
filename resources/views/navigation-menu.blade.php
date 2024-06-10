@@ -53,7 +53,7 @@
                                         class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
                                         {{ auth()->user()->name }}
 
-                                        <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <svg class="ml-2 -mr-0.5 size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                                         </svg>
                                     </button>
@@ -97,14 +97,14 @@
                 {{-- teams dropdown --}}
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="relative min-w-max">
-                        <x-dropdown align="right" width="60">
+                        <x-dropdown align="right" width="60px">
                             <x-slot name="trigger">
                                 <span class="inline-flex rounded">
                                     <button type="button"
                                         class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
                                         {{ auth()->user()->currentTeam->name }}
 
-                                        <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        <svg class="ml-2 -mr-0.5 size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
                                         </svg>
                                     </button>
@@ -176,7 +176,7 @@
             @endauth
         </div>
 
-        <div class="flex flex-col">
+        <div class="flex flex-col place-items-center">
             <div class="min-h-8 hidden md:flex md:items-center md:ml-5 space-x-6">
                 <x-ts-theme-switch only-icons />
             </div>
@@ -189,7 +189,7 @@
         <div class="flex items-center md:hidden">
             <button @click="open = ! open"
                 class="inline-flex items-center justify-center p-2 rounded text-gray-400 hover:text-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 focus:text-gray-500 transition duration-150 ease-in-out">
-                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                <svg class="size-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
