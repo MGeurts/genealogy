@@ -16,7 +16,7 @@
     </div>
 
     {{-- image upload --}}
-    <form id="form" class="print:hidden p-5 grid grid-cols-1 gap-5">
+    <div class="print:hidden p-2">
         <x-ts-upload id="photos" wire:model="photos" accept=".jpeg, .jpg, .gif, .png, .svg, .webp" hint="Max: 1024 KB, Format: jpeg/jpg, gif, png, svg, webp"
             tip="{{ __('person.update_photos_tip') }} ..." multiple delete>
             <x-slot:footer when-uploaded>
@@ -25,7 +25,7 @@
                 </x-ts-button>
             </x-slot:footer>
         </x-ts-upload>
-    </form>
+    </div>
 
     {{-- card body --}}
     <div class="p-2 text-sm border-t-2 border-neutral-100 dark:border-neutral-600 rounded-b bg-neutral-200">
@@ -44,7 +44,7 @@
                         </x-ts-link>
 
                         <x-slot:footer>
-                            <div class="container">
+                            <div class="w-full">
                                 @if ($image['name'] != $person->photo)
                                     <x-ts-button color="secondary" class="!p-2" title="{{ __('person.set_primary') }}" wire:click="setPrimary('{{ $image['name'] }}')">
                                         <x-ts-icon icon="star" class="size-5" />

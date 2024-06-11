@@ -14,7 +14,7 @@
     </div>
 
     {{-- file upload --}}
-    <form id="form" class="print:hidden p-5 grid grid-cols-1 gap-5">
+    <div class="print:hidden p-2">
         <x-ts-upload id="uploads" wire:model="uploads" accept=".pdf, .txt, .doc, .docx, .xls, .xlsx" hint="Max: 10 MB, Format: pdf, txt, doc(x), xls(x)" tip="{{ __('person.update_files_tip') }} ..."
             multiple delete>
             <x-slot:footer when-uploaded>
@@ -23,7 +23,7 @@
                 </x-ts-button>
             </x-slot:footer>
         </x-ts-upload>
-    </form>
+    </div>
 
     {{-- card body --}}
     <div class="p-2 text-sm border-t-2 border-neutral-100 dark:border-neutral-600 rounded-b bg-neutral-200">
@@ -46,7 +46,7 @@
                         </x-ts-link>
 
                         <x-slot:footer>
-                            <div class="container">
+                            <div class="w-full">
                                 @if ($file->order_column < count($files))
                                     <x-ts-button color="secondary" class="!p-2" title="{{ __('app.move_down') }}" wire:click="moveFile({{ $file->order_column }}, 'down')">
                                         <x-ts-icon icon="arrow-move-down" class="size-5" />

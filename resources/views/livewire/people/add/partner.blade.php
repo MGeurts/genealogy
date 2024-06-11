@@ -1,4 +1,4 @@
-<form id="form" wire:submit="savePartner">
+<form wire:submit="savePartner">
     @csrf
 
     <x-ts-tab selected="{{ __('person.add_new_person_as_partner') }}" class="dark:bg-red-100">
@@ -9,8 +9,7 @@
                 <div class="grid grid-cols-6 gap-5">
                     {{-- firstname --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-ts-input wire:model="partnerForm.firstname" id="firstname" label="{{ __('person.firstname') }} :" wire:dirty.class="bg-warning-200 dark:text-black"
-                            autocomplete="firstname" />
+                        <x-ts-input wire:model="partnerForm.firstname" id="firstname" label="{{ __('person.firstname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="firstname" />
                     </div>
 
                     {{-- surname --}}

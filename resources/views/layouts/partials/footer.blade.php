@@ -4,7 +4,7 @@
             <span>{{ __('app.connected_social') }} :</span>
         </div>
 
-        {{-- social network icons container --}}
+        {{-- social network icons section --}}
         <div class="flex justify-center">
             <a href="https://www.facebook.com/" class="mr-6 text-neutral-600 dark:text-neutral-200" target="_blank" title="Facebook">
                 <x-ts-icon icon="brand-facebook" class="text-neutral-900 dark:text-neutral-200" />
@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    {{--  main container --}}
+    {{--  main section --}}
     <div class="py-5 px-2 text-center md:text-left bg-neutral-100 dark:bg-neutral-600">
         <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {{-- logo section --}}

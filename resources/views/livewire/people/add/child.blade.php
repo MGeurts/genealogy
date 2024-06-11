@@ -1,4 +1,4 @@
-<form id="form" wire:submit="saveChild">
+<form wire:submit="saveChild">
     @csrf
 
     <x-ts-tab selected="{{ __('person.add_new_person_as_child') }}" class="dark:bg-red-100">

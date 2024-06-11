@@ -1,6 +1,6 @@
 <div>
-    {{-- search box --}}
-    <div class="mb-5 p-5 flex flex-col rounded dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+    {{-- search box section --}}
+    <div class="mb-5 p-2 flex flex-col rounded dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
         {{-- header --}}
         <div class="flex flex-wrap mb-2 text-lg">
             <div class="flex-grow max-w-full flex-1">
@@ -56,13 +56,8 @@
         </div>
 
         {{-- search box --}}
-        <form>
-            @csrf
-
-            <x-ts-input wire:model.live.debounce.500ms="search" type="search" icon="search"
-                hint="{{ __('person.insert_tip_1') }} <span class='text-danger-600 dark:!text-danger-400'>{{ __('person.insert_tip_2') }}</span>"
-                placeholder="{{ __('app.people_search_placeholder') }}" />
-        </form>
+        <x-ts-input wire:model.live.debounce.500ms="search" type="search" icon="search"
+            hint="{{ __('person.insert_tip_1') }} <span class='text-danger-600 dark:!text-danger-400'>{{ __('person.insert_tip_2') }}</span>" placeholder="{{ __('app.people_search_placeholder') }}" />
 
         {{-- footer : perpage and pagination --}}
         @if (count($people) > 0)
