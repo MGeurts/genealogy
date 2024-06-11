@@ -5,7 +5,7 @@ namespace App\Livewire\People\Add;
 use App\Livewire\Forms\People\ChildForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
-use App\Tools\PersonPhotos;
+use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Livewire\Component;
