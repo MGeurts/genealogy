@@ -30,7 +30,7 @@ class PageController extends Controller
         return view('back.developer.people');
     }
 
-    public function peopleLog()
+    public function peoplelog()
     {
         return view('back.developer.peoplelog');
     }

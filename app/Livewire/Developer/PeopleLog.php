@@ -7,7 +7,7 @@ namespace App\Livewire\Developer;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
-class PeopleLog extends Component
+class Peoplelog extends Component
 {
     public $logs = [];
 
