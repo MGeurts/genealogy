@@ -5,7 +5,7 @@ return [
     'biological' => 'biological',
     'person'     => 'Person',
     'people'     => 'People',
-    'people_log' => 'People Log',
+    'people_log' => 'People logbook',
 
     'family'  => 'Family',
     'profile' => 'Profile',
