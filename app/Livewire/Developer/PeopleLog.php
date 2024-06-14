@@ -25,13 +25,13 @@ class PeopleLog extends Component
             $properties = collect(json_decode($record->properties));
 
             array_push($this->logs, [
-                'event' => strtoupper($record->event),
-                'subject_type' => substr($record->subject_type, strrpos($record->subject_type, '\\') + 1),
-                'subject_id' => $record->subject_id,
+                'event'          => strtoupper($record->event),
+                'subject_type'   => substr($record->subject_type, strrpos($record->subject_type, '\\') + 1),
+                'subject_id'     => $record->subject_id,
                 'properties_old' => ($record->event == 'updated' or $record->event == 'deleted') ? $properties['old'] : [],
-                'properties_new' => ($record->event == 'created' or $record->event == 'updated') ? $properties['attributes'] :[],
-                'created_at' => date('Y-m-d h:i', strtotime($record->created_at)),
-                'causer' => implode(' ', array_filter([$record->firstname, $record->surname])),
+                'properties_new' => ($record->event == 'created' or $record->event == 'updated') ? $properties['attributes'] : [],
+                'created_at'     => date('Y-m-d h:i', strtotime($record->created_at)),
+                'causer'         => implode(' ', array_filter([$record->firstname, $record->surname])),
             ]);
         }
     }
