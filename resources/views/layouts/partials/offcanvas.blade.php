@@ -50,6 +50,11 @@
                             {{ __('person.people') }}
                         </x-nav-link-responsive>
                     </p>
+                    <p>
+                        <x-nav-link-responsive href="{{ route('people.log') }}" :active="request()->routeIs('people.log')">
+                            {{ __('person.people_log') }}
+                        </x-nav-link-responsive>
+                    </p>
                 </div>
 
                 <div>

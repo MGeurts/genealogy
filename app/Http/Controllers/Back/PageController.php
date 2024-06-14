@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
@@ -26,6 +28,11 @@ class PageController extends Controller
     public function people()
     {
         return view('back.developer.people');
+    }
+
+    public function peopleLog()
+    {
+        return view('back.developer.peoplelog');
     }
 
     public function teams()

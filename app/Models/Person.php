@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -186,7 +188,7 @@ class Person extends Model implements HasMedia
     {
         if ($this->dob) {
             $today               = Carbon::parse(date('Y-m-d') . ' 00:00:00');
-            $this_years_birthday = Carbon::parse(date('Y') . substr($this->dob, 4));
+            $this_years_birthday = Carbon::parse(date('Y') . substr(strval($this->dob), 4));
 
             return $today->gt($this_years_birthday) ? $this_years_birthday->addYear() : $this_years_birthday;
         } else {
@@ -225,10 +227,10 @@ class Person extends Model implements HasMedia
                 $lifetime = $this->yod . ' - ' . Carbon::parse($this->dod)->format('Y');
             } elseif ($this->yod) {
                 // deceased based on yob & yod
-                $lifetime = $this->yob . ' -' . $this->yod;
+                $lifetime = $this->yob . ' - ' . $this->yod;
             } else {
                 // living
-                $lifetime = $this->yob;
+                $lifetime = strval($this->yob);
             }
         }
 

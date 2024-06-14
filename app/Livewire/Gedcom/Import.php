@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Gedcom;
 
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;

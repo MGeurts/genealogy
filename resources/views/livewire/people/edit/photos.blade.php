@@ -35,7 +35,7 @@
                     <x-ts-card class="!p-2">
                         <x-slot:header>
                             <div class="text-sm {{ $image['name'] == $person->photo ? ' text-warning-500 dark:text-warning-200' : '' }}">
-                                {{ $image['name'] }}
+                                <x-ts-link href="{{ url($image['url']) }}" target="_blank">{{ $image['name'] }}</x-ts-link>
                             </div>
                         </x-slot:header>
 

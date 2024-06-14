@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 use App\Models\Person;
@@ -46,7 +48,7 @@ class PersonPhotos
 
             foreach ($photos as $current_photo) {
                 // image name
-                $next_index = str_pad(++$last_index, 3, '0', STR_PAD_LEFT);
+                $next_index = str_pad(strval(++$last_index), 3, '0', STR_PAD_LEFT);
                 $image_name = $person->id . '_' . $next_index . '_' . now()->format('YmdHis') . '.' . $image_type;
 
                 // image: resize, add watermark and save
@@ -58,13 +60,13 @@ class PersonPhotos
 
                 // image : resize width 96px and save
                 $manager->read($current_photo)
-                    ->scaleDown(width: 96, height: 96)
+                    ->scaleDown(width: 96)
                     ->toWebp(quality: $image_quality)
                     ->save(storage_path('app/public/photos-096/' . $person->team_id . '/' . $image_name));
 
                 // image : resize width 384px and save
                 $manager->read($current_photo)
-                    ->scaleDown(width: 384, height: 384)
+                    ->scaleDown(width: 384)
                     ->toWebp(quality: $image_quality)
                     ->save(storage_path('app/public/photos-384/' . $person->team_id . '/' . $image_name));
 

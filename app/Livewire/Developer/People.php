@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Developer;
 
 use App\Models\Person;
@@ -152,6 +154,6 @@ class People extends Component implements HasForms, HasTable
 
     public function render(): View
     {
-        return view('livewire.developer.persons');
+        return view('livewire.developer.people');
     }
 }
