@@ -33,7 +33,7 @@
                         <div class="grid grid-cols-2 gap-2">
                             {{-- old values --}}
                             @php
-                                $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => 'Old value']];
+                                $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.old')]];
 
                                 $rows = [];
 
@@ -49,7 +49,7 @@
 
                             {{-- new values --}}
                             @php
-                                $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => 'New value']];
+                                $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.new')]];
 
                                 $rows = [];
 
