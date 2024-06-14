@@ -7,7 +7,7 @@
         {{ __('user.users') }}
     </x-slot>
 
-    <div class="py-10 w-full">
+    <div class="py-5 w-full">
         <livewire:developer.users />
     </div>
 </x-app-layout>

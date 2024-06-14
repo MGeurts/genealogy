@@ -9,7 +9,9 @@
                 @endif
             </div>
 
-            <div class="flex-grow min-w-max max-w-full flex-1 text-end"> <x-ts-icon icon="files" class="inline-block" /></div>
+            <div class="flex-grow min-w-max max-w-full flex-1 text-end">
+                <x-ts-icon icon="history" class="inline-block" />
+            </div>
         </div>
     </div>
 

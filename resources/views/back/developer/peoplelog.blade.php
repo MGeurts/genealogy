@@ -7,7 +7,7 @@
         {{ __('person.people_log') }}
     </x-slot>
 
-    <div class="py-10 w-full">
+    <div class="py-5 w-full">
         <livewire:developer.peoplelog />
     </div>
 </x-app-layout>
