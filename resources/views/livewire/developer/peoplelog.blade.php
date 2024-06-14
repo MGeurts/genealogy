@@ -3,7 +3,7 @@
     <div class="h-14 min-h-min flex flex-col p-2 border-b-2 border-neutral-100 text-lg font-medium dark:border-neutral-600 dark:text-neutral-50 rounded-t">
         <div class="flex flex-wrap gap-2 justify-center items-start">
             <div class="flex-grow min-w-max max-w-full flex-1">
-                {{ __('person.files') }}
+                {{ __('person.people_log') }}
                 @if (count($logs) > 0)
                     <x-ts-badge color="emerald" text="{{ count($logs) }}" />
                 @endif
@@ -15,40 +15,57 @@
 
     {{-- card body --}}
     <div class="p-2 text-sm border-t-2 border-neutral-100 dark:border-neutral-600 rounded-b bg-neutral-200">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <div class="grid grid-cols-1 gap-2">
             @if (count($logs) > 0)
                 @foreach ($logs as $log)
                     <x-ts-card>
                         <x-slot:header>
-                            @if ($log->subject_type == 'App\Models\Person')
-                                {{ strtoupper($log->event) }} :
-                                <x-ts-link href="{{ url('people/' . $log->subject_id) }}">{{ substr($log->subject_type, strrpos($log->subject_type, '\\') + 1) }}
-                                    {{ $log->subject_id }}
+                            @if ($log['subject_type'] == 'Person' and $log['event'] != 'DELETED')
+                                {{ strtoupper($log['event']) }} :
+                                <x-ts-link href="{{ url('people/' . $log['subject_id']) }}">{{ $log['subject_type'] }}
+                                    {{ $log['subject_id'] }}
                                 </x-ts-link>
                             @else
-                                {{ strtoupper($log->event) }} : {{ substr($log->subject_type, strrpos($log->subject_type, '\\') + 1) }} {{ $log->subject_id }}
+                                {{ $log['event'] }} : {{ $log['subject_type'] }} {{ $log['subject_id'] }}
                             @endif
                         </x-slot:header>
 
-                        @php
-                            $data = collect(json_decode($log->properties));
+                        <div class="grid grid-cols-2 gap-2">
+                            {{-- old values --}}
+                            @php
+                                $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => 'Old value']];
 
-                            $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => 'Value']];
+                                $rows = [];
 
-                            $rows = [];
+                                foreach ($log['properties_old'] as $key => $value) {
+                                    array_push($rows, [
+                                        'key' => $key,
+                                        'value' => $value,
+                                    ]);
+                                }
+                            @endphp
 
-                            foreach ($data['attributes'] as $key => $value) {
-                                array_push($rows, [
-                                    'key' => $key,
-                                    'value' => $value,
-                                ]);
-                            }
-                        @endphp
+                            <x-ts-table :$headers :$rows />
 
-                        <x-ts-table :$headers :$rows />
+                            {{-- new values --}}
+                            @php
+                                $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => 'New value']];
+
+                                $rows = [];
+
+                                foreach ($log['properties_new'] as $key => $value) {
+                                    array_push($rows, [
+                                        'key' => $key,
+                                        'value' => $value,
+                                    ]);
+                                }
+                            @endphp
+
+                            <x-ts-table :$headers :$rows />
+                        </div>
 
                         <x-slot:footer>
-                            {{ strtoupper($log->event) }} {{ date('Y-m-d h:i', strtotime($log->created_at)) }} by {{ implode(' ', array_filter([$log->firstname, $log->surname])) }}
+                            {{ $log['event'] }} {{ $log['created_at'] }} by {{ $log['causer'] }}
                         </x-slot:footer>
                     </x-ts-card>
                 @endforeach
