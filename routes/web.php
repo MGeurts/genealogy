@@ -64,7 +64,7 @@ Route::middleware([
             Route::get('test', 'test')->name('test');
 
             Route::get('people', 'people')->name('people');
-            Route::get('peoplelog', 'peoplelog')->name('people.log');
+            Route::get('peoplelog', 'peoplelog')->name('peoplelog');
             Route::get('teams', 'teams')->name('teams');
             Route::get('users', 'users')->name('users');
         });

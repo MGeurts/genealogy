@@ -51,7 +51,7 @@
                         </x-nav-link-responsive>
                     </p>
                     <p>
-                        <x-nav-link-responsive href="{{ route('people.log') }}" :active="request()->routeIs('people.log')">
+                        <x-nav-link-responsive href="{{ route('peoplelog') }}" :active="request()->routeIs('peoplelog')">
                             {{ __('person.people_log') }}
                         </x-nav-link-responsive>
                     </p>
