@@ -62,9 +62,8 @@
             </x-slot>
 
             <x-slot name="content">
-                <h1>{{ __('app.disconnect_question', ['model' => __('app.disconnect_child')]) }}</h1>
-                <br />
-                <h3 class="text-lg font-medium text-gray-900">{{ $child_to_disconnect_name }}</h3>
+                <p>{{ __('app.disconnect_question', ['model' => __('app.disconnect_child')]) }}</p>
+                <p class="text-lg font-medium text-gray-900">{{ $child_to_disconnect_name }}</p>
             </x-slot>
 
             <x-slot name="footer">

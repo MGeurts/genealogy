@@ -102,9 +102,8 @@
             </x-slot>
 
             <x-slot name="content">
-                <h1>{{ __('app.delete_question', ['model' => __('app.delete_relationship')]) }}</h1>
-                <br />
-                <h3 class="text-lg font-medium text-gray-900">{{ $couple_to_delete_name }}</h3>
+                <p>{{ __('app.delete_question', ['model' => __('app.delete_relationship')]) }}</p>
+                <p class="text-lg font-medium text-gray-900">{{ $couple_to_delete_name }}</p>
             </x-slot>
 
             <x-slot name="footer">

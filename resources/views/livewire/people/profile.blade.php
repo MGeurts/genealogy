@@ -176,9 +176,8 @@
             </x-slot>
 
             <x-slot name="content">
-                <h1>{{ __('app.delete_question', ['model' => __('app.delete_person')]) }}</h1>
-                <br />
-                <h3 class="text-lg font-medium text-gray-900">{{ $person->name }}</h3>
+                <p>{{ __('app.delete_question', ['model' => __('app.delete_person')]) }}</p>
+                <p class="text-lg font-medium text-gray-900">{{ $person->name }}</p>
             </x-slot>
 
             <x-slot name="footer">

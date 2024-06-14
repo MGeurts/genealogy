@@ -84,9 +84,8 @@
             </x-slot>
 
             <x-slot name="content">
-                <h1>{{ __('app.delete_question', ['model' => __('backup.delete_backup')]) }}</h1>
-                <br />
-                <h3 class="text-lg font-medium text-gray-900">{{ $backup_to_delete }}</h3>
+                <p>{{ __('app.delete_question', ['model' => __('backup.delete_backup')]) }}</p>
+                <p class="text-lg font-medium text-gray-900">{{ $backup_to_delete }}</p>
             </x-slot>
 
             <x-slot name="footer">
