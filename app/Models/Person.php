@@ -247,7 +247,7 @@ class Person extends Model implements HasMedia
             $dob = null;
         }
 
-        return $dob;
+        return strval($dob);
     }
 
     protected function getBirthYearAttribute(): ?string
@@ -260,7 +260,7 @@ class Person extends Model implements HasMedia
             $yob = null;
         }
 
-        return $yob;
+        return strval($yob);
     }
 
     protected function getBirthFormattedAttribute(): ?string
@@ -273,7 +273,7 @@ class Person extends Model implements HasMedia
             $dob = '??';
         }
 
-        return $dob;
+        return strval($dob);
     }
 
     protected function getDeathFormattedAttribute(): ?string
@@ -286,7 +286,7 @@ class Person extends Model implements HasMedia
             $dod = '??';
         }
 
-        return $dod;
+        return strval($dod);
     }
 
     protected function getAddressAttribute(): ?string
