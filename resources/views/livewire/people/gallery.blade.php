@@ -102,8 +102,10 @@
     {{-- image --}}
     <div class="user-image">
         @if (count($images) > 0)
-            <img class="w-96 rounded shadow-lg dark:shadow-black/30" src="{{ asset('storage/photos-384/' . $person->team_id . '/' . $images[$selected]) }}" alt="{{ $person->name }}"
-                title="{{ $person->name }}" />
+            <x-ts-link href="{{ asset('storage/photos/' . $person->team_id . '/' . $images[$selected]) }}" target="_blank">
+                <img class="w-96 rounded shadow-lg dark:shadow-black/30" src="{{ asset('storage/photos-384/' . $person->team_id . '/' . $images[$selected]) }}" alt="{{ $person->name }}"
+                    title="{{ $person->name }}" />
+            </x-ts-link>
         @else
             <x-svg.person-no-image class="w-full rounded shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
         @endif
