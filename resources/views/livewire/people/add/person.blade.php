@@ -55,7 +55,7 @@
 
                 {{-- gender_id --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-select.styled wire:model="gender_id" id="gender_id" label="{{ __('person.gender') }} : *" :options="$personForm->genders()" select="label:name|value:id"
+                    <x-ts-select.styled wire:model="personForm.gender_id" id="gender_id" label="{{ __('person.gender') }} : *" :options="$personForm->genders()" select="label:name|value:id"
                         placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
