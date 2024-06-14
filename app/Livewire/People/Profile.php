@@ -34,6 +34,8 @@ class Profile extends Component
         if ($this->person->isDeletable()) {
             // delete all this person photos
             File::delete(File::glob(storage_path('app/public/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp')));
+            File::delete(File::glob(storage_path('app/public/photos-096/' . $this->person->team_id . '/' . $this->person->id . '_*.webp')));
+            File::delete(File::glob(storage_path('app/public/photos-384/' . $this->person->team_id . '/' . $this->person->id . '_*.webp')));
 
             $this->person->delete();
 
