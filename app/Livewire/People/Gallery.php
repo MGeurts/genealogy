@@ -18,6 +18,7 @@ class Gallery extends Component
     // -----------------------------------------------------------------------
     protected $listeners = [
         'photos_updated' => 'mount',
+        'person_updated' => 'render',
     ];
 
     // -----------------------------------------------------------------------
