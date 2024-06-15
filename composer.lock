@@ -8767,16 +8767,16 @@
         },
         {
             "name": "tallstackui/tallstackui",
-            "version": "v1.30.0",
+            "version": "v1.30.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tallstackui/tallstackui.git",
-                "reference": "bb763a9041adaf0e22899b02db9d7f45c0529b27"
+                "reference": "f041c40f87fcc12f243759d5681d0d8fe5d0a038"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/bb763a9041adaf0e22899b02db9d7f45c0529b27",
-                "reference": "bb763a9041adaf0e22899b02db9d7f45c0529b27",
+                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/f041c40f87fcc12f243759d5681d0d8fe5d0a038",
+                "reference": "f041c40f87fcc12f243759d5681d0d8fe5d0a038",
                 "shasum": ""
             },
             "require": {
@@ -8820,7 +8820,7 @@
             "description": "TallStackUI is a powerful suite of Blade components that elevate your workflow of Livewire applications.",
             "support": {
                 "issues": "https://github.com/tallstackui/tallstackui/issues",
-                "source": "https://github.com/tallstackui/tallstackui/tree/v1.30.0"
+                "source": "https://github.com/tallstackui/tallstackui/tree/v1.30.1"
             },
             "funding": [
                 {
@@ -8828,7 +8828,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-06-14T15:27:46+00:00"
+            "time": "2024-06-14T20:41:40+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
