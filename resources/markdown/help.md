@@ -48,7 +48,7 @@ New users, after accepting an invitation by email from another user and register
 
 <img src="img/help/genealogy-002d.webp" class="rounded" alt="Team">
 
-<div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
+<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
     <b>Two Factor Authentification</b> (2FA) and <b>E-mail Verification</b> can be enabled and configured in <b>config/fortify.php</b>.
 </div>
 
@@ -190,7 +190,7 @@ These options are only available if the existing person doesn't have a father or
 <img src="img/help/genealogy-035a.webp" class="rounded" alt="Add father">
 <img src="img/help/genealogy-036a.webp" class="rounded" alt="Add mother">
 
-<div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
+<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
     You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new father or mother.
 </div>
 
@@ -201,7 +201,7 @@ Another way to add people is to click on the <b>Add relationship</b> tab in the 
 <img src="img/help/genealogy-055.webp" class="rounded" alt="Partners">
 <img src="img/help/genealogy-056.webp" class="rounded" alt="Add relationship">
 
-<div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
+<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
     You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new partner.
 </div>
 
@@ -212,7 +212,7 @@ A last way to add people is to click on the <b>Add child</b> tab in the <b>Child
 <img src="img/help/genealogy-050a.webp" class="rounded" alt="Children">
 <img src="img/help/genealogy-051c.webp" class="rounded" alt="Add child">
 
-<div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
+<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
     You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new child.
 </div>
 
