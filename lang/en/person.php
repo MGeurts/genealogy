@@ -31,7 +31,6 @@ return [
     'uncles'        => 'Uncles',
     'aunts'         => 'Aunts',
     'relationships' => 'Relationships',
-    'birth_order'   => 'Birth order',
     'age'           => 'Age',
     'years'         => '[0,1] Year|[2,*] Years',
 

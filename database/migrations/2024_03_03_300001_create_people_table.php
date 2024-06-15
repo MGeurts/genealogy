@@ -29,7 +29,6 @@ return new class extends Migration
             $table->date('dob')->nullable();
             $table->integer('yob')->nullable();
             $table->string('pob')->nullable();
-            $table->unsignedTinyInteger('birth_order')->nullable();
             $table->date('dod')->nullable();
             $table->integer('yod')->nullable();
             $table->string('pod')->nullable();

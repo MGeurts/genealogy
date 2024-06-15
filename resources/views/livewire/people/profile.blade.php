@@ -106,13 +106,9 @@
                         @endif
                     </td>
                 </tr>
-                <tr>
+                <tr class="border-b-2">
                     <td class="pr-2 border-r-2">{{ __('person.pob') }}</td>
                     <td class="pl-2">{{ $person->pob }}</td>
-                </tr>
-                <tr class="border-b-2">
-                    <td class="pr-2 border-r-2">{{ __('person.birth_order') }}</td>
-                    <td class="pl-2">{{ $person->birth_order }}</td>
                 </tr>
 
                 @if ($person->isDeceased())

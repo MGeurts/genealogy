@@ -40,7 +40,6 @@ class Person extends Model implements HasMedia
         'parents_id',
 
         'dob', 'yob', 'pob',
-        'birth_order',
         'dod', 'yod', 'pod',
 
         'street',

@@ -31,7 +31,6 @@ return [
     'uncles'        => 'Ooms',
     'aunts'         => 'Tantes',
     'relationships' => 'Relaties',
-    'birth_order'   => 'Geboortevolgorde',
     'age'           => 'Leeftijd',
     'years'         => '[0,1] Jaar|[2,*] Jaar',
 

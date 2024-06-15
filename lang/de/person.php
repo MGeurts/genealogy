@@ -31,7 +31,6 @@ return [
     'uncles'        => 'Onkel',
     'aunts'         => 'Tanten',
     'relationships' => 'Beziehungen',
-    'birth_order'   => 'Reihenfolge der Geburten',
     'age'           => 'Alter',
     'years'         => '[1] Jahr|[0,2,*] Jahre',
 
