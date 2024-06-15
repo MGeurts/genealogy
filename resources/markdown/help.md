@@ -74,7 +74,7 @@ Only the owner can invite other (new or already registered) users (by e-mail) to
 
 <img src="img/help/genealogy-005bb.webp" class="rounded" alt="Team management">
 
-<div class="col-span-6 text-sm rounded bg-info-200 p-3 text-info-700" role="alert">
+<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
     Create a <b>new and seperate team</b> for each <b>family tree</b> you want to manage and invite other users to it</b>.<br/>
     By assigning users the proper <b>role</b> you can define the rights they have in the selected team.
 </div>
@@ -155,9 +155,9 @@ After login and <span class="text-danger">selecting the proper team</span>, clic
 Enter a search value in the <b>search box</b>. You can use the character <b class="text-danger">%</b> as a wildcard character.<br/>
 Insert either a <b>surname</b>, a <b>firstname</b>, a <b>birthname</b> or a <b>nickname</b>. Do not combine!<br/>
 Above the search box the number of people available to / found in the <b>current team</b> are shown.<br/>
-You can use the pagination buttons. You can also change the number of people shown per page.<br/>
 
-The results are shown below the search box, each person is represented in one card.
+The results are shown in a grid below the search box, each person is represented in one card.<br/>
+You can use the pagination buttons. You can also change the number of people shown per page.
 
 <img src="img/help/genealogy-012.webp" class="rounded" alt="Menu">
 
