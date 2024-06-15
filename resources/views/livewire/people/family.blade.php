@@ -44,7 +44,7 @@
 
     <div class="grid grid-cols-6">
         <div class="col-span-2 pl-2 py-2 border-b">{{ __('person.father') }}</div>
-        <div class="col-span-4 pr-2 py-2 border-b">
+        <div class="col-span-4 p-2 border-b">
             @if ($person->father)
                 <x-link href="/people/{{ $person->father->id }}" class="{{ $person->father->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
                     {{ $person->father->name }}
@@ -54,7 +54,7 @@
         </div>
 
         <div class="col-span-2 pl-2 py-2 border-b">{{ __('person.mother') }}</div>
-        <div class="col-span-4 pr-2 py-2 border-b">
+        <div class="col-span-4 p-2 border-b">
             @if ($person->mother)
                 <x-link href="/people/{{ $person->mother->id }}" class="{{ $person->mother->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
                     {{ $person->mother->name }}
@@ -64,7 +64,7 @@
         </div>
 
         <div class="col-span-2 pl-2 py-2 border-b">{{ __('person.parents') }}</div>
-        <div class="col-span-4 pr-2 py-2 border-b">
+        <div class="col-span-4 p-2 border-b">
             @if ($person->parents)
                 <x-link href="/people/{{ $person->parents->person_1->id }}" class="{{ $person->parents->person_1->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
                     {{ $person->parents->person_1->name }}
@@ -79,7 +79,7 @@
         </div>
 
         <div class="col-span-2 pl-2 py-2">{{ __('person.partner') }}</div>
-        <div class="col-span-4 pr-2 py-2">
+        <div class="col-span-4 p-2">
             @if ($person->currentPartner())
                 <x-link href="/people/{{ $person->currentPartner()->id }}" class="{{ $person->currentPartner()->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
                     {{ $person->currentPartner()->name }}
