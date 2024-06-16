@@ -72,9 +72,11 @@ class PersonPhotos
             $yesterdaysStamp = now()->subDay()->timestamp;
 
             foreach (Storage::files('livewire-tmp') as $file) {
-                if (! Storage::exists($file)) continue;
+                if (! Storage::exists($file)) {
+                    continue;
+                }
 
-                if($yesterdaysStamp > Storage::lastModified($file)) {
+                if ($yesterdaysStamp > Storage::lastModified($file)) {
                     Storage::delete($file);
                 }
             }
