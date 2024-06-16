@@ -77,7 +77,7 @@ class Person extends Model implements HasMedia
     }
 
     /* -------------------------------------------------------------------------------------------- */
-    // Scopes (Global)
+    // Scopes (global)
     /* -------------------------------------------------------------------------------------------- */
     protected static function booted(): void
     {
