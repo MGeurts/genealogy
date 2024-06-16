@@ -68,9 +68,15 @@ class PersonPhotos
                 }
             }
 
-            // cleanup : livewire-tmp
+            // cleanup : livewire-tmp (delete files older then 1 day)
+            $yesterdaysStamp = now()->subDay()->timestamp;
+
             foreach (Storage::files('livewire-tmp') as $file) {
-                Storage::delete($file);
+                if (! Storage::exists($file)) continue;
+
+                if($yesterdaysStamp > Storage::lastModified($file)) {
+                    Storage::delete($file);
+                }
             }
         }
     }
