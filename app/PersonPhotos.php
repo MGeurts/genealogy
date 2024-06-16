@@ -12,14 +12,6 @@ use Intervention\Image\ImageManager;
 
 class PersonPhotos
 {
-    /**
-     * Create a new class instance.
-     */
-    public function __construct()
-    {
-        //
-    }
-
     // -----------------------------------------------------------------------
     // save all photos
     // -----------------------------------------------------------------------
@@ -74,6 +66,11 @@ class PersonPhotos
                 if (! isset($person->photo)) {
                     $person->update(['photo' => $image_name]);
                 }
+            }
+
+            // cleanup : livewire-tmp
+            foreach (Storage::files('livewire-tmp') as $file) {
+                Storage::delete($file);
             }
         }
     }

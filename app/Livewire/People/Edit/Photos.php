@@ -122,12 +122,6 @@ class Photos extends Component
         if ($this->photos) {
             PersonPhotos::save($this->person, $this->photos);
 
-            // -----------------------------------------------------------------------
-            // TO DO : dispatch not working properly
-            // -----------------------------------------------------------------------
-            // $this->dispatch('photos_updated');
-            // -----------------------------------------------------------------------
-
             $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', count($this->photos)))->send();
 
             return $this->redirect('/people/' . $this->person->id . '/edit-photos');
