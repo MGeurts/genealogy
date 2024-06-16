@@ -1942,16 +1942,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "3.6.5",
+            "version": "3.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "d428433aa74836ab75e8d4a5241628bebb7f4077"
+                "reference": "6bfd3dd1d430c5224c728dc4f8b2fdc757b5eaf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/d428433aa74836ab75e8d4a5241628bebb7f4077",
-                "reference": "d428433aa74836ab75e8d4a5241628bebb7f4077",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/6bfd3dd1d430c5224c728dc4f8b2fdc757b5eaf5",
+                "reference": "6bfd3dd1d430c5224c728dc4f8b2fdc757b5eaf5",
                 "shasum": ""
             },
             "require": {
@@ -1998,7 +1998,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Intervention/image/issues",
-                "source": "https://github.com/Intervention/image/tree/3.6.5"
+                "source": "https://github.com/Intervention/image/tree/3.7.0"
             },
             "funding": [
                 {
@@ -2010,7 +2010,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-06-06T17:15:24+00:00"
+            "time": "2024-06-13T16:34:59+00:00"
         },
         {
             "name": "khill/lavacharts",
@@ -8767,16 +8767,16 @@
         },
         {
             "name": "tallstackui/tallstackui",
-            "version": "v1.30.1",
+            "version": "v1.30.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tallstackui/tallstackui.git",
-                "reference": "f041c40f87fcc12f243759d5681d0d8fe5d0a038"
+                "reference": "d60dba6799c6400866960a5c921a97033513708c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/f041c40f87fcc12f243759d5681d0d8fe5d0a038",
-                "reference": "f041c40f87fcc12f243759d5681d0d8fe5d0a038",
+                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/d60dba6799c6400866960a5c921a97033513708c",
+                "reference": "d60dba6799c6400866960a5c921a97033513708c",
                 "shasum": ""
             },
             "require": {
@@ -8820,7 +8820,7 @@
             "description": "TallStackUI is a powerful suite of Blade components that elevate your workflow of Livewire applications.",
             "support": {
                 "issues": "https://github.com/tallstackui/tallstackui/issues",
-                "source": "https://github.com/tallstackui/tallstackui/tree/v1.30.1"
+                "source": "https://github.com/tallstackui/tallstackui/tree/v1.30.2"
             },
             "funding": [
                 {
@@ -8828,7 +8828,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-06-14T20:41:40+00:00"
+            "time": "2024-06-16T02:13:38+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -10248,16 +10248,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "10.5.20",
+            "version": "10.5.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "547d314dc24ec1e177720d45c6263fb226cc2ae3"
+                "reference": "ac837816fa52078f7a5e17ed774f256a72a51af6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/547d314dc24ec1e177720d45c6263fb226cc2ae3",
-                "reference": "547d314dc24ec1e177720d45c6263fb226cc2ae3",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ac837816fa52078f7a5e17ed774f256a72a51af6",
+                "reference": "ac837816fa52078f7a5e17ed774f256a72a51af6",
                 "shasum": ""
             },
             "require": {
@@ -10329,7 +10329,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.20"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/10.5.21"
             },
             "funding": [
                 {
@@ -10345,7 +10345,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-24T06:32:35+00:00"
+            "time": "2024-06-15T09:13:15+00:00"
         },
         {
             "name": "sebastian/cli-parser",
