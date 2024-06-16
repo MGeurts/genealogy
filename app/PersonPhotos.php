@@ -68,7 +68,7 @@ class PersonPhotos
                 }
             }
 
-            // cleanup : livewire-tmp (delete files older then 1 day)
+            // cleanup : livewire-tmp (delete files older than 1 day)
             $yesterdaysStamp = now()->subDay()->timestamp;
 
             foreach (Storage::files('livewire-tmp') as $file) {
