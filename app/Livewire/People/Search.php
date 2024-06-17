@@ -27,6 +27,11 @@ class Search extends Component
         ['value' => 100, 'label' => 100],
     ];
 
+    public function updatedPerpage(): void
+    {
+        $this->resetPage();
+    }
+
     // ------------------------------------------------------------------------------
     public function render()
     {
