@@ -58,7 +58,7 @@
 
                             <div class="text-sm text-end">{{ $image['size'] }}</div>
 
-                            <x-ts-button color="danger" class="!p-2" title="{{ __('app.delete') }}" wire:click="deletePhoto('{{ $image['name'] }}')">
+                            <x-ts-button color="danger" class="!p-2 text-white" title="{{ __('app.delete') }}" wire:click="deletePhoto('{{ $image['name'] }}')">
                                 <x-ts-icon icon="trash" class="size-5" />
                             </x-ts-button>
                         </x-slot:footer>

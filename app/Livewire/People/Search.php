@@ -31,7 +31,7 @@ class Search extends Component
     {
         $this->resetPage();
     }
-    
+
     public function updatedPerpage(): void
     {
         $this->resetPage();
@@ -43,9 +43,9 @@ class Search extends Component
         $people_db = Person::count();
 
         $people = Person::with('father:id,firstname,surname,sex,yod,dod', 'mother:id,firstname,surname,sex,yod,dod')
-                ->search($this->search ? $this->search : '%')
-                ->orderBy('firstname')->orderBy('surname')
-                ->paginate($this->perpage);
+            ->search($this->search ? $this->search : '%')
+            ->orderBy('firstname')->orderBy('surname')
+            ->paginate($this->perpage);
 
         return view('livewire.people.search')->with(compact('people_db', 'people'));
     }

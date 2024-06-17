@@ -68,7 +68,7 @@
 
                             <div class="text-sm text-end">{{ Number::fileSize($file['size'], 1) }}</div>
 
-                            <x-ts-button color="danger" class="!p-2" title="{{ __('app.delete') }}" wire:click="deleteFile({{ $file->id }})">
+                            <x-ts-button color="danger" class="!p-2 text-white" title="{{ __('app.delete') }}" wire:click="deleteFile({{ $file->id }})">
                                 <x-ts-icon icon="trash" class="size-5" />
                             </x-ts-button>
                         </x-slot:footer>
