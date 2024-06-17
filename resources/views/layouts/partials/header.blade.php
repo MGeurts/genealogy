@@ -5,9 +5,8 @@
     {{-- heading --}}
     @if (isset($heading))
         <div class="mx-auto p-2 bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-200 shadow">
-            <h2>
-                <x-ts-icon icon="arrow-bar-right" class="inline-block size-5" /> {{ $heading }}
-            </h2>
+            <x-ts-icon icon="arrow-bar-right" class="inline-block size-5" />
+            {{ $heading }}
         </div>
     @endif
 </header>

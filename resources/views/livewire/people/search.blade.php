@@ -1,6 +1,6 @@
 <div>
     {{-- search box section --}}
-    <div class="mb-5 p-2 flex flex-col rounded dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+    <div class="sticky top-2 z-10 mb-5 p-2 flex flex-col rounded dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
         {{-- header --}}
         <div class="flex flex-wrap mb-2 text-lg">
             <div class="flex-grow max-w-full flex-1">

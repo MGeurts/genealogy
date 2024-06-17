@@ -10,7 +10,7 @@
             </div>
 
             {{-- navigation links --}}
-            <div class="flex flex-wrap gap-5">
+            <div class="flex flex-wrap gap-5 py-2">
                 <div class="flex items-center gap-5">
                     <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                         <x-ts-icon icon="home" class="size-5 mr-1" />
