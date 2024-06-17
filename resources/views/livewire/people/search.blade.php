@@ -28,13 +28,15 @@
                 @if ($this->search)
                     @if (config('app.god_mode') && auth()->user()->is_developer)
                         {!! __('app.people_found', [
-                            'total' => $people->total(),
+                            'found' => $people->total(),
+                            'total' => $people_db,
                             'scope' => strtoupper(__('team.all_teams')),
                             'keyword' => $this->search,
                         ]) !!}
                     @else
                         {!! __('app.people_found', [
-                            'total' => $people->total(),
+                            'found' => $people->total(),
+                            'total' => $people_db,
                             'scope' => auth()->user()->currentTeam->name,
                             'keyword' => $this->search,
                         ]) !!}

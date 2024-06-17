@@ -98,7 +98,7 @@ return [
 
     'people_search'             => 'Zoek personen in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
     'people_search_placeholder' => 'Geef een naam of bijnaam ...',
-    'people_found'              => '<span class="text-emerald-600"><strong>:total</strong></span> gevonden met term <span class="text-emerald-600"><strong>:keyword</strong></span> in <span class="text-emerald-600"><strong>:scope</strong></span>',
+    'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> personen gevonden met term <span class="text-emerald-600"><strong>:keyword</strong></span> in <span class="text-emerald-600"><strong>:total</strong></span></span> personen beschikbaar in <span class="text-emerald-600"><strong>:scope</strong></span>',
     'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> personen beschikbaar in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
 
     'whoops' => 'Oeps! Er liep iets mis.',

@@ -98,8 +98,8 @@ return [
 
     'people_search'             => 'Finde personen in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
     'people_search_placeholder' => 'Namen oder Spitznamen eingeben ...',
-    'people_found'              => '<span class="text-emerald-600"><strong>:total</strong></span> wurden in <span class="text-emerald-600"><strong>:scope</strong></span> mit dem Schlagwort <span class="text-emerald-600"><strong>:keyword</strong></span> gefunden',
-    'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> Personen in <span class="text-emerald-600"><strong>:scope</strong></span></span> verfügbar',
+    'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> Personen wurden gefunden mit dem Schlagwort <span class="text-emerald-600"><strong>:keyword</strong></span> in <span class="text-emerald-600"><strong>:total</strong></span> Personen verfügbar in <span class="text-emerald-600"><strong>:scope</strong></span>',
+    'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> Personen verfügbar in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
 
     'whoops' => 'Upps! Etwas ist schief gelaufen.',
 ];
