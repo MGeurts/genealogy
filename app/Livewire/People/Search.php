@@ -15,7 +15,7 @@ class Search extends Component
 
     // ------------------------------------------------------------------------------
     #[Session]
-    public $search = '%'; // default to '' when application goes in production
+    public $search = null;
 
     public $perpage = 10;
 
@@ -42,14 +42,10 @@ class Search extends Component
     {
         $people_db = Person::count();
 
-        if ($this->search) {
-            $people = Person::with('father:id,firstname,surname,sex,yod,dod', 'mother:id,firstname,surname,sex,yod,dod')
-                ->search($this->search)
-                ->orderBy('firstname')->orderBy('surname') // reverse order when application goes in production
+        $people = Person::with('father:id,firstname,surname,sex,yod,dod', 'mother:id,firstname,surname,sex,yod,dod')
+                ->search($this->search ? $this->search : '%')
+                ->orderBy('firstname')->orderBy('surname')
                 ->paginate($this->perpage);
-        } else {
-            $people = collect([]);
-        }
 
         return view('livewire.people.search')->with(compact('people_db', 'people'));
     }
