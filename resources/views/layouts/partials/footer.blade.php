@@ -42,24 +42,6 @@
                 </a>
             </div>
 
-            {{-- impressum section --}}
-            <div>
-                <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">Impressum</h6>
-                <x-hr.narrow class="w-48 h-1 max-md:mx-auto my-4 bg-gray-100 border-0 rounded dark:bg-gray-700" />
-
-                <p class="mb-4">
-                    <x-nav-link-footer href="{{ url('terms-of-service') }}" :active="request()->is('terms-of-service')">
-                        {{ __('app.terms_of_service') }}
-                    </x-nav-link-footer>
-                </p>
-
-                <p class="mb-4">
-                    <x-nav-link-footer href="{{ url('privacy-policy') }}" :active="request()->is('privacy-policy')">
-                        {{ __('app.privacy_policy') }}
-                    </x-nav-link-footer>
-                </p>
-            </div>
-
             {{-- usefull link section --}}
             <div>
                 <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">{{ __('app.useful_links') }}</h6>
@@ -74,6 +56,24 @@
                 <p class="mb-4">
                     <x-nav-link-footer href="{{ route('help') }}" :active="request()->routeIs('help')">
                         {{ __('app.help') }}
+                    </x-nav-link-footer>
+                </p>
+            </div>
+
+            {{-- impressum section --}}
+            <div>
+                <h6 class="mb-4 flex justify-center font-semibold uppercase md:justify-start">Impressum</h6>
+                <x-hr.narrow class="w-48 h-1 max-md:mx-auto my-4 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+
+                <p class="mb-4">
+                    <x-nav-link-footer href="{{ url('terms-of-service') }}" :active="request()->is('terms-of-service')">
+                        {{ __('app.terms_of_service') }}
+                    </x-nav-link-footer>
+                </p>
+
+                <p class="mb-4">
+                    <x-nav-link-footer href="{{ url('privacy-policy') }}" :active="request()->is('privacy-policy')">
+                        {{ __('app.privacy_policy') }}
                     </x-nav-link-footer>
                 </p>
             </div>
