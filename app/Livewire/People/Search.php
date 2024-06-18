@@ -47,6 +47,6 @@ class Search extends Component
             ->orderBy('firstname')->orderBy('surname')
             ->paginate($this->perpage);
 
-        return view('livewire.people.search')->with(compact('people_db', 'people'));
+        return view('livewire.people.search', compact('people_db', 'people'));
     }
 }

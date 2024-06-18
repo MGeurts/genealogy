@@ -55,8 +55,6 @@ class OriginMap extends Component
             'regioncoderVersion'        => 1,
         ]);
 
-        return view('livewire.userlogs.origin-map')->with([
-            'lava' => $lava,
-        ]);
+        return view('livewire.userlogs.origin-map', compact('lava'));
     }
 }

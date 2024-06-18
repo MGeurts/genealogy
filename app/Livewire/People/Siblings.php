@@ -15,6 +15,6 @@ class Siblings extends Component
     {
         $siblings = $this->person->siblings();
 
-        return view('livewire.people.siblings')->with(compact('siblings'));
+        return view('livewire.people.siblings', compact('siblings'));
     }
 }

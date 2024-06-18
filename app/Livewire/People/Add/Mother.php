@@ -177,6 +177,6 @@ class Mother extends Component
                 ];
             });
 
-        return view('livewire.people.add.mother')->with(compact('persons'));
+        return view('livewire.people.add.mother', compact('persons'));
     }
 }

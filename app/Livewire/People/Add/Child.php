@@ -214,6 +214,6 @@ class Child extends Component
                 });
         }
 
-        return view('livewire.people.add.child')->with(compact('persons'));
+        return view('livewire.people.add.child', compact('persons'));
     }
 }

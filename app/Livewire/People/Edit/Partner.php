@@ -86,6 +86,6 @@ class Partner extends Component
                 ];
             });
 
-        return view('livewire.people.edit.partner')->with(compact('couple', 'persons'));
+        return view('livewire.people.edit.partner', compact('couple', 'persons'));
     }
 }

@@ -19,9 +19,6 @@ class Log extends Component
             ->get()
             ->groupBy('date');
 
-        return view('livewire.userlogs.log')->with([
-            'userlogs_by_date' => $userlogs_by_date,
-            'months'           => $months,
-        ]);
+        return view('livewire.userlogs.log', compact('userlogs_by_date', 'months'));
     }
 }

@@ -229,6 +229,6 @@ class Partner extends Component
                 ];
             });
 
-        return view('livewire.people.add.partner')->with(compact('persons'));
+        return view('livewire.people.add.partner', compact('persons'));
     }
 }

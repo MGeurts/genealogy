@@ -87,7 +87,7 @@ class Period extends Component
 
     public function render()
     {
-        return view('livewire.userlogs.period')->with([
+        return view('livewire.userlogs.period', [
             'chart_data' => $this->chart_data,
         ]);
     }

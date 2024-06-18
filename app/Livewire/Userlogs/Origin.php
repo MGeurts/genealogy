@@ -22,8 +22,6 @@ class Origin extends Component
             'data'   => $statistics->pluck('visitors'),
         ]);
 
-        return view('livewire.userlogs.origin')->with([
-            'chart_data' => $chart_data,
-        ]);
+        return view('livewire.userlogs.origin', compact('chart_data'));
     }
 }

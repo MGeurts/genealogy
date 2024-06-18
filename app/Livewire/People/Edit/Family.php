@@ -88,6 +88,6 @@ class Family extends Component
                 ];
             })->values();
 
-        return view('livewire.people.edit.family')->with(compact('fathers', 'mothers', 'parents'));
+        return view('livewire.people.edit.family', compact('fathers', 'mothers', 'parents'));
     }
 }

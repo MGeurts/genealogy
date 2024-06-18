@@ -177,6 +177,6 @@ class Father extends Component
                 ];
             });
 
-        return view('livewire.people.add.father')->with(compact('persons'));
+        return view('livewire.people.add.father', compact('persons'));
     }
 }

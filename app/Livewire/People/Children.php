@@ -54,6 +54,6 @@ class Children extends Component
     {
         $children = $this->person->childrenNaturalAll();
 
-        return view('livewire.people.children')->with(compact('children'));
+        return view('livewire.people.children', compact('children'));
     }
 }
