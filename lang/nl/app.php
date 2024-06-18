@@ -101,5 +101,7 @@ return [
     'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> gevonden met term <span class="text-emerald-600"><strong>:keyword</strong></span> in <span class="text-emerald-600"><strong>:total</strong></span></span> beschikbaar in <span class="text-emerald-600"><strong>:scope</strong></span>',
     'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> beschikbaar in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
 
+    'unauthorized' => 'Onbevoegde toegang.',
+
     'whoops' => 'Oeps! Er liep iets mis.',
 ];

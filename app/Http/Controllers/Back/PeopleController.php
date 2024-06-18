@@ -28,6 +28,8 @@ class PeopleController extends Controller
 
     public function add(): View
     {
+        abort_unless(auth()->user()->hasPermission('person:create'), 403, __('app.unauthorized_access'));
+
         return view('back.people.add.person');
     }
 
@@ -63,51 +65,72 @@ class PeopleController extends Controller
 
     public function addFather(Person $person): View
     {
+        abort_unless(auth()->user()->hasPermission('person:create'), 403, __('app.unauthorized_access'));
+
         return view('back.people.add.father')->with(compact('person'));
     }
 
     public function addMother(Person $person): View
     {
+        abort_unless(auth()->user()->hasPermission('person:create'), 403, __('app.unauthorized_access'));
+
         return view('back.people.add.mother')->with(compact('person'));
     }
 
     public function addChild(Person $person): View
     {
+        abort_unless(auth()->user()->hasPermission('person:create'), 403, __('app.unauthorized_access'));
+
         return view('back.people.add.child')->with(compact('person'));
     }
 
     public function addPartner(Person $person): View
     {
+        abort_unless(auth()->user()->hasPermission('couple:create'), 403, __('app.unauthorized_access'));
+
         return view('back.people.add.partner')->with(compact('person'));
     }
 
     public function editContact(Person $person): View
     {
+        abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
+
         return view('back.people.edit.contact')->with(compact('person'));
     }
 
     public function editDeath(Person $person): View
     {
+        abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
+
         return view('back.people.edit.death')->with(compact('person'));
     }
 
     public function editFamily(Person $person): View
     {
+        abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
+
         return view('back.people.edit.family')->with(compact('person'));
     }
 
     public function editPhotos(Person $person): View
     {
+        abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
+
         return view('back.people.edit.photos')->with(compact('person'));
     }
 
     public function editProfile(Person $person): View
     {
+
+        abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
+
         return view('back.people.edit.profile')->with(compact('person'));
     }
 
     public function editPartner(Person $person, Couple $couple): View
     {
+        abort_unless(auth()->user()->hasPermission('couple:update'), 403, __('app.unauthorized_access'));
+
         return view('back.people.edit.partner')->with(compact('person', 'couple'));
     }
 }

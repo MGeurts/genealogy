@@ -15,7 +15,7 @@
                 </x-slot:title>
 
                 <div class="my-10">
-                    {{ $exception->getMessage() }}
+                    {{ $exception->getMessage() ? $exception->getMessage() : __('app.unauthorized_access') }}
                 </div>
 
                 <x-slot:footer>
@@ -36,7 +36,7 @@
                 </x-slot:title>
 
                 <div class="my-10">
-                    {{ $exception->getMessage() }}
+                    {{ $exception->getMessage() ? $exception->getMessage() : __('app.unauthorized_access') }}
                 </div>
 
                 <x-slot:footer>
