@@ -98,8 +98,8 @@ return [
 
     'people_search'             => 'Find people in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
     'people_search_placeholder' => 'Enter name or nickname ...',
-    'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> people found with keyword <span class="text-emerald-600"><strong>:keyword</strong></span> in <span class="text-emerald-600"><strong>:total</strong></span> people available in <span class="text-emerald-600"><strong>:scope</strong></span>',
-    'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> people available in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
+    'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> found with keyword <span class="text-emerald-600"><strong>:keyword</strong></span> in <span class="text-emerald-600"><strong>:total</strong></span> available in <span class="text-emerald-600"><strong>:scope</strong></span>',
+    'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> available in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
 
     'whoops' => 'Whoops! Something went wrong.',
 ];
