@@ -1,4 +1,4 @@
-<div class="max-w-md flex flex-col justify-end rounded dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+<div class="flex flex-col justify-end rounded dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
     {{-- image --}}
     <div class="p-2">
         <x-image.photo :person="$person" />
@@ -46,7 +46,7 @@
         <div class="flex-grow min-w-max max-w-full flex-1">
             <a href="/people/{{ $person->id }}" title="{{ __('app.show_profile') }}">
                 <x-ts-button color="primary" class="text-sm">
-                    <x-ts-icon icon="id" class="size-5 mr-1" />
+                    <x-ts-icon icon="id" class="size-5" />
                     {{ __('person.profile') }}
                 </x-ts-button>
             </a>
@@ -55,7 +55,7 @@
         <div class="flex-grow min-w-max max-w-full flex-1 text-end">
             <a href="/people/{{ $person->id }}/chart">
                 <x-ts-button color="secondary" class="text-sm">
-                    <x-ts-icon icon="social" class="size-5 mr-1" />
+                    <x-ts-icon icon="social" class="size-5" />
                     {{ __('app.family_chart') }}
                 </x-ts-button>
             </a>

@@ -54,7 +54,7 @@
     </div>
 
     {{-- image --}}
-    <div class="grid p-2 justify-center">
+    <div class="grid px-2 pt-2 justify-center">
         <livewire:people.gallery :person="$person" class="max-w-96" />
     </div>
 

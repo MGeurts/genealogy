@@ -21,7 +21,7 @@
                 <x-slot:footer>
                     <div class="flex justify-end">
                         <x-ts-button href="/" color="slate" class="text-sm">
-                            <x-ts-icon icon="home" class="size-5 mr-1" />
+                            <x-ts-icon icon="home" class="size-5" />
                             {{ __('app.home') }}
                         </x-ts-button>
                     </div>
@@ -42,7 +42,7 @@
                 <x-slot:footer>
                     <div class="flex justify-end">
                         <x-ts-button href="/" color="slate" class="text-sm">
-                            <x-ts-icon icon="home" class="size-5 mr-1" />
+                            <x-ts-icon icon="home" class="size-5" />
                             {{ __('app.home') }}
                         </x-ts-button>
                     </div>
