@@ -121,7 +121,6 @@ class PeopleController extends Controller
 
     public function editProfile(Person $person): View
     {
-
         abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
 
         return view('back.people.edit.profile')->with(compact('person'));
