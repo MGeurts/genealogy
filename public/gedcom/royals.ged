@@ -1,0 +1,3733 @@
+﻿0 HEAD
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+1 DEST MyFamilyTree
+1 SOUR MyFamilyTree
+2 VERS 14.0.0.0
+2 NAME My Family Tree
+2 CORP Chronoplex Software
+1 SUBM @U0@
+1 DATE 28 OCT 2023
+2 TIME 12:23:29.980
+1 LANG English
+1 FILE The English and British Kings and Queens.ged
+1 COPR © 2010-2022 Chronoplex Software
+1 NOTE Monarchs of England and Great Britain since the Norman Conquest in 1066.
+1 _TITL The English and British Kings and Queens
+0 @U0@ SUBM
+1 _UID 9BAE88A3BE7E4AC58C1CCAF92A768780D111
+1 NAME Chronoplex Software
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I0@ INDI
+1 NAME Charles III Philip Arthur George /Windsor/
+2 TYPE birth
+2 GIVN Charles III Philip Arthur George
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 14 NOV 1948
+2 PLAC Buckingham Palace, London, England
+1 FAMC @F0@
+1 FAMS @F6@
+1 FAMS @F7@
+1 NOTE Prince Charles, born in 1948, Prince of Wales and heir apparent to the throne of the United Kingdom of Great Britain and Northern Ireland. He is the son of Queen Elizabeth II and her husband, Philip Mountbatten, duke of Edinburgh. Charles's ful
+2 CONC l name is Charles Philip Arthur George. His titles, in addition to Prince of Wales, are duke of Cornwall; duke of Rothesay; earl of Carrick; and Baron Renfrew, lord of the Isles and great steward of Scotland.
+2 CONT 
+2 CONT Breaking with the tradition of educating royal children at home, his parents enrolled Prince Charles in private schools in England and Scotland. He attended the Cheam School in Berkshire as a boarder from the age of 9 to 14 and the school his fa
+2 CONC ther attended, Gordonstoun, in Scotland from age 14 to 18. He has described his school years as unhappy and seems to have been especially ill-suited for the rugged and spartan conditions at Gordonstoun, the school chosen by the Duke of Edinburg
+2 CONC h to toughen up his son. After Gordonstoun, Charles entered Trinity College at the University of Cambridge, where he studied archaeology, anthropology, and history. Charles became the first heir to the British crown to earn a university degree w
+2 CONC hen he graduated with honours from Cambridge University in June 1970. That year he also assumed his seat in the House of Lords, the upper chamber of the British Parliament. At the age of 20, in 1969, he was formally invested as the Prince of Wal
+2 CONC es, a title he had been given in 1958. Charles served in the Royal Air Force and the Royal Navy from 1971 to 1977.
+2 CONT 
+2 CONT Although he has travelled widely as a representative of the crown, Charles has been viewed as a man with little to do while waiting to succeed to the throne. As one solution he founded the Princes Trust, an organization established to provide op
+2 CONC portunities for young people through training, education, and financial support. As its president he has remained closely involved with the trust. Charles is also involved with some 200 other charitable organizations that reflect his wide rang
+2 CONC e of interests, from architecture to alternative medicine and conservation.
+2 _NSTY Y
+1 CHAN
+2 DATE 10 SEP 2022
+3 TIME 11:20:16.678
+0 @I1@ INDI
+1 NAME Elizabeth II Alexandra Mary /Windsor/
+2 TYPE birth
+2 GIVN Elizabeth II Alexandra Mary
+2 SURN Windsor
+1 SEX F
+1 BIRT
+2 DATE 21 APR 1926
+2 PLAC 17 Bruton St., London
+1 EVEN
+2 TYPE Event
+2 DATE 2 JUN 1953
+2 PLAC Westminster Abbey
+1 DEAT
+2 DATE 8 SEP 2022
+2 PLAC Balmoral Castle
+1 FAMC @F5@
+1 FAMS @F0@
+1 NOTE Elizabeth II, born in 1926, queen of the United Kingdom of Great Britain and Northern Ireland. Elizabeth Alexandra Mary was born in London, the first child of the duke and duchess of York, later King George VI and Queen Elizabeth. Her sister, Pr
+2 CONC incess Margaret, was born in 1930. The two princesses were educated at home by a Scottish governess.
+2 CONT 
+2 CONT After her father succeeded to the throne in 1936, Princess Elizabeth, as heiress presumptive, began studies in constitutional history and law to prepare for her future position as queen. As she became older, Elizabeth began to take part in publi
+2 CONC c life. She was 14 years old when she made her first radio broadcast, a speech to the children of the Commonwealth of Nations in October 1940. When she was 16 she carried out her first public engagement, an inspection of the Grenadier Guards i
+2 CONC n April 1942.
+2 CONT 
+2 CONT During World War II (1939-1945) Elizabeth and her younger sister were sent for safety from Buckingham Palace in London to live first at Balmoral, Scotland, and later at the royal lodge at Windsor, England. Although her father did not want Elizab
+2 CONC eth to be called up for national service during the war, she herself was most eager to join the Auxiliary Territorial Service, the women's branch of the British Army. She was finally allowed to join in March 1945.
+2 CONT 
+2 CONT On November 20, 1947, Elizabeth married Philip Mountbatten, the former Prince Philip of Greece, at Westminster Abbey in London. He had become a British subject nine months earlier and was married under the title of Prince Philip, duke of Edinbur
+2 CONC gh. A year later Elizabeth gave birth to a son, Charles. In 1950 she gave birth to a daughter, Anne. A second son, Andrew, was born to Elizabeth in 1960, and a third, Edward, in 1964.
+2 _NSTY Y
+1 CHAN
+2 DATE 10 SEP 2022
+3 TIME 11:14:07.375
+0 @I2@ INDI
+1 NAME Edward VII /Wettin/
+2 TYPE birth
+2 GIVN Edward VII
+2 SURN Wettin
+1 SEX M
+1 BIRT
+2 DATE 9 NOV 1841
+2 PLAC Buckingham Palace, London, England
+1 DEAT
+2 DATE 6 MAY 1910
+1 FAMC @F36@
+1 FAMS @F1@
+1 NOTE Edward VII (1841-1910), king of the United Kingdom of Great Britain and Ireland and emperor of India (1901-1910). The Edwardian period is named after him. Edward was born on November 9, 1841, in Buckingham Palace, London, the eldest son of Quee
+2 CONC n Victoria and Prince Albert, and was christened Albert Edward. He studied at the universities of Edinburgh, Oxford, and Cambridge.
+2 CONT 
+2 CONT In 1860 he visited Canada, inaugurating the custom of goodwill visits by members of the British royal family, particularly the Prince of Wales, to British dominions and foreign countries. In 1863 Edward married Alexandra, eldest daughter of Kin
+2 CONC g Christian IX of Denmark. The prince and princess then assumed much of the burden of court ceremonials and public functions, which Queen Victoria had laid aside on going into virtual retirement after the death of the prince consort in 1861. Edw
+2 CONC ard travelled extensively. In Russia and France, particularly, he made valuable personal contacts in political and social circles.
+2 CONT 
+2 CONT At home, his popularity was increased both as Prince of Wales and as king by his interest in sports, notably yachting and horse racing; his horses won the Derby in 1896, 1900, and 1909 and the Grand National at Liverpool in 1900. Edward succeede
+2 CONC d to the throne in 1901. From the beginning of his reign he adopted a policy of promoting international amity in Europe, where political tension had been mounting. His visits to various European capitals from 1901 to 1904 and return visits to hi
+2 CONC m by European rulers helped promote the signing of arbitration treaties in 1903-1904 between Britain and France, Spain, Italy, Germany, and Portugal. He was also an important force behind two agreements that strengthened the position of Britai
+2 CONC n on the Continent, the Entente Cordiale of 1904 between France and Britain, and a pact between Russia and Britain in 1907.  In 1909 the king and queen paid a diplomatic visit to Emperor William II of Germany (Edwards's nephew) that temporaril
+2 CONC y dispelled German suspicion that the increasingly friendly relations between Britain and France and Russia were aimed at weakening Germany. Because of his efforts to increase international amity the king became known as Edward the Peacemaker.
+2 CONT 
+2 CONT Edward died at Buckingham Palace on May 6, 1910, having reigned for only nine years. Three daughters and two sons were born of the marriage between Edward and Alexandra. The sons were Prince Albert Victor, duke of Clarence, and George, duke of Y
+2 CONC ork, who succeeded Edward as George V. In 1896 Edwards youngest daughter, Princess Maude Charlotte Mary Victoria, married her cousin, Prince Charles of Denmark, who later became King Hkon VII of Norway.
+2 _NSTY Y
+1 CHAN
+2 DATE 11 JAN 2019
+3 TIME 19:48:39.218
+0 @I3@ INDI
+1 NAME Alexandra of Denmark "Alix" //
+2 TYPE birth
+2 GIVN Alexandra of Denmark
+2 NICK Alix
+1 SEX F
+1 BIRT
+2 DATE 1 DEC 1844
+2 PLAC Yellow Palace, Copenhagen, Denmark
+1 DEAT
+2 DATE 20 NOV 1925
+2 PLAC Sandringham, Norfolk, England
+1 FAMS @F1@
+1 CHAN
+2 DATE 27 MAY 2020
+3 TIME 14:44:05.653
+0 @I4@ INDI
+1 NAME George V /Windsor/
+2 TYPE birth
+2 GIVN George V
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 3 JUN 1865
+2 PLAC Marlborough House, London, England
+1 DEAT
+2 DATE 20 JAN 1936
+2 PLAC Sandringham, Norfolk, England
+1 FAMC @F1@
+1 FAMS @F2@
+1 NOTE George V (1865-1936), king of the United Kingdom of Great Britain and Northern Ireland, and emperor of India (1910-1936), of the house of Saxe-Coburg-Gotha (later changed to Windsor).  George was born in London on June 3, 1865, the second son o
+2 CONC f Edward VII. Known as the Sailor Prince, he entered the Royal Navy in 1877 and during an active career rose to the rank of vice admiral in 1903.
+2 CONT 
+2 CONT The death in 1892 of his elder brother, Albert Victor, duke of Clarence, made George second in line to the succession. He married his brother's fiancé, Princess Victoria Mary of Teck, later Mary, queen consort of England, and was created duke o
+2 CONC f York in 1892. After his father succeeded Queen Victoria in 1901, George became Prince of Wales and succeeded to the throne upon his father's death in 1910.
+2 CONT 
+2 CONT Six children were born to George and Mary: Edward Albert, later Edward VIII; Albert Frederick George, later George VI; Victoria Alexandra Alice Mary; Henry William Frederick Albert, duke of Gloucester; George Edward Alexander Edmund, duke of Ken
+2 CONC t; and John Charles Francis. The most notable event of the reign of George V was World War I. Following England's declaration of war on Germany, the king renounced all the German titles belonging to him and his family and changed the name of th
+2 CONC e royal house to Windsor.
+2 CONT 
+2 CONT He died at Sandringham House, Norfolk, on January 20, 1936. He was succeeded by Edward VIII.
+2 _NSTY Y
+1 CHAN
+2 DATE 11 JAN 2019
+3 TIME 19:48:39.218
+0 @I5@ INDI
+1 NAME Mary of Teck //
+2 TYPE birth
+2 GIVN Mary of Teck
+1 SEX F
+1 BIRT
+2 DATE 26 MAY 1867
+2 PLAC Kensington Palace, London, England
+1 DEAT
+2 DATE 24 MAR 1953
+2 PLAC Marlborough House, London, England
+1 FAMS @F2@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I6@ INDI
+1 NAME Edward VIII /Windsor/
+2 TYPE birth
+2 GIVN Edward VIII
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 23 JUN 1894
+2 PLAC White Lodge, Richmond Park, Surrey, England
+1 DEAT
+2 DATE 28 MAY 1972
+2 PLAC Paris, France
+1 FAMC @F2@
+1 FAMS @F3@
+1 NOTE Edward VIII (1894-1972), king of the United Kingdom of Great Britain and Northern Ireland, and emperor of India (January 20-December 11, 1936), later known as the duke of Windsor. Edward was born Jun e 23, 1894, in White Lodge, Richmond Park, an
+2 CONC d was educated at the naval preparatory college at Osborne; the Royal Naval College, Dartmouth; and Magdalen College, University of Oxford.
+2 CONT 
+2 CONT During World War I he served with the Grenadier Guards in France, Italy, Flanders, and Egypt. In 1919 he undertook the first of many official goodwill tours to Canada and other countries. In the 1920s and 1930s he supported slum-clearance projec
+2 CONC ts, aid to the unemployed, and improvement of the working conditions of British miners.
+2 CONT 
+2 CONT On the death of his father, King George V, in January 1936, Edward was proclaimed King Edward VIII. Before long, rumours circulated about his alleged romance with an American, Mrs. Wallis Warfield Simpson, then married to her second husband, a L
+2 CONC ondon shipping broker. On October 20, 1936, Prime Minister Stanley Baldwin counselled Edward, as king and head of the Church of England, to remove all cause for the rumours. A week later Mrs. Simpson was granted a divorce, to become final in si
+2 CONC x months. In November the king confided to Baldwin that he intended to marry Mrs. Simpson even if it meant his abdication. A morganatic marriage was proposed, but the cabinet was unwilling to accept this compromise. On December 11, 1936, therefo
+2 CONC re, the king abdicated in favour of his brother, the duke of York, who became King George VI. Edward received the title duke of Windsor and married Mrs. Simpson in June 1937. Because his wife was not accorded the privileges of a royal duchess i
+2 CONC n England, the duke of Windsor resided abroad.
+2 CONT 
+2 CONT In 1937 he observed social and housing conditions in Germany and visited Adolf Hitler. During World War II he served as a major general in the British Expeditionary Force, and he was governor of the Bahamas from 1940 to 1945. After the war he li
+2 CONC ved as a private British citizen, chiefly in the United States and France. At the funeral of George VI in February 1952, he took part in a British royal ceremony for the first time since his abdication. The duke wrote A King's Story (1951) whic
+2 CONC h was made into a film in 1967, and Windsor Revisited (1960). He died May 28, 1972, in Paris.
+2 _NSTY Y
+1 CHAN
+2 DATE 11 JAN 2019
+3 TIME 19:48:39.218
+0 @I7@ INDI
+1 NAME Bessie Wallis /Warfield/
+2 TYPE birth
+2 GIVN Bessie Wallis
+2 SURN Warfield
+1 SEX F
+1 BIRT
+2 PLAC U.S.A.
+1 DEAT
+2 DATE 24 APR 1986
+2 PLAC Paris, France
+1 FAMS @F3@
+1 FAMS @F4@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I8@ INDI
+1 NAME George VI /Windsor/
+2 TYPE birth
+2 GIVN George VI
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 14 DEC 1895
+2 PLAC York Cottage, Sandringham, Norfolk, England
+1 DEAT
+2 DATE 6 FEB 1952
+2 PLAC Sandringham, Norfolk, England
+1 FAMC @F2@
+1 FAMS @F5@
+1 NOTE George VI (1895-1952), king of the United Kingdom of Great Britain and Northern Ireland (1936-1952), and emperor of India (1936-1947), of the house of Windsor. George was born at Sandringham House, Norfolk, on December 14, 1895, the second son o
+2 CONC f King George V, and he was educated at Trinity College, University of Cambridge, and the Royal Naval College on the Isle of Wight. In 1923 he married Lady Elizabeth Bowes-Lyon, and they had two daughters: Elizabeth Alexandra Mary, later Queen E
+2 CONC lizabeth II, and Margaret Rose.
+2 CONT 
+2 CONT George succeeded to the throne after the abdication of his older brother, Edward VIII. Following his coronation in 1937, King George, accompanied by the queen consort, began a series of state goodwill visits, travelling to France in 1937 and t
+2 CONC o Canada and the United States in 1939. These visits were interrupted by World War II, during which the king visited many fronts in Europe, but were resumed in 1947, when the royal family spent several months in South Africa.
+2 CONT 
+2 CONT In the last three years of his life, illness prevented any further trips. The reign of George VI was marked by the relinquishment of the title of emperor of India, following the partition of India in 1947 into Pakistan and India. He died at Sand
+2 CONC ringham on February 6, 1952, and was succeeded by Elizabeth II.
+2 _NSTY Y
+1 CHAN
+2 DATE 2 AUG 2019
+3 TIME 17:42:38.203
+0 @I9@ INDI
+1 NAME Elizabeth Angela Marguerite /Bowes-Lyon/
+2 TYPE birth
+2 GIVN Elizabeth Angela Marguerite
+2 SURN Bowes-Lyon
+1 SEX F
+1 BIRT
+2 DATE 4 AUG 1900
+2 PLAC London, England
+1 DEAT
+2 DATE 30 MAR 2002
+1 FAMS @F5@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I10@ INDI
+1 NAME Philip /Mountbatten/
+2 TYPE birth
+2 GIVN Philip
+2 SURN Mountbatten
+1 SEX M
+1 BIRT
+2 DATE 10 JUN 1921
+2 PLAC Isle of Kerkira, Mon Repos, Corfu, Greece
+1 DEAT
+2 DATE 9 APR 2021
+2 PLAC Windsor Castle
+1 FAMC @F38@
+1 FAMS @F0@
+1 CHAN
+2 DATE 9 APR 2021
+3 TIME 12:34:29.445
+0 @I11@ INDI
+1 NAME Diana Frances /Spencer/
+2 TYPE birth
+2 GIVN Diana Frances
+2 SURN Spencer
+1 SEX F
+1 BIRT
+2 DATE 1 JUL 1961
+2 PLAC Sandringham, Norfolk, England
+1 DEAT
+2 DATE 31 AUG 1997
+2 PLAC Paris, France
+1 FAMS @F6@
+1 NOTE Princess Diana (1961-1997), Princess of Wales from 1981 to 1997. Diana was born Diana Frances Spencer in Sandringham, Norfolk, England. Her father, Edward Spencer, was heir to an earldom, and her mother was the daughter of the 4th Baron Fermoy
+2 CONC . Diana was educated at Riddlesworth Hall, a preparatory school in Norfolk, and later at the West Heath School in Kent. She attended finishing school in Switzerland at Chateaux d'Oex at Montreux. From 1979 until 1981 Diana worked as a kindergart
+2 CONC en teacher at the exclusive Young England School in Pimlico, London.
+2 CONT 
+2 CONT On February 24, 1981, her engagement to Prince Charles, son of Queen Elizabeth II and the heir to the British throne were announced. They were married in Saint Paul’s Cathedral in an internationally televised ceremony on July 29, 1981, with an a
+2 CONC udience numbering in the hundreds of millions. Diana was the first Englishwoman to marry an heir to the British throne in more than 300 years. The couple had two sons: Prince William Arthur Philip Lou is (born June 21, 1982) and Prince Henry Cha
+2 CONC rles Albert David (popularly called Harry, born September 15, 1984).
+2 CONT 
+2 CONT By the late 1980s, strains in the royal couple's marriage had been widely publicized, and in December 1992 a separation was announced. By that time Diana had adopted charity work as her royal duty. In 1993 she briefly withdrew from public activi
+2 CONC ties in an effort to avoid the negative publicity focused on her separation from Prince Charles. Formal divorce proceedings began in early 1996, and in August 1996 Diana and Charles were legally divorced. After the divorce it was agreed that Dia
+2 CONC na would be known as Lady Diana, Princess of Wales, and would no longer be permitted to use the title Her Royal Highness. The couple had joint custody of their children.
+2 CONT 
+2 CONT Diana actively supported many charities related to homeless and deprived children, drug abuse, breast cancer, and victims of acquired immunodeficiency syndrome (AIDS). In 1987 Diana sat with a man dying from AIDS and shook his hand, a gesture cr
+2 CONC edited with promoting acceptance and compassion for people with the disease. She was the vice president of the British Red Cross and served as a member of the International Red Cross advisory board. In 1997 Diana visited Angola and Bosnia and He
+2 CONC rzegovina in support of a Red Cross campaign to ban landmines.
+2 _NSTY Y
+1 CHAN
+2 DATE 11 JAN 2019
+3 TIME 19:48:39.218
+0 @I12@ INDI
+1 NAME William Arthur Philip Louis /Windsor/
+2 TYPE birth
+2 GIVN William Arthur Philip Louis
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 21 JUN 1982
+2 PLAC St. Mary's Hosp., Paddington, London, England
+1 FAMC @F6@
+1 FAMS @F8@
+1 CHAN
+2 DATE 10 SEP 2022
+3 TIME 11:16:43.236
+0 @I13@ INDI
+1 NAME Henry Charles Albert David "Harry" /Windsor/
+2 TYPE birth
+2 GIVN Henry Charles Albert David
+2 NICK Harry
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 15 SEP 1984
+2 PLAC St. Mary's Hosp., Paddington, London, England
+1 FAMC @F6@
+1 FAMS @F9@
+1 CHAN
+2 DATE 10 SEP 2022
+3 TIME 11:16:43.236
+0 @I14@ INDI
+1 NAME Anne Elizabeth Alice /Windsor/
+2 TYPE birth
+2 GIVN Anne Elizabeth Alice
+2 SURN Windsor
+1 SEX F
+1 BIRT
+2 DATE 15 AUG 1950
+2 PLAC Clarence House, St. James, England
+1 FAMC @F0@
+1 FAMS @F10@
+1 CHAN
+2 DATE 2 AUG 2019
+3 TIME 17:18:28.004
+0 @I15@ INDI
+1 NAME Mark Anthony Peter /Phillips/
+2 TYPE birth
+2 GIVN Mark Anthony Peter
+2 SURN Phillips
+1 SEX M
+1 BIRT
+2 DATE 22 SEP 1948
+1 FAMS @F10@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I16@ INDI
+1 NAME Peter Mark Andrew /Phillips/
+2 TYPE birth
+2 GIVN Peter Mark Andrew
+2 SURN Phillips
+1 SEX M
+1 BIRT
+2 DATE 15 NOV 1977
+2 PLAC St. Mary's Hosp., Paddington, London, England
+1 FAMC @F10@
+1 FAMS @F11@
+1 CHAN
+2 DATE 27 MAY 2020
+3 TIME 14:55:39.757
+0 @I17@ INDI
+1 NAME Zara Anne Elizabeth /Phillips/
+2 TYPE birth
+2 GIVN Zara Anne Elizabeth
+2 SURN Phillips
+1 SEX F
+1 BIRT
+2 DATE 15 MAY 1981
+2 PLAC St. Mary's Hosp., Paddington, London, England
+1 FAMC @F10@
+1 FAMS @F12@
+1 CHAN
+2 DATE 20 DEC 2021
+3 TIME 10:19:18.055
+0 @I18@ INDI
+1 NAME Andrew Albert Christian /Windsor/
+2 TYPE birth
+2 GIVN Andrew Albert Christian
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 19 FEB 1960
+2 PLAC Buckingham Palace, London, England
+1 FAMC @F0@
+1 FAMS @F13@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I19@ INDI
+1 NAME Sarah Margaret /Ferguson/
+2 TYPE birth
+2 GIVN Sarah Margaret
+2 SURN Ferguson
+1 SEX F
+1 BIRT
+2 DATE 15 OCT 1959
+2 PLAC 27 Welbech St., Marylebone, London, England
+1 FAMS @F13@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I20@ INDI
+1 NAME Beatrice Elizabeth Mary /Windsor/
+2 TYPE birth
+2 GIVN Beatrice Elizabeth Mary
+2 SURN Windsor
+1 SEX F
+1 BIRT
+2 DATE 8 AUG 1988
+2 PLAC Portland Hospital, England
+1 FAMC @F13@
+1 FAMS @F64@
+1 CHAN
+2 DATE 20 DEC 2021
+3 TIME 10:16:43.278
+0 @I21@ INDI
+1 NAME Eugenie Victoria Helena /Windsor/
+2 TYPE birth
+2 GIVN Eugenie Victoria Helena
+2 SURN Windsor
+1 SEX F
+1 BIRT
+2 DATE 23 MAR 1990
+2 PLAC London, England
+1 FAMC @F13@
+1 FAMS @F63@
+1 CHAN
+2 DATE 20 DEC 2021
+3 TIME 10:13:52.366
+0 @I22@ INDI
+1 NAME Edward Anthony Richard /Windsor/
+2 TYPE birth
+2 GIVN Edward Anthony Richard
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 10 MAR 1964
+2 PLAC Buckingham Palace, London, England
+1 FAMC @F0@
+1 FAMS @F14@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I23@ INDI
+1 NAME Margaret Rose /Windsor/
+2 TYPE birth
+2 GIVN Margaret Rose
+2 SURN Windsor
+1 SEX F
+1 BIRT
+2 DATE 21 AUG 1930
+2 PLAC Glamis Castle, Angus, Scotland
+1 DEAT
+2 DATE 9 FEB 2002
+2 PLAC London, England
+1 FAMC @F5@
+1 FAMS @F15@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I24@ INDI
+1 NAME Anthony Charles Robert /Armstrong-Jones/
+2 TYPE birth
+2 GIVN Anthony Charles Robert
+2 SURN Armstrong-Jones
+1 SEX M
+1 BIRT
+2 DATE 7 MAR 1930
+1 FAMS @F15@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I25@ INDI
+1 NAME David Albert Charles /Armstrong-Jones/
+2 TYPE birth
+2 GIVN David Albert Charles
+2 SURN Armstrong-Jones
+1 SEX M
+1 BIRT
+2 DATE 3 NOV 1961
+1 FAMC @F15@
+1 FAMS @F16@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I26@ INDI
+1 NAME Sarah Frances Elizabeth /Armstrong-Jones/
+2 TYPE birth
+2 GIVN Sarah Frances Elizabeth
+2 SURN Armstrong-Jones
+1 SEX F
+1 BIRT
+2 DATE 1 MAY 1964
+1 FAMC @F15@
+1 FAMS @F17@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I27@ INDI
+1 NAME Mary /Windsor/
+2 TYPE birth
+2 GIVN Mary
+2 SURN Windsor
+1 SEX F
+1 BIRT
+2 DATE 25 APR 1897
+2 PLAC York Cottage, Sandringham, Norfolk, England
+1 DEAT
+2 DATE 28 MAR 1965
+2 PLAC Harewood House, Yorkshire, England
+1 FAMC @F2@
+1 FAMS @F18@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I28@ INDI
+1 NAME Henry George Charles /Lascelles/
+2 TYPE birth
+2 GIVN Henry George Charles
+2 SURN Lascelles
+1 SEX M
+1 DEAT Y
+1 FAMS @F18@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I29@ INDI
+1 NAME George Earl of Harewood /Lascelles/
+2 TYPE birth
+2 GIVN George Earl of Harewood
+2 SURN Lascelles
+1 SEX M
+1 FAMC @F18@
+1 FAMS @F19@
+1 FAMS @F20@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I30@ INDI
+1 NAME Marion Donata "Maria" /Stein/
+2 TYPE birth
+2 GIVN Marion Donata
+2 NICK Maria
+2 SURN Stein
+1 SEX F
+1 FAMS @F19@
+1 CHAN
+2 DATE 27 MAY 2020
+3 TIME 14:44:05.653
+0 @I31@ INDI
+1 NAME David /Lascelles/
+2 TYPE birth
+2 GIVN David
+2 SURN Lascelles
+1 SEX M
+1 FAMC @F19@
+1 FAMS @F21@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I32@ INDI
+1 NAME Margaret /Messenger/
+2 TYPE birth
+2 GIVN Margaret
+2 SURN Messenger
+1 SEX F
+1 FAMS @F21@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I33@ INDI
+1 NAME Emily //
+2 TYPE birth
+2 GIVN Emily
+1 SEX F
+1 FAMC @F21@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I34@ INDI
+1 NAME Benjamin //
+2 TYPE birth
+2 GIVN Benjamin
+1 SEX M
+1 FAMC @F21@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I35@ INDI
+1 NAME Alexander /Lascelles/
+2 TYPE birth
+2 GIVN Alexander
+2 SURN Lascelles
+1 SEX M
+1 FAMC @F21@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I36@ INDI
+1 NAME Edward /Lascelles/
+2 TYPE birth
+2 GIVN Edward
+2 SURN Lascelles
+1 SEX M
+1 FAMC @F21@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I37@ INDI
+1 NAME James /Lascelles/
+2 TYPE birth
+2 GIVN James
+2 SURN Lascelles
+1 SEX M
+1 FAMC @F19@
+1 FAMS @F22@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I38@ INDI
+1 NAME Fredericka Ann /Duhrrson/
+2 TYPE birth
+2 GIVN Fredericka Ann
+2 SURN Duhrrson
+1 SEX F
+1 FAMS @F22@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I39@ INDI
+1 NAME Sophie /Lascelles/
+2 TYPE birth
+2 GIVN Sophie
+2 SURN Lascelles
+1 SEX F
+1 FAMC @F22@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I40@ INDI
+1 NAME Rowan /Lascelles/
+2 TYPE birth
+2 GIVN Rowan
+2 SURN Lascelles
+1 SEX M
+1 FAMC @F22@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I41@ INDI
+1 NAME Jeremy /Lascelles/
+2 TYPE birth
+2 GIVN Jeremy
+2 SURN Lascelles
+1 SEX M
+1 FAMC @F19@
+1 FAMS @F23@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I42@ INDI
+1 NAME Julie /Bayliss/
+2 TYPE birth
+2 GIVN Julie
+2 SURN Bayliss
+1 SEX F
+1 FAMS @F23@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I43@ INDI
+1 NAME Thomas /Lascelles/
+2 TYPE birth
+2 GIVN Thomas
+2 SURN Lascelles
+1 SEX M
+1 FAMC @F23@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I44@ INDI
+1 NAME Ellen /Lascelles/
+2 TYPE birth
+2 GIVN Ellen
+2 SURN Lascelles
+1 SEX F
+1 FAMC @F23@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I45@ INDI
+1 NAME Patricia /Tuckwell/
+2 TYPE birth
+2 GIVN Patricia
+2 SURN Tuckwell
+1 SEX F
+1 FAMS @F20@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I46@ INDI
+1 NAME Gerald /Lascelles/
+2 TYPE birth
+2 GIVN Gerald
+2 SURN Lascelles
+1 SEX M
+1 FAMC @F18@
+1 FAMS @F24@
+1 FAMS @F25@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I47@ INDI
+1 NAME Angela /Dowding/
+2 TYPE birth
+2 GIVN Angela
+2 SURN Dowding
+1 SEX F
+1 FAMS @F24@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I48@ INDI
+1 NAME Henry /Lascelles/
+2 TYPE birth
+2 GIVN Henry
+2 SURN Lascelles
+1 SEX M
+1 FAMC @F24@
+1 FAMS @F26@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I49@ INDI
+1 NAME Alexandra /Morton/
+2 TYPE birth
+2 GIVN Alexandra
+2 SURN Morton
+1 SEX F
+1 FAMS @F26@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I50@ INDI
+1 NAME Elizabeth Collingwood /Colvin/
+2 TYPE birth
+2 GIVN Elizabeth Collingwood
+2 SURN Colvin
+1 SEX F
+1 FAMS @F25@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I51@ INDI
+1 NAME Henry William Frederick /Windsor/
+2 TYPE birth
+2 GIVN Henry William Frederick
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 31 MAR 1900
+2 PLAC York Cottage, Sandringham, Norfolk, England
+1 DEAT
+2 DATE 10 JUN 1974
+1 FAMC @F2@
+1 FAMS @F27@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I52@ INDI
+1 NAME Alice Christabel /Montagu-Douglas/
+2 TYPE birth
+2 GIVN Alice Christabel
+2 SURN Montagu-Douglas
+1 SEX F
+1 BIRT
+2 DATE 25 DEC 1901
+2 PLAC London, England
+1 DEAT
+2 DATE 29 OCT 2004
+1 FAMS @F27@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I53@ INDI
+1 NAME William Henry Andrew /Windsor/
+2 TYPE birth
+2 GIVN William Henry Andrew
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 18 DEC 1941
+2 PLAC Hadley Common, Hertfordshire, England
+1 DEAT
+2 DATE 28 AUG 1972
+2 PLAC Near Wolverhampton, England
+1 FAMC @F27@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I54@ INDI
+1 NAME Richard Alexander Walter /Windsor/
+2 TYPE birth
+2 GIVN Richard Alexander Walter
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 26 AUG 1944
+2 PLAC Hadley Common, Hertfordshire, England
+1 FAMC @F27@
+1 FAMS @F28@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I55@ INDI
+1 NAME Birgitte of Denmark /von Deurs/
+2 TYPE birth
+2 GIVN Birgitte of Denmark
+2 SURN von Deurs
+1 SEX F
+1 FAMS @F28@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I56@ INDI
+1 NAME Alexander Patrick Gregers //
+2 TYPE birth
+2 GIVN Alexander Patrick Gregers
+1 SEX M
+1 BIRT
+2 DATE 24 OCT 1974
+2 PLAC St. Mary's Hosp., Paddington, London, England
+1 FAMC @F28@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I57@ INDI
+1 NAME Davina Elizabeth Alice /Windsor/
+2 TYPE birth
+2 GIVN Davina Elizabeth Alice
+2 SURN Windsor
+1 SEX F
+1 BIRT
+2 DATE 19 NOV 1977
+1 FAMC @F28@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I58@ INDI
+1 NAME Rose Victoria Birgitte /Windsor/
+2 TYPE birth
+2 GIVN Rose Victoria Birgitte
+2 SURN Windsor
+1 SEX F
+1 BIRT
+2 DATE 1 MAR 1980
+2 PLAC St. Mary's Hosp., Paddington, London, England
+1 FAMC @F28@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I59@ INDI
+1 NAME George Edward Alexander /Windsor/
+2 TYPE birth
+2 GIVN George Edward Alexander
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 20 DEC 1902
+2 PLAC York Cottage, Sandringham, Norfolk, England
+1 DEAT
+2 DATE 25 AUG 1942
+2 PLAC Morven, Scotland
+1 FAMC @F2@
+1 FAMS @F29@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I60@ INDI
+1 NAME Marina of Greece //
+2 TYPE birth
+2 GIVN Marina of Greece
+1 SEX F
+1 BIRT
+2 DATE 30 NOV 1906
+2 PLAC Athens, Greece
+1 DEAT
+2 DATE 27 AUG 1968
+2 PLAC Kensington Palace, London, England
+1 FAMS @F29@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I61@ INDI
+1 NAME Edward George Nicholas /Windsor/
+2 TYPE birth
+2 GIVN Edward George Nicholas
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 9 SEP 1935
+2 PLAC 3 Belgrave Sq., England
+1 FAMC @F29@
+1 FAMS @F30@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I62@ INDI
+1 NAME Katharine /Worsley/
+2 TYPE birth
+2 GIVN Katharine
+2 SURN Worsley
+1 SEX F
+1 FAMS @F30@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I63@ INDI
+1 NAME George Philip of St. Andrews /Windsor/
+2 TYPE birth
+2 GIVN George Philip of St. Andrews
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 26 JUN 1962
+1 FAMC @F30@
+1 FAMS @F31@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I64@ INDI
+1 NAME Sylvana /Tomaselli/
+2 TYPE birth
+2 GIVN Sylvana
+2 SURN Tomaselli
+1 SEX F
+1 BIRT
+2 PLAC Canada
+1 FAMS @F31@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I65@ INDI
+1 NAME Helen Marina Lucy /Windsor/
+2 TYPE birth
+2 GIVN Helen Marina Lucy
+2 SURN Windsor
+1 SEX F
+1 BIRT
+2 DATE 28 APR 1964
+1 FAMC @F30@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I66@ INDI
+1 NAME Nicholas Charles Edward /Windsor/
+2 TYPE birth
+2 GIVN Nicholas Charles Edward
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 25 JUL 1970
+2 PLAC Kings College, Hospital, Denmark Hill
+1 FAMC @F30@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I67@ INDI
+1 NAME Alexandra /Windsor/
+2 TYPE birth
+2 GIVN Alexandra
+2 SURN Windsor
+1 SEX F
+1 BIRT
+2 DATE 25 DEC 1936
+1 FAMC @F29@
+1 FAMS @F32@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I68@ INDI
+1 NAME Angus /Ogilvy/
+2 TYPE birth
+2 GIVN Angus
+2 SURN Ogilvy
+1 SEX M
+1 FAMS @F32@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I69@ INDI
+1 NAME James Robert Bruce /Ogilvy/
+2 TYPE birth
+2 GIVN James Robert Bruce
+2 SURN Ogilvy
+1 SEX M
+1 BIRT
+2 DATE 29 FEB 1964
+2 PLAC Thatched House, Lodge, Richmond Park, England
+1 FAMC @F32@
+1 FAMS @F33@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I70@ INDI
+1 NAME Julia /Rawlinson/
+2 TYPE birth
+2 GIVN Julia
+2 SURN Rawlinson
+1 SEX F
+1 FAMS @F33@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I71@ INDI
+1 NAME Marina Victoria Alexandra /Ogilvy/
+2 TYPE birth
+2 GIVN Marina Victoria Alexandra
+2 SURN Ogilvy
+1 SEX F
+1 BIRT
+2 DATE 31 JUL 1966
+2 PLAC Thatched House, Lodge, Richmond Park, England
+1 FAMC @F32@
+1 FAMS @F34@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I72@ INDI
+1 NAME Paul /Mowatt/
+2 TYPE birth
+2 GIVN Paul
+2 SURN Mowatt
+1 SEX M
+1 FAMS @F34@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I73@ INDI
+1 NAME Michael /Windsor/
+2 TYPE birth
+2 GIVN Michael
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 4 JUL 1942
+2 PLAC Coppins, England
+1 FAMC @F29@
+1 FAMS @F35@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I74@ INDI
+1 NAME Marie-Christine /von Reibnitz/
+2 TYPE birth
+2 GIVN Marie-Christine
+2 SURN von Reibnitz
+1 SEX F
+1 BIRT
+2 DATE 15 JAN 1945
+2 PLAC Czechoslovakia
+1 FAMS @F35@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I75@ INDI
+1 NAME Frederick /Windsor/
+2 TYPE birth
+2 GIVN Frederick
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 6 APR 1979
+2 PLAC St. Mary's Hosp., Paddington, London, England
+1 FAMC @F35@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I76@ INDI
+1 NAME Gabriella Marina Alexandra /Windsor/
+2 TYPE birth
+2 GIVN Gabriella Marina Alexandra
+2 SURN Windsor
+1 SEX F
+1 BIRT
+2 DATE 23 APR 1981
+2 PLAC England
+1 FAMC @F35@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I77@ INDI
+1 NAME John Charles Francis /Windsor/
+2 TYPE birth
+2 GIVN John Charles Francis
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 12 JUL 1905
+2 PLAC York Cottage, Sandringham, Norfolk, England
+1 DEAT
+2 DATE 18 JAN 1919
+2 PLAC Wood Farm, Wolferton, Norfolk, England
+1 FAMC @F2@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I78@ INDI
+1 NAME Camilla Rosemary /Shand/
+2 TYPE birth
+2 GIVN Camilla Rosemary
+2 SURN Shand
+1 SEX F
+1 BIRT
+2 DATE 17 JUL 1947
+2 PLAC London, England
+1 FAMS @F7@
+1 CHAN
+2 DATE 2 AUG 2019
+3 TIME 17:24:50.794
+0 @I79@ INDI
+1 NAME Alexandrina Victoria //
+2 TYPE birth
+2 GIVN Alexandrina Victoria
+1 SEX F
+1 BIRT
+2 DATE 24 MAY 1819
+2 PLAC Kensington Palace, London, England
+1 DEAT
+2 DATE 22 JAN 1901
+2 PLAC Osborne House, Isle of Wight
+1 FAMC @F66@
+1 FAMS @F36@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I80@ INDI
+1 NAME Albert of Saxe-Coburg and Gotha //
+2 TYPE birth
+2 GIVN Albert of Saxe-Coburg and Gotha
+1 SEX M
+1 BIRT
+2 DATE 10 FEB 1819
+2 PLAC Schloss Rosenau, Coburg, Saxe-Coburg-Saalfeld
+1 DEAT
+2 DATE 14 DEC 1861
+2 PLAC Windsor Castle, Berkshire, England
+1 FAMS @F36@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I81@ INDI
+1 NAME Alice Maud Mary //
+2 TYPE birth
+2 GIVN Alice Maud Mary
+1 SEX F
+1 BIRT
+2 DATE 25 APR 1843
+2 PLAC Buckingham Palace, London, England
+1 DEAT
+2 DATE 14 DEC 1878
+2 PLAC New Palace, Darmstadt, Hesse (Germany)
+1 FAMC @F36@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I82@ INDI
+1 NAME Victoria of Hesse and by Rhine //
+2 TYPE birth
+2 GIVN Victoria of Hesse and by Rhine
+1 SEX F
+1 BIRT
+2 DATE 1 JAN 1863
+1 DEAT
+2 DATE 1 JAN 1950
+1 FAMC @F65@
+1 FAMS @F37@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I83@ INDI
+1 NAME Marquess of Milford Haven //
+2 TYPE birth
+2 GIVN Marquess of Milford Haven
+1 SEX M
+1 DEAT Y
+1 FAMS @F37@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I84@ INDI
+1 NAME Alice of Battenberg //
+2 TYPE birth
+2 GIVN Alice of Battenberg
+1 SEX F
+1 BIRT
+2 DATE 1 JAN 1885
+1 DEAT
+2 DATE 1 JAN 1969
+1 FAMC @F37@
+1 FAMS @F38@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I85@ INDI
+1 NAME Prince Andrew of Greece //
+2 TYPE birth
+2 GIVN Prince Andrew of Greece
+1 SEX M
+1 BIRT
+2 DATE 2 FEB 1882
+2 PLAC Athens, Greece
+1 DEAT
+2 DATE 3 DEC 1944
+2 PLAC Monte Carlo, Monaco
+1 FAMS @F38@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I86@ INDI
+1 NAME Edward IV of York //
+2 TYPE birth
+2 GIVN Edward IV of York
+1 SEX M
+1 BIRT
+2 DATE 28 APR 1442
+2 PLAC Rouen, Normandy
+1 DEAT
+2 DATE 9 APR 1483
+2 PLAC Westminster, London
+1 FAMC @F54@
+1 FAMS @F39@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I87@ INDI
+1 NAME Elizabeth /Woodville/
+2 TYPE birth
+2 GIVN Elizabeth
+2 SURN Woodville
+1 SEX F
+1 BIRT
+2 DATE ABT 1 JAN 1437
+1 DEAT
+2 DATE 8 JUN 1492
+2 PLAC Bermondsey, London
+1 FAMS @F39@
+1 CHAN
+2 DATE 27 MAY 2020
+3 TIME 14:45:01.437
+0 @I88@ INDI
+1 NAME Elizabeth of York //
+2 TYPE birth
+2 GIVN Elizabeth of York
+1 SEX F
+1 BIRT
+2 DATE 11 FEB 1466
+2 PLAC Palace of Westminster, London, England
+1 DEAT
+2 DATE 11 FEB 1503
+2 PLAC Richmond Palace
+1 FAMC @F39@
+1 FAMS @F40@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I89@ INDI
+1 NAME Henry VII /Tudor/
+2 TYPE birth
+2 GIVN Henry VII
+2 SURN Tudor
+1 SEX M
+1 BIRT
+2 DATE 28 JAN 1457
+2 PLAC Pembroke Castle
+1 DEAT
+2 DATE 21 APR 1509
+2 PLAC Richmond Palace
+1 FAMS @F40@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I90@ INDI
+1 NAME Henry VIII /Tudor/
+2 TYPE birth
+2 GIVN Henry VIII
+2 SURN Tudor
+1 SEX M
+1 BIRT
+2 DATE 28 JUN 1491
+2 PLAC Greenwich Palace
+1 DEAT
+2 DATE 28 JAN 1547
+2 PLAC Whitehall Palace
+1 FAMC @F40@
+1 FAMS @F41@
+1 FAMS @F42@
+1 FAMS @F43@
+1 FAMS @F44@
+1 FAMS @F45@
+1 FAMS @F46@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I91@ INDI
+1 NAME Catherine of Aragon //
+2 TYPE birth
+2 GIVN Catherine of Aragon
+1 SEX F
+1 BIRT
+2 DATE 16 DEC 1485
+2 PLAC Archbishop's Palace, Alcalá de Henares, Madrid
+1 DEAT
+2 DATE 7 JAN 1536
+2 PLAC Kimbolton Castle, Cambridgeshire
+1 FAMS @F41@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I92@ INDI
+1 NAME Anne /Boleyn/
+2 TYPE birth
+2 GIVN Anne
+2 SURN Boleyn
+1 SEX F
+1 BIRT
+2 DATE 1 JAN 1501
+2 PLAC Blickling Hall/Hever Castle, England
+1 DEAT
+2 DATE 19 MAY 1536
+2 PLAC Tower of London
+1 FAMS @F42@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I93@ INDI
+1 NAME Mary I /Tudor/
+2 TYPE birth
+2 GIVN Mary I
+2 SURN Tudor
+1 SEX F
+1 BIRT
+2 DATE 18 FEB 1516
+2 PLAC Greenwich Palace
+1 DEAT
+2 DATE 17 NOV 1558
+2 PLAC St. James's Palace
+1 FAMC @F41@
+1 FAMS @F47@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I94@ INDI
+1 NAME Elizabeth I /Tudor/
+2 TYPE birth
+2 GIVN Elizabeth I
+2 SURN Tudor
+1 SEX F
+1 BIRT
+2 DATE 7 SEP 1533
+2 PLAC Greenwich Palace
+1 DEAT
+2 DATE 24 MAR 1603
+2 PLAC Richmond Palace
+1 FAMC @F42@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I95@ INDI
+1 NAME Jane /Seymour/
+2 TYPE birth
+2 GIVN Jane
+2 SURN Seymour
+1 SEX F
+1 BIRT
+2 DATE ABT 1 JAN 1508
+2 PLAC Wulfhall, Savernake Forest, Wiltshire
+1 DEAT
+2 DATE 24 OCT 1537
+2 PLAC Hampton Court Palace, Kingston upon Thames
+1 FAMS @F43@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I96@ INDI
+1 NAME Edward VI /Tudor/
+2 TYPE birth
+2 GIVN Edward VI
+2 SURN Tudor
+1 SEX M
+1 BIRT
+2 DATE 12 OCT 1537
+2 PLAC Hampton Court Palace, Kingston upon Thames
+1 DEAT
+2 DATE 6 JUL 1553
+2 PLAC Greenwich Palace
+1 FAMC @F43@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I97@ INDI
+1 NAME Catherine /Howard/
+2 TYPE birth
+2 GIVN Catherine
+2 SURN Howard
+1 SEX F
+1 BIRT
+2 DATE 1 JAN 1518
+2 PLAC Wingate, County Durham
+1 DEAT
+2 DATE 13 FEB 1542
+2 PLAC Tower of London
+1 FAMS @F44@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I98@ INDI
+1 NAME Anne of Cleves //
+2 TYPE birth
+2 GIVN Anne of Cleves
+1 SEX F
+1 BIRT
+2 DATE 22 SEP 1515
+2 PLAC Düsseldorf, Duchy of Berg, Holy Roman Empire
+1 DEAT
+2 DATE 16 JUL 1557
+2 PLAC Chelsea Manor, England
+1 FAMS @F45@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I99@ INDI
+1 NAME Catherine /Parr/
+2 TYPE birth
+2 GIVN Catherine
+2 SURN Parr
+1 SEX F
+1 BIRT
+2 DATE ABT 1 JAN 1512
+2 PLAC Blackfriars, London, England
+1 DEAT
+2 DATE 5 SEP 1548
+2 PLAC Sudeley Castle, Gloucestershire, England
+1 FAMS @F46@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I100@ INDI
+1 NAME Margaret /Tudor/
+2 TYPE birth
+2 GIVN Margaret
+2 SURN Tudor
+1 SEX F
+1 BIRT
+2 DATE 28 NOV 1489
+2 PLAC Richmond Palace
+1 DEAT
+2 DATE 18 NOV 1541
+2 PLAC Methven Castle, Perthshire
+1 FAMC @F40@
+1 FAMS @F48@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I101@ INDI
+1 NAME James IV King of Scotland /Stuart/
+2 TYPE birth
+2 GIVN James IV King of Scotland
+2 SURN Stuart
+1 SEX M
+1 BIRT
+2 DATE 17 MAR 1473
+2 PLAC Stirling Castle, Scotland
+1 DEAT
+2 DATE 9 SEP 1513
+2 PLAC Battle of Flodden Field, Northumberland
+1 FAMC @F60@
+1 FAMS @F48@
+1 CHAN
+2 DATE 13 AUG 2019
+3 TIME 11:20:21.048
+0 @I102@ INDI
+1 NAME James V King of Scotland /Stuart/
+2 TYPE birth
+2 GIVN James V King of Scotland
+2 SURN Stuart
+1 SEX M
+1 BIRT
+2 DATE 10 APR 1512
+2 PLAC Linlithgow Palace, Linlithgowshire
+1 DEAT
+2 DATE 14 DEC 1542
+2 PLAC Falkland Palace, Fife
+1 FAMC @F48@
+1 FAMS @F49@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I103@ INDI
+1 NAME Mary of Guise //
+2 TYPE birth
+2 GIVN Mary of Guise
+1 SEX F
+1 BIRT
+2 DATE 22 NOV 1515
+2 PLAC Bar-le-Duc, Lorraine, France
+1 DEAT
+2 DATE 11 JUN 1560
+2 PLAC Edinburgh Castle, Scotland
+1 FAMS @F49@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I104@ INDI
+1 NAME Mary Queen of Scotland /Stuart/
+2 TYPE birth
+2 GIVN Mary Queen of Scotland
+2 SURN Stuart
+1 SEX F
+1 BIRT
+2 DATE 8 DEC 1542
+2 PLAC Linlithgow Palace, Linlithgowshire
+1 DEAT
+2 DATE 8 FEB 1587
+2 PLAC Fotheringhay Castle, Northamptonshire
+1 FAMC @F49@
+1 FAMS @F50@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I105@ INDI
+1 NAME Henry /Stuart/
+2 TYPE birth
+2 GIVN Henry
+2 SURN Stuart
+1 SEX M
+1 BIRT
+2 DATE 7 DEC 1545
+2 PLAC Temple Newsam, Leeds, West Yorkshire, England
+1 DEAT
+2 DATE 10 FEB 1567
+2 PLAC Kirk o' Field, Edinburgh, Scotland
+1 FAMS @F50@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I106@ INDI
+1 NAME James I of England /Stuart/
+2 TYPE birth
+2 GIVN James I of England
+2 SURN Stuart
+1 NAME James VI of Scotland //
+2 TYPE birth
+2 GIVN James VI of Scotland
+1 SEX M
+1 BIRT
+2 DATE 19 JUN 1566
+2 PLAC Edinburgh Castle, Scotland
+1 DEAT
+2 DATE 27 MAR 1625
+2 PLAC Theobalds House
+1 FAMC @F50@
+1 FAMS @F51@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I107@ INDI
+1 NAME Anne of Denmark //
+2 TYPE birth
+2 GIVN Anne of Denmark
+1 SEX F
+1 BIRT
+2 DATE 1 JAN 1574
+1 DEAT
+2 DATE 1 JAN 1619
+1 FAMS @F51@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I108@ INDI
+1 NAME Kate /Middleton/
+2 TYPE birth
+2 GIVN Kate
+2 SURN Middleton
+1 SEX F
+1 BIRT
+2 DATE 9 JAN 1982
+2 PLAC Royal Berkshire Hospital, Reading, Berkshire, England
+1 FAMS @F8@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I109@ INDI
+1 NAME Ernest Aldrich /Simpson/
+2 TYPE birth
+2 GIVN Ernest Aldrich
+2 SURN Simpson
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 6 MAY 1895
+2 PLAC New York City
+1 DEAT
+2 DATE 30 NOV 1958
+2 PLAC London, England
+1 FAMS @F4@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I110@ INDI
+1 NAME William IV //
+2 TYPE birth
+2 GIVN William IV
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 21 AUG 1765
+2 PLAC Buckingham House
+1 DEAT
+2 DATE 20 JUN 1837
+1 FAMC @F67@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I111@ INDI
+1 NAME George IV //
+2 TYPE birth
+2 GIVN George IV
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 12 AUG 1762
+2 PLAC St. James's Palace
+1 DEAT
+2 DATE 26 JUN 1830
+2 PLAC Windsor
+1 FAMC @F68@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I112@ INDI
+1 NAME George III //
+2 TYPE birth
+2 GIVN George III
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 4 JUN 1738
+2 PLAC Norfolk House
+1 DEAT
+2 DATE 29 JAN 1820
+2 PLAC Windsor Castle, Berkshire, England
+1 FAMC @F69@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I113@ INDI
+1 NAME George II //
+2 TYPE birth
+2 GIVN George II
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 30 OCT 1683
+2 PLAC Herrenhausen
+1 DEAT
+2 DATE 25 OCT 1760
+2 PLAC Kensington Palace, London, England
+1 FAMC @F70@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I114@ INDI
+1 NAME George I //
+2 TYPE birth
+2 GIVN George I
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 28 MAY 1660
+2 PLAC Leineschloss
+1 DEAT
+2 DATE 11 JUN 1727
+2 PLAC Osnabrück
+1 FAMC @F73@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I115@ INDI
+1 NAME Philip //
+2 TYPE birth
+2 GIVN Philip
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 21 MAY 1527
+2 PLAC Valladolid
+1 DEAT
+2 DATE 13 SEP 1598
+2 PLAC El Escorial
+1 FAMS @F47@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I116@ INDI
+1 NAME Charles I /Stuart/
+2 TYPE birth
+2 GIVN Charles I
+2 SURN Stuart
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 19 NOV 1600
+2 PLAC Dunfermline Palace
+1 DEAT
+2 DATE 30 JAN 1649
+2 PLAC Whitehall Palace
+1 FAMC @F51@
+1 FAMS @F52@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I117@ INDI
+1 NAME Henrietta Maria of France //
+2 TYPE birth
+2 GIVN Henrietta Maria of France
+1 NAME //
+2 TYPE birth
+1 SEX F
+1 BIRT
+2 DATE 25 NOV 1609
+2 PLAC Palais du Louvre, Paris, France
+1 DEAT
+2 DATE 10 SEP 1669
+2 PLAC Château de Colombes, Colombes, France
+1 FAMS @F52@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I118@ INDI
+1 NAME Charles II /Stuart/
+2 TYPE birth
+2 GIVN Charles II
+2 SURN Stuart
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 29 MAY 1630
+2 PLAC St. James's Palace
+1 DEAT
+2 DATE 6 FEB 1685
+2 PLAC Whitehall Palace
+1 FAMC @F52@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I119@ INDI
+1 NAME James II /Stuart/
+2 TYPE birth
+2 GIVN James II
+2 SURN Stuart
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 14 OCT 1633
+2 PLAC St. James's Palace
+1 DEAT
+2 DATE 16 SEP 1701
+2 PLAC Château de Saint-Germain-en-Laye
+1 FAMC @F52@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I120@ INDI
+1 NAME Mary II /Stuart/
+2 TYPE birth
+2 GIVN Mary II
+2 SURN Stuart
+1 NAME //
+2 TYPE birth
+1 SEX F
+1 BIRT
+2 DATE 30 APR 1662
+2 PLAC St. James's Palace
+1 DEAT
+2 DATE 28 DEC 1694
+2 PLAC Kensington Palace, London, England
+1 FAMC @F71@
+1 FAMS @F53@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I121@ INDI
+1 NAME Anne /Stuart/
+2 TYPE birth
+2 GIVN Anne
+2 SURN Stuart
+1 NAME //
+2 TYPE birth
+1 SEX F
+1 BIRT
+2 DATE 6 FEB 1665
+2 PLAC St. James's Palace
+1 DEAT
+2 DATE 1 AUG 1714
+2 PLAC Kensington Palace, London, England
+1 FAMC @F71@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I122@ INDI
+1 NAME William III //
+2 TYPE birth
+2 GIVN William III
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 4 NOV 1650
+2 PLAC The Hague, Netherlands
+1 DEAT
+2 DATE 8 MAR 1702
+2 PLAC Kensington Palace, London, England
+1 FAMS @F53@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I123@ INDI
+1 NAME Elizabeth of Bohemia /Stuart/
+2 TYPE birth
+2 GIVN Elizabeth of Bohemia
+2 SURN Stuart
+1 NAME //
+2 TYPE birth
+1 SEX F
+1 BIRT
+2 DATE 19 AUG 1596
+2 PLAC Falkland Palace, Fife
+1 DEAT
+2 DATE 13 FEB 1662
+2 PLAC England
+1 FAMC @F51@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I124@ INDI
+1 NAME Sophia of Hanover //
+2 TYPE birth
+2 GIVN Sophia of Hanover
+1 NAME //
+2 TYPE birth
+1 SEX F
+1 BIRT
+2 DATE 14 OCT 1630
+2 PLAC The Hague, Netherlands
+1 DEAT
+2 DATE 9 JUN 1714
+2 PLAC Leine Castle, Hanover
+1 FAMC @F72@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I125@ INDI
+1 NAME Edward V //
+2 TYPE birth
+2 GIVN Edward V
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 2 NOV 1470
+2 PLAC Westminster, London
+1 DEAT
+2 DATE ABT 1 JAN 1483
+2 PLAC London, England
+1 FAMC @F39@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I126@ INDI
+1 NAME Richard III //
+2 TYPE birth
+2 GIVN Richard III
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 2 OCT 1452
+2 PLAC Fotheringhay Castle
+1 DEAT
+2 DATE 22 AUG 1485
+2 PLAC Bosworth Field
+1 FAMC @F54@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I127@ INDI
+1 NAME Henry IV //
+2 TYPE birth
+2 GIVN Henry IV
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 3 APR 1366
+2 PLAC Bolingbroke Castle, Lincolnshire
+1 DEAT
+2 DATE 20 MAR 1413
+2 PLAC Westminster, London
+1 FAMC @F76@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I128@ INDI
+1 NAME Henry V //
+2 TYPE birth
+2 GIVN Henry V
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 16 SEP 1386
+2 PLAC Monmouth Castle
+1 DEAT
+2 DATE 31 AUG 1422
+2 PLAC Château de Vincennes
+1 FAMC @F74@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I129@ INDI
+1 NAME Henry VI //
+2 TYPE birth
+2 GIVN Henry VI
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 6 DEC 1421
+2 PLAC Windsor Castle, Berkshire, England
+1 DEAT
+2 DATE 21 MAY 1471
+2 PLAC Tower of London
+1 FAMC @F75@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I130@ INDI
+1 NAME John of Gaunt //
+2 TYPE birth
+2 GIVN John of Gaunt
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 6 MAR 1340
+2 PLAC Ghent, Belgium
+1 DEAT
+2 DATE 3 FEB 1399
+2 PLAC Leicester Castle, Leicestershire
+1 FAMC @F77@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I131@ INDI
+1 NAME Edward III //
+2 TYPE birth
+2 GIVN Edward III
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 13 NOV 1312
+2 PLAC Windsor Castle, Berkshire, England
+1 DEAT
+2 DATE 21 JUN 1377
+2 PLAC Sheen Palace, Richmond
+1 FAMC @F80@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I132@ INDI
+1 NAME Edmund of Langley //
+2 TYPE birth
+2 GIVN Edmund of Langley
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 5 JUN 1341
+2 PLAC Kings Langley, Hertfordshire
+1 DEAT
+2 DATE 1 AUG 1402
+2 PLAC Kings Langley, Hertfordshire
+1 FAMC @F77@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I133@ INDI
+1 NAME Richard of Conisburgh //
+2 TYPE birth
+2 GIVN Richard of Conisburgh
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE ABT 1 JAN 1375
+2 PLAC Conisburgh Castle, Yorkshire
+1 DEAT
+2 DATE 5 AUG 1415
+2 PLAC Southampton, Hampshire
+1 FAMC @F78@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I134@ INDI
+1 NAME Richard of York /Plantagenêt/
+2 TYPE birth
+2 GIVN Richard of York
+2 SURN Plantagenêt
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 21 SEP 1411
+1 DEAT
+2 DATE 30 DEC 1460
+2 PLAC Wakefield, Yorkshire
+1 FAMC @F79@
+1 FAMS @F54@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I135@ INDI
+1 NAME Autumn Patricia /Kelly/
+2 TYPE birth
+2 GIVN Autumn Patricia
+2 SURN Kelly
+1 NAME //
+2 TYPE birth
+1 SEX F
+1 BIRT
+2 DATE 3 MAY 1978
+2 PLAC Montreal, Quebec, Canada
+1 FAMS @F11@
+1 CHAN
+2 DATE 27 MAY 2020
+3 TIME 14:55:39.757
+0 @I136@ INDI
+1 NAME Savannah Anne Kathleen /Phillips/
+2 TYPE birth
+2 GIVN Savannah Anne Kathleen
+2 SURN Phillips
+1 NAME //
+2 TYPE birth
+1 SEX F
+1 BIRT
+2 DATE 29 DEC 2010
+2 PLAC Gloucestershire Royal Hospital
+1 FAMC @F11@
+1 CHAN
+2 DATE 27 MAY 2020
+3 TIME 14:55:39.757
+0 @I137@ INDI
+1 NAME Michael /Tindall/
+2 TYPE birth
+2 GIVN Michael
+2 SURN Tindall
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 18 OCT 1978
+2 PLAC Otley, England
+1 FAMS @F12@
+1 CHAN
+2 DATE 20 DEC 2021
+3 TIME 10:19:18.055
+0 @I138@ INDI
+1 NAME Sophie Helen /Rhys-Jones/
+2 TYPE birth
+2 GIVN Sophie Helen
+2 SURN Rhys-Jones
+1 NAME //
+2 TYPE birth
+1 SEX F
+1 BIRT
+2 DATE 20 JAN 1965
+2 PLAC Radcliffe Infirmary, Oxford
+1 FAMS @F14@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I139@ INDI
+1 NAME Louise Alice Elizabeth Mary /Mountbatten-Windsor/
+2 TYPE birth
+2 GIVN Louise Alice Elizabeth Mary
+2 SURN Mountbatten-Windsor
+1 NAME //
+2 TYPE birth
+1 SEX F
+1 BIRT
+2 DATE 8 NOV 2003
+2 PLAC Frimley Park Hospital, Surrey, England
+1 FAMC @F14@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I140@ INDI
+1 NAME James Alexander Philip Theo /Mountbatten-Windsor/
+2 TYPE birth
+2 GIVN James Alexander Philip Theo
+2 SURN Mountbatten-Windsor
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 17 DEC 2007
+2 PLAC Frimley Park Hospital, Surrey, England
+1 FAMC @F14@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I141@ INDI
+1 NAME Daniel /Chatto/
+2 TYPE birth
+2 GIVN Daniel
+2 SURN Chatto
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 22 APR 1957
+1 FAMS @F17@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I142@ INDI
+1 NAME Samuel David Benedict /Chatto/
+2 TYPE birth
+2 GIVN Samuel David Benedict
+2 SURN Chatto
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 28 JUL 1996
+2 PLAC London, England
+1 FAMC @F17@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I143@ INDI
+1 NAME Arthur Robert Nathaniel /Chatto/
+2 TYPE birth
+2 GIVN Arthur Robert Nathaniel
+2 SURN Chatto
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 5 FEB 1999
+2 PLAC London, England
+1 FAMC @F17@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I144@ INDI
+1 NAME Serena Alleyne /Stanhope/
+2 TYPE birth
+2 GIVN Serena Alleyne
+2 SURN Stanhope
+1 NAME //
+2 TYPE birth
+1 SEX F
+1 BIRT
+2 DATE 1 MAR 1970
+2 PLAC Limerick, Ireland
+1 FAMS @F16@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I145@ INDI
+1 NAME Charles Patrick Inigo /Armstrong-Jones/
+2 TYPE birth
+2 GIVN Charles Patrick Inigo
+2 SURN Armstrong-Jones
+1 NAME //
+2 TYPE birth
+1 SEX M
+1 BIRT
+2 DATE 1 JUL 1999
+2 PLAC London, England
+1 FAMC @F16@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I146@ INDI
+1 NAME Margarita Elizabeth Rose Alleyne /Armstrong-Jones/
+2 TYPE birth
+2 GIVN Margarita Elizabeth Rose Alleyne
+2 SURN Armstrong-Jones
+1 NAME //
+2 TYPE birth
+1 SEX F
+1 BIRT
+2 DATE 14 MAY 2002
+2 PLAC London, England
+1 FAMC @F16@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I147@ INDI
+1 NAME Edward II //
+2 TYPE birth
+2 GIVN Edward II
+1 SEX M
+1 BIRT
+2 DATE 25 APR 1284
+2 PLAC Caernarfon Castle, Gwynedd
+1 DEAT
+2 DATE 21 SEP 1327
+2 PLAC Berkeley Castle, Gloucestershire
+1 FAMC @F55@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I148@ INDI
+1 NAME Edward I //
+2 TYPE birth
+2 GIVN Edward I
+1 SEX M
+1 BIRT
+2 DATE 17 JUN 1239
+2 PLAC Palace of Westminster, London, England
+1 DEAT
+2 DATE 7 JUL 1307
+2 PLAC Burgh by Sands, Cumberland, England
+1 FAMC @F81@
+1 FAMS @F55@
+1 FAMS @F56@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I149@ INDI
+1 NAME Eleanor of Castile //
+2 TYPE birth
+2 GIVN Eleanor of Castile
+1 SEX F
+1 BIRT
+2 DATE 1 JAN 1241
+2 PLAC Castile, Spain
+1 DEAT
+2 DATE 28 NOV 1290
+2 PLAC Harby, Nottinghamshire
+1 FAMS @F55@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I150@ INDI
+1 NAME Margaret of France //
+2 TYPE birth
+2 GIVN Margaret of France
+1 SEX F
+1 BIRT
+2 DATE ABT 1 JAN 1279
+2 PLAC Paris, France
+1 DEAT
+2 DATE 14 FEB 1318
+2 PLAC Marlborough Castle, Wiltshire
+1 FAMS @F56@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I151@ INDI
+1 NAME Henry III //
+2 TYPE birth
+2 GIVN Henry III
+1 SEX M
+1 BIRT
+2 DATE 1 OCT 1207
+2 PLAC Winchester Castle, Hampshire
+1 DEAT
+2 DATE 16 NOV 1272
+2 PLAC Westminster, London
+1 FAMC @F82@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I152@ INDI
+1 NAME John //
+2 TYPE birth
+2 GIVN John
+1 SEX M
+1 BIRT
+2 DATE 24 DEC 1166
+2 PLAC Beaumont Palace, Oxford, England
+1 DEAT
+2 DATE 19 OCT 1216
+2 PLAC Newark Castle, Newark-on-Trent, Nottinghamshire
+1 FAMC @F57@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I153@ INDI
+1 NAME Richard I //
+2 TYPE birth
+2 GIVN Richard I
+1 SEX M
+1 BIRT
+2 DATE 8 SEP 1157
+2 PLAC Beaumont Palace, Oxford, England
+1 DEAT
+2 DATE 6 APR 1199
+2 PLAC Châlus, Duchy of Aquitaine
+1 FAMC @F57@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I154@ INDI
+1 NAME George Alexander Louis /Windsor/
+2 TYPE birth
+2 GIVN George Alexander Louis
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 22 JUL 2013
+2 PLAC St. Mary's Hosp., Paddington, London, England
+1 FAMC @F8@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I155@ INDI
+1 NAME Charlotte Elizabeth Diana /Windsor/
+2 TYPE birth
+2 GIVN Charlotte Elizabeth Diana
+2 SURN Windsor
+1 SEX F
+1 BIRT
+2 DATE 2 MAY 2015
+2 PLAC St Mary's Hospital, London, England
+1 FAMC @F8@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I156@ INDI
+1 NAME Cecily /Neville/
+2 TYPE birth
+2 GIVN Cecily
+2 SURN Neville
+1 SEX F
+1 BIRT
+2 DATE 3 MAY 1415
+2 PLAC Raby Castle, Durham, England
+1 DEAT
+2 DATE 31 MAY 1495
+2 PLAC Berkhamsted Castle, Hertfordshire, England
+1 FAMS @F54@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I157@ INDI
+1 NAME Henry II //
+2 TYPE birth
+2 GIVN Henry II
+1 SEX M
+1 BIRT
+2 DATE 5 MAR 1133
+2 PLAC Le Mans, France
+1 DEAT
+2 DATE 6 JUL 1189
+2 PLAC Chinon Castle, France
+1 FAMC @F83@
+1 FAMS @F57@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I158@ INDI
+1 NAME Eleanor of Aquitaine //
+2 TYPE birth
+2 GIVN Eleanor of Aquitaine
+1 SEX F
+1 BIRT
+2 DATE 1122
+2 PLAC Poitiers
+1 DEAT
+2 DATE 1 APR 1204
+2 PLAC Poitiers, Angevin Empire
+1 FAMS @F57@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I159@ INDI
+1 NAME Edward, the Black Prince //
+2 TYPE birth
+2 GIVN Edward, the Black Prince
+1 SEX M
+1 BIRT
+2 DATE 15 JUN 1330
+2 PLAC Woodstock Palace, Oxfordshire
+1 DEAT
+2 DATE 8 JUN 1376
+2 PLAC Palace of Westminster
+1 FAMC @F77@
+1 FAMS @F58@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I160@ INDI
+1 NAME Joan of Kent //
+2 TYPE birth
+2 GIVN Joan of Kent
+1 SEX F
+1 BIRT
+2 DATE 29 SEP 1328
+2 PLAC Woodstock Palace, Oxfordshire, England
+1 DEAT
+2 DATE 7 AUG 1385
+2 PLAC Wallingford Castle, Wallingford, Berkshire, England
+1 FAMS @F58@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I161@ INDI
+1 NAME Richard II //
+2 TYPE birth
+2 GIVN Richard II
+1 SEX M
+1 BIRT
+2 DATE 6 JUN 1367
+2 PLAC Bordeaux, Duchy of Aquitaine
+1 DEAT
+2 DATE ABT 14 FEB 1400
+2 PLAC Pontefract Castle, Yorkshire
+1 FAMC @F58@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I162@ INDI
+1 NAME Matilda //
+2 TYPE birth
+2 GIVN Matilda
+1 SEX F
+1 BIRT
+2 DATE ABT 7 FEB 1102
+1 DEAT
+2 DATE 10 SEP 1167
+2 PLAC Rouen
+1 FAMC @F84@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I163@ INDI
+1 NAME Henry I //
+2 TYPE birth
+2 GIVN Henry I
+1 SEX M
+1 BIRT
+2 DATE ABT 1068
+1 DEAT
+2 DATE 1 DEC 1135
+2 PLAC Saint-Denis-en-Lyons, Normandy
+1 FAMC @F85@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I164@ INDI
+1 NAME William I "William the Conqueror" //
+2 TYPE birth
+2 GIVN William I
+2 NICK William the Conqueror
+1 SEX M
+1 BIRT
+2 DATE ABT 1028
+1 DEAT
+2 DATE 9 SEP 1087
+2 PLAC Priory of Saint Gervase, Rouen, Normandy
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I165@ INDI
+1 NAME William II //
+2 TYPE birth
+2 GIVN William II
+1 SEX M
+1 BIRT
+2 DATE ABT 1056
+2 PLAC Normandy, France
+1 DEAT
+2 DATE 2 AUG 1100
+2 PLAC The New Forest, England
+1 FAMC @F85@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I166@ INDI
+1 NAME Adela of Normandy //
+2 TYPE birth
+2 GIVN Adela of Normandy
+1 SEX F
+1 BIRT
+2 DATE ABT 1067
+2 PLAC Normandy, France
+1 DEAT
+2 DATE 8 MAR 1137
+2 PLAC Marcigny-sur-Loire, France
+1 FAMC @F85@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I167@ INDI
+1 NAME Stephen //
+2 TYPE birth
+2 GIVN Stephen
+1 SEX M
+1 BIRT
+2 DATE ABT 1092
+2 PLAC Blois, France
+1 DEAT
+2 DATE 25 OCT 1154
+2 PLAC Dover, Kent
+1 FAMC @F86@
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @I168@ INDI
+1 NAME Rachel Meghan "Meghan" /Markle/
+2 TYPE birth
+2 GIVN Rachel Meghan
+2 NICK Meghan
+2 SURN Markle
+1 SEX F
+1 BIRT
+2 DATE 4 AUG 1981
+2 PLAC Los Angeles, California, United States
+1 FAMS @F9@
+1 FAMS @F59@
+1 CHAN
+2 DATE 10 SEP 2022
+3 TIME 11:16:43.236
+0 @I169@ INDI
+1 NAME Louis Arthur Charles /Windsor/
+2 TYPE birth
+2 GIVN Louis Arthur Charles
+2 SURN Windsor
+1 SEX M
+1 BIRT
+2 DATE 23 APR 2018
+2 PLAC St. Mary's Hosp., Paddington, London, England
+1 FAMC @F8@
+1 CHAN
+2 DATE 22 MAY 2018
+3 TIME 18:54:17.923
+0 @I170@ INDI
+1 NAME Archie Harrison /Mountbatten-Windsor/
+2 TYPE birth
+2 GIVN Archie Harrison
+2 SURN Mountbatten-Windsor
+1 SEX M
+1 BIRT
+2 DATE 6 MAY 2019
+1 FAMC @F9@
+1 CHAN
+2 DATE 9 MAY 2019
+3 TIME 20:33:35.151
+0 @I171@ INDI
+1 NAME Trevor /Engelson/
+2 TYPE birth
+2 GIVN Trevor
+2 SURN Engelson
+1 SEX M
+1 BIRT
+2 DATE 23 OCT 1976
+1 FAMS @F59@
+1 CHAN
+2 DATE 2 AUG 2019
+3 TIME 17:28:36.432
+0 @I172@ INDI
+1 NAME James III /Stewart/
+2 TYPE birth
+2 GIVN James III
+2 SURN Stewart
+1 SEX M
+1 BIRT
+2 DATE INT MAY 1452 (MAY 1452)
+1 DEAT
+2 DATE 11 JUN 1488
+2 PLAC Sauchie Burn, Scotland
+1 FAMC @F61@
+1 FAMS @F60@
+1 CHAN
+2 DATE 13 AUG 2019
+3 TIME 11:20:21.048
+0 @I173@ INDI
+1 NAME James II /Stewart/
+2 TYPE birth
+2 GIVN James II
+2 SURN Stewart
+1 SEX M
+1 BIRT
+2 DATE 16 OCT 1430
+1 DEAT
+2 DATE 3 AUG 1460
+1 FAMC @F62@
+1 FAMS @F61@
+1 CHAN
+2 DATE 13 AUG 2019
+3 TIME 11:20:21.048
+0 @I174@ INDI
+1 NAME James I /Stewart/
+2 TYPE birth
+2 GIVN James I
+2 SURN Stewart
+1 SEX M
+1 BIRT
+2 DATE JUL 1394
+1 DEAT
+2 DATE 21 FEB 1437
+1 FAMS @F62@
+1 CHAN
+2 DATE 13 AUG 2019
+3 TIME 10:24:51.036
+0 @I175@ INDI
+1 NAME Joan /Beaufort/
+2 TYPE birth
+2 GIVN Joan
+2 SURN Beaufort
+1 SEX F
+1 DEAT
+2 DATE 15 JUL 1445
+1 FAMS @F62@
+1 CHAN
+2 DATE 13 AUG 2019
+3 TIME 10:24:51.036
+0 @I176@ INDI
+1 NAME Alexander /Stewart/
+2 TYPE birth
+2 GIVN Alexander
+2 SURN Stewart
+1 SEX M
+1 BIRT
+2 DATE 16 OCT 1430
+1 DEAT
+2 DATE 1430
+1 FAMC @F62@
+1 CHAN
+2 DATE 27 MAY 2020
+3 TIME 14:44:05.653
+0 @I177@ INDI
+1 NAME Mary of Guelders //
+2 TYPE birth
+2 GIVN Mary of Guelders
+1 SEX F
+1 BIRT
+2 DATE 1434
+1 DEAT
+2 DATE 1 DEC 1463
+1 FAMS @F61@
+1 CHAN
+2 DATE 13 AUG 2019
+3 TIME 11:20:21.048
+0 @I178@ INDI
+1 NAME Margaret of Denmark //
+2 TYPE birth
+2 GIVN Margaret of Denmark
+1 SEX F
+1 BIRT
+2 DATE 23 JUN 1456
+2 PLAC Denmark
+1 DEAT
+2 DATE 14 JUL 1486
+2 PLAC Stirling Castle, Stirlingshire
+1 FAMS @F60@
+1 CHAN
+2 DATE 13 AUG 2019
+3 TIME 11:20:21.048
+0 @I179@ INDI
+1 NAME Mia Grace /Tindall/
+2 TYPE birth
+2 GIVN Mia Grace
+2 SURN Tindall
+1 SEX F
+1 BIRT
+2 DATE 17 JAN 2014
+2 PLAC Gloucestershire Royal Hospital
+1 FAMC @F12@
+1 CHAN
+2 DATE 27 MAY 2020
+3 TIME 14:55:39.757
+0 @I180@ INDI
+1 NAME Lena Elizabeth /Tindall/
+2 TYPE birth
+2 GIVN Lena Elizabeth
+2 SURN Tindall
+1 SEX F
+1 BIRT
+2 DATE 18 JUN 2018
+2 PLAC Stroud Maternity Hospital
+1 FAMC @F12@
+1 CHAN
+2 DATE 27 MAY 2020
+3 TIME 14:55:39.757
+0 @I181@ INDI
+1 NAME Isla Elizabeth /Phillips/
+2 TYPE birth
+2 GIVN Isla Elizabeth
+2 SURN Phillips
+1 SEX F
+1 BIRT
+2 DATE 29 MAR 2012
+2 PLAC Gloucestershire Royal Hospital
+1 FAMC @F11@
+1 CHAN
+2 DATE 27 MAY 2020
+3 TIME 14:55:39.757
+0 @I182@ INDI
+1 NAME Lilibet Diana /Mountbatten-Windsor/
+2 TYPE birth
+2 GIVN Lilibet Diana
+2 SURN Mountbatten-Windsor
+1 SEX F
+1 BIRT
+2 DATE 4 JUN 2021
+2 PLAC Santa Barbara Cottage Hospital, Santa Barbara, California, U.S.
+1 FAMC @F9@
+1 CHAN
+2 DATE 20 DEC 2021
+3 TIME 10:13:52.366
+0 @I183@ INDI
+1 NAME Jack Christopher Stamp /Brooksbank/
+2 TYPE birth
+2 GIVN Jack Christopher Stamp
+2 SURN Brooksbank
+1 SEX M
+1 BIRT
+2 DATE 3 MAY 1986
+2 PLAC St Thomas' Hospital, Lambeth, England
+1 FAMS @F63@
+1 CHAN
+2 DATE 20 DEC 2021
+3 TIME 10:13:52.366
+0 @I184@ INDI
+1 NAME August Philip Hawke /Brooksbank/
+2 TYPE birth
+2 GIVN August Philip Hawke
+2 SURN Brooksbank
+1 SEX M
+1 BIRT
+2 DATE 9 FEB 2021
+2 PLAC Portland Hospital, London
+1 FAMC @F63@
+1 CHAN
+2 DATE 20 DEC 2021
+3 TIME 10:13:52.366
+0 @I185@ INDI
+1 NAME Edoardo Alessandro /Mapelli Mozzi/
+2 TYPE birth
+2 GIVN Edoardo Alessandro
+2 SURN Mapelli Mozzi
+1 SEX M
+1 BIRT
+2 DATE 19 NOV 1983
+2 PLAC London, England
+1 FAMS @F64@
+1 CHAN
+2 DATE 20 DEC 2021
+3 TIME 10:16:43.278
+0 @I186@ INDI
+1 NAME Sienna Elizabeth /Mapelli Mozzi/
+2 TYPE birth
+2 GIVN Sienna Elizabeth
+2 SURN Mapelli Mozzi
+1 SEX F
+1 BIRT
+2 DATE 18 SEP 2021
+2 PLAC Chelsea and Westminster Hospital
+1 FAMC @F64@
+1 CHAN
+2 DATE 20 DEC 2021
+3 TIME 10:16:43.278
+0 @I187@ INDI
+1 NAME Lucas Philip /Tindall/
+2 TYPE birth
+2 GIVN Lucas Philip
+2 SURN Tindall
+1 SEX M
+1 BIRT
+2 DATE 21 MAR 2021
+2 PLAC Gatcombe Park
+1 FAMC @F12@
+1 CHAN
+2 DATE 20 DEC 2021
+3 TIME 10:19:18.055
+0 @F0@ FAM
+1 HUSB @I10@
+1 WIFE @I1@
+1 MARR
+2 TYPE marriage
+2 DATE 20 NOV 1947
+2 PLAC Westminster Abbey
+1 _MSTAT current
+1 CHIL @I0@
+1 CHIL @I14@
+1 CHIL @I18@
+1 CHIL @I22@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F1@ FAM
+1 HUSB @I2@
+1 WIFE @I3@
+1 MARR
+2 TYPE marriage
+2 DATE 10 MAR 1863
+1 _MSTAT current
+1 CHIL @I4@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F2@ FAM
+1 HUSB @I4@
+1 WIFE @I5@
+1 MARR
+2 TYPE marriage
+2 DATE 6 JUL 1893
+1 _MSTAT current
+1 CHIL @I6@
+1 CHIL @I8@
+1 CHIL @I27@
+1 CHIL @I51@
+1 CHIL @I59@
+1 CHIL @I77@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F3@ FAM
+1 HUSB @I6@
+1 WIFE @I7@
+1 MARR
+2 TYPE marriage
+2 DATE 3 JUN 1937
+1 _MSTAT current
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F4@ FAM
+1 HUSB @I109@
+1 WIFE @I7@
+1 MARR
+2 TYPE marriage
+1 _MSTAT divorced
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F5@ FAM
+1 HUSB @I8@
+1 WIFE @I9@
+1 MARR
+2 TYPE marriage
+2 DATE 26 APR 1923
+1 _MSTAT current
+1 CHIL @I1@
+1 CHIL @I23@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F6@ FAM
+1 HUSB @I0@
+1 WIFE @I11@
+1 MARR
+2 TYPE marriage
+2 DATE 29 JUL 1981
+1 DIV
+2 DATE 9 DEC 1992
+1 _MSTAT divorced
+1 CHIL @I12@
+1 CHIL @I13@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F7@ FAM
+1 HUSB @I0@
+1 WIFE @I78@
+1 MARR
+2 TYPE marriage
+2 DATE 9 APR 2005
+1 _MSTAT current
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F8@ FAM
+1 HUSB @I12@
+1 WIFE @I108@
+1 MARR
+2 TYPE marriage
+2 DATE 29 APR 2011
+1 _MSTAT current
+1 CHIL @I154@
+1 CHIL @I155@
+1 CHIL @I169@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F9@ FAM
+1 HUSB @I13@
+1 WIFE @I168@
+1 MARR
+2 TYPE marriage
+2 DATE 19 MAY 2018
+2 PLAC St George's Chapel, Windsor Castle
+1 _MSTAT current
+1 CHIL @I170@
+1 CHIL @I182@
+1 CHAN
+2 DATE 20 DEC 2021
+3 TIME 10:13:52.366
+0 @F10@ FAM
+1 HUSB @I15@
+1 WIFE @I14@
+1 MARR
+2 TYPE marriage
+2 DATE 14 NOV 1973
+2 PLAC Westminster Abbey
+1 DIV
+2 DATE 23 APR 1992
+1 _MSTAT divorced
+1 CHIL @I16@
+1 CHIL @I17@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F11@ FAM
+1 HUSB @I16@
+1 WIFE @I135@
+1 MARR
+2 TYPE marriage
+2 DATE 17 MAY 2008
+2 PLAC St. George's Chapel, Windsor Castle
+1 EVEN
+2 TYPE separation
+2 DATE 2019
+1 _MSTAT separated
+1 CHIL @I136@
+1 CHIL @I181@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F12@ FAM
+1 HUSB @I137@
+1 WIFE @I17@
+1 MARR
+2 TYPE marriage
+2 DATE 30 JUL 2011
+2 PLAC Canongate Kirk, Edinburgh, Scotland
+1 _MSTAT current
+1 CHIL @I179@
+1 CHIL @I180@
+1 CHIL @I187@
+1 CHAN
+2 DATE 20 DEC 2021
+3 TIME 10:19:18.055
+0 @F13@ FAM
+1 HUSB @I18@
+1 WIFE @I19@
+1 MARR
+2 TYPE marriage
+2 DATE 23 JUL 1986
+2 PLAC Westminster Abbey
+1 DIV
+2 DATE 30 MAY 1996
+1 _MSTAT divorced
+1 CHIL @I20@
+1 CHIL @I21@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F14@ FAM
+1 HUSB @I22@
+1 WIFE @I138@
+1 MARR
+2 TYPE marriage
+2 DATE 19 JUN 1999
+2 PLAC St. George's Chapel, Windsor Castle
+1 _MSTAT current
+1 CHIL @I139@
+1 CHIL @I140@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F15@ FAM
+1 HUSB @I24@
+1 WIFE @I23@
+1 MARR
+2 TYPE marriage
+1 _MSTAT divorced
+1 CHIL @I25@
+1 CHIL @I26@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F16@ FAM
+1 HUSB @I25@
+1 WIFE @I144@
+1 MARR
+2 TYPE marriage
+2 DATE 8 OCT 1993
+2 PLAC St. Margaret's Church, Westminster
+1 _MSTAT current
+1 CHIL @I145@
+1 CHIL @I146@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F17@ FAM
+1 HUSB @I141@
+1 WIFE @I26@
+1 MARR
+2 TYPE marriage
+2 DATE 14 JUL 1994
+2 PLAC St. Stephen Walbrook, London
+1 _MSTAT current
+1 CHIL @I142@
+1 CHIL @I143@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F18@ FAM
+1 HUSB @I28@
+1 WIFE @I27@
+1 MARR
+2 TYPE marriage
+2 DATE 28 FEB 1922
+1 _MSTAT current
+1 CHIL @I29@
+1 CHIL @I46@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F19@ FAM
+1 HUSB @I29@
+1 WIFE @I30@
+1 MARR
+2 TYPE marriage
+1 _MSTAT divorced
+1 CHIL @I31@
+1 CHIL @I37@
+1 CHIL @I41@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F20@ FAM
+1 HUSB @I29@
+1 WIFE @I45@
+1 MARR
+2 TYPE marriage
+1 _MSTAT current
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F21@ FAM
+1 HUSB @I31@
+1 WIFE @I32@
+1 MARR
+2 TYPE marriage
+1 _MSTAT current
+1 CHIL @I33@
+1 CHIL @I34@
+1 CHIL @I35@
+1 CHIL @I36@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F22@ FAM
+1 HUSB @I37@
+1 WIFE @I38@
+1 MARR
+2 TYPE marriage
+1 _MSTAT current
+1 CHIL @I39@
+1 CHIL @I40@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F23@ FAM
+1 HUSB @I41@
+1 WIFE @I42@
+1 MARR
+2 TYPE marriage
+1 _MSTAT current
+1 CHIL @I43@
+1 CHIL @I44@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F24@ FAM
+1 HUSB @I46@
+1 WIFE @I47@
+1 MARR
+2 TYPE marriage
+1 _MSTAT divorced
+1 CHIL @I48@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F25@ FAM
+1 HUSB @I46@
+1 WIFE @I50@
+1 MARR
+2 TYPE marriage
+1 _MSTAT current
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F26@ FAM
+1 HUSB @I48@
+1 WIFE @I49@
+1 MARR
+2 TYPE marriage
+1 _MSTAT current
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F27@ FAM
+1 HUSB @I51@
+1 WIFE @I52@
+1 MARR
+2 TYPE marriage
+2 DATE 6 NOV 1935
+1 _MSTAT current
+1 CHIL @I53@
+1 CHIL @I54@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F28@ FAM
+1 HUSB @I54@
+1 WIFE @I55@
+1 MARR
+2 TYPE marriage
+2 DATE 19 JUL 1972
+1 _MSTAT current
+1 CHIL @I56@
+1 CHIL @I57@
+1 CHIL @I58@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F29@ FAM
+1 HUSB @I59@
+1 WIFE @I60@
+1 MARR
+2 TYPE marriage
+2 DATE 29 NOV 1934
+1 _MSTAT current
+1 CHIL @I61@
+1 CHIL @I67@
+1 CHIL @I73@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F30@ FAM
+1 HUSB @I61@
+1 WIFE @I62@
+1 MARR
+2 TYPE marriage
+1 _MSTAT current
+1 CHIL @I63@
+1 CHIL @I65@
+1 CHIL @I66@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F31@ FAM
+1 HUSB @I63@
+1 WIFE @I64@
+1 MARR
+2 TYPE marriage
+2 DATE 19 JAN 1988
+1 _MSTAT current
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F32@ FAM
+1 HUSB @I68@
+1 WIFE @I67@
+1 MARR
+2 TYPE marriage
+2 DATE 19 APR 1963
+1 _MSTAT current
+1 CHIL @I69@
+1 CHIL @I71@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F33@ FAM
+1 HUSB @I69@
+1 WIFE @I70@
+1 MARR
+2 TYPE marriage
+1 _MSTAT current
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F34@ FAM
+1 HUSB @I72@
+1 WIFE @I71@
+1 MARR
+2 TYPE marriage
+2 DATE 19 FEB 1990
+1 _MSTAT current
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F35@ FAM
+1 HUSB @I73@
+1 WIFE @I74@
+1 MARR
+2 TYPE marriage
+2 DATE 30 JUN 1978
+1 _MSTAT current
+1 CHIL @I75@
+1 CHIL @I76@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F36@ FAM
+1 HUSB @I80@
+1 WIFE @I79@
+1 MARR
+2 TYPE marriage
+1 _MSTAT current
+1 CHIL @I2@
+1 CHIL @I81@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F37@ FAM
+1 HUSB @I83@
+1 WIFE @I82@
+1 MARR
+2 TYPE marriage
+1 _MSTAT current
+1 CHIL @I84@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F38@ FAM
+1 HUSB @I85@
+1 WIFE @I84@
+1 MARR
+2 TYPE marriage
+1 _MSTAT current
+1 CHIL @I10@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F39@ FAM
+1 HUSB @I86@
+1 WIFE @I87@
+1 MARR
+2 TYPE marriage
+2 DATE 1 MAY 1464
+2 PLAC Grafton Regis
+1 _MSTAT current
+1 CHIL @I88@
+1 CHIL @I125@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F40@ FAM
+1 HUSB @I89@
+1 WIFE @I88@
+1 MARR
+2 TYPE marriage
+2 DATE 18 JAN 1486
+2 PLAC Westminster Abbey
+1 _MSTAT current
+1 CHIL @I100@
+1 CHIL @I90@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F41@ FAM
+1 HUSB @I90@
+1 WIFE @I91@
+1 MARR
+2 TYPE marriage
+2 DATE 11 JUN 1509
+2 PLAC Greenwich
+1 DIV
+2 DATE 23 MAY 1533
+1 _MSTAT divorced
+1 CHIL @I93@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F42@ FAM
+1 HUSB @I90@
+1 WIFE @I92@
+1 MARR
+2 TYPE marriage
+2 DATE 25 JAN 1533
+2 PLAC Palace of Westminster, London, England
+1 DIV
+2 DATE 14 MAY 1536
+1 _MSTAT divorced
+1 CHIL @I94@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F43@ FAM
+1 HUSB @I90@
+1 WIFE @I95@
+1 MARR
+2 TYPE marriage
+2 DATE 30 MAY 1536
+2 PLAC Whitehall Palace
+1 DIV
+2 DATE 24 OCT 1537
+1 _MSTAT divorced
+1 CHIL @I96@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F44@ FAM
+1 HUSB @I90@
+1 WIFE @I97@
+1 MARR
+2 TYPE marriage
+2 DATE 28 JUL 1540
+2 PLAC Oatlands Palace, Surrey
+1 DIV
+2 DATE 23 NOV 1541
+1 _MSTAT divorced
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F45@ FAM
+1 HUSB @I90@
+1 WIFE @I98@
+1 MARR
+2 TYPE marriage
+2 DATE 6 JAN 1540
+2 PLAC Palace of Placentia, Greenwich, London
+1 DIV
+2 DATE 9 JUL 1540
+1 _MSTAT divorced
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F46@ FAM
+1 HUSB @I90@
+1 WIFE @I99@
+1 MARR
+2 TYPE marriage
+2 DATE 12 JUL 1543
+2 PLAC Hampton Court Palace, Kingston upon Thames
+1 DIV
+2 DATE 28 JAN 1547
+1 _MSTAT divorced
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F47@ FAM
+1 HUSB @I115@
+1 WIFE @I93@
+1 MARR
+2 TYPE marriage
+2 DATE 25 JUL 1554
+2 PLAC Winchester Cathedral
+1 _MSTAT current
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F48@ FAM
+1 HUSB @I101@
+1 WIFE @I100@
+1 MARR
+2 TYPE marriage
+2 DATE 1 JAN 1503
+1 _MSTAT current
+1 CHIL @I102@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F49@ FAM
+1 HUSB @I102@
+1 WIFE @I103@
+1 MARR
+2 TYPE marriage
+2 DATE 1 JAN 1538
+1 _MSTAT current
+1 CHIL @I104@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F50@ FAM
+1 HUSB @I105@
+1 WIFE @I104@
+1 MARR
+2 TYPE marriage
+2 DATE 29 JUL 1565
+2 PLAC Holyrood Palace
+1 _MSTAT current
+1 CHIL @I106@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F51@ FAM
+1 HUSB @I106@
+1 WIFE @I107@
+1 MARR
+2 TYPE marriage
+2 DATE 23 NOV 1589
+2 PLAC Oslo
+1 _MSTAT current
+1 CHIL @I123@
+1 CHIL @I116@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F52@ FAM
+1 HUSB @I116@
+1 WIFE @I117@
+1 MARR
+2 TYPE marriage
+2 DATE 13 JUN 1625
+2 PLAC St. Augustine's Abbey
+1 _MSTAT current
+1 CHIL @I118@
+1 CHIL @I119@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F53@ FAM
+1 HUSB @I122@
+1 WIFE @I120@
+1 MARR
+2 TYPE marriage
+2 DATE 4 NOV 1677
+2 PLAC St. James's Palace
+1 _MSTAT current
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F54@ FAM
+1 HUSB @I134@
+1 WIFE @I156@
+1 MARR
+2 TYPE marriage
+2 DATE OCT 1429
+1 _MSTAT current
+1 CHIL @I86@
+1 CHIL @I126@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F55@ FAM
+1 HUSB @I148@
+1 WIFE @I149@
+1 MARR
+2 TYPE marriage
+2 DATE 1 NOV 1254
+2 PLAC Las Huelgas, Burgos
+1 DIV
+2 DATE 28 NOV 1290
+1 _MSTAT divorced
+1 CHIL @I147@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F56@ FAM
+1 HUSB @I148@
+1 WIFE @I150@
+1 MARR
+2 TYPE marriage
+2 DATE 8 SEP 1299
+2 PLAC Canterbury
+1 _MSTAT current
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F57@ FAM
+1 HUSB @I157@
+1 WIFE @I158@
+1 MARR
+2 TYPE marriage
+2 DATE 18 MAY 1152
+2 PLAC Bordeaux Cathedral
+1 _MSTAT current
+1 CHIL @I153@
+1 CHIL @I152@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F58@ FAM
+1 HUSB @I159@
+1 WIFE @I160@
+1 MARR
+2 TYPE marriage
+1 _MSTAT current
+1 CHIL @I161@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F59@ FAM
+1 HUSB @I171@
+1 WIFE @I168@
+1 MARR
+2 TYPE marriage
+2 DATE 10 SEP 2011
+1 DIV
+2 DATE AUG 2013
+1 _MSTAT divorced
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F60@ FAM
+1 HUSB @I172@
+1 WIFE @I178@
+1 MARR
+2 TYPE marriage
+2 DATE JUL 1496
+2 PLAC Holyrood Abbey, Edinburgh
+1 _MSTAT current
+1 CHIL @I101@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F61@ FAM
+1 HUSB @I173@
+1 WIFE @I177@
+1 MARR
+2 TYPE marriage
+2 DATE 3 JUL 1449
+2 PLAC Holyrood Abbey
+1 _MSTAT current
+1 CHIL @I172@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F62@ FAM
+1 HUSB @I174@
+1 WIFE @I175@
+1 MARR
+2 TYPE marriage
+2 DATE 12 FEB 1424
+1 _MSTAT current
+1 CHIL @I173@
+1 CHIL @I176@
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 @F63@ FAM
+1 HUSB @I183@
+1 WIFE @I21@
+1 MARR
+2 TYPE marriage
+2 DATE 12 OCT 2018
+2 PLAC St George's Chapel, Windsor
+1 _MSTAT current
+1 CHIL @I184@
+1 CHAN
+2 DATE 20 DEC 2021
+3 TIME 10:13:52.366
+0 @F64@ FAM
+1 HUSB @I185@
+1 WIFE @I20@
+1 MARR
+2 TYPE marriage
+2 DATE 17 JUL 2020
+2 PLAC Royal Chapel of All Saints, Windsor Great Park
+1 _MSTAT current
+1 CHIL @I186@
+1 CHAN
+2 DATE 20 DEC 2021
+3 TIME 10:16:43.278
+0 @F65@ FAM
+1 HUSB @I81@
+1 CHIL @I82@
+0 @F66@ FAM
+1 WIFE @I110@
+1 CHIL @I79@
+0 @F67@ FAM
+1 WIFE @I111@
+1 CHIL @I110@
+0 @F68@ FAM
+1 WIFE @I112@
+1 CHIL @I111@
+0 @F69@ FAM
+1 WIFE @I113@
+1 CHIL @I112@
+0 @F70@ FAM
+1 WIFE @I114@
+1 CHIL @I113@
+0 @F71@ FAM
+1 WIFE @I119@
+1 CHIL @I120@
+1 CHIL @I121@
+0 @F72@ FAM
+1 HUSB @I123@
+1 CHIL @I124@
+0 @F73@ FAM
+1 HUSB @I124@
+1 CHIL @I114@
+0 @F74@ FAM
+1 WIFE @I127@
+1 CHIL @I128@
+0 @F75@ FAM
+1 WIFE @I128@
+1 CHIL @I129@
+0 @F76@ FAM
+1 WIFE @I130@
+1 CHIL @I127@
+0 @F77@ FAM
+1 WIFE @I131@
+1 CHIL @I130@
+1 CHIL @I132@
+1 CHIL @I159@
+0 @F78@ FAM
+1 WIFE @I132@
+1 CHIL @I133@
+0 @F79@ FAM
+1 WIFE @I133@
+1 CHIL @I134@
+0 @F80@ FAM
+1 WIFE @I147@
+1 CHIL @I131@
+0 @F81@ FAM
+1 WIFE @I151@
+1 CHIL @I148@
+0 @F82@ FAM
+1 WIFE @I152@
+1 CHIL @I151@
+0 @F83@ FAM
+1 HUSB @I162@
+1 CHIL @I157@
+0 @F84@ FAM
+1 WIFE @I163@
+1 CHIL @I162@
+0 @F85@ FAM
+1 WIFE @I164@
+1 CHIL @I163@
+1 CHIL @I165@
+1 CHIL @I166@
+0 @F86@ FAM
+1 HUSB @I166@
+1 CHIL @I167@
+0 @S0@ SOUR
+1 _UID B3BA58BC346A4B6488811F139C27A7CB3EC0
+1 AUTH Various
+1 TITL List of English monarchs
+1 PUBL Wikipedia
+1 REPO @R0@
+1 NOTE http://en.wikipedia.org/wiki/List_of_English_monarchs
+1 CHAN
+2 DATE 23 OCT 2019
+3 TIME 18:04:41.282
+0 @S1@ SOUR
+1 _UID 482B6177CCC240AE802C1246440DC7FFE2A4
+1 AUTH Various
+1 TITL List of British monarchs
+1 PUBL Wikipedia
+1 REPO @R0@
+1 NOTE http://en.wikipedia.org/wiki/List_of_British_monarchs
+1 CHAN
+2 DATE 23 OCT 2019
+3 TIME 18:04:41.282
+0 @S2@ SOUR
+1 _UID B88144825099452EA3A016C0B14B7FA39206
+1 AUTH The Royal Household
+1 TITL History of the Monarchy
+1 PUBL Crown Copyright
+1 REPO @R0@
+1 NOTE http://www.royal.gov.uk/HistoryoftheMonarchy/HistoryoftheMonarchy.aspx
+1 CHAN
+2 DATE 23 OCT 2019
+3 TIME 18:04:41.282
+0 @R0@ REPO
+1 _UID 6897B7691C9C411A9A73548325C2134F5FF3
+1 NAME [no name]
+1 CHAN
+2 DATE 13 MAY 2018
+3 TIME 14:42:09.617
+0 @K0@ _TASK
+1 _UID 9D4D4CDC575749B89C4AD8BB3B3DE6EF87C5
+1 _TDSC Update Elizabeth II events
+1 _TTIL Event
+1 _TSDT V05T00S000115082011000000000000LE000100000000000000000000LT
+1 _TCDT V05T00S000114022012000000000000LE000100000000000000000000LT
+1 _TSTS INPROGRESS
+1 _TPTY HIGH
+1 CHAN
+2 DATE 30 DEC 2015
+3 TIME 18:04:59.190
+0 TRLR

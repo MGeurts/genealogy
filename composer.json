@@ -18,7 +18,6 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.0",
-        "mrkrstphr/php-gedcom": "^1.0",
         "opcodesio/log-viewer": "^3.7",
         "spatie/laravel-activitylog": "^4.8",
         "spatie/laravel-backup": "^8.6",
