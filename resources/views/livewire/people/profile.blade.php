@@ -42,7 +42,7 @@
                         @if (auth()->user()->hasPermission('person:delete') and $person->isDeletable())
                             <hr />
 
-                            <x-ts-dropdown.items separator wire:click="confirmDeletion()" class="!text-danger-500">
+                            <x-ts-dropdown.items separator wire:click="confirmDeletion()" class="!text-danger-600 dark:!text-danger-400">
                                 <x-ts-icon icon="trash" class="mr-2" />
                                 {{ __('person.delete_person') }}
                             </x-ts-dropdown.items>

@@ -48,9 +48,7 @@ New users, after accepting an invitation by email from another user and register
 
 <img src="img/help/genealogy-002d.webp" class="rounded" alt="Team">
 
-<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
-    <b>Two Factor Authentification</b> (2FA) and <b>E-mail Verification</b> can be enabled and configured in <b>config/fortify.php</b>.
-</div>
+<b>Two Factor Authentification</b> (2FA) and <b>E-mail Verification</b> can be enabled and configured in <b>config/fortify.php</b>.
 
 ### b. User account and profile
 
@@ -69,15 +67,17 @@ Authenticated users can manage their teams and teams settings by using the dropd
 <img src="img/help/genealogy-004.webp" class="rounded" alt="Team settings">
 
 Users can manage either their personal team or create new teams.<br/>
-<span class="text-danger">The personal team and all teams created by a user are also <b>owned</b> by that user.<br/>
-Only the owner can invite other (new or already registered) users (by e-mail) to join the owned teams</span>.
+<span style="color:red">
+The personal team and all teams created by a user are also <b>owned</b> by that user.<br/>
+Only the owner can invite other (new or already registered) users (by e-mail) to join the owned teams.
+</span>
 
 <img src="img/help/genealogy-005bb.webp" class="rounded" alt="Team management">
 
-<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
+<span style="color:red">
     Create a <b>new and seperate team</b> for each <b>family tree</b> you want to manage and invite other users to it</b>.<br/>
     By assigning users the proper <b>role</b> you can define the rights they have in the selected team.
-</div>
+</span>
 
 Authenticated users can only see <b>people</b> and <b>couples</b>:
 
@@ -148,11 +148,11 @@ Authenticated users can only see <b>people</b> and <b>couples</b>:
 
 <img src="img/help/genealogy-001.webp" class="rounded" alt="Menu">
 
-After login and <span class="text-danger">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
+After login and <span style="color:red">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
 
 <img src="img/help/genealogy-010a.webp" class="rounded" alt="Search">
 
-Enter a search value in the <b>search box</b>. You can use the character <b class="text-danger">%</b> as a wildcard character.<br/>
+Enter a search value in the <b>search box</b>. You can use the character <b style="color:red">%</b> as a wildcard character.<br/>
 Insert either a <b>surname</b>, a <b>firstname</b>, a <b>birthname</b> or a <b>nickname</b>. Do not combine!<br/>
 Above the search box the number of people available to / found in the <b>current team</b> are shown.<br/>
 
@@ -172,7 +172,7 @@ Click on the father's or mother's name to visit the parents.
 
 ### a. New person
 
-After login and <span class="text-danger">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
+After login and <span style="color:red">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
 
 <img src="img/help/genealogy-001.webp" class="rounded" alt="Search">
 
@@ -190,7 +190,7 @@ These options are only available if the existing person doesn't have a father or
 <img src="img/help/genealogy-035a.webp" class="rounded" alt="Add father">
 <img src="img/help/genealogy-036a.webp" class="rounded" alt="Add mother">
 
-<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
+<div style="color:red">
     You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new father or mother.
 </div>
 
@@ -201,7 +201,7 @@ Another way to add people is to click on the <b>Add relationship</b> tab in the 
 <img src="img/help/genealogy-055.webp" class="rounded" alt="Partners">
 <img src="img/help/genealogy-056.webp" class="rounded" alt="Add relationship">
 
-<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
+<div style="color:red">
     You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new partner.
 </div>
 
@@ -212,7 +212,7 @@ A last way to add people is to click on the <b>Add child</b> tab in the <b>Child
 <img src="img/help/genealogy-050a.webp" class="rounded" alt="Children">
 <img src="img/help/genealogy-051c.webp" class="rounded" alt="Add child">
 
-<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
+<div style="color:red">
     You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new child.
 </div>
 

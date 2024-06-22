@@ -59,7 +59,7 @@
 
                                     @if ($person->isDeceased())
                                         <br />
-                                        <span class="text-danger-600 dark:text-danger-400">
+                                        <span class="text-danger-600 dark:!text-danger-400">
                                             <x-ts-icon icon="coffin" class="inline-block mr-1" /> {{ $person->age }}
                                         </span>
                                     @endif

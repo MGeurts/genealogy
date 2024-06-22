@@ -38,7 +38,7 @@
                             <hr />
 
                             @foreach ($person->couples->sortBy('date_start') as $couple)
-                                <x-ts-dropdown.items class="!text-danger-500" wire:click="confirmDeletion({{ $couple->id }} , '{{ $couple->name }}')"
+                                <x-ts-dropdown.items class="!text-danger-600 dark:!text-danger-400" wire:click="confirmDeletion({{ $couple->id }} , '{{ $couple->name }}')"
                                     title="{{ __('person.delete_relationship') }}">
                                     <x-ts-icon icon="trash" class="mr-2" />
                                     <div>
@@ -83,7 +83,7 @@
 
                         @if ($couple->date_end or $couple->has_ended)
                             <br />
-                            <x-ts-icon icon="hearts-off" class="size-5 inline-block text-danger-500" />
+                            <x-ts-icon icon="hearts-off" class="size-5 inline-block text-danger-600 dark:!text-danger-400" />
                             {{ $couple->date_end ? $couple->date_end->isoFormat('LL') : '??' }}
                         @endif
                     </p>

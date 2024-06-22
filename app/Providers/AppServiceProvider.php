@@ -5,11 +5,11 @@ namespace App\Providers;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Console\AboutCommand;
-use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
+// use Illuminate\Support\Str;
 use Opcodes\LogViewer\Facades\LogViewer;
 use TallStackUi\Facades\TallStackUi;
 

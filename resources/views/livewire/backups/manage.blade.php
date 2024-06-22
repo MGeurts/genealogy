@@ -69,7 +69,7 @@
                 <hr class="my-1 h-0.5 border-t-0 bg-neutral-600 dark:bg-neutral-400 opacity-100 dark:opacity-75" />
 
                 <p class="py-0">{{ __('backup.backup_cron_1') }}</p>
-                <p class="py-0 text-danger">
+                <p class="py-0 text-danger-600 dark:!text-danger-400">
                     <code>{{ __('backup.backup_cron_2') }}</code>
                 </p>
             </div>
