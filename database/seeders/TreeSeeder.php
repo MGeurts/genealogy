@@ -9,7 +9,7 @@ class TreeSeeder extends Seeder
 {
     protected $managers_team = 5;
 
-    protected $level_max = 100;
+    protected $level_max = 500;
 
     /**
      * Run the database seeds.

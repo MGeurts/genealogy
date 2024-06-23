@@ -13,20 +13,21 @@ class Descendants extends Component
 
     public $descendants;
 
-    public $count = 3; // default
+    public $count = 3;          // default
 
     public $count_min = 1;
 
-    public $count_max = 50;  // maximum level depth
+    public $count_max = 128;    // maximum level depth
 
-    // ------------------------------------------------------------------------------------------------
-    // REMARK : The maximum length of the comma separated sequence of all id's in
-    //          the tree must NOT succeed 1024 characters!
+    // --------------------------------------------------------------------------------------------------------------------
+    // REMARK : The maximum length of the comma separated sequence of all id's in the tree can NOT succeed 1024 characters!
+    //          So, when the id's are 3 digits, the maximum level depth is 1024 / (3 + 1) = 256 levels
     //          So, when the id's are 4 digits, the maximum level depth is 1024 / (4 + 1) = 204 levels
     //          So, when the id's are 5 digits, the maximum level depth is 1024 / (5 + 1) = 170 levels
     //          So, when the id's are 6 digits, the maximum level depth is 1024 / (6 + 1) = 146 levels
+    //          So, when the id's are 7 digits, the maximum level depth is 1024 / (6 + 1) = 128 levels
     //          ...
-    // ------------------------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------------------------------------------------
     public function increment()
     {
         if ($this->count < $this->count_max) {
@@ -64,7 +65,7 @@ class Descendants extends Component
             SELECT * FROM descendants ORDER BY degree, dob, yob;
         "));
 
-        $this->count_max = $this->descendants->max('degree') <= 50 ? $this->descendants->max('degree') + 1 : $this->count_max;
+        $this->count_max = $this->descendants->max('degree') <= $this->count_max ? $this->descendants->max('degree') + 1 : $this->count_max;
 
         if ($this->count > $this->count_max) {
             $this->count = $this->count_max;

@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserAndTeamSeeder::class,
             DemoSeeder::class,
+
+            // TreeSeeder::class,
         ]);
 
         // -----------------------------------------------------------------------
@@ -33,6 +35,8 @@ class DatabaseSeeder extends Seeder
         //
         // - the folder /public/xml
         // - the content of folder /storage/app/public/photos
+        // - the content of folder /storage/app/public/photos-096
+        // - the content of folder /storage/app/public/photos-384
         // - the content of folder /storage/app/public/profile-photos
         // - the content of folder /storage/app/backups/genealogy
         // -----------------------------------------------------------------------

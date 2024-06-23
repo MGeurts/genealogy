@@ -16,7 +16,7 @@
                             </x-ts-button>
                         @endif
 
-                        <div class="w-8 text-center">{{ $count }}</div>
+                        <div class="w-16 text-center">{{ $count }}</div>
 
                         @if ($count === $count_max)
                             <x-ts-button square xs color="danger" class="rounded-r border-0" wire:click="increment" disabled>
