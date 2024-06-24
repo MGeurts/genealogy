@@ -22,12 +22,13 @@ class Ancestors extends Component
     // --------------------------------------------------------------------------------------------------------------------
     // REMARK : The maximum length of the comma separated sequence of all id's in the tree can NOT succeed 1024 characters!
     //          So, when the id's are 3 digits, the maximum level depth is 1024 / (3 + 1) = 256 levels
-    //          So, when the id's are 4 digits, the maximum level depth is 1024 / (4 + 1) = 204 levels
-    //          So, when the id's are 5 digits, the maximum level depth is 1024 / (5 + 1) = 170 levels
-    //          So, when the id's are 6 digits, the maximum level depth is 1024 / (6 + 1) = 146 levels
-    //          So, when the id's are 7 digits, the maximum level depth is 1024 / (6 + 1) = 128 levels
-    //          ...
+    //              when the id's are 4 digits, the maximum level depth is 1024 / (4 + 1) = 204 levels
+    //              when the id's are 5 digits, the maximum level depth is 1024 / (5 + 1) = 170 levels
+    //              when the id's are 6 digits, the maximum level depth is 1024 / (6 + 1) = 146 levels
+    //              when the id's are 7 digits, the maximum level depth is 1024 / (6 + 1) = 128 levels
+    //              ...
     // --------------------------------------------------------------------------------------------------------------------
+
     public function increment()
     {
         if ($this->count < $this->count_max) {
@@ -59,7 +60,7 @@ class Ancestors extends Component
 		            degree + 1 AS degree,
                     CONCAT(a.sequence, ',', p.id) AS sequence
 	            FROM people p, ancestors a 
-	            WHERE deleted_at IS NULL AND (p.id = a.father_id OR p.id = a.mother_id)
+	            WHERE deleted_at IS NULL AND (p.id = a.father_id OR p.id = a.mother_id) AND degree < " . $this->count_max - 1  . "
             ) 
         
             SELECT * FROM ancestors ORDER BY degree, sex DESC;

@@ -16,7 +16,7 @@ class TreeSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->createPerson(null, 1);
+        $this->createPerson(null, 0);
     }
 
     protected function createPerson($father, $level)
