@@ -1,10 +1,8 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App;
 
-class GEDCOMParser
+class GedcomParser
 {
     protected $individuals = [];
     protected $families = [];
@@ -36,12 +34,20 @@ class GEDCOMParser
                     $currentEntity = $tag;
                     $this->families[$currentEntity] = [];
                 }
-            }
-
-            if ($currentType === 'individual') {
-                $this->individuals[$currentEntity][] = ['level' => $level, 'tag' => $tag, 'data' => $data];
-            } elseif ($currentType === 'family') {
-                $this->families[$currentEntity][] = ['level' => $level, 'tag' => $tag, 'data' => $data];
+            } else {
+                if ($currentType === 'individual') {
+                    if (!isset($this->individuals[$currentEntity][$tag])) {
+                        $this->individuals[$currentEntity][$tag] = $data;
+                    } else {
+                        $this->individuals[$currentEntity][$tag] .= "<br/>" . $data;
+                    }
+                } elseif ($currentType === 'family') {
+                    if (!isset($this->families[$currentEntity][$tag])) {
+                        $this->families[$currentEntity][$tag] = $data;
+                    } else {
+                        $this->families[$currentEntity][$tag] .= "<br/>" . $data;
+                    }
+                }
             }
         }
     }
@@ -61,7 +67,10 @@ class GEDCOMParser
         foreach ($this->individuals as $id => $tags) {
             echo "-------------------- INDIVIDUAL " . $id . " --------------------<br/>";
 
-            $this->outputTags($tags);
+            foreach ($tags as $tag => $data) {
+                echo "  $tag: $data<br/>";
+            }
+            echo "<br/>";
         }
     }
 
@@ -70,21 +79,12 @@ class GEDCOMParser
         foreach ($this->families as $id => $tags) {
             echo "-------------------- FAMILY " . $id . " --------------------<br/>";
 
-            foreach ($tags as $tag) {
-                if ($tag['tag'] === 'HUSB' || $tag['tag'] === 'WIFE' || $tag['tag'] === 'CHIL') {
-                    echo "{$tag['tag']}&nbsp;: {$tag['data']}<br/>";
+            foreach ($tags as $tag => $data) {
+                if ($tag === 'HUSB' || $tag === 'WIFE' || $tag === 'CHIL') {
+                    echo "  $tag: $data<br/>";
                 }
             }
-        }
-    }
-
-    protected function outputTags($tags, $level = 0)
-    {
-        foreach ($tags as $tag) {
-            if ($tag['level'] === $level) {
-                echo str_repeat('&emsp;', $level) . "{$tag['tag']}&nbsp;: {$tag['data']}<br/>";
-                $this->outputTags($tags, $level + 1);
-            }
+            echo "<br/>";
         }
     }
 }
