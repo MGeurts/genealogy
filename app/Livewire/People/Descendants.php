@@ -13,19 +13,20 @@ class Descendants extends Component
 
     public $descendants;
 
-    public $count = 3;          // default
-
     public $count_min = 1;
 
-    public $count_max = 128;    // maximum level depth
+    public $count = 3;          // default, showing 3 levels (person & parents & grandparents)
+
+    public $count_max = 128;    // maximum level depth, choose from listing below
 
     // --------------------------------------------------------------------------------------------------------------------
     // REMARK : The maximum length of the comma separated sequence of all id's in the tree can NOT succeed 1024 characters!
-    //          So, when the id's are 3 digits, the maximum level depth is 1024 / (3 + 1) = 256 levels
-    //              when the id's are 4 digits, the maximum level depth is 1024 / (4 + 1) = 204 levels
-    //              when the id's are 5 digits, the maximum level depth is 1024 / (5 + 1) = 170 levels
-    //              when the id's are 6 digits, the maximum level depth is 1024 / (6 + 1) = 146 levels
-    //              when the id's are 7 digits, the maximum level depth is 1024 / (6 + 1) = 128 levels
+    //          So, when the id's are 3 digits (max        999), the maximum level depth is 1024 / (3 + 1) = 256 levels
+    //              when the id's are 4 digits (max      9.999), the maximum level depth is 1024 / (4 + 1) = 204 levels
+    //              when the id's are 5 digits (max     99.999), the maximum level depth is 1024 / (5 + 1) = 170 levels
+    //              when the id's are 6 digits (max    999.999), the maximum level depth is 1024 / (6 + 1) = 146 levels
+    //              when the id's are 7 digits (max  9.999.999), the maximum level depth is 1024 / (7 + 1) = 128 levels
+    //              when the id's are 8 digits (max 99.999.999), the maximum level depth is 1024 / (8 + 1) = 113 levels
     //              ...
     // --------------------------------------------------------------------------------------------------------------------
 
@@ -48,17 +49,17 @@ class Descendants extends Component
         $this->descendants = collect(DB::select("
             WITH RECURSIVE descendants AS (
                 SELECT
-                    id, firstname, surname, sex, father_id, mother_id, dob, yob, dod, yod, team_id, photo,
+                    id, firstname, surname, sex, father_id, mother_id, dod, yod, team_id, photo, dob, yob,
                     0 AS degree,
-                    CAST(CONCAT(id, '') AS CHAR(1024)) AS sequence
+                    CAST(id AS CHAR(1024)) AS sequence
                 FROM people
                 WHERE deleted_at IS NULL AND id = " . $this->person->id . "
 
                 UNION ALL
 
-                SELECT p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dob, p.yob, p.dod, p.yod, p.team_id, p.photo,
+                SELECT p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo, p.dob, p.yob, 
                     degree + 1 AS degree,
-                    CONCAT(d.sequence, ',', p.id) AS sequence
+                    CAST(CONCAT(d.sequence, ',', p.id) AS CHAR(1024)) AS sequence
                 FROM people p, descendants d
                 WHERE deleted_at IS NULL AND (p.father_id = d.id OR p.mother_id = d.id) AND degree < " . $this->count_max - 1  . "
             )
