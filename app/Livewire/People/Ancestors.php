@@ -12,7 +12,7 @@ class Ancestors extends Component
     public $person;
 
     public $ancestors;
-    
+
     public $count_min = 1;
 
     public $count = 3;          // default, showing 3 levels (parson & parents & grandparents)
@@ -53,7 +53,7 @@ class Ancestors extends Component
 		            0 AS degree,
                     CAST(id AS CHAR(1024)) AS sequence
 	            FROM people  
-	            WHERE deleted_at IS NULL AND id = " . $this->person->id . " 
+	            WHERE deleted_at IS NULL AND id = '" . $this->person->id . "' 
     
 	            UNION ALL 
     
@@ -61,7 +61,7 @@ class Ancestors extends Component
 		            degree + 1 AS degree,
                     CAST(CONCAT(a.sequence, ',', p.id) AS CHAR(1024)) AS sequence
 	            FROM people p, ancestors a 
-	            WHERE deleted_at IS NULL AND (p.id = a.father_id OR p.id = a.mother_id) AND degree < " . $this->count_max - 1  . "
+	            WHERE deleted_at IS NULL AND (p.id = a.father_id OR p.id = a.mother_id) AND degree < '" . $this->count_max - 1 . "'
             ) 
         
             SELECT * FROM ancestors ORDER BY degree, sex DESC;

@@ -53,7 +53,7 @@ class Descendants extends Component
                     0 AS degree,
                     CAST(id AS CHAR(1024)) AS sequence
                 FROM people
-                WHERE deleted_at IS NULL AND id = " . $this->person->id . "
+                WHERE deleted_at IS NULL AND id = '" . $this->person->id . "'
 
                 UNION ALL
 
@@ -61,7 +61,7 @@ class Descendants extends Component
                     degree + 1 AS degree,
                     CAST(CONCAT(d.sequence, ',', p.id) AS CHAR(1024)) AS sequence
                 FROM people p, descendants d
-                WHERE deleted_at IS NULL AND (p.father_id = d.id OR p.mother_id = d.id) AND degree < " . $this->count_max - 1  . "
+                WHERE deleted_at IS NULL AND (p.father_id = d.id OR p.mother_id = d.id) AND degree < '" . $this->count_max - 1 . "'
             )
 
             SELECT * FROM descendants ORDER BY degree, dob, yob;
