@@ -37,7 +37,7 @@ class GedcomParser
                         if ($tag === 'CONC') {
                             $this->individuals[$currentEntity][$lastIndex]['data'] .= $data;
                         } elseif ($tag === 'CONT') {
-                            $this->individuals[$currentEntity][$lastIndex]['data'] .= "\n" . $data;
+                            $this->individuals[$currentEntity][$lastIndex]['data'] .= '<br/>' . $data;
                         }
                     } else {
                         $this->individuals[$currentEntity][] = ['level' => $level, 'tag' => $tag, 'data' => $data];
@@ -48,7 +48,7 @@ class GedcomParser
                         if ($tag === 'CONC') {
                             $this->families[$currentEntity][$lastIndex]['data'] .= $data;
                         } elseif ($tag === 'CONT') {
-                            $this->families[$currentEntity][$lastIndex]['data'] .= "\n" . $data;
+                            $this->families[$currentEntity][$lastIndex]['data'] .= '<br/>' . $data;
                         }
                     } else {
                         $this->families[$currentEntity][] = ['level' => $level, 'tag' => $tag, 'data' => $data];
