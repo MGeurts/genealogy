@@ -24,11 +24,11 @@ class Photos extends Component
     // -----------------------------------------------------------------------
     public $person;
 
-    public $photos = [];
+    public $uploads = [];
 
     public $backup = [];
 
-    public $images = null;
+    public $photos = null;
 
     // -----------------------------------------------------------------------
     public function mount(): void
@@ -52,9 +52,9 @@ class Photos extends Component
             File::makeDirectory($path, 0777, true, true);
         }
 
-        $images_person = Finder::create()->in(public_path('storage/photos/' . $this->person->team_id))->name($this->person->id . '_*.webp');
+        $photos_person = Finder::create()->in(public_path('storage/photos/' . $this->person->team_id))->name($this->person->id . '_*.webp');
 
-        $this->images = collect($images_person)->map(fn (SplFileInfo $file) => [
+        $this->photos = collect($photos_person)->map(fn (SplFileInfo $file) => [
             'name'          => $file->getFilename(),
             'name_download' => $this->person->name . ' - ' . $file->getFilename(),
             'extension'     => $file->getExtension(),
@@ -79,11 +79,11 @@ class Photos extends Component
         ]
         */
 
-        if (! $this->photos) {
+        if (! $this->uploads) {
             return;
         }
 
-        $files = Arr::wrap($this->photos);
+        $files = Arr::wrap($this->uploads);
 
         /** @var UploadedFile $file */
         $file = collect($files)->filter(fn (UploadedFile $item) => $item->getFilename() === $content['temporary_name'])->first();
@@ -95,34 +95,34 @@ class Photos extends Component
         $collect = collect($files)->filter(fn (UploadedFile $item) => $item->getFilename() !== $content['temporary_name']);
 
         // we guarantee restore of remaining files regardless of upload type, whether you are dealing with multiple or single uploads
-        $this->photos = is_array($this->photos) ? $collect->toArray() : $collect->first();
+        $this->uploads = is_array($this->uploads) ? $collect->toArray() : $collect->first();
     }
 
-    public function updatingPhotos(): void
+    public function updatingUploads(): void
     {
         // we store the uploaded files in the temporary property
-        $this->backup = $this->photos;
+        $this->backup = $this->uploads;
     }
 
-    public function updatedPhotos(): void
+    public function updatedUploads(): void
     {
-        if (! $this->photos) {
+        if (! $this->uploads) {
             return;
         }
 
         // we merge the newly uploaded files with the saved ones
-        $file = Arr::flatten(array_merge($this->backup, [$this->photos]));
+        $file = Arr::flatten(array_merge($this->backup, [$this->uploads]));
 
         // we finishing by removing the duplicates
-        $this->photos = collect($file)->unique(fn (UploadedFile $item) => $item->getClientOriginalName())->toArray();
+        $this->uploads = collect($file)->unique(fn (UploadedFile $item) => $item->getClientOriginalName())->toArray();
     }
 
     public function save()
     {
-        if ($this->photos) {
-            PersonPhotos::save($this->person, $this->photos);
+        if ($this->uploads) {
+            PersonPhotos::save($this->person, $this->uploads);
 
-            $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', count($this->photos)))->send();
+            $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', count($this->uploads)))->send();
 
             return $this->redirect('/people/' . $this->person->id . '/edit-photos');
         }

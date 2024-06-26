@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace App\Livewire\People;
 
-use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -47,11 +45,11 @@ class Files extends Component
         ]
         */
 
-        if (! $this->photos) {
+        if (! $this->uploads) {
             return;
         }
 
-        $files = Arr::wrap($this->photos);
+        $files = Arr::wrap($this->uploads);
 
         /** @var UploadedFile $file */
         $file = collect($files)->filter(fn (UploadedFile $item) => $item->getFilename() === $content['temporary_name'])->first();
@@ -63,7 +61,7 @@ class Files extends Component
         $collect = collect($files)->filter(fn (UploadedFile $item) => $item->getFilename() !== $content['temporary_name']);
 
         // we guarantee restore of remaining files regardless of upload type, whether you are dealing with multiple or single uploads
-        $this->uploads = is_array($this->photos) ? $collect->toArray() : $collect->first();
+        $this->uploads = is_array($this->uploads) ? $collect->toArray() : $collect->first();
     }
 
     public function updatingUploads(): void

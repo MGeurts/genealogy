@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    {{-- file upload --}}
+    {{-- upload --}}
     <div class="print:hidden p-2">
         <x-ts-upload id="uploads" wire:model="uploads" accept=".pdf, .txt, .doc, .docx, .xls, .xlsx" hint="Max: 10 MB, Format: pdf, txt, doc(x), xls(x)" tip="{{ __('person.update_files_tip') }} ..."
             multiple delete>
