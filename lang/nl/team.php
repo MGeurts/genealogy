@@ -20,8 +20,8 @@ return [
     'users'         => 'Gebruikers',
 
     // Messages
-    'team_details'               => 'Teamdetails',
-    'team_create_new'            => 'Creëer een nieuw team om met anderen samen te werken.',
+    'team_details'    => 'Teamdetails',
+    'team_create_new' => 'Creëer een nieuw team om met anderen samen te werken.',
 
     'team_name'               => 'Teamnaam',
     'team_information'        => 'De naam van het team en informatie over de eigenaar.',

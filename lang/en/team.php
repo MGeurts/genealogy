@@ -21,8 +21,8 @@ return [
     'users'         => 'Users',
 
     // Messages
-    'team_details'               => 'Team Details',
-    'team_create_new'            => 'Create a new team to collaborate with others.',
+    'team_details'    => 'Team Details',
+    'team_create_new' => 'Create a new team to collaborate with others.',
 
     'team_name'               => 'Team Name',
     'team_information'        => 'The team\'s name and owner information.',
