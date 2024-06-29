@@ -148,12 +148,12 @@
                                         {{-- gedcom --}}
                                         <x-dropdown-link href="{{ route('gedcom.import') }}">
                                             <x-ts-icon icon="droplet-up" class="size-5 inline-block mr-1" />
-                                            {{ __('team.gedcom_import') }}
+                                            {{ __('gedcom.gedcom_import') }}
                                         </x-dropdown-link>
 
                                         <x-dropdown-link href="{{ route('gedcom.export') }}">
                                             <x-ts-icon icon="droplet-down" class="size-5 inline-block mr-1" />
-                                            {{ __('team.gedcom_export') }}
+                                            {{ __('gedcom.gedcom_export') }}
                                         </x-dropdown-link>
                                     @endcan
                                 </div>

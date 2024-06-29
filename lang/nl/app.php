@@ -104,4 +104,6 @@ return [
     'unauthorized' => 'Onbevoegde toegang.',
 
     'whoops' => 'Oeps! Er liep iets mis.',
+
+    'terminal' => 'Terminal',
 ];

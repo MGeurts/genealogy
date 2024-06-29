@@ -135,6 +135,14 @@
                     <li class="py-2">
                         <x-link href="https://gedcom.io/tools/" target="_blank">FamilySearch GEDCOM - Tools</x-link>
                     </li>
+
+                    <br />
+                    <hr />
+                    <br />
+
+                    <li class="py-2">
+                        <x-link href="https://github.com/liberu-genealogy/php-gedcom" target="_blank">liberu-genealogy/php-gedco</x-link> - POSSIBLE CANDIDATE
+                    </li>
                 </ul>
             </x-ts-tab.items>
         </x-ts-tab>

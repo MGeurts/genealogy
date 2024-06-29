@@ -14,16 +14,8 @@
 
         @php
             // ----------------------------------------------------------------------------------------------------------------------
-            $parser = new App\GedcomParser();
-            $parser->parse('./gedcom/royals.ged');
 
-            echo '<h1>INDIVIDUALS :</h1>';
-            $parser->outputIndividuals();
-
-            echo '<h1>FAMILIES :</h1>';
-            $parser->outputFamilies();
             // ----------------------------------------------------------------------------------------------------------------------
         @endphp
-
     </div>
 </x-app-layout>
