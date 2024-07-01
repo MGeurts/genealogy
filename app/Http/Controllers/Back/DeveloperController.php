@@ -6,7 +6,7 @@ namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
 
-class PageController extends Controller
+class DeveloperController extends Controller
 {
     public function dependencies()
     {

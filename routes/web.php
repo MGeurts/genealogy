@@ -54,11 +54,14 @@ Route::middleware([
         Route::get('import', 'import')->name('gedcom.import');
     });
 
+    // -----------------------------------------------------------------------------------------------
+    // developer
+    // -----------------------------------------------------------------------------------------------
     Route::middleware(App\Http\Middleware\IsDeveloper::class)->group(function () {
         // -----------------------------------------------------------------------------------------------
         // pages
         // -----------------------------------------------------------------------------------------------
-        Route::controller(App\Http\Controllers\Back\PageController::class)->group(function () {
+        Route::controller(App\Http\Controllers\Back\DeveloperController::class)->group(function () {
             Route::get('dependencies', 'dependencies')->name('dependencies');
             Route::get('session', 'session')->name('session');
             Route::get('test', 'test')->name('test');
