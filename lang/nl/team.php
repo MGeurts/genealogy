@@ -35,6 +35,7 @@ return [
     'team_pending'         => 'Teamuitnodigingen in behandeling',
     'team_pending_message' => 'Deze mensen zijn uitgenodigd voor uw team en hebben een uitnodigingsmail ontvangen. Ze kunnen lid worden van het team door de uitnodiging in de e-mail te accepteren.',
 
+    'change_role'          => 'Wijzig rol',
     'team_members'         => 'Leden van het team',
     'team_members_message' => 'Alle personen die deel uitmaken van dit team.',
     'manage_role'          => 'Rol beheren',
@@ -44,6 +45,7 @@ return [
     'remove'               => 'Verwijder',
     'remove_member'        => 'Teamlid verwijderen',
     'remove_member_sure'   => 'Weet u zeker dat u deze persoon uit het team wilt verwijderen?',
+    'send_email'           => 'Verstuur email',
 
     'user_not_found'       => 'We konden geen geregistreerde gebruiker met dit e-mailadres vinden.',
     'user_already_in_team' => 'Deze gebruiker behoort al tot het team.',
@@ -62,5 +64,4 @@ return [
     'accept_invitation'          => 'Uitnodiging accepteren',
     'discard'                    => 'Als u niet verwachtte een uitnodiging voor dit team te ontvangen, kunt u deze e-mail weggooien.',
 
-    'send_email' => 'Verstuur email',
 ];

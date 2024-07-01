@@ -20,7 +20,8 @@ return [
     'manage_api_tokens' => 'Beheer API-tokens',
     'may_delete'        => 'U kunt al uw bestaande tokens verwijderen als ze niet langer nodig zijn.',
 
-    'permissions' => 'Rechten',
+    'permissions' => 'Machtigingen',
+    'permissions_edit' => "Machtigingen bewerkens",
     'please_copy' => 'Kopieer uw nieuwe API-token. Voor uw veiligheid wordt deze niet opnieuw weergegeven.',
 
     'save' => 'Bewaren',

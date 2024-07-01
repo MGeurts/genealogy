@@ -35,6 +35,7 @@ return [
     'team_pending'         => 'Ausstehende Teameinladungen',
     'team_pending_message' => 'Diese Personen wurden in Ihr Team eingeladen und haben eine Einladungs-E-Mail erhalten. Sie können dem Team beitreten, indem Sie die E-Mail-Einladung annehmen.',
 
+    'change_role'          => 'Rolle wechseln',
     'team_members'         => 'Teammitglieder',
     'team_members_message' => 'Alle Menschen, die Teil dieses Teams sind.',
     'manage_role'          => 'Rolle verwalten',
@@ -44,6 +45,7 @@ return [
     'remove'               => 'Entfernen',
     'remove_member'        => 'Teammitglied entfernen',
     'remove_member_sure'   => 'Sind Sie sicher, dass Sie diese Person aus dem Team entfernen möchten?',
+    'send_email'           => 'E-Mail senden',
 
     'user_not_found'       => 'Wir konnten keinen registrierten Benutzer mit dieser E-Mail-Adresse finden.',
     'user_already_in_team' => 'Dieser Benutzer gehört bereits zum Team.',
@@ -62,5 +64,4 @@ return [
     'accept_invitation'          => 'Die Einladung annehmen',
     'discard'                    => 'Wenn Sie nicht damit gerechnet haben, eine Einladung zu diesem Team zu erhalten, können Sie diese E-Mail verwerfen.',
 
-    'send_email' => 'Sende E-Mail',
 ];

@@ -84,14 +84,15 @@
                                     @endif
 
                                     @if (Laravel\Jetstream\Jetstream::hasPermissions())
-                                        <button class="cursor-pointer ms-6 text-sm text-gray-400 underline" wire:click="manageApiTokenPermissions({{ $token->id }})">
+                                        <x-ts-button sm color="primary" class="min-w-28 ms-3 text-sm" wire:click="manageApiTokenPermissions({{ $token->id }})"
+                                            title="{{ __('api.permissions_edit') }}">
                                             {{ __('api.permissions') }}
-                                        </button>
+                                        </x-ts-button>
                                     @endif
 
-                                    <button class="cursor-pointer ms-6 text-sm text-red-500" wire:click="confirmApiTokenDeletion({{ $token->id }})">
+                                    <x-ts-button sm color="danger" class="min-w-28 ms-3 text-sm" wire:click="confirmApiTokenDeletion({{ $token->id }})" title="{{ __('api.delete_api_token') }}">
                                         {{ __('api.delete') }}
-                                    </button>
+                                    </x-ts-button>
                                 </div>
                             </div>
                         @endforeach

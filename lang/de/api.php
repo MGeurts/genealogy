@@ -21,6 +21,7 @@ return [
     'may_delete'        => 'Sie können alle Ihre vorhandenen Token löschen, wenn sie nicht mehr benötigt werden.',
 
     'permissions' => 'Berechtigungen',
+    'permissions_edit' => "Berechtigungen bearbeiten",
     'please_copy' => 'Bitte kopieren Sie Ihr neues API-Token. Zu Ihrer Sicherheit wird es nicht erneut angezeigt.',
 
     'save' => 'Speichern',

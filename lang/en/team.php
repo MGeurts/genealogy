@@ -36,15 +36,17 @@ return [
     'team_pending'         => 'Pending Team Invitations',
     'team_pending_message' => 'These people have been invited to your team and have been sent an invitation email. They may join the team by accepting the email invitation.',
 
+    'change_role'          => 'Change role',
     'team_members'         => 'Team members',
     'team_members_message' => 'All of the people that are part of this team.',
     'manage_role'          => 'Manage role',
     'leave'                => 'Leave',
-    'leave_team'           => 'Leave Team',
+    'leave_team'           => 'Leave team',
     'leave_team_sure'      => 'Are you sure you would like to leave this team?',
     'remove'               => 'Remove',
-    'remove_member'        => 'Remove Team Member',
+    'remove_member'        => 'Remove team member',
     'remove_member_sure'   => 'Are you sure you would like to remove this person from the team?',
+    'send_email'           => 'Send email',
 
     'user_not_found'       => 'We were unable to find a registered user with this email address.',
     'user_already_in_team' => 'This user already belongs to the team.',
@@ -63,5 +65,4 @@ return [
     'accept_invitation'          => 'Accept Invitation',
     'discard'                    => 'If you did not expect to receive an invitation to this team, you may discard this email.',
 
-    'send_email' => 'Send email',
 ];
