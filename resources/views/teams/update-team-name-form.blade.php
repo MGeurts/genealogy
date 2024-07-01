@@ -21,7 +21,11 @@
 
                 <div class="ms-4 leading-tight">
                     <div class="text-gray-700 text-sm">{{ $team->owner->name }}</div>
-                    <div class="text-gray-700 text-sm">{{ $team->owner->email }}</div>
+                    <div class="text-gray-700 text-sm">
+                        <x-ts-link href="mailto:{{ $team->owner->email }}" title="{{ __('team.send_email') }}" icon="mail" position="right">
+                            {{ $team->owner->email }}
+                        </x-ts-link>
+                    </div>
                 </div>
             </div>
         </div>

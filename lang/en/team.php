@@ -63,4 +63,5 @@ return [
     'accept_invitation'          => 'Accept Invitation',
     'discard'                    => 'If you did not expect to receive an invitation to this team, you may discard this email.',
 
+    'send_email' => 'Send email',
 ];

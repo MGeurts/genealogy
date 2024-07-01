@@ -62,4 +62,5 @@ return [
     'accept_invitation'          => 'Uitnodiging accepteren',
     'discard'                    => 'Als u niet verwachtte een uitnodiging voor dit team te ontvangen, kunt u deze e-mail weggooien.',
 
+    'send_email' => 'Verstuur email',
 ];

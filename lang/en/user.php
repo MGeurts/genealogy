@@ -76,7 +76,7 @@ return [
     'enter_password'           => 'Please enter your password to confirm you would like to log out of your other browser sessions across all of your devices.',
     'done'                     => 'Done.',
 
-    'delete_account'             => 'Delete Account',
+    'delete_account'             => 'Delete account',
     'delete_account_permanently' => 'Permanently delete your account.',
     'once_deleted'               => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
     'sure'                       => 'Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.',

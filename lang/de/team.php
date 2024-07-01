@@ -61,4 +61,6 @@ return [
     'may_accept'                 => 'Sie können diese Einladung annehmen, indem Sie auf die Schaltfläche unten klicken:',
     'accept_invitation'          => 'Die Einladung annehmen',
     'discard'                    => 'Wenn Sie nicht damit gerechnet haben, eine Einladung zu diesem Team zu erhalten, können Sie diese E-Mail verwerfen.',
+
+    'send_email' => 'Sende E-Mail',
 ];
