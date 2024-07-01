@@ -378,9 +378,11 @@ Users can click a button in the top right-hand menu to open the <b>offcanvas men
 On top the users role and permissions in the current team are shown.<br/>
 If a user has the proper rights, additional features are presented.
 
-<img src="img/help/genealogy-006b.webp" class="rounded" alt="Offcanvas menu">
+<img src="img/help/genealogy-006.webp" class="rounded" alt="Offcanvas menu">
 
 ### a. Teams & people
+
+The offcanvas menu allows <b>developers</b> to consult all teams and people.
 
 <img src="img/help/genealogy-090aa.webp" class="rounded" alt="Teams">
 <img src="img/help/genealogy-090bb.webp" class="rounded" alt="People">
@@ -426,14 +428,14 @@ The <b>Session</b> menu item allows <b>developers</b> to consult the application
 ### a. Visitors
 
 Visitor can change the language in the top right-hand menu by using the <b>language selector</b>.<br/>
-De default application language is English.
+De <b>default</b> application language is <b>English</b>.
 
 <img src="img/help/genealogy-002aa.webp" class="rounded" alt="Language menu">
 
 ### b. Authenticated users
 
 Authenticated users can change the language and the timezone in the top right-hand menu by using the <b>profile editor</b>.<br/>
-The selected language and timezone are saved in the database for further use.
+The selected language and timezone are saved to the database.
 
 <img src="img/help/genealogy-002d.webp" class="rounded" alt="Profile editor">
 
@@ -443,6 +445,7 @@ The selected language and timezone are saved in the database for further use.
 
 ## 9. Color theme
 
-Users can change the color theme in the top right-hand menu by using the <b>theme selector</b>.<br/>
+Users can change the color theme in the top right-hand menu by using the <b>theme icon</b>.<br/>
+The <b>default</b> application theme is <b>Dark mode</b>.
 
 <img src="img/help/genealogy-002aa.webp" class="rounded" alt="Theme selector">
