@@ -27,7 +27,7 @@ class Import extends Component
 
     public $file = null;
 
-    public $output = '<div>Awaiting input ...</div>';
+    public $output = null;
 
     // -----------------------------------------------------------------------
     public function rules()
@@ -35,7 +35,7 @@ class Import extends Component
         return $rules = [
             'name'        => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:255'],
-            'file'        => ['required', 'file', 'required'],
+            'file'        => ['required', 'file'],
         ];
     }
 
@@ -60,49 +60,53 @@ class Import extends Component
 
     public function importTeam(): void
     {
+        // -----------------------------------------------------------------------
         // validate input
-        $input = $this->validate();
+        // $input = $this->validate();
 
-        AddingTeam::dispatch($this->user);
+        // AddingTeam::dispatch($this->user);
 
         // create and switch team
-        $this->user->switchTeam($team = $this->user->ownedTeams()->create([
-            'name'          => $input['name'],
-            'description'   => $input['description'] ?? null,
-            'personal_team' => false,
-        ]));
+        // $this->user->switchTeam($team = $this->user->ownedTeams()->create([
+        //     'name'          => $input['name'],
+        //     'description'   => $input['description'] ?? null,
+        //     'personal_team' => false,
+        // ]));
 
-        if ($this->file) {
-            $this->file->storeAs(path: 'public/imports', name: $this->file->getClientOriginalName());
+        // -----------------------------------------------------------------------
+        //if ($this->file) {
+        //    $this->file->storeAs(path: 'public/imports', name: $this->file->getClientOriginalName());
 
-            $parser = new \Gedcom\Parser();
+        $parser = new \Gedcom\Parser();
 
-            //$gedcom = $parser->parse('./gedcom/royals_nl.ged');
-            $gedcom = $parser->parse(asset('storage/imports/' . $this->file->getClientOriginalName()));
+        //$gedcom = $parser->parse(asset('storage/imports/' . $this->file->getClientOriginalName()));
+        $gedcom = $parser->parse('storage/imports/demo.ged');
 
-            $this->stream(to: 'output', content: '<div>Processing ...</div>', replace: true); 
+        $this->stream(to: 'stream', content: '<br/><div>Processing ...</div>', replace: false);
+        $this->output .= '<br/><div>Processing ...</div>';
 
-            $count_indi = $count_fam= 0;
-            
-            foreach ($gedcom->getIndi() as $individual) {
-                $names = $individual->getName();
+        $count_indi = $count_fam = 0;
 
-                if (! empty($names)) {
-                    $name = reset($names); // Get the first name object from the array
+        foreach ($gedcom->getIndi() as $individual) {
+            $names = $individual->getName();
 
-                    $line = '<div>' . $individual->getId() . ' : ' . $name->getSurn() . ', ' . $name->getGivn() . '</div>';
-                    $this->stream(to: 'output', content: $line);
+            if (! empty($names)) {
+                $name = reset($names); // Get the first name object from the array
 
-                    $count_indi++;
-                }
+                $line = '<div>' . $individual->getId() . ' : ' . $name->getSurn() . ', ' . $name->getGivn() . '</div>';
+                $this->stream(to: 'stream', content: $line);
+                $this->output .= $line;
 
-                usleep(100);
+                $count_indi++;
             }
 
-            $this->output = '<div>Done.</div><div>Imported ' . $count_indi . ' individuals.</div><div>Imported ' . $count_fam . ' families.</div>'; 
-
-            $this->toast()->success(__('app.saved'), 'Done.')->send();
+            usleep(250);
         }
+        // -----------------------------------------------------------------------
+        $this->output .= '<br/><div>Done.</div><div>Imported ' . $count_indi . ' individuals.</div><div>Imported ' . $count_fam . ' families.</div>';
+
+        $this->toast()->success(__('app.saved'), 'Done.')->send();
+        //}
     }
 
     // -----------------------------------------------------------------------

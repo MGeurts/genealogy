@@ -141,7 +141,10 @@
                     <br />
 
                     <li class="py-2">
-                        <x-link href="https://github.com/liberu-genealogy/php-gedcom" target="_blank">liberu-genealogy/php-gedco</x-link> - POSSIBLE CANDIDATE
+                        <x-link href="https://github.com/liberu-genealogy/php-gedcom" target="_blank">liberu-genealogy/php-gedcom</x-link> - POSSIBLE CANDIDATE
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://github.com/liberu-genealogy/laravel-gedcom" target="_blank">liberu-genealogy/laravel-gedcom</x-link> - POSSIBLE CANDIDATE
                     </li>
                 </ul>
             </x-ts-tab.items>

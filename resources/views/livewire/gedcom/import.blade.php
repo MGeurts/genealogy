@@ -69,10 +69,12 @@
         </x-slot>
     </x-form-section>
 
-    <div class="my-2 dark:text-gray-400">{{ __('app.terminal') }} :</div>
+    <div>
+        <div class="my-2 dark:text-gray-400">{{ __('app.terminal') }} :</div>
 
-    <div class="terminal rounded dark:border-2 dark:border-white" wire:stream="output">
-        {!! $output !!}
+        <div class="terminal rounded dark:border-2 dark:border-white" wire:stream="stream">
+            {!! $output !!}
+        </div>
     </div>
 
     @push('styles')
