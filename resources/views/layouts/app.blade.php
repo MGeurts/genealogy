@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data="tallstackui_darkTheme()" x-bind:class="{ 'dark bg-gray-900': darkTheme, 'bg-gray-100': !darkTheme }">
+<html dir="ltr" lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data="tallstackui_darkTheme(null, true)" x-bind:class="{ 'dark bg-gray-900': darkTheme, 'bg-gray-100': !darkTheme }">
 
 <head>
     <meta charset="utf-8">
