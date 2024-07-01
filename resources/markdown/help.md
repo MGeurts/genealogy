@@ -72,7 +72,7 @@ The personal team and all teams created by a user are also <b>owned</b> by that 
 Only the owner can invite other (new or already registered) users (by e-mail) to join the owned teams.
 </span>
 
-<img src="img/help/genealogy-005bb.webp" class="rounded" alt="Team management">
+<img src="img/help/genealogy-005b.webp" class="rounded" alt="Team management">
 
 <span style="color:red">
     Create a <b>new and seperate team</b> for each <b>family tree</b> you want to manage and invite other users to it</b>.<br/>
@@ -82,8 +82,8 @@ Only the owner can invite other (new or already registered) users (by e-mail) to
 Authenticated users can only see <b>people</b> and <b>couples</b>:
 
 <ul>
-    <li>created by the teams they <b>own</b></li>
-    <li>created by the teams they were invited to by the team owner as <b>administrator</b>, <b>manager</b> or <b>editor</b> or <b>member</b></li>
+    <li>created by the teams they <b>own</b> themselves</li>
+    <li>created by the teams they were invited to <b>by the team owner</b> as either <b>administrator</b>, <b>manager</b>, <b>editor</b> or <b>member</b></li>
 </ul>
 
 ### d. Roles & permissions
