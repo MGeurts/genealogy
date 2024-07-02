@@ -8,6 +8,27 @@ use App\Http\Controllers\Controller;
 
 class DeveloperController extends Controller
 {
+    public function teams()
+    {
+        return view('back.developer.teams');
+    }
+
+    public function people()
+    {
+        return view('back.developer.people');
+    }
+
+    public function peoplelog()
+    {
+        return view('back.developer.peoplelog');
+    }
+
+    public function users()
+    {
+        return view('back.developer.users');
+    }
+
+    // --------------------------------------------------------------------------------
     public function dependencies()
     {
         return view('back.developer.dependencies');
@@ -21,27 +42,5 @@ class DeveloperController extends Controller
     public function test()
     {
         return view('back.developer.test');
-    }
-
-    // --------------------------------------------------------------------------------
-
-    public function people()
-    {
-        return view('back.developer.people');
-    }
-
-    public function peoplelog()
-    {
-        return view('back.developer.peoplelog');
-    }
-
-    public function teams()
-    {
-        return view('back.developer.teams');
-    }
-
-    public function users()
-    {
-        return view('back.developer.users');
     }
 }

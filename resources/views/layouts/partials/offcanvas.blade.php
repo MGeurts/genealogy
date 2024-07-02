@@ -41,17 +41,17 @@
                     <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('teams') }}" :active="request()->routeIs('teams')">
+                        <x-nav-link-responsive href="{{ route('developer.teams') }}" :active="request()->routeIs('developer.teams')">
                             {{ __('team.teams') }}
                         </x-nav-link-responsive>
                     </p>
                     <p>
-                        <x-nav-link-responsive href="{{ route('people') }}" :active="request()->routeIs('people')">
+                        <x-nav-link-responsive href="{{ route('developer.people') }}" :active="request()->routeIs('developer.people')">
                             {{ __('person.people') }}
                         </x-nav-link-responsive>
                     </p>
                     <p>
-                        <x-nav-link-responsive href="{{ route('peoplelog') }}" :active="request()->routeIs('peoplelog')">
+                        <x-nav-link-responsive href="{{ route('developer.peoplelog') }}" :active="request()->routeIs('developer.peoplelog')">
                             {{ __('person.people_log') }}
                         </x-nav-link-responsive>
                     </p>
@@ -61,7 +61,7 @@
                     <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('users') }}" :active="request()->routeIs('users')">
+                        <x-nav-link-responsive href="{{ route('developer.users') }}" :active="request()->routeIs('developer.users')">
                             {{ __('user.users') }}
                         </x-nav-link-responsive>
                     </p>
@@ -113,13 +113,13 @@
                     <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('dependencies') }}" :active="request()->routeIs('dependencies')">
+                        <x-nav-link-responsive href="{{ route('developer.dependencies') }}" :active="request()->routeIs('developer.dependencies')">
                             {{ __('app.dependencies') }}
                         </x-nav-link-responsive>
                     </p>
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('session') }}" :active="request()->routeIs('session')">
+                        <x-nav-link-responsive href="{{ route('developer.session') }}" :active="request()->routeIs('developer.session')">
                             {{ __('app.session') }}
                         </x-nav-link-responsive>
                     </p>

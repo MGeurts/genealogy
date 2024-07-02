@@ -62,14 +62,14 @@ Route::middleware([
         // pages
         // -----------------------------------------------------------------------------------------------
         Route::controller(App\Http\Controllers\Back\DeveloperController::class)->group(function () {
-            Route::get('dependencies', 'dependencies')->name('dependencies');
-            Route::get('session', 'session')->name('session');
-            Route::get('test', 'test')->name('test');
+            Route::get('teams', 'teams')->name('developer.teams');
+            Route::get('people', 'people')->name('developer.people');
+            Route::get('peoplelog', 'peoplelog')->name('developer.peoplelog');
+            Route::get('users', 'users')->name('developer.users');
 
-            Route::get('people', 'people')->name('people');
-            Route::get('peoplelog', 'peoplelog')->name('peoplelog');
-            Route::get('teams', 'teams')->name('teams');
-            Route::get('users', 'users')->name('users');
+            Route::get('dependencies', 'dependencies')->name('developer.dependencies');
+            Route::get('session', 'session')->name('developer.session');
+            Route::get('test', 'test')->name('developer.test');
         });
 
         // -----------------------------------------------------------------------------------------------
