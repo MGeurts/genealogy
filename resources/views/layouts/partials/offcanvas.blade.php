@@ -67,25 +67,25 @@
                     </p>
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('userlogs.log') }}" :active="request()->routeIs('userlogs.log')">
+                        <x-nav-link-responsive href="{{ route('developer.userlogs.log') }}" :active="request()->routeIs('developer.userlogs.log')">
                             {{ __('userlog.users_log') }}
                         </x-nav-link-responsive>
                     </p>
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('userlogs.origin') }}" :active="request()->routeIs('userlogs.origin')">
+                        <x-nav-link-responsive href="{{ route('developer.userlogs.origin') }}" :active="request()->routeIs('developer.userlogs.origin')">
                             {{ __('userlog.users_origin') }}
                         </x-nav-link-responsive>
                     </p>
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('userlogs.origin-map') }}" :active="request()->routeIs('userlogs.origin-map')">
+                        <x-nav-link-responsive href="{{ route('developer.userlogs.origin-map') }}" :active="request()->routeIs('developer.userlogs.origin-map')">
                             {{ __('userlog.users_origin') }} (Map)
                         </x-nav-link-responsive>
                     </p>
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('userlogs.period') }}" :active="request()->routeIs('userlogs.period')">
+                        <x-nav-link-responsive href="{{ route('developer.userlogs.period') }}" :active="request()->routeIs('developer.userlogs.period')">
                             {{ __('userlog.users_stats') }}
                         </x-nav-link-responsive>
                     </p>
@@ -95,7 +95,7 @@
                     <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('backups') }}" :active="request()->routeIs('backups')">
+                        <x-nav-link-responsive href="{{ route('developer.backups') }}" :active="request()->routeIs('developer.backups')">
                             {{ __('Backups') }}
                         </x-nav-link-responsive>
                     </p>
