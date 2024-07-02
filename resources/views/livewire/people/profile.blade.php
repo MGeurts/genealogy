@@ -102,7 +102,7 @@
                     <td class="pl-2">
                         {{ $person->birth_formatted }}
                         @if ($person->isBirthdayToday())
-                            <x-ts-icon icon="cake" class="size-5 text-warning" />
+                            <x-ts-icon icon="cake" class="size-5 inline-block text-danger-600 dark:!text-danger-400" />
                         @endif
                     </td>
                 </tr>
@@ -117,7 +117,7 @@
                         <td class="pl-2">
                             {{ $person->death_formatted }}
                             @if ($person->isDeathdayToday())
-                                <x-ts-icon icon="cake" class="size-5 text-warning" />
+                                <x-ts-icon icon="cake" class="size-5 inline-block text-danger-600 dark:!text-danger-400" />
                             @endif
                         </td>
                     </tr>

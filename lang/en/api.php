@@ -20,9 +20,9 @@ return [
     'manage_api_tokens' => 'Manage API Tokens',
     'may_delete'        => 'You may delete any of your existing tokens if they are no longer needed.',
 
-    'permissions' => 'Permissions',
-    'permissions_edit' => "Edit permissions",
-    'please_copy' => 'Please copy your new API token. For your security, it won\'t be shown again.',
+    'permissions'      => 'Permissions',
+    'permissions_edit' => 'Edit permissions',
+    'please_copy'      => 'Please copy your new API token. For your security, it won\'t be shown again.',
 
     'save' => 'Save',
     'sure' => 'Are you sure you would like to delete this API token?',

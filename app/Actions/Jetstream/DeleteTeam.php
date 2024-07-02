@@ -16,16 +16,16 @@ class DeleteTeam implements DeletesTeams
         // -----------------------------------------------------------------------
         // delete team photo folders
         // -----------------------------------------------------------------------
-        if (storage::disk('photos')->exists($team->id)) {
-            Storage::disk('photos')->deleteDirectory($team->id);
+        if (storage::disk('photos')->exists(strval($team->id))) {
+            Storage::disk('photos')->deleteDirectory(strval($team->id));
         }
 
-        if (storage::disk('photos-096')->exists($team->id)) {
-            Storage::disk('photos-096')->deleteDirectory($team->id);
+        if (storage::disk('photos-096')->exists(strval($team->id))) {
+            Storage::disk('photos-096')->deleteDirectory(strval($team->id));
         }
 
-        if (storage::disk('photos-384')->exists($team->id)) {
-            Storage::disk('photos-384')->deleteDirectory($team->id);
+        if (storage::disk('photos-384')->exists(strval($team->id))) {
+            Storage::disk('photos-384')->deleteDirectory(strval($team->id));
         }
         // -----------------------------------------------------------------------
 

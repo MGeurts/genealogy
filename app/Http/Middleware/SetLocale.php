@@ -21,7 +21,7 @@ class SetLocale
 
         $language = $request->user()->language;
 
-        if (isset($language)) {
+        if (! empty($language)) {
             app()->setLocale($language);
         }
 

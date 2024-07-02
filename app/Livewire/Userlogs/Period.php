@@ -71,7 +71,7 @@ class Period extends Component
                 ->groupBy('period')
                 ->orderBy('period')
                 ->get(),
-            'day' => Userlog::selectRaw('DATE_FORMAT(created_at, "%Y-%m-%d") AS period')
+            default => Userlog::selectRaw('DATE_FORMAT(created_at, "%Y-%m-%d") AS period')
                 ->selectRaw('COUNT(*) AS visitors')
                 ->whereYear('created_at', $this->year)
                 ->groupBy('period')

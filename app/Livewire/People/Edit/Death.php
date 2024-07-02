@@ -7,6 +7,7 @@ namespace App\Livewire\People\Edit;
 use App\Livewire\Forms\People\DeathForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
+use Carbon\Carbon;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -26,7 +27,7 @@ class Death extends Component
         $this->deathForm->person = $this->person;
 
         $this->deathForm->yod = $this->person->yod;
-        $this->deathForm->dod = $this->person->dod?->format('Y-m-d');
+        $this->deathForm->dod = $this->person->dod ? Carbon::parse($this->person->dod)->format('Y-m-d') : null;
         $this->deathForm->pod = $this->person->pod;
 
         $this->deathForm->cemetery_location_name      = $this->person->getMetadataValue('cemetery_location_name');
@@ -71,7 +72,7 @@ class Death extends Component
     {
         return
         $this->deathForm->yod != $this->person->yod or
-        $this->deathForm->dod != ($this->person->dod ? $this->person->dod->format('Y-m-d') : null) or
+        $this->deathForm->dod != ($this->person->dod ? Carbon::parse($this->person->dod)->format('Y-m-d') : null) or
         $this->deathForm->pod != $this->person->pod or
 
         $this->deathForm->cemetery_location_name != $this->person->getMetadataValue('cemetery_location_name') or

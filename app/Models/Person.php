@@ -125,7 +125,7 @@ class Person extends Model implements HasMedia
         }
     }
 
-    public function scopePartnerOffset(Builder $query, ?string $birth_date, ?string $birth_year, string $offset = '40'): void
+    public function scopePartnerOffset(Builder $query, ?string $birth_date, ?int $birth_year, int $offset = 40): void
     {
         // ------------------------------------------------------------------
         // offset : possible partners can be +/- n years older or younger
@@ -338,12 +338,12 @@ class Person extends Model implements HasMedia
 
     public function isBirthdayToday(): bool
     {
-        return $this->dob ? $this->dob->isBirthday() : false;
+        return $this->dob ? Carbon::parse($this->dob)->isBirthday() : false;
     }
 
     public function isDeathdayToday(): bool
     {
-        return $this->dod ? $this->dod->isBirthday() : false;
+        return $this->dod ? Carbon::parse($this->dod)->isBirthday() : false;
     }
 
     /* -------------------------------------------------------------------------------------------- */
