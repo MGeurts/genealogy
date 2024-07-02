@@ -65,6 +65,9 @@
             <x-ts-tab.items tab="Github">
                 <ul class="w-full ml-4">
                     <li class="py-2">
+                        <x-link href="https://github.com/barryvdh/laravel-ide-helper/" target="_blank">barryvdh/laravel-ide-helper</x-link>
+                    </li>
+                    <li class="py-2">
                         <x-link href="https://github.com/csstools/postcss-plugins/" target="_blank">csstools/postcss-plugins</x-link> (needed by Filament Table Builder)
                     </li>
                     <li class="py-2">
@@ -141,10 +144,12 @@
                     <br />
 
                     <li class="py-2">
-                        <x-link href="https://github.com/liberu-genealogy/php-gedcom" target="_blank">liberu-genealogy/php-gedcom</x-link> - POSSIBLE CANDIDATE
+                        <x-link href="https://github.com/liberu-genealogy/php-gedcom" target="_blank">liberu-genealogy/php-gedcom</x-link>
+                        <x-ts-badge xs color="secondary" class="ms-5">Possible candidate</x-ts-badge>
                     </li>
                     <li class="py-2">
-                        <x-link href="https://github.com/liberu-genealogy/laravel-gedcom" target="_blank">liberu-genealogy/laravel-gedcom</x-link> - POSSIBLE CANDIDATE
+                        <x-link href="https://github.com/liberu-genealogy/laravel-gedcom" target="_blank">liberu-genealogy/laravel-gedcom</x-link>
+                        <x-ts-badge xs color="secondary" class="ms-5">Possible candidate</x-ts-badge>
                     </li>
                 </ul>
             </x-ts-tab.items>
