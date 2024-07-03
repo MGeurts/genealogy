@@ -87,16 +87,6 @@ class AppServiceProvider extends ServiceProvider
         // TallStackUi::personalize()->button()
         //     ->block('wrapper.class')->replace('gap-x-2', 'gap-x-0');
 
-        TallStackUi::personalize()->tab()
-            ->block('base.wrapper')->replace('rounded-lg', 'rounded')
-            ->block('base.wrapper')->replace('dark:bg-dark-700', 'dark:bg-neutral-700')
-            ->block('item.select')->replace('dark:text-dark-300', 'dark:text-neutral-50');
-
-        TallStackUi::personalize()->slide()
-            ->block('wrapper.first')->replace('bg-opacity-50', 'bg-opacity-20')
-            ->block('wrapper.fifth')->replace('dark:bg-dark-700', 'dark:bg-dark-900')
-            ->block('footer')->append('dark:text-secondary-600');
-
         TallStackUi::personalize()->card()
             ->block('wrapper.first')->replace('gap-4', 'gap-2')
             ->block('wrapper.second')->replace('rounded-lg', 'rounded')
@@ -105,13 +95,26 @@ class AppServiceProvider extends ServiceProvider
             ->block('footer.wrapper', 'text-secondary-700 dark:text-dark-300 dark:border-t-neutral-600 rounded rounded-t-none border-t p-2')
             ->block('footer.text', 'flex items-center justify-end gap-2');
 
-        TallStackUi::personalize()->table()
-            ->block('wrapper.class')->replace('rounded-lg', 'rounded')
-            ->block('table.td')->replace('py-4', 'py-2');
+        TallStackUi::personalize()->dropdown()
+            ->block('action.icon')->replace('text-gray-400', 'text-primary-500 dark:text-primar-300');
 
         TallStackUi::personalize()->form('input')
             ->block('input.wrapper')->replace('rounded-md', 'rounded')
             ->block('input.base')->replace('rounded-md', 'rounded');
+
+        TallStackUi::personalize()->slide()
+            ->block('wrapper.first')->replace('bg-opacity-50', 'bg-opacity-20')
+            ->block('wrapper.fifth')->replace('dark:bg-dark-700', 'dark:bg-dark-900')
+            ->block('footer')->append('dark:text-secondary-600');
+
+        TallStackUi::personalize()->tab()
+            ->block('base.wrapper')->replace('rounded-lg', 'rounded')
+            ->block('base.wrapper')->replace('dark:bg-dark-700', 'dark:bg-neutral-700')
+            ->block('item.select')->replace('dark:text-dark-300', 'dark:text-neutral-50');
+
+        TallStackUi::personalize()->table()
+            ->block('wrapper.class')->replace('rounded-lg', 'rounded')
+            ->block('table.td')->replace('py-4', 'py-2');
 
         // -----------------------------------------------------------------------
         // timezone management

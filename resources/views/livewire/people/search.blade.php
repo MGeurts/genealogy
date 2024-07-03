@@ -59,7 +59,7 @@
 
         {{-- search box --}}
         <x-ts-input wire:model.live.debounce.500ms="search" type="search" icon="search"
-            hint="{{ __('person.insert_tip_1') }} <span class='text-danger-600 dark:!text-danger-400'>{{ __('person.insert_tip_2') }}</span>" placeholder="{{ __('app.people_search_placeholder') }}"
+            hint="{{ __('person.insert_tip_1') }} <span class='text-danger-600 dark:text-danger-400'>{{ __('person.insert_tip_2') }}</span>" placeholder="{{ __('app.people_search_placeholder') }}"
             autofocus />
 
         {{-- footer : perpage and pagination --}}

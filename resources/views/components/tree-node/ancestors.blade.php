@@ -26,7 +26,7 @@
                     @endif
                 </div>
 
-                <figcaption class="{{ ($person->dod or $person->yod) ? 'text-danger-600 dark:!text-danger-400' : 'text-primary-500 dark:!text-primary-300' }}">
+                <figcaption class="{{ ($person->dod or $person->yod) ? 'text-danger-600 dark:text-danger-400' : 'text-primary-500 dark:text-primary-300' }}">
                     {{ implode(' ', array_filter([$person->firstname, $person->surname])) }}
                 </figcaption>
             </figure>

@@ -13,7 +13,7 @@
     {{-- data --}}
     <div class="p-2 pb-0">
         <p>
-            <x-link href="/people/{{ $person->id }}" class="{{ $person->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+            <x-link href="/people/{{ $person->id }}" class="{{ $person->isDeceased() ? 'text-danger-600 dark:text-danger-400' : '' }}">
                 {{ $person->name }}
             </x-link>
             <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />
@@ -23,7 +23,7 @@
         <x-hr.narrow />
         <p class="py-1">{{ __('person.father') }} :
             @if ($person->father)
-                <x-link href="/people/{{ $person->father->id }}" class="{{ $person->father->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+                <x-link href="/people/{{ $person->father->id }}" class="{{ $person->father->isDeceased() ? 'text-danger-600 dark:text-danger-400' : '' }}">
                     {{ $person->father->name }}
                 </x-link>
                 <x-ts-icon icon="{{ $person->father->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />
@@ -32,7 +32,7 @@
 
         <p class="py-1">{{ __('person.mother') }} :
             @if ($person->mother)
-                <x-link href="/people/{{ $person->mother->id }}" class="{{ $person->mother->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+                <x-link href="/people/{{ $person->mother->id }}" class="{{ $person->mother->isDeceased() ? 'text-danger-600 dark:text-danger-400' : '' }}">
                     {{ $person->mother->name }}
                 </x-link>
                 <x-ts-icon icon="{{ $person->mother->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />

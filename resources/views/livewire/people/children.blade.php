@@ -40,7 +40,7 @@
         @foreach ($children as $child)
             <div class="p-2 flex flex-wrap gap-2 justify-center items-start @if (!$loop->last) border-b @endif">
                 <div class="flex-grow min-w-max max-w-full flex-1">
-                    <x-link href="/people/{{ $child->id }}" class="{{ $child->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+                    <x-link href="/people/{{ $child->id }}" class="{{ $child->isDeceased() ? 'text-danger-600 dark:text-danger-400' : '' }}">
                         {{ $child->name }}
                     </x-link>
 

@@ -59,13 +59,13 @@
             <div class="p-2 flex flex-wrap gap-2 justify-center items-start @if (!$loop->last) border-b @endif">
                 <div class="flex-grow min-w-max max-w-full flex-1">
                     @if ($couple->person2_id === $person->id)
-                        <x-link href="/people/{{ $couple->person_1->id }}" class="{{ $couple->person_1->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+                        <x-link href="/people/{{ $couple->person_1->id }}" class="{{ $couple->person_1->isDeceased() ? 'text-danger-600 dark:text-danger-400' : '' }}">
                             {{ $couple->person_1->name }}
                         </x-link>
 
                         <x-ts-icon icon="{{ $couple->person_1->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />
                     @else
-                        <x-link href="/people/{{ $couple->person_2->id }}" class="{{ $couple->person_2->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+                        <x-link href="/people/{{ $couple->person_2->id }}" class="{{ $couple->person_2->isDeceased() ? 'text-danger-600 dark:text-danger-400' : '' }}">
                             {{ $couple->person_2->name }}
                         </x-link>
 
@@ -83,7 +83,7 @@
 
                         @if ($couple->date_end or $couple->has_ended)
                             <br />
-                            <x-ts-icon icon="hearts-off" class="size-5 inline-block text-danger-600 dark:!text-danger-400" />
+                            <x-ts-icon icon="hearts-off" class="size-5 inline-block text-danger-600 dark:text-danger-400" />
                             {{ $couple->date_end ? $couple->date_end->isoFormat('LL') : '??' }}
                         @endif
                     </p>

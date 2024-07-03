@@ -40,7 +40,7 @@
                             <tr class="align-top border-b transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
                                 <td class="whitespace-nowrap p-2 text-end">{{ $key + 1 }}.</td>
                                 <td class="whitespace-nowrap p-2">
-                                    <x-link href="/people/{{ $person->id }}" class="{{ $person->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+                                    <x-link href="/people/{{ $person->id }}" class="{{ $person->isDeceased() ? 'text-danger-600 dark:text-danger-400' : '' }}">
                                         {{ $person->name }}
                                     </x-link>
                                     <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />
@@ -59,7 +59,7 @@
 
                                     @if ($person->isDeceased())
                                         <br />
-                                        <span class="text-danger-600 dark:!text-danger-400">
+                                        <span class="text-danger-600 dark:text-danger-400">
                                             <x-ts-icon icon="coffin" class="inline-block mr-1" /> {{ $person->age }}
                                         </span>
                                     @endif

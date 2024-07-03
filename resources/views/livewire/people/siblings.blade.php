@@ -13,7 +13,7 @@
     @if (count($siblings) > 0)
         @foreach ($siblings as $sibling)
             <p @if ($loop->last) class="p-2" @else class="p-2 border-b" @endif>
-                <x-link href="/people/{{ $sibling->id }}" class="{{ $sibling->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+                <x-link href="/people/{{ $sibling->id }}" class="{{ $sibling->isDeceased() ? 'text-danger-600 dark:text-danger-400' : '' }}">
                     {{ $sibling->name }}
                 </x-link>
                 <x-ts-icon icon="{{ $sibling->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />
