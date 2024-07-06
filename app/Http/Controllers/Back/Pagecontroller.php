@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class Pagecontroller extends Controller
+class PageController extends Controller
 {
     public function teams()
     {
