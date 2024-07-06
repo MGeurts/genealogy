@@ -5,11 +5,11 @@
 
     {{-- role and permissions --}}
     <div class="pb-4">
-        <div class="rounded bg-secondary-100 p-4 text-base text-secondary-800" role="alert">
+        <div class="p-4 text-base rounded bg-secondary-100 text-secondary-800" role="alert">
             <div class="flex flex-row">
                 <div class="basis-1/2">
                     {{ __('auth.role') }} :
-                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
                     {{ __('auth.permissions') }} :
                 </div>
 
@@ -17,13 +17,13 @@
                     @auth
                         {{ auth()->user()->teamRole(auth()->user()->currentTeam)->name }}
 
-                        <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                        <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
                         @foreach (auth()->user()->teamPermissions(auth()->user()->currentTeam) as $permission)
                             {{ $permission }}<br />
                         @endforeach
                     @else
                         {{ __('auth.guest') }}
-                        <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                        <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
                     @endauth
                 </div>
             </div>
@@ -38,7 +38,7 @@
                 <div class="text-warning-500 dark:text-warning-200">{{ __('auth.developer') }} ...</div>
 
                 <div>
-                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
                         <x-nav-link-responsive href="{{ route('developer.teams') }}" :active="request()->routeIs('developer.teams')">
@@ -58,7 +58,7 @@
                 </div>
 
                 <div>
-                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
                         <x-nav-link-responsive href="{{ route('developer.users') }}" :active="request()->routeIs('developer.users')">
@@ -92,7 +92,7 @@
                 </div>
 
                 <div>
-                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
                         <x-nav-link-responsive href="{{ route('developer.backups') }}" :active="request()->routeIs('developer.backups')">
@@ -100,7 +100,7 @@
                         </x-nav-link-responsive>
                     </p>
 
-                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
                         <x-nav-link-responsive href="{{ url('log-viewer') }}" target="_blank">
@@ -110,7 +110,7 @@
                 </div>
 
                 <div>
-                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
                         <x-nav-link-responsive href="{{ route('developer.dependencies') }}" :active="request()->routeIs('developer.dependencies')">
@@ -127,19 +127,23 @@
             @else
                 {{-- other --}}
                 <div class="text-warning-500 dark:text-warning-200">{{ auth()->user()->teamRole(auth()->user()->currentTeam)->name }} ...</div>
+
+                <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
+
+                <p>
+                    <x-nav-link-responsive href="{{ route('teams') }}" :active="request()->routeIs('teams')">{{ __('team.teams') }}</x-nav-link-responsive>
+                </p>
             @endif
 
             {{-- all --}}
             <div>
-                <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                 <p>
-                    <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
-                        {{ __('app.help') }}
-                    </x-nav-link-responsive>
+                    <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">{{ __('app.help') }}</x-nav-link-responsive>
                 </p>
 
-                <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                 <p>
                     <x-nav-link-responsive href="{{ route('test') }}" :active="request()->routeIs('test')">Test</x-nav-link-responsive>
@@ -149,7 +153,7 @@
             {{-- guest --}}
             <div>{{ __('auth.guest') }} ...</div>
 
-            <div><x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" /></div>
+            <div><x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" /></div>
 
             <p>
                 <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
@@ -161,7 +165,7 @@
 
     <x-slot:footer end>
         <div class="flex items-center text-xs">
-            <div class="text-right px-2">
+            <div class="px-2 text-right">
                 {{ __('app.design_development') }}<br />
                 {{ __('app.by') }} <x-link href="https://www.kreaweb.be/" target="_blank">KREAWEB</x-link>
             </div>

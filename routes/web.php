@@ -21,6 +21,14 @@ Route::middleware([
     'verified',
 ])->group(function () {
     // -----------------------------------------------------------------------------------------------
+    // pages
+    // -----------------------------------------------------------------------------------------------
+    Route::controller(App\Http\Controllers\Back\PageController::class)->group(function () {
+        Route::get('teams', 'teams')->name('teams');
+        Route::get('test', 'test')->name('test');
+    });
+
+    // -----------------------------------------------------------------------------------------------
     // people
     // -----------------------------------------------------------------------------------------------
     Route::controller(App\Http\Controllers\Back\PeopleController::class)->group(function () {
@@ -49,9 +57,9 @@ Route::middleware([
     // -----------------------------------------------------------------------------------------------
     // gedcom
     // -----------------------------------------------------------------------------------------------
-    Route::controller(App\Http\Controllers\Back\GedcomController::class)->group(function () {
-        Route::get('export', 'export')->name('gedcom.export');
-        Route::get('import', 'import')->name('gedcom.import');
+    Route::controller(App\Http\Controllers\Back\GedcomController::class)->prefix('gedcom')->as('gedcom.')->group(function () {
+        Route::get('export', 'export')->name('export');
+        Route::get('import', 'import')->name('import');
     });
 
     // -----------------------------------------------------------------------------------------------
@@ -69,7 +77,6 @@ Route::middleware([
 
             Route::get('dependencies', 'dependencies')->name('dependencies');
             Route::get('session', 'session')->name('session');
-            Route::get('test', 'test')->name('test');
         });
 
         // -----------------------------------------------------------------------------------------------

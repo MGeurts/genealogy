@@ -7,7 +7,7 @@
         Test
     </x-slot>
 
-    <div class="grow max-w-5xl overflow-x-auto py-5 dark:text-neutral-200">
+    <div class="max-w-5xl py-5 overflow-x-auto grow dark:text-neutral-200">
 
         <p>Use this page to test components ...</p>
         <br />

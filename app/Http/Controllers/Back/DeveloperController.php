@@ -38,9 +38,4 @@ class DeveloperController extends Controller
     {
         return view('back.developer.session');
     }
-
-    public function test()
-    {
-        return view('back.developer.test');
-    }
 }
