@@ -5,36 +5,37 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
+use Illuminate\View\View;
 
 class DeveloperController extends Controller
 {
-    public function teams()
+    public function teams(): View
     {
         return view('back.developer.teams');
     }
 
-    public function people()
+    public function people(): View
     {
         return view('back.developer.people');
     }
 
-    public function peoplelog()
+    public function peoplelog(): View
     {
         return view('back.developer.peoplelog');
     }
 
-    public function users()
+    public function users(): View
     {
         return view('back.developer.users');
     }
 
     // --------------------------------------------------------------------------------
-    public function dependencies()
+    public function dependencies(): View
     {
         return view('back.developer.dependencies');
     }
 
-    public function session()
+    public function session(): View
     {
         return view('back.developer.session');
     }
