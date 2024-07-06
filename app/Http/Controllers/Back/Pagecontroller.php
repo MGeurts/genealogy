@@ -18,4 +18,9 @@ class PageController extends Controller
     {
         return view('back.test');
     }
+
+    public function remove_me()
+    {
+        //
+    }
 }
