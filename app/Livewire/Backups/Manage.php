@@ -115,7 +115,7 @@ class Manage extends Component
             $this->toast()->error(__('backup.backup'), __('backup.failed'))->flash()->send();
         }
 
-        $this->redirect('/backups');
+        $this->redirect('/developer/backups');
     }
 
     public function download(string $file_name)
@@ -144,7 +144,7 @@ class Manage extends Component
             $this->toast()->error(__('backup.backup'), __('backup.not_found'))->flash()->send();
         }
 
-        $this->redirect('/backups');
+        $this->redirect('/developer/backups');
     }
 
     // -----------------------------------------------------------------------
