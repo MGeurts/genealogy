@@ -16,7 +16,7 @@ class Team extends Component
             'currentTeam.persons',
             'currentTeam.couples',
             'currentTeam.couples.person_1',
-            'currentTeam.couples.person_2'
+            'currentTeam.couples.person_2',
         ])->find(auth()->user()->id);
     }
 
