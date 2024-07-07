@@ -22,11 +22,7 @@ class Teams extends Component implements HasForms, HasTable
     public function table(Table $table): Table
     {
         return $table
-            ->query(
-                Team::query()
-                    ->with('owner')
-                    ->withCount(['users', 'couples', 'persons'])
-            )
+            ->query(Team::query()->with('owner')->withCount(['users', 'couples', 'persons']))
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->label(__('team.id'))

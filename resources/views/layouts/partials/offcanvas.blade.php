@@ -46,6 +46,9 @@
                         </x-nav-link-responsive>
                     </p>
                     <p>
+                        <x-nav-link-responsive href="{{ route('team') }}" :active="request()->routeIs('team')">{{ __('team.team') }}</x-nav-link-responsive>
+                    </p>
+                    <p>
                         <x-nav-link-responsive href="{{ route('developer.people') }}" :active="request()->routeIs('developer.people')">
                             {{ __('person.people') }}
                         </x-nav-link-responsive>
@@ -131,7 +134,7 @@
                 <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                 <p>
-                    <x-nav-link-responsive href="{{ route('teams') }}" :active="request()->routeIs('teams')">{{ __('team.teams') }}</x-nav-link-responsive>
+                    <x-nav-link-responsive href="{{ route('team') }}" :active="request()->routeIs('team')">{{ __('team.team') }}</x-nav-link-responsive>
                 </p>
             @endif
 

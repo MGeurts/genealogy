@@ -9,9 +9,9 @@ use Illuminate\View\View;
 
 class PageController extends Controller
 {
-    public function teams(): View
+    public function team(): View
     {
-        return view('back.teams');
+        return view('back.team');
     }
 
     public function test(): View

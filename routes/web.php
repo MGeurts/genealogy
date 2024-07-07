@@ -24,7 +24,7 @@ Route::middleware([
     // pages
     // -----------------------------------------------------------------------------------------------
     Route::controller(App\Http\Controllers\Back\PageController::class)->group(function () {
-        Route::get('teams', 'teams')->name('teams');
+        Route::get('team', 'team')->name('team');
         Route::get('test', 'test')->name('test');
     });
 
