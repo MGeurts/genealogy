@@ -7,11 +7,11 @@
         {{ __('app.dependencies') }}
     </x-slot>
 
-    <div class="grow max-w-5xl overflow-x-auto py-5 dark:text-neutral-200">
+    <div class="max-w-5xl py-5 overflow-x-auto grow dark:text-neutral-200">
         <x-ts-tab selected="TallStack">
             {{-- tallstack --}}
             <x-ts-tab.items tab="TallStack">
-                <div class="grid md:grid-cols-2 gap-4">
+                <div class="grid gap-4 md:grid-cols-2">
                     <ul class="w-full ml-4">
                         <li class="py-2">
                             <x-link href="https://laravel.com/" target="_blank">Laravel</x-link> 11
@@ -38,24 +38,24 @@
                         </li>
                     </ul>
 
-                    <div class="max-w-96 grid grid-cols-4 gap-4 justify-items-center ml-4 mt-4">
-                        <div class="max-w-24 content-center">
-                            <img src="img/logo/laravel.webp" class="rounded" alt="laravel" title="Laravel" />
+                    <div class="grid grid-cols-4 gap-4 mt-4 ml-4 max-w-96 justify-items-center">
+                        <div class="content-center max-w-24">
+                            <img src="{{ url('img/logo/laravel.webp') }}" class="rounded" alt="laravel" title="Laravel" />
                         </div>
-                        <div class="max-w-24 content-center">
-                            <img src="img/logo/livewire.webp" class="rounded" alt="livewire" title="Livewire" />
+                        <div class="content-center max-w-24">
+                            <img src="{{ url('img/logo/livewire.webp') }}" class="rounded" alt="livewire" title="Livewire" />
                         </div>
-                        <div class="max-w-24 content-center">
-                            <img src="img/logo/alpinejs.webp" class="rounded" alt="alpinejs" title="alpine.js" />
+                        <div class="content-center max-w-24">
+                            <img src="{{ url('img/logo/alpinejs.webp') }}" class="rounded" alt="alpinejs" title="alpine.js" />
                         </div>
-                        <div class="max-w-24 content-center">
-                            <img src="img/logo/tailwindcss.webp" class="rounded" alt="tailwindcss" title="Tailwind CSS" />
+                        <div class="content-center max-w-24">
+                            <img src="{{ url('img/logo/tailwindcss.webp') }}" class="rounded" alt="tailwindcss" title="Tailwind CSS" />
                         </div>
-                        <div class="max-w-24 content-center col-span-2">
-                            <img src="img/logo/tallstackui.webp" class="rounded" alt="talstackui" title="TallStackUI" />
+                        <div class="content-center col-span-2 max-w-24">
+                            <img src="{{ url('img/logo/tallstackui.webp') }}" class="rounded" alt="talstackui" title="TallStackUI" />
                         </div>
-                        <div class="max-w-24 content-center col-span-2">
-                            <img src="img/logo/filament.webp" class="rounded" alt="filament" title="FilamentPhp" />
+                        <div class="content-center col-span-2 max-w-24">
+                            <img src="{{ url('img/logo/filament.webp') }}" class="rounded" alt="filament" title="Filament" />
                         </div>
                     </div>
                 </div>
