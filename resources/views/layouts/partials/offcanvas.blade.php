@@ -23,6 +23,7 @@
                         @endforeach
                     @else
                         {{ __('auth.guest') }}
+                        
                         <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
                     @endauth
                 </div>
@@ -41,12 +42,19 @@
                     <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
+                        <x-nav-link-responsive href="{{ route('team') }}" :active="request()->routeIs('team')">
+                            {{ __('team.team') }}
+                        </x-nav-link-responsive>
+                    </p>
+                </div>
+
+                <div>
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
+
+                    <p>
                         <x-nav-link-responsive href="{{ route('developer.teams') }}" :active="request()->routeIs('developer.teams')">
                             {{ __('team.teams') }}
                         </x-nav-link-responsive>
-                    </p>
-                    <p>
-                        <x-nav-link-responsive href="{{ route('team') }}" :active="request()->routeIs('team')">{{ __('team.team') }}</x-nav-link-responsive>
                     </p>
                     <p>
                         <x-nav-link-responsive href="{{ route('developer.people') }}" :active="request()->routeIs('developer.people')">
@@ -68,28 +76,24 @@
                             {{ __('user.users') }}
                         </x-nav-link-responsive>
                     </p>
-
-                    <p>
-                        <x-nav-link-responsive href="{{ route('developer.userlogs.log') }}" :active="request()->routeIs('developer.userlogs.log')">
-                            {{ __('userlog.users_log') }}
-                        </x-nav-link-responsive>
-                    </p>
-
                     <p>
                         <x-nav-link-responsive href="{{ route('developer.userlogs.origin') }}" :active="request()->routeIs('developer.userlogs.origin')">
                             {{ __('userlog.users_origin') }}
                         </x-nav-link-responsive>
                     </p>
-
                     <p>
                         <x-nav-link-responsive href="{{ route('developer.userlogs.origin-map') }}" :active="request()->routeIs('developer.userlogs.origin-map')">
                             {{ __('userlog.users_origin') }} (Map)
                         </x-nav-link-responsive>
                     </p>
-
                     <p>
                         <x-nav-link-responsive href="{{ route('developer.userlogs.period') }}" :active="request()->routeIs('developer.userlogs.period')">
                             {{ __('userlog.users_stats') }}
+                        </x-nav-link-responsive>
+                    </p>
+                    <p>
+                        <x-nav-link-responsive href="{{ route('developer.userlogs.log') }}" :active="request()->routeIs('developer.userlogs.log')">
+                            {{ __('userlog.users_log') }}
                         </x-nav-link-responsive>
                     </p>
                 </div>
@@ -131,11 +135,13 @@
                 {{-- other --}}
                 <div class="text-warning-500 dark:text-warning-200">{{ auth()->user()->teamRole(auth()->user()->currentTeam)->name }} ...</div>
 
-                <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
+                <div>
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
-                <p>
-                    <x-nav-link-responsive href="{{ route('team') }}" :active="request()->routeIs('team')">{{ __('team.team') }}</x-nav-link-responsive>
-                </p>
+                    <p>
+                        <x-nav-link-responsive href="{{ route('team') }}" :active="request()->routeIs('team')">{{ __('team.team') }}</x-nav-link-responsive>
+                    </p>
+                </div>
             @endif
 
             {{-- all --}}
@@ -145,7 +151,9 @@
                 <p>
                     <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">{{ __('app.help') }}</x-nav-link-responsive>
                 </p>
+            </div>
 
+            <div>
                 <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                 <p>
@@ -154,15 +162,17 @@
             </div>
         @else
             {{-- guest --}}
-            <div>{{ __('auth.guest') }} ...</div>
+            <div class="text-warning-500 dark:text-warning-200">{{ __('auth.guest') }} ...</div>
 
-            <div><x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" /></div>
+            <div>
+                <div><x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" /></div>
 
-            <p>
-                <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
-                    {{ __('app.help') }}
-                </x-nav-link-responsive>
-            </p>
+                <p>
+                    <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
+                        {{ __('app.help') }}
+                    </x-nav-link-responsive>
+                </p>
+            </div>
         @endauth
     </div>
 
