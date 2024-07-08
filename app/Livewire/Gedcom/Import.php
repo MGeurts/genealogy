@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace App\Livewire\Gedcom;
 
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
-use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Arr;
 use Laravel\Jetstream\Events\AddingTeam;
 use Livewire\Component;
 use Livewire\WithFileUploads;
