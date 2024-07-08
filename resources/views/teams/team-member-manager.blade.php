@@ -28,7 +28,7 @@
                     {{-- member email --}}
                     <div class="col-span-6 sm:col-span-4">
                         <x-label for="email" value="{{ __('team.email') }} :" />
-                        <x-input id="email" type="email" class="mt-1 block w-full" wire:model="addTeamMemberForm.email" />
+                        <x-input id="email" type="email" class="block w-full mt-1" wire:model="addTeamMemberForm.email" />
                         <x-input-error for="email" class="mt-2" />
                     </div>
 
@@ -38,12 +38,12 @@
                             <x-label for="role" value="{{ __('team.role') }} :" />
                             <x-input-error for="role" class="mt-2" />
 
-                            <div class="relative z-0 mt-1 border border-gray-200 dark:border-gray-700 rounded cursor-pointer">
+                            <div class="relative z-0 mt-1 border border-gray-200 rounded cursor-pointer dark:border-gray-700">
                                 @foreach ($this->roles as $index => $role)
                                     <button type="button"
                                         class="relative px-4 py-3 inline-flex w-full rounded focus:z-10 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-600 {{ $index > 0 ? 'border-t border-gray-200 dark:border-gray-700 focus:border-none rounded-t-none' : '' }} {{ !$loop->last ? 'rounded-b-none' : '' }}"
                                         wire:click="$set('addTeamMemberForm.role', '{{ $role->key }}')">
-                                        <div class="{{ isset($addTeamMemberForm['role']) && $addTeamMemberForm['role'] !== $role->key ? 'opacity-50' : '' }}">
+                                        <div @class(['opacity-50' => isset($addTeamMemberForm['role']) && $addTeamMemberForm['role'] !== $role->key])>
                                             {{-- role name --}}
                                             <div class="flex items-center">
                                                 <div class="text-sm text-gray-600 {{ $addTeamMemberForm['role'] == $role->key ? 'font-semibold' : '' }}">
@@ -51,7 +51,7 @@
                                                 </div>
 
                                                 @if ($addTeamMemberForm['role'] == $role->key)
-                                                    <x-ts-icon icon="circle-check" class="size-5 inline-block ms-2 text-emerald-600" />
+                                                    <x-ts-icon icon="circle-check" class="inline-block size-5 ms-2 text-emerald-600" />
                                                 @endif
                                             </div>
 
@@ -144,31 +144,31 @@
                         @foreach ($team->users->sortBy('name') as $user)
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
-                                    <img class="size-8 rounded-full object-cover" src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}">
+                                    <img class="object-cover rounded-full size-8" src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}">
                                     <div class="ms-3">{{ $user->name }}</div>
                                 </div>
 
                                 <div class="flex items-center">
                                     {{-- manage team member role --}}
                                     @if (Gate::check('updateTeamMember', $team) && Laravel\Jetstream\Jetstream::hasRoles())
-                                        <x-ts-button sm class="min-w-28 ms-3 text-sm" wire:click="manageRole('{{ $user->id }}')" title="{{ __('team.change_role') }}">
+                                        <x-ts-button sm class="text-sm min-w-28 ms-3" wire:click="manageRole('{{ $user->id }}')" title="{{ __('team.change_role') }}">
                                             {{ Laravel\Jetstream\Jetstream::findRole($user->membership->role)->name }}
                                         </x-ts-button>
                                     @elseif (Laravel\Jetstream\Jetstream::hasRoles())
-                                        <div class="min-w-28 ms-3 text-sm">
+                                        <div class="text-sm min-w-28 ms-3">
                                             {{ Laravel\Jetstream\Jetstream::findRole($user->membership->role)->name }}
                                         </div>
                                     @endif
 
                                     {{-- leave team --}}
                                     @if ($this->user->id === $user->id)
-                                        <x-ts-button color="danger" sm class="min-w-28 ms-3 text-sm" wire:click="$toggle('confirmingLeavingTeam')" title="{{ __('team.leave_team') }}">
+                                        <x-ts-button color="danger" sm class="text-sm min-w-28 ms-3" wire:click="$toggle('confirmingLeavingTeam')" title="{{ __('team.leave_team') }}">
                                             {{ __('team.leave') }}
                                         </x-ts-button>
 
                                         {{-- remove team member --}}
                                     @elseif (Gate::check('removeTeamMember', $team))
-                                        <x-ts-button color="danger" sm class="min-w-28 ms-3 text-sm" wire:click="confirmTeamMemberRemoval('{{ $user->id }}')"
+                                        <x-ts-button color="danger" sm class="text-sm min-w-28 ms-3" wire:click="confirmTeamMemberRemoval('{{ $user->id }}')"
                                             title="{{ __('team.remove_member') }}">
                                             {{ __('team.remove') }}
                                         </x-ts-button>
@@ -189,12 +189,12 @@
         </x-slot>
 
         <x-slot name="content">
-            <div class="relative z-0 mt-1 border border-gray-200 dark:border-gray-700 rounded cursor-pointer">
+            <div class="relative z-0 mt-1 border border-gray-200 rounded cursor-pointer dark:border-gray-700">
                 @foreach ($this->roles as $index => $role)
                     <button type="button"
                         class="relative px-4 py-3 inline-flex w-full rounded focus:z-10 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-600 {{ $index > 0 ? 'border-t border-gray-200 dark:border-gray-700 focus:border-none rounded-t-none' : '' }} {{ !$loop->last ? 'rounded-b-none' : '' }}"
                         wire:click="$set('currentRole', '{{ $role->key }}')">
-                        <div class="{{ $currentRole !== $role->key ? 'opacity-75' : '' }}">
+                        <div @class(['opacity-75' => $currentRole !== $role->key])>
                             {{-- role name --}}
                             <div class="flex items-center">
                                 <div class="text-sm text-gray-600 {{ $currentRole == $role->key ? 'font-semibold' : '' }}">
@@ -202,7 +202,7 @@
                                 </div>
 
                                 @if ($currentRole == $role->key)
-                                    <x-ts-icon icon="circle-check" class="size-5 inline-block ms-2 text-emerald-600" />
+                                    <x-ts-icon icon="circle-check" class="inline-block size-5 ms-2 text-emerald-600" />
                                 @endif
                             </div>
 
