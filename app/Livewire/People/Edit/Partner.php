@@ -23,6 +23,8 @@ class Partner extends Component
 
     public PartnerForm $partnerForm;
 
+    public $persons = [];
+
     // -----------------------------------------------------------------------
     public function mount(): void
     {
@@ -33,6 +35,15 @@ class Partner extends Component
 
         $this->partnerForm->is_married = $this->couple->is_married;
         $this->partnerForm->has_ended  = $this->couple->has_ended;
+
+        $this->persons = Person::orderBy('firstname', 'asc')->orderBy('surname', 'asc')
+            ->get()
+            ->map(function ($p) {
+                return [
+                    'id'   => $p->id,
+                    'name' => $p->name . ' [' . strtoupper($p->sex) . '] (' . $p->birth_formatted . ')',
+                ];
+            });
     }
 
     public function savePartner()
@@ -75,17 +86,6 @@ class Partner extends Component
     // ------------------------------------------------------------------------------
     public function render()
     {
-        $couple = Couple::findOrFail($this->couple->id)->with(['person_1', 'person_2']);
-
-        $persons = Person::orderBy('firstname', 'asc')->orderBy('surname', 'asc')
-            ->get()
-            ->map(function ($p) {
-                return [
-                    'id'   => $p->id,
-                    'name' => $p->name . ' [' . strtoupper($p->sex) . '] (' . $p->birth_formatted . ')',
-                ];
-            });
-
-        return view('livewire.people.edit.partner', compact('couple', 'persons'));
+        return view('livewire.people.edit.partner');
     }
 }

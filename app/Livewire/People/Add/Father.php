@@ -29,6 +29,8 @@ class Father extends Component
 
     public $backup = [];
 
+    public $persons = [];
+
     // -----------------------------------------------------------------------
     public function mount(): void
     {
@@ -46,6 +48,18 @@ class Father extends Component
         $this->fatherForm->photo = null;
 
         $this->fatherForm->person_id = null;
+
+        $this->persons = Person::where('id', '!=', $this->person->id)
+            ->where('sex', 'm')
+            ->OlderThan($this->person->birth_date, $this->person->birth_year)
+            ->orderBy('firstname')->orderBy('surname')
+            ->get()
+            ->map(function ($p) {
+                return [
+                    'id'   => $p->id,
+                    'name' => $p->name . ' ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
+                ];
+            });
     }
 
     public function deleteUpload(array $content): void
@@ -165,18 +179,6 @@ class Father extends Component
     // -----------------------------------------------------------------------
     public function render()
     {
-        $persons = Person::where('id', '!=', $this->person->id)
-            ->where('sex', 'm')
-            ->OlderThan($this->person->birth_date, $this->person->birth_year)
-            ->orderBy('firstname')->orderBy('surname')
-            ->get()
-            ->map(function ($p) {
-                return [
-                    'id'   => $p->id,
-                    'name' => $p->name . ' ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
-                ];
-            });
-
-        return view('livewire.people.add.father', compact('persons'));
+        return view('livewire.people.add.father');
     }
 }

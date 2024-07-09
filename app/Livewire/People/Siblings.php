@@ -10,11 +10,17 @@ class Siblings extends Component
 {
     public $person;
 
+    public $siblings = [];
+
+    // -----------------------------------------------------------------------
+    public function mount(): void
+    {
+        $this->siblings = $this->person->siblings();
+    }
+
     // ------------------------------------------------------------------------------
     public function render()
     {
-        $siblings = $this->person->siblings();
-
-        return view('livewire.people.siblings', compact('siblings'));
+        return view('livewire.people.siblings');
     }
 }

@@ -66,13 +66,6 @@ class Manage extends Component
     public $deleteConfirmed = false;
 
     // -----------------------------------------------------------------------
-    public function confirmDeletion(string $file_name): void
-    {
-        $this->backup_to_delete = $file_name;
-
-        $this->deleteConfirmed = true;
-    }
-
     public function mount(): void
     {
         $this->backups = collect();
@@ -145,6 +138,13 @@ class Manage extends Component
         }
 
         $this->redirect('/developer/backups');
+    }
+
+    public function confirmDeletion(string $file_name): void
+    {
+        $this->backup_to_delete = $file_name;
+
+        $this->deleteConfirmed = true;
     }
 
     // -----------------------------------------------------------------------

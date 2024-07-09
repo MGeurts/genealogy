@@ -21,12 +21,48 @@ class Family extends Component
 
     public FamilyForm $familyForm;
 
+    public $fathers = [];
+
+    public $mothers = [];
+
+    public $parents = [];
+
     // -----------------------------------------------------------------------
     public function mount(): void
     {
         $this->familyForm->father_id  = $this->person->father_id;
         $this->familyForm->mother_id  = $this->person->mother_id;
         $this->familyForm->parents_id = $this->person->parents_id;
+
+        $persons = Person::where('id', '!=', $this->person->id)
+            ->OlderThan($this->person->birth_date, $this->person->birth_year)
+            ->orderBy('firstname')->orderBy('surname')
+            ->get();
+
+        $this->fathers = $persons->where('sex', 'm')->map(function ($p) {
+            return [
+                'id'   => $p->id,
+                'name' => $p->name . ' (' . $p->birth_formatted . ')',
+            ];
+        })->values()->toArray();
+
+        $this->mothers = $persons->where('sex', 'f')->map(function ($p) {
+            return [
+                'id'   => $p->id,
+                'name' => $p->name . ' (' . $p->birth_formatted . ')',
+            ];
+        })->values()->toArray();
+
+        $this->parents = Couple::with(['person_1', 'person_2'])
+            ->OlderThan($this->person->birth_date)
+            ->get()
+            ->sortBy('name')
+            ->map(function ($couple) {
+                return [
+                    'id'     => $couple->id,
+                    'couple' => $couple->name . (($couple->date_start) ? ' (' . $couple->date_start_formatted . ')' : ''),
+                ];
+            })->values();
     }
 
     public function saveFamily()
@@ -58,36 +94,6 @@ class Family extends Component
     // ------------------------------------------------------------------------------
     public function render()
     {
-        $persons = Person::where('id', '!=', $this->person->id)
-            ->OlderThan($this->person->birth_date, $this->person->birth_year)
-            ->orderBy('firstname')->orderBy('surname')
-            ->get();
-
-        $fathers = $persons->where('sex', 'm')->map(function ($p) {
-            return [
-                'id'   => $p->id,
-                'name' => $p->name . ' (' . $p->birth_formatted . ')',
-            ];
-        })->values()->toArray();
-
-        $mothers = $persons->where('sex', 'f')->map(function ($p) {
-            return [
-                'id'   => $p->id,
-                'name' => $p->name . ' (' . $p->birth_formatted . ')',
-            ];
-        })->values()->toArray();
-
-        $parents = Couple::with(['person_1', 'person_2'])
-            ->OlderThan($this->person->birth_date)
-            ->get()
-            ->sortBy('name')
-            ->map(function ($couple) {
-                return [
-                    'id'     => $couple->id,
-                    'couple' => $couple->name . (($couple->date_start) ? ' (' . $couple->date_start_formatted . ')' : ''),
-                ];
-            })->values();
-
-        return view('livewire.people.edit.family', compact('fathers', 'mothers', 'parents'));
+        return view('livewire.people.edit.family');
     }
 }

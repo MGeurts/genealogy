@@ -30,6 +30,8 @@ class Partner extends Component
 
     public $backup = [];
 
+    public $persons = [];
+
     // -----------------------------------------------------------------------
     public function mount(): void
     {
@@ -54,6 +56,16 @@ class Partner extends Component
 
         $this->partnerForm->is_married = false;
         $this->partnerForm->has_ended  = false;
+
+        $this->persons = Person::PartnerOffset($this->person->birth_date, $this->person->birth_year)
+            ->orderBy('firstname', 'asc')->orderBy('surname', 'asc')
+            ->get()
+            ->map(function ($p) {
+                return [
+                    'id'   => $p->id,
+                    'name' => $p->name . ' [' . strtoupper($p->sex) . '] (' . $p->birth_formatted . ')',
+                ];
+            });
     }
 
     public function deleteUpload(array $content): void
@@ -219,16 +231,6 @@ class Partner extends Component
     // ------------------------------------------------------------------------------
     public function render()
     {
-        $persons = Person::PartnerOffset($this->person->birth_date, $this->person->birth_year)
-            ->orderBy('firstname', 'asc')->orderBy('surname', 'asc')
-            ->get()
-            ->map(function ($p) {
-                return [
-                    'id'   => $p->id,
-                    'name' => $p->name . ' [' . strtoupper($p->sex) . '] (' . $p->birth_formatted . ')',
-                ];
-            });
-
-        return view('livewire.people.add.partner', compact('persons'));
+        return view('livewire.people.add.partner');
     }
 }

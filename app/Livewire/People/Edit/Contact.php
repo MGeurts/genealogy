@@ -63,4 +63,10 @@ class Contact extends Component
             $this->contactForm->country_id != $this->person->country_id or
             $this->contactForm->phone != $this->person->phone;
     }
+
+    // ------------------------------------------------------------------------------
+    public function render()
+    {
+        return view('livewire.people.edit.contact');
+    }
 }

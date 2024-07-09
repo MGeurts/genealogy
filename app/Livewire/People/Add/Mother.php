@@ -29,6 +29,8 @@ class Mother extends Component
 
     public $backup = [];
 
+    public $persons = [];
+
     // -----------------------------------------------------------------------
     public function mount(): void
     {
@@ -46,6 +48,18 @@ class Mother extends Component
         $this->motherForm->photo = null;
 
         $this->motherForm->person_id = null;
+
+        $this->persons = Person::where('id', '!=', $this->person->id)
+            ->where('sex', 'f')
+            ->OlderThan($this->person->birth_date, $this->person->birth_year)
+            ->orderBy('firstname')->orderBy('surname')
+            ->get()
+            ->map(function ($p) {
+                return [
+                    'id'   => $p->id,
+                    'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
+                ];
+            });
     }
 
     public function deleteUpload(array $content): void
@@ -165,18 +179,6 @@ class Mother extends Component
     // -----------------------------------------------------------------------
     public function render()
     {
-        $persons = Person::where('id', '!=', $this->person->id)
-            ->where('sex', 'f')
-            ->OlderThan($this->person->birth_date, $this->person->birth_year)
-            ->orderBy('firstname')->orderBy('surname')
-            ->get()
-            ->map(function ($p) {
-                return [
-                    'id'   => $p->id,
-                    'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
-                ];
-            });
-
-        return view('livewire.people.add.mother', compact('persons'));
+        return view('livewire.people.add.mother');
     }
 }

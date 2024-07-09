@@ -27,6 +27,13 @@ class Search extends Component
         ['value' => 100, 'label' => 100],
     ];
 
+    // -----------------------------------------------------------------------
+    public function mount(): void
+    {
+        //
+    }
+
+    // -----------------------------------------------------------------------
     public function updatedSearch(): void
     {
         $this->resetPage();

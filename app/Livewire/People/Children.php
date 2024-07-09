@@ -21,6 +21,13 @@ class Children extends Component
 
     public $disconnectConfirmed = false;
 
+    public $children = [];
+
+    public function mount(): void
+    {
+        $this->children = $this->person->childrenNaturalAll();
+    }
+
     // ------------------------------------------------------------------------------
     public function confirmDisconnect(int $id, string $name): void
     {
@@ -52,8 +59,6 @@ class Children extends Component
     // ------------------------------------------------------------------------------
     public function render()
     {
-        $children = $this->person->childrenNaturalAll();
-
-        return view('livewire.people.children', compact('children'));
+        return view('livewire.people.children');
     }
 }

@@ -19,6 +19,7 @@ class Teams extends Component implements HasForms, HasTable
     use InteractsWithForms;
     use InteractsWithTable;
 
+    // -----------------------------------------------------------------------
     public function table(Table $table): Table
     {
         return $table
@@ -83,6 +84,7 @@ class Teams extends Component implements HasForms, HasTable
             ->striped();
     }
 
+    // -----------------------------------------------------------------------
     public function render(): View
     {
         return view('livewire.developer.teams');

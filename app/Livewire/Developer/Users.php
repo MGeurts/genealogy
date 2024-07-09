@@ -21,6 +21,7 @@ class Users extends Component implements HasForms, HasTable
     use InteractsWithForms;
     use InteractsWithTable;
 
+    // -----------------------------------------------------------------------
     public function table(Table $table): Table
     {
         return $table
@@ -139,6 +140,7 @@ class Users extends Component implements HasForms, HasTable
             ]);
     }
 
+    // -----------------------------------------------------------------------
     public function render()
     {
         return view('livewire.developer.users');

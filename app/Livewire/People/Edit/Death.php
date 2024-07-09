@@ -80,4 +80,10 @@ class Death extends Component
         $this->deathForm->cemetery_location_latitude != $this->person->getMetadataValue('cemetery_location_latitude') or
         $this->deathForm->cemetery_location_longitude != $this->person->getMetadataValue('cemetery_location_longitude');
     }
+
+    // ------------------------------------------------------------------------------
+    public function render()
+    {
+        return view('livewire.people.edit.death');
+    }
 }

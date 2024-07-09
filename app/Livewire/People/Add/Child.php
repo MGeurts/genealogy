@@ -29,6 +29,8 @@ class Child extends Component
 
     public $backup = [];
 
+    public $persons = [];
+
     // -----------------------------------------------------------------------
     public function mount(): void
     {
@@ -47,6 +49,32 @@ class Child extends Component
         $this->childForm->photo = null;
 
         $this->childForm->person_id = null;
+
+        if ($this->person->sex === 'm') {
+            $this->persons = Person::where('id', '!=', $this->person->id)
+                ->whereNull('father_id')
+                ->YoungerThan($this->person->birth_date, $this->person->birth_year)
+                ->orderBy('firstname')->orderBy('surname')
+                ->get()
+                ->map(function ($p) {
+                    return [
+                        'id'   => $p->id,
+                        'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
+                    ];
+                });
+        } else {
+            $$this->persons = Person::where('id', '!=', $this->person->id)
+                ->whereNull('mother_id')
+                ->YoungerThan($this->person->birth_date, $this->person->birth_year)
+                ->orderBy('firstname')->orderBy('surname')
+                ->get()
+                ->map(function ($p) {
+                    return [
+                        'id'   => $p->id,
+                        'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
+                    ];
+                });
+        }
     }
 
     public function deleteUpload(array $content): void
@@ -188,32 +216,6 @@ class Child extends Component
     // -----------------------------------------------------------------------
     public function render()
     {
-        if ($this->person->sex === 'm') {
-            $persons = Person::where('id', '!=', $this->person->id)
-                ->whereNull('father_id')
-                ->YoungerThan($this->person->birth_date, $this->person->birth_year)
-                ->orderBy('firstname')->orderBy('surname')
-                ->get()
-                ->map(function ($p) {
-                    return [
-                        'id'   => $p->id,
-                        'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
-                    ];
-                });
-        } else {
-            $persons = Person::where('id', '!=', $this->person->id)
-                ->whereNull('mother_id')
-                ->YoungerThan($this->person->birth_date, $this->person->birth_year)
-                ->orderBy('firstname')->orderBy('surname')
-                ->get()
-                ->map(function ($p) {
-                    return [
-                        'id'   => $p->id,
-                        'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
-                    ];
-                });
-        }
-
-        return view('livewire.people.add.child', compact('persons'));
+        return view('livewire.people.add.child');
     }
 }

@@ -72,4 +72,10 @@ class Profile extends Component
         $this->profileForm->dob != ($this->person->dob ? Carbon::parse($this->person->dob)->format('Y-m-d') : null) or
         $this->profileForm->pob != $this->person->pob;
     }
+
+    // ------------------------------------------------------------------------------
+    public function render()
+    {
+        return view('livewire.people.edit.profile');
+    }
 }
