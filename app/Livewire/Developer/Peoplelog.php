@@ -5,14 +5,15 @@ declare(strict_types=1);
 namespace App\Livewire\Developer;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Peoplelog extends Component
 {
-    public $logs = [];
+    public array $logs = [];
 
     // -----------------------------------------------------------------------
-    public function mount()
+    public function mount(): void
     {
         $records = collect(DB::select('
             SELECT `activity_log`.`event`, `activity_log`.`subject_type`, `activity_log`.`subject_id`, `activity_log`.`properties` , `activity_log`.`created_at`, `users`.`firstname`, `users`.`surname`
@@ -37,7 +38,7 @@ class Peoplelog extends Component
     }
 
     // ------------------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.developer.peoplelog');
     }

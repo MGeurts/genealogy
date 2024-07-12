@@ -10,6 +10,8 @@ use App\Models\Person;
 use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
@@ -23,13 +25,13 @@ class Mother extends Component
     // -----------------------------------------------------------------------
     public $person;
 
-    public motherForm $motherForm;
+    public MotherForm $motherForm;
 
-    public $photos = [];
+    public array $photos = [];
 
-    public $backup = [];
+    public array $backup = [];
 
-    public $persons = [];
+    public Collection $persons;
 
     // -----------------------------------------------------------------------
     public function mount(): void
@@ -177,7 +179,7 @@ class Mother extends Component
     }
 
     // -----------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.people.add.mother');
     }

@@ -5,17 +5,21 @@ declare(strict_types=1);
 namespace App\Livewire\People;
 
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Collection;
+use Illuminate\View\View;
 use Livewire\Component;
 use Spatie\Activitylog\Models\Activity;
 
 class History extends Component
 {
+    // ------------------------------------------------------------------------------
     public $person;
 
-    public $activities = [];
+    // ------------------------------------------------------------------------------
+    public Collection $activities;
 
     // ------------------------------------------------------------------------------
-    public function mount()
+    public function mount(): void
     {
         $this->activities = Activity::with('causer')
             ->where('subject_type', 'App\Models\Person')->where('subject_id', $this->person->id)
@@ -33,7 +37,7 @@ class History extends Component
     }
 
     // ------------------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.people.history');
     }

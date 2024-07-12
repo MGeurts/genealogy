@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\People;
 
 use App\Models\Couple;
+use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -15,13 +16,14 @@ class Partners extends Component
     // ------------------------------------------------------------------------------
     public $person;
 
-    public $couple_to_delete_id;
+    // ------------------------------------------------------------------------------
+    public ?int $couple_to_delete_id = null;
 
-    public $couple_to_delete_name;
+    public ?string $couple_to_delete_name = null;
 
-    public $deleteConfirmed = false;
+    public bool $deleteConfirmed = false;
 
-    // -----------------------------------------------------------------------
+    // ------------------------------------------------------------------------------
     protected $listeners = [
         'couple_deleted' => 'render',
     ];
@@ -47,7 +49,7 @@ class Partners extends Component
     }
 
     // ------------------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.people.partners');
     }

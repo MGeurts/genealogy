@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace App\Livewire\Userlogs;
 
 use App\Models\Userlog;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Log extends Component
 {
-    public function render()
+    // -----------------------------------------------------------------------
+    public function render(): View
     {
         $months = 3;
 

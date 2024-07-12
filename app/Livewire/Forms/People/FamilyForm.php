@@ -16,18 +16,21 @@ class FamilyForm extends Form
     public $parents_id = null;
 
     // -----------------------------------------------------------------------
-    protected $rules = [
-        'father_id'  => ['nullable', 'integer'],
-        'mother_id'  => ['nullable', 'integer'],
-        'parents_id' => ['nullable', 'integer'],
-    ];
+    public function rules(): array
+    {
+        return $rules = [
+            'father_id'  => ['nullable', 'integer'],
+            'mother_id'  => ['nullable', 'integer'],
+            'parents_id' => ['nullable', 'integer'],
+        ];
+    }
 
-    public function messages()
+    public function messages(): array
     {
         return [];
     }
 
-    public function validationAttributes()
+    public function validationAttributes(): array
     {
         return [
             'father_id'  => __('person.father'),

@@ -4,20 +4,24 @@ declare(strict_types=1);
 
 namespace App\Livewire\People;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Descendants extends Component
 {
+    // ------------------------------------------------------------------------------
     public $person;
 
-    public $descendants;
+    // ------------------------------------------------------------------------------
+    public Collection $descendants;
 
-    public $count_min = 1;
+    public int $count_min = 1;
 
-    public $count = 3;          // default, showing 3 levels (person & parents & grandparents)
+    public int $count = 3;          // default, showing 3 levels (person & parents & grandparents)
 
-    public $count_max = 128;    // maximum level depth, choose from listing below
+    public int $count_max = 128;    // maximum level depth, choose from listing below
 
     // --------------------------------------------------------------------------------------------------------------------
     // REMARK : The maximum length of the comma separated sequence of all id's in the tree can NOT succeed 1024 characters!
@@ -30,21 +34,21 @@ class Descendants extends Component
     //              ...
     // --------------------------------------------------------------------------------------------------------------------
 
-    public function increment()
+    public function increment(): void
     {
         if ($this->count < $this->count_max) {
             $this->count++;
         }
     }
 
-    public function decrement()
+    public function decrement(): void
     {
         if ($this->count > $this->count_min) {
             $this->count--;
         }
     }
 
-    public function mount()
+    public function mount(): void
     {
         $this->descendants = collect(DB::select("
             WITH RECURSIVE descendants AS (
@@ -75,7 +79,7 @@ class Descendants extends Component
     }
 
     // ------------------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.people.descendants');
     }

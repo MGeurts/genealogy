@@ -10,6 +10,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Number;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Symfony\Component\Finder\Finder;
@@ -160,7 +161,7 @@ class Photos extends Component
     }
 
     // -----------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.people.edit.photos');
     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Developer;
 
 use App\Models\User;
@@ -14,6 +16,7 @@ use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Users extends Component implements HasForms, HasTable
@@ -141,7 +144,7 @@ class Users extends Component implements HasForms, HasTable
     }
 
     // -----------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.developer.users');
     }

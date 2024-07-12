@@ -22,7 +22,7 @@
                             <hr />
 
                             @foreach ($children as $child)
-                                @if (!$child->type)
+                                @if (!isset($child->type))
                                     <x-ts-dropdown.items class="!text-danger-600 dark:!text-danger-400" wire:click="confirmDisconnect({{ $child->id }} , '{{ $child->name }}')"
                                         title="{{ __('person.delete_child') }}">
                                         <x-ts-icon icon="plug-connected-x" class="mr-2" /> {{ $child->name }}
@@ -45,7 +45,7 @@
                     </x-link>
 
                     <x-ts-icon icon="{{ $child->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
-                    @if ($child->type)
+                    @if (isset($child->type))
                         <x-ts-icon icon="heart-plus" class="inline-block size-5 text-emerald-600" />
                     @endif
                 </div>

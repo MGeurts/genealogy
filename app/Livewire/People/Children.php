@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Livewire\People;
 
 use App\Models\Person;
+use Illuminate\Support\Collection;
+use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -15,20 +17,21 @@ class Children extends Component
     // ------------------------------------------------------------------------------
     public $person;
 
-    public $child_to_disconnect_id;
+    // ------------------------------------------------------------------------------
+    public int $child_to_disconnect_id;
 
-    public $child_to_disconnect_name;
+    public string $child_to_disconnect_name;
 
-    public $disconnectConfirmed = false;
+    public bool $disconnectConfirmed = false;
 
-    public $children = [];
+    public Collection $children;
 
+    // ------------------------------------------------------------------------------
     public function mount(): void
     {
         $this->children = $this->person->childrenNaturalAll();
     }
 
-    // ------------------------------------------------------------------------------
     public function confirmDisconnect(int $id, string $name): void
     {
         $this->disconnectConfirmed = true;
@@ -57,7 +60,7 @@ class Children extends Component
     }
 
     // ------------------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.people.children');
     }

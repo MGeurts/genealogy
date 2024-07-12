@@ -12,9 +12,6 @@ use Livewire\Form;
 class DeathForm extends Form
 {
     // -----------------------------------------------------------------------
-    public $person;
-
-    // -----------------------------------------------------------------------
     #[Validate]
     public $yod = null;
 
@@ -31,7 +28,8 @@ class DeathForm extends Form
 
     public $cemetery_location_longitude = null;
 
-    public function rules()
+    // -----------------------------------------------------------------------
+    public function rules(): array
     {
         return [
             'yod' => [
@@ -55,12 +53,12 @@ class DeathForm extends Form
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [];
     }
 
-    public function validationAttributes()
+    public function validationAttributes(): array
     {
         return [
             'yod'                         => __('person.yod'),

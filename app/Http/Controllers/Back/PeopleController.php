@@ -16,7 +16,7 @@ class PeopleController extends Controller
         return view('back.people.search');
     }
 
-    public function birthdays($months = 2): View
+    public function birthdays(int $months = 2): View
     {
         $people = Person::whereNotNull('dob')
             ->whereRaw('CASE WHEN MONTH(NOW()) +' . $months . " > 12 THEN date_format(dob, '%m-%d') >= date_format(NOW(), '%m-%d') OR date_format(dob, '%m-%d') <= date_format(NOW() + INTERVAL " . $months . " MONTH, '%m-%d') ELSE date_format(dob, '%m-%d') >= date_format(NOW(), '%m-%d') AND date_format(dob, '%m-%d') <= date_format(NOW() + INTERVAL " . $months . " MONTH, '%m-%d') END")

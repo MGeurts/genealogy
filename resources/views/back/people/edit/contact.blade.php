@@ -11,18 +11,18 @@
         <livewire:people.heading :person="$person" />
 
         <div class="flex flex-wrap gap-5">
-            <div class="min-w-100 md:max-w-max flex flex-col flex-grow gap-5">
+            <div class="flex flex-col flex-grow gap-5 min-w-100 md:max-w-max">
                 <livewire:people.profile :person="$person" />
             </div>
 
-            <div class="min-w-100 md:max-w-max flex flex-col flex-grow gap-5">
+            <div class="flex flex-col flex-grow gap-5 min-w-100 md:max-w-max">
                 <livewire:people.family :person="$person" />
                 <livewire:people.partners :person="$person" />
                 <livewire:people.children :person="$person" />
                 <livewire:people.siblings :person="$person" />
             </div>
 
-            <div class="min-w-100 md:max-w-max flex flex-col flex-grow gap-5 overflow-x-auto">
+            <div class="flex flex-col flex-grow gap-5 overflow-x-auto min-w-100 md:max-w-max">
                 <livewire:people.edit.contact :person="$person" />
             </div>
         </div>

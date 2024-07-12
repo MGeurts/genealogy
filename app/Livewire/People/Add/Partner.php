@@ -11,6 +11,8 @@ use App\Models\Person;
 use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
@@ -26,11 +28,11 @@ class Partner extends Component
 
     public PartnerForm $partnerForm;
 
-    public $photos = [];
+    public array $photos = [];
 
-    public $backup = [];
+    public array $backup = [];
 
-    public $persons = [];
+    public Collection $persons;
 
     // -----------------------------------------------------------------------
     public function mount(): void
@@ -229,7 +231,7 @@ class Partner extends Component
     }
 
     // ------------------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.people.add.partner');
     }

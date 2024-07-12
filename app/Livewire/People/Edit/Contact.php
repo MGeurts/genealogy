@@ -7,6 +7,7 @@ namespace App\Livewire\People\Edit;
 use App\Livewire\Forms\People\ContactForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
+use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -65,7 +66,7 @@ class Contact extends Component
     }
 
     // ------------------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.people.edit.contact');
     }

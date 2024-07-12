@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace App\Livewire\Gedcom;
 
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
+use Illuminate\View\View;
 use Laravel\Jetstream\Events\AddingTeam;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
 
@@ -19,16 +21,16 @@ class Import extends Component
     // -----------------------------------------------------------------------
     public $user = null;
 
-    public $name = null;
+    public ?string $name = null;
 
-    public $description = null;
+    public ?string $description = null;
 
-    public $file = null;
+    public ?TemporaryUploadedFile $file = null;
 
-    public $output = null;
+    public ?string $output = null;
 
     // -----------------------------------------------------------------------
-    public function rules()
+    public function rules(): array
     {
         return $rules = [
             'name'        => ['required', 'string', 'max:255'],
@@ -37,12 +39,12 @@ class Import extends Component
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [];
     }
 
-    public function validationAttributes()
+    public function validationAttributes(): array
     {
         return [
             'name'        => __('team.name'),
@@ -109,7 +111,7 @@ class Import extends Component
     }
 
     // -----------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.gedcom.import');
     }

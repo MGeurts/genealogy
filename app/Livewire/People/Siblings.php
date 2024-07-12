@@ -4,22 +4,26 @@ declare(strict_types=1);
 
 namespace App\Livewire\People;
 
+use Illuminate\Support\Collection;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Siblings extends Component
 {
+    // ------------------------------------------------------------------------------
     public $person;
 
-    public $siblings = [];
+    // ------------------------------------------------------------------------------
+    public Collection $siblings;
 
-    // -----------------------------------------------------------------------
+    // ------------------------------------------------------------------------------
     public function mount(): void
     {
         $this->siblings = $this->person->siblings();
     }
 
     // ------------------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.people.siblings');
     }

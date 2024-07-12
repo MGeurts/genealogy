@@ -44,12 +44,13 @@ class ChildForm extends Form
 
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]
-    public function genders()
+    public function genders(): array
     {
         return Gender::select('id', 'name')->orderBy('name')->get()->toArray();
     }
 
-    public function rules()
+    // -----------------------------------------------------------------------
+    public function rules(): array
     {
         return $rules = [
             'firstname' => ['nullable', 'string', 'max:255'],
@@ -82,12 +83,12 @@ class ChildForm extends Form
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [];
     }
 
-    public function validationAttributes()
+    public function validationAttributes(): array
     {
         return [
             'firstname' => __('person.firstname'),

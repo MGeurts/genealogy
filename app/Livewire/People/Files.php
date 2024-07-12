@@ -6,6 +6,8 @@ namespace App\Livewire\People;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -19,14 +21,15 @@ class Files extends Component
     // -----------------------------------------------------------------------
     public $person;
 
-    public $uploads = [];
+    // -----------------------------------------------------------------------
+    public array $uploads = [];
 
-    public $backup = [];
+    public array $backup = [];
 
-    public $files = null;
+    public Collection $files;
 
     // ------------------------------------------------------------------------------
-    public function mount()
+    public function mount(): void
     {
         $this->files = $this->person->getMedia('files');
     }
@@ -94,7 +97,7 @@ class Files extends Component
         return $this->redirect('/people/' . $this->person->id . '/files');
     }
 
-    public function deleteFile($id)
+    public function deleteFile(int $id): void
     {
         foreach ($this->files as $file) {
             if ($file->id == $id) {
@@ -111,7 +114,7 @@ class Files extends Component
         $this->reorderFiles();
     }
 
-    private function reorderFiles()
+    private function reorderFiles(): void
     {
         // renumber positions sequentially
         $i = 0;
@@ -129,7 +132,7 @@ class Files extends Component
         Media::setNewOrder($ordered);
     }
 
-    public function moveFile($position, $direction)
+    public function moveFile(int $position, string $direction): void
     {
         if ($direction == 'up') {
             // move up
@@ -159,7 +162,7 @@ class Files extends Component
     }
 
     // ------------------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.people.files');
     }

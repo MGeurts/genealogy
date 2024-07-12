@@ -5,21 +5,24 @@ declare(strict_types=1);
 namespace App\Livewire\Userlogs;
 
 use App\Models\Userlog;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Period extends Component
 {
-    public $year;
+    // ------------------------------------------------------------------------------
+    public string $year;
 
-    public $years;
+    public array $years;
 
-    public $period;
+    public string $period;
 
-    public $periods;
+    public array $periods;
 
-    public $chart_data;
+    public string $chart_data;
 
-    public function mount()
+    // ------------------------------------------------------------------------------
+    public function mount(): void
     {
         $this->year = date('Y');
 
@@ -41,17 +44,17 @@ class Period extends Component
         $this->prepare();
     }
 
-    public function updatedYear()
+    public function updatedYear(): void
     {
         $this->prepare();
     }
 
-    public function updatedPeriod()
+    public function updatedPeriod(): void
     {
         $this->prepare();
     }
 
-    protected function prepare()
+    protected function prepare(): void
     {
         $statistics = match ($this->period) {
             'year' => Userlog::selectRaw('YEAR(created_at) AS period')
@@ -85,10 +88,9 @@ class Period extends Component
         ]);
     }
 
-    public function render()
+    // ------------------------------------------------------------------------------
+    public function render(): View
     {
-        return view('livewire.userlogs.period', [
-            'chart_data' => $this->chart_data,
-        ]);
+        return view('livewire.userlogs.period');
     }
 }

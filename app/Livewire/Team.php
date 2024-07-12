@@ -3,13 +3,17 @@
 namespace App\Livewire;
 
 use App\Models\User;
+use Illuminate\Support\Collection;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Team extends Component
 {
-    public $user = null;
+    // ------------------------------------------------------------------------------
+    public $user;
 
-    public function mount()
+    // -----------------------------------------------------------------------
+    public function mount(): void
     {
         $this->user = User::with([
             'currentTeam.users',
@@ -20,7 +24,8 @@ class Team extends Component
         ])->find(auth()->user()->id);
     }
 
-    public function render()
+    // -----------------------------------------------------------------------
+    public function render(): View
     {
         return view('livewire.team');
     }

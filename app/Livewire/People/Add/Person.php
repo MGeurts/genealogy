@@ -9,6 +9,7 @@ use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
@@ -22,9 +23,9 @@ class Person extends Component
     // -----------------------------------------------------------------------
     public PersonForm $personForm;
 
-    public $photos = [];
+    public array $photos = [];
 
-    public $backup = [];
+    public array $backup = [];
 
     // -----------------------------------------------------------------------
     public function mount(): void
@@ -146,7 +147,7 @@ class Person extends Component
     }
 
     // ------------------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.people.add.person');
     }

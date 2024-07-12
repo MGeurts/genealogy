@@ -29,29 +29,32 @@ class ContactForm extends Form
 
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]
-    public function countries()
+    public function countries(): array
     {
         return Country::select('id', 'name')->orderBy('name')->get()->toArray();
     }
 
     // -----------------------------------------------------------------------
-    protected $rules = [
-        'street'      => ['nullable', 'string', 'max:100'],
-        'number'      => ['nullable', 'string', 'max:20'],
-        'postal_code' => ['nullable', 'string', 'max:20'],
-        'city'        => ['nullable', 'string', 'max:100'],
-        'province'    => ['nullable', 'string', 'max:100'],
-        'state'       => ['nullable', 'string', 'max:100'],
-        'country_id'  => ['nullable', 'integer'],
-        'phone'       => ['nullable', 'string', 'max:50'],
-    ];
+    public function rules(): array
+    {
+        return [
+            'street'      => ['nullable', 'string', 'max:100'],
+            'number'      => ['nullable', 'string', 'max:20'],
+            'postal_code' => ['nullable', 'string', 'max:20'],
+            'city'        => ['nullable', 'string', 'max:100'],
+            'province'    => ['nullable', 'string', 'max:100'],
+            'state'       => ['nullable', 'string', 'max:100'],
+            'country_id'  => ['nullable', 'integer'],
+            'phone'       => ['nullable', 'string', 'max:50'],
+        ];
+    }
 
-    public function messages()
+    public function messages(): array
     {
         return [];
     }
 
-    public function validationAttributes()
+    public function validationAttributes(): array
     {
         return [
             'street'      => __('person.street'),
