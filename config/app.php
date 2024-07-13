@@ -137,9 +137,6 @@ return [
     | Custom values used in the application outside of the config files
     |--------------------------------------------------------------------------
     */
-
-    'god_mode' => (bool) env('GOD_MODE', false),
-
     'backup_disk'          => env('BACKUP_DISK', 'backups'),
     'backup_daily_cleanup' => env('BACKUP_DAILY_CLEANUP', '22:30'),
     'backup_daily_run'     => env('BACKUP_DAILY_RUN', '23:00'),

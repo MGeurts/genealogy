@@ -81,7 +81,7 @@ class Person extends Model implements HasMedia
         static::addGlobalScope('team', function (Builder $builder) {
             if (! auth()->user()) {
                 return;
-            } elseif (config('app.god_mode') && auth()->user()->is_developer) {
+            } elseif (auth()->user()->is_developer) {
                 return true;
             } else {
                 $builder->where('people.team_id', auth()->user()->currentTeam->id);
