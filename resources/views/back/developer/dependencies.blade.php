@@ -100,6 +100,11 @@
                     <li class="py-2">
                         <x-link href="https://github.com/stevebauman/location/" target="_blank">stevebauman/location</x-link>
                     </li>
+
+                    <li class="py-2">
+                        <x-link href="https://github.com/tpetry/laravel-mysql-explain/" target="_blank">tpetry/laravel-mysql-explain</x-link>
+                        <x-ts-badge xs color="secondary" class="ms-5">Possible candidate</x-ts-badge>
+                    </li>
                 </ul>
             </x-ts-tab.items>
 
