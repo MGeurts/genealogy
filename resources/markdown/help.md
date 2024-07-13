@@ -288,7 +288,9 @@ You can end every exiting relationship by setting the relation as ended, with or
 
 <img src="img/help/genealogy-041b.webp" class="rounded" alt="Partners add">
 
+<div style="color:red">
 When adding a partner you can either create a brand new person or select an existing person as the new partner.
+</div>
 
 <img src="img/help/genealogy-055.webp" class="rounded" alt="Partners add">
 <img src="img/help/genealogy-042a.webp" class="rounded" alt="Partners edit">
@@ -297,13 +299,15 @@ When adding a partner you can either create a brand new person or select an exis
 
 <img src="img/help/genealogy-050a.webp" class="rounded" alt="Children">
 
-You can add a child or disconnect existing children by choosing the corresponding tab in the context menu.
+You can <b>add</b> a child or <b>disconnect</b> existing children by choosing the corresponding tab in the context menu.
 The disconnected child will remain in the database as a person but just not have the selected person as father or mother anymore.
 
 <img src="img/help/genealogy-052.webp" class="rounded" alt="Child add">
 <img src="img/help/genealogy-051c.webp" class="rounded" alt="Child add">
 
+<div style="color:red">
 When adding a child you can either create a <b>brand new person</b> or select an <b>existing person</b>.
+</div>
 
 ### f. Siblings
 
@@ -312,8 +316,8 @@ Siblings are shown on the siblings card.<br/>
 <img src="img/help/genealogy-060a.webp" class="rounded" alt="Siblings">
 
 A sibling can be <b>full</b>: both the same biological parents as the selected person.<br/>
-A sibling can be <b>half</b>: only the biological mother or the biological father are common.<br/>
-A sibling can be <b>plus</b>: neither the biological father nor the biological mother are common, but the child is part of the current relationship of the selected person
+A sibling can be <b>half</b>: only the biological mother or the biological father are common. <span class="text-warning-500">[1/2]</span><br/>
+A sibling can be <b>plus</b>: neither the biological father nor the biological mother are common, but the child is part of the current relationship of the selected person <span class="text-warning-500">[+]</span>
 
 ### g. Ancestors
 
