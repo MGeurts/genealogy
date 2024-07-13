@@ -24,7 +24,7 @@ return [
     'male'             => 'Male',
     'manage_account'   => 'Manage account',
     'my_profile'       => 'My profile',
-    'nothing_recorded' => 'Nothing recorded.',
+    'nothing_recorded' => 'Nothing recorded yet.',
     'search'           => 'Search',
     'yes'              => 'Yes',
     'no'               => 'No',

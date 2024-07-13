@@ -24,7 +24,7 @@ return [
     'male'             => 'Männlich',
     'manage_account'   => 'Konto verwalten',
     'my_profile'       => 'Mein Profil',
-    'nothing_recorded' => 'Nichts erfasst.',
+    'nothing_recorded' => 'Noch nichts erfasst.',
     'search'           => 'Suche',
     'yes'              => 'Ja',
     'no'               => 'Nein',

@@ -24,7 +24,7 @@ return [
     'male'             => 'Man',
     'manage_account'   => 'Accountbeheer',
     'my_profile'       => 'Mijn profiel',
-    'nothing_recorded' => 'Niets geregistreerd.',
+    'nothing_recorded' => 'Nog niets geregistreerd.',
     'search'           => 'Zoek',
     'yes'              => 'Ja',
     'no'               => 'Neen',
