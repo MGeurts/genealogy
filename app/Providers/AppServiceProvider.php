@@ -57,7 +57,7 @@ class AppServiceProvider extends ServiceProvider
         // LOG-VIEWER : grant access (in production) to developer
         // -----------------------------------------------------------------------
         LogViewer::auth(function ($request) {
-            return auth()->user()->is_developer;
+            return $request->user()->is_developer;
         });
 
         // -----------------------------------------------------------------------
@@ -144,6 +144,6 @@ class AppServiceProvider extends ServiceProvider
     // -----------------------------------------------------------------------
     protected function configureUrl(): void
     {
-        app()->isProduction() && URL::forceScheme('https');
+        app()->isProduction() and URL::forceScheme('https');
     }
 }

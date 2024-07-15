@@ -30,7 +30,7 @@
                 <div class="p-2 border basis-1/5 text-end">{{ trans('person.grandfather') }} & {{ trans('person.grandmother') }} :</div>
 
                 <div class="items-center p-2 text-center border basis-1/5">
-                    @if ($person->father && $person->father->father)
+                    @if ($person->father and $person->father->father)
                         <x-link href="/people/{{ $person->father->father->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $person->father->father->isDeceased()])>
                             {{ $person->father->father->name }}
                         </x-link>
@@ -40,7 +40,7 @@
                     @endif
                 </div>
                 <div class="p-2 text-center border basis-1/5">
-                    @if ($person->father && $person->father->mother)
+                    @if ($person->father and $person->father->mother)
                         <x-link href="/people/{{ $person->father->mother->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $person->father->mother->isDeceased()])>
                             {{ $person->father->mother->name }}
                         </x-link>
@@ -50,7 +50,7 @@
                     @endif
                 </div>
                 <div class="p-2 text-center border basis-1/5">
-                    @if ($person->mother && $person->mother->father)
+                    @if ($person->mother and $person->mother->father)
                         <x-link href="/people/{{ $person->mother->father->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $person->mother->father->isDeceased()])>
                             {{ $person->mother->father->name }}
                         </x-link>
@@ -60,7 +60,7 @@
                     @endif
                 </div>
                 <div class="p-2 text-center border basis-1/5">
-                    @if ($person->mother && $person->mother->mother)
+                    @if ($person->mother and $person->mother->mother)
                         <x-link href="/people/{{ $person->mother->mother->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $person->mother->mother->isDeceased()])>
                             {{ $person->mother->mother->name }}
                         </x-link>

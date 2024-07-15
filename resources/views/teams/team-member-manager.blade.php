@@ -43,7 +43,7 @@
                                     <button type="button"
                                         class="relative px-4 py-3 inline-flex w-full rounded focus:z-10 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-600 {{ $index > 0 ? 'border-t border-gray-200 dark:border-gray-700 focus:border-none rounded-t-none' : '' }} {{ !$loop->last ? 'rounded-b-none' : '' }}"
                                         wire:click="$set('addTeamMemberForm.role', '{{ $role->key }}')">
-                                        <div @class(['opacity-50' => isset($addTeamMemberForm['role']) && $addTeamMemberForm['role'] !== $role->key])>
+                                        <div @class(['opacity-50' => isset($addTeamMemberForm['role']) and $addTeamMemberForm['role'] !== $role->key])>
                                             {{-- role name --}}
                                             <div class="flex items-center">
                                                 <div class="text-sm text-gray-600 {{ $addTeamMemberForm['role'] == $role->key ? 'font-semibold' : '' }}">
@@ -80,7 +80,7 @@
         </div>
     @endif
 
-    @if ($team->teamInvitations->isNotEmpty() && Gate::check('addTeamMember', $team))
+    @if ($team->teamInvitations->isNotEmpty() and Gate::check('addTeamMember', $team))
         <x-section-border />
 
         {{-- team member invitations --}}
@@ -150,7 +150,7 @@
 
                                 <div class="flex items-center">
                                     {{-- manage team member role --}}
-                                    @if (Gate::check('updateTeamMember', $team) && Laravel\Jetstream\Jetstream::hasRoles())
+                                    @if (Gate::check('updateTeamMember', $team) and Laravel\Jetstream\Jetstream::hasRoles())
                                         <x-ts-button sm class="text-sm min-w-28 ms-3" wire:click="manageRole('{{ $user->id }}')" title="{{ __('team.change_role') }}">
                                             {{ Laravel\Jetstream\Jetstream::findRole($user->membership->role)->name }}
                                         </x-ts-button>

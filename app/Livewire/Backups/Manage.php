@@ -79,7 +79,7 @@ class Manage extends Component
         // make a collection of existing backup files, with their filesize and creation date
         foreach ($files as $file) {
             // only take zip files into account
-            if (substr($file, -4) == '.zip' && $disk->exists($file)) {
+            if (substr($file, -4) == '.zip' and $disk->exists($file)) {
                 $this->backups->push([
                     'file_name'    => str_replace(config('backup.backup.name') . '/', '', $file),
                     'file_size'    => Number::fileSize($disk->size($file), 2),

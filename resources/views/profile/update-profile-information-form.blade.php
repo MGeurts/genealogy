@@ -30,12 +30,12 @@
 
                 {{-- current profile photo --}}
                 <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
+                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="object-cover w-20 h-20 rounded-full">
                 </div>
 
                 {{-- new profile photo preview --}}
                 <div class="mt-2" x-show="photoPreview" style="display: none;">
-                    <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center" x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
+                    <span class="block w-20 h-20 bg-center bg-no-repeat bg-cover rounded-full" x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
                     </span>
                 </div>
 
@@ -56,36 +56,36 @@
         {{-- firstname --}}
         <div class="col-span-6 md:col-span-4">
             <x-label for="firstname" value="{{ __('user.firstname') }} :" />
-            <x-input id="firstname" name="firstname" type="text" class="mt-1 block w-full" wire:model.defer="state.firstname" autocomplete="firstname" />
+            <x-input id="firstname" name="firstname" type="text" class="block w-full mt-1" wire:model.defer="state.firstname" autocomplete="firstname" />
             <x-input-error for="firstname" class="mt-1" />
         </div>
 
         {{-- surname --}}
         <div class="col-span-6 md:col-span-4">
             <x-label for="surname" value="{{ __('user.surname') }} :" />
-            <x-input id="surname" name="surname" type="text" class="mt-1 block w-full" wire:model.defer="state.surname" required autocomplete="surname" />
+            <x-input id="surname" name="surname" type="text" class="block w-full mt-1" wire:model.defer="state.surname" required autocomplete="surname" />
             <x-input-error for="surname" class="mt-1" />
         </div>
 
         {{-- email --}}
         <div class="col-span-6 sm:col-span-4">
             <x-label for="email" value="{{ __('user.email') }} :" />
-            <x-input id="email" type="email" class="mt-1 block w-full" wire:model="state.email" required autocomplete="username" />
+            <x-input id="email" type="email" class="block w-full mt-1" wire:model="state.email" required autocomplete="username" />
             <x-input-error for="email" class="mt-2" />
 
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && !$this->user->hasVerifiedEmail())
-                <p class="text-sm mt-2 dark:text-white">
+            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) and !$this->user->hasVerifiedEmail())
+                <p class="mt-2 text-sm dark:text-white">
                     {{ __('user.email_unverified') }}
 
                     <button type="button"
-                        class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                        class="text-sm text-gray-600 underline rounded dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                         wire:click.prevent="sendEmailVerification">
                         {{ __('user.click_resend_mail') }}
                     </button>
                 </p>
 
                 @if ($this->verificationLinkSent)
-                    <p class="mt-2 font-medium text-sm text-emerald-600 dark:text-emerald-400">
+                    <p class="mt-2 text-sm font-medium text-emerald-600 dark:text-emerald-400">
                         {{ __('user.verififacion_mail_send') }}
                     </p>
                 @endif
@@ -95,7 +95,7 @@
         {{-- language --}}
         <div class="col-span-6 md:col-span-4">
             <x-label for="language" value="{{ __('user.language') }} :" />
-            <select id="language" class="block mt-1 w-full rounded" name="language" wire:model="state.language" required>
+            <select id="language" class="block w-full mt-1 rounded" name="language" wire:model="state.language" required>
                 @foreach (config('app.available_locales') as $locale_name => $available_locale)
                     <option value="{{ $available_locale }}" @if (old('language') == '{{ $available_locale }}') selected @endif>{{ $locale_name }}</option>
                 @endforeach
@@ -105,7 +105,7 @@
         {{-- timezone --}}
         <div class="col-span-6 md:col-span-4">
             <x-label for="timezone" value="{{ __('user.timezone') }} :" />
-            <select id="timezone" class="block mt-1 w-full rounded" name="timezone" wire:model="state.timezone" required>
+            <select id="timezone" class="block w-full mt-1 rounded" name="timezone" wire:model="state.timezone" required>
                 @foreach (timezone_identifiers_list() as $timezone)
                     <option value="{{ $timezone }}" @if (old('timezone') == '{{ $timezone }}') selected @endif>{{ $timezone }}</option>
                 @endforeach

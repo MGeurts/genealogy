@@ -314,7 +314,7 @@ class Person extends Model implements HasMedia
         $href_google_address = 'https://www.google.com/maps/search/';
         $href_google_geo     = 'https://www.google.com/maps/search/?api=1&query=';
 
-        if ($this->getMetadataValue('cemetery_location_latitude') && $this->getMetadataValue('cemetery_location_longitude')) {
+        if ($this->getMetadataValue('cemetery_location_latitude') and $this->getMetadataValue('cemetery_location_longitude')) {
             return $href_google_geo . implode('%2C', [
                 $this->getMetadataValue('cemetery_location_latitude'),
                 $this->getMetadataValue('cemetery_location_longitude'),
@@ -488,7 +488,7 @@ class Person extends Model implements HasMedia
     /* returns ALL SIBLINGS (n Person) related to the person, either through father_id, mother_id or parents_id ordered by birth */
     public function siblings(): Collection
     {
-        if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
+        if (! $this->father_id and ! $this->mother_id and ! $this->parents_id) {
             return collect([]);
         } else {
             $siblings_father  = $this->father_id ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->get() : collect([]);
@@ -498,9 +498,9 @@ class Person extends Model implements HasMedia
             $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents);
 
             return $siblings->map(function ($sibling) use ($siblings_father, $siblings_mother, $siblings_parents) {
-                if ($siblings_father->contains('id', $sibling->id) && $siblings_mother->contains('id', $sibling->id)) {
+                if ($siblings_father->contains('id', $sibling->id) and $siblings_mother->contains('id', $sibling->id)) {
                     $sibling['type'] = '';
-                } elseif ($siblings_father->contains('id', $sibling->id) || $siblings_mother->contains('id', $sibling->id)) {
+                } elseif ($siblings_father->contains('id', $sibling->id) or $siblings_mother->contains('id', $sibling->id)) {
                     $sibling['type'] = '[1/2]';
                 } elseif ($siblings_parents->contains('id', $sibling->id)) {
                     $sibling['type'] = '[+]';
@@ -513,7 +513,7 @@ class Person extends Model implements HasMedia
 
     public function siblings_with_children(): Collection // only used in family chart
     {
-        if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
+        if (! $this->father_id and ! $this->mother_id and ! $this->parents_id) {
             return collect([]);
         } else {
             $siblings_father  = $this->father_id ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->with('children')->get() : collect([]);
@@ -523,9 +523,9 @@ class Person extends Model implements HasMedia
             $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents);
 
             return $siblings->map(function ($sibling) use ($siblings_father, $siblings_mother, $siblings_parents) {
-                if ($siblings_father->contains('id', $sibling->id) && $siblings_mother->contains('id', $sibling->id)) {
+                if ($siblings_father->contains('id', $sibling->id) and $siblings_mother->contains('id', $sibling->id)) {
                     $sibling['type'] = '';
-                } elseif ($siblings_father->contains('id', $sibling->id) || $siblings_mother->contains('id', $sibling->id)) {
+                } elseif ($siblings_father->contains('id', $sibling->id) or $siblings_mother->contains('id', $sibling->id)) {
                     $sibling['type'] = '[1/2]';
                 } elseif ($siblings_parents->contains('id', $sibling->id)) {
                     $sibling['type'] = '[+]';
