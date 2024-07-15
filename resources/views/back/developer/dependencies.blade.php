@@ -15,26 +15,32 @@
                     <ul class="w-full ml-4">
                         <li class="py-2">
                             <x-link href="https://laravel.com/" target="_blank">Laravel</x-link> 11
+                            <x-ts-button xs href="https://laravel.com/docs/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
                         <li class="py-2">
                             <x-link href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream</x-link>5 (featuring <x-link href="https://jetstream.laravel.com/features/teams.html"
                                 target="_blank">Teams</x-link>)
-                        </li>
+                            </li>
                         <li class="py-2">
                             <x-link href="https://livewire.laravel.com/" target="_blank">Laravel Livewire</x-link> 3
+                            <x-ts-button xs href="https://livewire.laravel.com/docs/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
                         <li class="py-2">
                             <x-link href="https://alpinejs.dev/" target="_blank">Alpine.js</x-link> 3
+                            <x-ts-button xs href="https://alpinejs.dev/start-here/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
                         <li class="py-2">
                             <x-link href="https://filamentphp.com/" target="_blank">Laravel Filament</x-link>3 (only Table Builder)
+                            <x-ts-button xs href="https://filamentphp.com/docs/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
 
                         <li class="py-2">
-                            <x-link href="https://tailwindcss.com/docs/" target="_blank">Tailwind CSS</x-link>
+                            <x-link href="https://tailwindcss.com/" target="_blank">Tailwind CSS</x-link>
+                            <x-ts-button xs href="https://tailwindcss.com/docs/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
                         <li class="py-2">
                             <x-link href="https://tallstackui.com/" target="_blank">TallStackUI</x-link> (featuring <x-link href="https://tabler.io/icons" target="_blank">Tabler Icons</x-link>)
+                            <x-ts-button xs href="https://tallstackui.com/docs/get-started/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
                     </ul>
 
