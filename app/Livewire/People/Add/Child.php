@@ -65,7 +65,7 @@ class Child extends Component
                     ];
                 });
         } else {
-            $$this->persons = Person::where('id', '!=', $this->person->id)
+            $this->persons = Person::where('id', '!=', $this->person->id)
                 ->whereNull('mother_id')
                 ->YoungerThan($this->person->birth_date, $this->person->birth_year)
                 ->orderBy('firstname')->orderBy('surname')
