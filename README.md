@@ -38,12 +38,14 @@ This <b>TallStack</b> application is build using :
 3. A person can have 1 set of parents, biological or not (1 couple of 2 people, based on <b>parents_id</b>)
 
 4. A person can have 0 to many biological children (n people, based on father_id/mother_id)
+5. A couple can have 0 to many (plus) children (based on <b>parents_id as a couple</b> or <b>father_id/mother_id individually</b>)
 
-5. A person can have 0 to many partners (n people), being part of 0 to many couples (opposite or same biological sex)
-6. A person can be part of a couple with the same partner multiple times (remarriage or reunite)
+6. A person can have 0 to many partners (n people), being part of 0 to many couples (opposite or same biological sex)
+7. A person can be part of a couple with the same partner multiple times (remarriage or reunite)
 
-7. A couple can have 0 to many children (based on <b>parents_id as a couple</b> or <b>father_id/mother_id individually</b>)
-8. A couple can be married or not, still together or separated in the meantime
+8. A person can have 0 to many siblings (n people) (based on <b>parents_id as a couple</b> or <b>father_id/mother_id individually</b>)
+
+9. A couple can be married or not, still together or separated in the meantime
 
 ### Requirements
 
