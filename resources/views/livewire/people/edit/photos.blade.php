@@ -66,7 +66,9 @@
                     @endforeach
                 </div>
             @else
-                <x-ts-alert title="{{ __('person.photos') }}" text="{{ __('app.nothing_recorded') }}" color="cyan" />
+                <div>
+                    <x-ts-alert title="{{ __('person.photos') }}" text="{{ __('app.nothing_recorded') }}" color="cyan" />
+                </div>
             @endif
     </div>
 </div>

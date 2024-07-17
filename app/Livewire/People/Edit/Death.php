@@ -25,8 +25,6 @@ class Death extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->deathForm->person = $this->person;
-
         $this->deathForm->yod = $this->person->yod;
         $this->deathForm->dod = $this->person->dod ? Carbon::parse($this->person->dod)->format('Y-m-d') : null;
         $this->deathForm->pod = $this->person->pod;
