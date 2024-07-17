@@ -345,9 +345,10 @@ Click on a family member name to see that person's family chart.
 This shows the files attached to the person.<br/>
 You can use this feature to attach documentation.
 
-<img src="img/help/genealogy-074.webp" class="rounded" alt="Files">
+<img src="img/help/genealogy-074b.webp" class="rounded" alt="Files">
 
 You can upload (multiple) new documents.<br/>
+You can specify the source of the documents you want to upload.<br/>
 You can rearrange the order of the documents by clicking the <b>Up</b> or <b>Down</b> buttons.<br/>
 You can download documents by clicking the <b>Download</b> button or open them in a seperate window by clicking on the document icon.<br/>
 You can delete a document by clicking on the <b>Delete</b> button.
