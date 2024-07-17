@@ -17,7 +17,7 @@
 
     {{-- upload --}}
     <div class="p-2 print:hidden">
-        <x-ts-upload id="uploads" wire:model="uploads" accept=".jpeg, .jpg, .gif, .png, .svg, .webp" hint="Max: 1024 KB, Format: jpeg/jpg, gif, png, svg, webp"
+        <x-ts-upload id="uploads" wire:model="uploads" accept=".jpeg, .jpg, .gif, .png, .svg, .webp" hint="Max : 1024 KB<br/>Format : jpeg/jpg, gif, png, svg, webp"
             tip="{{ __('person.update_photos_tip') }} ..." multiple delete>
             <x-slot:footer when-uploaded>
                 <x-ts-button class="w-full" wire:click="save()">
