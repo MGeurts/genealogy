@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\People;
 
+use DateTime;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
@@ -23,6 +24,8 @@ class Files extends Component
 
     // -----------------------------------------------------------------------
     public ?string $source = null;
+
+    public ?string $source_date = null;
 
     public array $uploads = [];
 
@@ -91,11 +94,17 @@ class Files extends Component
     public function save()
     {
         foreach ($this->uploads as $upload) {
+            $file = $this->person->addMedia($upload)->toMediaCollection('files', 'files');
+
             if (isset($this->source)) {
-                $this->person->addMedia($upload)->withCustomProperties(['source' => $this->source])->toMediaCollection('files', 'files');
-            } else {
-                $this->person->addMedia($upload)->toMediaCollection('files', 'files');
+                $file->setCustomProperty('source', $this->source);
             }
+
+            if (isset($this->source_date)) {
+                $file->setCustomProperty('source_date', $this->source_date);
+            }
+
+            $file->save();
         }
 
         $this->toast()->success(__('app.save'), trans_choice('person.files_saved', count($this->uploads)))->flash()->send();
@@ -111,13 +120,11 @@ class Files extends Component
             }
         }
 
+        $this->reorderFiles();
+
         $this->toast()->success(__('app.delete'), __('person.file_deleted'))->send();
 
-        $this->dispatch('files_updated');
-
         $this->files = $this->person->getMedia('files');
-
-        $this->reorderFiles();
     }
 
     private function reorderFiles(): void
@@ -141,7 +148,6 @@ class Files extends Component
     public function moveFile(int $position, string $direction): void
     {
         if ($direction == 'up') {
-            // move up
             foreach ($this->files as $file) {
                 if ($file->order_column == $position - 1) {
                     $file->order_column = $file->order_column + 1;
@@ -152,7 +158,6 @@ class Files extends Component
                 $file->save();
             }
         } else {
-            // move down
             foreach ($this->files as $file) {
                 if ($file->order_column == $position) {
                     $file->order_column = $file->order_column + 1;

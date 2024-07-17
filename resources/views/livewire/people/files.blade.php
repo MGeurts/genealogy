@@ -18,11 +18,19 @@
     <div class="p-2 print:hidden">
         {{-- source --}}
         <div class="mb-3">
-            <x-ts-textarea id="source" wire:model="source" label="{{ __('person.source') }} :" hint="{{ __('person.source_hint') }}" autofocus/>
+            <x-ts-textarea id="source" wire:model="source" label="{{ __('person.source') }} :" placeholder="{{ __('person.source_hint') }} ..." maxlength="1024" count autofocus/>
         </div>
 
+        {{-- source_date --}}
+        <div class="mb-3">
+            <x-ts-date wire:model="source_date" id="source_date" label="{{ __('person.source_date') }} :" format="YYYY-MM-DD" :max-date="now()"
+                placeholder="{{ __('person.source_date_hint') }} ..." />
+        </div>
+
+        <x-hr.narrow class="my-2" />
+
         {{-- upload --}}
-        <x-ts-upload id="uploads" wire:model="uploads" accept=".pdf, .txt, .doc, .docx, .xls, .xlsx" hint="Max : 10 MB,<br/>Format : pdf, txt, doc(x), xls(x)" tip="{{ __('person.update_files_tip') }} ..."
+        <x-ts-upload id="uploads" wire:model="uploads" label="{{ __('person.files') }} :" accept=".pdf, .txt, .doc, .docx, .xls, .xlsx" hint="Max : 10 MB,<br/>Format : pdf, txt, doc(x), xls(x)" tip="{{ __('person.update_files_tip') }} ..."
             multiple delete>
             <x-slot:footer when-uploaded>
                 <x-ts-button class="w-full" wire:click="save()">
@@ -31,6 +39,10 @@
             </x-slot:footer>
         </x-ts-upload>
     </div>
+
+    @php
+        use Carbon\Carbon;
+    @endphp
 
     {{-- card body --}}
     <div class="p-2 text-sm border-t-2 rounded-b border-neutral-100 dark:border-neutral-600 bg-neutral-200">
@@ -53,8 +65,12 @@
                             </x-ts-link>
 
                             @if ($file->hasCustomProperty('source'))
-                                <P>{{ __('person.source') }} :</P>
-                                <P>{{ $file->getCustomProperty('source') }}</P>
+                                <p>{{ __('person.source') }} :</p>
+                                <p>{{ $file->getCustomProperty('source') }}</p>
+                            @endif
+
+                            @if ($file->hasCustomProperty('source_date'))
+                                <p>{{ __('person.source_date') }} : {{ Carbon::parse($file->getCustomProperty('source_date'))->isoFormat('LL') }}</p>
                             @endif
 
                             <x-slot:footer>
@@ -88,7 +104,9 @@
                     @endforeach
                 </div>
             @else
-                <x-ts-alert title="{{ __('person.files') }}" text="{{ __('app.nothing_recorded') }}" color="cyan"/>
+                <div>
+                    <x-ts-alert title="{{ __('person.files') }}" text="{{ __('app.nothing_recorded') }}" color="cyan"/>
+                </div>
             @endif
     </div>
 </div>
