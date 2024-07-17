@@ -34,6 +34,9 @@ return [
     'age'           => 'Alter',
     'years'         => '[1] Jahr|[0,2,*] Jahre',
 
+    'source'        => 'Quelle',
+    'source_hint'   => 'Geben Sie die Quelle der Dateien an, die Sie hochladen möchten',
+
     // Actions
     'add_father'                     => 'Vater hinzufügen',
     'add_new_person_as_father'       => 'NEUE Person als Vater hinzufügen',

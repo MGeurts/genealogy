@@ -9,13 +9,20 @@
                 @endif
             </div>
 
-            <div class="flex-1 flex-grow max-w-full min-w-max text-end"> <x-ts-icon icon="files" class="inline-block" /></div>
+            <div class="flex-1 flex-grow max-w-full min-w-max text-end">
+                <x-ts-icon icon="files" class="inline-block" />
+            </div>
         </div>
     </div>
 
-    {{-- upload --}}
     <div class="p-2 print:hidden">
-        <x-ts-upload id="uploads" wire:model="uploads" accept=".pdf, .txt, .doc, .docx, .xls, .xlsx" hint="Max: 10 MB, Format: pdf, txt, doc(x), xls(x)" tip="{{ __('person.update_files_tip') }} ..."
+        {{-- source --}}
+        <div class="mb-3">
+            <x-ts-textarea id="source" wire:model="source" label="{{ __('person.source') }} :" hint="{{ __('person.source_hint') }}" autofocus/>
+        </div>
+
+        {{-- upload --}}
+        <x-ts-upload id="uploads" wire:model="uploads" accept=".pdf, .txt, .doc, .docx, .xls, .xlsx" hint="Max : 10 MB,<br/>Format : pdf, txt, doc(x), xls(x)" tip="{{ __('person.update_files_tip') }} ..."
             multiple delete>
             <x-slot:footer when-uploaded>
                 <x-ts-button class="w-full" wire:click="save()">
@@ -44,6 +51,11 @@
                             <x-ts-link href="{{ $file->getUrl() }}" target="_blank" title="{{ __('app.show') }}">
                                 <img src="{{ url('img/icons/' . $file_type . '.svg') }}" width="80px" alt="{{ $file['name'] }}" class="rounded" />
                             </x-ts-link>
+
+                            @if ($file->hasCustomProperty('source'))
+                                <P>{{ __('person.source') }} :</P>
+                                <P>{{ $file->getCustomProperty('source') }}</P>
+                            @endif
 
                             <x-slot:footer>
                                 <div class="w-full">

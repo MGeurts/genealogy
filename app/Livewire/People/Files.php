@@ -22,6 +22,8 @@ class Files extends Component
     public $person;
 
     // -----------------------------------------------------------------------
+    public ?string $source = null;
+
     public array $uploads = [];
 
     public array $backup = [];
@@ -89,7 +91,11 @@ class Files extends Component
     public function save()
     {
         foreach ($this->uploads as $upload) {
-            $this->person->addMedia($upload)->toMediaCollection('files', 'files');
+            if (isset($this->source)) {
+                $this->person->addMedia($upload)->withCustomProperties(['source' => $this->source])->toMediaCollection('files', 'files');
+            } else {
+                $this->person->addMedia($upload)->toMediaCollection('files', 'files');
+            }
         }
 
         $this->toast()->success(__('app.save'), trans_choice('person.files_saved', count($this->uploads)))->flash()->send();

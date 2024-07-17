@@ -34,6 +34,9 @@ return [
     'age'           => 'Leeftijd',
     'years'         => '[0,1] Jaar|[2,*] Jaar',
 
+    'source'        => 'Bron',
+    'source_hint'   => 'Geef de bron op van de bestanden die u wilt uploaden',
+
     // Actions
     'add_father'                     => 'Vader toevoegen',
     'add_new_person_as_father'       => 'NIEUWE persoon als vader toevoegen',

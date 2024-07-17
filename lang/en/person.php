@@ -34,6 +34,9 @@ return [
     'age'           => 'Age',
     'years'         => '[0,1] Year|[2,*] Years',
 
+    'source'        => 'Source',
+    'source_hint'   => 'Specify the source of the files you\'ll to upload',
+
     // Actions
     'add_father'                     => 'Add father',
     'add_new_person_as_father'       => 'Add NEW person as father',
