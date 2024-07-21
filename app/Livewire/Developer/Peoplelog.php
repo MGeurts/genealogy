@@ -18,7 +18,7 @@ class Peoplelog extends Component
         $records = collect(DB::select('
             SELECT `activity_log`.`event`, `activity_log`.`subject_type`, `activity_log`.`subject_id`, `activity_log`.`properties` , `activity_log`.`created_at`, `users`.`firstname`, `users`.`surname`
             FROM activity_log LEFT JOIN users ON (`activity_log`.`causer_id` = `users`.`id`)
-            ORDER BY created_at DESC, activity_log.id DESC 
+            ORDER BY activity_log.created_at DESC, activity_log.id DESC 
             LIMIT 30;
         '));
 

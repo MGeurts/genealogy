@@ -6,6 +6,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Carbon\Carbon;
+use ErlandMuchasaj\Sanitize\Sanitize;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -18,7 +19,6 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use ErlandMuchasaj\Sanitize\Sanitize;
 
 class Person extends Model implements HasMedia
 {
@@ -97,8 +97,8 @@ class Person extends Model implements HasMedia
     {
         if ($value != '%') {
             collect(str_getcsv($value, ' ', '"'))->filter()->each(function ($term) use ($query) {
-                $word = Sanitize::sanitize($term); // sanitize user input
-                $word = str_replace(['%', '_'], ['\\%', '\\_'], $word);
+                $word       = Sanitize::sanitize($term); // sanitize user input
+                $word       = str_replace(['%', '_'], ['\\%', '\\_'], $word);
                 $searchTerm = $word . '%';
 
                 $query->where(function (Builder $subQuery) use ($searchTerm) {
