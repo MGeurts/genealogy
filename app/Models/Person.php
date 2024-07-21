@@ -12,13 +12,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use ErlandMuchasaj\Sanitize\Sanitize;
 
 class Person extends Model implements HasMedia
 {
@@ -97,7 +97,9 @@ class Person extends Model implements HasMedia
     {
         if ($value != '%') {
             collect(str_getcsv($value, ' ', '"'))->filter()->each(function ($term) use ($query) {
-                $word = str_replace(['%', '_'], ['\\%', '\\_'], $term);
+                $word = Sanitize::sanitize($term); // sanitize user input
+                
+                $word = str_replace(['%', '_'], ['\\%', '\\_'], $word);
 
                 $searchTerm = $word . '%';
 

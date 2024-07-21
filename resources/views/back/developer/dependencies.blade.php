@@ -100,6 +100,9 @@
                         <x-ts-button xs href="https://spatie.be/docs/laravel-backup/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                     </li>
                     <li class="py-2">
+                        <x-link href="https://github.com/erlandmuchasaj/sanitize" target="_blank">erlandmuchasaj/sanitize</x-link>
+                    </li>
+                    <li class="py-2">
                         <x-link href="https://github.com/spatie/laravel-medialibrary/" target="_blank">spatie/laravel-medialibrary</x-link>
                         <x-ts-button xs href="https://spatie.be/docs/laravel-medialibrary/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                     </li>

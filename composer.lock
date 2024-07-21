@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "25901de30c8df70c1a5b83dbe4146d86",
+    "content-hash": "2aecf90be61d7238d1374030e5709366",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -1033,6 +1033,73 @@
                 }
             ],
             "time": "2023-10-06T06:47:41+00:00"
+        },
+        {
+            "name": "erlandmuchasaj/sanitize",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/erlandmuchasaj/sanitize.git",
+                "reference": "b0f6f0823c8b592031e8f0bae1a56742829a11f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/erlandmuchasaj/sanitize/zipball/b0f6f0823c8b592031e8f0bae1a56742829a11f9",
+                "reference": "b0f6f0823c8b592031e8f0bae1a56742829a11f9",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3|^7.4|^8.0|^8.1|^8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ErlandMuchasaj\\Sanitize\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erland Muchasaj",
+                    "email": "erland.muchasaj@gmail.com",
+                    "homepage": "https://erlandmuchasaj.tech/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A package to sanitize your input.",
+            "homepage": "https://github.com/erlandmuchasaj/sanitize",
+            "keywords": [
+                "Escape",
+                "clean",
+                "input",
+                "library",
+                "package",
+                "sanitize"
+            ],
+            "support": {
+                "email": "erland.muchasaj@gmail.com",
+                "irc": "irc://irc.freenode.org/composer",
+                "issues": "https://github.com/erlandmuchasaj/sanitize/issues",
+                "source": "https://github.com/erlandmuchasaj/sanitize"
+            },
+            "funding": [
+                {
+                    "url": "https://ko-fi.com/erlandmuchasaj",
+                    "type": "Ko-fi"
+                },
+                {
+                    "url": "https://paypal.me/emcms?country.x=AL&locale.x=en_US",
+                    "type": "PayPal"
+                },
+                {
+                    "url": "https://www.patreon.com/erlandmuchasaj",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2023-03-20T13:12:16+00:00"
         },
         {
             "name": "filament/actions",

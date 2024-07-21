@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "erlandmuchasaj/sanitize": "^1.0",
         "filament/tables": "^3.2",
         "intervention/image": "^3.5",
         "khill/lavacharts": "^3.1",
