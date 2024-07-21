@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('people', function (Blueprint $table) {
             $table->id();
 
-            $table->string('firstname')->nullable();
-            $table->string('surname');
-            $table->string('birthname')->nullable();
-            $table->string('nickname')->nullable();
+            $table->string('firstname')->nullable()->index();
+            $table->string('surname')->index();
+            $table->string('birthname')->nullable()->index();
+            $table->string('nickname')->nullable()->index();
 
             $table->string('sex', 1)->default('m')->index();
             $table->foreignId('gender_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('restrict');

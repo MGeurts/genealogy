@@ -150,10 +150,10 @@ Authenticated users can only see <b>people</b> and <b>couples</b>:
 
 After login and <span style="color:red">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
 
-<img src="img/help/genealogy-010a.webp" class="rounded" alt="Search">
+<img src="img/help/genealogy-010.webp" class="rounded" alt="Search">
 
-Enter a search value in the <b>search box</b>. You can use the character <b style="color:red">%</b> as a wildcard character.<br/>
-Insert either a <b>surname</b>, a <b>firstname</b>, a <b>birthname</b> or a <b>nickname</b>. Do not combine!<br/>
+Enter a search values in the <b>search box</b>.
+Insert (a part of) a surname, a firstname, a birthname or a nickname.<br/>
 Above the search box the number of people available to / found in the <b>current team</b> are shown.<br/>
 
 The results are shown in a grid below the search box, each person is represented in one card.<br/>
@@ -178,7 +178,7 @@ After login and <span style="color:red">selecting the proper team</span>, click 
 
 You can add a new person by clicking the <b>Add person</b> button above the search bar.
 
-<img src="img/help/genealogy-010a.webp" class="rounded" alt="Add person">
+<img src="img/help/genealogy-010.webp" class="rounded" alt="Add person">
 <img src="img/help/genealogy-011b.webp" class="rounded" alt="Add person">
 
 ### b. New person being a father or mother

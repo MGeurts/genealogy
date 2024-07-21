@@ -97,7 +97,8 @@ return [
     'no_result' => 'Nothing found matching your criteria',
 
     'people_search'             => 'Find people in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
-    'people_search_placeholder' => 'Enter name or nickname ...',
+    'people_search_placeholder' => 'Enter a name ...',
+    'people_search_tip'         => 'Insert (a part of) a surname, a firstname, a birthname or a nickname.',
     'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> found with keyword <span class="text-emerald-600"><strong>:keyword</strong></span> in <span class="text-emerald-600"><strong>:total</strong></span> available in <span class="text-emerald-600"><strong>:scope</strong></span>',
     'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> available in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
 

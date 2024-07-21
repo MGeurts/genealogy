@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
 use Spatie\Activitylog\LogOptions;
@@ -95,7 +96,18 @@ class Person extends Model implements HasMedia
     public function scopeSearch(Builder $query, string $value): void
     {
         if ($value != '%') {
-            $query->whereAny(['firstname', 'surname', 'birthname', 'nickname'], 'LIKE', "%$value%");
+            collect(str_getcsv($value, ' ', '"'))->filter()->each(function ($term) use ($query) {
+                $word = str_replace(['%', '_'], ['\\%', '\\_'], $term);
+
+                $searchTerm = $word . '%';
+
+                $query->where(function (Builder $subQuery) use ($searchTerm) {
+                    $subQuery->where('firstname', 'like', $searchTerm)
+                        ->orWhere('surname', 'like', $searchTerm)
+                        ->orWhere('birthname', 'like', $searchTerm)
+                        ->orWhere('nickname', 'like', $searchTerm);
+                });
+            });
         }
     }
 
