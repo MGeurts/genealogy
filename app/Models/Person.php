@@ -98,9 +98,7 @@ class Person extends Model implements HasMedia
         if ($value != '%') {
             collect(str_getcsv($value, ' ', '"'))->filter()->each(function ($term) use ($query) {
                 $word = Sanitize::sanitize($term); // sanitize user input
-                
                 $word = str_replace(['%', '_'], ['\\%', '\\_'], $word);
-
                 $searchTerm = $word . '%';
 
                 $query->where(function (Builder $subQuery) use ($searchTerm) {
