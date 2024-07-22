@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2aecf90be61d7238d1374030e5709366",
+    "content-hash": "25901de30c8df70c1a5b83dbe4146d86",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -1033,73 +1033,6 @@
                 }
             ],
             "time": "2023-10-06T06:47:41+00:00"
-        },
-        {
-            "name": "erlandmuchasaj/sanitize",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/erlandmuchasaj/sanitize.git",
-                "reference": "b0f6f0823c8b592031e8f0bae1a56742829a11f9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/erlandmuchasaj/sanitize/zipball/b0f6f0823c8b592031e8f0bae1a56742829a11f9",
-                "reference": "b0f6f0823c8b592031e8f0bae1a56742829a11f9",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.3|^7.4|^8.0|^8.1|^8.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ErlandMuchasaj\\Sanitize\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Erland Muchasaj",
-                    "email": "erland.muchasaj@gmail.com",
-                    "homepage": "https://erlandmuchasaj.tech/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A package to sanitize your input.",
-            "homepage": "https://github.com/erlandmuchasaj/sanitize",
-            "keywords": [
-                "Escape",
-                "clean",
-                "input",
-                "library",
-                "package",
-                "sanitize"
-            ],
-            "support": {
-                "email": "erland.muchasaj@gmail.com",
-                "irc": "irc://irc.freenode.org/composer",
-                "issues": "https://github.com/erlandmuchasaj/sanitize/issues",
-                "source": "https://github.com/erlandmuchasaj/sanitize"
-            },
-            "funding": [
-                {
-                    "url": "https://ko-fi.com/erlandmuchasaj",
-                    "type": "Ko-fi"
-                },
-                {
-                    "url": "https://paypal.me/emcms?country.x=AL&locale.x=en_US",
-                    "type": "PayPal"
-                },
-                {
-                    "url": "https://www.patreon.com/erlandmuchasaj",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2023-03-20T13:12:16+00:00"
         },
         {
             "name": "filament/actions",
@@ -2939,16 +2872,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.4.2",
+            "version": "2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "91c24291965bd6d7c46c46a12ba7492f83b1cadf"
+                "reference": "50bd4dce0d53e1b3b51a153fc2e44a7dc3f7ee5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/91c24291965bd6d7c46c46a12ba7492f83b1cadf",
-                "reference": "91c24291965bd6d7c46c46a12ba7492f83b1cadf",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/50bd4dce0d53e1b3b51a153fc2e44a7dc3f7ee5b",
+                "reference": "50bd4dce0d53e1b3b51a153fc2e44a7dc3f7ee5b",
                 "shasum": ""
             },
             "require": {
@@ -3041,7 +2974,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-02T11:59:32+00:00"
+            "time": "2024-07-22T17:11:18+00:00"
         },
         {
             "name": "league/config",
@@ -4675,16 +4608,16 @@
         },
         {
             "name": "openspout/openspout",
-            "version": "v4.24.3",
+            "version": "v4.24.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/openspout/openspout.git",
-                "reference": "27de0c4d4a5b97927ece3e4dcbb7b48cb12e8a34"
+                "reference": "e5f92c5c9e6cc44119918da66bb097a0ffc202b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/openspout/openspout/zipball/27de0c4d4a5b97927ece3e4dcbb7b48cb12e8a34",
-                "reference": "27de0c4d4a5b97927ece3e4dcbb7b48cb12e8a34",
+                "url": "https://api.github.com/repos/openspout/openspout/zipball/e5f92c5c9e6cc44119918da66bb097a0ffc202b2",
+                "reference": "e5f92c5c9e6cc44119918da66bb097a0ffc202b2",
                 "shasum": ""
             },
             "require": {
@@ -4752,7 +4685,7 @@
             ],
             "support": {
                 "issues": "https://github.com/openspout/openspout/issues",
-                "source": "https://github.com/openspout/openspout/tree/v4.24.3"
+                "source": "https://github.com/openspout/openspout/tree/v4.24.4"
             },
             "funding": [
                 {
@@ -4764,7 +4697,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-07-12T12:32:17+00:00"
+            "time": "2024-07-22T09:30:54+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
@@ -11917,16 +11850,16 @@
         },
         {
             "name": "spatie/backtrace",
-            "version": "1.6.1",
+            "version": "1.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/backtrace.git",
-                "reference": "8373b9d51638292e3bfd736a9c19a654111b4a23"
+                "reference": "1a9a145b044677ae3424693f7b06479fc8c137a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/backtrace/zipball/8373b9d51638292e3bfd736a9c19a654111b4a23",
-                "reference": "8373b9d51638292e3bfd736a9c19a654111b4a23",
+                "url": "https://api.github.com/repos/spatie/backtrace/zipball/1a9a145b044677ae3424693f7b06479fc8c137a9",
+                "reference": "1a9a145b044677ae3424693f7b06479fc8c137a9",
                 "shasum": ""
             },
             "require": {
@@ -11964,7 +11897,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/backtrace/tree/1.6.1"
+                "source": "https://github.com/spatie/backtrace/tree/1.6.2"
             },
             "funding": [
                 {
@@ -11976,20 +11909,20 @@
                     "type": "other"
                 }
             ],
-            "time": "2024-04-24T13:22:11+00:00"
+            "time": "2024-07-22T08:21:24+00:00"
         },
         {
             "name": "spatie/error-solutions",
-            "version": "1.0.5",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/error-solutions.git",
-                "reference": "4bb6c734dc992b2db3e26df1ef021c75d2218b13"
+                "reference": "a014da18f2675ea15af0ba97f7e9aee59e13964f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/error-solutions/zipball/4bb6c734dc992b2db3e26df1ef021c75d2218b13",
-                "reference": "4bb6c734dc992b2db3e26df1ef021c75d2218b13",
+                "url": "https://api.github.com/repos/spatie/error-solutions/zipball/a014da18f2675ea15af0ba97f7e9aee59e13964f",
+                "reference": "a014da18f2675ea15af0ba97f7e9aee59e13964f",
                 "shasum": ""
             },
             "require": {
@@ -12042,7 +11975,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/error-solutions/issues",
-                "source": "https://github.com/spatie/error-solutions/tree/1.0.5"
+                "source": "https://github.com/spatie/error-solutions/tree/1.1.0"
             },
             "funding": [
                 {
@@ -12050,7 +11983,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-07-09T12:13:32+00:00"
+            "time": "2024-07-22T08:18:22+00:00"
         },
         {
             "name": "spatie/flare-client-php",

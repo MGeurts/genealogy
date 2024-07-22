@@ -6,7 +6,6 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Carbon\Carbon;
-use ErlandMuchasaj\Sanitize\Sanitize;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -97,15 +96,13 @@ class Person extends Model implements HasMedia
     {
         if ($value != '%') {
             collect(str_getcsv($value, ' ', '"'))->filter()->each(function ($term) use ($query) {
-                $word       = Sanitize::sanitize($term); // sanitize user input
-                $word       = str_replace(['%', '_'], ['\\%', '\\_'], $word);
-                $searchTerm = $word . '%';
+                $searchTerm = $term . '%';
 
                 $query->where(function (Builder $subQuery) use ($searchTerm) {
-                    $subQuery->where('firstname', 'like', $searchTerm)
-                        ->orWhere('surname', 'like', $searchTerm)
-                        ->orWhere('birthname', 'like', $searchTerm)
-                        ->orWhere('nickname', 'like', $searchTerm);
+                    $subQuery->where('firstname', 'LIKE', $searchTerm)
+                        ->orWhere('surname', 'LIKE', $searchTerm)
+                        ->orWhere('birthname', 'LIKE', $searchTerm)
+                        ->orWhere('nickname', 'LIKE', $searchTerm);
                 });
             });
         }
