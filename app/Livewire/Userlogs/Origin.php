@@ -19,7 +19,7 @@ class Origin extends Component
         $statistics = Userlog::select('country_name')
             ->selectRaw('COUNT(*) AS visitors')
             ->groupBy('country_name')
-            ->orderBy('visitors', 'desc')->orderBy('country_name')
+            ->orderByDesc('visitors')->orderBy('country_name')
             ->get();
 
         $this->chart_data = json_encode([

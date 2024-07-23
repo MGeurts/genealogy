@@ -8,6 +8,7 @@ use App\Livewire\Forms\People\FamilyForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
 use App\Models\Person;
+use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
@@ -22,11 +23,11 @@ class Family extends Component
 
     public FamilyForm $familyForm;
 
-    public $fathers = [];
+    public Collection $fathers;
 
-    public $mothers = [];
+    public Collection $mothers;
 
-    public $parents = [];
+    public Collection $parents;
 
     // -----------------------------------------------------------------------
     public function mount(): void

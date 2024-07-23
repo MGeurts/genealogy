@@ -8,6 +8,7 @@ use App\Livewire\Forms\People\PartnerForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
 use App\Models\Person;
+use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
@@ -24,7 +25,7 @@ class Partner extends Component
 
     public PartnerForm $partnerForm;
 
-    public $persons = [];
+    public Collection $persons;
 
     // -----------------------------------------------------------------------
     public function mount(): void
@@ -37,7 +38,9 @@ class Partner extends Component
         $this->partnerForm->is_married = $this->couple->is_married;
         $this->partnerForm->has_ended  = $this->couple->has_ended;
 
-        $this->persons = Person::orderBy('firstname', 'asc')->orderBy('surname', 'asc')
+        $this->persons = Person::PartnerOffset($this->person->birth_date, $this->person->birth_year)
+            ->where('id', '!=', $this->person->id)
+            ->orderBy('firstname')->orderBy('surname')
             ->get()
             ->map(function ($p) {
                 return [

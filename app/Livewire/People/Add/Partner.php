@@ -60,7 +60,8 @@ class Partner extends Component
         $this->partnerForm->has_ended  = false;
 
         $this->persons = Person::PartnerOffset($this->person->birth_date, $this->person->birth_year)
-            ->orderBy('firstname', 'asc')->orderBy('surname', 'asc')
+            ->where('id', '!=', $this->person->id)
+            ->orderBy('firstname')->orderBy('surname')
             ->get()
             ->map(function ($p) {
                 return [

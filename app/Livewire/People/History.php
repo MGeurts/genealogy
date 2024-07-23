@@ -23,15 +23,15 @@ class History extends Component
     {
         $this->activities = Activity::with('causer')
             ->where('subject_type', 'App\Models\Person')->where('subject_id', $this->person->id)
-            ->orderBy('created_at', 'DESC')
+            ->orderByDesc('created_at')
             ->get()
-            ->map(function ($p) {
+            ->map(function ($record) {
                 return [
-                    'event'      => strtoupper($p->event),
-                    'created_at' => Carbon::parse($p->created_at)->inUserTimezone()->format('Y-m-d h:i:s'),
-                    'causer'     => $p->causer ? implode(' ', array_filter([$p->causer->firstname, $p->causer->surname])) : null,
-                    'old'        => $p->properties->get('old'),
-                    'new'        => $p->properties->get('attributes'),
+                    'event'      => strtoupper($record->event),
+                    'created_at' => Carbon::parse($record->created_at)->inUserTimezone()->format('Y-m-d h:i:s'),
+                    'causer'     => $record->causer ? implode(' ', array_filter([$record->causer->firstname, $record->causer->surname])) : null,
+                    'old'        => $record->properties->get('old'),
+                    'new'        => $record->properties->get('attributes'),
                 ];
             });
     }
