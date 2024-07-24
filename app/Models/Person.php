@@ -99,10 +99,10 @@ class Person extends Model implements HasMedia
                 $searchTerm = $term . '%';
 
                 $query->where(function (Builder $subQuery) use ($searchTerm) {
-                    $subQuery->where('firstname', 'LIKE', $searchTerm)
-                        ->orWhere('surname', 'LIKE', $searchTerm)
-                        ->orWhere('birthname', 'LIKE', $searchTerm)
-                        ->orWhere('nickname', 'LIKE', $searchTerm);
+                    $subQuery->whereLike('firstname', $searchTerm)
+                        ->orWhereLike('surname', $searchTerm)
+                        ->orWhereLike('birthname', $searchTerm)
+                        ->orWhereLike('nickname', $searchTerm);
                 });
             });
         }
