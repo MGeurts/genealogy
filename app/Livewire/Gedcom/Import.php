@@ -78,7 +78,7 @@ class Import extends Component
         //if ($this->file) {
         //    $this->file->storeAs(path: 'public/imports', name: $this->file->getClientOriginalName());
 
-        $parser = new \Gedcom\Parser();
+        $parser = new \Gedcom\Parser;
 
         //$gedcom = $parser->parse(asset('storage/imports/' . $this->file->getClientOriginalName()));
         $gedcom = $parser->parse('storage/imports/demo.ged');

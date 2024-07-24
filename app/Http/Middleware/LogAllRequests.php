@@ -26,7 +26,7 @@ class LogAllRequests
 
         $headers = $request->header();
 
-        $dt   = new Carbon();
+        $dt   = new Carbon;
         $data = [
             'path'         => $request->getPathInfo(),
             'method'       => $request->getMethod(),

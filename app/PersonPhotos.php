@@ -32,7 +32,7 @@ class PersonPhotos
             $image_type    = config('app.image_upload_type');
 
             // set image manager
-            $manager = new ImageManager(new Driver());
+            $manager = new ImageManager(new Driver);
 
             // determine last index
             $files      = File::glob(public_path() . '/storage/photos/' . $person->team_id . '/' . $person->id . '_*.webp');
