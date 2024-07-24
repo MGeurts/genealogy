@@ -98,8 +98,6 @@ Route::middleware([
 // language
 // -----------------------------------------------------------------------------------------------
 Route::get('language/{locale}', function ($locale) {
-    app()->setLocale($locale);
-    Carbon::setLocale($locale);
     session()->put('locale', $locale);
 
     return back();

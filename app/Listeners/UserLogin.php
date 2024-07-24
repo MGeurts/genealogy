@@ -24,6 +24,13 @@ class UserLogin
     public function handle(Login $event): void
     {
         // -----------------------------------------------------------------------
+        // set language
+        // -----------------------------------------------------------------------
+        $locale = auth()->user()->language ? auth()->user()->language : env('APP_LOCALE', 'en');
+
+        session()->put('locale', $locale);
+
+        // -----------------------------------------------------------------------
         // log user (seen_at)
         // -----------------------------------------------------------------------
         $event->user->timestamps = false;

@@ -4,6 +4,7 @@ namespace App\Actions\Fortify;
 
 use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
@@ -17,6 +18,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     public function update(User $user, array $input): void
     {
+        // -----------------------------------------------------------------------
+        // set language
+        // -----------------------------------------------------------------------
+        session()->put('locale', $input['language']);
+
         Validator::make($input, [
             'firstname' => ['nullable', 'string', 'max:255'],
             'surname'   => ['required', 'string', 'max:255'],
