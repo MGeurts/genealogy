@@ -83,8 +83,8 @@ return [
     'password'                   => 'Passwort',
     'can_not_delete'             => 'Ihr Konto kann nicht gelöscht werden, da es gültige Daten enthält.',
 
-    'email_unverified'               => 'Ihre E-Mail-Adresse ist nicht bestätigt.',
-    'click_resend_verification_mail' => 'Klicken Sie hier, um die Bestätigungs-E-Mail erneut zu senden.',
+    'email_unverified'               => 'Ihre E-Mail-Adresse ist noch nicht bestätigt.',
+    'click_resend_verification_mail' => 'Bestätigungs E-Mail erneut senden.',
     'verififacion_mail_send'         => 'Ein neuer Bestätigungslink wurde an Ihre E-Mail-Adresse gesendet.',
 
 ];

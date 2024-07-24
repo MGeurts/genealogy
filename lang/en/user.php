@@ -83,8 +83,8 @@ return [
     'password'                   => 'Password',
     'can_not_delete'             => 'Your account can not be deleted because it contains valid data.',
 
-    'email_unverified'               => 'Your email address is unverified.',
-    'click_resend_verification_mail' => 'Click here to re-send the verification email.',
+    'email_unverified'               => 'Your email address is not verified yet.',
+    'click_resend_verification_mail' => 'Re-send verification email.',
     'verififacion_mail_send'         => 'A new verification link has been sent to your email address.',
 
 ];
