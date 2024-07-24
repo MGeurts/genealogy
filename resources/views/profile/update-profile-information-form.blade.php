@@ -18,12 +18,12 @@
                 {{-- profile photo file input --}}
                 <input type="file" id="photo" class="hidden" wire:model.live="photo" x-ref="photo"
                     x-on:change="
-                                    photoName = $refs.photo.files[0].name;
-                                    const reader = new FileReader();
-                                    reader.onload = (e) => {
-                                        photoPreview = e.target.result;
-                                    };
-                                    reader.readAsDataURL($refs.photo.files[0]);
+                                photoName = $refs.photo.files[0].name;
+                                const reader = new FileReader();
+                                reader.onload = (e) => {
+                                    photoPreview = e.target.result;
+                                };
+                                reader.readAsDataURL($refs.photo.files[0]);
                             " />
 
                 <x-label for="photo" value="{{ __('user.photo') }} :" />
@@ -74,14 +74,12 @@
             <x-input-error for="email" class="mt-2" />
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) and !$this->user->hasVerifiedEmail())
-                <p class="mt-2 text-sm dark:text-white">
+                <p class="mt-2 text-sm text-danger-600 dark:text-danger-400">
                     {{ __('user.email_unverified') }}
 
-                    <button type="button"
-                        class="text-sm text-gray-600 underline rounded dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
-                        wire:click.prevent="sendEmailVerification">
-                        {{ __('user.click_resend_mail') }}
-                    </button>
+                    <x-ts-button color="secondary" class="mt-2 me-2" type="button" wire:click.prevent="sendEmailVerification">
+                        {{ __('user.click_resend_verification_mail') }}
+                    </x-ts-button>
                 </p>
 
                 @if ($this->verificationLinkSent)
