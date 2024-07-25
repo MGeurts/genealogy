@@ -84,8 +84,9 @@ class AppServiceProvider extends ServiceProvider
         // TallStackUI personalization
         // Ref : https://tallstackui.com/docs/personalization/soft
         // -----------------------------------------------------------------------
-        // TallStackUi::personalize()->button()
-        //     ->block('wrapper.class')->replace('gap-x-2', 'gap-x-0');
+        TallStackUi::personalize()->button()
+            ->block('wrapper.class')->replace('gap-x-2', 'gap-x-0')
+            ->block('wrapper.class')->append('!rounded');
 
         TallStackUi::personalize()->card()
             ->block('wrapper.first')->replace('gap-4', 'gap-2')

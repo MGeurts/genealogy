@@ -68,7 +68,7 @@
                 </x-slot>
 
                 <x-slot name="actions">
-                    <x-action-message class="px-4 py-2 mr-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
+                    <x-action-message class="p-3 mr-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
                         {{ __('app.saved') }}
                     </x-action-message>
 

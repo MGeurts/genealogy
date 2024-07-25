@@ -76,11 +76,11 @@
 
             <div class="flex items-center justify-end pt-4 text-right">
                 <div class="flex-1 flex-grow max-w-full text-left">
-                    <x-action-message class="p-2.5 rounded bg-warning-200 text-warning-700" role="alert" on="" wire:dirty>
+                    <x-action-message class="p-3 rounded bg-warning-200 text-warning-700" role="alert" on="" wire:dirty>
                         {{ __('app.unsaved_changes') }} ...
                     </x-action-message>
 
-                    <x-action-message class="p-2.5 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
+                    <x-action-message class="p-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
                         {{ __('app.saved') }}
                     </x-action-message>
                 </div>
@@ -116,11 +116,11 @@
 
             <div class="flex items-center justify-end pt-4 text-right">
                 <div class="flex-1 flex-grow max-w-full text-left">
-                    <x-action-message class="p-2.5 rounded bg-warning-200 text-warning-700" role="alert" on="" wire:dirty>
+                    <x-action-message class="p-3 rounded bg-warning-200 text-warning-700" role="alert" on="" wire:dirty>
                         {{ __('app.unsaved_changes') }} ...
                     </x-action-message>
 
-                    <x-action-message class="p-2.5 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
+                    <x-action-message class="p-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
                         {{ __('app.saved') }}
                     </x-action-message>
                 </div>

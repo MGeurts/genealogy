@@ -35,11 +35,10 @@
 
                 {{-- new profile photo preview --}}
                 <div class="mt-2" x-show="photoPreview" style="display: none;">
-                    <span class="block w-20 h-20 bg-center bg-no-repeat bg-cover rounded-full" x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
-                    </span>
+                    <span class="block w-20 h-20 bg-center bg-no-repeat bg-cover rounded-full" x-bind:style="'background-image: url(\'' + photoPreview + '\');'"></span>
                 </div>
 
-                <x-ts-button color="secondary" class="mt-2 me-2" type="button" x-on:click.prevent="$refs.photo.click()">
+                <x-ts-button color="secondary" class="mt-2" type="button" x-on:click.prevent="$refs.photo.click()">
                     {{ __('user.select_photo') }}
                 </x-ts-button>
 
@@ -112,7 +111,7 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-action-message class="px-4 py-2 mr-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
+        <x-action-message class="p-3 mr-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
             {{ __('app.saved') }}
         </x-action-message>
 
