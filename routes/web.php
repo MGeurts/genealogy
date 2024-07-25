@@ -96,6 +96,7 @@ Route::middleware([
 
 // -----------------------------------------------------------------------------------------------
 // language
+// Remark: actual language switching wil be handled by App\Http\Middleware\Localization::class
 // -----------------------------------------------------------------------------------------------
 Route::get('language/{locale}', function ($locale) {
     session()->put('locale', $locale);
