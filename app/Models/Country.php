@@ -13,6 +13,7 @@ class Country extends Model
         'iso2',
         'iso3',
         'name',
+        'name_nl',
         'isd',
         'is_eu',
     ];
@@ -38,6 +39,13 @@ class Country extends Model
     {
         return new Attribute(
             set: fn ($value) => $value ? strtoupper($value) : null,
+        );
+    }
+
+    protected function Name(): Attribute
+    {
+        return new Attribute(
+            set: fn ($value) => $value ? $value : null,
         );
     }
 }
