@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Countries;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -45,7 +46,7 @@ class Person extends Model implements HasMedia
         'street', 'number',
         'postal_code', 'city',
         'province', 'state',
-        'country_id',
+        'country',
         'phone',
 
         'photo',
@@ -296,23 +297,27 @@ class Person extends Model implements HasMedia
 
     protected function getAddressAttribute(): ?string
     {
+        $countries = new Countries(app()->getLocale());
+
         return implode("\n", array_filter([
             implode(' ', array_filter([$this->street, $this->number])),
             implode(' ', array_filter([$this->postal_code, $this->city])),
             implode(' ', array_filter([$this->province, $this->state])),
-            is_null($this->country_id) ? '' : $this->country->name,
+            $this->country ? $countries->get($this->country) : '',
         ]));
     }
 
     protected function getAddressGoogleAttribute(): ?string
     {
+        $countries = new Countries(app()->getLocale());
+
         $href_google_address = 'https://www.google.com/maps/search/';
 
         $address = implode(',', array_filter([
             implode(' ', array_filter([$this->street, $this->number])),
             implode(' ', array_filter([$this->postal_code, $this->city])),
             implode(' ', array_filter([$this->province, $this->state])),
-            is_null($this->country_id) ? '' : $this->country->name,
+            $this->country ? $countries->get($this->country) : '',
         ]));
 
         return $address ? $href_google_address . $address : '';

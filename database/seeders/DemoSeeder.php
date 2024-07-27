@@ -342,7 +342,7 @@ class DemoSeeder extends Seeder
             'street'      => 'Royal Lodge',
             'postal_code' => 'SL4 2JD',
             'city'        => 'Windsor',
-            'country_id'  => 77,
+            'country'     => 'gb',
         ]);
     }
 

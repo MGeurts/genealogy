@@ -150,7 +150,7 @@ namespace App\Models{
  * @property string|null $city
  * @property string|null $province
  * @property string|null $state
- * @property int|null $country_id
+ * @property string|null $country
  * @property string|null $phone
  * @property string|null $photo
  * @property int|null $team_id

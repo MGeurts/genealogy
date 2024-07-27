@@ -104,12 +104,11 @@
                         <x-ts-button xs href="https://spatie.be/docs/laravel-medialibrary/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                     </li>
                     <li class="py-2">
-                        <x-link href="https://github.com/stevebauman/location/" target="_blank">stevebauman/location</x-link>
+                        <x-link href="https://github.com/stefangabos/world_countries/" target="_blank">stefangabos/world_countries</x-link>
+                        <x-ts-button xs href="https://stefangabos.github.io/world_countries/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                     </li>
-
                     <li class="py-2">
-                        <x-link href="https://github.com/tpetry/laravel-mysql-explain/" target="_blank">tpetry/laravel-mysql-explain</x-link>
-                        <x-ts-badge xs color="secondary" class="ms-5">Possible candidate</x-ts-badge>
+                        <x-link href="https://github.com/stevebauman/location/" target="_blank">stevebauman/location</x-link>
                     </li>
                 </ul>
             </x-ts-tab.items>

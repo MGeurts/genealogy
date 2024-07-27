@@ -39,7 +39,7 @@ return new class extends Migration
             $table->string('city', 100)->nullable();
             $table->string('province', 100)->nullable();
             $table->string('state', 100)->nullable();
-            $table->foreignId('country_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('restrict');
+            $table->char('country', 2)->nullable();
             $table->string('phone', 50)->nullable();
 
             $table->string('photo')->nullable();

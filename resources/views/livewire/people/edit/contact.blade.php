@@ -49,9 +49,9 @@
                     <x-ts-input wire:model="contactForm.state" id="province" label="{{ __('person.state') }} :" autocomplete="state" wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
 
-                {{-- country_id --}}
+                {{-- country --}}
                 <div class="col-span-5">
-                    <x-ts-select.styled wire:model="contactForm.country_id" id="country_id" label="{{ __('person.country') }} :" :options="$contactForm->countries()" select="label:name|value:id"
+                    <x-ts-select.styled wire:model="contactForm.country" id="country" label="{{ __('person.country') }} :" :options="$contactForm->countries()" select="label:name|value:id"
                         placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
 
