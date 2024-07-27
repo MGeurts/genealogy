@@ -11,29 +11,27 @@
 
         <tbody>
             <tr class="border-b dark:border-neutral-600">
-                @php
-                    echo '<td class="p-2 align-top border-x dark:border-neutral-600">';
-                        echo $user->currentTeam->name;
-                    echo '</td>';
+                <td class="p-2 align-top border-x dark:border-neutral-600">
+                   {{ $user->currentTeam->name }}
+                </td>
 
-                    echo '<td class="p-2 align-top border-x dark:border-neutral-600">';
-                        foreach ($user->currentTeam->users->sortBy('name') as $member) {
-                            echo $member->name . '<br/>';
-                        }   
-                    echo '</td>';
+                <td class="p-2 align-top border-x dark:border-neutral-600">
+                    @foreach ($user->currentTeam->users->sortBy('name') as $member)
+                        {{ $member->name }}<br/>
+                    @endforeach   
+                </td>
 
-                    echo '<td class="p-2 align-top border-x dark:border-neutral-600">';
-                        foreach ($user->currentTeam->persons->sortBy('name') as $person) {
-                            echo $person->name . '<br/>';
-                        }   
-                    echo '</td>';
+                <td class="p-2 align-top border-x dark:border-neutral-600">
+                    @foreach ($user->currentTeam->persons->sortBy('name') as $person)
+                        <x-ts-link href="/people/{{ $person->id }}" title="{{ __('app.show') }}">{{ $person->name }}</x-ts-link><br/>
+                    @endforeach  
+                </td>
 
-                    echo '<td class="p-2 align-top border-x dark:border-neutral-600">';
-                        foreach ($user->currentTeam->couples as $couple) {
-                            echo $couple->person_1->name . ' - ' . $couple->person_2->name . '<br/>';
-                        }   
-                    echo '</td>';
-                @endphp
+                <td class="p-2 align-top border-x dark:border-neutral-600">
+                    @foreach ($user->currentTeam->couples as $couple)
+                        <x-ts-link href="/people/{{ $couple->person_1->id }}" title="{{ __('app.show') }}">{{ $couple->person_1->name }}</x-ts-link> - <x-ts-link href="/people/{{ $couple->person_2->id }}" title="{{ __('app.show') }}">{{ $couple->person_2->name }}</x-ts-link><br/>
+                    @endforeach   
+                </td>
             </tr>
         </tbody>
     </table>
