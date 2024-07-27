@@ -7,6 +7,7 @@ namespace App\Livewire\Forms\People;
 use App\Models\Gender;
 use App\Rules\DobValid;
 use App\Rules\YobValid;
+use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
@@ -38,9 +39,9 @@ class PersonForm extends Form
 
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]
-    public function genders(): array
+    public function genders(): Collection
     {
-        return Gender::select('id', 'name')->orderBy('name')->get()->toArray();
+        return Gender::select('id', 'name')->orderBy('name')->get();
     }
 
     // -----------------------------------------------------------------------

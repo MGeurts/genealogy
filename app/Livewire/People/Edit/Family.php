@@ -46,14 +46,14 @@ class Family extends Component
                 'id'   => $p->id,
                 'name' => $p->name . ' (' . $p->birth_formatted . ')',
             ];
-        })->values()->toArray();
+        })->values();
 
         $this->mothers = $persons->where('sex', 'f')->map(function ($p) {
             return [
                 'id'   => $p->id,
                 'name' => $p->name . ' (' . $p->birth_formatted . ')',
             ];
-        })->values()->toArray();
+        })->values();
 
         $this->parents = Couple::with(['person_1', 'person_2'])
             ->OlderThan($this->person->birth_date)
