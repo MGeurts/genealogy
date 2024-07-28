@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "25901de30c8df70c1a5b83dbe4146d86",
+    "content-hash": "976f2838a795f60e7e7b1bc71bc85f79",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -6489,6 +6489,50 @@
                 }
             ],
             "time": "2023-12-25T11:46:58+00:00"
+        },
+        {
+            "name": "stefangabos/world_countries",
+            "version": "v2.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stefangabos/world_countries.git",
+                "reference": "25510476b3735326c35e558c29f0156e8a138fed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stefangabos/world_countries/zipball/25510476b3735326c35e558c29f0156e8a138fed",
+                "reference": "25510476b3735326c35e558c29f0156e8a138fed",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "stefangabos",
+                    "email": "contact@stefangabos.ro",
+                    "homepage": "https://github.com/stefangabos",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Constantly updated lists of world countries, territories and areas of geographical interest, with associated alpha-2, alpha-3 and numeric codes as defined by the ISO 3166-1 standard, available in multiple formats and languages, with national flags included",
+            "keywords": [
+                "ISO 3166",
+                "ISO 3166-1",
+                "alpha-2",
+                "alpha-3",
+                "countries",
+                "flag",
+                "flags",
+                "world"
+            ],
+            "support": {
+                "issues": "https://github.com/stefangabos/world_countries/issues",
+                "source": "https://github.com/stefangabos/world_countries/tree/v2.9.0"
+            },
+            "time": "2024-01-26T14:02:17+00:00"
         },
         {
             "name": "stevebauman/location",
