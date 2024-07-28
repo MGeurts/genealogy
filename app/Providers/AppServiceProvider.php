@@ -3,13 +3,13 @@
 namespace App\Providers;
 
 use Carbon\Carbon;
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Console\AboutCommand;
-// use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
-use Illuminate\Support\ServiceProvider;
 // use Illuminate\Support\Str;
+use Illuminate\Support\ServiceProvider;
 use Opcodes\LogViewer\Facades\LogViewer;
 use TallStackUi\Facades\TallStackUi;
 
@@ -66,6 +66,17 @@ class AppServiceProvider extends ServiceProvider
         // if (! app()->isProduction()) {
         //     DB::listen(function ($query) {
         //         logger(Str::replaceArray('?', $query->bindings, $query->sql));
+        //     });
+        // }
+
+        // -----------------------------------------------------------------------
+        // LOG-VIEWER : log all SLOW queries (not in production)
+        // -----------------------------------------------------------------------
+        // if (! app()->isProduction()) {
+        //     DB::listen(function ($query) {
+        //         if ($query->time > 500) {
+        //             Log::warning("An individual database query exceeded 500 ms.", ['sql' => $query->sql]);
+        //         }
         //     });
         // }
 

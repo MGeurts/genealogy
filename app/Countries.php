@@ -10,12 +10,14 @@ class Countries
 {
     public Collection $countries;
 
-    public function __construct($locale = 'en')
+    // -----------------------------------------------------------------------
+    public function __construct(string $locale = 'en')
     {
         $this->countries = collect(require base_path('vendor') . '/stefangabos/world_countries/data/countries/' . $locale . '/countries.php');
     }
 
-    public function get($country): string
+    // -----------------------------------------------------------------------
+    public function get(string $country): string
     {
         return $this->countries->filter(function ($item) use ($country) {
             return $item['alpha2'] === $country;
@@ -31,4 +33,5 @@ class Countries
             ];
         })->values();
     }
+    // -----------------------------------------------------------------------
 }

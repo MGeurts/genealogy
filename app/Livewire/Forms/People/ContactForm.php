@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Livewire\Forms\People;
 
 use App\Countries;
-use Livewire\Attributes\Computed;
 use Livewire\Form;
 
 class ContactForm extends Form
@@ -28,7 +27,6 @@ class ContactForm extends Form
     public $phone = null;
 
     // -----------------------------------------------------------------------
-    #[Computed(persist: true, seconds: 3600, cache: true)]
     public function countries()
     {
         $countries = new Countries(app()->getLocale());
