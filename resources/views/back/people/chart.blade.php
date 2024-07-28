@@ -81,10 +81,9 @@
                 <div class="p-2 border basis-2/5">
                     <div class="grid grid-cols-1 gap-4 xl:grid-cols-2">
                         @if ($person->father)
-                            @php $no = 0; @endphp
-                            @foreach ($person->father->siblings() as $sibling)
+                            @foreach ($person->father->siblings() as $index => $sibling)
                                 <div>
-                                    {{ ++$no }}.
+                                    {{ $index +1 }}.
                                     <x-link href="/people/{{ $sibling->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $sibling->isDeceased()])>
                                         {{ $sibling->name }}
                                     </x-link>
@@ -109,11 +108,9 @@
                 <div class="p-2 border basis-2/5">
                     <div class="grid grid-cols-1 gap-4 xl:grid-cols-2">
                         @if ($person->mother)
-                            @php $no = 0; @endphp
-
-                            @foreach ($person->mother->siblings() as $sibling)
+                            @foreach ($person->mother->siblings() as $index => $sibling)
                                 <div>
-                                    {{ ++$no }}.
+                                    {{ $index + 1 }}.
                                     <x-link href="/people/{{ $sibling->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $sibling->isDeceased()])>
                                         {{ $sibling->name }}
                                     </x-link>
@@ -183,11 +180,9 @@
 
                 <div class="p-2 border basis-4/5">
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
-                        @php $no = 0; @endphp
-
-                        @foreach ($person->children_with_children as $child)
+                        @foreach ($person->children_with_children as $index => $child)
                             <div>
-                                {{ ++$no }}.
+                                {{ $index +1 }}.
                                 <x-link href="/people/{{ $child->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $child->isDeceased()])>
                                     {{ $child->name }}
                                 </x-link>
@@ -218,11 +213,9 @@
 
                 <div class="p-2 border basis-4/5">
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
-                        @php $no = 0; @endphp
-
-                        @foreach ($person->siblings_with_children() as $sibling)
+                        @foreach ($person->siblings_with_children() as $index => $sibling)
                             <div>
-                                {{ ++$no }}.
+                                {{ $index + 1 }}.
                                 <x-link href="/people/{{ $sibling->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $sibling->isDeceased()])>
                                     {{ $sibling->name }}
                                 </x-link>
