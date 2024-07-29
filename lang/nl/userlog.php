@@ -14,7 +14,7 @@ return [
     'log'       => 'Logboek',
     'countries' => 'Landen',
     'period'    => 'Periode',
-    'world_map' => 'Wereldkaart',
+    'worldmap'  => 'Wereldkaart',
     'timespan'  => 'Gebruikerslog gedurende de laatste :months maanden',
 
     // Attributes

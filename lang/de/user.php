@@ -63,7 +63,7 @@ return [
     '2fa_regenerate'   => 'Wiederherstellungscodes neu generieren',
     '2fa_confirm'      => 'Bestätigen',
     '2fa_show'         => 'Wiederherstellungscodes anzeigen',
-    '2fa_cancel'       => 'Stornieren',
+    'cancel'           => 'Stornieren',
     '2fa_disable'      => 'Deaktivieren',
 
     'browser_sessions'         => 'Browsersitzungen',

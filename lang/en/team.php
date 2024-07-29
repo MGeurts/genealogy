@@ -8,7 +8,6 @@ return [
     'delete'        => 'Delete team',
     'description'   => 'Description',
     'id'            => 'ID',
-    'import'        => 'Import',
     'manage'        => 'Manage team',
     'name'          => 'Name',
     'owner'         => 'Owner',
