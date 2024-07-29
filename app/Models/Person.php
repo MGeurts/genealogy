@@ -404,7 +404,7 @@ class Person extends Model implements HasMedia
         return $this->HasManyMerged(Person::class, ['father_id', 'mother_id'])->with('children')->orderBy('dob');
     }
 
-    /* returns ALL NATURAL CHILDREN (n Person) (OWN + CURRENT PARTNER), ordered by type and dob */
+    /* returns ALL NATURAL CHILDREN (n Person) (OWN + CURRENT PARTNER), ordered by birthdate */
     public function childrenNaturalAll(): Collection
     {
         $children_natural = $this->children;
@@ -420,7 +420,7 @@ class Person extends Model implements HasMedia
             }
 
             return $child;
-        })->sortby('dob')->sortBy('type');
+        })->sortBy('birthDate');
     }
 
     /* returns ALL PARTNERS (n Person) related to the person, ordered by date_start */
@@ -499,7 +499,7 @@ class Person extends Model implements HasMedia
         }
     }
 
-    /* returns ALL SIBLINGS (n Person) related to the person, either through father_id, mother_id or parents_id ordered by birth */
+    /* returns ALL SIBLINGS (n Person) related to the person, either through father_id, mother_id or parents_id ordered by birthdate */
     public function siblings(): Collection
     {
         if (! $this->father_id and ! $this->mother_id and ! $this->parents_id) {
@@ -521,7 +521,7 @@ class Person extends Model implements HasMedia
                 }
 
                 return $sibling;
-            })->sortByDesc('birth');
+            })->sortBy('birthDate');
         }
     }
 
@@ -546,7 +546,7 @@ class Person extends Model implements HasMedia
                 }
 
                 return $sibling;
-            })->sortByDesc('birth');
+            })->sortBy('birthDate');
         }
     }
 }
