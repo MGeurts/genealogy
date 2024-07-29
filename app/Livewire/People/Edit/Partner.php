@@ -6,7 +6,6 @@ namespace App\Livewire\People\Edit;
 
 use App\Livewire\Forms\People\PartnerForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
-use App\Models\Couple;
 use App\Models\Person;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;

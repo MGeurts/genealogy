@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use App\Models\User;
-use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
 

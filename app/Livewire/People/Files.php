@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Livewire\People;
 
-use DateTime;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
