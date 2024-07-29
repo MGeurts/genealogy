@@ -63,11 +63,11 @@ class PartnerForm extends Form
     {
         return $rules = [
             'firstname' => ['nullable', 'string', 'max:255'],
-            'surname'   => ['required_without:person2_id', 'nullable', 'string', 'max:255'],
+            'surname'   => ['nullable', 'string', 'max:255', 'required_without:person2_id'],
             'birthname' => ['nullable', 'string', 'max:255'],
             'nickname'  => ['nullable', 'string', 'max:255'],
 
-            'sex'       => ['required_without:person2_id', 'nullable', 'in:m,f'],
+            'sex'       => ['nullable', 'in:m,f', 'required_without:person2_id'],
             'gender_id' => ['nullable', 'integer'],
 
             'yob' => [
@@ -88,7 +88,7 @@ class PartnerForm extends Form
             'photo' => ['nullable', 'string', 'max:255'],
 
             // -----------------------------------------------------------------------
-            'person2_id' => ['required_without:surname', 'nullable', 'integer'],
+            'person2_id' => ['nullable', 'integer', 'required_without:surname'],
             'date_start' => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', 'before:date_end'],
             'date_end'   => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', 'after:date_start'],
             'is_married' => ['nullable', 'boolean'],

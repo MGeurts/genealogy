@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Livewire\People\Edit;
 
 use App\Livewire\Forms\People\PartnerForm;
-use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
@@ -15,7 +14,6 @@ use TallStackUi\Traits\Interactions;
 class Partner extends Component
 {
     use Interactions;
-    use TrimStringsAndConvertEmptyStringsToNull;
 
     // -----------------------------------------------------------------------
     public $person;

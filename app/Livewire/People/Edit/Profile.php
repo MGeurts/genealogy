@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Livewire\People\Edit;
 
 use App\Livewire\Forms\People\ProfileForm;
-use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
 use Carbon\Carbon;
 use Illuminate\View\View;
@@ -15,7 +14,6 @@ use TallStackUi\Traits\Interactions;
 class Profile extends Component
 {
     use Interactions;
-    use TrimStringsAndConvertEmptyStringsToNull;
 
     // -----------------------------------------------------------------------
     public Person $person;

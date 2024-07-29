@@ -48,8 +48,8 @@ class DeathForm extends Form
             'pod'                         => ['nullable', 'string', 'max:255'],
             'cemetery_location_name'      => ['nullable', 'string', 'max:255'],
             'cemetery_location_address'   => ['nullable', 'string', 'max:255'],
-            'cemetery_location_latitude'  => ['required_with:cemetery_location_longitude', 'nullable', 'numeric', 'decimal:0,13', 'min:-90', 'max:90'],
-            'cemetery_location_longitude' => ['required_with:cemetery_location_latitude', 'nullable', 'numeric', 'decimal:0,13', 'min:-180', 'max:180'],
+            'cemetery_location_latitude'  => ['nullable', 'numeric', 'decimal:0,13', 'min:-90', 'max:90', 'required_with:cemetery_location_longitude'],
+            'cemetery_location_longitude' => ['nullable', 'numeric', 'decimal:0,13', 'min:-180', 'max:180', 'required_with:cemetery_location_latitude'],
         ];
     }
 

@@ -53,7 +53,7 @@ class FatherForm extends Form
     {
         return $rules = [
             'firstname' => ['nullable', 'string', 'max:255'],
-            'surname'   => ['required_without:person_id', 'nullable', 'string', 'max:255'],
+            'surname'   => ['nullable', 'string', 'max:255', 'required_without:person_id'],
             'birthname' => ['nullable', 'string', 'max:255'],
             'nickname'  => ['nullable', 'string', 'max:255'],
 
@@ -77,7 +77,7 @@ class FatherForm extends Form
             'photo' => ['nullable', 'string', 'max:255'],
 
             // -----------------------------------------------------------------------
-            'person_id' => ['required_without:surname', 'nullable', 'integer'],
+            'person_id' => ['nullable', 'integer', 'required_without:surname'],
         ];
     }
 

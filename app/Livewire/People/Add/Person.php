@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Livewire\People\Add;
 
 use App\Livewire\Forms\People\PersonForm;
-use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
@@ -17,7 +16,6 @@ use TallStackUi\Traits\Interactions;
 class Person extends Component
 {
     use Interactions;
-    use TrimStringsAndConvertEmptyStringsToNull;
     use WithFileUploads;
 
     // -----------------------------------------------------------------------
