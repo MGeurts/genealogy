@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Actions\Fortify;
 
 use App\Models\User;
@@ -18,11 +20,6 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
      */
     public function update(User $user, array $input): void
     {
-        // -----------------------------------------------------------------------
-        // set language
-        // -----------------------------------------------------------------------
-        session()->put('locale', $input['language']);
-
         Validator::make($input, [
             'firstname' => ['nullable', 'string', 'max:255'],
             'surname'   => ['required', 'string', 'max:255'],
@@ -46,6 +43,16 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'language'  => $input['language'],
                 'timezone'  => $input['timezone'],
             ])->save();
+        }
+
+        // -----------------------------------------------------------------------------------
+        // set application language in session
+        // actual language switching wil be handled by App\Http\Middleware\Localization::class
+        // -----------------------------------------------------------------------------------
+        if ($input['language'] != Session::get('locale')) {
+            Session::put('locale', $input['language']);
+
+            redirect('/user/profile');
         }
     }
 

@@ -19,7 +19,7 @@ class Localization
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Session::has('locale')) {
+        if (Session::has('locale') and Session::get('locale') != App::getLocale()) {
             App::setLocale(Session::get('locale'));
         }
 
