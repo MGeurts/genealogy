@@ -161,8 +161,6 @@ class Person extends Model implements HasMedia
 
     protected function getAgeAttribute(): ?int
     {
-        $age = null;
-
         if ($this->dob) {
             if ($this->dod) {
                 // deceased based on dob & dod
@@ -185,9 +183,11 @@ class Person extends Model implements HasMedia
                 // living
                 $age = Carbon::now()->format('Y') - $this->yob;
             }
+        } else {
+            $age = null;
         }
 
-        return $age >= 0 ? $age : null;
+        return $age > 0 ? $age : null;
     }
 
     protected function getNextBirthdayAttribute(): ?Carbon
@@ -214,8 +214,6 @@ class Person extends Model implements HasMedia
 
     protected function getLifetimeAttribute(): ?string
     {
-        $lifetime = null;
-
         if ($this->dob) {
             if ($this->dod) {
                 // deceased based on dob & dod
@@ -238,6 +236,8 @@ class Person extends Model implements HasMedia
                 // living
                 $lifetime = strval($this->yob);
             }
+        } else {
+            $lifetime = null;
         }
 
         return $lifetime; //returns YEAR(dob) - YEAR(dod)
@@ -276,10 +276,10 @@ class Person extends Model implements HasMedia
         } elseif ($this->yob) {
             $dob = $this->yob;
         } else {
-            $dob = '??';
+            $dob = null;
         }
 
-        return strval($dob);
+        return $dob ? strval($dob) : $dob;
     }
 
     protected function getDeathFormattedAttribute(): ?string
@@ -289,10 +289,10 @@ class Person extends Model implements HasMedia
         } elseif ($this->yod) {
             $dod = $this->yod;
         } else {
-            $dod = '??';
+            $dod = null;
         }
 
-        return strval($dod);
+        return  $dod ? strval($dod) : $dod;
     }
 
     protected function getAddressAttribute(): ?string
