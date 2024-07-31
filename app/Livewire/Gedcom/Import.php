@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\Livewire\Gedcom;
 
-use Illuminate\View\View;
+use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 // use Laravel\Jetstream\Events\AddingTeam;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
@@ -14,6 +15,7 @@ use TallStackUi\Traits\Interactions;
 class Import extends Component
 {
     use Interactions;
+    use TrimStringsAndConvertEmptyStringsToNull;
     use WithFileUploads;
 
     // -----------------------------------------------------------------------

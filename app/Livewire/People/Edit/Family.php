@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\People\Edit;
 
 use App\Livewire\Forms\People\FamilyForm;
+use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
 use App\Models\Person;
 use Illuminate\Support\Collection;
@@ -15,6 +16,7 @@ use TallStackUi\Traits\Interactions;
 class Family extends Component
 {
     use Interactions;
+    use TrimStringsAndConvertEmptyStringsToNull;
 
     // -----------------------------------------------------------------------
     public $person;

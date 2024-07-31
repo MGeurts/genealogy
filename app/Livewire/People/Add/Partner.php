@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\People\Add;
 
 use App\Livewire\Forms\People\PartnerForm;
+use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
 use App\Models\Person;
 use App\PersonPhotos;
@@ -19,6 +20,7 @@ use TallStackUi\Traits\Interactions;
 class Partner extends Component
 {
     use Interactions;
+    use TrimStringsAndConvertEmptyStringsToNull;
     use WithFileUploads;
 
     // -----------------------------------------------------------------------

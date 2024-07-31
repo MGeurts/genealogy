@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\People\Edit;
 
 use App\Livewire\Forms\People\ContactForm;
+use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -13,6 +14,7 @@ use TallStackUi\Traits\Interactions;
 class Contact extends Component
 {
     use Interactions;
+    use TrimStringsAndConvertEmptyStringsToNull;
 
     // -----------------------------------------------------------------------
     public Person $person;
