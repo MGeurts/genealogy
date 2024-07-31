@@ -114,13 +114,13 @@ class Couple extends Model
     /* returns PARTNER 1 (1 Person) based on person1_id in Couple model */
     public function person_1(): BelongsTo
     {
-        return $this->belongsTo(Person::class, 'person1_id')->withDefault(['name' => 'N/A']);
+        return $this->belongsTo(Person::class, 'person1_id');
     }
 
     /* returns PARTNER 2 (1 Person) based on person2_id in Couple model */
     public function person_2(): BelongsTo
     {
-        return $this->belongsTo(Person::class, 'person2_id')->withDefault(['name' => 'N/A']);
+        return $this->belongsTo(Person::class, 'person2_id');
     }
 
     /* returns ALL CHILDREN (n Person) based on parents_id in Person model */
