@@ -290,7 +290,7 @@ class Person extends Model implements HasMedia
             $dod = null;
         }
 
-        return  $dod ? strval($dod) : $dod;
+        return $dod ? strval($dod) : $dod;
     }
 
     protected function getAddressAttribute(): ?string
