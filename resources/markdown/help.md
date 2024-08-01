@@ -156,14 +156,20 @@ Enter search values in the <b>search box</b>.<br/>
 Above the search box, the number of people available to / found in the <b>current team</b> are shown.<br/>
 
 <span class="text-red-500">
-<b><u>Tip</u></b>:<br/>
-1. The system wil lookup <b>every word</b> in the search value in the attributes <b>surname</b>, <b>firstname</b>, <b>birthname</b> and <b>nickname</b>.<br/>
-2. Begin the search string with <b>%</b> if you want to search parts of names, for instance <b>%Jr</b>. Be aware that this kinds of searches are slower.<br/>
-3. If a surname, firstname, birthname or nickname containes any spaces, enclose the name in double quoutes, for instance <b>"John Jr." Kennedy</b>.<br/>
+<b><u>Tips</u></b>:<br/>
+<ol>
+<li>The system wil lookup <b>every word</b> in the search value in the attributes <b>surname</b>, <b>firstname</b>, <b>birthname</b> and <b>nickname</b>.</li>
+<li>
+Begin the search string with <b>%</b> if you want to search parts of names, for instance <b>%Jr</b>. Be aware that this kinds of searches are slower.
+</li>
+<li>
+If a surname, firstname, birthname or nickname containes any spaces, enclose the name in double quoutes, for instance <b>"John Jr." Kennedy</b>.<br/>
+</li>
+</ol>
 </span>
 
 The results are shown in a grid below the search box, each person is represented in one card.<br/>
-You can use the pagination buttons. You can also change the number of people shown per page.
+You can use the pagination buttons to navigate. You can also change the number of people shown per page.
 
 <img src="img/help/genealogy-012.webp" class="rounded" alt="Menu">
 

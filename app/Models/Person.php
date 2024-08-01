@@ -93,17 +93,15 @@ class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     // Scopes (local)
     /* -------------------------------------------------------------------------------------------- */
-    public function scopeSearch(Builder $query, string $value): void
+    public function scopeSearch(Builder $query, string $searchString): void
     {
-        if ($value != '%') {
-            collect(str_getcsv($value, ' ', '"'))->filter()->each(function ($term) use ($query) {
-                $searchTerm = $term . '%';
-
+        if ($searchString != '%') {
+            collect(str_getcsv($searchString, ' ', '"'))->filter()->each(function (string $searchTerm) use ($query) {
                 $query->where(function (Builder $subQuery) use ($searchTerm) {
-                    $subQuery->whereLike('firstname', $searchTerm)
-                        ->orWhereLike('surname', $searchTerm)
-                        ->orWhereLike('birthname', $searchTerm)
-                        ->orWhereLike('nickname', $searchTerm);
+                    $subQuery->whereLike('firstname', $searchTerm . '%')
+                        ->orWhereLike('surname', $searchTerm . '%')
+                        ->orWhereLike('birthname', $searchTerm . '%')
+                        ->orWhereLike('nickname', $searchTerm . '%');
                 });
             });
         }
