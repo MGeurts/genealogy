@@ -3,7 +3,7 @@
         <div class="flex flex-wrap items-start justify-center gap-2">
             <div class="flex-1 flex-grow max-w-full min-w-max">
                 {{ __('person.siblings') }}
-                @if (count($person->couples) > 0)
+                @if (count($siblings) > 0)
                     <x-ts-badge color="emerald" text="{{ count($siblings) }}" />
                 @endif
             </div>
