@@ -29,14 +29,6 @@
                 {{ __('app.family_chart') }}
             </x-ts-button>
 
-            <x-ts-button href="/people/{{ $person->id }}/files" color="{{ request()->routeIs('people.files') ? 'warning' : 'secondary' }}" class="mb-3 mr-2 text-sm text-white">
-                <x-ts-icon icon="files" class="size-5" />
-                {{ __('person.files') }}
-                @if (count($person->getMedia('files')) > 0)
-                    <x-ts-badge color="emerald" text="{{ count($person->getMedia('files')) }}" />
-                @endif
-            </x-ts-button>
-
             <x-ts-button href="/people/{{ $person->id }}/history" color="{{ request()->routeIs('people.history') ? 'warning' : 'info' }}" class="mb-3 mr-2 text-sm text-white">
                 <x-ts-icon icon="history" class="size-5" />
                 {{ __('app.history') }}

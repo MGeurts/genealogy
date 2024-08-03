@@ -20,6 +20,7 @@
                 <livewire:people.partners :person="$person" />
                 <livewire:people.children :person="$person" />
                 <livewire:people.siblings :person="$person" />
+                <livewire:people.files :person="$person" />
             </div>
 
             <div class="flex flex-col flex-grow gap-5 overflow-x-auto min-w-100 md:max-w-max">

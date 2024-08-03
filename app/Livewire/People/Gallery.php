@@ -18,13 +18,13 @@ class Gallery extends Component
 
     public ?int $selected = null;
 
-    // -----------------------------------------------------------------------
+    // ------------------------------------------------------------------------------
     protected $listeners = [
         'photos_updated' => 'mount',
         'person_updated' => 'render',
     ];
 
-    // -----------------------------------------------------------------------
+    // ------------------------------------------------------------------------------
     public function mount(): void
     {
         $this->images = collect(File::glob(public_path() . '/storage/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp'))

@@ -61,6 +61,7 @@ return [
     'edit_contact'      => 'Editeer contactgegevens',
     'edit_death'        => 'Editeer overlijden',
     'edit_family'       => 'Editeer familie',
+    'edit_files'        => 'Editeer bestanden',
     'edit_person'       => 'Editeer persoon',
     'edit_profile'      => 'Editeer profiel',
     'edit_relationship' => 'Editeer relatie',

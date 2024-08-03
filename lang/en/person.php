@@ -61,6 +61,7 @@ return [
     'edit_contact'      => 'Edit contact',
     'edit_death'        => 'Edit death',
     'edit_family'       => 'Edit family',
+    'edit_files'        => 'Edit files',
     'edit_person'       => 'Edit person',
     'edit_profile'      => 'Edit profile',
     'edit_relationship' => 'Edit relationship',

@@ -61,6 +61,7 @@ return [
     'edit_contact'      => 'Kontakt bearbeiten',
     'edit_death'        => 'Tod bearbeiten',
     'edit_family'       => 'Familie bearbeiten',
+    'edit_files'        => 'Dateien bearbeiten',
     'edit_person'       => 'Person bearbeiten',
     'edit_profile'      => 'Profil bearbeiten',
     'edit_relationship' => 'Beziehung bearbeiten',
@@ -112,7 +113,7 @@ return [
 
     // Photo
     'avatar'            => 'Benutzerbild',
-    'edit_photos'       => 'Editiere Fotos',
+    'edit_photos'       => 'Fotos bearbeiten',
     'photo_deleted'     => 'Foto gelöscht',
     'photo'             => 'Foto',
     'photos'            => 'Fotos',

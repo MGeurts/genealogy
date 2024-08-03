@@ -19,6 +19,7 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Symfony\Component\Finder\Finder;
 
 class Person extends Model implements HasMedia
 {
@@ -336,6 +337,16 @@ class Person extends Model implements HasMedia
         } else {
             return '';
         }
+    }
+
+    public function countFiles(): int
+    {
+        return $this->getMedia('files')->count();
+    }
+
+    public function countPhotos(): int
+    {
+        return count(Finder::create()->in(public_path('storage/photos/' . $this->team_id))->name($this->id . '_*.webp'));
     }
 
     public function isDeceased(): bool

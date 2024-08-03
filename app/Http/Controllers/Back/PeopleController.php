@@ -53,11 +53,6 @@ class PeopleController extends Controller
         return view('back.people.chart', compact('person'));
     }
 
-    public function files(Person $person): View
-    {
-        return view('back.people.files', compact('person'));
-    }
-
     public function history(Person $person): View
     {
         return view('back.people.history', compact('person'));
@@ -110,6 +105,11 @@ class PeopleController extends Controller
         abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
 
         return view('back.people.edit.family', compact('person'));
+    }
+
+    public function editFiles(Person $person): View
+    {
+        return view('back.people.edit.files', compact('person'));
     }
 
     public function editPhotos(Person $person): View
