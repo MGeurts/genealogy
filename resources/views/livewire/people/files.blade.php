@@ -27,7 +27,7 @@
 
     @if (count($files) > 0)
         @foreach ($files as $file)
-            <div class="flex flex-wrap items-start justify-center gap-2 p-2">
+            <div class="flex flex-wrap items-start justify-center gap-2 px-2">
                 <div class="flex-1 flex-grow max-w-full min-w-max">
                     <x-link href="{{ $file->getUrl() }}">
                         {{ $file->name }}
