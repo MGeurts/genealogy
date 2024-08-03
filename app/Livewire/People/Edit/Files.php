@@ -33,6 +33,11 @@ class Files extends Component
     public Collection $files;
 
     // ------------------------------------------------------------------------------
+    protected $listeners = [
+        'files_updated' => 'mount',
+    ];
+
+    // ------------------------------------------------------------------------------
     public function mount(): void
     {
         $this->files = $this->person->getMedia('files');
@@ -123,7 +128,7 @@ class Files extends Component
 
         $this->toast()->success(__('app.delete'), __('person.file_deleted'))->send();
 
-        $this->files = $this->person->getMedia('files');
+        $this->dispatch('files_updated');
     }
 
     private function reorderFiles(): void
@@ -168,7 +173,7 @@ class Files extends Component
             }
         }
 
-        $this->files = $this->person->getMedia('files');
+        $this->dispatch('files_updated');
     }
 
     // ------------------------------------------------------------------------------
