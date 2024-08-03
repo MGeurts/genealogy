@@ -17,7 +17,7 @@ class Files extends Component
     protected $listeners = [
         'files_updated' => 'mount',
     ];
-    
+
     // ------------------------------------------------------------------------------
     public function mount(): void
     {
