@@ -122,6 +122,11 @@ export default {
                 '128': '32rem',
                 '192': '48rem',
             },
+            minWidth: {
+                '100': '25rem',
+                '128': '32rem',
+                '192': '48rem',
+            },
             minHeight: {
                 '100': '25rem',
                 '128': '32rem',

@@ -97,6 +97,9 @@ class AppServiceProvider extends ServiceProvider
         // TallStackUI personalization
         // Ref : https://tallstackui.com/docs/personalization/soft
         // -----------------------------------------------------------------------
+        TallStackUi::personalize()->alert()
+            ->block('wrapper')->replace('rounded-lg', 'rounded');
+
         TallStackUi::personalize()->badge()
             ->block('wrapper.class')->replace('px-2', 'px-1');
 
@@ -121,6 +124,10 @@ class AppServiceProvider extends ServiceProvider
             ->block('input.wrapper')->replace('rounded-md', 'rounded')
             ->block('input.base')->replace('rounded-md', 'rounded');
 
+        TallStackUi::personalize()->form('textarea')
+            ->block('input.wrapper')->replace('rounded-md', 'rounded')
+            ->block('input.base')->replace('rounded-md', 'rounded');
+
         TallStackUi::personalize()->slide()
             ->block('wrapper.first')->replace('bg-opacity-50', 'bg-opacity-20')
             ->block('wrapper.fifth')->replace('dark:bg-dark-700', 'dark:bg-dark-900')
@@ -132,7 +139,7 @@ class AppServiceProvider extends ServiceProvider
             ->block('item.select')->replace('dark:text-dark-300', 'dark:text-neutral-50');
 
         TallStackUi::personalize()->table()
-            ->block('wrapper.class')->replace('rounded-lg', 'rounded')
+            ->block('wrapper')->replace('rounded-lg', 'rounded')
             ->block('table.td')->replace('py-4', 'py-2');
 
         // -----------------------------------------------------------------------
