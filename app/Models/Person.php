@@ -466,12 +466,6 @@ class Person extends Model implements HasMedia
         return $this->HasManyMerged(Couple::class, ['person1_id', 'person2_id'])->with(['person_1', 'person_2']);
     }
 
-    /* returns country related to the persons address */
-    public function country(): BelongsTo
-    {
-        return $this->BelongsTo(Country::class);
-    }
-
     /* returns ALL METADATA (n PersonMetadata) related to the person */
     public function metadata(): HasMany
     {
