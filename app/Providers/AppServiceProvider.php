@@ -113,7 +113,7 @@ class AppServiceProvider extends ServiceProvider
             ->block('footer.text', 'flex items-center justify-end gap-2');
 
         TallStackUi::personalize()->dropdown()
-            ->block('wrapper.slot')->replace('rounded-md', 'rounded')
+            ->block('floating')->replace('rounded-lg', 'rounded')
             ->block('width')->replace('w-56', 'w-64')
             ->block('action.icon')->replace('text-gray-400', 'text-primary-500 dark:text-primar-300');
 
