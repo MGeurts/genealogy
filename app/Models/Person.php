@@ -93,17 +93,16 @@ class Person extends Model implements HasMedia
 
     /* -------------------------------------------------------------------------------------------- */
     // Scopes (local)
+    // The system wil lookup every word in the search value in the attributes surname, firstname, birthname and nickname
+    // Begin the search string with % if you want to search parts of names, for instance %Jr.
+    // Be aware that this kinds of searches are slower.
+    // If a name containes any spaces, enclose the name in double quoutes, for instance "John Jr." Kennedy.
     /* -------------------------------------------------------------------------------------------- */
     public function scopeSearch(Builder $query, string $searchString): void
     {
         if ($searchString != '%') {
             collect(str_getcsv($searchString, ' ', '"'))->filter()->each(function (string $searchTerm) use ($query) {
-                $query->where(function (Builder $subQuery) use ($searchTerm) {
-                    $subQuery->whereLike('firstname', $searchTerm . '%')
-                        ->orWhereLike('surname', $searchTerm . '%')
-                        ->orWhereLike('birthname', $searchTerm . '%')
-                        ->orWhereLike('nickname', $searchTerm . '%');
-                });
+                $query->whereAny(['firstname', 'surname', 'birthname', 'nickname'], 'like' , $searchTerm . '%');
             });
         }
     }
