@@ -1,4 +1,4 @@
-<div class="flex text-xs justify-between p-2 bg-neutral-200 dark:bg-neutral-700">
+<div class="flex justify-between p-2 text-xs bg-neutral-200 dark:bg-neutral-700">
     <div class="text-left">
         Copyright © {{ date('Y') }} | <x-link href="https://www.kreaweb.be/" target="_blank">KREAWEB</x-link>.<br />
         {{ __('app.open_source') }} <x-link href="/about">{{ __('app.licence') }}</x-link>.<br />
@@ -6,7 +6,7 @@
     </div>
 
     <div class="flex items-center">
-        <div class="text-right px-2">
+        <div class="px-2 text-right">
             {{ __('app.design_development') }}<br />
             {{ __('app.by') }} <x-link href="https://www.kreaweb.be/" target="_blank">KREAWEB</x-link>
         </div>
