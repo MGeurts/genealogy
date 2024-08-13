@@ -53,6 +53,7 @@ class User extends Authenticatable
 
         'language',
         'timezone',
+        'is_developer',
 
         'seen_at',
     ];
