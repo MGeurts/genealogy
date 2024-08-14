@@ -30,7 +30,7 @@ class Peoplelog extends Component
                 'subject_id'     => $record->subject_id,
                 'properties_old' => ($record->event == 'updated' or $record->event == 'deleted') ? $properties['old'] : [],
                 'properties_new' => ($record->event == 'updated' or $record->event == 'created') ? $properties['attributes'] : [],
-                'created_at'     => date('Y-m-d h:i', strtotime($record->created_at)),
+                'created_at'     => date('Y-m-d H:i', strtotime($record->created_at)),
                 'causer'         => implode(' ', array_filter([$record->firstname, $record->surname])),
             ];
         });

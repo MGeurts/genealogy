@@ -6,8 +6,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Response;
 
 class Localization
@@ -19,8 +17,8 @@ class Localization
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Session::has('locale') and Session::get('locale') != App::getLocale()) {
-            App::setLocale(Session::get('locale'));
+        if (session()->has('locale') and session()->get('locale') != app()->getLocale()) {
+            app()->setLocale(session()->get('locale'));
         }
 
         return $next($request);

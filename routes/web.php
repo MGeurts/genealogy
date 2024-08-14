@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Session;
 
 // -----------------------------------------------------------------------------------
 // frontend routes
@@ -99,7 +98,7 @@ Route::middleware([
 // actual language switching wil be handled by App\Http\Middleware\Localization::class
 // -----------------------------------------------------------------------------------
 Route::get('language/{locale}', function ($locale) {
-    Session::put('locale', $locale);
+    session()->put('locale', $locale);
 
     return back();
 });

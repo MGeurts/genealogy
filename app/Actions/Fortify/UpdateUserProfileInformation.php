@@ -6,7 +6,6 @@ namespace App\Actions\Fortify;
 
 use App\Models\User;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
@@ -46,11 +45,15 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         }
 
         // -----------------------------------------------------------------------------------
-        // set application language in session
+        // store timezone and language in session
         // actual language switching wil be handled by App\Http\Middleware\Localization::class
         // -----------------------------------------------------------------------------------
-        if ($input['language'] != Session::get('locale')) {
-            Session::put('locale', $input['language']);
+        if ($input['timezone'] != session()->get('timezone')) {
+            session()->put('timezone', $input['timezone']);
+        }
+
+        if ($input['language'] != session()->get('locale')) {
+            session()->put('locale', $input['language']);
 
             redirect('/user/profile');
         }

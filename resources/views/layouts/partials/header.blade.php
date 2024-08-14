@@ -11,7 +11,7 @@
             </div>
 
             <div class="flex-1 p-2 mx-auto shadow text-end bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-200">
-                {{ Carbon\Carbon::parse(now())->isoFormat('LL')  }}
+                {{ Carbon\Carbon::today()->isoFormat('LL')  }}
             </div>
         </div>
     @endif

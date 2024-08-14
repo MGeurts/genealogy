@@ -26,14 +26,14 @@ class Userlog extends Model
     public function date(): Attribute
     {
         return new Attribute(
-            get: fn (mixed $value, array $attributes) => Carbon::parse($attributes['created_at'])->inUserTimezone()->isoFormat('dddd LL'),
+            get: fn (mixed $value, array $attributes) => Carbon::parse($attributes['created_at'])->timezone(session('timezone'))->isoFormat('dddd LL'),
         );
     }
 
     public function time(): Attribute
     {
         return new Attribute(
-            get: fn (mixed $value, array $attributes) => Carbon::parse($attributes['created_at'])->inUserTimezone()->format('H:i:s'),
+            get: fn (mixed $value, array $attributes) => Carbon::parse($attributes['created_at'])->timezone(session('timezone'))->format('H:i:s'),
         );
     }
 

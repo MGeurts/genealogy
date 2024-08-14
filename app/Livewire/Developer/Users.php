@@ -36,7 +36,7 @@ class Users extends Component implements HasForms, HasTable
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\ImageColumn::make('profile_photo_path')
-                    ->label(__('user.avatar'))
+                    ->label(__('user.photo'))
                     ->getStateUsing(function (User $record) {
                         return $record->profile_photo_path ? url('storage/' . $record->profile_photo_path) : url('/img/avatar.png');
                     })
@@ -64,8 +64,7 @@ class Users extends Component implements HasForms, HasTable
                 Tables\Columns\TextColumn::make('seen_at')
                     ->label(__('user.seen_at'))
                     ->verticallyAlignStart()
-                    ->timezone(auth()->user()->timezone)
-                    ->dateTime('Y-m-d H:i')
+                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
                     ->sortable(),
                 Tables\Columns\TextColumn::make('team_personal')
                     ->label(__('team.team_personal'))

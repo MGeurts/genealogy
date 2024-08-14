@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use Carbon\Carbon;
 // use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Console\AboutCommand;
@@ -30,15 +29,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // -----------------------------------------------------------------------
-        // Language select for guest users
-        // Language will be overruled by language as defined in each authenticated user profile
-        // -----------------------------------------------------------------------
-        view()->composer('components.set.language', function ($view) {
-            $view->with('current_locale', app()->getLocale());
-            $view->with('available_locales', config('app.available_locales'));
-        });
-
         // -----------------------------------------------------------------------
         // Use Strict Mode (not in production)
         // 1. Prevent Lazy Loading
@@ -141,17 +131,6 @@ class AppServiceProvider extends ServiceProvider
         TallStackUi::personalize()->table()
             ->block('wrapper')->replace('rounded-lg', 'rounded')
             ->block('table.td')->replace('py-4', 'py-2');
-
-        // -----------------------------------------------------------------------
-        // timezone management
-        // -----------------------------------------------------------------------
-        Carbon::macro('inApplicationTimezone', function () {
-            return $this->tz(config('app.timezone_display'));
-        });
-
-        Carbon::macro('inUserTimezone', function () {
-            return $this->tz(auth()->user()?->timezone ?? config('app.timezone_display'));
-        });
 
         // -----------------------------------------------------------------------
         // about
