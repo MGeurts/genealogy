@@ -46,7 +46,7 @@
         <div class="flex-1 flex-grow max-w-full min-w-max">
             <a href="/people/{{ $person->id }}" title="{{ __('app.show_profile') }}">
                 <x-ts-button color="primary" class="text-sm">
-                    <x-ts-icon icon="id" class="size-5" />
+                    <x-ts-icon icon="id" class="mr-2 size-5" />
                     {{ __('person.profile') }}
                 </x-ts-button>
             </a>
@@ -55,7 +55,7 @@
         <div class="flex-1 flex-grow max-w-full min-w-max text-end">
             <a href="/people/{{ $person->id }}/chart">
                 <x-ts-button color="secondary" class="text-sm">
-                    <x-ts-icon icon="social" class="size-5" />
+                    <x-ts-icon icon="social" class="mr-2 size-5" />
                     {{ __('app.family_chart') }}
                 </x-ts-button>
             </a>

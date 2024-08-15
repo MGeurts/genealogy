@@ -17,8 +17,9 @@
 
             <div class="flex-1 flex-grow max-w-full text-center">
                 @if (auth()->user()->hasPermission('person:create'))
+                    {{-- add button --}}
                     <x-ts-button href="/people/add" color="emerald" class="text-sm">
-                        <x-ts-icon icon="user-plus" />
+                        <x-ts-icon icon="user-plus" class="mr-2 size-5"/>
                         {{ __('person.add_person') }}
                     </x-ts-button>
                 @endif
@@ -58,7 +59,7 @@
         </div>
 
         {{-- search box --}}
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap items-start gap-2">
             <div class="flex-1 flex-grow w-full">
                 <x-ts-input wire:model.live.debounce.500ms="search" type="search" icon="search"
                     hint="{{ __('app.people_search_tip') }}" placeholder="{{ __('app.people_search_placeholder') }}"
@@ -66,7 +67,7 @@
             </div>
 
             <div class="flex-1 max-w-max">
-                <x-ts-button color="secondary" title="{{ __('app.help') }}" x-on:click="$modalOpen('search-help')">
+                <x-ts-button color="info" title="{{ __('app.help') }}" x-on:click="$modalOpen('search-help')" class="!pb-1 !p-1.5 !mt-1 text-sm text-white">
                     <x-ts-icon icon="help" />
                 </x-ts-button>
             </div>
