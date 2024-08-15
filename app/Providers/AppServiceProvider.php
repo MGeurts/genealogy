@@ -118,6 +118,11 @@ class AppServiceProvider extends ServiceProvider
             ->block('input.wrapper')->replace('rounded-md', 'rounded')
             ->block('input.base')->replace('rounded-md', 'rounded');
 
+        TallStackUi::personalize()->modal()
+            ->block('wrapper.first')->replace('bg-opacity-50', 'bg-opacity-20')
+            ->block('wrapper.fourth')->replace('dark:bg-dark-700', 'dark:bg-dark-900')
+            ->block('wrapper.fourth')->replace('rounded-xl', 'rounded');
+
         TallStackUi::personalize()->slide()
             ->block('wrapper.first')->replace('bg-opacity-50', 'bg-opacity-20')
             ->block('wrapper.fifth')->replace('dark:bg-dark-700', 'dark:bg-dark-900')

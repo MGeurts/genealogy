@@ -150,20 +150,20 @@ Authenticated users can only see <b>people</b> and <b>couples</b>:
 
 After login and <span style="color:red">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
 
-<img src="img/help/genealogy-010.webp" class="rounded" alt="Search">
+<img src="img/help/genealogy-010a.webp" class="rounded" alt="Search">
 
 Enter search values in the <b>search box</b>.<br/>
 Above the search box, the number of people available to / found in the <b>current team</b> are shown.<br/>
 
 <span class="text-red-500">
-<b><u>Tips</u></b>:<br/>
+<u>Tips</u>:<br/>
 <ol>
-<li>The system wil lookup <b>every word</b> in the search value in the attributes <b>surname</b>, <b>firstname</b>, <b>birthname</b> and <b>nickname</b>.</li>
+<li>The system wil lookup <b>every single word</b> in the search value in the attributes <b>surname</b>, <b>firstname</b>, <b>birthname</b> and <b>nickname</b>.</li>
 <li>
-Begin the search string with <b>%</b> if you want to search parts of names, for instance <b>%Jr</b>. Be aware that this kinds of searches are slower.
+Begin the search string with <b>%</b> if you want to search parts of names, for instance : <b>%Jr</b>.<br/> Be aware this kinds of searches are slower.
 </li>
 <li>
-If a surname, firstname, birthname or nickname containes any spaces, enclose the name in double quoutes, for instance <b>"John Jr." Kennedy</b>.<br/>
+If a surname, firstname, birthname or nickname containes any spaces, enclose the name in double quoutes, for instance : <b>"John Jr."</b> Kennedy.<br/>
 </li>
 </ol>
 </span>
@@ -190,7 +190,7 @@ After login and <span style="color:red">selecting the proper team</span>, click 
 
 You can add a new person by clicking the <b>Add person</b> button above the search bar.
 
-<img src="img/help/genealogy-010.webp" class="rounded" alt="Add person">
+<img src="img/help/genealogy-010a.webp" class="rounded" alt="Add person">
 <img src="img/help/genealogy-011b.webp" class="rounded" alt="Add person">
 
 ### b. New person being a father or mother
@@ -452,7 +452,7 @@ De <b>default</b> application language is <b>English</b>.
 ### b. Authenticated users
 
 Authenticated users can change the language and the timezone in the top right-hand menu by using the <b>profile editor</b>.<br/>
-The selected language and timezone are saved to the database.
+The selected language and timezone are saved in the database.
 
 <img src="img/help/genealogy-002d.webp" class="rounded" alt="Profile editor">
 

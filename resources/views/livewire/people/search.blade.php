@@ -58,9 +58,19 @@
         </div>
 
         {{-- search box --}}
-        <x-ts-input wire:model.live.debounce.500ms="search" type="search" icon="search"
-            hint="{{ __('app.people_search_tip') }}" placeholder="{{ __('app.people_search_placeholder') }}"
-            autofocus />
+        <div class="flex flex-wrap gap-2">
+            <div class="flex-1 flex-grow w-full">
+                <x-ts-input wire:model.live.debounce.500ms="search" type="search" icon="search"
+                    hint="{{ __('app.people_search_tip') }}" placeholder="{{ __('app.people_search_placeholder') }}"
+                    autofocus />
+            </div>
+
+            <div class="flex-1 max-w-max">
+                <x-ts-button color="secondary" title="{{ __('app.help') }}" x-on:click="$modalOpen('search-help')">
+                    <x-ts-icon icon="help" />
+                </x-ts-button>
+            </div>
+        </div>
 
         {{-- footer : perpage and pagination --}}
         @if (count($people) > 0)
@@ -82,4 +92,26 @@
             <livewire:people.person :person="$person" :key="$person->id" />
         @endforeach
     </div>
+
+    {{-- search help modal --}}
+    <x-ts-modal id="search-help" size="6xl" blur>
+        <x-slot:title>
+            <x-ts-icon icon="help" class="inline-block"/>{{ __('app.help') }}
+        </x-slot:title>
+
+        <p>
+            The system wil lookup <b class="text-emerald-600">every single word</b> in the search box in the attributes <b class="text-emerald-600">surname</b>, <b class="text-emerald-600">firstname</b>, <b class="text-emerald-600">birthname</b> and <b class="text-emerald-600">nickname</b>.
+        </p>
+        <br/>
+
+        <p>
+            Begin the search string with <b class="text-emerald-600">%</b> if you want to search parts of names, for instance : <b class="text-emerald-600">%Jr</b>. <br/>
+            Be aware this kinds of searches are slower.
+        </p>
+        <br/>
+
+        <p>
+            If a surname, firstname, birthname or nickname containes any spaces, enclose the name in double quoutes, for instance : <b class="text-emerald-600">"John Jr."</b> Kennedy.
+        </p>
+    </x-ts-modal>
 </div>
