@@ -100,7 +100,7 @@
         </x-slot:title>
 
         <p>
-            The system wil lookup <b class="text-emerald-600">every single word</b> in the search box in the attributes <b class="text-emerald-600">surname</b>, <b class="text-emerald-600">firstname</b>, <b class="text-emerald-600">birthname</b> and <b class="text-emerald-600">nickname</b>.
+            The system wil look up <b class="text-emerald-600">every single word</b> in the search box in the attributes <b class="text-emerald-600">surname</b>, <b class="text-emerald-600">firstname</b>, <b class="text-emerald-600">birthname</b> and <b class="text-emerald-600">nickname</b>.
         </p>
         <br/>
 

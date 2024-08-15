@@ -158,7 +158,7 @@ Above the search box, the number of people available to / found in the <b>curren
 <span class="text-red-500">
 <u>Tips</u>:<br/>
 <ol>
-<li>The system wil lookup <b>every single word</b> in the search value in the attributes <b>surname</b>, <b>firstname</b>, <b>birthname</b> and <b>nickname</b>.</li>
+<li>The system wil look up <b>every single word</b> in the search value in the attributes <b>surname</b>, <b>firstname</b>, <b>birthname</b> and <b>nickname</b>.</li>
 <li>
 Begin the search string with <b>%</b> if you want to search parts of names, for instance : <b>%Jr</b>.<br/> Be aware this kinds of searches are slower.
 </li>
