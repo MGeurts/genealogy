@@ -34,20 +34,6 @@ class Descendants extends Component
     //              ...
     // --------------------------------------------------------------------------------------------------------------------
 
-    public function increment(): void
-    {
-        if ($this->count < $this->count_max) {
-            $this->count++;
-        }
-    }
-
-    public function decrement(): void
-    {
-        if ($this->count > $this->count_min) {
-            $this->count--;
-        }
-    }
-
     public function mount(): void
     {
         $this->descendants = collect(DB::select("
@@ -78,6 +64,20 @@ class Descendants extends Component
         }
     }
 
+    public function increment(): void
+    {
+        if ($this->count < $this->count_max) {
+            $this->count++;
+        }
+    }
+
+    public function decrement(): void
+    {
+        if ($this->count > $this->count_min) {
+            $this->count--;
+        }
+    }
+    
     // ------------------------------------------------------------------------------
     public function render(): View
     {

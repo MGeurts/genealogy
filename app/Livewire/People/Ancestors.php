@@ -34,20 +34,6 @@ class Ancestors extends Component
     //              ...
     // --------------------------------------------------------------------------------------------------------------------
 
-    public function increment(): void
-    {
-        if ($this->count < $this->count_max) {
-            $this->count++;
-        }
-    }
-
-    public function decrement(): void
-    {
-        if ($this->count > $this->count_min) {
-            $this->count--;
-        }
-    }
-
     public function mount(): void
     {
         $this->ancestors = collect(DB::select("
@@ -75,6 +61,20 @@ class Ancestors extends Component
 
         if ($this->count > $this->count_max) {
             $this->count = $this->count_max;
+        }
+    }
+
+    public function increment(): void
+    {
+        if ($this->count < $this->count_max) {
+            $this->count++;
+        }
+    }
+
+    public function decrement(): void
+    {
+        if ($this->count > $this->count_min) {
+            $this->count--;
         }
     }
 
