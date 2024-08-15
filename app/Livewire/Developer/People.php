@@ -96,17 +96,17 @@ class People extends Component implements HasForms, HasTable
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('app.created_at'))
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone(session('timezone'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label(__('app.updated_at'))
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone(session('timezone'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('deleted_at')
                     ->label(__('app.deleted_at'))
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone(session('timezone'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
@@ -143,10 +143,7 @@ class People extends Component implements HasForms, HasTable
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
+        return parent::getEloquentQuery()->withoutGlobalScopes([SoftDeletingScope::class]);
     }
 
     // -----------------------------------------------------------------------
