@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3ceecd34f5f24791db56a401ffe3a543",
+    "content-hash": "976f2838a795f60e7e7b1bc71bc85f79",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -1191,16 +1191,16 @@
         },
         {
             "name": "filament/actions",
-            "version": "v3.2.100",
+            "version": "v3.2.101",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/actions.git",
-                "reference": "c4329f82ec0be66c79fdab3f83d339a6377c47c4"
+                "reference": "1ce746a4a75975f1844c175201f1f03443c48c95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/actions/zipball/c4329f82ec0be66c79fdab3f83d339a6377c47c4",
-                "reference": "c4329f82ec0be66c79fdab3f83d339a6377c47c4",
+                "url": "https://api.github.com/repos/filamentphp/actions/zipball/1ce746a4a75975f1844c175201f1f03443c48c95",
+                "reference": "1ce746a4a75975f1844c175201f1f03443c48c95",
                 "shasum": ""
             },
             "require": {
@@ -1240,11 +1240,11 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-08-12T16:38:34+00:00"
+            "time": "2024-08-14T16:52:38+00:00"
         },
         {
             "name": "filament/forms",
-            "version": "v3.2.100",
+            "version": "v3.2.101",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/forms.git",
@@ -1300,16 +1300,16 @@
         },
         {
             "name": "filament/infolists",
-            "version": "v3.2.100",
+            "version": "v3.2.101",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/infolists.git",
-                "reference": "27969ffdd0a9b325a5645695ab8f62454aab4fbe"
+                "reference": "96403f2842e4c485f32110e4456b7a3bbcb1e835"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/infolists/zipball/27969ffdd0a9b325a5645695ab8f62454aab4fbe",
-                "reference": "27969ffdd0a9b325a5645695ab8f62454aab4fbe",
+                "url": "https://api.github.com/repos/filamentphp/infolists/zipball/96403f2842e4c485f32110e4456b7a3bbcb1e835",
+                "reference": "96403f2842e4c485f32110e4456b7a3bbcb1e835",
                 "shasum": ""
             },
             "require": {
@@ -1347,11 +1347,11 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2024-08-09T12:23:28+00:00"
+            "time": "2024-08-14T16:52:44+00:00"
         },
         {
             "name": "filament/notifications",
-            "version": "v3.2.100",
+            "version": "v3.2.101",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/notifications.git",
@@ -1403,7 +1403,7 @@
         },
         {
             "name": "filament/support",
-            "version": "v3.2.100",
+            "version": "v3.2.101",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/support.git",
@@ -1462,7 +1462,7 @@
         },
         {
             "name": "filament/tables",
-            "version": "v3.2.100",
+            "version": "v3.2.101",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/tables.git",
@@ -9108,16 +9108,16 @@
         },
         {
             "name": "tallstackui/tallstackui",
-            "version": "v1.34.1",
+            "version": "v1.35.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tallstackui/tallstackui.git",
-                "reference": "1b3f5115739766aeab0d9cee8d402f44cbb0fda1"
+                "reference": "be7e9b78792527d6773f639a5f7c23cbe4a9de61"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/1b3f5115739766aeab0d9cee8d402f44cbb0fda1",
-                "reference": "1b3f5115739766aeab0d9cee8d402f44cbb0fda1",
+                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/be7e9b78792527d6773f639a5f7c23cbe4a9de61",
+                "reference": "be7e9b78792527d6773f639a5f7c23cbe4a9de61",
                 "shasum": ""
             },
             "require": {
@@ -9161,7 +9161,7 @@
             "description": "TallStackUI is a powerful suite of Blade components that elevate your workflow of Livewire applications.",
             "support": {
                 "issues": "https://github.com/tallstackui/tallstackui/issues",
-                "source": "https://github.com/tallstackui/tallstackui/tree/v1.34.1"
+                "source": "https://github.com/tallstackui/tallstackui/tree/v1.35.0"
             },
             "funding": [
                 {
@@ -9169,7 +9169,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-05T23:05:36+00:00"
+            "time": "2024-08-14T16:03:23+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -10010,108 +10010,6 @@
             "time": "2020-07-09T08:09:16+00:00"
         },
         {
-            "name": "larastan/larastan",
-            "version": "v2.9.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/larastan/larastan.git",
-                "reference": "340badd89b0eb5bddbc503a4829c08cf9a2819d7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/larastan/larastan/zipball/340badd89b0eb5bddbc503a4829c08cf9a2819d7",
-                "reference": "340badd89b0eb5bddbc503a4829c08cf9a2819d7",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "illuminate/console": "^9.52.16 || ^10.28.0 || ^11.0",
-                "illuminate/container": "^9.52.16 || ^10.28.0 || ^11.0",
-                "illuminate/contracts": "^9.52.16 || ^10.28.0 || ^11.0",
-                "illuminate/database": "^9.52.16 || ^10.28.0 || ^11.0",
-                "illuminate/http": "^9.52.16 || ^10.28.0 || ^11.0",
-                "illuminate/pipeline": "^9.52.16 || ^10.28.0 || ^11.0",
-                "illuminate/support": "^9.52.16 || ^10.28.0 || ^11.0",
-                "php": "^8.0.2",
-                "phpmyadmin/sql-parser": "^5.9.0",
-                "phpstan/phpstan": "^1.11.2"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "^12.0",
-                "nikic/php-parser": "^4.19.1",
-                "orchestra/canvas": "^7.11.1 || ^8.11.0 || ^9.0.2",
-                "orchestra/testbench": "^7.33.0 || ^8.13.0 || ^9.0.3",
-                "phpunit/phpunit": "^9.6.13 || ^10.5.16"
-            },
-            "suggest": {
-                "orchestra/testbench": "Using Larastan for analysing a package needs Testbench"
-            },
-            "type": "phpstan-extension",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.0-dev"
-                },
-                "phpstan": {
-                    "includes": [
-                        "extension.neon"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Larastan\\Larastan\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Can Vural",
-                    "email": "can9119@gmail.com"
-                },
-                {
-                    "name": "Nuno Maduro",
-                    "email": "enunomaduro@gmail.com"
-                }
-            ],
-            "description": "Larastan - Discover bugs in your code without running it. A phpstan/phpstan wrapper for Laravel",
-            "keywords": [
-                "PHPStan",
-                "code analyse",
-                "code analysis",
-                "larastan",
-                "laravel",
-                "package",
-                "php",
-                "static analysis"
-            ],
-            "support": {
-                "issues": "https://github.com/larastan/larastan/issues",
-                "source": "https://github.com/larastan/larastan/tree/v2.9.8"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.com/paypalme/enunomaduro",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/canvural",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/nunomaduro",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/nunomaduro",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2024-07-06T17:46:02+00:00"
-        },
-        {
             "name": "laravel/pint",
             "version": "v1.17.2",
             "source": {
@@ -10778,93 +10676,6 @@
             "time": "2024-02-23T11:10:43+00:00"
         },
         {
-            "name": "phpmyadmin/sql-parser",
-            "version": "5.9.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpmyadmin/sql-parser.git",
-                "reference": "169a9f11f1957ea36607c9b29eac1b48679f1ecc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phpmyadmin/sql-parser/zipball/169a9f11f1957ea36607c9b29eac1b48679f1ecc",
-                "reference": "169a9f11f1957ea36607c9b29eac1b48679f1ecc",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2 || ^8.0",
-                "symfony/polyfill-mbstring": "^1.3",
-                "symfony/polyfill-php80": "^1.16"
-            },
-            "conflict": {
-                "phpmyadmin/motranslator": "<3.0"
-            },
-            "require-dev": {
-                "phpbench/phpbench": "^1.1",
-                "phpmyadmin/coding-standard": "^3.0",
-                "phpmyadmin/motranslator": "^4.0 || ^5.0",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan": "^1.9.12",
-                "phpstan/phpstan-phpunit": "^1.3.3",
-                "phpunit/phpunit": "^8.5 || ^9.6",
-                "psalm/plugin-phpunit": "^0.16.1",
-                "vimeo/psalm": "^4.11",
-                "zumba/json-serializer": "~3.0.2"
-            },
-            "suggest": {
-                "ext-mbstring": "For best performance",
-                "phpmyadmin/motranslator": "Translate messages to your favorite locale"
-            },
-            "bin": [
-                "bin/highlight-query",
-                "bin/lint-query",
-                "bin/sql-parser",
-                "bin/tokenize-query"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "PhpMyAdmin\\SqlParser\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "The phpMyAdmin Team",
-                    "email": "developers@phpmyadmin.net",
-                    "homepage": "https://www.phpmyadmin.net/team/"
-                }
-            ],
-            "description": "A validating SQL lexer and parser with a focus on MySQL dialect.",
-            "homepage": "https://github.com/phpmyadmin/sql-parser",
-            "keywords": [
-                "analysis",
-                "lexer",
-                "parser",
-                "query linter",
-                "sql",
-                "sql lexer",
-                "sql linter",
-                "sql parser",
-                "sql syntax highlighter",
-                "sql tokenizer"
-            ],
-            "support": {
-                "issues": "https://github.com/phpmyadmin/sql-parser/issues",
-                "source": "https://github.com/phpmyadmin/sql-parser"
-            },
-            "funding": [
-                {
-                    "url": "https://www.phpmyadmin.net/donate/",
-                    "type": "other"
-                }
-            ],
-            "time": "2024-08-13T19:01:01+00:00"
-        },
-        {
             "name": "phpstan/phpdoc-parser",
             "version": "1.29.1",
             "source": {
@@ -10910,64 +10721,6 @@
                 "source": "https://github.com/phpstan/phpdoc-parser/tree/1.29.1"
             },
             "time": "2024-05-31T08:52:43+00:00"
-        },
-        {
-            "name": "phpstan/phpstan",
-            "version": "1.11.10",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "640410b32995914bde3eed26fa89552f9c2c082f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/640410b32995914bde3eed26fa89552f9c2c082f",
-                "reference": "640410b32995914bde3eed26fa89552f9c2c082f",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2|^8.0"
-            },
-            "conflict": {
-                "phpstan/phpstan-shim": "*"
-            },
-            "bin": [
-                "phpstan",
-                "phpstan.phar"
-            ],
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "bootstrap.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "PHPStan - PHP Static Analysis Tool",
-            "keywords": [
-                "dev",
-                "static analysis"
-            ],
-            "support": {
-                "docs": "https://phpstan.org/user-guide/getting-started",
-                "forum": "https://github.com/phpstan/phpstan/discussions",
-                "issues": "https://github.com/phpstan/phpstan/issues",
-                "security": "https://github.com/phpstan/phpstan/security/policy",
-                "source": "https://github.com/phpstan/phpstan-src"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/ondrejmirtes",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/phpstan",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-08-08T09:02:50+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
