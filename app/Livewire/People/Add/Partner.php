@@ -66,7 +66,7 @@ class Partner extends Component
             ->map(function ($p) {
                 return [
                     'id'   => $p->id,
-                    'name' => $p->name . ' [' . strtoupper($p->sex) . '] (' . $p->birth_formatted . ')',
+                    'name' => $p->name . ' [' . (($p->sex == 'm') ? __('app.male') : __('app.female')) . '] (' . $p->birth_formatted . ')',
                 ];
             });
     }

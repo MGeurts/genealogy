@@ -142,4 +142,8 @@ return [
 
     'not_found' => 'Person not found',
     'use_tab'   => 'Use tab',
+
+    // Validation
+    'surname.required_without'   => 'When adding a NEW person, a surname is required.',
+    'person_id.required_without' => 'When adding an EXISTING person, select a person.',
 ];

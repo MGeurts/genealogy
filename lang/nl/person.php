@@ -142,4 +142,8 @@ return [
 
     'not_found' => 'Persoon niet gevonden',
     'use_tab'   => 'Gebruik tab',
+
+    // Validation
+    'surname.required_without'   => 'Bij het toevoegen van een NIEUWE persoon is een achternaam vereist.',
+    'person_id.required_without' => 'Wanneer u een BESTAANDE persoon toevoegt, selecteert u een persoon.',
 ];
