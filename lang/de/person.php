@@ -142,8 +142,4 @@ return [
 
     'not_found' => 'Person nicht gefunden',
     'use_tab'   => 'Benutze tab',
-
-    // Validation
-    'surname.required_without'   => 'Beim Hinzufügen einer NEUEN Person ist ein Nachname erforderlich.',
-    'person_id.required_without' => 'Wenn Sie eine BESTEHENDE Person hinzufügen, wählen Sie eine Person aus.',
 ];

@@ -68,7 +68,7 @@
                     {{-- images --}}
                     <div class="col-span-6">
                         <x-ts-upload id="photos" wire:model="photos" label="{{ __('person.photos') }} :" accept=".jpeg, .jpg, .gif, .png, .svg, .webp"
-                            hint="Max: 1024 KB, Format: jpeg/jpg, gif, png,svg or webp" tip="{{ __('person.update_photo_tip') }} ..." multiple delete>
+                            hint="Max: 1024 KB, Format: jpeg/jpg, gif, png, svg or webp" tip="{{ __('person.update_photo_tip') }} ..." multiple delete>
                         </x-ts-upload>
                     </div>
                 </div>
