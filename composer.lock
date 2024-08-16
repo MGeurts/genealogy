@@ -3030,16 +3030,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.5.2",
+            "version": "2.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "df09d5b6a4188f8f3c3ab2e43a109076a5eeb767"
+                "reference": "b650144166dfa7703e62a22e493b853b58d874b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/df09d5b6a4188f8f3c3ab2e43a109076a5eeb767",
-                "reference": "df09d5b6a4188f8f3c3ab2e43a109076a5eeb767",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/b650144166dfa7703e62a22e493b853b58d874b0",
+                "reference": "b650144166dfa7703e62a22e493b853b58d874b0",
                 "shasum": ""
             },
             "require": {
@@ -3052,8 +3052,8 @@
             },
             "require-dev": {
                 "cebe/markdown": "^1.0",
-                "commonmark/cmark": "0.31.0",
-                "commonmark/commonmark.js": "0.31.0",
+                "commonmark/cmark": "0.31.1",
+                "commonmark/commonmark.js": "0.31.1",
                 "composer/package-versions-deprecated": "^1.8",
                 "embed/embed": "^4.4",
                 "erusev/parsedown": "^1.0",
@@ -3132,7 +3132,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-08-14T10:56:57+00:00"
+            "time": "2024-08-16T11:46:16+00:00"
         },
         {
             "name": "league/config",
@@ -9108,28 +9108,32 @@
         },
         {
             "name": "tallstackui/tallstackui",
-            "version": "v1.35.0",
+            "version": "v1.35.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tallstackui/tallstackui.git",
-                "reference": "be7e9b78792527d6773f639a5f7c23cbe4a9de61"
+                "reference": "4d53557a595906eb5f8e0f1a1d6bd4db5c05e371"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/be7e9b78792527d6773f639a5f7c23cbe4a9de61",
-                "reference": "be7e9b78792527d6773f639a5f7c23cbe4a9de61",
+                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/4d53557a595906eb5f8e0f1a1d6bd4db5c05e371",
+                "reference": "4d53557a595906eb5f8e0f1a1d6bd4db5c05e371",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^10.0|^11.0",
+                "illuminate/console": "^10.0|^11.0",
+                "illuminate/contracts": "^10.0|^11.0",
+                "illuminate/pagination": "^10.0|^11.0",
+                "illuminate/support": "^10.0|^11.0",
+                "illuminate/view": "^10.0|^11.0",
                 "livewire/livewire": "^3.4.9",
                 "php": "^8.1"
             },
             "require-dev": {
                 "larastan/larastan": "^2.7",
                 "laravel/pint": "^1.13",
-                "orchestra/testbench": "8.x-dev|9.x-dev",
-                "orchestra/testbench-dusk": "8.x-dev|9.x-dev",
+                "orchestra/testbench": "^8.0|^9.0",
+                "orchestra/testbench-dusk": "^8.0|^9.0",
                 "pestphp/pest": "^2.0",
                 "pestphp/pest-plugin-type-coverage": "^2.2",
                 "rector/rector": "^1.0"
@@ -9140,7 +9144,9 @@
                     "providers": [
                         "TallStackUi\\TallStackUiServiceProvider"
                     ],
-                    "aliases": []
+                    "aliases": {
+                        "TallStackUi": "TallStackUi\\Facades\\TallStackUi"
+                    }
                 }
             },
             "autoload": {
@@ -9161,7 +9167,7 @@
             "description": "TallStackUI is a powerful suite of Blade components that elevate your workflow of Livewire applications.",
             "support": {
                 "issues": "https://github.com/tallstackui/tallstackui/issues",
-                "source": "https://github.com/tallstackui/tallstackui/tree/v1.35.0"
+                "source": "https://github.com/tallstackui/tallstackui/tree/v1.35.2"
             },
             "funding": [
                 {
@@ -9169,7 +9175,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-14T16:03:23+00:00"
+            "time": "2024-08-16T17:10:21+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
