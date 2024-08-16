@@ -77,7 +77,7 @@ class Descendants extends Component
             $this->count--;
         }
     }
-    
+
     // ------------------------------------------------------------------------------
     public function render(): View
     {
