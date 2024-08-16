@@ -7,6 +7,10 @@ use Illuminate\Database\Seeder;
 
 class TreeSeeder extends Seeder
 {
+    // -----------------------------------------------------------------------
+    // this generates a father-son tree nested as deep as $level_max
+    // and can be used to test the routines to display ancestors/descendants
+    // -----------------------------------------------------------------------
     protected $managers_team = 5;
 
     protected $level_max = 500;
@@ -37,4 +41,5 @@ class TreeSeeder extends Seeder
             $this->createPerson($person, $level);
         }
     }
+   // -----------------------------------------------------------------------
 }
