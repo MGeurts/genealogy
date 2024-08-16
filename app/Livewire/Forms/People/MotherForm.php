@@ -83,7 +83,10 @@ class MotherForm extends Form
 
     public function messages(): array
     {
-        return [];
+        return [
+            'surname.required_without'   => __('person.surname.required_without'),
+            'person_id.required_without' => __('person.person_id.required_without'),
+        ];
     }
 
     public function validationAttributes(): array
