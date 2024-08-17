@@ -19,7 +19,7 @@ class Ancestors extends Component
 
     public int $count_min = 1;
 
-    public int $count = 3;          // default, showing 3 levels (parson & parents & grandparents)
+    public int $count = 3;          // default, showing 3 levels (person & parents & grandparents)
 
     public int $count_max = 128;    // maximum level depth, choose from listing below
 
