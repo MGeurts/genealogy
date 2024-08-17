@@ -21,7 +21,7 @@
 
                     <div class="flex-1 flex-grow max-w-full text-center min-w-max">
                         <x-ts-button color="emerald" wire:click="create()" class="text-sm text-white">
-                            <x-ts-icon icon="circle-plus" class="mr-2 size-5" />
+                            <x-ts-icon icon="circle-plus" class="size-5" />
                             {{ __('backup.create') }}
                         </x-ts-button>
                     </div>
@@ -46,13 +46,13 @@
                             {{ $backup['date_ago'] }}
                         </p>
 
-                        <x-ts-button color="primary" class="mr-1" wire:click="download('{{ $backup['file_name'] }}')" class="mr-2 text-sm text-white">
-                            <x-ts-icon icon="download" class="mr-2 size-5" />
+                        <x-ts-button color="primary" class="mr-2 text-sm text-white" wire:click="download('{{ $backup['file_name'] }}')">
+                            <x-ts-icon icon="download" class="size-5" />
                             {{ __('backup.download') }}
                         </x-ts-button>
 
                         <x-ts-button color="danger" class="text-sm text-white" wire:click="confirmDeletion('{{ $backup['file_name'] }}')">
-                            <x-ts-icon icon="trash" class="mr-2 size-5" />
+                            <x-ts-icon icon="trash" class="size-5" />
                             {{ __('backup.delete') }}
                         </x-ts-button>
                     </div>

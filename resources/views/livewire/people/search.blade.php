@@ -19,7 +19,7 @@
                 @if (auth()->user()->hasPermission('person:create'))
                     {{-- add button --}}
                     <x-ts-button href="/people/add" color="emerald" class="text-sm">
-                        <x-ts-icon icon="user-plus" class="mr-2 size-5"/>
+                        <x-ts-icon icon="user-plus" class="size-5"/>
                         {{ __('person.add_person') }}
                     </x-ts-button>
                 @endif

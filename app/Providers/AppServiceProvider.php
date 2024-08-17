@@ -93,10 +93,6 @@ class AppServiceProvider extends ServiceProvider
         TallStackUi::personalize()->badge()
             ->block('wrapper.class')->replace('px-2', 'px-1');
 
-        TallStackUi::personalize()->button()
-            ->block('wrapper.class')->replace('gap-x-2', 'gap-x-0')
-            ->block('wrapper.class')->append('!rounded');
-
         TallStackUi::personalize()->card()
             ->block('wrapper.first')->replace('gap-4', 'gap-2')
             ->block('wrapper.second')->replace('rounded-lg', 'rounded')

@@ -4,8 +4,9 @@
         <div class="p-2 text-lg font-medium border-b-2 rounded-t h-14 min-h-min border-neutral-100 dark:border-neutral-600 dark:text-neutral-50">
             <div class="flex flex-wrap items-start justify-center gap-2">
                 <div class="flex-1 flex-grow max-w-full min-w-max">
-                    <span class="mr-1">{{ __('person.ancestors') }}</span>
-                    <div class="inline-flex border rounded" role="group">
+                    {{ __('person.ancestors') }}
+                    
+                    <div class="inline-flex ml-2 border rounded" role="group">
                         @if ($count === $count_min)
                             <x-ts-button square xs color="danger" class="border-0 rounded-l" wire:click="decrement" disabled>
                                 <x-ts-icon icon="minus" class="size-5" />

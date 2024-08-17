@@ -10,27 +10,27 @@
 
         <div class="flex-1 flex-grow max-w-full print:hidden text-end">
             <x-ts-button href="/people/{{ $person->id }}" color="{{ request()->routeIs('people.show') ? 'warning' : 'primary' }}" class="mb-3 mr-2 text-sm text-white">
-                <x-ts-icon icon="id" class="mr-2 size-5" />
+                <x-ts-icon icon="id" class="size-5" />
                 {{ __('person.profile') }}
             </x-ts-button>
 
             <x-ts-button href="/people/{{ $person->id }}/ancestors" color="{{ request()->routeIs('people.ancestors') ? 'warning' : 'secondary' }}" class="mb-3 mr-2 text-sm text-white">
-                <x-ts-icon icon="binary-tree" class="mr-2 rotate-180 size-5" />
+                <x-ts-icon icon="binary-tree" class="rotate-180 size-5" />
                 {{ __('person.ancestors') }}
             </x-ts-button>
 
             <x-ts-button href="/people/{{ $person->id }}/descendants" color="{{ request()->routeIs('people.descendants') ? 'warning' : 'secondary' }}" class="mb-3 mr-2 text-sm text-white">
-                <x-ts-icon icon="binary-tree" class="mr-2 size-5" />
+                <x-ts-icon icon="binary-tree" class="size-5" />
                 {{ __('person.descendants') }}
             </x-ts-button>
 
             <x-ts-button href="/people/{{ $person->id }}/chart" color="{{ request()->routeIs('people.chart') ? 'warning' : 'secondary' }}" class="mb-3 mr-2 text-sm text-white">
-                <x-ts-icon icon="social" class="mr-2 size-5" />
+                <x-ts-icon icon="social" class="size-5" />
                 {{ __('app.family_chart') }}
             </x-ts-button>
 
             <x-ts-button href="/people/{{ $person->id }}/history" color="{{ request()->routeIs('people.history') ? 'warning' : 'info' }}" class="mb-3 mr-2 text-sm text-white">
-                <x-ts-icon icon="history" class="mr-2 size-5" />
+                <x-ts-icon icon="history" class="size-5" />
                 {{ __('app.history') }}
             </x-ts-button>
         </div>
