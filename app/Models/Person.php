@@ -192,7 +192,7 @@ class Person extends Model implements HasMedia
     protected function getNextBirthdayAttribute(): ?Carbon
     {
         if ($this->dob) {
-            $today               = Carbon::parse(date('Y-m-d') . ' 00:00:00');
+            $today               = Carbon::today();
             $this_years_birthday = Carbon::parse(date('Y') . substr(strval($this->dob), 4));
 
             return $today->gt($this_years_birthday) ? $this_years_birthday->addYear() : $this_years_birthday;
@@ -258,7 +258,7 @@ class Person extends Model implements HasMedia
     protected function getBirthYearAttribute(): ?string
     {
         if ($this->dob) {
-            $yob = Carbon::parse($this->dob)->isoFormat('Y');
+            $yob = Carbon::parse($this->dob)->format('Y');
         } elseif ($this->yob) {
             $yob = $this->yob;
         } else {
@@ -278,7 +278,7 @@ class Person extends Model implements HasMedia
             $dob = null;
         }
 
-        return $dob ? strval($dob) : $dob;
+        return strval($dob);
     }
 
     protected function getDeathFormattedAttribute(): ?string
@@ -291,7 +291,7 @@ class Person extends Model implements HasMedia
             $dod = null;
         }
 
-        return $dod ? strval($dod) : $dod;
+        return strval($dod);
     }
 
     protected function getAddressAttribute(): ?string
