@@ -17,7 +17,7 @@
             {{-- token name --}}
             <div class="col-span-6 sm:col-span-4">
                 <x-label for="name" value="{{ __('api.token_name') }} :" />
-                <x-input id="name" type="text" class="mt-1 block w-full" wire:model="createApiTokenForm.name" autofocus />
+                <x-input id="name" type="text" class="block w-full mt-1" wire:model="createApiTokenForm.name" autofocus />
                 <x-input-error for="name" class="mt-2" />
             </div>
 
@@ -26,11 +26,11 @@
                 <div class="col-span-6">
                     <x-label for="permissions" value="{{ __('api.permissions') }} :" />
 
-                    <div class="mt-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 gap-4 mt-2 md:grid-cols-2">
                         @foreach (Laravel\Jetstream\Jetstream::$permissions as $permission)
                             <label class="flex items-center">
                                 <x-checkbox wire:model="createApiTokenForm.permissions" :value="$permission" />
-                                <span class="ms-2 text-sm text-gray-600">{{ $permission }}</span>
+                                <span class="text-sm text-gray-600 ms-2">{{ $permission }}</span>
                             </label>
                         @endforeach
                     </div>
@@ -84,13 +84,13 @@
                                     @endif
 
                                     @if (Laravel\Jetstream\Jetstream::hasPermissions())
-                                        <x-ts-button sm color="primary" class="min-w-28 ms-3 text-sm" wire:click="manageApiTokenPermissions({{ $token->id }})"
+                                        <x-ts-button sm color="primary" class="text-sm min-w-28 ms-3" wire:click="manageApiTokenPermissions({{ $token->id }})"
                                             title="{{ __('api.permissions_edit') }}">
                                             {{ __('api.permissions') }}
                                         </x-ts-button>
                                     @endif
 
-                                    <x-ts-button sm color="danger" class="min-w-28 ms-3 text-sm" wire:click="confirmApiTokenDeletion({{ $token->id }})" title="{{ __('api.delete_api_token') }}">
+                                    <x-ts-button sm color="danger" class="text-sm min-w-28 ms-3" wire:click="confirmApiTokenDeletion({{ $token->id }})" title="{{ __('api.delete_api_token') }}">
                                         {{ __('api.delete') }}
                                     </x-ts-button>
                                 </div>
@@ -113,7 +113,7 @@
                 {{ __('api.please_copy') }}
             </div>
 
-            <x-input x-ref="plaintextToken" type="text" readonly :value="$plainTextToken" class="mt-4 bg-gray-100 px-4 py-2 rounded font-mono text-sm text-gray-500 w-full break-all" autofocus
+            <x-input x-ref="plaintextToken" type="text" readonly :value="$plainTextToken" class="w-full px-4 py-2 mt-4 font-mono text-sm text-gray-500 break-all bg-gray-100 rounded" autofocus
                 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" @showing-token-modal.window="setTimeout(() => $refs.plaintextToken.select(), 250)" />
         </x-slot>
 
@@ -131,11 +131,11 @@
         </x-slot>
 
         <x-slot name="content">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                 @foreach (Laravel\Jetstream\Jetstream::$permissions as $permission)
                     <label class="flex items-center">
                         <x-checkbox wire:model="updateApiTokenForm.permissions" :value="$permission" />
-                        <span class="ms-2 text-sm text-gray-600">{{ $permission }}</span>
+                        <span class="text-sm text-gray-600 ms-2">{{ $permission }}</span>
                     </label>
                 @endforeach
             </div>

@@ -16,18 +16,18 @@
             <x-label value="{{ __('team.owner') }} :" />
 
             <div class="flex items-center mt-2">
-                <img class="w-12 h-12 rounded-full object-cover" src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}">
+                <img class="object-cover w-12 h-12 rounded-full" src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}">
 
-                <div class="ms-4 leading-tight">
-                    <div class="text-gray-700 text-sm">{{ $this->user->name }}</div>
-                    <div class="text-gray-700 text-sm">{{ $this->user->email }}</div>
+                <div class="leading-tight ms-4">
+                    <div class="text-sm text-gray-700">{{ $this->user->name }}</div>
+                    <div class="text-sm text-gray-700">{{ $this->user->email }}</div>
                 </div>
             </div>
         </div>
 
         <div class="col-span-6 sm:col-span-4">
             <x-label for="name" value="{{ __('team.name') }} :" />
-            <x-input id="name" type="text" class="mt-1 block w-full" wire:model="state.name" autofocus />
+            <x-input id="name" type="text" class="block w-full mt-1" wire:model="state.name" autofocus />
             <x-input-error for="name" class="mt-2" />
         </div>
 
@@ -35,7 +35,7 @@
         <div class="col-span-6 sm:col-span-4">
             <x-label for="description" value="{{ __('team.description') }} :" />
 
-            <div class="relative mt-1 mb-3 block w-full">
+            <div class="relative block w-full mt-1 mb-3">
                 <x-textarea id="description" wire:model="state.description" rows="3"></x-textarea>
             </div>
 

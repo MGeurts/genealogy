@@ -17,7 +17,7 @@
         <form method="POST" action="{{ route('register') }}">
             @csrf
 
-            <div class="md:flex md:items-center mt-2">
+            <div class="mt-2 md:flex md:items-center">
                 <div class="md:w-1/3">
                     <x-label for="firstname" value="{{ __('user.firstname') }} :" />
                 </div>
@@ -26,7 +26,7 @@
                 </div>
             </div>
 
-            <div class="md:flex md:items-center mt-1">
+            <div class="mt-1 md:flex md:items-center">
                 <div class="md:w-1/3">
                     <x-label for="surname" value="{{ __('user.surname') }} :" />
                 </div>
@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            <div class="md:flex md:items-center mt-1">
+            <div class="mt-1 md:flex md:items-center">
                 <div class="md:w-1/3">
                     <x-label for="email" value="{{ __('user.email') }} :" />
                 </div>
@@ -46,7 +46,7 @@
 
             <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
 
-            <div class="md:flex md:items-center mt-2">
+            <div class="mt-2 md:flex md:items-center">
                 <div class="md:w-1/3">
                     <x-label for="language" value="{{ __('user.language') }} :" />
                 </div>
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="md:flex md:items-center mt-1">
+            <div class="mt-1 md:flex md:items-center">
                 <div class="md:w-1/3">
                     <x-label for="timezone" value="{{ __('user.timezone') }} :" />
                 </div>
@@ -74,7 +74,7 @@
 
             <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
 
-            <div class="md:flex md:items-center mt-2">
+            <div class="mt-2 md:flex md:items-center">
                 <div class="md:w-1/3">
                     <x-label for="password" value="{{ __('user.password') }} :" />
                 </div>
@@ -83,7 +83,7 @@
                 </div>
             </div>
 
-            <div class="md:flex md:items-center mt-1">
+            <div class="mt-1 md:flex md:items-center">
                 <div class="md:w-1/3">
                     <x-label for="password_confirmation" value="{{ __('user.confirm_password') }} :" />
                 </div>
@@ -105,13 +105,13 @@
                                     'terms_of_service' =>
                                         '<a target="_blank" href="' .
                                         route('terms.show') .
-                                        '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
+                                        '" class="text-sm text-gray-600 underline rounded hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
                                         __('app.terms_of_service') .
                                         '</a>',
                                     'privacy_policy' =>
                                         '<a target="_blank" href="' .
                                         route('policy.show') .
-                                        '" class="underline text-sm text-gray-600 hover:text-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
+                                        '" class="text-sm text-gray-600 underline rounded hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
                                         __('app.privacy_policy') .
                                         '</a>',
                                 ]) !!}
@@ -122,7 +122,7 @@
             @endif
 
             <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+                <a class="text-sm text-gray-600 underline rounded hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                     {{ __('auth.already_registered') }}?
                 </a>
 
