@@ -242,37 +242,6 @@ make the needed changes regarding name, url, database connection & mail server
 
 `php artisan serve` or `npm run dev`
 
-## Docker Installation
-
-`cp env.docker .env`
-
-run following command to initialize project
-
-```bash
-docker run --rm \
-    -u "$(id -u):$(id -g)" \
-    -v "$(pwd):/var/www/html" \
-    -w /var/www/html \
-    laravelsail/php83-composer:latest \
-    composer install --ignore-platform-reqs
-```
-
-run docker containers
-
-```bash
-./vendor/bin/sail up -d
-```
-
-`./vendor/bin/sail artisan key:generate`
-
-`./vendor/bin/sail artisan storage:link`
-
-`./vendor/bin/sail artisan migrate:fresh --seed`
-
-`./vendor/bin/sail npm install & npm run build`
-
-`./vendor/bin/sail artisan serve` or `npm run dev`
-
 ## Testing
 
 `php artisan test`
