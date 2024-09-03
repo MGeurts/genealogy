@@ -53,7 +53,7 @@ class Mother extends Component
 
         $this->persons = Person::where('id', '!=', $this->person->id)
             ->where('sex', 'f')
-            ->OlderThan($this->person->birth_date, $this->person->birth_year)
+            ->OlderThan($this->person->birth_year)
             ->orderBy('firstname')->orderBy('surname')
             ->get()
             ->map(function ($p) {

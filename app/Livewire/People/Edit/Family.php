@@ -37,7 +37,7 @@ class Family extends Component
         $this->familyForm->parents_id = $this->person->parents_id;
 
         $persons = Person::where('id', '!=', $this->person->id)
-            ->OlderThan($this->person->birth_date, $this->person->birth_year)
+            ->OlderThan($this->person->birth_year)
             ->orderBy('firstname')->orderBy('surname')
             ->get();
 
@@ -56,7 +56,7 @@ class Family extends Component
         })->values();
 
         $this->parents = Couple::with(['person_1', 'person_2'])
-            ->OlderThan($this->person->birth_date)
+            ->OlderThan($this->person->birth_year)
             ->get()
             ->sortBy('name')
             ->map(function ($couple) {

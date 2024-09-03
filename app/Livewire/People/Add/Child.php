@@ -55,7 +55,7 @@ class Child extends Component
         if ($this->person->sex === 'm') {
             $this->persons = Person::where('id', '!=', $this->person->id)
                 ->whereNull('father_id')
-                ->YoungerThan($this->person->birth_date, $this->person->birth_year)
+                ->YoungerThan($this->person->birth_year)
                 ->orderBy('firstname')->orderBy('surname')
                 ->get()
                 ->map(function ($p) {
@@ -67,7 +67,7 @@ class Child extends Component
         } else {
             $this->persons = Person::where('id', '!=', $this->person->id)
                 ->whereNull('mother_id')
-                ->YoungerThan($this->person->birth_date, $this->person->birth_year)
+                ->YoungerThan($this->person->birth_year)
                 ->orderBy('firstname')->orderBy('surname')
                 ->get()
                 ->map(function ($p) {

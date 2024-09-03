@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
 use Spatie\Activitylog\LogOptions;
@@ -108,33 +109,33 @@ class Person extends Model implements HasMedia
         }
     }
 
-    public function scopeOlderThan(Builder $query, ?string $birth_date, ?string $birth_year): void
+    public function scopeOlderThan(Builder $query, ?string $birth_year): void
     {
         if (empty($birth_date) and empty($birth_year)) {
             return;
         } else {
-            $query->where(function ($q) use ($birth_date) {
-                $q->whereNull('dob')->orWhere('dob', '<=', $birth_date);
+            $query->where(function ($q) use ($birth_year) {
+                $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '<=', $birth_year);
             })->where(function ($q) use ($birth_year) {
                 $q->whereNull('yob')->orWhere('yob', '<=', $birth_year);
             });
         }
     }
 
-    public function scopeYoungerThan(Builder $query, ?string $birth_date, ?string $birth_year): void
+    public function scopeYoungerThan(Builder $query, ?string $birth_year): void
     {
         if (empty($birth_date) and empty($birth_year)) {
             return;
         } else {
-            $query->where(function ($q) use ($birth_date) {
-                $q->whereNull('dob')->orWhere('dob', '>=', $birth_date);
+            $query->where(function ($q) use ($birth_year) {
+                $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '>=', $birth_year);
             })->where(function ($q) use ($birth_year) {
                 $q->whereNull('yob')->orWhere('yob', '>=', $birth_year);
             });
         }
     }
 
-    public function scopePartnerOffset(Builder $query, ?string $birth_date, ?int $birth_year, int $offset = 40): void
+    public function scopePartnerOffset(Builder $query, ?string $birth_year, int $offset = 40): void
     {
         // ------------------------------------------------------------------
         // offset : possible partners can be +/- n years older or younger
@@ -142,8 +143,8 @@ class Person extends Model implements HasMedia
         if (empty($birth_date) and empty($birth_year)) {
             return;
         } else {
-            $query->where(function ($q) use ($birth_date, $offset) {
-                $q->whereNull('dob')->orWhereBetween('dob', [date('Y-m-d', strtotime($birth_date . ' - ' . $offset . ' years')), date('Y-m-d', strtotime($birth_date . ' + ' . $offset . ' years'))]);
+            $query->where(function ($q) use ($birth_year, $offset) {
+                $q->whereNull('dob')->orWhereBetween(DB::raw('YEAR(dob)'), [$birth_year - $offset, $birth_year + $offset]);
             })->where(function ($q) use ($birth_year, $offset) {
                 $q->whereNull('yob')->orWhereBetween('yob', [$birth_year - $offset, $birth_year + $offset]);
             });
@@ -239,59 +240,46 @@ class Person extends Model implements HasMedia
             $lifetime = null;
         }
 
-        return $lifetime; //returns YEAR(dob) - YEAR(dod)
-    }
-
-    protected function getBirthDateAttribute(): ?string
-    {
-        if ($this->dob) {
-            $dob = $this->dob;
-        } elseif ($this->yob) {
-            $dob = $this->yob;
-        } else {
-            $dob = null;
-        }
-
-        return strval($dob);
+        return strval($lifetime); //returns YEAR(dob) - YEAR(dod)
     }
 
     protected function getBirthYearAttribute(): ?string
     {
         if ($this->dob) {
-            $yob = Carbon::parse($this->dob)->format('Y');
+            $year = Carbon::parse($this->dob)->format('Y');
         } elseif ($this->yob) {
-            $yob = $this->yob;
+            $year = $this->yob;
         } else {
-            $yob = null;
+            $year = null;
         }
 
-        return strval($yob);
+        return strval($year);
     }
 
     protected function getBirthFormattedAttribute(): ?string
     {
         if ($this->dob) {
-            $dob = Carbon::parse($this->dob)->isoFormat('LL');
+            $birth = Carbon::parse($this->dob)->isoFormat('LL');
         } elseif ($this->yob) {
-            $dob = $this->yob;
+            $birth = $this->yob;
         } else {
-            $dob = null;
+            $birth = null;
         }
 
-        return strval($dob);
+        return strval($birth);
     }
 
     protected function getDeathFormattedAttribute(): ?string
     {
         if ($this->dod) {
-            $dod = Carbon::parse($this->dod)->isoFormat('LL');
+            $dead = Carbon::parse($this->dod)->isoFormat('LL');
         } elseif ($this->yod) {
-            $dod = $this->yod;
+            $dead = $this->yod;
         } else {
-            $dod = null;
+            $dead = null;
         }
 
-        return strval($dod);
+        return strval($dead);
     }
 
     protected function getAddressAttribute(): ?string

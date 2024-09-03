@@ -59,7 +59,7 @@ class Partner extends Component
         $this->partnerForm->is_married = false;
         $this->partnerForm->has_ended  = false;
 
-        $this->persons = Person::PartnerOffset($this->person->birth_date, $this->person->birth_year)
+        $this->persons = Person::PartnerOffset($this->person->birth_year)
             ->where('id', '!=', $this->person->id)
             ->orderBy('firstname')->orderBy('surname')
             ->get()
