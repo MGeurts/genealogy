@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
+use Carbon\Carbon;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,6 +20,7 @@ class Localization
     {
         if (session()->has('locale') and session()->get('locale') != app()->getLocale()) {
             app()->setLocale(session()->get('locale'));
+            Carbon::SetLocale(session()->get('locale'));
         }
 
         return $next($request);
