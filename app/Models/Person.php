@@ -111,7 +111,7 @@ class Person extends Model implements HasMedia
 
     public function scopeOlderThan(Builder $query, ?string $birth_year): void
     {
-        if (empty($birth_date) and empty($birth_year)) {
+        if (empty($birth_year)) {
             return;
         } else {
             $query->where(function ($q) use ($birth_year) {
@@ -124,7 +124,7 @@ class Person extends Model implements HasMedia
 
     public function scopeYoungerThan(Builder $query, ?string $birth_year): void
     {
-        if (empty($birth_date) and empty($birth_year)) {
+        if (empty($birth_year)) {
             return;
         } else {
             $query->where(function ($q) use ($birth_year) {
@@ -137,16 +137,16 @@ class Person extends Model implements HasMedia
 
     public function scopePartnerOffset(Builder $query, ?string $birth_year, int $offset = 40): void
     {
-        // ------------------------------------------------------------------
-        // offset : possible partners can be +/- n years older or younger
-        // ------------------------------------------------------------------
-        if (empty($birth_date) and empty($birth_year)) {
+        // -------------------------------------------------------------------------
+        // offset : possible partners can be +/- n ($offeset) years older or younger
+        // -------------------------------------------------------------------------
+        if (empty($birth_year)) {
             return;
         } else {
             $query->where(function ($q) use ($birth_year, $offset) {
-                $q->whereNull('dob')->orWhereBetween(DB::raw('YEAR(dob)'), [$birth_year - $offset, $birth_year + $offset]);
+                $q->whereNull('dob')->orWhereBetween(DB::raw('YEAR(dob)'), [intval($birth_year) - $offset, intval($birth_year) + $offset]);
             })->where(function ($q) use ($birth_year, $offset) {
-                $q->whereNull('yob')->orWhereBetween('yob', [$birth_year - $offset, $birth_year + $offset]);
+                $q->whereNull('yob')->orWhereBetween('yob', [intval($birth_year) - $offset, intval($birth_year) + $offset]);
             });
         }
     }
