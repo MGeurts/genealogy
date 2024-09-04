@@ -135,7 +135,7 @@
                             placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable required>
                             <x-slot:after>
                                 <div class="w-full px-2 mb-2">
-                                    <x-ts-alert title="{{ __('person.not_found') }}" text="{{ __('person.use_tab') . ' : ' . __('person.add_new_person_as_partner') }}" color="cyan" />
+                                    <x-ts-alert title="{{ __('app.nothing_available') }}" text="{{ __('person.use_tab') . ' : ' . __('person.add_new_person_as_partner') }}" color="cyan" />
                                 </div>
                             </x-slot:after>
                         </x-ts-select.styled>
