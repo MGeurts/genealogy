@@ -104,6 +104,10 @@ return [
     'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> gefunden mit dem Schlagwort <span class="text-emerald-600"><strong>:keyword</strong></span> in <span class="text-emerald-600"><strong>:total</strong></span> verfügbar in <span class="text-emerald-600"><strong>:scope</strong></span>',
     'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> verfügbar in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
 
+    'people_search_help_1' => 'Das System sucht <b class="text-emerald-600">jedes einzelne Wort</b> im Suchfeld in den Attributen <b class="text-emerald-600">Nachname</b>, <b class="text-emerald-600">Vorname</b>, <b class="text-emerald-600">Geburtsname</b> und <b class="text-emerald-600">Spitzname</b>.',
+    'people_search_help_2' => 'Beginnen Sie die Suchzeichenfolge mit <b class="text-emerald-600">%</b>, wenn Sie nach Teilen von Namen suchen möchten, zum Beispiel : <b class="text-emerald-600">%Jr</b>.<br/>Beachten Sie, dass diese Art von Suche langsamer ist.',
+    'people_search_help_3' => 'Wenn ein Nachname, Vorname, Geburtsname oder Spitzname <b class="text-emerald-600">Leerzeichen</b> enthält, schließen Sie den Namen in doppelte Anführungszeichen ein,<br/>zum Beispiel: <b class="text-emerald-600">"John Jr." Kennedy</b>.',
+
     'unauthorized_access' => 'Unautorisierter Zugriff',
 
     'whoops' => 'Upps! Etwas ist schief gelaufen.',

@@ -100,19 +100,8 @@
             <x-ts-icon icon="help" class="inline-block"/>{{ __('app.help') }}
         </x-slot:title>
 
-        <p>
-            The system wil look up <b class="text-emerald-600">every single word</b> in the search box in the attributes <b class="text-emerald-600">surname</b>, <b class="text-emerald-600">firstname</b>, <b class="text-emerald-600">birthname</b> and <b class="text-emerald-600">nickname</b>.
-        </p>
-        <br/>
-
-        <p>
-            Begin the search string with <b class="text-emerald-600">%</b> if you want to search parts of names, for instance : <b class="text-emerald-600">%Jr</b>. <br/>
-            Be aware this kinds of searches are slower.
-        </p>
-        <br/>
-
-        <p>
-            If a surname, firstname, birthname or nickname containes any spaces, enclose the name in double quoutes, for instance : <b class="text-emerald-600">"John Jr."</b> Kennedy.
-        </p>
+        <p>{!! __('app.people_search_help_1') !!}</p><br/>
+        <p>{!! __('app.people_search_help_2') !!}</p><br/>
+        <p>{!! __('app.people_search_help_3') !!}</p>
     </x-ts-modal>
 </div>
