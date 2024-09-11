@@ -51,7 +51,7 @@ This <b>TallStack</b> application is build using :
 
 <ul>
     <li>
-        At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.2, supporting Laravel 11.<br/>
+        At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.3, supporting Laravel 11.<br/>
     </li>
     <li>
         At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0.1 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2.2 or an equivalent database, supporting <a href="https://dev.mysql.com/doc/refman/8.0/en/with.html" target="_blank">Recursive Common Table Expressions</a>.
