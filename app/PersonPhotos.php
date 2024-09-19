@@ -19,10 +19,10 @@ class PersonPhotos
     {
         if ($person and $photos) {
             // if needed, create folders
-            if (! storage::disk('photos')->exists($person->team_id)) {
-                Storage::disk('photos')->makeDirectory($person->team_id);
-                Storage::disk('photos-096')->makeDirectory($person->team_id);
-                Storage::disk('photos-384')->makeDirectory($person->team_id);
+            if (! storage::disk('photos')->exists(strval($person->team_id))) {
+                Storage::disk('photos')->makeDirectory(strval($person->team_id));
+                Storage::disk('photos-096')->makeDirectory(strval($person->team_id));
+                Storage::disk('photos-384')->makeDirectory(strval($person->team_id));
             }
 
             // set image parameters
@@ -32,7 +32,7 @@ class PersonPhotos
             $image_type    = config('app.image_upload_type');
 
             // set image manager
-            $manager = new ImageManager(new Driver());
+            $manager = new ImageManager(new Driver);
 
             // determine last index
             $files      = File::glob(public_path() . '/storage/photos/' . $person->team_id . '/' . $person->id . '_*.webp');

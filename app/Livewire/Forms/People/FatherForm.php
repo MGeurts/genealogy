@@ -7,6 +7,7 @@ namespace App\Livewire\Forms\People;
 use App\Models\Gender;
 use App\Rules\DobValid;
 use App\Rules\YobValid;
+use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
@@ -42,16 +43,17 @@ class FatherForm extends Form
 
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]
-    public function genders()
+    public function genders(): Collection
     {
-        return Gender::select('id', 'name')->orderBy('name')->get()->toArray();
+        return Gender::select('id', 'name')->orderBy('name')->get();
     }
 
-    public function rules()
+    // -----------------------------------------------------------------------
+    public function rules(): array
     {
         return $rules = [
             'firstname' => ['nullable', 'string', 'max:255'],
-            'surname'   => ['required_without:person_id', 'nullable', 'string', 'max:255'],
+            'surname'   => ['nullable', 'string', 'max:255', 'required_without:person_id'],
             'birthname' => ['nullable', 'string', 'max:255'],
             'nickname'  => ['nullable', 'string', 'max:255'],
 
@@ -75,16 +77,19 @@ class FatherForm extends Form
             'photo' => ['nullable', 'string', 'max:255'],
 
             // -----------------------------------------------------------------------
-            'person_id' => ['required_without:surname', 'nullable', 'integer'],
+            'person_id' => ['nullable', 'integer', 'required_without:surname'],
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
-        return [];
+        return [
+            'surname.required_without'   => __('validation.surname.required_without'),
+            'person_id.required_without' => __('validation.person_id.required_without'),
+        ];
     }
 
-    public function validationAttributes()
+    public function validationAttributes(): array
     {
         return [
             'firstname' => __('person.firstname'),

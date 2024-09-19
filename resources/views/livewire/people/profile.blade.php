@@ -1,12 +1,12 @@
-<div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
-    <div class="h-14 min-h-min flex flex-col p-2 border-b-2 border-neutral-100 text-lg font-medium dark:border-neutral-600 dark:text-neutral-50 rounded-t">
-        <div class="flex flex-wrap gap-2 justify-center items-start">
-            <div class="flex-grow min-w-max max-w-full flex-1 align-middle justify-center items-center">
+<div class="min-w-100 flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
+    <div class="flex flex-col p-2 text-lg font-medium border-b-2 rounded-t h-14 min-h-min border-neutral-100 dark:border-neutral-600 dark:text-neutral-50">
+        <div class="flex flex-wrap items-start justify-center gap-2">
+            <div class="items-center justify-center flex-1 flex-grow max-w-full align-middle min-w-max">
                 {{ __('person.profile') }}
             </div>
 
             @if (auth()->user()->hasPermission('person:update') or auth()->user()->hasPermission('person:delete'))
-                <div class="flex-grow min-w-max max-w-min flex-1 text-end">
+                <div class="flex-1 flex-grow min-w-max max-w-min text-end">
                     <x-ts-dropdown icon="menu-2" position="bottom-end">
                         @if (auth()->user()->hasPermission('person:update'))
                             <a href="/people/{{ $person->id }}/edit-profile">
@@ -42,7 +42,7 @@
                         @if (auth()->user()->hasPermission('person:delete') and $person->isDeletable())
                             <hr />
 
-                            <x-ts-dropdown.items separator wire:click="confirmDeletion()" class="!text-danger-500">
+                            <x-ts-dropdown.items separator class="!text-danger-600 dark:!text-danger-400" wire:click="confirmDeletion()">
                                 <x-ts-icon icon="trash" class="mr-2" />
                                 {{ __('person.delete_person') }}
                             </x-ts-dropdown.items>
@@ -54,14 +54,14 @@
     </div>
 
     {{-- image --}}
-    <div class="grid px-2 pt-2 justify-center">
+    <div class="grid justify-center px-2 pt-2">
         <livewire:people.gallery :person="$person" class="max-w-96" />
     </div>
 
     {{-- lifetime & age --}}
     <div class="flex px-2">
-        <div class="flex-grow">{!! $person->lifetime ? $person->lifetime : '&nbsp' !!}</div>
-        <div class="flex-grow text-end">{!! isset($person->age) ? $person->age . ' ' . trans_choice('person.years', $person->age) : '&nbsp' !!}</div>
+        <div class="flex-grow">{!! $person->lifetime ? $person->lifetime : '' !!}</div>
+        <div class="flex-grow text-end">{!! isset($person->age) ? $person->age . ' ' . trans_choice('person.years', $person->age) : '' !!}</div>
     </div>
 
     {{-- data --}}
@@ -89,7 +89,7 @@
                     <td class="pr-2 border-r-2">{{ __('person.sex') }} ({{ __('person.biological') }})</td>
                     <td class="pl-2">
                         {{ $person->sex == 'm' ? __('app.male') : __('app.female') }}
-                        <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />
+                        <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     </td>
                 </tr>
                 <tr class="border-b-2">
@@ -102,7 +102,7 @@
                     <td class="pl-2">
                         {{ $person->birth_formatted }}
                         @if ($person->isBirthdayToday())
-                            <x-ts-icon icon="cake" class="size-5 text-warning" />
+                            <x-ts-icon icon="cake" class="inline-block size-5 text-danger-600 dark:text-danger-400" />
                         @endif
                     </td>
                 </tr>
@@ -117,7 +117,7 @@
                         <td class="pl-2">
                             {{ $person->death_formatted }}
                             @if ($person->isDeathdayToday())
-                                <x-ts-icon icon="cake" class="size-5 text-warning" />
+                                <x-ts-icon icon="cake" class="inline-block size-5 text-danger-600 dark:text-danger-400" />
                             @endif
                         </td>
                     </tr>

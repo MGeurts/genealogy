@@ -24,6 +24,14 @@ class UserLogin
     public function handle(Login $event): void
     {
         // -----------------------------------------------------------------------
+        // set language and timezone
+        // -----------------------------------------------------------------------
+        session([
+            'locale'   => $event->user->language ? $event->user->language : env('APP_LOCALE', 'en'),
+            'timezone' => $event->user->timezone ? $event->user->timezone : env('APP_TIMEZONE', 'UTC'),
+        ]);
+
+        // -----------------------------------------------------------------------
         // log user (seen_at)
         // -----------------------------------------------------------------------
         $event->user->timestamps = false;

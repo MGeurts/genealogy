@@ -1,7 +1,7 @@
 <x-dropdown align="right" width="48">
     <x-slot name="trigger">
         <button type="button" title="{{ __('app.language_select') }}">
-            {{ Str::upper($current_locale) }}
+            {{ strtoupper(app()->getLocale()) }}
         </button>
     </x-slot>
 
@@ -10,8 +10,8 @@
             {{ __('app.language_select') }}
         </div>
 
-        @foreach ($available_locales as $locale_name => $available_locale)
-            @if ($available_locale === $current_locale)
+        @foreach (config('app.available_locales') as $locale_name => $available_locale)
+            @if ($available_locale === app()->getLocale())
                 <x-dropdown-link href="#" :active="true">
                     {{ $locale_name }}
                 </x-dropdown-link>

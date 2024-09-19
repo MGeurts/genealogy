@@ -53,7 +53,7 @@ return [
     'password_confirmation' => 'Herhaal paswoord',
     'permissions'           => 'Rechten',
 
-    'register'       => 'Registreer',
+    'register'       => 'Registreren',
     'remember_me'    => 'Onthou mij',
     'reset_password' => 'Reset Password',
     'role'           => 'Rol',

@@ -12,9 +12,6 @@ use Livewire\Form;
 class DeathForm extends Form
 {
     // -----------------------------------------------------------------------
-    public $person;
-
-    // -----------------------------------------------------------------------
     #[Validate]
     public $yod = null;
 
@@ -31,7 +28,8 @@ class DeathForm extends Form
 
     public $cemetery_location_longitude = null;
 
-    public function rules()
+    // -----------------------------------------------------------------------
+    public function rules(): array
     {
         return [
             'yod' => [
@@ -50,17 +48,17 @@ class DeathForm extends Form
             'pod'                         => ['nullable', 'string', 'max:255'],
             'cemetery_location_name'      => ['nullable', 'string', 'max:255'],
             'cemetery_location_address'   => ['nullable', 'string', 'max:255'],
-            'cemetery_location_latitude'  => ['required_with:cemetery_location_longitude', 'nullable', 'numeric', 'decimal:0,13', 'min:-90', 'max:90'],
-            'cemetery_location_longitude' => ['required_with:cemetery_location_latitude', 'nullable', 'numeric', 'decimal:0,13', 'min:-180', 'max:180'],
+            'cemetery_location_latitude'  => ['nullable', 'numeric', 'decimal:0,13', 'min:-90', 'max:90', 'required_with:cemetery_location_longitude'],
+            'cemetery_location_longitude' => ['nullable', 'numeric', 'decimal:0,13', 'min:-180', 'max:180', 'required_with:cemetery_location_latitude'],
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [];
     }
 
-    public function validationAttributes()
+    public function validationAttributes(): array
     {
         return [
             'yod'                         => __('person.yod'),

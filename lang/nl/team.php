@@ -7,12 +7,7 @@ return [
     'create'        => 'Team toevoegen',
     'delete'        => 'Team verwijderen',
     'description'   => 'Beschrijving',
-    'export'        => 'Exporteren',
-    'gedcom_export' => 'Team exporteren naar GEDCOM',
-    'gedcom_file'   => 'GEDCOM bestand',
-    'gedcom_import' => 'Team importeren van GEDCOM',
     'id'            => 'ID',
-    'import'        => 'Importeren',
     'manage'        => 'Teambeheer',
     'name'          => 'Naam',
     'owner'         => 'Eigenaar',
@@ -25,14 +20,8 @@ return [
     'users'         => 'Gebruikers',
 
     // Messages
-    'team_details'               => 'Teamdetails',
-    'team_create_new'            => 'Creëer een nieuw team om met anderen samen te werken.',
-    'team_create_new_gedcom'     => 'Creëer een nieuw team, geïmporteerd uit een GEDCOM-bestand, om met anderen samen te werken.',
-    'team_gedcom_reference'      => 'Referentie',
-    'team_gedcom_specifications' => 'GEDCOM Specificaties',
-    'team_gedcom_version'        => 'Maximaal GEDCOM versie 5.5.5',
-    'team_gedcom_hint'           => 'Laten we een team creëren op basis van een GEDCOM-bestand',
-    'team_gedcom_tip'            => 'Sleep uw GEDCOM-bestand hierheen',
+    'team_details'    => 'Teamdetails',
+    'team_create_new' => 'Creëer een nieuw team om met anderen samen te werken.',
 
     'team_name'               => 'Teamnaam',
     'team_information'        => 'De naam van het team en informatie over de eigenaar.',
@@ -46,6 +35,7 @@ return [
     'team_pending'         => 'Teamuitnodigingen in behandeling',
     'team_pending_message' => 'Deze mensen zijn uitgenodigd voor uw team en hebben een uitnodigingsmail ontvangen. Ze kunnen lid worden van het team door de uitnodiging in de e-mail te accepteren.',
 
+    'change_role'          => 'Wijzig rol',
     'team_members'         => 'Leden van het team',
     'team_members_message' => 'Alle personen die deel uitmaken van dit team.',
     'manage_role'          => 'Rol beheren',
@@ -55,6 +45,7 @@ return [
     'remove'               => 'Verwijder',
     'remove_member'        => 'Teamlid verwijderen',
     'remove_member_sure'   => 'Weet u zeker dat u deze persoon uit het team wilt verwijderen?',
+    'send_email'           => 'Verstuur email',
 
     'user_not_found'       => 'We konden geen geregistreerde gebruiker met dit e-mailadres vinden.',
     'user_already_in_team' => 'Deze gebruiker behoort al tot het team.',

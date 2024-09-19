@@ -34,6 +34,11 @@ return [
     'age'           => 'Alter',
     'years'         => '[1] Jahr|[0,2,*] Jahre',
 
+    'source'           => 'Quelle',
+    'source_hint'      => 'Geben Sie die Quelle der Dateien an, die Sie hochladen möchten',
+    'source_date'      => 'Datum',
+    'source_date_hint' => 'Geben Sie das Datum der Quelle der Datei(en) an, die Sie hochladen möchten',
+
     // Actions
     'add_father'                     => 'Vater hinzufügen',
     'add_new_person_as_father'       => 'NEUE Person als Vater hinzufügen',
@@ -56,6 +61,7 @@ return [
     'edit_contact'      => 'Kontakt bearbeiten',
     'edit_death'        => 'Tod bearbeiten',
     'edit_family'       => 'Familie bearbeiten',
+    'edit_files'        => 'Dateien bearbeiten',
     'edit_person'       => 'Person bearbeiten',
     'edit_profile'      => 'Profil bearbeiten',
     'edit_relationship' => 'Beziehung bearbeiten',
@@ -107,7 +113,7 @@ return [
 
     // Photo
     'avatar'            => 'Benutzerbild',
-    'edit_photos'       => 'Editiere Fotos',
+    'edit_photos'       => 'Fotos bearbeiten',
     'photo_deleted'     => 'Foto gelöscht',
     'photo'             => 'Foto',
     'photos'            => 'Fotos',
@@ -136,8 +142,4 @@ return [
 
     'not_found' => 'Person nicht gefunden',
     'use_tab'   => 'Benutze tab',
-
-    'insert_tip_1' => 'Geben Sie entweder einen Nachnamen, einen Vornamen, einen Geburtsnamen oder einen Spitznamen ein.',
-    'insert_tip_2' => 'Nicht kombinieren!',
-
 ];

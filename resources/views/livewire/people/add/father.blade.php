@@ -3,7 +3,7 @@
 
     <x-ts-tab selected="{{ __('person.add_new_person_as_father') }}" class="dark:bg-red-100">
         <x-ts-tab.items tab="{{ __('person.add_new_person_as_father') }}">
-            <div class="md:w-192 p-4 rounded bg-neutral-200">
+            <div class="p-4 rounded md:w-192 bg-neutral-200">
                 <x-ts-errors class="mb-2" close />
 
                 <div class="grid grid-cols-6 gap-5">
@@ -66,24 +66,24 @@
                     {{-- images --}}
                     <div class="col-span-6">
                         <x-ts-upload id="photos" wire:model="photos" label="{{ __('person.photos') }} :" accept=".jpeg, .jpg, .gif, .png, .svg, .webp"
-                            hint="Max: 1024 KB, Format: jpeg/jpg, gif, png,svg or webp" tip="{{ __('person.update_photo_tip') }} ..." multiple delete>
+                            hint="Max: 1024 KB, Format: jpeg/jpg, gif, png, svg or webp" tip="{{ __('person.update_photo_tip') }} ..." multiple delete>
                         </x-ts-upload>
                     </div>
                 </div>
             </div>
 
             <div class="flex items-center justify-end pt-4 text-right">
-                <div class="flex-grow max-w-full flex-1 text-left">
-                    <x-action-message class="p-2.5 rounded bg-warning-200 text-warning-700" role="alert" on="" wire:dirty>
+                <div class="flex-1 flex-grow max-w-full text-left">
+                    <x-action-message class="p-3 rounded bg-warning-200 text-warning-700" role="alert" on="" wire:dirty>
                         {{ __('app.unsaved_changes') }} ...
                     </x-action-message>
 
-                    <x-action-message class="p-2.5 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
+                    <x-action-message class="p-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
                         {{ __('app.saved') }}
                     </x-action-message>
                 </div>
 
-                <div class="flex-grow max-w-full flex-1 text-end">
+                <div class="flex-1 flex-grow max-w-full text-end">
                     <x-ts-button color="secondary" class="mr-1" wire:click="resetChild()" wire:dirty>
                         {{ __('app.cancel') }}
                     </x-ts-button>
@@ -96,7 +96,7 @@
         </x-ts-tab.items>
 
         <x-ts-tab.items tab="{{ __('person.add_existing_person_as_father') }}">
-            <div class="md:w-192 p-4 rounded bg-neutral-200">
+            <div class="p-4 rounded md:w-192 bg-neutral-200">
                 <x-ts-errors class="mb-2" close />
 
                 {{-- person_id --}}
@@ -104,8 +104,8 @@
                     <x-ts-select.styled wire:model="fatherForm.person_id" id="person_id" label="{{ __('person.person') }} : *" :options="$persons" select="label:name|value:id"
                         placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable>
                         <x-slot:after>
-                            <div class="px-2 mb-2 w-full">
-                                <x-ts-alert title="{{ __('person.not_found') }}" text="{{ __('person.use_tab') . ' : ' . __('person.add_new_person_as_father') }}" color="cyan" />
+                            <div class="w-full px-2 mb-2">
+                                <x-ts-alert title="{{ __('app.nothing_available') }}" text="{{ __('person.use_tab') . ' : ' . __('person.add_new_person_as_father') }}" color="cyan" />
                             </div>
                         </x-slot:after>
                     </x-ts-select.styled>
@@ -113,17 +113,17 @@
             </div>
 
             <div class="flex items-center justify-end pt-4 text-right">
-                <div class="flex-grow max-w-full flex-1 text-left">
-                    <x-action-message class="p-2.5 rounded bg-warning-200 text-warning-700" role="alert" on="" wire:dirty>
+                <div class="flex-1 flex-grow max-w-full text-left">
+                    <x-action-message class="p-3 rounded bg-warning-200 text-warning-700" role="alert" on="" wire:dirty>
                         {{ __('app.unsaved_changes') }} ...
                     </x-action-message>
 
-                    <x-action-message class="p-2.5 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
+                    <x-action-message class="p-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
                         {{ __('app.saved') }}
                     </x-action-message>
                 </div>
 
-                <div class="flex-grow max-w-full flex-1 text-end">
+                <div class="flex-1 flex-grow max-w-full text-end">
                     <x-ts-button color="secondary" class="mr-1" wire:click="resetChild()" wire:dirty>
                         {{ __('app.cancel') }}
                     </x-ts-button>

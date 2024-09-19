@@ -46,7 +46,7 @@
                                     {{ $session->ip_address }},
 
                                     @if ($session->is_current_device)
-                                        <span class="text-emerald-500 font-semibold">{{ __('user.this_device') }}</span>
+                                        <span class="font-semibold text-emerald-500">{{ __('user.this_device') }}</span>
                                     @else
                                         {{ __('user.last_active') }} {{ $session->last_active }}
                                     @endif
@@ -63,7 +63,7 @@
                 {{ __('user.log_out') }}
             </x-ts-button>
 
-            <x-action-message class="ms-3" on="loggedOut">
+            <x-action-message class="p-3 ml-3 rounded bg-success-200 text-emerald-600" on="loggedOut">
                 {{ __('user.done') }}
             </x-action-message>
         </div>
@@ -78,7 +78,7 @@
                 {{ __('user.enter_password') }}
 
                 <div class="mt-4" x-data="{}" x-on:confirming-logout-other-browser-sessions.window="setTimeout(() => $refs.password.focus(), 250)">
-                    <x-input type="password" class="mt-1 block w-3/4" autocomplete="current-password" placeholder="{{ __('Password') }}" x-ref="password" wire:model="password"
+                    <x-input type="password" class="block w-3/4 mt-1" autocomplete="current-password" placeholder="{{ __('Password') }}" x-ref="password" wire:model="password"
                         wire:keydown.enter="logoutOtherBrowserSessions" />
 
                     <x-input-error for="password" class="mt-2" />

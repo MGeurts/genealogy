@@ -12,7 +12,6 @@ return new class extends Migration
             $table->id();
 
             $table->morphs('model');
-            //$table->uuid()->nullable()->unique();
             $table->char('uuid', 36)->nullable()->unique();
             $table->string('collection_name');
             $table->string('name');

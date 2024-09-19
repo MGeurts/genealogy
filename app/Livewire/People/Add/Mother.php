@@ -10,6 +10,8 @@ use App\Models\Person;
 use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
@@ -23,11 +25,13 @@ class Mother extends Component
     // -----------------------------------------------------------------------
     public $person;
 
-    public motherForm $motherForm;
+    public MotherForm $motherForm;
 
-    public $photos = [];
+    public array $photos = [];
 
-    public $backup = [];
+    public array $backup = [];
+
+    public Collection $persons;
 
     // -----------------------------------------------------------------------
     public function mount(): void
@@ -46,6 +50,18 @@ class Mother extends Component
         $this->motherForm->photo = null;
 
         $this->motherForm->person_id = null;
+
+        $this->persons = Person::where('id', '!=', $this->person->id)
+            ->where('sex', 'f')
+            ->OlderThan($this->person->birth_year)
+            ->orderBy('firstname')->orderBy('surname')
+            ->get()
+            ->map(function ($p) {
+                return [
+                    'id'   => $p->id,
+                    'name' => $p->name . ' ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
+                ];
+            });
     }
 
     public function deleteUpload(array $content): void
@@ -163,20 +179,8 @@ class Mother extends Component
     }
 
     // -----------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
-        $persons = Person::where('id', '!=', $this->person->id)
-            ->where('sex', 'f')
-            ->OlderThan($this->person->birth_date, $this->person->birth_year)
-            ->orderBy('firstname')->orderBy('surname')
-            ->get()
-            ->map(function ($p) {
-                return [
-                    'id'   => $p->id,
-                    'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
-                ];
-            });
-
-        return view('livewire.people.add.mother', compact('persons'));
+        return view('livewire.people.add.mother');
     }
 }

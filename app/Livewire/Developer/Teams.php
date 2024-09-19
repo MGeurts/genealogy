@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire\Developer;
 
 use App\Models\Team;
@@ -11,7 +13,7 @@ use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
-use Illuminate\Contracts\View\View;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Teams extends Component implements HasForms, HasTable
@@ -19,14 +21,11 @@ class Teams extends Component implements HasForms, HasTable
     use InteractsWithForms;
     use InteractsWithTable;
 
+    // -----------------------------------------------------------------------
     public function table(Table $table): Table
     {
         return $table
-            ->query(
-                Team::query()
-                    ->with('owner')
-                    ->withCount(['users', 'couples', 'persons'])
-            )
+            ->query(Team::query()->with('owner')->withCount(['users', 'couples', 'persons']))
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->label(__('team.id'))
@@ -87,6 +86,7 @@ class Teams extends Component implements HasForms, HasTable
             ->striped();
     }
 
+    // -----------------------------------------------------------------------
     public function render(): View
     {
         return view('livewire.developer.teams');

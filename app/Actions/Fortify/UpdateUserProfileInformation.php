@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Actions\Fortify;
 
 use App\Models\User;
@@ -30,7 +32,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->updateProfilePhoto($input['photo']);
         }
 
-        if ($input['email'] !== $user->email && $user instanceof MustVerifyEmail) {
+        if ($input['email'] !== $user->email and $user instanceof MustVerifyEmail) {
             $this->updateVerifiedUser($user, $input);
         } else {
             $user->forceFill([
@@ -40,6 +42,20 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'language'  => $input['language'],
                 'timezone'  => $input['timezone'],
             ])->save();
+        }
+
+        // -----------------------------------------------------------------------------------
+        // store timezone and language in session
+        // actual language switching wil be handled by App\Http\Middleware\Localization::class
+        // -----------------------------------------------------------------------------------
+        if ($input['timezone'] != session()->get('timezone')) {
+            session()->put('timezone', $input['timezone']);
+        }
+
+        if ($input['language'] != session()->get('locale')) {
+            session()->put('locale', $input['language']);
+
+            redirect('/user/profile');
         }
     }
 

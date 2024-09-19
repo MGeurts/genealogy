@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace App\Livewire\Userlogs;
 
 use App\Models\Userlog;
+use Illuminate\View\View;
 use Khill\Lavacharts\Lavacharts;
 use Livewire\Component;
 
 class OriginMap extends Component
 {
-    public function render()
+    // ------------------------------------------------------------------------------
+    public function render(): View
     {
         $countries = Userlog::select('country_code')
             ->selectRaw('MIN(country_name) AS country_name')
@@ -46,7 +48,7 @@ class OriginMap extends Component
             'enableRegionInteractivity' => true,
             'keepAspectRatio'           => true,
             'region'                    => 'world',
-            'magnifyingGlass'           => ['enable' => true, 'zoomFactor' => 7.5],            // MagnifyingGlass Options
+            'magnifyingGlass'           => ['enable' => true, 'zoomFactor' => 7.5],                 // MagnifyingGlass Options
             'markerOpacity'             => 1.0,
             'resolution'                => 'countries',
             'sizeAxis'                  => null,

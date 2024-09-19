@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('people', function (Blueprint $table) {
             $table->id();
 
-            $table->string('firstname')->nullable();
-            $table->string('surname');
-            $table->string('birthname')->nullable();
-            $table->string('nickname')->nullable();
+            $table->string('firstname')->nullable()->index();
+            $table->string('surname')->index();
+            $table->string('birthname')->nullable()->index();
+            $table->string('nickname')->nullable()->index();
 
             $table->string('sex', 1)->default('m')->index();
             $table->foreignId('gender_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('restrict');
@@ -39,7 +39,7 @@ return new class extends Migration
             $table->string('city', 100)->nullable();
             $table->string('province', 100)->nullable();
             $table->string('state', 100)->nullable();
-            $table->foreignId('country_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('restrict');
+            $table->char('country', 2)->nullable();
             $table->string('phone', 50)->nullable();
 
             $table->string('photo')->nullable();

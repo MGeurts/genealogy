@@ -7,6 +7,7 @@ namespace App\Livewire\Forms\People;
 use App\Models\Gender;
 use App\Rules\DobValid;
 use App\Rules\YobValid;
+use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
@@ -52,20 +53,21 @@ class PartnerForm extends Form
 
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]
-    public function genders()
+    public function genders(): Collection
     {
-        return Gender::select('id', 'name')->orderBy('name')->get()->toArray();
+        return Gender::select('id', 'name')->orderBy('name')->get();
     }
 
-    public function rules()
+    // -----------------------------------------------------------------------
+    public function rules(): array
     {
         return $rules = [
             'firstname' => ['nullable', 'string', 'max:255'],
-            'surname'   => ['required_without:person2_id', 'nullable', 'string', 'max:255'],
+            'surname'   => ['nullable', 'string', 'max:255', 'required_without:person2_id'],
             'birthname' => ['nullable', 'string', 'max:255'],
             'nickname'  => ['nullable', 'string', 'max:255'],
 
-            'sex'       => ['required_without:person2_id', 'nullable', 'in:m,f'],
+            'sex'       => ['nullable', 'in:m,f', 'required_without:person2_id'],
             'gender_id' => ['nullable', 'integer'],
 
             'yob' => [
@@ -86,7 +88,7 @@ class PartnerForm extends Form
             'photo' => ['nullable', 'string', 'max:255'],
 
             // -----------------------------------------------------------------------
-            'person2_id' => ['required_without:surname', 'nullable', 'integer'],
+            'person2_id' => ['nullable', 'integer', 'required_without:surname'],
             'date_start' => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', 'before:date_end'],
             'date_end'   => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', 'after:date_start'],
             'is_married' => ['nullable', 'boolean'],
@@ -94,12 +96,15 @@ class PartnerForm extends Form
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
-        return [];
+        return [
+            'surname.required_without'   => __('validation.surname.required_without'),
+            'person_id.required_without' => __('validation.person_id.required_without'),
+        ];
     }
 
-    public function validationAttributes()
+    public function validationAttributes(): array
     {
         return [
             'firstname' => __('person.firstname'),

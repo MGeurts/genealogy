@@ -53,6 +53,7 @@ class User extends Authenticatable
 
         'language',
         'timezone',
+        'is_developer',
 
         'seen_at',
     ];
@@ -75,8 +76,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $appends = [
-        'profile_photo_url',
         'name',
+        'profile_photo_url',
     ];
 
     /**

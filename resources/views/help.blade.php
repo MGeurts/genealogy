@@ -14,7 +14,7 @@
                     <x-authentication-card-logo />
                 </div>
 
-                <div class="w-full sm:max-w-5xl mt-6 p-6 bg-white shadow-md overflow-hidden rounded prose">
+                <div class="w-full p-6 mt-6 overflow-hidden prose bg-white rounded shadow-md sm:max-w-5xl">
                     {!! $help !!}
                 </div>
             </div>

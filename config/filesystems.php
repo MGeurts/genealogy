@@ -79,6 +79,15 @@ return [
             'throw'      => false,
         ],
 
+        // imports
+        'imports' => [
+            'driver'     => 'local',
+            'root'       => storage_path('app/public/imports'),
+            'url'        => env('APP_URL') . '/storage/imports',
+            'visibility' => 'public',
+            'throw'      => false,
+        ],
+
         // profile-pictures
         'profiles' => [
             'driver'     => 'local',

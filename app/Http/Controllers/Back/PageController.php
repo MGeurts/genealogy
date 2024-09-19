@@ -5,43 +5,17 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
+use Illuminate\View\View;
 
 class PageController extends Controller
 {
-    public function dependencies()
+    public function team(): View
     {
-        return view('back.developer.dependencies');
+        return view('back.team');
     }
 
-    public function session()
+    public function test(): View
     {
-        return view('back.developer.session');
-    }
-
-    public function test()
-    {
-        return view('back.developer.test');
-    }
-
-    // --------------------------------------------------------------------------------
-
-    public function people()
-    {
-        return view('back.developer.people');
-    }
-
-    public function peoplelog()
-    {
-        return view('back.developer.peoplelog');
-    }
-
-    public function teams()
-    {
-        return view('back.developer.teams');
-    }
-
-    public function users()
-    {
-        return view('back.developer.users');
+        return view('back.test');
     }
 }

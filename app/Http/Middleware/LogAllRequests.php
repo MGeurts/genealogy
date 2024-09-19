@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Middleware;
 
 use Carbon\Carbon;
@@ -26,7 +28,7 @@ class LogAllRequests
 
         $headers = $request->header();
 
-        $dt   = new Carbon();
+        $dt   = new Carbon;
         $data = [
             'path'         => $request->getPathInfo(),
             'method'       => $request->getMethod(),

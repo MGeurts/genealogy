@@ -7,6 +7,7 @@ namespace App\Livewire\People\Edit;
 use App\Livewire\Forms\People\ContactForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
+use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -29,7 +30,7 @@ class Contact extends Component
         $this->contactForm->city        = $this->person->city;
         $this->contactForm->province    = $this->person->province;
         $this->contactForm->state       = $this->person->state;
-        $this->contactForm->country_id  = $this->person->country_id;
+        $this->contactForm->country     = $this->person->country;
         $this->contactForm->phone       = $this->person->phone;
     }
 
@@ -60,7 +61,13 @@ class Contact extends Component
             $this->contactForm->city != $this->person->city or
             $this->contactForm->province != $this->person->province or
             $this->contactForm->state != $this->person->state or
-            $this->contactForm->country_id != $this->person->country_id or
+            $this->contactForm->country != $this->person->country or
             $this->contactForm->phone != $this->person->phone;
+    }
+
+    // ------------------------------------------------------------------------------
+    public function render(): View
+    {
+        return view('livewire.people.edit.contact');
     }
 }

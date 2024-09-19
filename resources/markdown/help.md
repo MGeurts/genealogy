@@ -48,9 +48,7 @@ New users, after accepting an invitation by email from another user and register
 
 <img src="img/help/genealogy-002d.webp" class="rounded" alt="Team">
 
-<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
-    <b>Two Factor Authentification</b> (2FA) and <b>E-mail Verification</b> can be enabled and configured in <b>config/fortify.php</b>.
-</div>
+<b>Two Factor Authentification</b> (2FA) and <b>E-mail Verification</b> can be enabled and configured in <b>config/fortify.php</b>.
 
 ### b. User account and profile
 
@@ -69,21 +67,23 @@ Authenticated users can manage their teams and teams settings by using the dropd
 <img src="img/help/genealogy-004.webp" class="rounded" alt="Team settings">
 
 Users can manage either their personal team or create new teams.<br/>
-<span class="text-danger">The personal team and all teams created by a user are also <b>owned</b> by that user.<br/>
-Only the owner can invite other (new or already registered) users (by e-mail) to join the owned teams</span>.
+<span style="color:red">
+The personal team and all teams created by a user are also <b>owned</b> by that user.<br/>
+Only the owner can invite other (new or already registered) users (by e-mail) to join the owned teams.
+</span>
 
-<img src="img/help/genealogy-005bb.webp" class="rounded" alt="Team management">
+<img src="img/help/genealogy-005b.webp" class="rounded" alt="Team management">
 
-<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
+<span style="color:red">
     Create a <b>new and seperate team</b> for each <b>family tree</b> you want to manage and invite other users to it</b>.<br/>
     By assigning users the proper <b>role</b> you can define the rights they have in the selected team.
-</div>
+</span>
 
 Authenticated users can only see <b>people</b> and <b>couples</b>:
 
 <ul>
-    <li>created by the teams they <b>own</b></li>
-    <li>created by the teams they were invited to by the team owner as <b>administrator</b>, <b>manager</b> or <b>editor</b> or <b>member</b></li>
+    <li>created by the teams they <b>own</b> themselves</li>
+    <li>created by the teams they were invited to <b>by the team owner</b> as either <b>administrator</b>, <b>manager</b>, <b>editor</b> or <b>member</b></li>
 </ul>
 
 ### d. Roles & permissions
@@ -148,16 +148,28 @@ Authenticated users can only see <b>people</b> and <b>couples</b>:
 
 <img src="img/help/genealogy-001.webp" class="rounded" alt="Menu">
 
-After login and <span class="text-danger">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
+After login and <span style="color:red">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
 
 <img src="img/help/genealogy-010a.webp" class="rounded" alt="Search">
 
-Enter a search value in the <b>search box</b>. You can use the character <b class="text-danger">%</b> as a wildcard character.<br/>
-Insert either a <b>surname</b>, a <b>firstname</b>, a <b>birthname</b> or a <b>nickname</b>. Do not combine!<br/>
-Above the search box the number of people available to / found in the <b>current team</b> are shown.<br/>
+Enter search values in the <b>search box</b>.<br/>
+Above the search box, the number of people available to / found in the <b>current team</b> are shown.<br/>
+
+<span class="text-red-500">
+<u>Tips</u>:<br/>
+<ol>
+<li>The system wil look up <b>every single word</b> in the search value in the attributes <b>surname</b>, <b>firstname</b>, <b>birthname</b> and <b>nickname</b>.</li>
+<li>
+Begin the search string with <b>%</b> if you want to search parts of names, for instance : <b>%Jr</b>.<br/> Be aware this kinds of searches are slower.
+</li>
+<li>
+If a surname, firstname, birthname or nickname containes any spaces, enclose the name in double quoutes, for instance : <b>"John Jr."</b> Kennedy.<br/>
+</li>
+</ol>
+</span>
 
 The results are shown in a grid below the search box, each person is represented in one card.<br/>
-You can use the pagination buttons. You can also change the number of people shown per page.
+You can use the pagination buttons to navigate. You can also change the number of people shown per page.
 
 <img src="img/help/genealogy-012.webp" class="rounded" alt="Menu">
 
@@ -172,7 +184,7 @@ Click on the father's or mother's name to visit the parents.
 
 ### a. New person
 
-After login and <span class="text-danger">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
+After login and <span style="color:red">selecting the proper team</span>, click on the <b>Search</b> button in the top navigation menu.
 
 <img src="img/help/genealogy-001.webp" class="rounded" alt="Search">
 
@@ -190,7 +202,7 @@ These options are only available if the existing person doesn't have a father or
 <img src="img/help/genealogy-035a.webp" class="rounded" alt="Add father">
 <img src="img/help/genealogy-036a.webp" class="rounded" alt="Add mother">
 
-<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
+<div style="color:red">
     You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new father or mother.
 </div>
 
@@ -201,7 +213,7 @@ Another way to add people is to click on the <b>Add relationship</b> tab in the 
 <img src="img/help/genealogy-055.webp" class="rounded" alt="Partners">
 <img src="img/help/genealogy-056.webp" class="rounded" alt="Add relationship">
 
-<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
+<div style="color:red">
     You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new partner.
 </div>
 
@@ -212,7 +224,7 @@ A last way to add people is to click on the <b>Add child</b> tab in the <b>Child
 <img src="img/help/genealogy-050a.webp" class="rounded" alt="Children">
 <img src="img/help/genealogy-051c.webp" class="rounded" alt="Add child">
 
-<div class="col-span-6 rounded bg-info-200 p-3 text-info-700" role="alert">
+<div style="color:red">
     You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new child.
 </div>
 
@@ -288,7 +300,9 @@ You can end every exiting relationship by setting the relation as ended, with or
 
 <img src="img/help/genealogy-041b.webp" class="rounded" alt="Partners add">
 
+<div style="color:red">
 When adding a partner you can either create a brand new person or select an existing person as the new partner.
+</div>
 
 <img src="img/help/genealogy-055.webp" class="rounded" alt="Partners add">
 <img src="img/help/genealogy-042a.webp" class="rounded" alt="Partners edit">
@@ -297,13 +311,15 @@ When adding a partner you can either create a brand new person or select an exis
 
 <img src="img/help/genealogy-050a.webp" class="rounded" alt="Children">
 
-You can add a child or disconnect existing children by choosing the corresponding tab in the context menu.
+You can <b>add</b> a child or <b>disconnect</b> existing children by choosing the corresponding tab in the context menu.
 The disconnected child will remain in the database as a person but just not have the selected person as father or mother anymore.
 
 <img src="img/help/genealogy-052.webp" class="rounded" alt="Child add">
 <img src="img/help/genealogy-051c.webp" class="rounded" alt="Child add">
 
+<div style="color:red">
 When adding a child you can either create a <b>brand new person</b> or select an <b>existing person</b>.
+</div>
 
 ### f. Siblings
 
@@ -312,8 +328,8 @@ Siblings are shown on the siblings card.<br/>
 <img src="img/help/genealogy-060a.webp" class="rounded" alt="Siblings">
 
 A sibling can be <b>full</b>: both the same biological parents as the selected person.<br/>
-A sibling can be <b>half</b>: only the biological mother or the biological father are common.<br/>
-A sibling can be <b>plus</b>: neither the biological father nor the biological mother are common, but the child is part of the current relationship of the selected person
+A sibling can be <b>half</b>: only the biological mother or the biological father are common. <span class="text-warning-500">[1/2]</span><br/>
+A sibling can be <b>plus</b>: neither the biological father nor the biological mother are common, but the child is part of the current relationship of the selected person <span class="text-warning-500">[+]</span>
 
 ### g. Ancestors
 
@@ -341,9 +357,10 @@ Click on a family member name to see that person's family chart.
 This shows the files attached to the person.<br/>
 You can use this feature to attach documentation.
 
-<img src="img/help/genealogy-074.webp" class="rounded" alt="Files">
+<img src="img/help/genealogy-074b.webp" class="rounded" alt="Files">
 
 You can upload (multiple) new documents.<br/>
+You can specify the source of the documents you want to upload.<br/>
 You can rearrange the order of the documents by clicking the <b>Up</b> or <b>Down</b> buttons.<br/>
 You can download documents by clicking the <b>Download</b> button or open them in a seperate window by clicking on the document icon.<br/>
 You can delete a document by clicking on the <b>Delete</b> button.
@@ -378,9 +395,11 @@ Users can click a button in the top right-hand menu to open the <b>offcanvas men
 On top the users role and permissions in the current team are shown.<br/>
 If a user has the proper rights, additional features are presented.
 
-<img src="img/help/genealogy-006b.webp" class="rounded" alt="Offcanvas menu">
+<img src="img/help/genealogy-006.webp" class="rounded" alt="Offcanvas menu">
 
 ### a. Teams & people
+
+The offcanvas menu allows <b>developers</b> to consult all teams and people.
 
 <img src="img/help/genealogy-090aa.webp" class="rounded" alt="Teams">
 <img src="img/help/genealogy-090bb.webp" class="rounded" alt="People">
@@ -426,14 +445,14 @@ The <b>Session</b> menu item allows <b>developers</b> to consult the application
 ### a. Visitors
 
 Visitor can change the language in the top right-hand menu by using the <b>language selector</b>.<br/>
-De default application language is English.
+De <b>default</b> application language is <b>English</b>.
 
 <img src="img/help/genealogy-002aa.webp" class="rounded" alt="Language menu">
 
 ### b. Authenticated users
 
 Authenticated users can change the language and the timezone in the top right-hand menu by using the <b>profile editor</b>.<br/>
-The selected language and timezone are saved in the database for further use.
+The selected language and timezone are saved in the database.
 
 <img src="img/help/genealogy-002d.webp" class="rounded" alt="Profile editor">
 
@@ -443,6 +462,7 @@ The selected language and timezone are saved in the database for further use.
 
 ## 9. Color theme
 
-Users can change the color theme in the top right-hand menu by using the <b>theme selector</b>.<br/>
+Users can change the color theme in the top right-hand menu by using the <b>theme icon</b>.<br/>
+The <b>default</b> application theme is <b>Dark mode</b>.
 
 <img src="img/help/genealogy-002aa.webp" class="rounded" alt="Theme selector">

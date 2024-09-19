@@ -1,10 +1,10 @@
 @section('title')
-    &vert; {{ __('team.export') }}
+    &vert; {{ __('gedcom.export') }}
 @endsection
 
 <x-app-layout>
     <x-slot name="heading">
-        {{ __('team.export') }}
+        {{ __('gedcom.export') }}
     </x-slot>
 
     <div class="w-full py-5 space-y-5">

@@ -7,12 +7,7 @@ return [
     'create'        => 'Team erstellen',
     'delete'        => 'Team löschen',
     'description'   => 'Beschreibung',
-    'export'        => 'Exportieren',
-    'gedcom_export' => 'Team exportieren nach GEDCOM',
-    'gedcom_file'   => 'GEDCOM Datei',
-    'gedcom_import' => 'Team importieren aus GEDCOM',
     'id'            => 'ID',
-    'import'        => 'Importieren',
     'manage'        => 'Team verwalten',
     'name'          => 'Name',
     'owner'         => 'Besitzer',
@@ -25,14 +20,8 @@ return [
     'users'         => 'Benutzer',
 
     // Messages
-    'team_details'               => 'Teamdetails',
-    'team_create_new'            => 'Create a new team to collaborate with others.',
-    'team_create_new_gedcom'     => 'Erstellen Sie ein neues Team, um mit anderen zusammenzuarbeiten.',
-    'team_gedcom_reference'      => 'Referenz',
-    'team_gedcom_specifications' => 'GEDCOM-Spezifikationen',
-    'team_gedcom_version'        => 'Maximale GEDCOM-Version 5.5.5',
-    'team_gedcom_hint'           => 'Lassen Sie uns ein Team basierend auf einer GEDCOM-Datei erstellen.',
-    'team_gedcom_tip'            => 'Ziehen Sie Ihre GEDCOM-Datei per Drag & Drop hierher',
+    'team_details'    => 'Teamdetails',
+    'team_create_new' => 'Create a new team to collaborate with others.',
 
     'team_name'               => 'Teamname',
     'team_information'        => 'Der Name und die Eigentümerinformationen des Teams.',
@@ -46,6 +35,7 @@ return [
     'team_pending'         => 'Ausstehende Teameinladungen',
     'team_pending_message' => 'Diese Personen wurden in Ihr Team eingeladen und haben eine Einladungs-E-Mail erhalten. Sie können dem Team beitreten, indem Sie die E-Mail-Einladung annehmen.',
 
+    'change_role'          => 'Rolle wechseln',
     'team_members'         => 'Teammitglieder',
     'team_members_message' => 'Alle Menschen, die Teil dieses Teams sind.',
     'manage_role'          => 'Rolle verwalten',
@@ -55,6 +45,7 @@ return [
     'remove'               => 'Entfernen',
     'remove_member'        => 'Teammitglied entfernen',
     'remove_member_sure'   => 'Sind Sie sicher, dass Sie diese Person aus dem Team entfernen möchten?',
+    'send_email'           => 'E-Mail senden',
 
     'user_not_found'       => 'Wir konnten keinen registrierten Benutzer mit dieser E-Mail-Adresse finden.',
     'user_already_in_team' => 'Dieser Benutzer gehört bereits zum Team.',
@@ -72,4 +63,5 @@ return [
     'may_accept'                 => 'Sie können diese Einladung annehmen, indem Sie auf die Schaltfläche unten klicken:',
     'accept_invitation'          => 'Die Einladung annehmen',
     'discard'                    => 'Wenn Sie nicht damit gerechnet haben, eine Einladung zu diesem Team zu erhalten, können Sie diese E-Mail verwerfen.',
+
 ];

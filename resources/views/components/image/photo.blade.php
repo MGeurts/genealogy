@@ -1,7 +1,7 @@
 @props(['person' => null])
 
 <div class="user-image">
-    @if ($person->photo && Storage::exists('public/photos/' . $person->team_id . '/' . $person->photo))
+    @if ($person->photo and Storage::exists('public/photos/' . $person->team_id . '/' . $person->photo))
         <img {{ $attributes->merge(['class' => 'w-full rounded shadow-lg dark:shadow-black/30']) }} src="{{ asset('storage/photos/' . $person->team_id . '/' . $person->photo) }}"
             alt="{{ $person->name }}" title="{{ $person->name }}" />
     @else

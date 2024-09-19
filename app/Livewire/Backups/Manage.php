@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace App\Livewire\Backups;
 
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Number;
+use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -59,20 +61,14 @@ class Manage extends Component
     // -----------------------------------------------------------------------
     use Interactions;
 
-    public $backups;
+    // ------------------------------------------------------------------------------
+    public Collection $backups;
 
-    public $backup_to_delete = '';
+    public string $backup_to_delete = '';
 
-    public $deleteConfirmed = false;
+    public bool $deleteConfirmed = false;
 
     // -----------------------------------------------------------------------
-    public function confirmDeletion(string $file_name): void
-    {
-        $this->backup_to_delete = $file_name;
-
-        $this->deleteConfirmed = true;
-    }
-
     public function mount(): void
     {
         $this->backups = collect();
@@ -83,7 +79,7 @@ class Manage extends Component
         // make a collection of existing backup files, with their filesize and creation date
         foreach ($files as $file) {
             // only take zip files into account
-            if (substr($file, -4) == '.zip' && $disk->exists($file)) {
+            if (substr($file, -4) == '.zip' and $disk->exists($file)) {
                 $this->backups->push([
                     'file_name'    => str_replace(config('backup.backup.name') . '/', '', $file),
                     'file_size'    => Number::fileSize($disk->size($file), 2),
@@ -96,7 +92,7 @@ class Manage extends Component
         $this->backups = $this->backups->sortByDesc('date_created');
     }
 
-    public function create()
+    public function create(): void
     {
         if (! defined('STDIN')) {
             define('STDIN', fopen('php://stdin', 'r'));
@@ -115,7 +111,7 @@ class Manage extends Component
             $this->toast()->error(__('backup.backup'), __('backup.failed'))->flash()->send();
         }
 
-        $this->redirect('/backups');
+        $this->redirect('/developer/backups');
     }
 
     public function download(string $file_name)
@@ -132,7 +128,7 @@ class Manage extends Component
         }
     }
 
-    public function deleteBackup()
+    public function deleteBackup(): void
     {
         $disk = Storage::disk(config('app.backup_disk'));
 
@@ -144,11 +140,18 @@ class Manage extends Component
             $this->toast()->error(__('backup.backup'), __('backup.not_found'))->flash()->send();
         }
 
-        $this->redirect('/backups');
+        $this->redirect('/developer/backups');
+    }
+
+    public function confirmDeletion(string $file_name): void
+    {
+        $this->backup_to_delete = $file_name;
+
+        $this->deleteConfirmed = true;
     }
 
     // -----------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.backups.manage');
     }

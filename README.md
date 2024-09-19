@@ -38,18 +38,20 @@ This <b>TallStack</b> application is build using :
 3. A person can have 1 set of parents, biological or not (1 couple of 2 people, based on <b>parents_id</b>)
 
 4. A person can have 0 to many biological children (n people, based on father_id/mother_id)
+5. A couple can have 0 to many (plus) children (based on <b>parents_id as a couple</b> or <b>father_id/mother_id individually</b>)
 
-5. A person can have 0 to many partners (n people), being part of 0 to many couples (opposite or same biological sex)
-6. A person can be part of a couple with the same partner multiple times (remarriage or reunite)
+6. A person can have 0 to many partners (n people), being part of 0 to many couples (opposite or same biological sex)
+7. A person can be part of a couple with the same partner multiple times (remarriage or reunite)
 
-7. A couple can have 0 to many children (based on <b>parents_id as a couple</b> or <b>father_id/mother_id individually</b>)
-8. A couple can be married or not, still together or separated in the meantime
+8. A person can have 0 to many siblings (n people) (based on <b>parents_id as a couple</b> or <b>father_id/mother_id individually</b>)
+
+9. A couple can be married or not, still together or separated in the meantime
 
 ### Requirements
 
 <ul>
     <li>
-        At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.2, supporting Laravel 11.<br/>
+        At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.3, supporting Laravel 11.<br/>
     </li>
     <li>
         At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0.1 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2.2 or an equivalent database, supporting <a href="https://dev.mysql.com/doc/refman/8.0/en/with.html" target="_blank">Recursive Common Table Expressions</a>.
@@ -239,37 +241,6 @@ make the needed changes regarding name, url, database connection & mail server
 `npm install & npm run build`
 
 `php artisan serve` or `npm run dev`
-
-## Docker Installation
-
-`cp env.docker .env`
-
-run following command to initialize project
-
-```bash
-docker run --rm \
-    -u "$(id -u):$(id -g)" \
-    -v "$(pwd):/var/www/html" \
-    -w /var/www/html \
-    laravelsail/php83-composer:latest \
-    composer install --ignore-platform-reqs
-```
-
-run docker containers
-
-```bash
-./vendor/bin/sail up -d
-```
-
-`./vendor/bin/sail artisan key:generate`
-
-`./vendor/bin/sail artisan storage:link`
-
-`./vendor/bin/sail artisan migrate:fresh --seed`
-
-`./vendor/bin/sail npm install & npm run build`
-
-`./vendor/bin/sail artisan serve` or `npm run dev`
 
 ## Testing
 

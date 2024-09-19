@@ -34,6 +34,11 @@ return [
     'age'           => 'Age',
     'years'         => '[0,1] Year|[2,*] Years',
 
+    'source'           => 'Source',
+    'source_hint'      => 'Specify the source of the file(s) you will upload',
+    'source_date'      => 'Date',
+    'source_date_hint' => 'Specify the date of the source of the file(s) you will upload',
+
     // Actions
     'add_father'                     => 'Add father',
     'add_new_person_as_father'       => 'Add NEW person as father',
@@ -56,6 +61,7 @@ return [
     'edit_contact'      => 'Edit contact',
     'edit_death'        => 'Edit death',
     'edit_family'       => 'Edit family',
+    'edit_files'        => 'Edit files',
     'edit_person'       => 'Edit person',
     'edit_profile'      => 'Edit profile',
     'edit_relationship' => 'Edit relationship',
@@ -136,7 +142,4 @@ return [
 
     'not_found' => 'Person not found',
     'use_tab'   => 'Use tab',
-
-    'insert_tip_1' => 'Insert either a surname, a firstname, a birthname or a nickname.',
-    'insert_tip_2' => 'Do not combine!',
 ];

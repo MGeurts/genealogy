@@ -7,6 +7,8 @@ namespace App\Livewire\People\Edit;
 use App\Livewire\Forms\People\ProfileForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
+use Carbon\Carbon;
+use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -23,8 +25,6 @@ class Profile extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->profileForm->person = $this->person;
-
         $this->profileForm->firstname = $this->person->firstname;
         $this->profileForm->surname   = $this->person->surname;
         $this->profileForm->birthname = $this->person->birthname;
@@ -34,7 +34,7 @@ class Profile extends Component
         $this->profileForm->gender_id = $this->person->gender_id;
 
         $this->profileForm->yob = $this->person->yob ?? null;
-        $this->profileForm->dob = $this->person->dob?->format('Y-m-d');
+        $this->profileForm->dob = $this->person->dob ? Carbon::parse($this->person->dob)->format('Y-m-d') : null;
         $this->profileForm->pob = $this->person->pob;
     }
 
@@ -68,7 +68,13 @@ class Profile extends Component
         $this->profileForm->gender_id != $this->person->gender_id or
 
         $this->profileForm->yob != $this->person->yob or
-        $this->profileForm->dob != ($this->person->dob ? $this->person->dob->format('Y-m-d') : null) or
+        $this->profileForm->dob != ($this->person->dob ? Carbon::parse($this->person->dob)->format('Y-m-d') : null) or
         $this->profileForm->pob != $this->person->pob;
+    }
+
+    // ------------------------------------------------------------------------------
+    public function render(): View
+    {
+        return view('livewire.people.edit.profile');
     }
 }

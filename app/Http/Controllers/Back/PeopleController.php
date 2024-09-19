@@ -16,7 +16,7 @@ class PeopleController extends Controller
         return view('back.people.search');
     }
 
-    public function birthdays($months = 2): View
+    public function birthdays(int $months = 2): View
     {
         $people = Person::whereNotNull('dob')
             ->whereRaw('CASE WHEN MONTH(NOW()) +' . $months . " > 12 THEN date_format(dob, '%m-%d') >= date_format(NOW(), '%m-%d') OR date_format(dob, '%m-%d') <= date_format(NOW() + INTERVAL " . $months . " MONTH, '%m-%d') ELSE date_format(dob, '%m-%d') >= date_format(NOW(), '%m-%d') AND date_format(dob, '%m-%d') <= date_format(NOW() + INTERVAL " . $months . " MONTH, '%m-%d') END")
@@ -51,11 +51,6 @@ class PeopleController extends Controller
     public function chart(Person $person): View
     {
         return view('back.people.chart', compact('person'));
-    }
-
-    public function files(Person $person): View
-    {
-        return view('back.people.files', compact('person'));
     }
 
     public function history(Person $person): View
@@ -110,6 +105,11 @@ class PeopleController extends Controller
         abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
 
         return view('back.people.edit.family', compact('person'));
+    }
+
+    public function editFiles(Person $person): View
+    {
+        return view('back.people.edit.files', compact('person'));
     }
 
     public function editPhotos(Person $person): View

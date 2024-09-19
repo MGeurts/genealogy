@@ -15,7 +15,7 @@
         <x-link href="/people/{{ $person->id }}" title="{{ $person->sex === 'm' ? __('app.male') : __('app.female') }}">
             <figure class="w-24">
                 <div class="user-image">
-                    @if ($person->photo && Storage::exists('public/photos/' . $person->team_id . '/' . $person->photo))
+                    @if ($person->photo and Storage::exists('public/photos/' . $person->team_id . '/' . $person->photo))
                         <img src="{{ asset('storage/photos-096/' . $person->team_id . '/' . $person->photo) }}" class="w-full rounded shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
                     @else
                         <x-svg.person-no-image class="w-full rounded shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
@@ -26,7 +26,10 @@
                     @endif
                 </div>
 
-                <figcaption class="{{ ($person->dod or $person->yod) ? 'text-danger-600 dark:!text-danger-400' : 'text-primary-500 dark:!text-primary-300' }}">
+                <figcaption @class([
+                    'text-danger-600 dark:text-danger-400' => ($person->dod or $person->yod),
+                    'text-primary-500 dark:text-primary-300' => !($person->dod or $person->yod)
+                ])>
                     {{ implode(' ', array_filter([$person->firstname, $person->surname])) }}
                 </figcaption>
             </figure>

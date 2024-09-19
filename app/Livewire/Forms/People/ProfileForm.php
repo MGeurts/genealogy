@@ -7,15 +7,13 @@ namespace App\Livewire\Forms\People;
 use App\Models\Gender;
 use App\Rules\DobValid;
 use App\Rules\YobValid;
+use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
 class ProfileForm extends Form
 {
-    // -----------------------------------------------------------------------
-    public $person;
-
     // -----------------------------------------------------------------------
     public $firstname = null;
 
@@ -39,12 +37,13 @@ class ProfileForm extends Form
 
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]
-    public function genders()
+    public function genders(): Collection
     {
-        return Gender::select('id', 'name')->orderBy('name')->get()->toArray();
+        return Gender::select('id', 'name')->orderBy('name')->get();
     }
 
-    public function rules()
+    // -----------------------------------------------------------------------
+    public function rules(): array
     {
         return [
             'firstname' => ['nullable', 'string', 'max:255'],
@@ -72,12 +71,12 @@ class ProfileForm extends Form
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [];
     }
 
-    public function validationAttributes()
+    public function validationAttributes(): array
     {
         return [
             'firstname' => __('person.firstname'),

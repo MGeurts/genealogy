@@ -83,8 +83,8 @@ return [
     'password'                   => 'Paswoord',
     'can_not_delete'             => 'Uw account kan niet worden verwijderd omdat deze geldige gegevens bevat.',
 
-    'email_unverified'               => 'Uw e-mailadres is niet geverifieerd.',
-    'click_resend_verification_mail' => 'Klik hier om de verificatie-e-mail opnieuw te verzenden.',
+    'email_unverified'               => 'Uw e-mailadres is nog niet geverifieerd.',
+    'click_resend_verification_mail' => 'Verificatie e-mail opnieuw verzenden.',
     'verififacion_mail_send'         => 'Er is een nieuwe verificatielink naar uw e-mailadres verzonden.',
 
 ];

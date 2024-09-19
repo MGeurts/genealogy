@@ -53,7 +53,7 @@ return [
     'password_confirmation' => 'Passwort wiederholen',
     'permissions'           => 'Berechtigungen',
 
-    'register'       => 'Register',
+    'register'       => 'Registrieren',
     'remember_me'    => 'Angemeldet bleiben',
     'reset_password' => 'Passwort zurücksetzen',
     'role'           => 'Rolle',

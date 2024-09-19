@@ -34,6 +34,11 @@ return [
     'age'           => 'Leeftijd',
     'years'         => '[0,1] Jaar|[2,*] Jaar',
 
+    'source'           => 'Bron',
+    'source_hint'      => 'Geef de bron op van de bestanden die u wilt uploaden',
+    'source_date'      => 'Datum',
+    'source_date_hint' => 'Geef de brondatum op van de bestanden die u gaat uploaden',
+
     // Actions
     'add_father'                     => 'Vader toevoegen',
     'add_new_person_as_father'       => 'NIEUWE persoon als vader toevoegen',
@@ -56,6 +61,7 @@ return [
     'edit_contact'      => 'Editeer contactgegevens',
     'edit_death'        => 'Editeer overlijden',
     'edit_family'       => 'Editeer familie',
+    'edit_files'        => 'Editeer bestanden',
     'edit_person'       => 'Editeer persoon',
     'edit_profile'      => 'Editeer profiel',
     'edit_relationship' => 'Editeer relatie',
@@ -136,8 +142,4 @@ return [
 
     'not_found' => 'Persoon niet gevonden',
     'use_tab'   => 'Gebruik tab',
-
-    'insert_tip_1' => 'Voer een achternaam, een voornaam, een geboortenaam of een bijnaam in.',
-    'insert_tip_2' => 'Niet combineren!',
-
 ];

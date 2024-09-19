@@ -5,11 +5,11 @@
 
     {{-- role and permissions --}}
     <div class="pb-4">
-        <div class="rounded bg-secondary-100 p-4 text-base text-secondary-800" role="alert">
+        <div class="p-4 text-base rounded bg-secondary-100 text-secondary-800" role="alert">
             <div class="flex flex-row">
                 <div class="basis-1/2">
                     {{ __('auth.role') }} :
-                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
                     {{ __('auth.permissions') }} :
                 </div>
 
@@ -17,13 +17,14 @@
                     @auth
                         {{ auth()->user()->teamRole(auth()->user()->currentTeam)->name }}
 
-                        <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                        <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
                         @foreach (auth()->user()->teamPermissions(auth()->user()->currentTeam) as $permission)
                             {{ $permission }}<br />
                         @endforeach
                     @else
                         {{ __('auth.guest') }}
-                        <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                        
+                        <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
                     @endauth
                 </div>
             </div>
@@ -38,69 +39,75 @@
                 <div class="text-warning-500 dark:text-warning-200">{{ __('auth.developer') }} ...</div>
 
                 <div>
-                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('teams') }}" :active="request()->routeIs('teams')">
+                        <x-nav-link-responsive href="{{ route('team') }}" :active="request()->routeIs('team')">
+                            {{ __('team.team') }}
+                        </x-nav-link-responsive>
+                    </p>
+                </div>
+
+                <div>
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
+
+                    <p>
+                        <x-nav-link-responsive href="{{ route('developer.teams') }}" :active="request()->routeIs('developer.teams')">
                             {{ __('team.teams') }}
                         </x-nav-link-responsive>
                     </p>
                     <p>
-                        <x-nav-link-responsive href="{{ route('people') }}" :active="request()->routeIs('people')">
+                        <x-nav-link-responsive href="{{ route('developer.people') }}" :active="request()->routeIs('developer.people')">
                             {{ __('person.people') }}
                         </x-nav-link-responsive>
                     </p>
                     <p>
-                        <x-nav-link-responsive href="{{ route('peoplelog') }}" :active="request()->routeIs('peoplelog')">
+                        <x-nav-link-responsive href="{{ route('developer.peoplelog') }}" :active="request()->routeIs('developer.peoplelog')">
                             {{ __('person.people_log') }}
                         </x-nav-link-responsive>
                     </p>
                 </div>
 
                 <div>
-                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('users') }}" :active="request()->routeIs('users')">
+                        <x-nav-link-responsive href="{{ route('developer.users') }}" :active="request()->routeIs('developer.users')">
                             {{ __('user.users') }}
                         </x-nav-link-responsive>
                     </p>
-
                     <p>
-                        <x-nav-link-responsive href="{{ route('userlogs.log') }}" :active="request()->routeIs('userlogs.log')">
-                            {{ __('userlog.users_log') }}
-                        </x-nav-link-responsive>
-                    </p>
-
-                    <p>
-                        <x-nav-link-responsive href="{{ route('userlogs.origin') }}" :active="request()->routeIs('userlogs.origin')">
+                        <x-nav-link-responsive href="{{ route('developer.userlogs.origin') }}" :active="request()->routeIs('developer.userlogs.origin')">
                             {{ __('userlog.users_origin') }}
                         </x-nav-link-responsive>
                     </p>
-
                     <p>
-                        <x-nav-link-responsive href="{{ route('userlogs.origin-map') }}" :active="request()->routeIs('userlogs.origin-map')">
+                        <x-nav-link-responsive href="{{ route('developer.userlogs.origin-map') }}" :active="request()->routeIs('developer.userlogs.origin-map')">
                             {{ __('userlog.users_origin') }} (Map)
                         </x-nav-link-responsive>
                     </p>
-
                     <p>
-                        <x-nav-link-responsive href="{{ route('userlogs.period') }}" :active="request()->routeIs('userlogs.period')">
+                        <x-nav-link-responsive href="{{ route('developer.userlogs.period') }}" :active="request()->routeIs('developer.userlogs.period')">
                             {{ __('userlog.users_stats') }}
+                        </x-nav-link-responsive>
+                    </p>
+                    <p>
+                        <x-nav-link-responsive href="{{ route('developer.userlogs.log') }}" :active="request()->routeIs('developer.userlogs.log')">
+                            {{ __('userlog.users_log') }}
                         </x-nav-link-responsive>
                     </p>
                 </div>
 
                 <div>
-                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('backups') }}" :active="request()->routeIs('backups')">
+                        <x-nav-link-responsive href="{{ route('developer.backups') }}" :active="request()->routeIs('developer.backups')">
                             {{ __('Backups') }}
                         </x-nav-link-responsive>
                     </p>
 
-                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
                         <x-nav-link-responsive href="{{ url('log-viewer') }}" target="_blank">
@@ -110,50 +117,68 @@
                 </div>
 
                 <div>
-                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('dependencies') }}" :active="request()->routeIs('dependencies')">
+                        <x-nav-link-responsive href="{{ route('developer.dependencies') }}" :active="request()->routeIs('developer.dependencies')">
                             {{ __('app.dependencies') }}
                         </x-nav-link-responsive>
                     </p>
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('session') }}" :active="request()->routeIs('session')">
+                        <x-nav-link-responsive href="{{ route('developer.session') }}" :active="request()->routeIs('developer.session')">
                             {{ __('app.session') }}
                         </x-nav-link-responsive>
                     </p>
                 </div>
             @else
-                {{-- others --}}
+                {{-- other --}}
                 <div class="text-warning-500 dark:text-warning-200">{{ auth()->user()->teamRole(auth()->user()->currentTeam)->name }} ...</div>
 
                 <div>
-                    <x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" />
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
-                        <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
-                            {{ __('app.help') }}
-                        </x-nav-link-responsive>
+                        <x-nav-link-responsive href="{{ route('team') }}" :active="request()->routeIs('team')">{{ __('team.team') }}</x-nav-link-responsive>
                     </p>
                 </div>
             @endif
+
+            {{-- all --}}
+            <div>
+                <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
+
+                <p>
+                    <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">{{ __('app.help') }}</x-nav-link-responsive>
+                </p>
+            </div>
+
+            <div>
+                <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
+
+                <p>
+                    <x-nav-link-responsive href="{{ route('test') }}" :active="request()->routeIs('test')">Test</x-nav-link-responsive>
+                </p>
+            </div>
         @else
-            <div>{{ __('auth.guest') }} ...</div>
+            {{-- guest --}}
+            <div class="text-warning-500 dark:text-warning-200">{{ __('auth.guest') }} ...</div>
 
-            <div><x-hr.narrow class="w-full h-1 max-md:mx-auto my-1 bg-gray-100 border-0 rounded dark:bg-gray-700" /></div>
+            <div>
+                <div><x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" /></div>
 
-            <p>
-                <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
-                    {{ __('app.help') }}
-                </x-nav-link-responsive>
-            </p>
+                <p>
+                    <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
+                        {{ __('app.help') }}
+                    </x-nav-link-responsive>
+                </p>
+            </div>
         @endauth
     </div>
 
     <x-slot:footer end>
         <div class="flex items-center text-xs">
-            <div class="text-right px-2">
+            <div class="px-2 text-right">
                 {{ __('app.design_development') }}<br />
                 {{ __('app.by') }} <x-link href="https://www.kreaweb.be/" target="_blank">KREAWEB</x-link>
             </div>

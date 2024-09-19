@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Middleware;
 
 use Closure;
@@ -15,7 +17,7 @@ class IsDeveloper
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->check() && auth()->user()->is_developer) {
+        if ($request->user()->is_developer) {
             return $next($request);
         }
 

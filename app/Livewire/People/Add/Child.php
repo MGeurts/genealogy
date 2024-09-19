@@ -10,6 +10,8 @@ use App\Models\Person;
 use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
+use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
@@ -25,9 +27,11 @@ class Child extends Component
 
     public ChildForm $childForm;
 
-    public $photos = [];
+    public array $photos = [];
 
-    public $backup = [];
+    public array $backup = [];
+
+    public Collection $persons;
 
     // -----------------------------------------------------------------------
     public function mount(): void
@@ -47,6 +51,32 @@ class Child extends Component
         $this->childForm->photo = null;
 
         $this->childForm->person_id = null;
+
+        if ($this->person->sex === 'm') {
+            $this->persons = Person::where('id', '!=', $this->person->id)
+                ->whereNull('father_id')
+                ->YoungerThan($this->person->birth_year)
+                ->orderBy('firstname')->orderBy('surname')
+                ->get()
+                ->map(function ($p) {
+                    return [
+                        'id'   => $p->id,
+                        'name' => $p->name . ' [' . (($p->sex == 'm') ? __('app.male') : __('app.female')) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
+                    ];
+                });
+        } else {
+            $this->persons = Person::where('id', '!=', $this->person->id)
+                ->whereNull('mother_id')
+                ->YoungerThan($this->person->birth_year)
+                ->orderBy('firstname')->orderBy('surname')
+                ->get()
+                ->map(function ($p) {
+                    return [
+                        'id'   => $p->id,
+                        'name' => $p->name . ' [' . (($p->sex == 'm') ? __('app.male') : __('app.female')) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
+                    ];
+                });
+        }
     }
 
     public function deleteUpload(array $content): void
@@ -186,34 +216,8 @@ class Child extends Component
     }
 
     // -----------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
-        if ($this->person->sex === 'm') {
-            $persons = Person::where('id', '!=', $this->person->id)
-                ->whereNull('father_id')
-                ->YoungerThan($this->person->birth_date, $this->person->birth_year)
-                ->orderBy('firstname')->orderBy('surname')
-                ->get()
-                ->map(function ($p) {
-                    return [
-                        'id'   => $p->id,
-                        'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
-                    ];
-                });
-        } else {
-            $persons = Person::where('id', '!=', $this->person->id)
-                ->whereNull('mother_id')
-                ->YoungerThan($this->person->birth_date, $this->person->birth_year)
-                ->orderBy('firstname')->orderBy('surname')
-                ->get()
-                ->map(function ($p) {
-                    return [
-                        'id'   => $p->id,
-                        'name' => $p->name . ' [' . strtoupper($p->sex) . '] ' . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
-                    ];
-                });
-        }
-
-        return view('livewire.people.add.child', compact('persons'));
+        return view('livewire.people.add.child');
     }
 }

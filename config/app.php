@@ -65,9 +65,7 @@ return [
     |
     */
 
-    'timezone' => env('APP_TIMEZONE', 'UTC'),  // don't you dare change this!
-
-    'timezone_display' => 'Europe/Brussels',   // default application timezone, will be overridded by authenticated user's tmezone
+    'timezone' => env('APP_TIMEZONE', 'UTC'),  // don't you dare change this!!!
 
     /*
     |--------------------------------------------------------------------------
@@ -82,7 +80,8 @@ return [
 
     'locale' => env('APP_LOCALE', 'en'),
 
-    // add all available translations here, after providing the needed translation files in \lang\
+    // add all available translations here, after providing the needed translation files in \lang\XX
+    // possible languages: see XX in \vendor\stefangabos\world_countries\data\countries\XX\
     'available_locales' => [
         'Deutsch'    => 'de',
         'English'    => 'en',
@@ -137,9 +136,6 @@ return [
     | Custom values used in the application outside of the config files
     |--------------------------------------------------------------------------
     */
-
-    'god_mode' => (bool) env('GOD_MODE', false),
-
     'backup_disk'          => env('BACKUP_DISK', 'backups'),
     'backup_daily_cleanup' => env('BACKUP_DAILY_CLEANUP', '22:30'),
     'backup_daily_run'     => env('BACKUP_DAILY_RUN', '23:00'),

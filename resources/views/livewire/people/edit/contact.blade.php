@@ -2,13 +2,13 @@
     @csrf
 
     <div class="md:w-192 flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
-        <div class="h-14 min-h-min flex flex-col p-2 border-b-2 border-neutral-100 text-lg font-medium dark:border-neutral-600 dark:text-neutral-50 rounded-t">
-            <div class="flex flex-wrap gap-2 justify-center items-start">
-                <div class="flex-grow min-w-max max-w-full flex-1">
+        <div class="flex flex-col p-2 text-lg font-medium border-b-2 rounded-t h-14 min-h-min border-neutral-100 dark:border-neutral-600 dark:text-neutral-50">
+            <div class="flex flex-wrap items-start justify-center gap-2">
+                <div class="flex-1 flex-grow max-w-full min-w-max">
                     {{ __('person.edit_contact') }}
                 </div>
 
-                <div class="flex-grow min-w-max max-w-full flex-1 text-end">
+                <div class="flex-1 flex-grow max-w-full min-w-max text-end">
                     <x-ts-icon icon="address-book" class="inline-block" />
                 </div>
             </div>
@@ -49,14 +49,14 @@
                     <x-ts-input wire:model="contactForm.state" id="province" label="{{ __('person.state') }} :" autocomplete="state" wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
 
-                {{-- country_id --}}
+                {{-- country --}}
                 <div class="col-span-5">
-                    <x-ts-select.styled wire:model="contactForm.country_id" id="country_id" label="{{ __('person.country') }} :" :options="$contactForm->countries()" select="label:name|value:id"
+                    <x-ts-select.styled wire:model="contactForm.country" id="country" label="{{ __('person.country') }} :" :options="$contactForm->countries()" select="label:name|value:id"
                         placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
 
                 {{-- show on google maps button --}}
-                <div class="col-span-1 pt-5 h-4 text-end">
+                <div class="h-4 col-span-1 pt-5 text-end">
                     @if ($person->address_google)
                         <x-ts-button href="{{ $person->address_google }}" target="_blank" color="info" class="!p-2 text-white" title="{{ __('app.show_on_google_maps') }}">
                             <x-ts-icon icon="brand-google-maps" class="size-5" />
@@ -72,18 +72,18 @@
             </div>
         </div>
 
-        <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6 rounded-b">
-            <div class="flex-grow max-w-full flex-1 text-left">
-                <x-action-message class="p-2.5 rounded bg-warning-200 text-warning-700" role="alert" on="" wire:dirty>
+        <div class="flex items-center justify-end px-4 py-3 text-right rounded-b sm:px-6">
+            <div class="flex-1 flex-grow max-w-full text-left">
+                <x-action-message class="p-3 rounded bg-warning-200 text-warning-700" role="alert" on="" wire:dirty>
                     {{ __('app.unsaved_changes') }} ...
                 </x-action-message>
 
-                <x-action-message class="p-2.5 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
+                <x-action-message class="p-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
                     {{ __('app.saved') }}
                 </x-action-message>
             </div>
 
-            <div class="flex-grow max-w-full flex-1 text-end">
+            <div class="flex-1 flex-grow max-w-full text-end">
                 <x-ts-button color="secondary" class="mr-1" wire:click="resetContact()" wire:dirty>
                     {{ __('app.cancel') }}
                 </x-ts-button>

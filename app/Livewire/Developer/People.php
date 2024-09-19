@@ -14,9 +14,9 @@ use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Grouping\Group;
 use Filament\Tables\Table;
-use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class People extends Component implements HasForms, HasTable
@@ -24,6 +24,7 @@ class People extends Component implements HasForms, HasTable
     use InteractsWithForms;
     use InteractsWithTable;
 
+    // -----------------------------------------------------------------------
     public function table(Table $table): Table
     {
         return $table
@@ -68,10 +69,6 @@ class People extends Component implements HasForms, HasTable
                     ->label(__('person.mother'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                // Tables\Columns\TextColumn::make('parents.name')
-                //     ->label(__('person.parents'))
-                //     ->sortable()
-                //     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('dob')
                     ->label(__('person.dob'))
                     ->dateTime('Y-m-d')
@@ -99,17 +96,17 @@ class People extends Component implements HasForms, HasTable
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('app.created_at'))
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone(session('timezone'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label(__('app.updated_at'))
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone(session('timezone'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('deleted_at')
                     ->label(__('app.deleted_at'))
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone(session('timezone'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
@@ -146,12 +143,10 @@ class People extends Component implements HasForms, HasTable
 
     public static function getEloquentQuery(): Builder
     {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
+        return parent::getEloquentQuery()->withoutGlobalScopes([SoftDeletingScope::class]);
     }
 
+    // -----------------------------------------------------------------------
     public function render(): View
     {
         return view('livewire.developer.people');

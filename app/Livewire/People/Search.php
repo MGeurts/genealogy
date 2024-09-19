@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\People;
 
 use App\Models\Person;
+use Illuminate\View\View;
 use Livewire\Attributes\Session;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -17,9 +18,9 @@ class Search extends Component
     #[Session]
     public $search = null;
 
-    public $perpage = 10;
+    public int $perpage = 10;
 
-    public $options = [
+    public array $options = [
         ['value' => 5, 'label' => 5],
         ['value' => 10, 'label' => 10],
         ['value' => 25, 'label' => 25],
@@ -27,6 +28,15 @@ class Search extends Component
         ['value' => 100, 'label' => 100],
     ];
 
+    public int $people_db = 0;
+
+    // ------------------------------------------------------------------------------
+    public function mount(): void
+    {
+        $this->people_db = Person::count();
+    }
+
+    // ------------------------------------------------------------------------------
     public function updatedSearch(): void
     {
         $this->resetPage();
@@ -38,15 +48,13 @@ class Search extends Component
     }
 
     // ------------------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
-        $people_db = Person::count();
-
         $people = Person::with('father:id,firstname,surname,sex,yod,dod', 'mother:id,firstname,surname,sex,yod,dod')
             ->search($this->search ? $this->search : '%')
             ->orderBy('firstname')->orderBy('surname')
             ->paginate($this->perpage);
 
-        return view('livewire.people.search', compact('people_db', 'people'));
+        return view('livewire.people.search', compact('people'));
     }
 }

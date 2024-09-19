@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\People;
 
 use Illuminate\Support\Facades\File;
+use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -15,7 +16,8 @@ class Profile extends Component
     // -----------------------------------------------------------------------
     public $person;
 
-    public $deleteConfirmed = false;
+    // -----------------------------------------------------------------------
+    public bool $deleteConfirmed = false;
 
     // -----------------------------------------------------------------------
     protected $listeners = [
@@ -46,7 +48,7 @@ class Profile extends Component
     }
 
     // ------------------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.people.profile');
     }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Countries;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
@@ -12,12 +13,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Symfony\Component\Finder\Finder;
 
 class Person extends Model implements HasMedia
 {
@@ -42,13 +46,10 @@ class Person extends Model implements HasMedia
         'dob', 'yob', 'pob',
         'dod', 'yod', 'pod',
 
-        'street',
-        'number',
-        'postal_code',
-        'city',
-        'province',
-        'state',
-        'country_id',
+        'street', 'number',
+        'postal_code', 'city',
+        'province', 'state',
+        'country',
         'phone',
 
         'photo',
@@ -82,64 +83,70 @@ class Person extends Model implements HasMedia
     protected static function booted(): void
     {
         static::addGlobalScope('team', function (Builder $builder) {
-            if (! auth()->user()) {
+            if (Auth::guest()) {
                 return;
-            } elseif (config('app.god_mode') && auth()->user()->is_developer) {
+            } elseif (Auth::user()->is_developer) {
                 return true;
             } else {
-                $builder->where('people.team_id', auth()->user()->currentTeam->id);
+                $builder->where('people.team_id', Auth::user()->currentTeam->id);
             }
         });
     }
 
     /* -------------------------------------------------------------------------------------------- */
     // Scopes (local)
+    // The system wil look up every word in the search value in the attributes surname, firstname, birthname and nickname
+    // Begin the search string with % if you want to search parts of names, for instance %Jr.
+    // Be aware that this kinds of searches are slower.
+    // If a name containes any spaces, enclose the name in double quoutes, for instance "John Jr." Kennedy.
     /* -------------------------------------------------------------------------------------------- */
-    public function scopeSearch(Builder $query, string $value): void
+    public function scopeSearch(Builder $query, string $searchString): void
     {
-        if ($value != '%') {
-            $query->whereAny(['firstname', 'surname', 'birthname', 'nickname'], 'LIKE', "%$value%");
+        if ($searchString != '%') {
+            collect(str_getcsv($searchString, ' ', '"'))->filter()->each(function (string $searchTerm) use ($query) {
+                $query->whereAny(['firstname', 'surname', 'birthname', 'nickname'], 'like', $searchTerm . '%');
+            });
         }
     }
 
-    public function scopeOlderThan(Builder $query, ?string $birth_date, ?string $birth_year): void
+    public function scopeOlderThan(Builder $query, ?string $birth_year): void
     {
-        if (empty($birth_date) and empty($birth_year)) {
+        if (empty($birth_year)) {
             return;
         } else {
-            $query->where(function ($q) use ($birth_date) {
-                $q->whereNull('dob')->orWhere('dob', '<=', $birth_date);
+            $query->where(function ($q) use ($birth_year) {
+                $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '<=', $birth_year);
             })->where(function ($q) use ($birth_year) {
                 $q->whereNull('yob')->orWhere('yob', '<=', $birth_year);
             });
         }
     }
 
-    public function scopeYoungerThan(Builder $query, ?string $birth_date, ?string $birth_year): void
+    public function scopeYoungerThan(Builder $query, ?string $birth_year): void
     {
-        if (empty($birth_date) and empty($birth_year)) {
+        if (empty($birth_year)) {
             return;
         } else {
-            $query->where(function ($q) use ($birth_date) {
-                $q->whereNull('dob')->orWhere('dob', '>=', $birth_date);
+            $query->where(function ($q) use ($birth_year) {
+                $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '>=', $birth_year);
             })->where(function ($q) use ($birth_year) {
                 $q->whereNull('yob')->orWhere('yob', '>=', $birth_year);
             });
         }
     }
 
-    public function scopePartnerOffset(Builder $query, ?string $birth_date, ?string $birth_year, string $offset = '40'): void
+    public function scopePartnerOffset(Builder $query, ?string $birth_year, int $offset = 40): void
     {
-        // ------------------------------------------------------------------
-        // offset : possible partners can be +/- n years older or younger
-        // ------------------------------------------------------------------
-        if (empty($birth_date) and empty($birth_year)) {
+        // -------------------------------------------------------------------------
+        // offset : possible partners can be +/- n ($offeset) years older or younger
+        // -------------------------------------------------------------------------
+        if (empty($birth_year)) {
             return;
         } else {
-            $query->where(function ($q) use ($birth_date, $offset) {
-                $q->whereNull('dob')->orWhereBetween('dob', [date('Y-m-d', strtotime($birth_date . ' - ' . $offset . ' years')), date('Y-m-d', strtotime($birth_date . ' + ' . $offset . ' years'))]);
+            $query->where(function ($q) use ($birth_year, $offset) {
+                $q->whereNull('dob')->orWhereBetween(DB::raw('YEAR(dob)'), [intval($birth_year) - $offset, intval($birth_year) + $offset]);
             })->where(function ($q) use ($birth_year, $offset) {
-                $q->whereNull('yob')->orWhereBetween('yob', [$birth_year - $offset, $birth_year + $offset]);
+                $q->whereNull('yob')->orWhereBetween('yob', [intval($birth_year) - $offset, intval($birth_year) + $offset]);
             });
         }
     }
@@ -154,8 +161,6 @@ class Person extends Model implements HasMedia
 
     protected function getAgeAttribute(): ?int
     {
-        $age = null;
-
         if ($this->dob) {
             if ($this->dod) {
                 // deceased based on dob & dod
@@ -178,15 +183,17 @@ class Person extends Model implements HasMedia
                 // living
                 $age = Carbon::now()->format('Y') - $this->yob;
             }
+        } else {
+            $age = null;
         }
 
-        return $age >= 0 ? $age : null;
+        return $age > 0 ? $age : null;
     }
 
     protected function getNextBirthdayAttribute(): ?Carbon
     {
         if ($this->dob) {
-            $today               = Carbon::parse(date('Y-m-d') . ' 00:00:00');
+            $today               = Carbon::today();
             $this_years_birthday = Carbon::parse(date('Y') . substr(strval($this->dob), 4));
 
             return $today->gt($this_years_birthday) ? $this_years_birthday->addYear() : $this_years_birthday;
@@ -207,8 +214,6 @@ class Person extends Model implements HasMedia
 
     protected function getLifetimeAttribute(): ?string
     {
-        $lifetime = null;
-
         if ($this->dob) {
             if ($this->dod) {
                 // deceased based on dob & dod
@@ -231,82 +236,75 @@ class Person extends Model implements HasMedia
                 // living
                 $lifetime = strval($this->yob);
             }
-        }
-
-        return $lifetime; //returns YEAR(dob) - YEAR(dod)
-    }
-
-    protected function getBirthDateAttribute(): ?string
-    {
-        if ($this->dob) {
-            $dob = $this->dob;
-        } elseif ($this->yob) {
-            $dob = $this->yob;
         } else {
-            $dob = null;
+            $lifetime = null;
         }
 
-        return strval($dob);
+        return strval($lifetime); //returns YEAR(dob) - YEAR(dod)
     }
 
     protected function getBirthYearAttribute(): ?string
     {
         if ($this->dob) {
-            $yob = Carbon::parse($this->dob)->isoFormat('Y');
+            $year = Carbon::parse($this->dob)->format('Y');
         } elseif ($this->yob) {
-            $yob = $this->yob;
+            $year = $this->yob;
         } else {
-            $yob = null;
+            $year = null;
         }
 
-        return strval($yob);
+        return strval($year);
     }
 
     protected function getBirthFormattedAttribute(): ?string
     {
         if ($this->dob) {
-            $dob = Carbon::parse($this->dob)->isoFormat('LL');
+            $birth = Carbon::parse($this->dob)->isoFormat('LL');
         } elseif ($this->yob) {
-            $dob = $this->yob;
+            $birth = $this->yob;
         } else {
-            $dob = '??';
+            $birth = null;
         }
 
-        return strval($dob);
+        return strval($birth);
     }
 
     protected function getDeathFormattedAttribute(): ?string
     {
         if ($this->dod) {
-            $dod = Carbon::parse($this->dod)->isoFormat('LL');
+            $dead = Carbon::parse($this->dod)->isoFormat('LL');
         } elseif ($this->yod) {
-            $dod = $this->yod;
+            $dead = $this->yod;
         } else {
-            $dod = '??';
+            $dead = null;
         }
 
-        return strval($dod);
+        return strval($dead);
     }
 
     protected function getAddressAttribute(): ?string
     {
+        $countries = new Countries(app()->getLocale());
+
         return implode("\n", array_filter([
             implode(' ', array_filter([$this->street, $this->number])),
             implode(' ', array_filter([$this->postal_code, $this->city])),
             implode(' ', array_filter([$this->province, $this->state])),
-            is_null($this->country_id) ? '' : $this->country->name,
+            $this->country ? $countries->get($this->country) : '',
         ]));
     }
 
     protected function getAddressGoogleAttribute(): ?string
     {
+        $countries = new Countries(app()->getLocale());
+
         $href_google_address = 'https://www.google.com/maps/search/';
 
         $address = implode(',', array_filter([
             implode(' ', array_filter([$this->street, $this->number])),
             implode(' ', array_filter([$this->postal_code, $this->city])),
             implode(' ', array_filter([$this->province, $this->state])),
-            is_null($this->country_id) ? '' : $this->country->name,
+            $this->country ? $countries->get($this->country) : '',
         ]));
 
         return $address ? $href_google_address . $address : '';
@@ -317,7 +315,7 @@ class Person extends Model implements HasMedia
         $href_google_address = 'https://www.google.com/maps/search/';
         $href_google_geo     = 'https://www.google.com/maps/search/?api=1&query=';
 
-        if ($this->getMetadataValue('cemetery_location_latitude') && $this->getMetadataValue('cemetery_location_longitude')) {
+        if ($this->getMetadataValue('cemetery_location_latitude') and $this->getMetadataValue('cemetery_location_longitude')) {
             return $href_google_geo . implode('%2C', [
                 $this->getMetadataValue('cemetery_location_latitude'),
                 $this->getMetadataValue('cemetery_location_longitude'),
@@ -327,6 +325,16 @@ class Person extends Model implements HasMedia
         } else {
             return '';
         }
+    }
+
+    public function countFiles(): int
+    {
+        return $this->getMedia('files')->count();
+    }
+
+    public function countPhotos(): int
+    {
+        return count(Finder::create()->in(public_path('storage/photos/' . $this->team_id))->name($this->id . '_*.webp'));
     }
 
     public function isDeceased(): bool
@@ -341,12 +349,12 @@ class Person extends Model implements HasMedia
 
     public function isBirthdayToday(): bool
     {
-        return $this->dob ? $this->dob->isBirthday() : false;
+        return $this->dob ? Carbon::parse($this->dob)->isBirthday() : false;
     }
 
     public function isDeathdayToday(): bool
     {
-        return $this->dod ? $this->dod->isBirthday() : false;
+        return $this->dod ? Carbon::parse($this->dod)->isBirthday() : false;
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -393,7 +401,7 @@ class Person extends Model implements HasMedia
         return $this->HasManyMerged(Person::class, ['father_id', 'mother_id'])->with('children')->orderBy('dob');
     }
 
-    /* returns ALL NATURAL CHILDREN (n Person) (OWN + CURRENT PARTNER), ordered by type and dob */
+    /* returns ALL NATURAL CHILDREN (n Person) (OWN + CURRENT PARTNER), ordered by type, birthdate */
     public function childrenNaturalAll(): Collection
     {
         $children_natural = $this->children;
@@ -409,7 +417,7 @@ class Person extends Model implements HasMedia
             }
 
             return $child;
-        })->sortby('dob')->sortBy('type');
+        })->sortBy('birthDate')->sortBy('type');
     }
 
     /* returns ALL PARTNERS (n Person) related to the person, ordered by date_start */
@@ -444,12 +452,6 @@ class Person extends Model implements HasMedia
     public function couples(): HasManyMerged
     {
         return $this->HasManyMerged(Couple::class, ['person1_id', 'person2_id'])->with(['person_1', 'person_2']);
-    }
-
-    /* returns country related to the persons address */
-    public function country(): BelongsTo
-    {
-        return $this->BelongsTo(Country::class);
     }
 
     /* returns ALL METADATA (n PersonMetadata) related to the person */
@@ -488,10 +490,10 @@ class Person extends Model implements HasMedia
         }
     }
 
-    /* returns ALL SIBLINGS (n Person) related to the person, either through father_id, mother_id or parents_id ordered by birth */
+    /* returns ALL SIBLINGS (n Person) related to the person, either through father_id, mother_id or parents_id ordered by type, birthdate */
     public function siblings(): Collection
     {
-        if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
+        if (! $this->father_id and ! $this->mother_id and ! $this->parents_id) {
             return collect([]);
         } else {
             $siblings_father  = $this->father_id ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->get() : collect([]);
@@ -501,22 +503,22 @@ class Person extends Model implements HasMedia
             $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents);
 
             return $siblings->map(function ($sibling) use ($siblings_father, $siblings_mother, $siblings_parents) {
-                if ($siblings_father->contains('id', $sibling->id) && $siblings_mother->contains('id', $sibling->id)) {
+                if ($siblings_father->contains('id', $sibling->id) and $siblings_mother->contains('id', $sibling->id)) {
                     $sibling['type'] = '';
-                } elseif ($siblings_father->contains('id', $sibling->id) || $siblings_mother->contains('id', $sibling->id)) {
+                } elseif ($siblings_father->contains('id', $sibling->id) or $siblings_mother->contains('id', $sibling->id)) {
                     $sibling['type'] = '[1/2]';
                 } elseif ($siblings_parents->contains('id', $sibling->id)) {
                     $sibling['type'] = '[+]';
                 }
 
                 return $sibling;
-            })->sortByDesc('birth');
+            })->sortBy('birthDate')->sortBy('type');
         }
     }
 
     public function siblings_with_children(): Collection // only used in family chart
     {
-        if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
+        if (! $this->father_id and ! $this->mother_id and ! $this->parents_id) {
             return collect([]);
         } else {
             $siblings_father  = $this->father_id ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->with('children')->get() : collect([]);
@@ -526,16 +528,16 @@ class Person extends Model implements HasMedia
             $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents);
 
             return $siblings->map(function ($sibling) use ($siblings_father, $siblings_mother, $siblings_parents) {
-                if ($siblings_father->contains('id', $sibling->id) && $siblings_mother->contains('id', $sibling->id)) {
+                if ($siblings_father->contains('id', $sibling->id) and $siblings_mother->contains('id', $sibling->id)) {
                     $sibling['type'] = '';
-                } elseif ($siblings_father->contains('id', $sibling->id) || $siblings_mother->contains('id', $sibling->id)) {
+                } elseif ($siblings_father->contains('id', $sibling->id) or $siblings_mother->contains('id', $sibling->id)) {
                     $sibling['type'] = '[1/2]';
                 } elseif ($siblings_parents->contains('id', $sibling->id)) {
                     $sibling['type'] = '[+]';
                 }
 
                 return $sibling;
-            })->sortByDesc('birth');
+            })->sortBy('birthDate')->sortBy('type');
         }
     }
 }

@@ -5,24 +5,27 @@ declare(strict_types=1);
 namespace App\Livewire\People;
 
 use Illuminate\Support\Facades\File;
+use Illuminate\View\View;
 use Livewire\Component;
 
 class Gallery extends Component
 {
+    // ------------------------------------------------------------------------------
     public $person;
 
-    public $images = null;
+    // ------------------------------------------------------------------------------
+    public array $images = [];
 
-    public $selected = null;
+    public ?int $selected = null;
 
-    // -----------------------------------------------------------------------
+    // ------------------------------------------------------------------------------
     protected $listeners = [
         'photos_updated' => 'mount',
         'person_updated' => 'render',
     ];
 
-    // -----------------------------------------------------------------------
-    public function mount()
+    // ------------------------------------------------------------------------------
+    public function mount(): void
     {
         $this->images = collect(File::glob(public_path() . '/storage/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp'))
             ->map(function ($p) {
@@ -38,7 +41,7 @@ class Gallery extends Component
         }
     }
 
-    public function previousImage()
+    public function previousImage(): void
     {
         $this->selected--;
 
@@ -47,7 +50,7 @@ class Gallery extends Component
         }
     }
 
-    public function nextImage()
+    public function nextImage(): void
     {
         $this->selected++;
 
@@ -56,13 +59,13 @@ class Gallery extends Component
         }
     }
 
-    public function selectImage($index)
+    public function selectImage($index): void
     {
         $this->selected = $index;
     }
 
     // ------------------------------------------------------------------------------
-    public function render()
+    public function render(): View
     {
         return view('livewire.people.gallery');
     }

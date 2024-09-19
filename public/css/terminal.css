@@ -1,0 +1,12 @@
+.terminal {
+    background-color: black;
+    color: green;
+    font-family: monospace;
+    padding: 10px;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.terminal div {
+    white-space: pre;
+}
