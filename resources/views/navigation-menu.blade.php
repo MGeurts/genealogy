@@ -235,14 +235,9 @@
                     {{ __('auth.register') }}
                 </x-nav-link-responsive>
             </div>
-            <!-- 修改 -->
+            <!-- 删除部分 -->
             {{-- responsive settings options --}}
-            <!-- <div class="pt-2 pb-2 pl-4 border-t border-gray-200">
-                <x-set.language />
-            </div>
-            <div class="pt-2 pb-2 pl-4 border-t border-gray-200">
-                <x-ts-theme-switch only-icons />
-            </div> -->
+
             <div class="flex flex-wrap px-4 py-2 text-xs">
                 <x-set.offcanvas />
                 <x-ts-theme-switch only-icons /> <!-- 修改 -->
@@ -340,7 +335,7 @@
             <!-- <div class="py-2 pl-4 border-t border-gray-200">
                 <x-ts-theme-switch only-icons />
             </div> -->
-            <div class="flex flex-wrap px-4 py-2 text-xs"> <!-- 修改 -->
+            <div class="flex flex-wrap px-4 py-2 text-xs">
                 <x-set.offcanvas />
                 <x-ts-theme-switch only-icons />
             </div>
