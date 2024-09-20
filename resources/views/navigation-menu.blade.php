@@ -1,17 +1,18 @@
 <nav x-data="{ open: false }" class="border-b border-gray-100 bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-200">
     {{-- primary navigation menu --}}
-    <div class="flex gap-5 px-2 min-h-16">
+    <div class="px-6 flex min-h-auto gap-5"> <!-- 修改 -->
         <div class="flex flex-grow gap-5">
             {{-- logo --}}
             <div class="flex items-center shrink-0">
                 <a href="{{ route('home') }}" title="{{ __('app.home') }}">
+                    <!-- 更换logo到genealogy.blade.php -->
                     <x-svg.genealogy class="size-12 fill-dark dark:fill-neutral-400 hover:fill-primary-300 dark:hover:fill-primary-300" alt="genealogy" />
                 </a>
             </div>
 
             {{-- navigation links --}}
-            <div class="flex flex-wrap gap-5 py-2">
-                <div class="flex items-center gap-5">
+            <div class="flex flex-wrap gap-5 py-2 md:gap-5"> <!-- 修改 -->
+                <div class="flex flex-wrap md:flex-row items-center gap-x-6 gap-y-2 md:gap-2"> <!-- 修改 -->
                     <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                         <x-ts-icon icon="home" class="mr-1 size-5" />
                         {{ __('app.home') }}
@@ -21,9 +22,10 @@
                         <x-ts-icon icon="search" class="mr-1 size-5" />
                         {{ __('app.search') }}
                     </x-nav-link>
-                </div>
-
-                <div class="flex items-center gap-5">
+                <!-- </div>  
+                
+                <div class="flex items-center gap-5"> -->
+                    <!-- 修改 -->
                     <x-nav-link href="{{ route('people.birthdays') }}" :active="request()->routeIs('people.birthdays')">
                         <x-ts-icon icon="cake" class="mr-1 size-5" />
                         {{ __('birthday.birthdays') }}
@@ -196,10 +198,10 @@
             </button>
         </div>
     </div>
-
+    <!-- 修改 -->
     {{-- responsive navigation menu --}}
-    <div :class="{ 'block': open, 'hidden': !open }" class="hidden md:hidden">
-        <div class="space-y-1 border-t border-gray-200">
+    <div :class="{ 'block': open, 'hidden': !open }" class="hidden md:hidden h-96 overflow-y-auto"> <!-- 修改 -->
+        <!-- <div class="space-y-1 border-t border-gray-200">
             <x-nav-link-responsive href="{{ route('home') }}" :active="request()->routeIs('home')">
                 <x-ts-icon icon="home" class="inline-block mr-1 size-5" />
                 {{ __('app.home') }}
@@ -219,7 +221,7 @@
                 <x-ts-icon icon="help" class="inline-block mr-1 size-5" />
                 {{ __('app.help') }}
             </x-nav-link-responsive>
-        </div>
+        </div> -->
 
         @guest
             <div class="space-y-1 border-t border-gray-200">
@@ -233,16 +235,17 @@
                     {{ __('auth.register') }}
                 </x-nav-link-responsive>
             </div>
-
+            <!-- 修改 -->
             {{-- responsive settings options --}}
-            <div class="pt-2 pb-2 pl-4 border-t border-gray-200">
+            <!-- <div class="pt-2 pb-2 pl-4 border-t border-gray-200">
                 <x-set.language />
             </div>
             <div class="pt-2 pb-2 pl-4 border-t border-gray-200">
                 <x-ts-theme-switch only-icons />
-            </div>
-            <div class="pt-2 pb-2 pl-4 border-t border-gray-200">
+            </div> -->
+            <div class="flex flex-wrap px-4 py-2 text-xs">
                 <x-set.offcanvas />
+                <x-ts-theme-switch only-icons /> <!-- 修改 -->
             </div>
         @endguest
 
@@ -334,11 +337,12 @@
             </div>
 
             {{-- responsive settings options --}}
-            <div class="py-2 pl-4 border-t border-gray-200">
+            <!-- <div class="py-2 pl-4 border-t border-gray-200">
                 <x-ts-theme-switch only-icons />
-            </div>
-            <div class="py-1 pl-4 border-t border-gray-200">
+            </div> -->
+            <div class="flex flex-wrap px-4 py-2 text-xs"> <!-- 修改 -->
                 <x-set.offcanvas />
+                <x-ts-theme-switch only-icons />
             </div>
         @endauth
     </div>

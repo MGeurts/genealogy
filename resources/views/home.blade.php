@@ -11,6 +11,7 @@
         <div class="pb-10 dark:text-neutral-200">
             <div class="flex flex-col items-center pt-6 sm:pt-0">
                 <div>
+                    <!-- 修改主页的logo -->
                     <x-authentication-card-logo />
                 </div>
 
