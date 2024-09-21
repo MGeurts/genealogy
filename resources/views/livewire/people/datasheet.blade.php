@@ -154,9 +154,11 @@
                 <td>&nbsp;</td>
                 <td>{{ __('person.father') }} :</td>
                 <td>
-                    {{ $person->father->name }} 
-                    <x-ts-icon icon="{{ $person->father->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
-                    {{ $person->father->birth_year }} 
+                    @if ($person->father)
+                        {{ $person->father->name }} 
+                        <x-ts-icon icon="{{ $person->father->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        {{ $person->father->birth_year }}
+                    @endif
                 </td>
             </tr>
             <tr>
@@ -164,9 +166,11 @@
                 <td>&nbsp;</td>
                 <td>{{ __('person.mother') }} :</td>
                 <td>
-                    {{ $person->mother->name }}
-                    <x-ts-icon icon="{{ $person->mother->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
-                    {{ $person->mother->birth_year }} 
+                    @if ($person->mother)
+                        {{ $person->mother->name }}
+                        <x-ts-icon icon="{{ $person->mother->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        {{ $person->mother->birth_year }}
+                    @endif
                 </td>
             </tr>
             <tr>
@@ -174,8 +178,10 @@
                 <td>&nbsp;</td>
                 <td valign="top">{{ __('person.parents') }} :</td>
                 <td>
-                    {{ $person->parents->person_1->name }} <x-ts-icon icon="{{ $person->parents->person_1->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" /><br/>
-                    {{ $person->parents->person_2->name }} <x-ts-icon icon="{{ $person->parents->person_2->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                    @if ($person->parents)
+                        {{ $person->parents->person_1->name }} <x-ts-icon icon="{{ $person->parents->person_1->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" /><br/>
+                        {{ $person->parents->person_2->name }} <x-ts-icon icon="{{ $person->parents->person_2->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                    @endif
                 </td>
             </tr>
             <tr>
@@ -183,9 +189,11 @@
                 <td>&nbsp;</td>
                 <td>{{ __('person.partner') }} :</td>
                 <td>
-                    {{ $person->currentPartner()->name }}
-                    <x-ts-icon icon="{{ $person->currentPartner()->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
-                    {{ $person->currentPartner()->birth_year }} 
+                    @if ($person->currentPartner())
+                        {{ $person->currentPartner()->name }}
+                     <x-ts-icon icon="{{ $person->currentPartner()->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        {{ $person->currentPartner()->birth_year }}
+                    @endif
                 </td>
             </tr>
             <tr>
@@ -331,15 +339,15 @@
             </tr>
 
             @foreach ($person->getMedia('files') as $file)
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>
-                    {{ $file->name }}
-                </td>
-            </tr> 
-        @endforeach
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        {{ $file->name }}
+                    </td>
+                </tr> 
+            @endforeach
             
             <tr>
                 <td>&nbsp;</td>
