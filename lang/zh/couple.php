@@ -12,5 +12,5 @@ return [
     'person1_id' => '首任',
     'person2_id' => '第二任',
 
-    'team_id' => 'Team',
+    'team_id' => '團隊',
 ];
