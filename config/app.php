@@ -86,7 +86,6 @@ return [
         'Deutsch'    => 'de',
         'English'    => 'en',
         'Nederlands' => 'nl',
-        '中文简体'       => 'zh',
     ],
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),

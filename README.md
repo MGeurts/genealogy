@@ -169,7 +169,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 <ul>
     <li>Light/Dark theme</li>
     <li>Fully responsive</li>
-    <li>Multi-language, English, Dutch, German and Chinees are already implemented, language setting saved in authenticated users profile</li>
+    <li>Multi-language, English, Dutch and German are already implemented, language setting saved in authenticated users profile</li>
     <li>Multi-timezone, timezone setting saved in authenticated users profile</li>
     <li>Multi-tenancy by Laravel Jetstream Teams</li>
     <li>Security through Laravel Jetstream Teams Roles & Permissions, 2FA & API can be enabled</li>

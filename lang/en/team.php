@@ -63,5 +63,4 @@ return [
     'may_accept'                 => 'You may accept this invitation by clicking the button below:',
     'accept_invitation'          => 'Accept Invitation',
     'discard'                    => 'If you did not expect to receive an invitation to this team, you may discard this email.',
-
 ];
