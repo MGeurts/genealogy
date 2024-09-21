@@ -16,6 +16,7 @@ return [
     'api_tokens'       => 'API-Token',
     'attention'        => '注意',
     'contact'          => '联系',
+    'datasheet'        => '數據表',
     'death'            => '已故',
     'family_chart'     => '家族结构',
     'female'           => '女性',

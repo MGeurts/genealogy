@@ -2,7 +2,8 @@
 
 return [
     // 标签
-    'biological' => '',
+    'biological' => '生物',
+    'contact'    => '联系',
     'person'     => '姓名',
     'people'     => '亲友',
 
@@ -18,6 +19,7 @@ return [
     'siblings'      => '兄弟姐妹',
     'ancestors'     => '祖先',
     'descendants'   => '后代',
+    'birth'         => '出生',
     'dead'          => '已故',
     'death'         => '已故',
     'deceased'      => '已故',
@@ -67,6 +69,7 @@ return [
     // 属性
     'id'          => 'ID',
     'name'        => '姓名',
+    'names'       => '名字',
     'firstname'   => '姓',
     'surname'     => '名',
     'story'       => '简介',
