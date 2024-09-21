@@ -19197,6 +19197,15 @@ namespace Khill\Lavacharts\Laravel {
             }
     }
 
+namespace Larswiegers\LaravelTranslationsChecker {
+            /**
+     * 
+     *
+     * @see \Larswiegers\LaravelTranslationsChecker\Skeleton\SkeletonClass
+     */        class LaravelTranslationsCheckerFacade {
+            }
+    }
+
 namespace Livewire {
             /**
      * 
@@ -27461,6 +27470,7 @@ namespace  {
             class EloquentSerialize extends \AnourValar\EloquentSerialize\Facades\EloquentSerializeFacade {}
             class Debugbar extends \Barryvdh\Debugbar\Facades\Debugbar {}
             class Lava extends \Khill\Lavacharts\Laravel\LavachartsFacade {}
+            class LaravelTranslationsChecker extends \Larswiegers\LaravelTranslationsChecker\LaravelTranslationsCheckerFacade {}
             class Livewire extends \Livewire\Livewire {}
             class LogViewer extends \Opcodes\LogViewer\Facades\LogViewer {}
             class Flare extends \Spatie\LaravelIgnition\Facades\Flare {}
@@ -27470,11 +27480,6 @@ namespace  {
     }
 
 
-namespace Facades\Livewire\Features\SupportFileUploads {
-    /**
-     * @mixin \Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl     */
-    class GenerateSignedUploadUrl extends \Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl {}
-}
 
 
 

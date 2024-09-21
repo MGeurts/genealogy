@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54a4cd525267abad9db13b73fcbaf2eb",
+    "content-hash": "0ca8cb87abfd8544c508b1623761911a",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -3037,6 +3037,68 @@
                 "source": "https://github.com/laravel/tinker/tree/v2.9.0"
             },
             "time": "2024-01-04T16:10:04+00:00"
+        },
+        {
+            "name": "larswiegers/laravel-translations-checker",
+            "version": "v0.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LarsWiegers/laravel-translations-checker.git",
+                "reference": "422cf1919ae05d94c25d7d7018e3a1de4475dedc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LarsWiegers/laravel-translations-checker/zipball/422cf1919ae05d94c25d7d7018e3a1de4475dedc",
+                "reference": "422cf1919ae05d94c25d7d7018e3a1de4475dedc",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
+                "php": "^7.4|^8.0|^8.1|^8.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
+                "phpunit/phpunit": "^9.0|^10.0|^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Larswiegers\\LaravelTranslationsChecker\\LaravelTranslationsCheckerServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelTranslationsChecker": "Larswiegers\\LaravelTranslationsChecker\\LaravelTranslationsCheckerFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Larswiegers\\LaravelTranslationsChecker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lars Wiegers",
+                    "email": "larswiegers@live.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Make sure your laravel translations are checked and are included in all languages.",
+            "homepage": "https://github.com/larswiegers/laravel-translations-checker",
+            "keywords": [
+                "laravel-translations-checker",
+                "larswiegers"
+            ],
+            "support": {
+                "issues": "https://github.com/LarsWiegers/laravel-translations-checker/issues",
+                "source": "https://github.com/LarsWiegers/laravel-translations-checker/tree/v0.9.2"
+            },
+            "time": "2024-09-04T16:11:31+00:00"
         },
         {
             "name": "league/commonmark",
