@@ -33,6 +33,11 @@
                 <x-ts-icon icon="history" class="size-5" />
                 {{ __('app.history') }}
             </x-ts-button>
+
+            <x-ts-button href="/people/{{ $person->id }}/datasheet" color="{{ request()->routeIs('people.datasheet') ? 'warning' : 'secondary' }}" class="mb-3 mr-2 text-sm text-white">
+                <x-ts-icon icon="pdf" class="size-5" />
+                {{ __('app.datasheet') }}
+            </x-ts-button>
         </div>
     </div>
 </div>

@@ -16,6 +16,7 @@ return [
     'api_tokens'        => 'API-Token',
     'attention'         => 'Achtung',
     'contact'           => 'Kontakt',
+    'datasheet'         => 'Datenblatt',
     'death'             => 'Tod',
     'documentation'     => 'Documentation',
     'family_chart'      => 'Familiendiagramm',

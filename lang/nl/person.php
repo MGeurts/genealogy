@@ -3,6 +3,7 @@
 return [
     // Labels
     'biological' => 'biologisch',
+    'contact'    => 'Contact',
     'person'     => 'Persoon',
     'people'     => 'Personen',
     'people_log' => 'Personen logboek',
@@ -19,6 +20,7 @@ return [
     'siblings'      => 'Broers of zussen',
     'ancestors'     => 'Voorouders',
     'descendants'   => 'Nakomelingen',
+    'birth'         => 'Geboorte',
     'dead'          => 'Overleden',
     'death'         => 'Overlijden',
     'deceased'      => 'Overleden',
@@ -73,6 +75,7 @@ return [
     // Attributes
     'id'          => 'ID',
     'name'        => 'Naam',
+    'names'       => 'Namen',
     'firstname'   => 'Voornaam',
     'surname'     => 'Achternaam',
     'birthname'   => 'Geboortenaam',

@@ -16,6 +16,7 @@ return [
     'api_tokens'        => 'API tokens',
     'attention'         => 'Aandacht',
     'contact'           => 'Contact',
+    'datasheet'         => 'Gegevensblad',
     'death'             => 'Overlijden',
     'documentation'     => 'Documentatie',
     'family_chart'      => 'Familie kaart',
