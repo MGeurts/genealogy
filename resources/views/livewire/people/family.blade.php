@@ -62,7 +62,31 @@
                 <x-ts-icon icon="{{ $person->mother->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
             @endif
         </div>
+        
+        <div class="col-span-2 pl-2 py-2 border-b">{{ __('person.parents') }}</div>
+        <div class="col-span-4 p-2 border-b">
+            @if ($person->parents)
+                <x-link href="/people/{{ $person->parents->person_1->id }}" class="{{ $person->parents->person_1->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+                    {{ $person->parents->person_1->name }}
+                </x-link>
+                <x-ts-icon icon="{{ $person->parents->person_1->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />
+                <br />
+                <x-link href="/people/{{ $person->parents->person_2->id }}" class="{{ $person->parents->person_2->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+                    {{ $person->parents->person_2->name }}
+                </x-link>
+                <x-ts-icon icon="{{ $person->parents->person_2->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />
+            @endif
+        </div>
 
+        <div class="col-span-2 pl-2 py-2">{{ __('person.partner') }}</div>
+        <div class="col-span-4 p-2">
+            @if ($person->currentPartner())
+                <x-link href="/people/{{ $person->currentPartner()->id }}" class="{{ $person->currentPartner()->isDeceased() ? 'text-danger-600 dark:!text-danger-400' : '' }}">
+                    {{ $person->currentPartner()->name }}
+                </x-link>
+                <x-ts-icon icon="{{ $person->currentPartner()->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="size-5 inline-block" />
+            @endif
+        </div>
 
     </div>
 </div>

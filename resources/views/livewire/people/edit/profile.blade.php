@@ -28,20 +28,20 @@
                     <x-ts-input wire:model="profileForm.surname" id="surname" label="{{ __('person.surname') }} : *" wire:dirty.class="bg-warning-200 dark:text-black" required />
                 </div>
 
-                {{-- birthname --}}
-                <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="profileForm.birthname" id="birthname" label="{{ __('person.birthname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" />
-                </div>
-
                 {{-- nickname --}}
                 <div class="col-span-6 md:col-span-3">
                     <x-ts-input wire:model="profileForm.nickname" id="nickname" label="{{ __('person.nickname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 
+                {{-- story --}}
+                <div class="col-span-6 md:col-span-6">
+                    <x-ts-textarea wire:model="profileForm.story" id="story" label="{{ __('person.story') }} :" wire:dirty.class="bg-warning-200 dark:text-black" />
+                </div>
+
                 {{-- sex --}}
                 <div class="col-span-3">
-                    <x-label for="sex" class="mr-5" value="{{ __('person.sex') }} ({{ __('person.biological') }}) : *" />
+                    <x-label for="sex" class="mr-5" value="{{ __('person.sex') }} : *" />  {{-- 冒号前面删除了：({{ __('person.biological') }}) --}}
                     <div class="flex">
                         <div class="mt-3 mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
                             <x-ts-radio color="primary" wire:model="profileForm.sex" name="sex" id="sexM" value="m" label="{{ __('app.male') }}" />
@@ -52,12 +52,14 @@
                     </div>
                 </div>
 
-                {{-- gender_id --}}
-                <div class="col-span-3">
+                <!-- {{-- gender_id: 删除性别认同 "                
+                 <div class="col-span-3">
                     <x-ts-select.styled wire:model="profileForm.gender_id" id="gender_id" label="{{ __('person.gender') }} :" :options="$profileForm->genders()" select="label:name|value:id"
                         placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
-                <x-hr.narrow class="col-span-6 !my-0" />
+                <x-hr.narrow class="col-span-6 !my-0" />"
+                 --}} -->
+
 
                 {{-- yob --}}
                 <div class="col-span-6 md:col-span-3">

@@ -100,13 +100,13 @@ return [
 
     'people_search'             => 'Search people in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
     'people_search_placeholder' => 'Enter a name ...',
-    'people_search_tip'         => 'Search people by surname, firstname, birthname or nickname.',
+    'people_search_tip'         => 'Search people by surname, firstname, story or nickname.',
     'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> found with keyword <span class="text-emerald-600"><strong>:keyword</strong></span> in <span class="text-emerald-600"><strong>:total</strong></span> available in <span class="text-emerald-600"><strong>:scope</strong></span>',
     'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> available in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
 
-    'people_search_help_1' => 'The system wil look up <b class="text-emerald-600">every single word</b> in the search box in the attributes <b class="text-emerald-600">surname</b>, <b class="text-emerald-600">firstname</b>, <b class="text-emerald-600">birthname</b> and <b class="text-emerald-600">nickname</b>.',
+    'people_search_help_1' => 'The system wil look up <b class="text-emerald-600">every single word</b> in the search box in the attributes <b class="text-emerald-600">surname</b>, <b class="text-emerald-600">firstname</b>, <b class="text-emerald-600">story</b> and <b class="text-emerald-600">nickname</b>.',
     'people_search_help_2' => 'Begin the search string with <b class="text-emerald-600">%</b> if you want to search parts of names, for instance : <b class="text-emerald-600">%Jr</b>.<br/>Be aware this kinds of searches are slower.',
-    'people_search_help_3' => 'If a surname, firstname, birthname or nickname containes any <b class="text-emerald-600">spaces</b>, enclose the name in double quoutes,<br/>for instance : <b class="text-emerald-600">"John Jr." Kennedy</b>.',
+    'people_search_help_3' => 'If a surname, firstname, story or nickname containes any <b class="text-emerald-600">spaces</b>, enclose the name in double quoutes,<br/>for instance : <b class="text-emerald-600">"John Jr." Kennedy</b>.',
 
     'unauthorized_access' => 'Unauthorized access.',
 

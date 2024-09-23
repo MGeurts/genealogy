@@ -162,7 +162,8 @@ return [
     | 给定属性规则的特定自定义语言行变得快捷。
     |
     */
-
+    'surname.required_without'   => '姓名不能为空',
+    'person_id.required_without' => 'When adding an EXISTING person, select a person.',
     /*
     |--------------------------------------------------------------------------
     | 自定义验证属性

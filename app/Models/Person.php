@@ -33,7 +33,7 @@ class Person extends Model implements HasMedia
     protected $fillable = [
         'firstname',
         'surname',
-        'birthname',
+        'story',
         'nickname',
 
         'sex',
@@ -95,7 +95,7 @@ class Person extends Model implements HasMedia
 
     /* -------------------------------------------------------------------------------------------- */
     // Scopes (local)
-    // The system wil look up every word in the search value in the attributes surname, firstname, birthname and nickname
+    // The system wil look up every word in the search value in the attributes surname, firstname, story and nickname
     // Begin the search string with % if you want to search parts of names, for instance %Jr.
     // Be aware that this kinds of searches are slower.
     // If a name containes any spaces, enclose the name in double quoutes, for instance "John Jr." Kennedy.
@@ -104,7 +104,7 @@ class Person extends Model implements HasMedia
     {
         if ($searchString != '%') {
             collect(str_getcsv($searchString, ' ', '"'))->filter()->each(function (string $searchTerm) use ($query) {
-                $query->whereAny(['firstname', 'surname', 'birthname', 'nickname'], 'like', $searchTerm . '%');
+                $query->whereAny(['firstname', 'surname', 'story', 'nickname'], 'like', $searchTerm . '%');
             });
         }
     }

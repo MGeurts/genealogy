@@ -18,7 +18,8 @@
             </x-link>
             <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
         </p>
-        <p>{{ __('person.birthname') }} : {{ $person->birthname ? $person->birthname : '' }}</p>
+        <!-- <p>{{ __('person.story') }} : {{ $person->story ? $person->story : '' }}</p> 将其改为超过30个字符自动省略-->
+        <p>{{ __('person.story') }} : {{ $person->story ? \Illuminate\Support\Str::limit($person->story, 30, '...') : '' }}</p>
         <p>{{ __('person.nickname') }} : {{ $person->nickname ? $person->nickname : '' }}</p>
         <x-hr.narrow />
         <p class="py-1">{{ __('person.father') }} :

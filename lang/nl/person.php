@@ -75,7 +75,7 @@ return [
     'name'        => 'Naam',
     'firstname'   => 'Voornaam',
     'surname'     => 'Achternaam',
-    'birthname'   => 'Geboortenaam',
+    'story'       => 'story',
     'nickname'    => 'Bijnaam',
     'sex'         => 'Geslacht',
     'gender'      => 'Gender identiteit',

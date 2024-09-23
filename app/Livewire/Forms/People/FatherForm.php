@@ -22,7 +22,7 @@ class FatherForm extends Form
 
     public $surname = null;
 
-    public $birthname = null;
+    public $story = null;
 
     public $nickname = null;
 
@@ -52,9 +52,9 @@ class FatherForm extends Form
     public function rules(): array
     {
         return $rules = [
-            'firstname' => ['nullable', 'string', 'max:255'],
+            'firstname' => ['nullable', 'string', 'max:255', 'required_without:person_id'],
             'surname'   => ['nullable', 'string', 'max:255', 'required_without:person_id'],
-            'birthname' => ['nullable', 'string', 'max:255'],
+            'story' => ['nullable', 'string', 'max:999999'],
             'nickname'  => ['nullable', 'string', 'max:255'],
 
             'gender_id' => ['nullable', 'integer'],
@@ -94,7 +94,7 @@ class FatherForm extends Form
         return [
             'firstname' => __('person.firstname'),
             'surname'   => __('person.surname'),
-            'birthname' => __('person.birthname'),
+            'story' => __('person.story'),
             'nickname'  => __('person.nickname'),
 
             'gender_id' => __('person.gender'),

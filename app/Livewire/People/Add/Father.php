@@ -38,7 +38,7 @@ class Father extends Component
     {
         $this->fatherForm->firstname = null;
         $this->fatherForm->surname   = null;
-        $this->fatherForm->birthname = null;
+        $this->fatherForm->story = null;
         $this->fatherForm->nickname  = null;
 
         $this->fatherForm->gender_id = null;
@@ -131,7 +131,7 @@ class Father extends Component
                 $new_person = Person::create([
                     'firstname' => $validated['firstname'],
                     'surname'   => $validated['surname'],
-                    'birthname' => $validated['birthname'],
+                    'story' => $validated['story'],
                     'nickname'  => $validated['nickname'],
                     'sex'       => 'm',
                     'gender_id' => $validated['gender_id'] ?? null,
@@ -166,7 +166,7 @@ class Father extends Component
         return
         $this->fatherForm->firstname != null or
         $this->fatherForm->surname != null or
-        $this->fatherForm->birthname != null or
+        $this->fatherForm->story != null or
         $this->fatherForm->nickname != null or
 
         $this->fatherForm->gender_id != null or

@@ -17,14 +17,15 @@
                         <x-ts-input wire:model="childForm.surname" id="surname" label="{{ __('person.surname') }} : *" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="surname" />
                     </div>
 
-                    {{-- birthname --}}
-                    <div class="col-span-6 md:col-span-3">
-                        <x-ts-input wire:model="childForm.birthname" id="birthname" label="{{ __('person.birthname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="birthname" />
-                    </div>
-
                     {{-- nickname --}}
                     <div class="col-span-6 md:col-span-3">
                         <x-ts-input wire:model="childForm.nickname" id="nickname" label="{{ __('person.nickname') }}" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="nickname" />
+                    </div>
+                    <x-hr.narrow class="col-span-6 !my-0" />
+
+                    {{-- 简介 --}}
+                    <div class="col-span-6 md:col-span-6">
+                        <x-ts-textarea wire:model="childForm.story" id="story" label="{{ __('person.story') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="story"/>
                     </div>
                     <x-hr.narrow class="col-span-6 !my-0" />
 
