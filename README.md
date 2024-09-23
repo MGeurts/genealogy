@@ -65,6 +65,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 ## Demo
 
 <a href="https://genealogy.kreaweb.be/" target="_blank">https://genealogy.kreaweb.be/</a>
+<a href="https://fmy.gooda.homes/" target="_blank">https://fmy.gooda.homes/</a>
 
 <p>This demo has 2 family trees implemented, <b>BRITISH ROYALS</b> and <b>KENNEDY</b>.</p>
 
