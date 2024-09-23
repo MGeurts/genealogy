@@ -91,6 +91,7 @@ return [
     'dod'         => 'Datum overlijden',
     'yod'         => 'Jaar overlijden',
     'pod'         => 'Plaats overlijden',
+    'summary'     => 'Samenvatting',
     'email'       => 'E-mail',
     'password'    => 'Password',
     'address'     => 'Adres',

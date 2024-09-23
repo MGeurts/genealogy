@@ -35,6 +35,8 @@ class ProfileForm extends Form
 
     public $pob = null;
 
+    public $summary = null;
+
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]
     public function genders(): Collection
@@ -68,6 +70,8 @@ class ProfileForm extends Form
                 new DobValid,
             ],
             'pob' => ['nullable', 'string', 'max:255'],
+
+            'summary' => ['nullable', 'string', 'max:65535'],
         ];
     }
 
@@ -90,6 +94,8 @@ class ProfileForm extends Form
             'yob' => __('person.yob'),
             'dob' => __('person.dob'),
             'pob' => __('person.pob'),
+
+            'summary' => __('person.summary'),
         ];
     }
 }

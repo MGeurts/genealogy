@@ -91,6 +91,7 @@ return [
     'dod'         => 'Date of death',
     'yod'         => 'Year of death',
     'pod'         => 'Place of death',
+    'summary'     => 'Summary',
     'email'       => 'Email',
     'password'    => 'Password',
     'address'     => 'Address',

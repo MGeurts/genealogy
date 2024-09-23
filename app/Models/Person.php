@@ -46,6 +46,8 @@ class Person extends Model implements HasMedia
         'dob', 'yob', 'pob',
         'dod', 'yod', 'pod',
 
+        'summary',
+
         'street', 'number',
         'postal_code', 'city',
         'province', 'state',

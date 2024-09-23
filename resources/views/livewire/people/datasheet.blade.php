@@ -1,4 +1,4 @@
-<div class="min-w-max max-w-max grow dark:text-neutral-200">
+<div class="w-full min-w-max max-w-192 grow dark:text-neutral-200">
     <table class="table-auto">
         <tbody>
             {{-- names --}}
@@ -9,25 +9,25 @@
                 <td>&nbsp;</td>
                 <td colspan="3" class="border-b-2 border-gray-600 border-solid">{{ __('person.names') }}</td>
             </tr>
-            <tr>
+            <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.firstname') }} :</td>
-                <td>{{ $person->firstname }}</td>
+                <td class="break-words max-w-96">{{ $person->firstname }}</td>
             </tr>
-            <tr>
+            <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.surname') }} :</td>
-                <td>{{ $person->surname }}</td>
+                <td class="break-words max-w-96">{{ $person->surname }}</td>
             </tr>
-            <tr>
+            <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.birthname') }} :</td>
-                <td>{{ $person->birthname }}</td>
+                <td class="break-words max-w-96">{{ $person->birthname }}</td>
             </tr>
-            <tr>
+            <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.nickname') }} :</td>
-                <td>{{ $person->nickname }}</td>
+                <td class="break-words max-w-96">{{ $person->nickname }}</td>
             </tr>
 
             {{-- sex & gender --}}
@@ -36,7 +36,7 @@
                 <td class="border-b-2 border-gray-600 border-solid">{{ __('person.sex') }} & {{ __('person.gender') }}</td>
                 <td colspan="2" class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
             </tr>
-            <tr>
+            <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.sex') }} :</td>
                 <td>
@@ -44,10 +44,10 @@
                     <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                 </td>
             </tr>
-            <tr>
+            <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.gender') }} :</td>
-                <td>{{ $person->gender }}</td>
+                <td class="break-words max-w-96">{{ $person->gender }}</td>
             </tr>
 
             {{-- birth --}}
@@ -56,17 +56,17 @@
                 <td class="border-b-2 border-gray-600 border-solid">{{ __('person.birth') }}</td>
                 <td colspan="2" class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
             </tr>
-            <tr>
+            <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.dob') }} :</td>
                 <td>{{ $person->birth_formatted }}</td>
             </tr>
-            <tr>
+            <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.pob') }} :</td>
-                <td>{{ $person->pob }}</td>
+                <td class="break-words max-w-96">{{ $person->pob }}</td>
             </tr>
-            <tr>
+            <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.age') }} :</td>
                 <td>{{ $person->age }}</td>
@@ -79,20 +79,20 @@
                     <td class="border-b-2 border-gray-600 border-solid">{{ __('person.death') }}</td>
                     <td colspan="2" class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
                 </tr>
-                <tr>
+                <tr class="align-top">
                     <td colspan="2">&nbsp;</td>
                     <td>{{ __('person.dod') }} :</td>
                     <td>{{ $person->death_formatted }}</td>
                 </tr>
-                <tr>
+                <tr class="align-top">
                     <td colspan="2">&nbsp;</td>
                     <td>{{ __('person.pod') }} :</td>
-                    <td>{{ $person->pod }}</td>
+                    <td class="break-words max-w-96">{{ $person->pod }}</td>
                 </tr>
-                <tr>
+                <tr class="align-top">
                     <td colspan="2">&nbsp;</td>
-                    <td valign="top">{{ __('person.cemetery') }} :</td>
-                    <td>{!! implode('<br/>', array_filter([$person->getMetadataValue('cemetery_location_name'), nl2br(e($person->getMetadataValue('cemetery_location_address')))])) !!}</td>
+                    <td>{{ __('person.cemetery') }} :</td>
+                    <td class="break-words max-w-96">{!! implode('<br/>', array_filter([$person->getMetadataValue('cemetery_location_name'), nl2br(e($person->getMetadataValue('cemetery_location_address')))])) !!}</td>
                 </tr>
             @else
                 {{-- contact --}}
@@ -101,17 +101,32 @@
                     <td class="border-b-2 border-gray-600 border-solid">{{ __('person.contact') }}</td>
                     <td colspan="2" class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
                 </tr>
-                <tr>
+                <tr class="align-top">
                     <td colspan="2">&nbsp;</td>
-                    <td valign="top">{{ __('person.address') }} :</td>
-                    <td>{!! nl2br(e($person->address)) !!}</td>
+                    <td>{{ __('person.address') }} :</td>
+                    <td class="break-words max-w-96">{!! nl2br(e($person->address)) !!}</td>
                 </tr>
-                <tr>
+                <tr class="align-top">
                     <td colspan="2">&nbsp;</td>
                     <td>{{ __('person.phone') }} :</td>
-                    <td>{{ $person->phone }}</td>
+                    <td class="break-words max-w-96">{{ $person->phone }}</td>
                 </tr>
             @endif
+
+            <tr>
+                <td colspan="4">&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td>&nbsp;</td>
+                <td class="border-b-2 border-gray-600 border-solid">{{ __('person.summary') }}</td>
+                <td colspan="2" class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
+            </tr>
+
+            <tr class="align-top">
+                <td colspan="2">&nbsp;</td>
+                <td colspan="2" class="break-words whitespace-pre-line max-w-96">{{ $person->summary }}</td>
+            </tr>
 
             <tr>
                 <td colspan="4">&nbsp;</td>
@@ -144,9 +159,9 @@
                     @endif
                 </td>
             </tr>
-            <tr>
+            <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
-                <td valign="top">{{ __('person.parents') }} :</td>
+                <td>{{ __('person.parents') }} :</td>
                 <td>
                     @if ($person->parents)
                         {{ $person->parents->person_1->name }} <x-ts-icon icon="{{ $person->parents->person_1->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" /> {{ $person->parents->person_1->birth_year }}<br/>

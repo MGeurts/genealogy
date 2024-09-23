@@ -33,6 +33,8 @@ return new class extends Migration
             $table->integer('yod')->nullable();
             $table->string('pod')->nullable();
 
+            $table->text('summary')->nullable();
+
             $table->string('street', 100)->nullable();
             $table->string('number', 20)->nullable();
             $table->string('postal_code', 20)->nullable();

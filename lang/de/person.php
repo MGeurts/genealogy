@@ -91,6 +91,7 @@ return [
     'dod'         => 'Sterbedatum',
     'yod'         => 'Sterbejahr',
     'pod'         => 'Sterbeort',
+    'summary'     => 'Zusammenfassung',
     'email'       => 'E-Mail Adresse',
     'password'    => 'Passwort',
     'address'     => 'Adresse',
