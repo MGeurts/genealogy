@@ -69,6 +69,7 @@ return [
     'name'        => '姓名',
     'firstname'   => '姓',
     'surname'     => '名',
+    'birthname'   => '出生名',
     'story'       => '简介',
     'nickname'    => '昵称',
     'sex'         => '性别',

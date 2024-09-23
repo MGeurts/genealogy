@@ -89,8 +89,9 @@ return [
 
     'people_search'             => '当前<span class="text-emerald-600"><strong>:scope</strong></span></span>',
     'people_search_placeholder' => '输入亲友姓名',
+    'people_search_tip'         => '通过姓氏、名字、简介或昵称搜索人员。',
     'people_found'              => '，以下是在 <span class="text-emerald-600"><strong>:total</strong></span> 位亲友的 <span class="text-emerald-600"><strong>:scope</strong></span> 家族中，关键字为 <span class="text-emerald-600"><strong>:keyword</strong></span> 的亲友',
     'people_available'          => '的成员总共有<span class="text-emerald-600"><strong>:total</strong></span>人',
 
-    'whoops' => 'Whoops! 出了一点小错误。',
+    'whoops' => 'Whoops! 出了一点小错误。'
 ];

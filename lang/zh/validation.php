@@ -163,7 +163,7 @@ return [
     |
     */
     'surname.required_without'   => '姓名不能为空',
-    'person_id.required_without' => 'When adding an EXISTING person, select a person.',
+    'person_id.required_without' => '在添加已有人员时，请选择一个人员。',
     /*
     |--------------------------------------------------------------------------
     | 自定义验证属性

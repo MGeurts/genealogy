@@ -58,6 +58,6 @@ return [
 
     'send_reset_password_link' => '发送重置密码链接',
 
-    'team'    => '团队',
+    'team'    => '家族',
     'to_join' => '加入',
 ];

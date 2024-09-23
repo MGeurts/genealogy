@@ -100,7 +100,7 @@ return [
 
     'people_search'             => 'Search people in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
     'people_search_placeholder' => 'Enter a name ...',
-    'people_search_tip'         => 'Search people by surname, firstname, story or nickname.',
+    'people_search_tip'         => 'Search people by surname, firstname, birthname or nickname.',
     'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> found with keyword <span class="text-emerald-600"><strong>:keyword</strong></span> in <span class="text-emerald-600"><strong>:total</strong></span> available in <span class="text-emerald-600"><strong>:scope</strong></span>',
     'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> available in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
 
