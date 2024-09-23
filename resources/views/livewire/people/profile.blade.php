@@ -139,7 +139,7 @@
                                 </a>
                             @endif
                         </td>
-                        <td class="pl-2 break-words border-b-2 max-w-96">{!! nl2br(e($person->getMetadataValue('cemetery_location_address'))) !!}</td>
+                        <td class="pl-2 break-words whitespace-pre-line border-b-2 max-w-96">{{ $person->getMetadataValue('cemetery_location_address') }}</td>
                     </tr>
                 @else
                     <tr class="align-top">
@@ -153,7 +153,7 @@
                                 </a>
                             @endif
                         </td>
-                        <td class="pl-2 break-words border-b-2 max-w-96">{!! nl2br(e($person->address)) !!}</td>
+                        <td class="pl-2 break-words whitespace-pre-line border-b-2 max-w-96">{{ $person->address }}</td>
                     </tr>
                     <tr class="align-top">
                         <td class="pr-2 border-b-2 border-r-2">{{ __('person.phone') }}</td>

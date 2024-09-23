@@ -92,7 +92,9 @@
                 <tr class="align-top">
                     <td colspan="2">&nbsp;</td>
                     <td>{{ __('person.cemetery') }} :</td>
-                    <td class="break-words max-w-96">{!! implode('<br/>', array_filter([$person->getMetadataValue('cemetery_location_name'), nl2br(e($person->getMetadataValue('cemetery_location_address')))])) !!}</td>
+                    <td class="break-words max-w-96">
+                        {!! implode('<br/>', array_filter([$person->getMetadataValue('cemetery_location_name'), $person->getMetadataValue('cemetery_location_address')])) !!}
+                    </td>
                 </tr>
             @else
                 {{-- contact --}}
@@ -104,7 +106,7 @@
                 <tr class="align-top">
                     <td colspan="2">&nbsp;</td>
                     <td>{{ __('person.address') }} :</td>
-                    <td class="break-words max-w-96">{!! nl2br(e($person->address)) !!}</td>
+                    <td class="break-words whitespace-pre-line max-w-96">{{ $person->address }}</td>
                 </tr>
                 <tr class="align-top">
                     <td colspan="2">&nbsp;</td>
