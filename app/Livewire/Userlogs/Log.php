@@ -17,7 +17,7 @@ class Log extends Component
 
         $userlogs_by_date = Userlog::select('userlogs.country_name', 'userlogs.country_code', 'userlogs.created_at', 'users.surname', 'users.firstname')
             ->leftjoin('users', 'userlogs.user_id', '=', 'users.id')
-            ->where('userlogs.created_at', '>=', now()->startOfMonth()->subMonths($months))
+            ->where('userlogs.created_at', '>=', today()->startOfMonth()->subMonths($months))
             ->orderByDesc('userlogs.created_at')
             ->get()
             ->groupBy('date');
