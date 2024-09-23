@@ -1,40 +1,31 @@
-<div class="max-w-5xl grow dark:text-neutral-200">
-    <table class="gap-5 table-auto">
+<div class="min-w-max max-w-max grow dark:text-neutral-200">
+    <table class="table-auto">
         <tbody>
             {{-- names --}}
-            <tr class="border-t-2 border-b-2 border-gray-600 border-solid">
-                <td>{{ __('person.person') }}</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+            <tr class="border-gray-600 border-solid border-y-2">
+                <td colspan="4">{{ __('person.person') }}</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
-                <td class="border-b-2 border-gray-600 border-solid">{{ __('person.names') }}</td>
-                <td class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
-                <td class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
+                <td colspan="3" class="border-b-2 border-gray-600 border-solid">{{ __('person.names') }}</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.firstname') }} :</td>
                 <td>{{ $person->firstname }}</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.surname') }} :</td>
                 <td>{{ $person->surname }}</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.birthname') }} :</td>
                 <td>{{ $person->birthname }}</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.nickname') }} :</td>
                 <td>{{ $person->nickname }}</td>
             </tr>
@@ -43,12 +34,10 @@
             <tr>
                 <td>&nbsp;</td>
                 <td class="border-b-2 border-gray-600 border-solid">{{ __('person.sex') }} & {{ __('person.gender') }}</td>
-                <td class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
-                <td class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
+                <td colspan="2" class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.sex') }} :</td>
                 <td>
                     {{ $person->sex == 'm' ? __('app.male') : __('app.female') }}
@@ -56,8 +45,7 @@
                 </td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.gender') }} :</td>
                 <td>{{ $person->gender }}</td>
             </tr>
@@ -66,24 +54,20 @@
             <tr>
                 <td>&nbsp;</td>
                 <td class="border-b-2 border-gray-600 border-solid">{{ __('person.birth') }}</td>
-                <td class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
-                <td class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
+                <td colspan="2" class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.dob') }} :</td>
                 <td>{{ $person->birth_formatted }}</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.pob') }} :</td>
                 <td>{{ $person->pob }}</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.age') }} :</td>
                 <td>{{ $person->age }}</td>
             </tr>
@@ -93,24 +77,20 @@
                 <tr>
                     <td>&nbsp;</td>
                     <td class="border-b-2 border-gray-600 border-solid">{{ __('person.death') }}</td>
-                    <td class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
-                    <td class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
+                    <td colspan="2" class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
                     <td>{{ __('person.dod') }} :</td>
                     <td>{{ $person->death_formatted }}</td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
                     <td>{{ __('person.pod') }} :</td>
                     <td>{{ $person->pod }}</td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
                     <td valign="top">{{ __('person.cemetery') }} :</td>
                     <td>{!! implode('<br/>', array_filter([$person->getMetadataValue('cemetery_location_name'), nl2br(e($person->getMetadataValue('cemetery_location_address')))])) !!}</td>
                 </tr>
@@ -119,39 +99,31 @@
                 <tr>
                     <td>&nbsp;</td>
                     <td class="border-b-2 border-gray-600 border-solid">{{ __('person.contact') }}</td>
-                    <td class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
-                    <td class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
+                    <td colspan="2" class="border-b-2 border-gray-600 border-solid">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
                     <td valign="top">{{ __('person.address') }} :</td>
                     <td>{!! nl2br(e($person->address)) !!}</td>
                 </tr>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
                     <td>{{ __('person.phone') }} :</td>
                     <td>{{ $person->phone }}</td>
                 </tr>
             @endif
+
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="4">&nbsp;</td>
             </tr>
 
             {{-- family --}}
-            <tr class="border-t-2 border-b-2 border-gray-600 border-solid">
+            <tr class="border-gray-600 border-solid border-y-2">
                 <td>{{ __('person.family') }}</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="3">&nbsp;</td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.father') }} :</td>
                 <td>
                     @if ($person->father)
@@ -162,8 +134,7 @@
                 </td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.mother') }} :</td>
                 <td>
                     @if ($person->mother)
@@ -174,19 +145,17 @@
                 </td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td valign="top">{{ __('person.parents') }} :</td>
                 <td>
                     @if ($person->parents)
-                        {{ $person->parents->person_1->name }} <x-ts-icon icon="{{ $person->parents->person_1->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" /><br/>
-                        {{ $person->parents->person_2->name }} <x-ts-icon icon="{{ $person->parents->person_2->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        {{ $person->parents->person_1->name }} <x-ts-icon icon="{{ $person->parents->person_1->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" /> {{ $person->parents->person_1->birth_year }}<br/>
+                        {{ $person->parents->person_2->name }} <x-ts-icon icon="{{ $person->parents->person_2->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" /> {{ $person->parents->person_2->birth_year }}
                     @endif
                 </td>
             </tr>
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.partner') }} :</td>
                 <td>
                     @if ($person->currentPartner())
@@ -196,31 +165,24 @@
                     @endif
                 </td>
             </tr>
+            
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="4">&nbsp;</td>
             </tr>
 
             {{-- partners --}}
-            <tr class="border-t-2 border-b-2 border-gray-600 border-solid">
-                <td>
+            <tr class="border-gray-600 border-solid border-y-2">
+                <td colspan="4">
                     {{ __('person.partners') }}
                     @if (count($person->couples) > 0)
                         <x-ts-badge color="emerald" text="{{ count($person->couples) }}" />
                     @endif
                 </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
             </tr>
 
             @foreach ($person->couples->sortBy('date_start') as $couple)
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td colspan="3">&nbsp;</td>
                     <td>
                         @if ($couple->person2_id === $person->id)
                             {{ $couple->person_1->name }}
@@ -237,45 +199,35 @@
                         @endif
                         <br />
 
-                        <p>
-                            <x-ts-icon icon="hearts" class="inline-block size-5 text-emerald-600" />
-                            {{ $couple->date_start ? $couple->date_start->isoFormat('LL') : '??' }}
+                        <x-ts-icon icon="hearts" class="inline-block size-5 text-emerald-600" />
+                        {{ $couple->date_start ? $couple->date_start->isoFormat('LL') : '??' }}
 
-                            @if ($couple->date_end or $couple->has_ended)
-                                <br />
-                                <x-ts-icon icon="hearts-off" class="inline-block size-5 text-danger-600 dark:text-danger-400" />
-                                {{ $couple->date_end ? $couple->date_end->isoFormat('LL') : '??' }}
-                            @endif
-                        </p>
+                        @if ($couple->date_end or $couple->has_ended)
+                            <br />
+                            <x-ts-icon icon="hearts-off" class="inline-block size-5 text-danger-600 dark:text-danger-400" />
+                            {{ $couple->date_end ? $couple->date_end->isoFormat('LL') : '??' }}
+                        @endif
                     </td>
                 </tr> 
             @endforeach
 
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="4">&nbsp;</td>
             </tr>
 
             {{-- children --}}
-            <tr class="border-t-2 border-b-2 border-gray-600 border-solid">
-                <td>
+            <tr class="border-gray-600 border-solid border-y-2">
+                <td colspan="4">
                     {{ __('person.children') }}
                     @if (count($person->childrenNaturalAll()) > 0)
                         <x-ts-badge color="emerald" text="{{ count($person->childrenNaturalAll()) }}" />
                     @endif
                 </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
             </tr>
 
             @foreach ($person->childrenNaturalAll() as $child)
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td colspan="3">&nbsp;</td>
                     <td>
                         {{ $child->name }}
                         <x-ts-icon icon="{{ $child->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -285,30 +237,22 @@
             @endforeach
             
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="4">&nbsp;</td>
             </tr>
 
             {{-- siblings --}}
-            <tr class="border-t-2 border-b-2 border-gray-600 border-solid">
-                <td>
+            <tr class="border-gray-600 border-solid border-y-2">
+                <td colspan="4">
                     {{ __('person.siblings') }}
                     @if (count($person->siblings()) > 0)
                         <x-ts-badge color="emerald" text="{{ count($person->siblings()) }}" />
                     @endif
                 </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
             </tr>
 
             @foreach ($person->siblings() as $sibling)
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td colspan="3">&nbsp;</td>
                     <td>
                         {{ $sibling->name }}
                         <x-ts-icon icon="{{ $sibling->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -319,57 +263,49 @@
             @endforeach
             
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="4">&nbsp;</td>
             </tr>
 
             {{-- files --}}
-            <tr class="border-t-2 border-b-2 border-gray-600 border-solid">
-                <td>
+            <tr class="border-gray-600 border-solid border-y-2">
+                <td colspan="4">
                     {{ __('person.files') }}
-                    @if ($this->person->countFiles() > 0)
-                        <x-ts-badge color="emerald" text="{{ $this->person->countFiles() }}" />
+                    @if (count($files) > 0)
+                        <x-ts-badge color="emerald" text="{{ count($files) }}" />
                     @endif
                 </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
             </tr>
 
-            @foreach ($person->getMedia('files') as $file)
+            @foreach ($files as $file)
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
+                    <td colspan="3">&nbsp;</td>
                     <td>
-                        {{ $file->name }}
+                        {{ $file->file_name }}
                     </td>
                 </tr> 
             @endforeach
             
             <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td colspan="4">&nbsp;</td>
             </tr>
             
             {{-- photos --}}
-            <tr class="border-t-2 border-b-2 border-gray-600 border-solid">
-                <td>{{ __('person.photos') }}</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-                        
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+            <tr class="border-gray-600 border-solid border-y-2">
+                <td colspan="4">
+                    {{ __('person.photos') }}
+                    @if (count($images) > 0)
+                        <x-ts-badge color="emerald" text="{{ count($images) }}" />
+                    @endif
+                </td>
             </tr>
         </tbody>
     </table>
+
+    <div class="grid grid-cols-3 gap-2 mt-2">
+        @foreach ($images as $image)
+            <div>
+                <img class="rounded max-w-48" src="{{ asset('storage/photos-384/' . $person->team_id . '/' . $image) }}" alt="{{ $person->name }}" />
+            </div> 
+        @endforeach
+    </div>
 </div>
