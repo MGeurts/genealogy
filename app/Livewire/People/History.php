@@ -39,6 +39,6 @@ class History extends Component
     // ------------------------------------------------------------------------------
     public function render(): View
     {
-        return view('livewire.people.history');
+        return view('livewire.people.hi');
     }
 }

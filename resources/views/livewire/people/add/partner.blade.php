@@ -21,6 +21,11 @@
                     <div class="col-span-6 md:col-span-3">
                         <x-ts-input wire:model="partnerForm.nickname" id="nickname" label="{{ __('person.nickname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="nickname" />
                     </div>
+
+                    {{-- birthname --}}
+                    <div class="col-span-6 md:col-span-3">
+                        <x-ts-input wire:model="partnerForm.birthname" id="birthname" label="{{ __('person.birthname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="birthname" />
+                    </div>
                     <x-hr.narrow class="col-span-6 !my-0" />
 
                     {{-- story --}}
@@ -31,7 +36,7 @@
 
                     {{-- sex --}}
                     <div class="col-span-6 md:col-span-3">
-                        <x-label for="sex" class="mr-5" value="{{ __('person.sex') }} ({{ __('person.biological') }}) : *" />
+                        <x-label for="sex" class="mr-5" value="{{ __('person.sex') }} {{--({{ __('person.biological') }}) --}}: *" />
                         <div class="flex">
                             <div class="mt-3 mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
                                 <x-ts-radio color="primary" wire:model="partnerForm.sex" name="sex" id="sexM" value="m" label="{{ __('app.male') }}" />

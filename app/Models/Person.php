@@ -33,6 +33,7 @@ class Person extends Model implements HasMedia
     protected $fillable = [
         'firstname',
         'surname',
+        'birthname',
         'story',
         'nickname',
 
@@ -104,7 +105,7 @@ class Person extends Model implements HasMedia
     {
         if ($searchString != '%') {
             collect(str_getcsv($searchString, ' ', '"'))->filter()->each(function (string $searchTerm) use ($query) {
-                $query->whereAny(['firstname', 'surname', 'story', 'nickname'], 'like', $searchTerm . '%');
+                $query->whereAny(['firstname', 'surname', 'birthname', 'story', 'nickname'], 'like', $searchTerm . '%');
             });
         }
     }

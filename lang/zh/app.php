@@ -11,6 +11,8 @@ return [
     'session'          => '会话',
     'terms_of_service' => '服务条款',
     'useful_links'     => '相关链接',
+    'impressum_links'  => '网站声明',
+    'contact'          => '联系方式',
 
     // Labels
     'api_tokens'       => 'API-Token',
@@ -24,7 +26,7 @@ return [
     'manage_account'   => '管理账号',
     'my_profile'       => '我的信息',
     'nothing_recorded' => '没有记录',
-    'search'           => '查询亲友',
+    'search'           => '查询成员',
     'yes'              => '同意',
     'no'               => '拒绝',
 

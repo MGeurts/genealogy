@@ -84,7 +84,10 @@
                     <td class="pr-2 border-r-2">{{ __('person.nickname') }}</td>
                     <td class="pl-2">{{ $person->nickname }}</td>
                 </tr>
-
+                <tr class="border-b-2">
+                    <td class="pr-2 border-r-2">{{ __('person.birthname') }}</td>
+                    <td class="pl-2">{{ $person->birthname }}</td>
+                </tr>
                 <tr class="border-b-2">
                     <td class="pr-2 border-r-2">{{ __('person.story') }}</td>
                     <td class="pl-2 max-w-md break-words">{!! nl2br(e($person->story)) !!}</td> {{-- 增加:break-words为自动换行 --}}

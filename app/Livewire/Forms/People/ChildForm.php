@@ -22,6 +22,8 @@ class ChildForm extends Form
 
     public $surname = null;
 
+    public $birthname = null;
+
     public $story = null;
 
     public $nickname = null;
@@ -56,6 +58,7 @@ class ChildForm extends Form
         return $rules = [
             'firstname' => ['nullable', 'string', 'max:255', 'required_without:person_id'],
             'surname'   => ['nullable', 'string', 'max:255', 'required_without:person_id'],
+            'birthname' => ['nullable', 'string', 'max:255'],
             'story' => ['nullable', 'string', 'max:999999'],
             'nickname'  => ['nullable', 'string', 'max:255'],
 
@@ -97,6 +100,7 @@ class ChildForm extends Form
         return [
             'firstname' => __('person.firstname'),
             'surname'   => __('person.surname'),
+            'birthname' => __('person.birthname'),
             'story' => __('person.story'),
             'nickname'  => __('person.nickname'),
 

@@ -131,6 +131,7 @@ namespace App\Models{
  * @property int $id
  * @property string|null $firstname
  * @property string $surname
+ * @property string|null $birthname
  * @property string|null $story
  * @property string|null $nickname
  * @property string $sex
@@ -190,6 +191,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Person partnerOffset(?string $birth_date, ?int $birth_year, int $offset = 40)
  * @method static \Illuminate\Database\Eloquent\Builder|Person query()
  * @method static \Illuminate\Database\Eloquent\Builder|Person search(string $value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Person wherebirthname($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Person wherestory($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Person whereCity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Person whereCountryId($value)

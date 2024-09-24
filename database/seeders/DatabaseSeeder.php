@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
 
         // -----------------------------------------------------------------------
         // if you want to use the application in production, please remove :
-        //
+        // 如果要在生产环境中使用应用程序，请删除以下文件
         // - the DEMO DATA seeder call above
         // - the database seeder /database/seeders/DemoSeeder.php
         // - the database seeder /database/seeders/TreeSeeder.php

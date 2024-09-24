@@ -19,6 +19,8 @@ class ProfileForm extends Form
 
     public $surname = null;
 
+    public $birthname = null;
+
     public $story = null;
 
     public $nickname = null;
@@ -48,6 +50,7 @@ class ProfileForm extends Form
         return [
             'firstname' => ['nullable', 'string', 'max:255'],
             'surname'   => ['required', 'string', 'max:255'],
+            'birthname'   => ['required', 'string', 'max:255'],
             'story' => ['nullable', 'string', 'max:999999'],
             'nickname'  => ['nullable', 'string', 'max:255'],
 
@@ -81,6 +84,7 @@ class ProfileForm extends Form
         return [
             'firstname' => __('person.firstname'),
             'surname'   => __('person.surname'),
+            'birthname'   => __('person.birthname'),
             'story' => __('person.story'),
             'nickname'  => __('person.nickname'),
 

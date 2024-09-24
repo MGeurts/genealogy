@@ -32,6 +32,11 @@
                 <div class="col-span-6 md:col-span-3">
                     <x-ts-input wire:model="profileForm.nickname" id="nickname" label="{{ __('person.nickname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
+
+                {{-- birthname --}}
+                <div class="col-span-6 md:col-span-3">
+                    <x-ts-input wire:model="profileForm.birthname" id="birthname" label="{{ __('person.birthname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" />
+                </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 
                 {{-- story --}}
@@ -52,15 +57,15 @@
                     </div>
                 </div>
 
-                <!-- {{-- gender_id: 删除性别认同 "                
+                {{-- gender_id: 注释性别认同             
                  <div class="col-span-3">
                     <x-ts-select.styled wire:model="profileForm.gender_id" id="gender_id" label="{{ __('person.gender') }} :" :options="$profileForm->genders()" select="label:name|value:id"
                         placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-warning-200 dark:text-black" searchable />
                 </div>
-                <x-hr.narrow class="col-span-6 !my-0" />"
-                 --}} -->
+                --}}
 
-
+                <x-hr.narrow class="col-span-6 !my-0" />
+                
                 {{-- yob --}}
                 <div class="col-span-6 md:col-span-3">
                     <x-ts-input wire:model="profileForm.yob" id="yob" label="{{ __('person.yob') }} :" wire:dirty.class="bg-warning-200 dark:text-black" />

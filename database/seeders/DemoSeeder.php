@@ -48,7 +48,8 @@ class DemoSeeder extends Seeder
                 'id'        => $person['id'],
                 'firstname' => ! empty($person['firstname']) ? $person['firstname'] : null,
                 'surname'   => ! empty($person['surname']) ? $person['surname'] : null,
-                'story' => ! empty($person['story']) ? $person['story'] : null,
+                'birthname' => ! empty($person['birthname']) ? $person['birthname'] : null,
+                'story'     => ! empty($person['story']) ? $person['story'] : null,
                 'nickname'  => ! empty($person['nickname']) ? $person['nickname'] : null,
 
                 'sex' => strtolower($person['sex']),
@@ -362,6 +363,7 @@ class DemoSeeder extends Seeder
                 'id'        => $person['id'],
                 'firstname' => ! empty($person['firstname']) ? $person['firstname'] : null,
                 'surname'   => ! empty($person['surname']) ? $person['surname'] : null,
+                'birthname' => ! empty($person['birthname']) ? $person['birthname'] : null,
                 'story' => ! empty($person['story']) ? $person['story'] : null,
                 'nickname'  => ! empty($person['nickname']) ? $person['nickname'] : null,
 

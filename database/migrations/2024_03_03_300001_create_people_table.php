@@ -16,6 +16,7 @@ return new class extends Migration
 
             $table->string('firstname')->nullable()->index();
             $table->string('surname')->index();
+            $table->string('birthname')->nullable()->index();
             $table->longText('story')->nullable()->index();
             $table->string('nickname')->nullable()->index();
 

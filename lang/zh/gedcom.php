@@ -2,7 +2,7 @@
 
 return [
     'export'        => '导出',
-    'gedcom_export' => '导出家族为 GEDCOM file',
+    'gedcom_export' => '导出家族为 GEDCOM 文件',
     'gedcom_file'   => 'GEDCOM 文件',
     'gedcom_import' => '从 GEDCOM 文件导入家族',
     'import'        => '导入',

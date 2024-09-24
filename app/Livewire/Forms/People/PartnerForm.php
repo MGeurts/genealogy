@@ -22,6 +22,8 @@ class PartnerForm extends Form
 
     public $surname = null;
 
+    public $birthname = null;
+
     public $story = null;
 
     public $nickname = null;
@@ -64,6 +66,7 @@ class PartnerForm extends Form
         return $rules = [
             'firstname' => ['nullable', 'string', 'max:255', 'required_without:person2_id'],
             'surname'   => ['nullable', 'string', 'max:255', 'required_without:person2_id'],
+            'birthname'  => ['nullable', 'string', 'max:255'],
             'story' => ['nullable', 'string', 'max:999999'],
             'nickname'  => ['nullable', 'string', 'max:255'],
 
@@ -109,6 +112,7 @@ class PartnerForm extends Form
         return [
             'firstname' => __('person.firstname'),
             'surname'   => __('person.surname'),
+            'birthname'   => __('person.birthname'),
             'story' => __('person.story'),
             'nickname'  => __('person.nickname'),
 
