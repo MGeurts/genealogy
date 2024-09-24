@@ -58,6 +58,11 @@ class PeopleController extends Controller
         return view('back.people.history', compact('person'));
     }
 
+    public function datasheet(Person $person): View
+    {
+        return view('back.people.datasheet', compact('person'));
+    }
+
     public function addFather(Person $person): View
     {
         abort_unless(auth()->user()->hasPermission('person:create'), 403, __('app.unauthorized_access'));

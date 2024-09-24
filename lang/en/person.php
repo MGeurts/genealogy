@@ -3,6 +3,7 @@
 return [
     // Labels
     'biological' => 'biological',
+    'contact'    => 'Contact',
     'person'     => 'Person',
     'people'     => 'People',
     'people_log' => 'People logbook',
@@ -19,6 +20,7 @@ return [
     'siblings'      => 'Siblings',
     'ancestors'     => 'Ancestors',
     'descendants'   => 'Descendants',
+    'birth'         => 'Birth',
     'dead'          => 'Dead',
     'death'         => 'Death',
     'deceased'      => 'Deceased',
@@ -73,6 +75,7 @@ return [
     // Attributes
     'id'          => 'ID',
     'name'        => 'Name',
+    'names'       => 'Names',
     'firstname'   => 'First name',
     'surname'     => 'Surname',
     'birthname'   => 'Birthname',
@@ -89,6 +92,7 @@ return [
     'dod'         => 'Date of death',
     'yod'         => 'Year of death',
     'pod'         => 'Place of death',
+    'summary'     => 'Summary',
     'email'       => 'Email',
     'password'    => 'Password',
     'address'     => 'Address',

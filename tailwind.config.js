@@ -112,12 +112,8 @@ export default {
                     '950': '#54B4D3',
                 },
             },
+
             width: {
-                '100': '25rem',
-                '128': '32rem',
-                '192': '48rem',
-            },
-            height: {
                 '100': '25rem',
                 '128': '32rem',
                 '192': '48rem',
@@ -127,11 +123,28 @@ export default {
                 '128': '32rem',
                 '192': '48rem',
             },
+            maxWidth: {
+                '100': '25rem',
+                '128': '32rem',
+                '192': '48rem',
+            },
+
+            height: {
+                '100': '25rem',
+                '128': '32rem',
+                '192': '48rem',
+            },
             minHeight: {
                 '100': '25rem',
                 '128': '32rem',
                 '192': '48rem',
             },
+            maxHeight: {
+                '100': '25rem',
+                '128': '32rem',
+                '192': '48rem',
+            },
+            
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
