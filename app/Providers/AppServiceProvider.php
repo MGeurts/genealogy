@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-// use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Console\AboutCommand;
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
-// use Illuminate\Support\Str;
 use Illuminate\Support\ServiceProvider;
+// use Illuminate\Support\Str;
 use Opcodes\LogViewer\Facades\LogViewer;
 use TallStackUi\Facades\TallStackUi;
 
@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // -----------------------------------------------------------------------
         // Use Strict Mode (not in production)
+        // -----------------------------------------------------------------------
         // 1. Prevent Lazy Loading
         // 2. Prevent Silently Discarding Attributes
         // 3. Prevent Access Missing Attributes
@@ -56,9 +57,7 @@ class AppServiceProvider extends ServiceProvider
         // LOG-VIEWER : log all queries (not in production)
         // -----------------------------------------------------------------------
         // if (! app()->isProduction()) {
-        //     DB::listen(function ($query) {
-        //         logger(Str::replaceArray('?', $query->bindings, $query->sql));
-        //     });
+        //     DB::listen(fn ($query) => Log::debug($query->toRawSQL()));
         // }
 
         // -----------------------------------------------------------------------
@@ -66,8 +65,11 @@ class AppServiceProvider extends ServiceProvider
         // -----------------------------------------------------------------------
         // if (! app()->isProduction()) {
         //     DB::listen(function ($query) {
-        //         if ($query->time > 500) {
-        //             Log::warning("An individual database query exceeded 500 ms.", ['sql' => $query->sql]);
+        //         if ($query->time > 250) {
+        //             Log::warning("An individual database query exceeded 250 ms.", [
+        //                 'sql' => $query->sql,
+        //                 'raw' => $query->toRawSQL()
+        //             ]);
         //         }
         //     });
         // }
