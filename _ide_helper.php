@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 11.24.1.
+ * Generated for Laravel 11.26.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -6570,8 +6570,9 @@ namespace Illuminate\Support\Facades {
                     /**
          * Set the table prefix and return the grammar.
          *
-         * @param \Illuminate\Database\Grammar $grammar
-         * @return \Illuminate\Database\Grammar 
+         * @template TGrammar of \Illuminate\Database\Grammar
+         * @param \Illuminate\Database\TGrammar $grammar
+         * @return \Illuminate\Database\TGrammar 
          * @static 
          */        public static function withTablePrefix($grammar)
         {            //Method inherited from \Illuminate\Database\Connection         
@@ -6593,7 +6594,7 @@ namespace Illuminate\Support\Facades {
          * Get the connection resolver for the given driver.
          *
          * @param string $driver
-         * @return mixed 
+         * @return \Closure|null 
          * @static 
          */        public static function getResolver($driver)
         {            //Method inherited from \Illuminate\Database\Connection         
@@ -10772,7 +10773,7 @@ namespace Illuminate\Support\Facades {
                     /**
          * Register a named limiter configuration.
          *
-         * @param string $name
+         * @param \BackedEnum|\UnitEnum|string $name
          * @param \Closure $callback
          * @return \Illuminate\Cache\RateLimiter 
          * @static 
@@ -10784,7 +10785,7 @@ namespace Illuminate\Support\Facades {
                     /**
          * Get the given named rate limiter.
          *
-         * @param string $name
+         * @param \BackedEnum|\UnitEnum|string $name
          * @return \Closure|null 
          * @static 
          */        public static function limiter($name)
@@ -24740,7 +24741,7 @@ namespace  {
                                 return $instance->whereBelongsTo($related, $relationshipName, $boolean);
             }
                             /**
-             * Add an "BelongsTo" relationship with an "or where" clause to the query.
+             * Add a "BelongsTo" relationship with an "or where" clause to the query.
              *
              * @param \Illuminate\Database\Eloquent\Model $related
              * @param string|null $relationshipName
