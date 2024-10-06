@@ -60,8 +60,8 @@
 
     {{-- lifetime & age --}}
     <div class="flex px-2">
-        <div class="flex-grow">{!! $person->lifetime ? $person->lifetime : '' !!}</div>
-        <div class="flex-grow text-end">{!! isset($person->age) ? $person->age . ' ' . trans_choice('person.years', $person->age) : '' !!}</div>
+        <div class="flex-grow">@if (isset($person->lifetime)) {{ $person->lifetime }} @endif</div>
+        <div class="flex-grow text-end">@if (isset($person->age)) {{ $person->age . ' ' . trans_choice('person.years', $person->age) }} @endif</div>
     </div>
 
     {{-- data --}}

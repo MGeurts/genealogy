@@ -93,7 +93,17 @@
                     <td colspan="2">&nbsp;</td>
                     <td>{{ __('person.cemetery') }} :</td>
                     <td class="break-words max-w-96">
-                        {!! implode('<br/>', array_filter([$person->getMetadataValue('cemetery_location_name'), $person->getMetadataValue('cemetery_location_address')])) !!}
+                        @php
+                            $cemetery = array_filter([$person->getMetadataValue('cemetery_location_name'), $person->getMetadataValue('cemetery_location_address')]);
+                        @endphp
+
+                        @foreach($cemetery as $line)
+                            {{ $line }}
+
+                            @if(!$loop->last)
+                                <br/>
+                            @endif
+                        @endforeach
                     </td>
                 </tr>
             @else

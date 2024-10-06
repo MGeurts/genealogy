@@ -52,7 +52,7 @@
                                     {{ $person->next_birthday->isoFormat('LL') }}
                                 </td>
                                 <td class="p-2 whitespace-nowrap text-end">
-                                    {!! $person->next_birthday_remaining_days . ' ' . trans_choice('birthday.days', $person->next_birthday_remaining_days) !!}
+                                    {{ $person->next_birthday_remaining_days . ' ' . trans_choice('birthday.days', $person->next_birthday_remaining_days) }}
                                 </td>
                                 <td class="p-2 whitespace-nowrap text-end">
                                     {{ $person->next_birthday_age }}
