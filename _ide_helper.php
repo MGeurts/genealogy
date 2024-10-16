@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 11.27.2.
+ * Generated for Laravel 11.28.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -3951,7 +3951,7 @@ namespace Illuminate\Support\Facades {
          * @template TCacheValue
          * @param string $key
          * @param \Illuminate\Cache\array{  0: \DateTimeInterface|\DateInterval|int, 1: \DateTimeInterface|\DateInterval|int }  $ttl
-         * @param \Illuminate\Cache\(callable():  TCacheValue)  $callback
+         * @param (callable(): TCacheValue) $callback
          * @param \Illuminate\Cache\array{  seconds?: int, owner?: string }|null  $lock
          * @return \Illuminate\Cache\TCacheValue 
          * @static 
@@ -4470,7 +4470,7 @@ namespace Illuminate\Support\Facades {
          * Get the specified string configuration value.
          *
          * @param string $key
-         * @param \Illuminate\Config\(\Closure():(string|\Illuminate\Config\null))|string|null $default
+         * @param (\Closure():(string|null))|string|null $default
          * @return string 
          * @static 
          */        public static function string($key, $default = null)
@@ -4482,7 +4482,7 @@ namespace Illuminate\Support\Facades {
          * Get the specified integer configuration value.
          *
          * @param string $key
-         * @param \Illuminate\Config\(\Closure():(int|\Illuminate\Config\null))|int|null $default
+         * @param (\Closure():(int|null))|int|null $default
          * @return int 
          * @static 
          */        public static function integer($key, $default = null)
@@ -4494,7 +4494,7 @@ namespace Illuminate\Support\Facades {
          * Get the specified float configuration value.
          *
          * @param string $key
-         * @param \Illuminate\Config\(\Closure():(float|\Illuminate\Config\null))|float|null $default
+         * @param (\Closure():(float|null))|float|null $default
          * @return float 
          * @static 
          */        public static function float($key, $default = null)
@@ -4506,7 +4506,7 @@ namespace Illuminate\Support\Facades {
          * Get the specified boolean configuration value.
          *
          * @param string $key
-         * @param \Illuminate\Config\(\Closure():(bool|\Illuminate\Config\null))|bool|null $default
+         * @param (\Closure():(bool|null))|bool|null $default
          * @return bool 
          * @static 
          */        public static function boolean($key, $default = null)
@@ -4518,7 +4518,7 @@ namespace Illuminate\Support\Facades {
          * Get the specified array configuration value.
          *
          * @param string $key
-         * @param \Illuminate\Config\(\Closure():(array<array-key, mixed>|\Illuminate\Config\null))|\Illuminate\Config\array<array-key,  mixed>|null  $default
+         * @param (\Closure():(array<array-key, mixed>|null))|array<array-key, mixed>|null $default
          * @return array<array-key, mixed> 
          * @static 
          */        public static function array($key, $default = null)
@@ -4984,9 +4984,9 @@ namespace Illuminate\Support\Facades {
          *
          * @template TWhenParameter
          * @template TWhenReturnType
-         * @param \Illuminate\Log\Context\(\Closure($this):  TWhenParameter)|TWhenParameter|null  $value
-         * @param \Illuminate\Log\Context\(callable($this,  TWhenParameter): TWhenReturnType)|null  $callback
-         * @param \Illuminate\Log\Context\(callable($this,  TWhenParameter): TWhenReturnType)|null  $default
+         * @param (\Closure($this): TWhenParameter)|\Illuminate\Log\Context\TWhenParameter|null $value
+         * @param (callable($this, TWhenParameter): TWhenReturnType)|null $callback
+         * @param (callable($this, TWhenParameter): TWhenReturnType)|null $default
          * @return $this|\Illuminate\Log\Context\TWhenReturnType 
          * @static 
          */        public static function when($value = null, $callback = null, $default = null)
@@ -4999,9 +4999,9 @@ namespace Illuminate\Support\Facades {
          *
          * @template TUnlessParameter
          * @template TUnlessReturnType
-         * @param \Illuminate\Log\Context\(\Closure($this):  TUnlessParameter)|TUnlessParameter|null  $value
-         * @param \Illuminate\Log\Context\(callable($this,  TUnlessParameter): TUnlessReturnType)|null  $callback
-         * @param \Illuminate\Log\Context\(callable($this,  TUnlessParameter): TUnlessReturnType)|null  $default
+         * @param (\Closure($this): TUnlessParameter)|\Illuminate\Log\Context\TUnlessParameter|null $value
+         * @param (callable($this, TUnlessParameter): TUnlessReturnType)|null $callback
+         * @param (callable($this, TUnlessParameter): TUnlessReturnType)|null $default
          * @return $this|\Illuminate\Log\Context\TUnlessReturnType 
          * @static 
          */        public static function unless($value = null, $callback = null, $default = null)
@@ -7561,9 +7561,9 @@ namespace Illuminate\Support\Facades {
          *
          * @template TWhenParameter
          * @template TWhenReturnType
-         * @param \Illuminate\Filesystem\(\Closure($this):  TWhenParameter)|TWhenParameter|null  $value
-         * @param \Illuminate\Filesystem\(callable($this,  TWhenParameter): TWhenReturnType)|null  $callback
-         * @param \Illuminate\Filesystem\(callable($this,  TWhenParameter): TWhenReturnType)|null  $default
+         * @param (\Closure($this): TWhenParameter)|\Illuminate\Filesystem\TWhenParameter|null $value
+         * @param (callable($this, TWhenParameter): TWhenReturnType)|null $callback
+         * @param (callable($this, TWhenParameter): TWhenReturnType)|null $default
          * @return $this|\Illuminate\Filesystem\TWhenReturnType 
          * @static 
          */        public static function when($value = null, $callback = null, $default = null)
@@ -7576,9 +7576,9 @@ namespace Illuminate\Support\Facades {
          *
          * @template TUnlessParameter
          * @template TUnlessReturnType
-         * @param \Illuminate\Filesystem\(\Closure($this):  TUnlessParameter)|TUnlessParameter|null  $value
-         * @param \Illuminate\Filesystem\(callable($this,  TUnlessParameter): TUnlessReturnType)|null  $callback
-         * @param \Illuminate\Filesystem\(callable($this,  TUnlessParameter): TUnlessReturnType)|null  $default
+         * @param (\Closure($this): TUnlessParameter)|\Illuminate\Filesystem\TUnlessParameter|null $value
+         * @param (callable($this, TUnlessParameter): TUnlessReturnType)|null $callback
+         * @param (callable($this, TUnlessParameter): TUnlessReturnType)|null $default
          * @return $this|\Illuminate\Filesystem\TUnlessReturnType 
          * @static 
          */        public static function unless($value = null, $callback = null, $default = null)
@@ -14413,8 +14413,8 @@ namespace Illuminate\Support\Facades {
                     /**
          * Call the given Closure with this instance then return the instance.
          *
-         * @param \Illuminate\Routing\(callable($this):  mixed)|null  $callback
-         * @return \Illuminate\Routing\($callback is null ? \Illuminate\Support\HigherOrderTapProxy : $this)
+         * @param (callable($this): mixed)|null $callback
+         * @return ($callback is null ? \Illuminate\Support\HigherOrderTapProxy : $this)
          * @static 
          */        public static function tap($callback = null)
         {
@@ -16503,9 +16503,9 @@ namespace Illuminate\Support\Facades {
          *
          * @template TWhenParameter
          * @template TWhenReturnType
-         * @param \Illuminate\Filesystem\(\Closure($this):  TWhenParameter)|TWhenParameter|null  $value
-         * @param \Illuminate\Filesystem\(callable($this,  TWhenParameter): TWhenReturnType)|null  $callback
-         * @param \Illuminate\Filesystem\(callable($this,  TWhenParameter): TWhenReturnType)|null  $default
+         * @param (\Closure($this): TWhenParameter)|\Illuminate\Filesystem\TWhenParameter|null $value
+         * @param (callable($this, TWhenParameter): TWhenReturnType)|null $callback
+         * @param (callable($this, TWhenParameter): TWhenReturnType)|null $default
          * @return $this|\Illuminate\Filesystem\TWhenReturnType 
          * @static 
          */        public static function when($value = null, $callback = null, $default = null)
@@ -16518,9 +16518,9 @@ namespace Illuminate\Support\Facades {
          *
          * @template TUnlessParameter
          * @template TUnlessReturnType
-         * @param \Illuminate\Filesystem\(\Closure($this):  TUnlessParameter)|TUnlessParameter|null  $value
-         * @param \Illuminate\Filesystem\(callable($this,  TUnlessParameter): TUnlessReturnType)|null  $callback
-         * @param \Illuminate\Filesystem\(callable($this,  TUnlessParameter): TUnlessReturnType)|null  $default
+         * @param (\Closure($this): TUnlessParameter)|\Illuminate\Filesystem\TUnlessParameter|null $value
+         * @param (callable($this, TUnlessParameter): TUnlessReturnType)|null $callback
+         * @param (callable($this, TUnlessParameter): TUnlessReturnType)|null $default
          * @return $this|\Illuminate\Filesystem\TUnlessReturnType 
          * @static 
          */        public static function unless($value = null, $callback = null, $default = null)
@@ -18262,7 +18262,7 @@ namespace Illuminate\Support\Facades {
                     /**
          * Use the given callback to resolve attributes for script tags.
          *
-         * @param \Illuminate\Foundation\(callable(string,  string, ?array, ?array): array)|array  $attributes
+         * @param (callable(string, string, ?array, ?array): array)|array $attributes
          * @return \Illuminate\Foundation\Vite 
          * @static 
          */        public static function useScriptTagAttributes($attributes)
@@ -18273,7 +18273,7 @@ namespace Illuminate\Support\Facades {
                     /**
          * Use the given callback to resolve attributes for style tags.
          *
-         * @param \Illuminate\Foundation\(callable(string,  string, ?array, ?array): array)|array  $attributes
+         * @param (callable(string, string, ?array, ?array): array)|array $attributes
          * @return \Illuminate\Foundation\Vite 
          * @static 
          */        public static function useStyleTagAttributes($attributes)
@@ -18284,7 +18284,7 @@ namespace Illuminate\Support\Facades {
                     /**
          * Use the given callback to resolve attributes for preload tags.
          *
-         * @param \Illuminate\Foundation\(callable(string,  string, ?array, ?array): (array|false))|array|false  $attributes
+         * @param (callable(string, string, ?array, ?array): (array|false))|array|false $attributes
          * @return \Illuminate\Foundation\Vite 
          * @static 
          */        public static function usePreloadTagAttributes($attributes)
@@ -20647,10 +20647,11 @@ namespace Illuminate\Database\Eloquent\Relations {
          * @param mixed $alias
          * @param bool $disableExtraConditions
          * @param string|null $morphable
+         * @param bool $hasCheck
          * @static 
-         */        public static function performJoinForEloquentPowerJoins($builder, $joinType = 'leftJoin', $callback = null, $alias = null, $disableExtraConditions = false, $morphable = null)
+         */        public static function performJoinForEloquentPowerJoins($builder, $joinType = 'leftJoin', $callback = null, $alias = null, $disableExtraConditions = false, $morphable = null, $hasCheck = false)
         {
-                        return \Illuminate\Database\Eloquent\Relations\Relation::performJoinForEloquentPowerJoins($builder, $joinType, $callback, $alias, $disableExtraConditions, $morphable);
+                        return \Illuminate\Database\Eloquent\Relations\Relation::performJoinForEloquentPowerJoins($builder, $joinType, $callback, $alias, $disableExtraConditions, $morphable, $hasCheck);
         }
                     /**
          * 
@@ -20732,10 +20733,11 @@ namespace Illuminate\Database\Eloquent\Relations {
          * @param mixed $callback
          * @param mixed $alias
          * @param bool $disableExtraConditions
+         * @param bool $hasCheck
          * @static 
-         */        public static function performJoinForEloquentPowerJoinsForHasMany($builder, $joinType, $callback = null, $alias = null, $disableExtraConditions = false)
+         */        public static function performJoinForEloquentPowerJoinsForHasMany($builder, $joinType, $callback = null, $alias = null, $disableExtraConditions = false, $hasCheck = false)
         {
-                        return \Illuminate\Database\Eloquent\Relations\Relation::performJoinForEloquentPowerJoinsForHasMany($builder, $joinType, $callback, $alias, $disableExtraConditions);
+                        return \Illuminate\Database\Eloquent\Relations\Relation::performJoinForEloquentPowerJoinsForHasMany($builder, $joinType, $callback, $alias, $disableExtraConditions, $hasCheck);
         }
                     /**
          * 
@@ -20767,8 +20769,8 @@ namespace Illuminate\Database\Eloquent\Relations {
                     /**
          * 
          *
-         * @param \Illuminate\Database\Eloquent\Model|array $model
          * @see \Kirschbaum\PowerJoins\Mixins\RelationshipsExtraMethods::usesSoftDeletes()
+         * @param mixed $model
          * @static 
          */        public static function usesSoftDeletes($model)
         {
@@ -23484,7 +23486,7 @@ namespace  {
                             /**
              * Add a basic where clause to the query.
              *
-             * @param \Illuminate\Database\Eloquent\(\Closure(static):  mixed)|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
+             * @param (\Closure(static): mixed)|string|array|\Illuminate\Contracts\Database\Query\Expression $column
              * @param mixed $operator
              * @param mixed $value
              * @param string $boolean
@@ -23498,7 +23500,7 @@ namespace  {
                             /**
              * Add a basic where clause to the query, and return the first result.
              *
-             * @param \Illuminate\Database\Eloquent\(\Closure(static):  mixed)|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
+             * @param (\Closure(static): mixed)|string|array|\Illuminate\Contracts\Database\Query\Expression $column
              * @param mixed $operator
              * @param mixed $value
              * @param string $boolean
@@ -23512,7 +23514,7 @@ namespace  {
                             /**
              * Add an "or where" clause to the query.
              *
-             * @param \Illuminate\Database\Eloquent\(\Closure(static):  mixed)|array|string|\Illuminate\Contracts\Database\Query\Expression  $column
+             * @param (\Closure(static): mixed)|array|string|\Illuminate\Contracts\Database\Query\Expression $column
              * @param mixed $operator
              * @param mixed $value
              * @return \Illuminate\Database\Eloquent\Builder|static 
@@ -23525,7 +23527,7 @@ namespace  {
                             /**
              * Add a basic "where not" clause to the query.
              *
-             * @param \Illuminate\Database\Eloquent\(\Closure(static):  mixed)|string|array|\Illuminate\Contracts\Database\Query\Expression  $column
+             * @param (\Closure(static): mixed)|string|array|\Illuminate\Contracts\Database\Query\Expression $column
              * @param mixed $operator
              * @param mixed $value
              * @param string $boolean
@@ -23539,7 +23541,7 @@ namespace  {
                             /**
              * Add an "or where not" clause to the query.
              *
-             * @param \Illuminate\Database\Eloquent\(\Closure(static):  mixed)|array|string|\Illuminate\Contracts\Database\Query\Expression  $column
+             * @param (\Closure(static): mixed)|array|string|\Illuminate\Contracts\Database\Query\Expression $column
              * @param mixed $operator
              * @param mixed $value
              * @return \Illuminate\Database\Eloquent\Builder|static 
@@ -23599,7 +23601,7 @@ namespace  {
              *
              * @param mixed $id
              * @param array|string $columns
-             * @return \Illuminate\Database\Eloquent\($id is (\Illuminate\Contracts\Support\Arrayable<array-key, mixed>|array<mixed>) ? \Illuminate\Database\Eloquent\Collection<int, TModel> : TModel|null)
+             * @return ($id is (\Illuminate\Contracts\Support\Arrayable<array-key, mixed>|array<mixed>) ? \Illuminate\Database\Eloquent\Collection<int, TModel> : TModel|null)
              * @static 
              */            public static function find($id, $columns = [])
             {
@@ -23623,7 +23625,7 @@ namespace  {
              *
              * @param mixed $id
              * @param array|string $columns
-             * @return \Illuminate\Database\Eloquent\($id is (\Illuminate\Contracts\Support\Arrayable<array-key, mixed>|array<mixed>) ? \Illuminate\Database\Eloquent\Collection<int, TModel> : TModel)
+             * @return ($id is (\Illuminate\Contracts\Support\Arrayable<array-key, mixed>|array<mixed>) ? \Illuminate\Database\Eloquent\Collection<int, TModel> : TModel)
              * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<TModel>
              * @static 
              */            public static function findOrFail($id, $columns = [])
@@ -23636,7 +23638,7 @@ namespace  {
              *
              * @param mixed $id
              * @param array|string $columns
-             * @return \Illuminate\Database\Eloquent\($id is (\Illuminate\Contracts\Support\Arrayable<array-key, mixed>|array<mixed>) ? \Illuminate\Database\Eloquent\Collection<int, TModel> : TModel)
+             * @return ($id is (\Illuminate\Contracts\Support\Arrayable<array-key, mixed>|array<mixed>) ? \Illuminate\Database\Eloquent\Collection<int, TModel> : TModel)
              * @static 
              */            public static function findOrNew($id, $columns = [])
             {
@@ -23648,9 +23650,9 @@ namespace  {
              *
              * @template TValue
              * @param mixed $id
-             * @param \Illuminate\Database\Eloquent\(\Closure():  TValue)|list<string>|string  $columns
-             * @param \Illuminate\Database\Eloquent\(\Closure():  TValue)|null  $callback
-             * @return \Illuminate\Database\Eloquent\( $id is (\Illuminate\Contracts\Support\Arrayable<array-key, mixed>|array<mixed>)
+             * @param (\Closure(): TValue)|\Illuminate\Database\Eloquent\list<string>|string $columns
+             * @param (\Closure(): TValue)|null $callback
+             * @return ( $id is (\Illuminate\Contracts\Support\Arrayable<array-key, mixed>|array<mixed>)
              *     ? \Illuminate\Database\Eloquent\Collection<int, TModel>
              *     : TModel|TValue
              * )
@@ -23724,8 +23726,8 @@ namespace  {
              * Execute the query and get the first result or call a callback.
              *
              * @template TValue
-             * @param \Illuminate\Database\Eloquent\(\Closure():  TValue)|list<string>  $columns
-             * @param \Illuminate\Database\Eloquent\(\Closure():  TValue)|null  $callback
+             * @param (\Closure(): TValue)|\Illuminate\Database\Eloquent\list<string> $columns
+             * @param (\Closure(): TValue)|null $callback
              * @return \Illuminate\Database\Eloquent\TModel|\Illuminate\Database\Eloquent\TValue 
              * @static 
              */            public static function firstOr($columns = [], $callback = null)
@@ -23995,7 +23997,7 @@ namespace  {
                             /**
              * Set the relationships that should be eager loaded while removing any previously added eager loading specifications.
              *
-             * @param \Illuminate\Database\Eloquent\array<array-key, array|(\Closure(\Illuminate\Database\Eloquent\Relations\Relation<*,*,*>):  mixed)|string>|string  $relations
+             * @param array<array-key, array|(\Closure(\Illuminate\Database\Eloquent\Relations\Relation<*,*,*>): mixed)|string>|string $relations
              * @return \Illuminate\Database\Eloquent\Builder|static 
              * @static 
              */            public static function withOnly($relations)
@@ -24188,7 +24190,7 @@ namespace  {
              * Chunk the results of the query.
              *
              * @param int $count
-             * @param \Illuminate\Database\Eloquent\callable(\Illuminate\Support\Collection<int, TValue>,  int): mixed  $callback
+             * @param \Illuminate\Database\Eloquent\callable(\Illuminate\Support\Collection<int, TValue>, int):  mixed  $callback
              * @return bool 
              * @static 
              */            public static function chunk($count, $callback)
@@ -24212,7 +24214,7 @@ namespace  {
                             /**
              * Execute a callback over each item while chunking.
              *
-             * @param \Illuminate\Database\Eloquent\callable(TValue,  int): mixed  $callback
+             * @param \Illuminate\Database\Eloquent\callable(TValue, int):  mixed  $callback
              * @param int $count
              * @return bool 
              * @throws \RuntimeException
@@ -24226,7 +24228,7 @@ namespace  {
              * Chunk the results of a query by comparing IDs.
              *
              * @param int $count
-             * @param \Illuminate\Database\Eloquent\callable(\Illuminate\Support\Collection<int, TValue>,  int): mixed  $callback
+             * @param \Illuminate\Database\Eloquent\callable(\Illuminate\Support\Collection<int, TValue>, int):  mixed  $callback
              * @param string|null $column
              * @param string|null $alias
              * @return bool 
@@ -24240,7 +24242,7 @@ namespace  {
              * Chunk the results of a query by comparing IDs in descending order.
              *
              * @param int $count
-             * @param \Illuminate\Database\Eloquent\callable(\Illuminate\Support\Collection<int, TValue>,  int): mixed  $callback
+             * @param \Illuminate\Database\Eloquent\callable(\Illuminate\Support\Collection<int, TValue>, int):  mixed  $callback
              * @param string|null $column
              * @param string|null $alias
              * @return bool 
@@ -24254,7 +24256,7 @@ namespace  {
              * Chunk the results of a query by comparing IDs in a given order.
              *
              * @param int $count
-             * @param \Illuminate\Database\Eloquent\callable(\Illuminate\Support\Collection<int, TValue>,  int): mixed  $callback
+             * @param \Illuminate\Database\Eloquent\callable(\Illuminate\Support\Collection<int, TValue>, int):  mixed  $callback
              * @param string|null $column
              * @param string|null $alias
              * @param bool $descending
@@ -24269,7 +24271,7 @@ namespace  {
                             /**
              * Execute a callback over each item while chunking by ID.
              *
-             * @param \Illuminate\Database\Eloquent\callable(TValue,  int): mixed  $callback
+             * @param \Illuminate\Database\Eloquent\callable(TValue, int):  mixed  $callback
              * @param int $count
              * @param string|null $column
              * @param string|null $alias
@@ -24360,9 +24362,9 @@ namespace  {
              *
              * @template TWhenParameter
              * @template TWhenReturnType
-             * @param \Illuminate\Database\Eloquent\(\Closure($this):  TWhenParameter)|TWhenParameter|null  $value
-             * @param \Illuminate\Database\Eloquent\(callable($this,  TWhenParameter): TWhenReturnType)|null  $callback
-             * @param \Illuminate\Database\Eloquent\(callable($this,  TWhenParameter): TWhenReturnType)|null  $default
+             * @param (\Closure($this): TWhenParameter)|\Illuminate\Database\Eloquent\TWhenParameter|null $value
+             * @param (callable($this, TWhenParameter): TWhenReturnType)|null $callback
+             * @param (callable($this, TWhenParameter): TWhenReturnType)|null $default
              * @return $this|\Illuminate\Database\Eloquent\TWhenReturnType 
              * @static 
              */            public static function when($value = null, $callback = null, $default = null)
@@ -24375,9 +24377,9 @@ namespace  {
              *
              * @template TUnlessParameter
              * @template TUnlessReturnType
-             * @param \Illuminate\Database\Eloquent\(\Closure($this):  TUnlessParameter)|TUnlessParameter|null  $value
-             * @param \Illuminate\Database\Eloquent\(callable($this,  TUnlessParameter): TUnlessReturnType)|null  $callback
-             * @param \Illuminate\Database\Eloquent\(callable($this,  TUnlessParameter): TUnlessReturnType)|null  $default
+             * @param (\Closure($this): TUnlessParameter)|\Illuminate\Database\Eloquent\TUnlessParameter|null $value
+             * @param (callable($this, TUnlessParameter): TUnlessReturnType)|null $callback
+             * @param (callable($this, TUnlessParameter): TUnlessReturnType)|null $default
              * @return $this|\Illuminate\Database\Eloquent\TUnlessReturnType 
              * @static 
              */            public static function unless($value = null, $callback = null, $default = null)
@@ -24388,7 +24390,7 @@ namespace  {
                             /**
              * Add a relationship count / exists condition to the query.
              *
-             * @param \Illuminate\Database\Eloquent\Relations\Relation<*,  *, *>|string  $relation
+             * @param \Illuminate\Database\Eloquent\Relations\Relation<*, *, *>|string $relation
              * @param string $operator
              * @param int $count
              * @param string $boolean
@@ -24404,7 +24406,7 @@ namespace  {
                             /**
              * Add a relationship count / exists condition to the query with an "or".
              *
-             * @param \Illuminate\Database\Eloquent\Relations\Relation<*,  *, *>|string  $relation
+             * @param \Illuminate\Database\Eloquent\Relations\Relation<*, *, *>|string $relation
              * @param string $operator
              * @param int $count
              * @return \Illuminate\Database\Eloquent\Builder|static 
@@ -24417,7 +24419,7 @@ namespace  {
                             /**
              * Add a relationship count / exists condition to the query.
              *
-             * @param \Illuminate\Database\Eloquent\Relations\Relation<*,  *, *>|string  $relation
+             * @param \Illuminate\Database\Eloquent\Relations\Relation<*, *, *>|string $relation
              * @param string $boolean
              * @param \Closure|null $callback
              * @return \Illuminate\Database\Eloquent\Builder|static 
@@ -24430,7 +24432,7 @@ namespace  {
                             /**
              * Add a relationship count / exists condition to the query with an "or".
              *
-             * @param \Illuminate\Database\Eloquent\Relations\Relation<*,  *, *>|string  $relation
+             * @param \Illuminate\Database\Eloquent\Relations\Relation<*, *, *>|string $relation
              * @return \Illuminate\Database\Eloquent\Builder|static 
              * @static 
              */            public static function orDoesntHave($relation)
@@ -24441,7 +24443,7 @@ namespace  {
                             /**
              * Add a relationship count / exists condition to the query with where clauses.
              *
-             * @param \Illuminate\Database\Eloquent\Relations\Relation<*,  *, *>|string  $relation
+             * @param \Illuminate\Database\Eloquent\Relations\Relation<*, *, *>|string $relation
              * @param \Closure|null $callback
              * @param string $operator
              * @param int $count
@@ -24457,7 +24459,7 @@ namespace  {
              * 
              * Also load the relationship with same condition.
              *
-             * @param \Illuminate\Database\Eloquent\Relations\Relation<*,  *, *>|string  $relation
+             * @param \Illuminate\Database\Eloquent\Relations\Relation<*, *, *>|string $relation
              * @param \Closure|null $callback
              * @param string $operator
              * @param int $count
@@ -24471,7 +24473,7 @@ namespace  {
                             /**
              * Add a relationship count / exists condition to the query with where clauses and an "or".
              *
-             * @param \Illuminate\Database\Eloquent\Relations\Relation<*,  *, *>|string  $relation
+             * @param \Illuminate\Database\Eloquent\Relations\Relation<*, *, *>|string $relation
              * @param \Closure|null $callback
              * @param string $operator
              * @param int $count
@@ -24485,7 +24487,7 @@ namespace  {
                             /**
              * Add a relationship count / exists condition to the query with where clauses.
              *
-             * @param \Illuminate\Database\Eloquent\Relations\Relation<*,  *, *>|string  $relation
+             * @param \Illuminate\Database\Eloquent\Relations\Relation<*, *, *>|string $relation
              * @param \Closure|null $callback
              * @return \Illuminate\Database\Eloquent\Builder|static 
              * @static 
@@ -24497,7 +24499,7 @@ namespace  {
                             /**
              * Add a relationship count / exists condition to the query with where clauses and an "or".
              *
-             * @param \Illuminate\Database\Eloquent\Relations\Relation<*,  *, *>|string  $relation
+             * @param \Illuminate\Database\Eloquent\Relations\Relation<*, *, *>|string $relation
              * @param \Closure|null $callback
              * @return \Illuminate\Database\Eloquent\Builder|static 
              * @static 
@@ -24621,7 +24623,7 @@ namespace  {
                             /**
              * Add a basic where clause to a relationship query.
              *
-             * @param \Illuminate\Database\Eloquent\Relations\Relation<*,  *, *>|string  $relation
+             * @param \Illuminate\Database\Eloquent\Relations\Relation<*, *, *>|string $relation
              * @param \Closure|string|array|\Illuminate\Contracts\Database\Query\Expression $column
              * @param mixed $operator
              * @param mixed $value
@@ -24635,7 +24637,7 @@ namespace  {
                             /**
              * Add an "or where" clause to a relationship query.
              *
-             * @param \Illuminate\Database\Eloquent\Relations\Relation<*,  *, *>|string  $relation
+             * @param \Illuminate\Database\Eloquent\Relations\Relation<*, *, *>|string $relation
              * @param \Closure|string|array|\Illuminate\Contracts\Database\Query\Expression $column
              * @param mixed $operator
              * @param mixed $value
@@ -24892,8 +24894,8 @@ namespace  {
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::newPowerJoinClause()
              * @param \Illuminate\Database\Query\Builder $parentQuery
-             * @param mixed $type
-             * @param mixed $table
+             * @param string $type
+             * @param string $table
              * @param \Illuminate\Database\Eloquent\Model|null $model
              * @static 
              */            public static function newPowerJoinClause($parentQuery, $type, $table, $model = null)
@@ -24904,10 +24906,10 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::joinRelationship()
-             * @param mixed $relationName
-             * @param mixed $callback
-             * @param mixed $joinType
-             * @param mixed $useAlias
+             * @param string $relationName
+             * @param \Closure|array|string|null $callback
+             * @param string $joinType
+             * @param bool $useAlias
              * @param bool $disableExtraConditions
              * @param string|null $morphable
              * @static 
@@ -24919,126 +24921,135 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::joinRelationshipUsingAlias()
-             * @param mixed $relationName
-             * @param mixed $callback
+             * @param string $relationName
+             * @param \Closure|array|string|null $callback
              * @param bool $disableExtraConditions
+             * @param string|null $morphable
              * @static 
-             */            public static function joinRelationshipUsingAlias($relationName, $callback = null, $disableExtraConditions = false)
+             */            public static function joinRelationshipUsingAlias($relationName, $callback = null, $disableExtraConditions = false, $morphable = null)
             {
-                                return \Illuminate\Database\Eloquent\Builder::joinRelationshipUsingAlias($relationName, $callback, $disableExtraConditions);
+                                return \Illuminate\Database\Eloquent\Builder::joinRelationshipUsingAlias($relationName, $callback, $disableExtraConditions, $morphable);
             }
                             /**
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::leftJoinRelationshipUsingAlias()
-             * @param mixed $relationName
-             * @param mixed $callback
+             * @param string $relationName
+             * @param \Closure|array|string|null $callback
              * @param bool $disableExtraConditions
+             * @param string|null $morphable
              * @static 
-             */            public static function leftJoinRelationshipUsingAlias($relationName, $callback = null, $disableExtraConditions = false)
+             */            public static function leftJoinRelationshipUsingAlias($relationName, $callback = null, $disableExtraConditions = false, $morphable = null)
             {
-                                return \Illuminate\Database\Eloquent\Builder::leftJoinRelationshipUsingAlias($relationName, $callback, $disableExtraConditions);
+                                return \Illuminate\Database\Eloquent\Builder::leftJoinRelationshipUsingAlias($relationName, $callback, $disableExtraConditions, $morphable);
             }
                             /**
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::rightJoinRelationshipUsingAlias()
-             * @param mixed $relationName
-             * @param mixed $callback
+             * @param string $relationName
+             * @param \Closure|array|string|null $callback
              * @param bool $disableExtraConditions
+             * @param string|null $morphable
              * @static 
-             */            public static function rightJoinRelationshipUsingAlias($relationName, $callback = null, $disableExtraConditions = false)
+             */            public static function rightJoinRelationshipUsingAlias($relationName, $callback = null, $disableExtraConditions = false, $morphable = null)
             {
-                                return \Illuminate\Database\Eloquent\Builder::rightJoinRelationshipUsingAlias($relationName, $callback, $disableExtraConditions);
+                                return \Illuminate\Database\Eloquent\Builder::rightJoinRelationshipUsingAlias($relationName, $callback, $disableExtraConditions, $morphable);
             }
                             /**
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::joinRelation()
-             * @param mixed $relationName
-             * @param mixed $callback
-             * @param mixed $joinType
-             * @param mixed $useAlias
+             * @param string $relationName
+             * @param \Closure|array|string|null $callback
+             * @param string $joinType
+             * @param bool $useAlias
              * @param bool $disableExtraConditions
+             * @param string|null $morphable
              * @static 
-             */            public static function joinRelation($relationName, $callback = null, $joinType = 'join', $useAlias = false, $disableExtraConditions = false)
+             */            public static function joinRelation($relationName, $callback = null, $joinType = 'join', $useAlias = false, $disableExtraConditions = false, $morphable = null)
             {
-                                return \Illuminate\Database\Eloquent\Builder::joinRelation($relationName, $callback, $joinType, $useAlias, $disableExtraConditions);
+                                return \Illuminate\Database\Eloquent\Builder::joinRelation($relationName, $callback, $joinType, $useAlias, $disableExtraConditions, $morphable);
             }
                             /**
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::leftJoinRelationship()
-             * @param mixed $relation
-             * @param mixed $callback
-             * @param mixed $useAlias
+             * @param string $relationName
+             * @param \Closure|array|string|null $callback
+             * @param bool $useAlias
              * @param bool $disableExtraConditions
+             * @param string|null $morphable
              * @static 
-             */            public static function leftJoinRelationship($relation, $callback = null, $useAlias = false, $disableExtraConditions = false)
+             */            public static function leftJoinRelationship($relationName, $callback = null, $useAlias = false, $disableExtraConditions = false, $morphable = null)
             {
-                                return \Illuminate\Database\Eloquent\Builder::leftJoinRelationship($relation, $callback, $useAlias, $disableExtraConditions);
+                                return \Illuminate\Database\Eloquent\Builder::leftJoinRelationship($relationName, $callback, $useAlias, $disableExtraConditions, $morphable);
             }
                             /**
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::leftJoinRelation()
-             * @param mixed $relation
-             * @param mixed $callback
-             * @param mixed $useAlias
+             * @param string $relation
+             * @param \Closure|array|string|null $callback
+             * @param bool $useAlias
              * @param bool $disableExtraConditions
+             * @param string|null $morphable
              * @static 
-             */            public static function leftJoinRelation($relation, $callback = null, $useAlias = false, $disableExtraConditions = false)
+             */            public static function leftJoinRelation($relation, $callback = null, $useAlias = false, $disableExtraConditions = false, $morphable = null)
             {
-                                return \Illuminate\Database\Eloquent\Builder::leftJoinRelation($relation, $callback, $useAlias, $disableExtraConditions);
+                                return \Illuminate\Database\Eloquent\Builder::leftJoinRelation($relation, $callback, $useAlias, $disableExtraConditions, $morphable);
             }
                             /**
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::rightJoinRelationship()
-             * @param mixed $relation
-             * @param mixed $callback
-             * @param mixed $useAlias
+             * @param string $relation
+             * @param \Closure|array|string|null $callback
+             * @param bool $useAlias
              * @param bool $disableExtraConditions
+             * @param string|null $morphable
              * @static 
-             */            public static function rightJoinRelationship($relation, $callback = null, $useAlias = false, $disableExtraConditions = false)
+             */            public static function rightJoinRelationship($relation, $callback = null, $useAlias = false, $disableExtraConditions = false, $morphable = null)
             {
-                                return \Illuminate\Database\Eloquent\Builder::rightJoinRelationship($relation, $callback, $useAlias, $disableExtraConditions);
+                                return \Illuminate\Database\Eloquent\Builder::rightJoinRelationship($relation, $callback, $useAlias, $disableExtraConditions, $morphable);
             }
                             /**
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::rightJoinRelation()
-             * @param mixed $relation
-             * @param mixed $callback
-             * @param mixed $useAlias
+             * @param string $relation
+             * @param \Closure|array|string|null $callback
+             * @param bool $useAlias
              * @param bool $disableExtraConditions
+             * @param string|null $morphable
              * @static 
-             */            public static function rightJoinRelation($relation, $callback = null, $useAlias = false, $disableExtraConditions = false)
+             */            public static function rightJoinRelation($relation, $callback = null, $useAlias = false, $disableExtraConditions = false, $morphable = null)
             {
-                                return \Illuminate\Database\Eloquent\Builder::rightJoinRelation($relation, $callback, $useAlias, $disableExtraConditions);
+                                return \Illuminate\Database\Eloquent\Builder::rightJoinRelation($relation, $callback, $useAlias, $disableExtraConditions, $morphable);
             }
                             /**
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::joinNestedRelationship()
              * @param string $relationships
-             * @param mixed $callback
-             * @param mixed $joinType
-             * @param mixed $useAlias
+             * @param \Closure|array|string|null $callback
+             * @param string $joinType
+             * @param bool $useAlias
              * @param bool $disableExtraConditions
+             * @param string|null $morphable
              * @static 
-             */            public static function joinNestedRelationship($relationships, $callback = null, $joinType = 'join', $useAlias = false, $disableExtraConditions = false)
+             */            public static function joinNestedRelationship($relationships, $callback = null, $joinType = 'join', $useAlias = false, $disableExtraConditions = false, $morphable = null)
             {
-                                return \Illuminate\Database\Eloquent\Builder::joinNestedRelationship($relationships, $callback, $joinType, $useAlias, $disableExtraConditions);
+                                return \Illuminate\Database\Eloquent\Builder::joinNestedRelationship($relationships, $callback, $joinType, $useAlias, $disableExtraConditions, $morphable);
             }
                             /**
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::orderByPowerJoins()
-             * @param mixed $sort
-             * @param mixed $direction
-             * @param mixed $aggregation
-             * @param mixed $joinType
+             * @param array|string $sort
+             * @param string $direction
+             * @param string|null $aggregation
+             * @param string $joinType
              * @param mixed $aliases
              * @static 
              */            public static function orderByPowerJoins($sort, $direction = 'asc', $aggregation = null, $joinType = 'join', $aliases = null)
@@ -25049,8 +25060,8 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::orderByLeftPowerJoins()
-             * @param mixed $sort
-             * @param mixed $direction
+             * @param array|string $sort
+             * @param string $direction
              * @static 
              */            public static function orderByLeftPowerJoins($sort, $direction = 'asc')
             {
@@ -25060,8 +25071,8 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::orderByPowerJoinsCount()
-             * @param mixed $sort
-             * @param mixed $direction
+             * @param array|string $sort
+             * @param string $direction
              * @static 
              */            public static function orderByPowerJoinsCount($sort, $direction = 'asc')
             {
@@ -25071,8 +25082,8 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::orderByLeftPowerJoinsCount()
-             * @param mixed $sort
-             * @param mixed $direction
+             * @param array|string $sort
+             * @param string $direction
              * @static 
              */            public static function orderByLeftPowerJoinsCount($sort, $direction = 'asc')
             {
@@ -25082,8 +25093,8 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::orderByPowerJoinsSum()
-             * @param mixed $sort
-             * @param mixed $direction
+             * @param array|string $sort
+             * @param string $direction
              * @static 
              */            public static function orderByPowerJoinsSum($sort, $direction = 'asc')
             {
@@ -25093,8 +25104,8 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::orderByLeftPowerJoinsSum()
-             * @param mixed $sort
-             * @param mixed $direction
+             * @param array|string $sort
+             * @param string $direction
              * @static 
              */            public static function orderByLeftPowerJoinsSum($sort, $direction = 'asc')
             {
@@ -25104,8 +25115,8 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::orderByPowerJoinsAvg()
-             * @param mixed $sort
-             * @param mixed $direction
+             * @param array|string $sort
+             * @param string $direction
              * @static 
              */            public static function orderByPowerJoinsAvg($sort, $direction = 'asc')
             {
@@ -25115,8 +25126,8 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::orderByLeftPowerJoinsAvg()
-             * @param mixed $sort
-             * @param mixed $direction
+             * @param array|string $sort
+             * @param string $direction
              * @static 
              */            public static function orderByLeftPowerJoinsAvg($sort, $direction = 'asc')
             {
@@ -25126,8 +25137,8 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::orderByPowerJoinsMin()
-             * @param mixed $sort
-             * @param mixed $direction
+             * @param array|string $sort
+             * @param string $direction
              * @static 
              */            public static function orderByPowerJoinsMin($sort, $direction = 'asc')
             {
@@ -25137,8 +25148,8 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::orderByLeftPowerJoinsMin()
-             * @param mixed $sort
-             * @param mixed $direction
+             * @param array|string $sort
+             * @param string $direction
              * @static 
              */            public static function orderByLeftPowerJoinsMin($sort, $direction = 'asc')
             {
@@ -25148,8 +25159,8 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::orderByPowerJoinsMax()
-             * @param mixed $sort
-             * @param mixed $direction
+             * @param array|string $sort
+             * @param string $direction
              * @static 
              */            public static function orderByPowerJoinsMax($sort, $direction = 'asc')
             {
@@ -25159,8 +25170,8 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::orderByLeftPowerJoinsMax()
-             * @param mixed $sort
-             * @param mixed $direction
+             * @param array|string $sort
+             * @param string $direction
              * @static 
              */            public static function orderByLeftPowerJoinsMax($sort, $direction = 'asc')
             {
@@ -25170,11 +25181,11 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::powerJoinHas()
-             * @param mixed $relation
-             * @param mixed $operator
-             * @param mixed $count
+             * @param string $relation
+             * @param string $operator
+             * @param int $count
              * @param mixed $boolean
-             * @param \Closure|array|null $callback
+             * @param \Closure|array|string|null $callback
              * @param string|null $morphable
              * @return static 
              * @static 
@@ -25186,11 +25197,11 @@ namespace  {
              * 
              *
              * @see \Kirschbaum\PowerJoins\Mixins\JoinRelationship::hasNestedUsingJoins()
-             * @param mixed $relations
-             * @param mixed $operator
-             * @param mixed $count
-             * @param mixed $boolean
-             * @param \Closure|array|null $callback
+             * @param string $relations
+             * @param string $operator
+             * @param int $count
+             * @param string $boolean
+             * @param \Closure|array|string|null $callback
              * @return static 
              * @static 
              */            public static function hasNestedUsingJoins($relations, $operator = '>=', $count = 1, $boolean = 'and', $callback = null)
