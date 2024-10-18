@@ -169,7 +169,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 <ul>
     <li>Light/Dark theme</li>
     <li>Fully responsive</li>
-    <li>Multi-language, English, Dutch and German are already implemented, language setting saved in authenticated users profile</li>
+    <li>Multi-language, language setting saved in authenticated users profile</li>
     <li>Multi-timezone, timezone setting saved in authenticated users profile</li>
     <li>Multi-tenancy by Laravel Jetstream Teams</li>
     <li>Security through Laravel Jetstream Teams Roles & Permissions, 2FA & API can be enabled</li>
@@ -210,7 +210,16 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     Change history available on Persons.
 </p>
 
-### To Do ...
+## Languages
+
+<ul>
+    <li>English</li>
+    <li>Dutch</li>
+    <li>German</li>
+    <li>Vietnamese</li>
+</ul>
+
+## To Do ...
 
 <ul>
     <li><a href="https://www.gedcom.org/" target="_blank">GEDCOM</a> import and export.</li>
