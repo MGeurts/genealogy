@@ -62,7 +62,7 @@
 
             {{-- impressum section --}}
             <div>
-                <h6 class="flex justify-center mb-4 font-semibold uppercase md:justify-start">Impressum</h6>
+                <h6 class="flex justify-center mb-4 font-semibold uppercase md:justify-start">{{ __('app.impressum') }}</h6>
                 <x-hr.narrow class="w-48 h-1 my-4 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                 <p class="mb-4">
@@ -80,7 +80,7 @@
 
             {{-- contact section --}}
             <div>
-                <h6 class="flex justify-center mb-4 font-semibold uppercase md:justify-start">Contact</h6>
+                <h6 class="flex justify-center mb-4 font-semibold uppercase md:justify-start">{{ __('app.contact') }}</h6>
                 <x-hr.narrow class="w-48 h-1 my-4 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                 <p class="flex items-center justify-center mb-4 md:justify-start">
