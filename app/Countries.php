@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 
 class Countries
 {
@@ -13,7 +14,11 @@ class Countries
     // -----------------------------------------------------------------------
     public function __construct(string $locale = 'en')
     {
-        $this->countries = collect(require base_path('vendor') . '/stefangabos/world_countries/data/countries/' . $locale . '/countries.php');
+        if (Storage::exists(base_path('vendor') . '/stefangabos/world_countries/data/countries/' . $locale)) {
+            $this->countries = collect(require base_path('vendor') . '/stefangabos/world_countries/data/countries/' . $locale . '/countries.php');
+        } else {
+            $this->countries = collect(require base_path('vendor') . '/stefangabos/world_countries/data/countries/en/countries.php');
+        }
     }
 
     // -----------------------------------------------------------------------
