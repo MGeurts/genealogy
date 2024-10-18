@@ -11,6 +11,7 @@ return [
     'session'          => 'Sessie',
     'terms_of_service' => 'Algemene voorwaarden',
     'useful_links'     => 'Bruikbare links',
+    'impressum'        => 'Impressum',
 
     // Labels
     'api_tokens'        => 'API tokens',

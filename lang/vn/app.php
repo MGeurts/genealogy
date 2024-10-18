@@ -11,6 +11,7 @@ return [
     'session'          => 'Phiên',
     'terms_of_service' => 'Điều khoản dịch vụ',
     'useful_links'     => 'Liên kết hữu ích',
+    'impressum'        => 'Gây ấn tượng',
 
     // Labels
     'api_tokens'        => 'Mã thông báo API',

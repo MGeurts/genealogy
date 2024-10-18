@@ -13,7 +13,7 @@ return [
     'name'                    => 'Tên',
     'firstname'               => 'Tên',
     'surname'                 => 'Họ',
-    'email'                   => 'Email',
+    'email'                   => 'E-mail',
     'password'                => 'Mật khẩu',
     'current_password'        => 'Mật khẩu hiện tại',
     'new_password'            => 'Mật khẩu mới',

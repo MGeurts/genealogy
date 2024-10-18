@@ -11,6 +11,7 @@ return [
     'session'          => 'Sitzung',
     'terms_of_service' => 'Nutzungsbedingungen',
     'useful_links'     => 'Nützliche Links',
+    'impressum'        => 'Impressum',
 
     // Labels
     'api_tokens'        => 'API-Token',

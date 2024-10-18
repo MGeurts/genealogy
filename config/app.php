@@ -82,11 +82,12 @@ return [
 
     // add all available translations here, after providing the needed translation files in \lang\XX
     // possible languages: see XX in \vendor\stefangabos\world_countries\data\countries\XX\
+    // ONLY LANGUAGES from \vendor\stefangabos\world_countries\ CAN BE ACCEPTED !!
     'available_locales' => [
         'Deutsch'    => 'de',
         'English'    => 'en',
         'Nederlands' => 'nl',
-        'Việt Nam'   => 'vi',
+        'Việt Nam'   => 'vn',
     ],
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),

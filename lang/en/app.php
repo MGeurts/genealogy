@@ -11,6 +11,7 @@ return [
     'session'          => 'Session',
     'terms_of_service' => 'Terms of service',
     'useful_links'     => 'Useful links',
+    'impressum'        => 'Impressum',
 
     // Labels
     'api_tokens'        => 'API tokens',
