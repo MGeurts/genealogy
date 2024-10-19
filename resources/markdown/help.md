@@ -54,7 +54,7 @@ New users, after accepting an invitation by email from another user and register
 
 Authenticated users can manage their account and user profile by using the dropdown menu in the top right-hand corner of the menu bar.
 
-<img src="img/help/genealogy-003.webp" class="rounded" alt="Profile settings">
+<img src="img/help/genealogy-003a.webp" class="rounded" alt="Profile settings">
 
 <img src="img/help/genealogy-005aa.webp" class="rounded" alt="User profile">
 
@@ -83,7 +83,7 @@ Authenticated users can only see <b>people</b> and <b>couples</b>:
 
 <ul>
     <li>created by the teams they <b>own</b> themselves</li>
-    <li>created by the teams they were invited to <b>by the team owner</b> as either <b>administrator</b>, <b>manager</b>, <b>editor</b> or <b>member</b></li>
+    <li>created by the teams they were invited to <b>by the team owner</b> as either <b>Administrator</b>, <b>Manager</b>, <b>Editor</b> or <b>Member</b></li>
 </ul>
 
 ### d. Roles & permissions
@@ -168,7 +168,7 @@ If a surname, firstname, birthname or nickname containes any spaces, enclose the
 </ol>
 </span>
 
-The results are shown in a grid below the search box, each person is represented in one card.<br/>
+The results are shown in a grid below the search box. Each person is represented in one card.<br/>
 You can use the pagination buttons to navigate. You can also change the number of people shown per page.
 
 <img src="img/help/genealogy-012.webp" class="rounded" alt="Menu">
@@ -191,7 +191,7 @@ After login and <span style="color:red">selecting the proper team</span>, click 
 You can add a new person by clicking the <b>Add person</b> button above the search bar.
 
 <img src="img/help/genealogy-010a.webp" class="rounded" alt="Add person">
-<img src="img/help/genealogy-011b.webp" class="rounded" alt="Add person">
+<img src="img/help/genealogy-011.webp" class="rounded" alt="Add person">
 
 ### b. New person being a father or mother
 
@@ -199,34 +199,41 @@ Another way to add people is to click on the <b>Add father</b> or <b>Add mother<
 These options are only available if the existing person doesn't have a father or mother yet.
 
 <img src="img/help/genealogy-033a.webp" class="rounded" alt="Partners">
-<img src="img/help/genealogy-035a.webp" class="rounded" alt="Add father">
-<img src="img/help/genealogy-036a.webp" class="rounded" alt="Add mother">
+<img src="img/help/genealogy-035.webp" class="rounded" alt="Add father">
+<img src="img/help/genealogy-036.webp" class="rounded" alt="Add mother">
 
 <div style="color:red">
-    You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new father or mother.
+    You can either create a <b>brand NEW person</b> or select an <b>EXISTING person</b> as the person's new father or mother.
 </div>
+
+<img src="img/help/genealogy-035b.webp" class="rounded" alt="Add existing person as father">
+<img src="img/help/genealogy-036b.webp" class="rounded" alt="Add existing person as mother">
 
 ### c. New person being a partner
 
 Another way to add people is to click on the <b>Add relationship</b> tab in the <b>Partners</b> context menu of an existing person.
 
 <img src="img/help/genealogy-055.webp" class="rounded" alt="Partners">
-<img src="img/help/genealogy-056.webp" class="rounded" alt="Add relationship">
+<img src="img/help/genealogy-056a.webp" class="rounded" alt="Add partner">
 
 <div style="color:red">
     You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new partner.
 </div>
 
+<img src="img/help/genealogy-056b.webp" class="rounded" alt="Add existing person as partner">
+
 ### d. New person being a child
 
 A last way to add people is to click on the <b>Add child</b> tab in the <b>Children</b> context menu of an existing person.
 
-<img src="img/help/genealogy-050a.webp" class="rounded" alt="Children">
-<img src="img/help/genealogy-051c.webp" class="rounded" alt="Add child">
+<img src="img/help/genealogy-050.webp" class="rounded" alt="Children">
+<img src="img/help/genealogy-051.webp" class="rounded" alt="Add child">
 
 <div style="color:red">
     You can either create a <b>brand new person</b> or select an <b>existing person</b> as the person's new child.
 </div>
+
+<img src="img/help/genealogy-051b.webp" class="rounded" alt="Add existing person as child">
 
 <hr />
 
@@ -238,36 +245,36 @@ A last way to add people is to click on the <b>Add child</b> tab in the <b>Child
 
 The personal overview shows all information about the selected person.
 
-<img src="img/help/genealogy-020.webp" class="rounded" alt="Person overview">
+<img src="img/help/genealogy-020a.webp" class="rounded" alt="Person overview">
 
 The navigation bar on top allows you to chose some specific items.
 
-<img src="img/help/genealogy-021b.webp" class="rounded" alt="Person menu">
+<img src="img/help/genealogy-021.webp" class="rounded" alt="Person menu">
 
 The <b>Profile</b> card shows all general information about the person.
 
-<img src="img/help/genealogy-022aa.webp" class="rounded" alt="Profile deceased">
+<img src="img/help/genealogy-022a.webp" class="rounded" alt="Profile deceased">
 
 Notice this card shows different data for <b>living</b> and <b>deceased</b> people.
 
-<img src="img/help/genealogy-022bb.webp" class="rounded" alt="Profile living">
+<img src="img/help/genealogy-022b.webp" class="rounded" alt="Profile living">
 
 You can edit the <b>profile</b>, <b>contact</b> and <b>death</b> data by choosing the corresponding tab in the context menu.
 
 <img src="img/help/genealogy-023a.webp" class="rounded" alt="Profile edit">
-<img src="img/help/genealogy-024a.webp" class="rounded" alt="Profile edit profile">
+<img src="img/help/genealogy-024.webp" class="rounded" alt="Profile edit profile">
 <img src="img/help/genealogy-025a.webp" class="rounded" alt="Profile edit contact">
 <img src="img/help/genealogy-026a.webp" class="rounded" alt="Profile edit death">
 
 ### b. Photos
 
-<img src="img/help/genealogy-022cc.webp" class="rounded" alt="Photo editing">
+<img src="img/help/genealogy-022c.webp" class="rounded" alt="Photo editing">
 
 You can browse through the available photos by using the navigation bar above the photo carousel.<br/>
 You can manage photos by choosing the corresponding tab in the context menu.
 
 <img src="img/help/genealogy-023a.webp" class="rounded" alt="Profile edit">
-<img src="img/help/genealogy-027a.webp" class="rounded" alt="Photo add">
+<img src="img/help/genealogy-027.webp" class="rounded" alt="Photo add">
 
 You can <b>upload</b> (multiple) new images.<br/>
 You can <b>download</b> or <b>delete</b> existing images.<br/>
@@ -293,33 +300,31 @@ In case the person's father or mother are not yet known, you can add or edit the
 
 <img src="img/help/genealogy-040a.webp" class="rounded" alt="Partners">
 
-You can <b>add</b>, <b>edit</b> or <b>delete</b> a relationship by choosing the corresponding tab in the context menu.
-When deleting a relationship, the ex-partner stays in the collection as a separate person.
-Under normal circumstances, you should only delete relationships when entered by mistake.
+You can <b>add</b>, <b>edit</b> or <b>delete</b> a relationship by choosing the corresponding tab in the context menu.<br/>
+When deleting a relationship, the ex-partner stays in the collection as a separate person.<br/>
+Under normal circumstances, you should only delete relationships when entered by mistake.<br/>
 You can end every exiting relationship by setting the relation as ended, with or without specifying the end date.
 
-<img src="img/help/genealogy-041b.webp" class="rounded" alt="Partners add">
+<img src="img/help/genealogy-042a.webp" class="rounded" alt="Partners add">
 
 <div style="color:red">
 When adding a partner you can either create a brand new person or select an existing person as the new partner.
 </div>
 
-<img src="img/help/genealogy-055.webp" class="rounded" alt="Partners add">
-<img src="img/help/genealogy-042a.webp" class="rounded" alt="Partners edit">
-
 ### e. Children
 
 <img src="img/help/genealogy-050a.webp" class="rounded" alt="Children">
 
-You can <b>add</b> a child or <b>disconnect</b> existing children by choosing the corresponding tab in the context menu.
+You can <b>add</b> a child or <b>disconnect</b> existing children by choosing the corresponding tab in the context menu.<br/>
 The disconnected child will remain in the database as a person but just not have the selected person as father or mother anymore.
 
-<img src="img/help/genealogy-052.webp" class="rounded" alt="Child add">
 <img src="img/help/genealogy-051c.webp" class="rounded" alt="Child add">
 
 <div style="color:red">
 When adding a child you can either create a <b>brand new person</b> or select an <b>existing person</b>.
 </div>
+
+<img src="img/help/genealogy-052.webp" class="rounded" alt="Child axisting person as child">
 
 ### f. Siblings
 
@@ -354,10 +359,10 @@ Click on a family member name to see that person's family chart.
 
 ### j. Files
 
-This shows the files attached to the person.<br/>
+This <b>Files</b> card shows the files attached to the person.<br/>
 You can use this feature to attach documentation.
 
-<img src="img/help/genealogy-074b.webp" class="rounded" alt="Files">
+<img src="img/help/genealogy-074.webp" class="rounded" alt="Files">
 
 You can upload (multiple) new documents.<br/>
 You can specify the source of the documents you want to upload.<br/>
@@ -369,7 +374,14 @@ You can delete a document by clicking on the <b>Delete</b> button.
 
 This shows the history of the selected person.<br/>
 
-<img src="img/help/genealogy-073.webp" class="rounded" alt="History">
+<img src="img/help/genealogy-073a.webp" class="rounded" alt="History">
+
+### l. Datasheet
+
+This shows the datasheet of the selected person.<br/>
+You can use this to <b>print</b> an overview.
+
+<img src="img/help/genealogy-075.webp" class="rounded" alt="Datasheet">
 
 <hr />
 
@@ -395,42 +407,53 @@ Users can click a button in the top right-hand menu to open the <b>offcanvas men
 On top the users role and permissions in the current team are shown.<br/>
 If a user has the proper rights, additional features are presented.
 
-<img src="img/help/genealogy-006.webp" class="rounded" alt="Offcanvas menu">
+<img src="img/help/genealogy-006a.webp" class="rounded" alt="Offcanvas menu">
 
-### a. Teams & people
+### a. Team
 
-The offcanvas menu allows <b>developers</b> to consult all teams and people.
+The offcanvas menu allows <b>all users</b> to consult the <b>active team</b>.
 
-<img src="img/help/genealogy-090aa.webp" class="rounded" alt="Teams">
-<img src="img/help/genealogy-090bb.webp" class="rounded" alt="People">
+<img src="img/help/genealogy-100.webp" class="rounded" alt="Team">
 
-### b. Users & logging
+### b. Teams & people
+
+The offcanvas menu allows <b>developers</b> to consult all <b>teams</b> and <b>people</b>.
+
+<img src="img/help/genealogy-090a.webp" class="rounded" alt="Teams">
+<img src="img/help/genealogy-090b.webp" class="rounded" alt="People">
+
+You can also consult the people changes history in <b>People logbook</b>.
+
+<img src="img/help/genealogy-090c.webp" class="rounded" alt="People Logging">
+
+### c. Users & logging
 
 The offcanvas menu allows <b>developers</b> to consult the users and their logging information.
 
-<img src="img/help/genealogy-091aa.webp" class="rounded" alt="Users">
+<img src="img/help/genealogy-091.webp" class="rounded" alt="Users">
 <img src="img/help/genealogy-093.webp" class="rounded" alt="User logging 1">
 <img src="img/help/genealogy-094.webp" class="rounded" alt="User logging 2">
+<img src="img/help/genealogy-094b.webp" class="rounded" alt="User logging 3">
 
-### c. Backups
+### d. Backups
 
 The <b>Backups</b> menu item allows <b>developers</b> to manage database backups.
 
 <img src="img/help/genealogy-095.webp" class="rounded" alt="Backups">
 
-### d. Log viewer
+### e. Log viewer
 
 The <b>Log Viewer</b> menu item allows <b>developers</b> to consult the application log files.
 
 <img src="img/help/genealogy-096a.webp" class="rounded" alt="Log viewer">
 
-### e. Dependencies
+### f. Dependencies
 
 The <b>Dependencies</b> menu item allows <b>developers</b> to consult the application dependencies.
 
 <img src="img/help/genealogy-097.webp" class="rounded" alt="Dependencies">
 
-### f. Session
+### g. Session
 
 The <b>Session</b> menu item allows <b>developers</b> to consult the application session.
 
