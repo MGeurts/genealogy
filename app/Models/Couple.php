@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\LogOptions;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Couple extends Model
 {
@@ -71,24 +72,24 @@ class Couple extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Scopes (local)
     /* -------------------------------------------------------------------------------------------- */
-    public function scopeOlderThan(Builder $query, ?string $date_start): void
+    public function scopeOlderThan(Builder $query, ?string $birth_year): void
     {
-        if (empty($date_start)) {
+        if (empty($birth_year)) {
             return;
         } else {
-            $query->where(function ($q) use ($date_start) {
-                $q->whereNull('date_start')->orWhere('date_start', '<=', $date_start);
+            $query->where(function ($q) use ($birth_year) {
+                $q->whereNull('date_start')->orWhere(DB::raw('YEAR(date_start)'), '<=', $birth_year);
             });
         }
     }
 
-    public function scopeYoungerThan(Builder $query, ?string $date_start): void
+    public function scopeYoungerThan(Builder $query, ?string $birth_year): void
     {
-        if (empty($date_start)) {
+        if (empty($birth_year)) {
             return;
         } else {
-            $query->where(function ($q) use ($date_start) {
-                $q->whereNull('date_start')->orWhere('date_start', '>=', $date_start);
+            $query->where(function ($q) use ($birth_year) {
+                $q->whereNull('date_start')->orWhere(DB::raw('YEAR(date_start)'), '>=', $birth_year);
             });
         }
     }
