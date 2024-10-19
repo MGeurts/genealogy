@@ -94,7 +94,7 @@
                                     <x-ts-icon icon="download" class="size-5" />
                                 </x-ts-button>
 
-                                <div class="text-sm text-end">{{ Number::fileSize($file['size'], 1) }}</div>
+                                <div class="text-sm text-end">{{ Number::fileSize($file['size'], 2) }}</div>
 
                                 <x-ts-button color="danger" class="!p-2 text-white" title="{{ __('app.delete') }}" wire:click="deleteFile({{ $file->id }})">
                                     <x-ts-icon icon="trash" class="size-5" />
