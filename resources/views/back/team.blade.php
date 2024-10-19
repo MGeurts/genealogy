@@ -7,7 +7,7 @@
         {{ __('team.team') }}
     </x-slot>
 
-    <div class="max-w-5xl py-5 overflow-x-auto grow dark:text-neutral-200">
+    <div class="py-5 overflow-x-auto max-w-7xl grow dark:text-neutral-200">
         <livewire:team />
     </div>
 </x-app-layout>
