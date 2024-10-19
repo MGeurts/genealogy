@@ -133,6 +133,8 @@ return [
     'required_unless'      => 'Trường :attribute là bắt buộc trừ khi :other là trong :values.',
     'required_with'        => 'Trường :attribute là bắt buộc khi :values có mặt.',
     'required_with_all'    => 'Trường :attribute là bắt buộc khi :values có mặt.',
+    'required_without'     => 'Trường :attribute là bắt buộc khi :values ​​không có.',
+    'required_without_all' => 'Trường :attribute là bắt buộc khi không có giá trị :value nào.',
     'same'                 => 'Trường :attribute và :other phải khớp.',
     'size'                 => [
         'array'   => 'Trường :attribute phải chứa :size mục.',
@@ -145,7 +147,9 @@ return [
     'timezone'    => 'Trường :attribute phải là một vùng giờ hợp lệ.',
     'unique'      => 'Giá trị đã có trong trường :attribute.',
     'uploaded'    => 'Trường :attribute không thể tải lên.',
+    'uppercase'   => 'Trường :attribute phải viết hoa.',
     'url'         => 'Định dạng trường :attribute không hợp lệ.',
+    'ulid'        => 'Trường :attribute phải là ULID hợp lệ.',
     'uuid'        => 'Trường :attribute phải là một UUID hợp lệ.',
 
     /*
