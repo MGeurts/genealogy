@@ -103,7 +103,7 @@
 
                     <p>
                         <x-nav-link-responsive href="{{ route('developer.backups') }}" :active="request()->routeIs('developer.backups')">
-                            {{ __('Backups') }}
+                            {{ __('backup.backups') }}
                         </x-nav-link-responsive>
                     </p>
 
@@ -111,7 +111,7 @@
 
                     <p>
                         <x-nav-link-responsive href="{{ url('log-viewer') }}" target="_blank">
-                            {{ __('Log Viewer') }}
+                            {{ __('app.log_viewer') }}
                         </x-nav-link-responsive>
                     </p>
                 </div>

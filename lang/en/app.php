@@ -12,6 +12,7 @@ return [
     'terms_of_service' => 'Terms of service',
     'useful_links'     => 'Useful links',
     'impressum'        => 'Impressum',
+    'log_viewer'       => 'Logs Viewer',
 
     // Labels
     'api_tokens'        => 'API tokens',

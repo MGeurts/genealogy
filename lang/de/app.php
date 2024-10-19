@@ -12,6 +12,7 @@ return [
     'terms_of_service' => 'Nutzungsbedingungen',
     'useful_links'     => 'Nützliche Links',
     'impressum'        => 'Impressum',
+    'log_viewer'       => 'Protokollbetrachter',
 
     // Labels
     'api_tokens'        => 'API-Token',

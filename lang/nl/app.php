@@ -12,6 +12,7 @@ return [
     'terms_of_service' => 'Algemene voorwaarden',
     'useful_links'     => 'Bruikbare links',
     'impressum'        => 'Impressum',
+    'log_viewer'       => 'Log Viewer',
 
     // Labels
     'api_tokens'        => 'API tokens',

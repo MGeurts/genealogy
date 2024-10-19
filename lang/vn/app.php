@@ -12,6 +12,7 @@ return [
     'terms_of_service' => 'Điều khoản dịch vụ',
     'useful_links'     => 'Liên kết hữu ích',
     'impressum'        => 'Gây ấn tượng',
+    'log_viewer'       => 'Trình xem nhật ký',
 
     // Labels
     'api_tokens'        => 'Mã thông báo API',
