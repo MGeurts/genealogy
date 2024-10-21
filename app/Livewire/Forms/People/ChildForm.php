@@ -55,11 +55,11 @@ class ChildForm extends Form
     {
         return $rules = [
             'firstname' => ['nullable', 'string', 'max:255'],
-            'surname'   => ['nullable', 'string', 'max:255', 'required_without:person_id'],
+            'surname'   => ['nullable', 'string', 'max:255', 'required_without:person_id', 'required_with:sex'],
             'birthname' => ['nullable', 'string', 'max:255'],
             'nickname'  => ['nullable', 'string', 'max:255'],
 
-            'sex'       => ['nullable', 'in:m,f', 'required_without:person_id'],
+            'sex'       => ['nullable', 'in:m,f', 'required_without:person_id', 'required_with:surname'],
             'gender_id' => ['nullable', 'integer'],
 
             'yob' => [
@@ -80,7 +80,7 @@ class ChildForm extends Form
             'photo' => ['nullable', 'string', 'max:255'],
 
             // -----------------------------------------------------------------------
-            'person_id' => ['required_without:surname', 'nullable', 'integer'],
+            'person_id' => ['nullable', 'integer', 'required_without_all:surname,sex', 'exists:people,id'],
         ];
     }
 
