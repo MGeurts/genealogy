@@ -24,7 +24,6 @@
         "spatie/laravel-activitylog": "^4.8",
         "spatie/laravel-backup": "^9.1",
         "spatie/laravel-medialibrary": "^11.9",
-        "spatie/laravel-pdf": "^1.5",
         "stefangabos/world_countries": "^2.9",
         "stevebauman/location": "^7.3",
         "tallstackui/tallstackui": "^1.35"
