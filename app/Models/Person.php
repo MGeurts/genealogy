@@ -198,7 +198,7 @@ class Person extends Model implements HasMedia
             $today               = Carbon::today();
             $this_years_birthday = Carbon::parse(date('Y') . substr(strval($this->dob), 4));
 
-            return $today->gt($this_years_birthday) ? $this_years_birthday->addYear() : $this_years_birthday;
+            return $today->gt($this_years_birthday) ? $this_years_birthday->copy()->addYear() : $this_years_birthday;
         } else {
             return null;
         }
