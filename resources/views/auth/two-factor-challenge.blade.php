@@ -12,6 +12,10 @@
             <x-authentication-card-logo />
         </x-slot>
 
+        <x-slot name="header">
+            {{ __('auth.2_factor_authentification') }}
+        </x-slot>
+
         <div x-data="{ recovery: false }">
             <div class="mb-4 text-sm text-gray-600" x-show="! recovery">
                 {{ __('auth.confirm_code') }}

@@ -12,12 +12,14 @@
             <x-authentication-card-logo />
         </x-slot>
 
+        <x-slot name="header">
+            {{ __('auth.login') }}
+        </x-slot>
+
         <x-validation-errors class="mb-4" />
 
         @if (session('status'))
-            <div class="mb-4 text-sm font-medium text-emerald-600">
-                {{ session('status') }}
-            </div>
+            <x-ts-alert text="{{ session('status') }}" color="emerald" class="mb-4" />
         @endif
 
         <form method="POST" action="{{ route('login') }}">
@@ -25,7 +27,7 @@
 
             <div>
                 <x-label for="email" value="{{ __('auth.email') }} :" />
-                <x-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                <x-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" />
             </div>
 
             <div class="mt-4">

@@ -12,6 +12,10 @@
             <x-authentication-card-logo />
         </x-slot>
 
+        <x-slot name="header">
+            {{ __('auth.verify_email') }}
+        </x-slot>
+
         <div class="mb-4 text-sm text-gray-600">
             {{ __('auth.verify_email') }}
         </div>

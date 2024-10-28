@@ -12,6 +12,10 @@
             <x-authentication-card-logo />
         </x-slot>
 
+        <x-slot name="header">
+            {{ __('auth.confirm_password') }}
+        </x-slot>        
+
         <div class="mb-4 text-sm text-gray-600">
             {{ __('auth.secure_area') }}
         </div>

@@ -12,6 +12,10 @@
             <x-authentication-card-logo />
         </x-slot>
 
+        <x-slot name="header">
+            {{ __('auth.reset_password') }}
+        </x-slot>
+
         <x-validation-errors class="mb-4" />
 
         <form method="POST" action="{{ route('password.update') }}">
