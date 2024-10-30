@@ -20,7 +20,7 @@
                         <li class="py-2">
                             <x-link href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream</x-link>5 (featuring <x-link href="https://jetstream.laravel.com/features/teams.html"
                                 target="_blank">Teams</x-link>)
-                            </li>
+                        </li>
                         <li class="py-2">
                             <x-link href="https://livewire.laravel.com/" target="_blank">Laravel Livewire</x-link> 3
                             <x-ts-button xs href="https://livewire.laravel.com/docs/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
@@ -101,6 +101,9 @@
                     <li class="py-2">
                         <x-link href="https://github.com/spatie/laravel-backup/" target="_blank">spatie/laravel-backup</x-link>
                         <x-ts-button xs href="https://spatie.be/docs/laravel-backup/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
+                    </li>
+                    <li class="py-2">
+                        <x-link href="https://github.com/spatie/laravel-login-link/" target="_blank">spatie/laravel-login-link</x-link>
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/spatie/laravel-medialibrary/" target="_blank">spatie/laravel-medialibrary</x-link>
