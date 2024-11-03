@@ -87,8 +87,8 @@ return [
         'Español'    => 'es',               // Spanish
         'Français'   => 'fr',               // French
         'Nederlands' => 'nl',               // Dutch
+        'Português'  => 'pt',               // Portuguese
         'Việt Nam'   => 'vi',               // Vietnamese
-        // '中國人'        => 'zh_CH',          // Chinese (traditional)
     ],
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),

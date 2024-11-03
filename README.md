@@ -217,11 +217,13 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <li>Dutch (nl)</li>
     <li>French (fr)</li>
     <li>German (de)</li>
+    <li>Portuguese (pt)</li>
     <li>Spanish (es)</li>
     <li>Vietnamese (vi)</li>
 </ul>
 
-Translations can be added by submitting a <b>Pull Request</b> to the project. Only languages provided by <a href="https://github.com/stefangabos/world_countries/" target="_blank">this package</a> should be used. Translation integrity can be checked by issuing the command<br/>
+Translations can be added by submitting a <b>Pull Request</b> to the project.
+Translation integrity can be checked by issuing the command<br/>
 `php artisan translations:check --excludedDirectories=vendor`
 
 ## To Do ...
