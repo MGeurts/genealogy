@@ -87,6 +87,14 @@
                     <li class="py-2">
                         <x-link href="https://github.com/korridor/laravel-has-many-merged/" target="_blank">korridor/laravel-has-many-merged</x-link>
                     </li>
+
+                    <li class="py-2">
+                        <x-link href="https://github.com/Laravel-Lang/lang" target="_blank">Laravel-Lang/lang</x-link>
+                        <x-ts-button xs href="https://laravel-lang.com/packages-lang.html" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
+                        <br />
+                        <span class="ms-5 text-red-500">copy /lang/locales/xx/json.json to /lang/xx.json</span>
+                    </li>
+
                     <li class="py-2">
                         <x-link href="https://github.com/LarsWiegers/laravel-translations-checker/" target="_blank">LarsWiegers/laravel-translations-checker</x-link>
                     </li>
