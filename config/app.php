@@ -80,14 +80,15 @@ return [
 
     'locale' => env('APP_LOCALE', 'en'),
 
-    // add all available translations here, after providing the needed translation files in \lang\XX
-    // possible languages: see XX in \vendor\stefangabos\world_countries\data\countries\XX\
-    // ONLY LANGUAGES from \vendor\stefangabos\world_countries\ CAN BE ACCEPTED !!
+    // add all available translations here, after providing the needed translation files in /lang/XX/
     'available_locales' => [
-        'Deutsch'    => 'de',
-        'English'    => 'en',
-        'Nederlands' => 'nl',
-        'Việt Nam'   => 'vi',
+        'Deutsch'    => 'de',               // German
+        'English'    => 'en',               // English
+        'Español'    => 'es',               // Spanish
+        'Français'   => 'fr',               // French
+        'Nederlands' => 'nl',               // Dutch
+        'Việt Nam'   => 'vi',               // Vietnamese
+        // '中國人'        => 'zh_CH',          // Chinese (traditional)
     ],
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),

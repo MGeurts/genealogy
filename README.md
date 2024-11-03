@@ -215,7 +215,9 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 <ul>
     <li>English (en)</li>
     <li>Dutch (nl)</li>
+    <li>French (fr)</li>
     <li>German (de)</li>
+    <li>Spanish (es)</li>
     <li>Vietnamese (vi)</li>
 </ul>
 
