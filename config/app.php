@@ -87,7 +87,7 @@ return [
         'Deutsch'    => 'de',
         'English'    => 'en',
         'Nederlands' => 'nl',
-        'Việt Nam'   => 'vn',
+        'Việt Nam'   => 'vi',
     ],
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
