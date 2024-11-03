@@ -13,9 +13,9 @@ class Countries
     // -----------------------------------------------------------------------
     public function __construct(string $locale = 'en')
     {
-       $path = base_path('vendor/stefangabos/world_countries/data/countries/');
+        $path = base_path('vendor/stefangabos/world_countries/data/countries/');
 
-        if (file_exists($path . $locale) && is_dir($path. $locale)) {
+        if (file_exists($path . $locale) && is_dir($path . $locale)) {
             $this->countries = collect(require $path . $locale . '/countries.php');
         } else {
             $this->countries = collect(require $path . 'en/countries.php');
