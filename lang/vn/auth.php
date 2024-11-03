@@ -42,7 +42,7 @@ return [
 
     'need_account'              => 'Cần một tài khoản?',
     'new_password'              => 'Mật Khẩu Mới',
-    'new_password_confirmation' => 'Nhập lại Mật Khẩu Mới',
+    'new_password_confirmation' => 'Xác nhận mật khẩu mới',
 
     'throttle' => 'Quá nhiều nỗ lực đăng nhập. Vui lòng thử lại sau :seconds giây.',
 

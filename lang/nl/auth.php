@@ -18,16 +18,16 @@ return [
 
     'back' => 'Terug',
 
-    'change_password'         => 'Wijzig paswoord',
-    'change_password_success' => 'Uw paswoord werd gewijzig',
-    'change_password_error'   => 'Oeps, het wijzigen van het paswoord is mislukt',
+    'change_password'         => 'Wijzig wachtwoord',
+    'change_password_success' => 'Uw wachtwoord werd gewijzig',
+    'change_password_error'   => 'Oeps, het wijzigen van het wachtwoord is mislukt',
 
     'developer' => 'Beheerder',
 
     'email' => 'E-mail',
 
     'failed'                    => 'De opgegeven credentials komen niet overeen met onze gegevens.',
-    'forgot_password'           => 'Paswoord vergeten?',
+    'forgot_password'           => 'Wachtwoord vergeten?',
     'forgot_password_message'   => 'Je wachtwoord vergeten? Geen probleem. Laat ons uw e-mailadres weten en wij sturen u per e-mail een link voor het opnieuw instellen van uw wachtwoord waarmee u een nieuw wachtwoord kunt kiezen.',
     'email_password_reset_link' => 'Verstuur link',
 
@@ -41,24 +41,24 @@ return [
     'logout' => 'Afmelden',
 
     'need_account'              => 'Een account nodig?',
-    'new_password'              => 'Nieuw paswoord',
-    'new_password_confirmation' => 'Bevestig het nieuwe paswoord',
+    'new_password'              => 'Nieuw wachtwoord',
+    'new_password_confirmation' => 'Bevestig het nieuwe wachtwoord',
 
     'throttle' => 'Te veel pogingen om aan te melden. Probeer opnieuw in :seconds seconden.',
 
-    'old_password' => 'oud paswoord',
+    'old_password' => 'oud wachtwoord',
     'or'           => 'of',
 
-    'password'              => 'Paswoord',
-    'password_confirmation' => 'Herhaal paswoord',
+    'password'              => 'Wachtwoord',
+    'password_confirmation' => 'Herhaal wachtwoord',
     'permissions'           => 'Rechten',
 
     'register'       => 'Registreren',
     'remember_me'    => 'Onthou mij',
-    'reset_password' => 'Reset Password',
+    'reset_password' => 'Wachtwoord opnieuw instellen',
     'role'           => 'Rol',
 
-    'send_reset_password_link' => 'Stuur Reset Password link',
+    'send_reset_password_link' => 'Stuur link om wachtwoord opnieuw in te stellen',
 
     'team'    => 'team',
     'to_join' => 'om mee te werken aan',

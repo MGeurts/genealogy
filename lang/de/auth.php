@@ -42,7 +42,7 @@ return [
 
     'need_account'              => 'Brauchst du ein Konto?',
     'new_password'              => 'Neues Passwort',
-    'new_password_confirmation' => 'Neues Passwort wiederholen',
+    'new_password_confirmation' => 'Neues Passwort bestätigen',
 
     'throttle' => 'Zu viele Anmeldeversuche. Bitte versuche es in :seconds Sekunden erneut.',
 

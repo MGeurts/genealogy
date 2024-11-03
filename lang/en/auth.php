@@ -42,7 +42,7 @@ return [
 
     'need_account'              => 'Need an Account?',
     'new_password'              => 'New Password',
-    'new_password_confirmation' => 'Repeat New Password',
+    'new_password_confirmation' => 'Confirm New Password',
 
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
