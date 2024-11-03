@@ -87,17 +87,6 @@
                     <li class="py-2">
                         <x-link href="https://github.com/korridor/laravel-has-many-merged/" target="_blank">korridor/laravel-has-many-merged</x-link>
                     </li>
-
-                    <li class="py-2">
-                        <x-link href="https://github.com/Laravel-Lang/lang" target="_blank">Laravel-Lang/lang</x-link>
-                        <x-ts-button xs href="https://laravel-lang.com/packages-lang.html" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
-                        <br />
-                        <span class="ms-5 text-red-500">copy /lang/locales/xx/json.json to /lang/xx.json</span>
-                    </li>
-
-                    <li class="py-2">
-                        <x-link href="https://github.com/LarsWiegers/laravel-translations-checker/" target="_blank">LarsWiegers/laravel-translations-checker</x-link>
-                    </li>
                     <li class="py-2">
                         <x-link href="https://github.com/opcodesio/log-viewer/" target="_blank">opcodesio/log-viewer</x-link>
                         <x-ts-button xs href="https://log-viewer.opcodes.io/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
@@ -123,6 +112,30 @@
                     </li>
                     <li class="py-2">
                         <x-link href="https://github.com/stevebauman/location/" target="_blank">stevebauman/location</x-link>
+                    </li>
+                </ul>
+            </x-ts-tab.items>
+
+            {{-- github localization --}}
+            <x-ts-tab.items tab="Github Localization">
+                <ul class="w-full ml-4">
+                    <li class="py-2">
+                        <x-link href="https://github.com/Laravel-Lang/lang" target="_blank">Laravel-Lang/lang</x-link>
+                        <x-ts-button xs href="https://laravel-lang.com/packages-lang.html" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
+                        <br />
+                        <span class="ms-5">copy</span> <span class="text-red-500">/lang/locales/xx/json.json</span> to <span class="text-red-500">/lang/xx.json</span>
+                    </li>
+
+                    <li class="py-2">
+                        <x-link href="https://github.com/LarsWiegers/laravel-translations-checker/" target="_blank">LarsWiegers/laravel-translations-checker</x-link>
+                        <br />
+                        <span class="ms-5">to check languages, use command :</span> <span class="text-red-500">php artisan translations:check --excludedDirectories=vendor</span>
+                    </li>
+
+                    <li class="py-2">
+                        <x-link href="https://github.com/mcamara/laravel-localization/" target="_blank">mcamara/laravel-localization</x-link>
+                        <br />
+                        <span class="ms-5">to create new language, use command :</span> <span class="text-red-500">php artisan lang:translate</span>
                     </li>
                 </ul>
             </x-ts-tab.items>

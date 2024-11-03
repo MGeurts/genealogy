@@ -20,6 +20,7 @@
         "larswiegers/laravel-translations-checker": "^0.9.2",
         "liberu-genealogy/php-gedcom": "^2.0",
         "livewire/livewire": "^3.5",
+        "mcamara/laravel-localization": "^2.0",
         "opcodesio/log-viewer": "^3.11",
         "spatie/laravel-activitylog": "^4.8",
         "spatie/laravel-backup": "^9.1",
