@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 11.29.0.
+ * Generated for Laravel 11.30.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -2705,17 +2705,31 @@ namespace Illuminate\Support\Facades {
                         $instance->aliasInclude($path, $alias);
         }
                     /**
-         * Register a handler for custom directives.
+         * Register a handler for custom directives, binding the handler to the compiler.
          *
          * @param string $name
          * @param callable $handler
          * @return void 
          * @throws \InvalidArgumentException
          * @static 
-         */        public static function directive($name, $handler)
+         */        public static function bindDirective($name, $handler)
         {
                         /** @var \Illuminate\View\Compilers\BladeCompiler $instance */
-                        $instance->directive($name, $handler);
+                        $instance->bindDirective($name, $handler);
+        }
+                    /**
+         * Register a handler for custom directives.
+         *
+         * @param string $name
+         * @param callable $handler
+         * @param bool $bind
+         * @return void 
+         * @throws \InvalidArgumentException
+         * @static 
+         */        public static function directive($name, $handler, $bind = false)
+        {
+                        /** @var \Illuminate\View\Compilers\BladeCompiler $instance */
+                        $instance->directive($name, $handler, $bind);
         }
                     /**
          * Get the list of custom directives.
