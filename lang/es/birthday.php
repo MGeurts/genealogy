@@ -3,7 +3,7 @@
 return [
     'age'                   => 'Edad',
     'birthday'              => 'Cumpleaños',
-    'birthdays'             => 'cumpleaños',
+    'birthdays'             => 'Cumpleaños',
     'upcoming_birthdays'    => 'Próximos cumpleaños',
     'upcoming_months'       => 'Próximos cumpleaños en los próximos :months meses.',
     'no_upcoming_birthdays' => 'No hay cumpleaños próximos en los próximos :months meses.',
