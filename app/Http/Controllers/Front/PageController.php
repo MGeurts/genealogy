@@ -31,7 +31,7 @@ class PageController extends Controller
 
     public function help(): View
     {
-        $helpFile = Jetstream::localizedMarkdownPath(app()->getLocale() . '/' . 'help.md');
+        $helpFile = Jetstream::localizedMarkdownPath('help.md');
 
         return view('help', [
             'help' => Str::markdown(file_get_contents($helpFile)),
