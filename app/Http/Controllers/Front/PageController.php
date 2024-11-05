@@ -13,7 +13,7 @@ class PageController extends Controller
 {
     public function home(): View
     {
-        $homeFile = Jetstream::localizedMarkdownPath('home.md');
+        $homeFile = Jetstream::localizedMarkdownPath(app()->getLocale() . '/' . 'home.md');
 
         return view('home', [
             'home' => Str::markdown(file_get_contents($homeFile)),
@@ -22,7 +22,7 @@ class PageController extends Controller
 
     public function about(): View
     {
-        $aboutFile = Jetstream::localizedMarkdownPath('about.md');
+        $aboutFile = Jetstream::localizedMarkdownPath(app()->getLocale() . '/' . 'about.md');
 
         return view('about', [
             'about' => Str::markdown(file_get_contents($aboutFile)),
