@@ -24,4 +24,3 @@ return [
     'Country_name' => '国家',
     'Country_code' => '国家代码',
 ];
-
