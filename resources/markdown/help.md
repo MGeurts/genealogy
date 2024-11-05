@@ -313,18 +313,18 @@ When adding a partner you can either create a brand new person or select an exis
 
 ### e. Children
 
-<img src="img/help/genealogy-050a.webp" class="rounded" alt="Children">
+<img src="img/help/genealogy-050.webp" class="rounded" alt="Children">
 
 You can <b>add</b> a child or <b>disconnect</b> existing children by choosing the corresponding tab in the context menu.<br/>
 The disconnected child will remain in the database as a person but just not have the selected person as father or mother anymore.
 
-<img src="img/help/genealogy-051c.webp" class="rounded" alt="Child add">
+<img src="img/help/genealogy-051.webp" class="rounded" alt="Child add">
 
 <div style="color:red">
 When adding a child you can either create a <b>brand new person</b> or select an <b>existing person</b>.
 </div>
 
-<img src="img/help/genealogy-052.webp" class="rounded" alt="Child axisting person as child">
+<img src="img/help/genealogy-051b.webp" class="rounded" alt="Child existing person as child">
 
 ### f. Siblings
 
