@@ -220,6 +220,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <li>Portuguese (pt)</li>
     <li>Spanish (es)</li>
     <li>Vietnamese (vi)</li>
+    <li>Chinese (zh_cn)</li>
 </ul>
 
 Translations can be added by submitting a <b>Pull Request</b> to the project.
