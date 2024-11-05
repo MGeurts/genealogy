@@ -14,12 +14,12 @@ class Countries
     public function __construct(string $locale = 'en')
     {
         $convert_locales_to_countries = [
-            'de' => 'de',
-            'en' => 'en',
-            'es' => 'es',
-            'fr' => 'fr',
-            'nl' => 'nl',
-            'pt' => 'pt',
+            'de'    => 'de',
+            'en'    => 'en',
+            'es'    => 'es',
+            'fr'    => 'fr',
+            'nl'    => 'nl',
+            'pt'    => 'pt',
             'zh_cn' => 'zh',
         ];
 
