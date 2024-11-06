@@ -101,9 +101,9 @@ return [
     'no_data'   => '没有数据',
     'no_result' => '未找到符合条件的内容',
 
-    'people_search'             => '在 <span class="text-emerald-600"><strong>:scope</strong></span> 中搜索人员',
+    'people_search'             => '在 <span class="text-emerald-600"><strong>:scope</strong></span> 中搜索成员',
     'people_search_placeholder' => '输入关键字查询',
-    'people_search_tip'         => '按姓、名、出生名或昵称搜索人员。',
+    'people_search_tip'         => '按姓、名、出生名或昵称搜索成员。',
     'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> 个成员与关键字 <span class="text-emerald-600"><strong>:keyword</strong></span> 匹配，<span class="text-emerald-600"><strong>:scope</strong></span> 家族中共有 <span class="text-emerald-600"><strong>:total</strong></span> 个成员。',
     'people_available'          => '<span class="text-emerald-600"><strong>:scope</strong></span>家族中共有 <span class="text-emerald-600"><strong>:total</strong></span> 个成员。',
 
