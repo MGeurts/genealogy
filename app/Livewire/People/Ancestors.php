@@ -11,10 +11,8 @@ use Livewire\Component;
 
 class Ancestors extends Component
 {
-    // ------------------------------------------------------------------------------
     public $person;
 
-    // ------------------------------------------------------------------------------
     public Collection $ancestors;
 
     public int $count_min = 1;
@@ -34,36 +32,65 @@ class Ancestors extends Component
     //              ...
     // --------------------------------------------------------------------------------------------------------------------
 
+    /**
+     * Set up the component data.
+     */
     public function mount(): void
     {
-        $this->ancestors = collect(DB::select("
-            WITH RECURSIVE ancestors AS ( 
-	            SELECT 
-                    id, firstname, surname, sex, father_id, mother_id, dod, yod, team_id, photo, 
-		            0 AS degree,
-                    CAST(id AS CHAR(1024)) AS sequence
-	            FROM people  
-	            WHERE deleted_at IS NULL AND id = '" . $this->person->id . "' 
-    
-	            UNION ALL 
-    
-	            SELECT p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo,
-		            degree + 1 AS degree,
-                    CAST(CONCAT(a.sequence, ',', p.id) AS CHAR(1024)) AS sequence
-	            FROM people p, ancestors a 
-	            WHERE deleted_at IS NULL AND (p.id = a.father_id OR p.id = a.mother_id) AND degree < '" . $this->count_max - 1 . "'
-            ) 
-        
-            SELECT * FROM ancestors ORDER BY degree, sex DESC;
-        "));
+        $this->loadAncestors();
+    }
 
-        $this->count_max = $this->ancestors->max('degree') <= $this->count_max ? $this->ancestors->max('degree') + 1 : $this->count_max;
+    /**
+     * Load ancestors from the database with recursion.
+     */
+    private function loadAncestors(): void
+    {
+        $this->ancestors = collect(DB::select($this->getRecursiveQuery()));
+
+        $maxDegree       = $this->ancestors->max('degree');
+        $this->count_max = min($maxDegree + 1, $this->count_max);
 
         if ($this->count > $this->count_max) {
             $this->count = $this->count_max;
         }
     }
 
+    /**
+     * Build the recursive query for ancestors.
+     */
+    private function getRecursiveQuery(): string
+    {
+        $personId = $this->person->id;
+        $countMax = $this->count_max;
+
+        return "
+            WITH RECURSIVE ancestors AS (
+                SELECT
+                    id, firstname, surname, sex, father_id, mother_id, dod, yod, team_id, photo,
+                    0 AS degree,
+                    CAST(id AS CHAR(1024)) AS sequence
+                FROM people
+                WHERE deleted_at IS NULL AND id = $personId
+
+                UNION ALL
+
+                SELECT
+                    p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo,
+                    a.degree + 1 AS degree,
+                    CAST(CONCAT(a.sequence, ',', p.id) AS CHAR(1024)) AS sequence
+                FROM people p
+                JOIN ancestors a ON p.id = a.father_id OR p.id = a.mother_id
+                WHERE p.deleted_at IS NULL
+                AND a.degree < $countMax
+            )
+
+            SELECT * FROM ancestors ORDER BY degree, sex DESC;
+        ";
+    }
+
+    /**
+     * Increment the count of ancestors displayed.
+     */
     public function increment(): void
     {
         if ($this->count < $this->count_max) {
@@ -71,6 +98,9 @@ class Ancestors extends Component
         }
     }
 
+    /**
+     * Decrement the count of ancestors displayed.
+     */
     public function decrement(): void
     {
         if ($this->count > $this->count_min) {
@@ -78,7 +108,9 @@ class Ancestors extends Component
         }
     }
 
-    // ------------------------------------------------------------------------------
+    /**
+     * Render the Livewire component view.
+     */
     public function render(): View
     {
         return view('livewire.people.ancestors');

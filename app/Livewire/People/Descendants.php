@@ -11,10 +11,8 @@ use Livewire\Component;
 
 class Descendants extends Component
 {
-    // ------------------------------------------------------------------------------
     public $person;
 
-    // ------------------------------------------------------------------------------
     public Collection $descendants;
 
     public int $count_min = 1;
@@ -34,36 +32,65 @@ class Descendants extends Component
     //              ...
     // --------------------------------------------------------------------------------------------------------------------
 
+    /**
+     * Set up the component data.
+     */
     public function mount(): void
     {
-        $this->descendants = collect(DB::select("
-            WITH RECURSIVE descendants AS (
-                SELECT
-                    id, firstname, surname, sex, father_id, mother_id, dod, yod, team_id, photo, dob, yob,
-                    0 AS degree,
-                    CAST(id AS CHAR(1024)) AS sequence
-                FROM people
-                WHERE deleted_at IS NULL AND id = '" . $this->person->id . "'
+        $this->loadDescendants();
+    }
 
-                UNION ALL
+    /**
+     * Load descendants from the database with recursion.
+     */
+    private function loadDescendants(): void
+    {
+        $this->descendants = collect(DB::select($this->getRecursiveQuery()));
 
-                SELECT p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo, p.dob, p.yob, 
-                    degree + 1 AS degree,
-                    CAST(CONCAT(d.sequence, ',', p.id) AS CHAR(1024)) AS sequence
-                FROM people p, descendants d
-                WHERE deleted_at IS NULL AND (p.father_id = d.id OR p.mother_id = d.id) AND degree < '" . $this->count_max - 1 . "'
-            )
-
-            SELECT * FROM descendants ORDER BY degree, dob, yob;
-        "));
-
-        $this->count_max = $this->descendants->max('degree') <= $this->count_max ? $this->descendants->max('degree') + 1 : $this->count_max;
+        $maxDegree       = $this->descendants->max('degree');
+        $this->count_max = min($maxDegree + 1, $this->count_max);
 
         if ($this->count > $this->count_max) {
             $this->count = $this->count_max;
         }
     }
 
+    /**
+     * Build the recursive query for descendants.
+     */
+    private function getRecursiveQuery(): string
+    {
+        $personId = $this->person->id;
+        $countMax = $this->count_max;
+
+        return "
+            WITH RECURSIVE descendants AS (
+                SELECT
+                    id, firstname, surname, sex, father_id, mother_id, dod, yod, team_id, photo, dob, yob,
+                    0 AS degree,
+                    CAST(id AS CHAR(1024)) AS sequence
+                FROM people
+                WHERE deleted_at IS NULL AND id = $personId
+
+                UNION ALL
+
+                SELECT
+                    p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo, p.dob, p.yob,
+                    d.degree + 1 AS degree,
+                    CAST(CONCAT(d.sequence, ',', p.id) AS CHAR(1024)) AS sequence
+                FROM people p
+                JOIN descendants d ON d.id = p.father_id OR d.id = p.mother_id
+                WHERE p.deleted_at IS NULL
+                AND d.degree < $countMax
+            )
+
+            SELECT * FROM descendants ORDER BY degree, dob, yob;
+        ";
+    }
+
+    /**
+     * Increment the count of descendants displayed.
+     */
     public function increment(): void
     {
         if ($this->count < $this->count_max) {
@@ -71,6 +98,9 @@ class Descendants extends Component
         }
     }
 
+    /**
+     * Decrement the count of descendants displayed.
+     */
     public function decrement(): void
     {
         if ($this->count > $this->count_min) {
@@ -78,7 +108,9 @@ class Descendants extends Component
         }
     }
 
-    // ------------------------------------------------------------------------------
+    /**
+     * Render the Livewire component view.
+     */
     public function render(): View
     {
         return view('livewire.people.descendants');
