@@ -292,7 +292,7 @@ class Person extends Model implements HasMedia
             implode(' ', array_filter([$this->street, $this->number])),
             implode(' ', array_filter([$this->postal_code, $this->city])),
             implode(' ', array_filter([$this->province, $this->state])),
-            $this->country ? $countries->get($this->country) : '',
+            $this->country ? $countries->getCountryName($this->country) : '',
         ]));
     }
 
@@ -306,7 +306,7 @@ class Person extends Model implements HasMedia
             implode(' ', array_filter([$this->street, $this->number])),
             implode(' ', array_filter([$this->postal_code, $this->city])),
             implode(' ', array_filter([$this->province, $this->state])),
-            $this->country ? $countries->get($this->country) : '',
+            $this->country ? $countries->getCountryName($this->country) : '',
         ]));
 
         return $address ? $href_google_address . $address : '';

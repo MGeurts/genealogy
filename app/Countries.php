@@ -8,41 +8,60 @@ use Illuminate\Support\Collection;
 
 class Countries
 {
+    // Mapping of locales to country directory names
+    private const LOCALE_TO_COUNTRY = [
+        'de'    => 'de',
+        'en'    => 'en',
+        'es'    => 'es',
+        'fr'    => 'fr',
+        'nl'    => 'nl',
+        'pt'    => 'pt',
+        'zh_cn' => 'zh',
+    ];
+
     public Collection $countries;
 
-    // -----------------------------------------------------------------------
+    /**
+     * Constructor to initialize the countries collection based on locale.
+     */
     public function __construct(string $locale = 'en')
     {
-        $convert_locales_to_countries = [
-            'de'    => 'de',
-            'en'    => 'en',
-            'es'    => 'es',
-            'fr'    => 'fr',
-            'nl'    => 'nl',
-            'pt'    => 'pt',
-            'zh_cn' => 'zh',
-        ];
+        // Determine the country folder from the locale
+        $countryCode = self::LOCALE_TO_COUNTRY[$locale] ?? 'en'; // Default to 'en' if locale is not found
 
-        $country = $convert_locales_to_countries[$locale] ?? 'en';
+        // Set the base path for the countries data
+        $path       = base_path('vendor/stefangabos/world_countries/data/countries/');
+        $localePath = $path . $countryCode;
 
-        $path = base_path('vendor/stefangabos/world_countries/data/countries/');
-
-        if (file_exists($path . $country) && is_dir($path . $country)) {
-            $this->countries = collect(require $path . $country . '/countries.php');
-        } else {
-            $this->countries = collect(require $path . 'en/countries.php');
-        }
+        // Load the country data for the specified locale or fallback to English
+        $this->countries = $this->loadCountriesData($localePath) ?? $this->loadCountriesData($path . 'en');
     }
 
-    // -----------------------------------------------------------------------
-    public function get(string $country): string
+    /**
+     * Load countries data from the specified path.
+     */
+    private function loadCountriesData(string $path): ?Collection
     {
-        return $this->countries->filter(function ($item) use ($country) {
-            return $item['alpha2'] === $country;
-        })->value('name');
+        $filePath = $path . '/countries.php';
+        if (file_exists($filePath)) {
+            return collect(require $filePath);
+        }
+
+        return null;
     }
 
-    public function all(): Collection
+    /**
+     * Get the country name by its alpha2 code.
+     */
+    public function getCountryName(string $countryCode): ?string
+    {
+        return $this->countries->firstWhere('alpha2', $countryCode)['name'] ?? null;
+    }
+
+    /**
+     * Get a collection of all countries with their alpha2 code and name.
+     */
+    public function getAllCountries(): Collection
     {
         return $this->countries->map(function ($item) {
             return [
@@ -51,5 +70,4 @@ class Countries
             ];
         })->values();
     }
-    // -----------------------------------------------------------------------
 }
