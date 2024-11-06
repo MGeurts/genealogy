@@ -34,16 +34,22 @@ class Profile extends Component
     public function deletePerson()
     {
         if ($this->person->isDeletable()) {
-            // delete all this person photos
-            File::delete(File::glob(storage_path('app/public/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp')));
-            File::delete(File::glob(storage_path('app/public/photos-096/' . $this->person->team_id . '/' . $this->person->id . '_*.webp')));
-            File::delete(File::glob(storage_path('app/public/photos-384/' . $this->person->team_id . '/' . $this->person->id . '_*.webp')));
+            $this->deletePersonPhotos();
 
             $this->person->delete();
 
             $this->toast()->success(__('app.delete'), $this->person->name . ' ' . __('app.deleted') . '.')->flash()->send();
 
             return $this->redirect('/search');
+        }
+    }
+
+    private function deletePersonPhotos(): void
+    {
+        $directories = ['photos', 'photos-096', 'photos-384'];
+
+        foreach ($directories as $directory) {
+            File::delete(File::glob(storage_path("app/public/{$directory}/" . $this->person->team_id . '/' . $this->person->id . '_*.webp')));
         }
     }
 
