@@ -89,7 +89,7 @@ return [
         'Nederlands' => 'nl',               // Dutch
         'Português'  => 'pt',               // Portuguese
         'Việt Nam'   => 'vi',               // Vietnamese
-        '中国人'        => 'zh_cn',         // Chinees
+        '中文简体'       => 'zh_cn',            // Chinees
     ],
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),

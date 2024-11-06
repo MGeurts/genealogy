@@ -213,14 +213,14 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 ## Languages
 
 <ul>
-    <li>English (en)</li>
-    <li>Dutch (nl)</li>
-    <li>French (fr)</li>
-    <li>German (de)</li>
-    <li>Portuguese (pt)</li>
-    <li>Spanish (es)</li>
-    <li>Vietnamese (vi)</li>
-    <li>Chinese (zh_cn)</li>
+    <li>German (DE)</li>
+    <li>English (EN)</li>
+    <li>Spanish (ES)</li>
+    <li>French (FR)</li>
+    <li>Dutch (NL)</li>
+    <li>Portuguese (PT)</li>
+    <li>Vietnamese (VI)</li>
+    <li>Simplified Chinese (ZH_CN)</li>
 </ul>
 
 Translations can be added by submitting a <b>Pull Request</b> to the project.
