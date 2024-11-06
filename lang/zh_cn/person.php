@@ -4,7 +4,7 @@ return [
     // Labels
     'biological' => '生理性别',
     'contact'    => '联系方式',
-    'person'     => '成员',
+    'person'     => '信息',
     'people'     => '人物',
     'people_log' => '人物事迹',
 
@@ -43,18 +43,18 @@ return [
 
     // Actions
     'add_father'                     => '添加父亲',
-    'add_new_person_as_father'       => '添加新的人',
-    'add_existing_person_as_father'  => '选择现有的人',
+    'add_new_person_as_father'       => '添加新的人物',
+    'add_existing_person_as_father'  => '选择现有的人物',
     'add_mother'                     => '添加母亲',
-    'add_new_person_as_mother'       => '添加新的人',
-    'add_existing_person_as_mother'  => '选择现有的人',
+    'add_new_person_as_mother'       => '添加新的人物',
+    'add_existing_person_as_mother'  => '选择现有的人物',
     'add_child'                      => '添加孩子',
-    'add_new_person_as_child'        => '添加新的人',
-    'add_existing_person_as_child'   => '选择现有的人',
-    'add_person'                     => '添加成员',
-    'add_new_person_as_partner'      => '添加新的人',
-    'add_existing_person_as_partner' => '选择现有的人',
-    'add_person_in_team'             => '在家族 : :team 中添加成员',
+    'add_new_person_as_child'        => '添加新的人物',
+    'add_existing_person_as_child'   => '选择现有的人物',
+    'add_person'                     => '添加人物',
+    'add_new_person_as_partner'      => '添加新的人物',
+    'add_existing_person_as_partner' => '选择现有的人物',
+    'add_person_in_team'             => '在家族 : :team 中添加人物',
     'add_photo'                      => '添加照片',
     'add_relationship'               => '添加配偶',
 
@@ -64,12 +64,12 @@ return [
     'edit_death'        => '编辑死亡信息',
     'edit_family'       => '编辑家庭',
     'edit_files'        => '编辑文件',
-    'edit_person'       => '编辑成员',
+    'edit_person'       => '编辑人物',
     'edit_profile'      => '编辑信息',
     'edit_relationship' => '编辑关系',
 
     'delete_child'        => '删除孩子',
-    'delete_person'       => '删除成员',
+    'delete_person'       => '删除人物',
     'delete_relationship' => '删除关系',
 
     // Attributes
