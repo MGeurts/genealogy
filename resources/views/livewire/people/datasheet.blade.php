@@ -97,11 +97,11 @@
                             $cemetery = array_filter([$person->getMetadataValue('cemetery_location_name'), $person->getMetadataValue('cemetery_location_address')]);
                         @endphp
 
-                        @foreach($cemetery as $line)
+                        @foreach ($cemetery as $line)
                             {{ $line }}
 
-                            @if(!$loop->last)
-                                <br/>
+                            @if (!$loop->last)
+                                <br />
                             @endif
                         @endforeach
                     </td>
@@ -154,7 +154,7 @@
                 <td>{{ __('person.father') }} :</td>
                 <td>
                     @if ($person->father)
-                        {{ $person->father->name }} 
+                        {{ $person->father->name }}
                         <x-ts-icon icon="{{ $person->father->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                         {{ $person->father->birth_year }}
                     @endif
@@ -176,8 +176,10 @@
                 <td>{{ __('person.parents') }} :</td>
                 <td>
                     @if ($person->parents)
-                        {{ $person->parents->person_1->name }} <x-ts-icon icon="{{ $person->parents->person_1->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" /> {{ $person->parents->person_1->birth_year }}<br/>
-                        {{ $person->parents->person_2->name }} <x-ts-icon icon="{{ $person->parents->person_2->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" /> {{ $person->parents->person_2->birth_year }}
+                        {{ $person->parents->person_1->name }} <x-ts-icon icon="{{ $person->parents->person_1->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        {{ $person->parents->person_1->birth_year }}<br />
+                        {{ $person->parents->person_2->name }} <x-ts-icon icon="{{ $person->parents->person_2->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        {{ $person->parents->person_2->birth_year }}
                     @endif
                 </td>
             </tr>
@@ -187,12 +189,12 @@
                 <td>
                     @if ($person->currentPartner())
                         {{ $person->currentPartner()->name }}
-                     <x-ts-icon icon="{{ $person->currentPartner()->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="{{ $person->currentPartner()->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                         {{ $person->currentPartner()->birth_year }}
                     @endif
                 </td>
             </tr>
-            
+
             <tr>
                 <td colspan="4">&nbsp;</td>
             </tr>
@@ -235,7 +237,7 @@
                             {{ $couple->date_end ? $couple->date_end->isoFormat('LL') : '??' }}
                         @endif
                     </td>
-                </tr> 
+                </tr>
             @endforeach
 
             <tr>
@@ -258,11 +260,11 @@
                     <td>
                         {{ $child->name }}
                         <x-ts-icon icon="{{ $child->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
-                        {{ $child->birth_year }} 
+                        {{ $child->birth_year }}
                     </td>
-                </tr> 
+                </tr>
             @endforeach
-            
+
             <tr>
                 <td colspan="4">&nbsp;</td>
             </tr>
@@ -283,12 +285,12 @@
                     <td>
                         {{ $sibling->name }}
                         <x-ts-icon icon="{{ $sibling->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
-                        {{ $sibling->birth_year }} 
+                        {{ $sibling->birth_year }}
                         <span class="text-warning-500">{{ $sibling->type }}</span>
                     </td>
-                </tr> 
+                </tr>
             @endforeach
-            
+
             <tr>
                 <td colspan="4">&nbsp;</td>
             </tr>
@@ -307,15 +309,15 @@
                 <tr>
                     <td colspan="3">&nbsp;</td>
                     <td>
-                        {{ $file->file_name }}
+                        {{ $file }}
                     </td>
-                </tr> 
+                </tr>
             @endforeach
-            
+
             <tr>
                 <td colspan="4">&nbsp;</td>
             </tr>
-            
+
             {{-- photos --}}
             <tr class="border-gray-600 border-solid border-y-2">
                 <td colspan="4">
@@ -332,7 +334,7 @@
         @foreach ($images as $image)
             <div>
                 <img class="rounded max-w-48" src="{{ asset('storage/photos-384/' . $person->team_id . '/' . $image) }}" alt="{{ $person->name }}" />
-            </div> 
+            </div>
         @endforeach
     </div>
 </div>
