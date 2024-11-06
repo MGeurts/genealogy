@@ -162,8 +162,8 @@ return [
     |
     */
 
-    'surname.required_without'   => '添加新人员时，姓氏是必需的。',
-    'person_id.required_without' => '添加现有人员时，请选择一个人。',
+    'surname.required_without'   => '添加新人物时，姓氏是必需的。',
+    'person_id.required_without' => '添加现有人物时，请选择一个人。',
 
     /*
     |--------------------------------------------------------------------------
