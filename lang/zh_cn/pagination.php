@@ -18,8 +18,8 @@ return [
 
     'showing' => '正在显示',
     'to'      => '到',
-    'of'      => '的',
-    'results' => '结果',
+    'of'      => '的人物，共',
+    'results' => '个人物',
 
     'per_page' => '每页',
 ];
