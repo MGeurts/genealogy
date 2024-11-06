@@ -4,18 +4,18 @@ return [
     // Labels
     'biological' => '生理性别',
     'contact'    => '联系方式',
-    'person'     => '人',
+    'person'     => '成员',
     'people'     => '人物',
     'people_log' => '人物事迹',
 
     'family'  => '家庭',
-    'profile' => '信息',
+    'profile' => '人物简介',
 
     'partner'  => '现任配偶',
     'partners' => '配偶',
 
     'children'      => '孩子',
-    'parents'       => '养父母',
+    'parents'       => '父母',
     'grandchildren' => '孙子',
     'siblings'      => '兄弟姐妹',
     'ancestors'     => '祖先',
@@ -37,9 +37,9 @@ return [
     'years'         => '[0,1] 岁|[2,*] 岁',
 
     'source'           => '来源',
-    'source_hint'      => '指定你上传的文件的来源',
+    'source_hint'      => '说明你上传的文件的来源',
     'source_date'      => '日期',
-    'source_date_hint' => '指定你上传的文件的日期',
+    'source_date_hint' => '选择日期',
 
     // Actions
     'add_father'                     => '添加父亲',
@@ -51,12 +51,12 @@ return [
     'add_child'                      => '添加孩子',
     'add_new_person_as_child'        => '添加新的人',
     'add_existing_person_as_child'   => '选择现有的人',
-    'add_person'                     => '添加配偶',
+    'add_person'                     => '添加成员',
     'add_new_person_as_partner'      => '添加新的人',
     'add_existing_person_as_partner' => '选择现有的人',
     'add_person_in_team'             => '在家族 : :team 中添加成员',
     'add_photo'                      => '添加照片',
-    'add_relationship'               => '添加关系',
+    'add_relationship'               => '添加配偶',
 
     'edit'              => '编辑',
     'edit_children'     => '编辑孩子',

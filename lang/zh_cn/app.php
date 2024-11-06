@@ -17,7 +17,7 @@ return [
     // 标签
     'api_tokens'        => 'API-Token',
     'attention'         => '注意',
-    'contact'           => '联系',
+    'contact'           => '联系地址',
     'datasheet'         => '信息表',
     'death'             => '已故',
     'documentation'     => '文档',
@@ -29,7 +29,7 @@ return [
     'my_profile'        => '我的信息',
     'nothing_available' => '没有可用内容',
     'nothing_found'     => '未找到内容',
-    'nothing_recorded'  => '尚未记录任何内容。',
+    'nothing_recorded'  => '尚未上传任何文件。',
     'search'            => '搜索',
     'yes'               => '同意',
     'no'                => '拒绝',
@@ -102,10 +102,10 @@ return [
     'no_result' => '未找到符合条件的内容',
 
     'people_search'             => '在 <span class="text-emerald-600"><strong>:scope</strong></span> 中搜索人员',
-    'people_search_placeholder' => '输入关键字...',
+    'people_search_placeholder' => '输入关键字查询',
     'people_search_tip'         => '按姓、名、出生名或昵称搜索人员。',
-    'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> 个结果与关键字 <span class="text-emerald-600"><strong>:keyword</strong></span> 匹配，共有 <span class="text-emerald-600"><strong>:total</strong></span> 个 <span class="text-emerald-600"><strong>:scope</strong></span>',
-    'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> 个 <span class="text-emerald-600"><strong>:scope</strong></span>',
+    'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> 个成员与关键字 <span class="text-emerald-600"><strong>:keyword</strong></span> 匹配，<span class="text-emerald-600"><strong>:scope</strong></span> 家族中共有 <span class="text-emerald-600"><strong>:total</strong></span> 个成员。',
+    'people_available'          => '<span class="text-emerald-600"><strong>:scope</strong></span>家族中共有 <span class="text-emerald-600"><strong>:total</strong></span> 个成员。',
 
     'people_search_help_1' => '系统将在搜索框中查找 <b class="text-emerald-600">每一个词</b>，在属性 <b class="text-emerald-600">姓</b>、<b class="text-emerald-600">名</b>、<b class="text-emerald-600">出生名</b> 和 <b class="text-emerald-600">昵称</b> 中进行匹配。',
     'people_search_help_2' => '如果您想搜索名称的一部分，请以 <b class="text-emerald-600">%</b> 开头，例如：<b class="text-emerald-600">%Jr</b>。<br/>请注意，这种搜索速度较慢。',
