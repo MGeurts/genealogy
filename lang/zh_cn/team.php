@@ -4,7 +4,7 @@ return [
     'all_teams'     => '所有家族',
     'cancel'        => '取消',
     'couples'       => '夫妻',
-    'create'        => '创建',
+    'create'        => '创建家族',
     'delete'        => '删除家族',
     'description'   => '描述',
     'id'            => 'ID',
