@@ -4,7 +4,7 @@ return [
     // Labels
     'biological' => '生理性别',
     'contact'    => '联系方式',
-    'person'     => '信息',
+    'person'     => '人物',
     'people'     => '人物',
     'people_log' => '人物事迹',
 
