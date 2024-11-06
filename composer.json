@@ -10,7 +10,7 @@
     "require": {
         "php": "^8.3",
         "filament/tables": "^3.2",
-        "intervention/image": "^3.8",
+        "intervention/image": "^3.9",
         "khill/lavacharts": "^3.1",
         "korridor/laravel-has-many-merged": "^1.1",
         "laravel/framework": "^11.28",
