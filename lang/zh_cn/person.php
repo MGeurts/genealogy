@@ -70,7 +70,7 @@ return [
 
     'delete_child'        => '删除孩子',
     'delete_person'       => '删除人物',
-    'delete_relationship' => '删除关系',
+    'delete_relationship' => '解除关系',
 
     // Attributes
     'id'          => 'ID',
