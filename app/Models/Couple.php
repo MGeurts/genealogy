@@ -10,7 +10,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -21,29 +20,23 @@ class Couple extends Model
     protected $fillable = [
         'person1_id',
         'person2_id',
-
         'date_start',
         'date_end',
-
         'is_married',
         'has_ended',
-
         'team_id',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'date_start' => 'date:Y-m-d',
-            'date_end'   => 'date:Y-m-d',
-            'is_married' => 'boolean',
-            'has_ended'  => 'boolean',
-        ];
-    }
-
-    protected $appends = [
-        'name',
+    // Use the built-in $casts property for automatic casting
+    protected $casts = [
+        'date_start' => 'date:Y-m-d',
+        'date_end'   => 'date:Y-m-d',
+        'is_married' => 'boolean',
+        'has_ended'  => 'boolean',
     ];
+
+    // Appending custom attributes
+    protected $appends = ['name'];
 
     /* -------------------------------------------------------------------------------------------- */
     // Log activity
@@ -54,42 +47,44 @@ class Couple extends Model
     }
 
     /* -------------------------------------------------------------------------------------------- */
-    // Scopes (global)
+    // Global Scopes
     /* -------------------------------------------------------------------------------------------- */
     protected static function booted(): void
     {
         static::addGlobalScope('team', function (Builder $builder) {
+            // Skip if the user is a guest
             if (Auth::guest()) {
                 return;
-            } elseif (Auth::user()->is_developer) {
-                return true;
-            } else {
-                $builder->where('couples.team_id', Auth::user()->currentTeam->id);
             }
+
+            // Apply team scope if the user is not a developer
+            if (Auth::user()->is_developer) {
+                return;
+            }
+
+            $builder->where('couples.team_id', Auth::user()->currentTeam->id);
         });
     }
 
     /* -------------------------------------------------------------------------------------------- */
-    // Scopes (local)
+    // Local Scopes
     /* -------------------------------------------------------------------------------------------- */
-    public function scopeOlderThan(Builder $query, ?string $birth_year): void
+    public function scopeOlderThan(Builder $query, ?string $birth_year = null): void
     {
-        if (empty($birth_year)) {
-            return;
-        } else {
+        if ($birth_year) {
             $query->where(function ($q) use ($birth_year) {
-                $q->whereNull('date_start')->orWhere(DB::raw('YEAR(date_start)'), '<=', $birth_year);
+                $q->whereNull('date_start')
+                    ->orWhereYear('date_start', '<=', $birth_year);
             });
         }
     }
 
-    public function scopeYoungerThan(Builder $query, ?string $birth_year): void
+    public function scopeYoungerThan(Builder $query, ?string $birth_year = null): void
     {
-        if (empty($birth_year)) {
-            return;
-        } else {
+        if ($birth_year) {
             $query->where(function ($q) use ($birth_year) {
-                $q->whereNull('date_start')->orWhere(DB::raw('YEAR(date_start)'), '>=', $birth_year);
+                $q->whereNull('date_start')
+                    ->orWhereYear('date_start', '>=', $birth_year);
             });
         }
     }
@@ -100,14 +95,14 @@ class Couple extends Model
     protected function getNameAttribute(): ?string
     {
         return implode(' - ', array_filter([
-            implode(' ', array_filter([$this->person_1->firstname, $this->person_1->surname])),
-            implode(' ', array_filter([$this->person_2->firstname, $this->person_2->surname])),
+            optional($this->person_1)->name,
+            optional($this->person_2)->name,
         ]));
     }
 
     protected function getDateStartFormattedAttribute(): ?string
     {
-        return $this->date_start ? Carbon::parse($this->date_start)->isoFormat('LL') : '';
+        return $this->date_start ? Carbon::parse($this->date_start)->isoFormat('LL') : null;
     }
 
     /* -------------------------------------------------------------------------------------------- */
