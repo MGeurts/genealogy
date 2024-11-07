@@ -16,10 +16,11 @@ class Search extends Component
 
     // ------------------------------------------------------------------------------
     #[Session]
-    public $search = null;
+    public ?string $search = null;
 
     public int $perpage = 10;
 
+    // List of pagination options
     public array $options = [
         ['value' => 5, 'label' => 5],
         ['value' => 10, 'label' => 10],
@@ -33,27 +34,40 @@ class Search extends Component
     // ------------------------------------------------------------------------------
     public function mount(): void
     {
+        // Count the number of people in the database
         $this->people_db = Person::count();
     }
 
     // ------------------------------------------------------------------------------
     public function updatedSearch(): void
     {
+        // Reset page on search change
         $this->resetPage();
     }
 
     public function updatedPerpage(): void
     {
+        // Reset page when perpage changes
         $this->resetPage();
     }
 
     // ------------------------------------------------------------------------------
     public function render(): View
     {
-        $people = Person::with('father:id,firstname,surname,sex,yod,dod', 'mother:id,firstname,surname,sex,yod,dod')
-            ->search($this->search ? $this->search : '%')
-            ->orderBy('firstname')->orderBy('surname')
-            ->paginate($this->perpage);
+        // Begin query builder
+        $query = Person::query();
+
+        // Only add search condition if $search is not empty
+        if ($this->search) {
+            $query->search($this->search);
+        }
+
+        $query->with('father:id,firstname,surname,sex,yod,dod', 'mother:id,firstname,surname,sex,yod,dod')
+            ->orderBy('firstname')
+            ->orderBy('surname');
+
+        // Paginate the results with the given perpage value
+        $people = $query->paginate($this->perpage);
 
         return view('livewire.people.search', compact('people'));
     }
