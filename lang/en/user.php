@@ -80,7 +80,6 @@ return [
     'delete_account_permanently' => 'Permanently delete your account.',
     'once_deleted'               => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
     'sure'                       => 'Are you sure you want to delete your account? Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.',
-    'password'                   => 'Password',
     'can_not_delete'             => 'Your account can not be deleted because it contains valid data.',
 
     'email_unverified'               => 'Your email address is not verified yet.',

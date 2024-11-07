@@ -80,7 +80,6 @@ return [
     'delete_account_permanently' => 'Xóa tài khoản của bạn vĩnh viễn.',
     'once_deleted'               => 'Khi tài khoản của bạn bị xóa, tất cả tài nguyên và dữ liệu của nó sẽ bị xóa vĩnh viễn. Trước khi xóa tài khoản của bạn, vui lòng tải xuống bất kỳ dữ liệu hoặc thông tin nào mà bạn muốn giữ lại.',
     'sure'                       => 'Bạn có chắc chắn muốn xóa tài khoản của mình không? Khi tài khoản của bạn bị xóa, tất cả tài nguyên và dữ liệu của nó sẽ bị xóa vĩnh viễn. Vui lòng nhập mật khẩu của bạn để xác nhận rằng bạn muốn xóa tài khoản của mình vĩnh viễn.',
-    'password'                   => 'Mật khẩu',
     'can_not_delete'             => 'Tài khoản của bạn không thể bị xóa vì nó chứa dữ liệu hợp lệ.',
 
     'email_unverified'               => 'Địa chỉ email của bạn chưa được xác minh.',

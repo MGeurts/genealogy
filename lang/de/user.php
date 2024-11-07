@@ -80,7 +80,6 @@ return [
     'delete_account_permanently' => 'Löschen Sie Ihr Konto dauerhaft..',
     'once_deleted'               => 'Sobald Ihr Konto gelöscht wird, werden alle seine Ressourcen und Daten dauerhaft gelöscht. Bevor Sie Ihr Konto löschen, laden Sie bitte alle Daten oder Informationen herunter, die Sie behalten möchten.',
     'sure'                       => 'Sind Sie sicher, dass Sie Ihr Konto löschen möchten? Sobald Ihr Konto gelöscht wird, werden alle seine Ressourcen und Daten dauerhaft gelöscht. Bitte geben Sie Ihr Passwort ein, um zu bestätigen, dass Sie Ihr Konto dauerhaft löschen möchten.',
-    'password'                   => 'Passwort',
     'can_not_delete'             => 'Ihr Konto kann nicht gelöscht werden, da es gültige Daten enthält.',
 
     'email_unverified'               => 'Ihre E-Mail-Adresse ist noch nicht bestätigt.',

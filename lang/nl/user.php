@@ -80,7 +80,6 @@ return [
     'delete_account_permanently' => 'Verwijder je account definitief.',
     'once_deleted'               => 'Zodra uw account is verwijderd, worden alle bronnen en gegevens permanent verwijderd. Voordat u uw account verwijdert, downloadt u alle gegevens of informatie die u wilt behouden.',
     'sure'                       => 'Weet u zeker dat u uw account wilt verwijderen? Zodra uw account is verwijderd, worden alle bronnen en gegevens permanent verwijderd. Voer uw wachtwoord in om te bevestigen dat u uw account definitief wilt verwijderen.',
-    'password'                   => 'Paswoord',
     'can_not_delete'             => 'Uw account kan niet worden verwijderd omdat deze geldige gegevens bevat.',
 
     'email_unverified'               => 'Uw e-mailadres is nog niet geverifieerd.',
