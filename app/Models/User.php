@@ -111,24 +111,23 @@ class User extends Authenticatable
     public function teamsStatistics()
     {
         return collect(DB::select('
-            SELECT 
+            SELECT
                 `id`, `name`, `personal_team`,
                 (SELECT COUNT(*) FROM `users` INNER JOIN `team_user` ON `users`.`id` = `team_user`.`user_id` WHERE `teams`.`id` = `team_user`.`team_id` AND `users`.`deleted_at` IS NULL) AS `users_count`,
-                (SELECT COUNT(*) FROM `people` WHERE `teams`.`id` = `people`.`team_id` AND `people`.`deleted_at` IS NULL) AS `persons_count`, 
-                (SELECT COUNT(*) FROM `couples` WHERE `teams`.`id` = `couples`.`team_id`) AS `couples_count` 
+                (SELECT COUNT(*) FROM `people` WHERE `teams`.`id` = `people`.`team_id` AND `people`.`deleted_at` IS NULL) AS `persons_count`,
+                (SELECT COUNT(*) FROM `couples` WHERE `teams`.`id` = `couples`.`team_id`) AS `couples_count`
             FROM `teams` WHERE `user_id` = ' . $this->id . ' ORDER BY `name` ASC;
         '));
     }
 
     public function isDeletable(): bool
     {
-        return array_sum(collect(json_decode(json_encode($this->teamsStatistics()), true))->pipe(function ($collection) {
-            return collect([
-                'users_count'   => $collection->sum('users_count'),
-                'persons_count' => $collection->sum('persons_count'),
-                'couples_count' => $collection->sum('couples_count'),
-            ]);
-        })->toArray()) == 0;
+        // Sum up the counts for each team
+        $total = $this->teamsStatistics()->sum(function ($team) {
+            return $team->users_count + $team->persons_count + $team->couples_count;
+        });
+
+        return $total === 0;
     }
 
     /* -------------------------------------------------------------------------------------------- */
