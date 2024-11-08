@@ -55,6 +55,7 @@ return [
     'delete_team_meassage' => 'Xóa đội vĩnh viễn.',
     'delete_team_text'     => 'Khi một đội bị xóa, tất cả tài nguyên và dữ liệu của nó sẽ bị xóa vĩnh viễn. Trước khi xóa đội này, vui lòng tải xuống bất kỳ dữ liệu hoặc thông tin nào liên quan đến đội mà bạn muốn giữ lại.',
     'delete_team_sure'     => 'Bạn có chắc chắn muốn xóa đội này không? Khi một đội bị xóa, tất cả tài nguyên và dữ liệu của nó sẽ bị xóa vĩnh viễn.',
+    'can_not_delete'       => 'Không thể xóa nhóm này vì nó chứa dữ liệu hợp lệ.',
 
     'been_invited'               => 'Bạn đã được mời tham gia đội :team!',
     'no_account'                 => 'Nếu bạn chưa có tài khoản, bạn có thể tạo một tài khoản bằng cách nhấp vào nút bên dưới. Sau khi tạo tài khoản, bạn có thể nhấp vào nút chấp nhận lời mời trong email này để chấp nhận lời mời tham gia đội:',

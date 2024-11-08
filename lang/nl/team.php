@@ -55,6 +55,7 @@ return [
     'delete_team_meassage' => 'Verwijder dit team definitief.',
     'delete_team_text'     => 'Zodra een team is verwijderd, worden alle bronnen en gegevens permanent verwijderd. Voordat u dit team verwijdert, downloadt u alle gegevens of informatie over dit team die u wilt behouden.',
     'delete_team_sure'     => 'Weet u zeker dat u dit team wilt verwijderen? Zodra een team is verwijderd, worden alle bronnen en gegevens permanent verwijderd.',
+    'can_not_delete'       => 'Dit team kan niet worden verwijderd omdat het geldige gegevens bevat.',
 
     'been_invited'               => 'Je bent uitgenodigd om deel uit te maken van het :team team!',
     'no_account'                 => 'Als u nog geen account heeft, kunt u er één aanmaken door op de onderstaande knop te klikken. Nadat u een account heeft aangemaakt, kunt u op de knop voor het accepteren van de uitnodiging in deze e-mail klikken om de teamuitnodiging te accepteren:',

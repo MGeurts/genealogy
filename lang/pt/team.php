@@ -48,6 +48,7 @@ return [
     'delete_team_meassage'       => 'Exclua permanentemente esta equipe.',
     'delete_team_text'           => 'Depois que uma equipe for excluída, todos os seus recursos e dados serão excluídos permanentemente. Antes de excluir esta equipe, baixe quaisquer dados ou informações sobre ela que você deseja manter.',
     'delete_team_sure'           => 'Tem certeza de que deseja excluir esta equipe? Depois que uma equipe for excluída, todos os seus recursos e dados serão excluídos permanentemente.',
+    'can_not_delete'             => 'Esta equipa não pode ser eliminada porque contém dados válidos.',
     'been_invited'               => 'Você foi convidado para fazer parte da equipe :team!',
     'no_account'                 => 'Se você não possui uma conta, você pode criar uma clicando no botão abaixo. Após criar uma conta, você pode clicar no botão de aceitação do convite neste e-mail para aceitar o convite da equipe:',
     'create_account'             => 'Criar uma conta',

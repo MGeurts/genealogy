@@ -48,6 +48,7 @@ return [
     'delete_team_meassage'       => 'Eliminar permanentemente este equipo.',
     'delete_team_text'           => 'Una vez que se elimina un equipo, todos sus recursos y datos se eliminarán permanentemente. Antes de eliminar este equipo, descargue cualquier dato o información sobre este equipo que desee conservar.',
     'delete_team_sure'           => '¿Estás seguro de que deseas eliminar este equipo? Una vez que se elimina un equipo, todos sus recursos y datos se eliminarán permanentemente.',
+    'can_not_delete'             => 'Este equipo no se puede eliminar porque contiene datos válidos.',
     'been_invited'               => '¡Has sido invitado a unirte al equipo :team!',
     'no_account'                 => 'Si no tiene una cuenta, puede crear una haciendo clic en el botón a continuación. Después de crear una cuenta, puede hacer clic en el botón de aceptación de invitación en este correo electrónico para aceptar la invitación del equipo:',
     'create_account'             => 'Crear una cuenta',

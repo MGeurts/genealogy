@@ -48,6 +48,7 @@ return [
     'delete_team_meassage'       => 'Supprimez définitivement cette équipe.',
     'delete_team_text'           => 'Une fois une équipe supprimée, toutes ses ressources et données seront définitivement supprimées. Avant de supprimer cette équipe, veuillez télécharger toutes les données ou informations concernant cette équipe que vous souhaitez conserver.',
     'delete_team_sure'           => 'Êtes-vous sûr de vouloir supprimer cette équipe ? Une fois une équipe supprimée, toutes ses ressources et données seront définitivement supprimées.',
+    'can_not_delete'             => 'Cette équipe ne peut pas être supprimée car elle contient des données valides.',
     'been_invited'               => 'Vous avez été invité à rejoindre l\'équipe :team !',
     'no_account'                 => 'Si vous n\'avez pas de compte, vous pouvez en créer un en cliquant sur le bouton ci-dessous. Après avoir créé un compte, vous pouvez cliquer sur le bouton d\'acceptation de l\'invitation dans cet e-mail pour accepter l\'invitation de l\'équipe:',
     'create_account'             => 'Créer un compte',
