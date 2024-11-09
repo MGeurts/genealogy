@@ -26,10 +26,11 @@ class PersonPhotos
             }
 
             // set image parameters
-            $image_width   = config('app.image_upload_max_width');
-            $image_height  = config('app.image_upload_max_height');
-            $image_quality = config('app.image_upload_quality');
-            $image_type    = config('app.image_upload_type');
+            $image_width         = config('app.image_upload_max_width');
+            $image_height        = config('app.image_upload_max_height');
+            $image_quality       = config('app.image_upload_quality');
+            $image_type          = config('app.image_upload_type');
+            $image_add_watermark = config('app.image_upload_add_watermark');
 
             // set image manager
             $manager = new ImageManager(new Driver);
@@ -43,24 +44,46 @@ class PersonPhotos
                 $next_index = str_pad(strval(++$last_index), 3, '0', STR_PAD_LEFT);
                 $image_name = $person->id . '_' . $next_index . '_' . now()->format('YmdHis') . '.' . $image_type;
 
-                // image: resize, add watermark and save
-                $manager->read($current_photo)
-                    ->scaleDown(width: $image_width, height: $image_height)
-                    ->place(public_path('img/watermark.png'), 'bottom-left', 5, 5)
-                    ->toWebp(quality: $image_quality)
-                    ->save(storage_path('app/public/photos/' . $person->team_id . '/' . $image_name));
+                if ($image_add_watermark) {
+                    // image: resize, add watermark and save
+                    $manager->read($current_photo)
+                        ->scaleDown(width: $image_width, height: $image_height)
+                        ->place(public_path('img/watermark.png'), 'bottom-left', 5, 5)
+                        ->toWebp(quality: $image_quality)
+                        ->save(storage_path('app/public/photos/' . $person->team_id . '/' . $image_name));
 
-                // image : resize width 96px and save
-                $manager->read($current_photo)
-                    ->scaleDown(width: 96)
-                    ->toWebp(quality: $image_quality)
-                    ->save(storage_path('app/public/photos-096/' . $person->team_id . '/' . $image_name));
+                    // image : resize width 96px, add watermark and save
+                    $manager->read($current_photo)
+                        ->scaleDown(width: 96)
+                        ->place(public_path('img/watermark.png'), 'bottom-left', 5, 5)
+                        ->toWebp(quality: $image_quality)
+                        ->save(storage_path('app/public/photos-096/' . $person->team_id . '/' . $image_name));
 
-                // image : resize width 384px and save
-                $manager->read($current_photo)
-                    ->scaleDown(width: 384)
-                    ->toWebp(quality: $image_quality)
-                    ->save(storage_path('app/public/photos-384/' . $person->team_id . '/' . $image_name));
+                    // image : resize width 384px, add watermark and save
+                    $manager->read($current_photo)
+                        ->scaleDown(width: 384)
+                        ->place(public_path('img/watermark.png'), 'bottom-left', 5, 5)
+                        ->toWebp(quality: $image_quality)
+                        ->save(storage_path('app/public/photos-384/' . $person->team_id . '/' . $image_name));
+                } else {
+                    // image: resize and save
+                    $manager->read($current_photo)
+                        ->scaleDown(width: $image_width, height: $image_height)
+                        ->toWebp(quality: $image_quality)
+                        ->save(storage_path('app/public/photos/' . $person->team_id . '/' . $image_name));
+
+                    // image : resize width 96px and save
+                    $manager->read($current_photo)
+                        ->scaleDown(width: 96)
+                        ->toWebp(quality: $image_quality)
+                        ->save(storage_path('app/public/photos-096/' . $person->team_id . '/' . $image_name));
+
+                    // image : resize width 384px and save
+                    $manager->read($current_photo)
+                        ->scaleDown(width: 384)
+                        ->toWebp(quality: $image_quality)
+                        ->save(storage_path('app/public/photos-384/' . $person->team_id . '/' . $image_name));
+                }
 
                 // update person: photo
                 if (! isset($person->photo)) {
