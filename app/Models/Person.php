@@ -85,13 +85,11 @@ class Person extends Model implements HasMedia
     protected static function booted(): void
     {
         static::addGlobalScope('team', function (Builder $builder) {
-            if (Auth::guest()) {
+            if (Auth::guest() || Auth::user()->is_developer) {
                 return;
-            } elseif (Auth::user()->is_developer) {
-                return true;
-            } else {
-                $builder->where('people.team_id', Auth::user()->currentTeam->id);
             }
+
+            $builder->where('people.team_id', Auth::user()->currentTeam->id);
         });
     }
 
@@ -113,27 +111,29 @@ class Person extends Model implements HasMedia
 
     public function scopeOlderThan(Builder $query, ?string $birth_year): void
     {
-        if (empty($birth_year)) {
-            return;
-        } else {
+        if ($birth_year !== null) {
+            $birth_year = (int) $birth_year;
+
             $query->where(function ($q) use ($birth_year) {
                 $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '<=', $birth_year);
-            })->where(function ($q) use ($birth_year) {
-                $q->whereNull('yob')->orWhere('yob', '<=', $birth_year);
-            });
+            })
+                ->where(function ($q) use ($birth_year) {
+                    $q->whereNull('yob')->orWhere('yob', '<=', $birth_year);
+                });
         }
     }
 
     public function scopeYoungerThan(Builder $query, ?string $birth_year): void
     {
-        if (empty($birth_year)) {
-            return;
-        } else {
+        if ($birth_year !== null) {
+            $birth_year = (int) $birth_year;
+
             $query->where(function ($q) use ($birth_year) {
                 $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '>=', $birth_year);
-            })->where(function ($q) use ($birth_year) {
-                $q->whereNull('yob')->orWhere('yob', '>=', $birth_year);
-            });
+            })
+                ->where(function ($q) use ($birth_year) {
+                    $q->whereNull('yob')->orWhere('yob', '>=', $birth_year);
+                });
         }
     }
 
@@ -142,14 +142,17 @@ class Person extends Model implements HasMedia
         // -------------------------------------------------------------------------
         // offset : possible partners can be +/- n ($offeset) years older or younger
         // -------------------------------------------------------------------------
-        if (empty($birth_year)) {
-            return;
-        } else {
-            $query->where(function ($q) use ($birth_year, $offset) {
-                $q->whereNull('dob')->orWhereBetween(DB::raw('YEAR(dob)'), [intval($birth_year) - $offset, intval($birth_year) + $offset]);
-            })->where(function ($q) use ($birth_year, $offset) {
-                $q->whereNull('yob')->orWhereBetween('yob', [intval($birth_year) - $offset, intval($birth_year) + $offset]);
-            });
+        if ($birth_year !== null) {
+            $birth_year = (int) $birth_year;
+            $min_age    = $birth_year - $offset;
+            $max_age    = $birth_year + $offset;
+
+            $query->where(function ($q) use ($min_age, $max_age) {
+                $q->whereNull('dob')->orWhereBetween(DB::raw('YEAR(dob)'), [$min_age, $max_age]);
+            })
+                ->where(function ($q) use ($min_age, $max_age) {
+                    $q->whereNull('yob')->orWhereBetween('yob', [$min_age, $max_age]);
+                });
         }
     }
 
