@@ -1,0 +1,38 @@
+name: genealogy
+
+networks:
+  genealogy:
+
+volumes:
+  mariadb_data:
+
+services:
+  app:
+    build:
+      context: .
+      target: development
+      args:
+        USER_ID: ${USER_ID:1000}
+        GROUP_ID: ${GROUP_ID:1000}
+    container_name: genealogy_app
+    ports:
+      - "${DOCKER_APP_PORT:-80}:8080"
+    depends_on:
+      - mariadb
+    volumes:
+      - .:/var/www/html
+    networks:
+      - genealogy
+
+  mariadb:
+    image: mariadb:latest
+    container_name: genealogy_mariadb
+    ports:
+      - "${DOCKER_DB_PORT:-3306}:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=genealogy
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - genealogy
