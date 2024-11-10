@@ -259,6 +259,17 @@ make the needed changes regarding name, url, database connection & mail server
 
 `php artisan serve` or `npm run dev`
 
+## Installation with Docker
+
+Prerequisites:
+[Docker Engine](https://docs.docker.com/engine/) with Docker compose plugin
+
+Run the following command to spin up the app with all dependencies
+
+```bash
+docker compose up
+```
+
 ## Testing
 
 `php artisan test`
