@@ -182,7 +182,8 @@ class Child extends Component
                 }
 
                 if ($this->photos) {
-                    PersonPhotos::save($new_person, $this->photos);
+                    $personPhotos = new PersonPhotos($new_person);
+                    $personPhotos->save($this->photos);
                 }
 
                 $this->toast()->success(__('app.create'), $new_person->name . ' ' . __('app.created') . '.')->flash()->send();

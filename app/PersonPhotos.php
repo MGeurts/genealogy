@@ -12,98 +12,121 @@ use Intervention\Image\ImageManager;
 
 class PersonPhotos
 {
-    // -----------------------------------------------------------------------
-    // save all photos
-    // -----------------------------------------------------------------------
-    public static function save(?Person $person = null, $photos = []): void
+    protected Person $person;
+
+    protected ImageManager $imageManager;
+
+    protected array $config;
+
+    public function __construct(Person $person)
     {
-        if ($person and $photos) {
-            // if needed, create folders
-            if (! storage::disk('photos')->exists(strval($person->team_id))) {
-                Storage::disk('photos')->makeDirectory(strval($person->team_id));
-                Storage::disk('photos-096')->makeDirectory(strval($person->team_id));
-                Storage::disk('photos-384')->makeDirectory(strval($person->team_id));
-            }
+        $this->person = $person;
 
-            // set image parameters
-            $image_width         = config('app.image_upload_max_width');
-            $image_height        = config('app.image_upload_max_height');
-            $image_quality       = config('app.image_upload_quality');
-            $image_type          = config('app.image_upload_type');
-            $image_add_watermark = config('app.image_upload_add_watermark');
+        $this->imageManager = new ImageManager(new Driver);
 
-            // set image manager
-            $manager = new ImageManager(new Driver);
+        $this->config = config('app.image_upload');
+    }
 
-            // determine last index
-            $files      = File::glob(public_path() . '/storage/photos/' . $person->team_id . '/' . $person->id . '_*.webp');
-            $last_index = $files ? intval(substr(last($files), strpos(last($files), '_') + 1, strrpos(last($files), '_') - strpos(last($files), '_') - 1)) : 0;
+    public function save(array $photos): void
+    {
+        if (empty($photos)) {
+            return;
+        }
 
-            foreach ($photos as $current_photo) {
-                // image name
-                $next_index = str_pad(strval(++$last_index), 3, '0', STR_PAD_LEFT);
-                $image_name = $person->id . '_' . $next_index . '_' . now()->format('YmdHis') . '.' . $image_type;
+        $this->ensureDirectoriesExist();
 
-                if ($image_add_watermark) {
-                    // image: resize, add watermark and save
-                    $manager->read($current_photo)
-                        ->scaleDown(width: $image_width, height: $image_height)
-                        ->place(public_path('img/watermark.png'), 'bottom-left', 5, 5)
-                        ->toWebp(quality: $image_quality)
-                        ->save(storage_path('app/public/photos/' . $person->team_id . '/' . $image_name));
+        $lastIndex = $this->getLastImageIndex();
 
-                    // image : resize width 96px, add watermark and save
-                    $manager->read($current_photo)
-                        ->scaleDown(width: 96)
-                        ->place(public_path('img/watermark.png'), 'bottom-left', 5, 5)
-                        ->toWebp(quality: $image_quality)
-                        ->save(storage_path('app/public/photos-096/' . $person->team_id . '/' . $image_name));
+        foreach ($photos as $photo) {
+            $this->savePhoto($photo, ++$lastIndex);
+        }
 
-                    // image : resize width 384px, add watermark and save
-                    $manager->read($current_photo)
-                        ->scaleDown(width: 384)
-                        ->place(public_path('img/watermark.png'), 'bottom-left', 5, 5)
-                        ->toWebp(quality: $image_quality)
-                        ->save(storage_path('app/public/photos-384/' . $person->team_id . '/' . $image_name));
-                } else {
-                    // image: resize and save
-                    $manager->read($current_photo)
-                        ->scaleDown(width: $image_width, height: $image_height)
-                        ->toWebp(quality: $image_quality)
-                        ->save(storage_path('app/public/photos/' . $person->team_id . '/' . $image_name));
+        $this->cleanupTemporaryFiles();
+    }
 
-                    // image : resize width 96px and save
-                    $manager->read($current_photo)
-                        ->scaleDown(width: 96)
-                        ->toWebp(quality: $image_quality)
-                        ->save(storage_path('app/public/photos-096/' . $person->team_id . '/' . $image_name));
+    protected function ensureDirectoriesExist(): void
+    {
+        $teamId = (string) $this->person->team_id;
 
-                    // image : resize width 384px and save
-                    $manager->read($current_photo)
-                        ->scaleDown(width: 384)
-                        ->toWebp(quality: $image_quality)
-                        ->save(storage_path('app/public/photos-384/' . $person->team_id . '/' . $image_name));
-                }
-
-                // update person: photo
-                if (! isset($person->photo)) {
-                    $person->update(['photo' => $image_name]);
-                }
-            }
-
-            // cleanup : livewire-tmp (delete files older than 1 day)
-            $yesterdaysStamp = now()->subDay()->timestamp;
-
-            foreach (Storage::files('livewire-tmp') as $file) {
-                if (! Storage::exists($file)) {
-                    continue;
-                }
-
-                if ($yesterdaysStamp > Storage::lastModified($file)) {
-                    Storage::delete($file);
-                }
+        foreach (['photos', 'photos-096', 'photos-384'] as $disk) {
+            if (! Storage::disk($disk)->exists($teamId)) {
+                Storage::disk($disk)->makeDirectory($teamId);
             }
         }
     }
-    // -----------------------------------------------------------------------
+
+    protected function getLastImageIndex(): int
+    {
+        $files = File::glob(public_path() . '/storage/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp');
+
+        if ($files) {
+            $lastFile = last($files);
+
+            return (int) substr($lastFile, strpos($lastFile, '_') + 1, strrpos($lastFile, '_') - strpos($lastFile, '_') - 1);
+        }
+
+        return 0;
+    }
+
+    protected function savePhoto($photo, int $index): void
+    {
+        $timestamp = now()->format('YmdHis');
+        $imageName = "{$this->person->id}_" . str_pad((string) $index, 3, '0', STR_PAD_LEFT) . "_{$timestamp}.{$this->config['type']}";
+
+        if ($this->config['add_watermark']) {
+            $this->processAndSaveImage($photo, $imageName, true);
+        } else {
+            $this->processAndSaveImage($photo, $imageName, false);
+        }
+
+        if (empty($this->person->photo)) {
+            $this->person->update(['photo' => $imageName]);
+        }
+    }
+
+    protected function processAndSaveImage($photo, string $imageName, bool $addWatermark): void
+    {
+        $paths = [
+            'photos' => [
+                'width'  => $this->config['max_width'],
+                'height' => $this->config['max_height'],
+            ],
+            'photos-096' => [
+                'width'  => 96,
+                'height' => null,
+            ],
+            'photos-384' => [
+                'width'  => 384,
+                'height' => null,
+            ],
+        ];
+
+        foreach ($paths as $disk => $dimensions) {
+            $image = $this->imageManager
+                ->read($photo)
+                ->scaleDown(
+                    width: $dimensions['width'],
+                    height: $dimensions['height']
+                );
+
+            if ($addWatermark) {
+                $image->place(public_path('img/watermark.png'), 'bottom-left', 5, 5);
+            }
+
+            $image
+                ->toWebp(quality: $this->config['quality'])
+                ->save(storage_path("app/public/{$disk}/{$this->person->team_id}/{$imageName}"));
+        }
+    }
+
+    protected function cleanupTemporaryFiles(): void
+    {
+        $oneDayAgo = now()->subDay()->timestamp;
+
+        foreach (Storage::files('livewire-tmp') as $file) {
+            if (Storage::lastModified($file) < $oneDayAgo) {
+                Storage::delete($file);
+            }
+        }
+    }
 }

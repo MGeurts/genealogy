@@ -142,7 +142,8 @@ class Mother extends Component
                 ]);
 
                 if ($this->photos) {
-                    PersonPhotos::save($new_person, $this->photos);
+                    $personPhotos = new PersonPhotos($new_person);
+                    $personPhotos->save($this->photos);
                 }
 
                 $this->person->update([

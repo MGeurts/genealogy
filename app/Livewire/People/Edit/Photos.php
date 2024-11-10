@@ -121,7 +121,8 @@ class Photos extends Component
     public function save()
     {
         if ($this->uploads) {
-            PersonPhotos::save($this->person, $this->uploads);
+            $personPhotos = new PersonPhotos($this->person);
+            $personPhotos->save($this->uploads);
 
             $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', count($this->uploads)))->send();
 

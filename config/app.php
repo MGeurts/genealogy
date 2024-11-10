@@ -145,9 +145,11 @@ return [
     'backup_daily_run'     => env('BACKUP_DAILY_RUN', '23:00'),
     'backup_mail_address'  => env('BACKUP_MAIL_ADDRESS', 'webmaster@yourdomain.com'),
 
-    'image_upload_max_width'     => (int) env('IMAGE_UPLOAD_MAX_WIDTH', 600),
-    'image_upload_max_height'    => (int) env('IMAGE_UPLOAD_MAX_HEIGHT', 800),
-    'image_upload_quality'       => (int) env('IMAGE_UPLOAD_QUALITY', 80),
-    'image_upload_type'          => env('IMAGE_UPLOAD_TYPE', 'webp'),
-    'image_upload_add_watermark' => env('IMAGE_UPLOAD_ADD_WATERMARK', true),
+    'image_upload' => [
+        'max_width'     => (int) env('IMAGE_UPLOAD_MAX_WIDTH', 600),
+        'max_height'    => (int) env('IMAGE_UPLOAD_MAX_HEIGHT', 800),
+        'quality'       => (int) env('IMAGE_UPLOAD_QUALITY', 80),
+        'type'          => env('IMAGE_UPLOAD_TYPE', 'webp'),
+        'add_watermark' => env('IMAGE_UPLOAD_ADD_WATERMARK', true),
+    ],
 ];
