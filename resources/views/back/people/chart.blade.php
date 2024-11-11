@@ -31,7 +31,9 @@
 
                 <div class="items-center p-2 text-center border basis-1/5">
                     @if ($person->father and $person->father->father)
-                        <x-link href="/people/{{ $person->father->father->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $person->father->father->isDeceased()])>
+                        <x-link href="/people/{{ $person->father->father->id }}/chart" @class([
+                            'text-danger-600 dark:text-danger-400' => $person->father->father->isDeceased(),
+                        ])>
                             {{ $person->father->father->name }}
                         </x-link>
                         <x-ts-icon icon="{{ $person->father->father->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -41,7 +43,9 @@
                 </div>
                 <div class="p-2 text-center border basis-1/5">
                     @if ($person->father and $person->father->mother)
-                        <x-link href="/people/{{ $person->father->mother->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $person->father->mother->isDeceased()])>
+                        <x-link href="/people/{{ $person->father->mother->id }}/chart" @class([
+                            'text-danger-600 dark:text-danger-400' => $person->father->mother->isDeceased(),
+                        ])>
                             {{ $person->father->mother->name }}
                         </x-link>
                         <x-ts-icon icon="{{ $person->father->mother->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -51,7 +55,9 @@
                 </div>
                 <div class="p-2 text-center border basis-1/5">
                     @if ($person->mother and $person->mother->father)
-                        <x-link href="/people/{{ $person->mother->father->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $person->mother->father->isDeceased()])>
+                        <x-link href="/people/{{ $person->mother->father->id }}/chart" @class([
+                            'text-danger-600 dark:text-danger-400' => $person->mother->father->isDeceased(),
+                        ])>
                             {{ $person->mother->father->name }}
                         </x-link>
                         <x-ts-icon icon="{{ $person->mother->father->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -61,7 +67,9 @@
                 </div>
                 <div class="p-2 text-center border basis-1/5">
                     @if ($person->mother and $person->mother->mother)
-                        <x-link href="/people/{{ $person->mother->mother->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $person->mother->mother->isDeceased()])>
+                        <x-link href="/people/{{ $person->mother->mother->id }}/chart" @class([
+                            'text-danger-600 dark:text-danger-400' => $person->mother->mother->isDeceased(),
+                        ])>
                             {{ $person->mother->mother->name }}
                         </x-link>
                         <x-ts-icon icon="{{ $person->mother->mother->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -83,8 +91,10 @@
                         @if ($person->father)
                             @foreach ($person->father->siblings() as $index => $sibling)
                                 <div>
-                                    {{ $index +1 }}.
-                                    <x-link href="/people/{{ $sibling->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $sibling->isDeceased()])>
+                                    {{ $index + 1 }}.
+                                    <x-link href="/people/{{ $sibling->id }}/chart" @class([
+                                        'text-danger-600 dark:text-danger-400' => $sibling->isDeceased(),
+                                    ])>
                                         {{ $sibling->name }}
                                     </x-link>
                                     <x-ts-icon icon="{{ $sibling->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -92,7 +102,9 @@
                                     <ol class="ml-8 list-decimal">
                                         @foreach ($sibling->children as $child)
                                             <li>
-                                                <x-link href="/people/{{ $child->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $child->isDeceased()])>
+                                                <x-link href="/people/{{ $child->id }}/chart" @class([
+                                                    'text-danger-600 dark:text-danger-400' => $child->isDeceased(),
+                                                ])>
                                                     {{ $child->name }}
                                                 </x-link>
                                                 <x-ts-icon icon="{{ $child->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -111,7 +123,9 @@
                             @foreach ($person->mother->siblings() as $index => $sibling)
                                 <div>
                                     {{ $index + 1 }}.
-                                    <x-link href="/people/{{ $sibling->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $sibling->isDeceased()])>
+                                    <x-link href="/people/{{ $sibling->id }}/chart" @class([
+                                        'text-danger-600 dark:text-danger-400' => $sibling->isDeceased(),
+                                    ])>
                                         {{ $sibling->name }}
                                     </x-link>
                                     <x-ts-icon icon="{{ $sibling->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -119,7 +133,9 @@
                                     <ol class="ml-8 list-decimal">
                                         @foreach ($sibling->children as $child)
                                             <li>
-                                                <x-link href="/people/{{ $child->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $child->isDeceased()])>
+                                                <x-link href="/people/{{ $child->id }}/chart" @class([
+                                                    'text-danger-600 dark:text-danger-400' => $child->isDeceased(),
+                                                ])>
                                                     {{ $child->name }}
                                                 </x-link>
                                                 <x-ts-icon icon="{{ $child->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -139,7 +155,9 @@
 
                 <div class="p-2 text-center border basis-2/5">
                     @if ($person->father)
-                        <x-link href="/people/{{ $person->father->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $person->father->isDeceased()])>
+                        <x-link href="/people/{{ $person->father->id }}/chart" @class([
+                            'text-danger-600 dark:text-danger-400' => $person->father->isDeceased(),
+                        ])>
                             {{ $person->father->name }}
                         </x-link>
                         <x-ts-icon icon="{{ $person->father->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -149,7 +167,9 @@
                 </div>
                 <div class="p-2 text-center border basis-2/5">
                     @if ($person->mother)
-                        <x-link href="/people/{{ $person->mother->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $person->mother->isDeceased()])>
+                        <x-link href="/people/{{ $person->mother->id }}/chart" @class([
+                            'text-danger-600 dark:text-danger-400' => $person->mother->isDeceased(),
+                        ])>
                             {{ $person->mother->name }}
                         </x-link>
                         <x-ts-icon icon="{{ $person->mother->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -164,7 +184,9 @@
                 <div class="p-2 font-medium border basis-1/5 text-end"></div>
 
                 <div class="p-2 text-center border basis-4/5">
-                    <x-link href="/people/{{ $person->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $person->isDeceased()])>
+                    <x-link href="/people/{{ $person->id }}/chart" @class([
+                        'text-danger-600 dark:text-danger-400' => $person->isDeceased(),
+                    ])>
                         {{ $person->name }}
                     </x-link>
                     <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -182,8 +204,10 @@
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
                         @foreach ($person->children_with_children as $index => $child)
                             <div>
-                                {{ $index +1 }}.
-                                <x-link href="/people/{{ $child->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $child->isDeceased()])>
+                                {{ $index + 1 }}.
+                                <x-link href="/people/{{ $child->id }}/chart" @class([
+                                    'text-danger-600 dark:text-danger-400' => $child->isDeceased(),
+                                ])>
                                     {{ $child->name }}
                                 </x-link>
                                 <x-ts-icon icon="{{ $child->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -191,7 +215,9 @@
                                 <ol class="ml-8 list-decimal">
                                     @foreach ($child->children as $grandchild)
                                         <li>
-                                            <x-link href="/people/{{ $grandchild->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $grandchild->isDeceased()])>
+                                            <x-link href="/people/{{ $grandchild->id }}/chart" @class([
+                                                'text-danger-600 dark:text-danger-400' => $grandchild->isDeceased(),
+                                            ])>
                                                 {{ $grandchild->name }}
                                             </x-link>
                                             <x-ts-icon icon="{{ $grandchild->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -213,10 +239,12 @@
 
                 <div class="p-2 border basis-4/5">
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
-                        @foreach ($person->siblings_with_children() as $index => $sibling)
+                        @foreach ($person->siblings(true) as $index => $sibling)
                             <div>
                                 {{ $index + 1 }}.
-                                <x-link href="/people/{{ $sibling->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $sibling->isDeceased()])>
+                                <x-link href="/people/{{ $sibling->id }}/chart" @class([
+                                    'text-danger-600 dark:text-danger-400' => $sibling->isDeceased(),
+                                ])>
                                     {{ $sibling->name }}
                                 </x-link>
                                 <x-ts-icon icon="{{ $sibling->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -224,7 +252,9 @@
                                 <ol class="ml-8 list-decimal">
                                     @foreach ($sibling->children as $child)
                                         <li>
-                                            <x-link href="/people/{{ $child->id }}/chart" @class(['text-danger-600 dark:text-danger-400' => $child->isDeceased()])>
+                                            <x-link href="/people/{{ $child->id }}/chart" @class([
+                                                'text-danger-600 dark:text-danger-400' => $child->isDeceased(),
+                                            ])>
                                                 {{ $child->name }}
                                             </x-link>
                                             <x-ts-icon icon="{{ $child->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />

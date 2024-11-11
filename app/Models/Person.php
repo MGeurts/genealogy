@@ -540,66 +540,25 @@ class Person extends Model implements HasMedia
     }
 
     /* returns ALL SIBLINGS (n Person) related to the person, either through father_id, mother_id or parents_id ordered by type, birthyear */
-    public function siblings(): Collection
+    public function siblings(bool $withChildren = false): Collection
     {
         // Check if there are any parent identifiers to avoid unnecessary queries
         if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
             return collect([]);
         }
 
-        // Get siblings from the father's side
-        $siblings_father = $this->father_id
-            ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->get()
-            : collect([]);
+        // Prepare the query conditionally based on $withChildren
+        $query = function ($column, $id) use ($withChildren) {
+            return Person::where('id', '!=', $this->id)
+                ->where($column, $id)
+                ->when($withChildren, fn ($q) => $q->with('children'))
+                ->get();
+        };
 
-        // Get siblings from the mother's side
-        $siblings_mother = $this->mother_id
-            ? Person::where('id', '!=', $this->id)->where('mother_id', $this->mother_id)->get()
-            : collect([]);
-
-        // Get siblings from the shared parents' side (if applicable)
-        $siblings_parents = $this->parents_id
-            ? Person::where('id', '!=', $this->id)->where('parents_id', $this->parents_id)->get()
-            : collect([]);
-
-        // Merge the results and ensure no duplicate siblings are included
-        $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents)->unique('id');
-
-        return $siblings->map(function ($sibling) use ($siblings_father, $siblings_mother, $siblings_parents) {
-            // Determine the sibling's type based on the shared parent(s)
-            if ($siblings_father->contains('id', $sibling->id) && $siblings_mother->contains('id', $sibling->id)) {
-                $sibling['type'] = ''; // Full siblings (same mother and father)
-            } elseif ($siblings_father->contains('id', $sibling->id) || $siblings_mother->contains('id', $sibling->id)) {
-                $sibling['type'] = '[1/2]'; // Half siblings (same father or mother)
-            } elseif ($siblings_parents->contains('id', $sibling->id)) {
-                $sibling['type'] = '[+]'; // Step-siblings or other variations
-            }
-
-            return $sibling;
-        })->sortBy(['birthYear', 'type']);
-    }
-
-    public function siblings_with_children(): Collection // only used in family chart
-    {
-        // Check if there are any parent identifiers to avoid unnecessary queries
-        if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
-            return collect([]);
-        }
-
-        // Get siblings from the father's side
-        $siblings_father = $this->father_id
-            ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->with('children')->get()
-            : collect([]);
-
-        // Get siblings from the mother's side
-        $siblings_mother = $this->mother_id
-            ? Person::where('id', '!=', $this->id)->where('mother_id', $this->mother_id)->with('children')->get()
-            : collect([]);
-
-        // Get siblings from the shared parents' side (if applicable)
-        $siblings_parents = $this->parents_id
-            ? Person::where('id', '!=', $this->id)->where('parents_id', $this->parents_id)->with('children')->get()
-            : collect([]);
+        // Get siblings from each parent or both parents
+        $siblings_father  = $this->father_id ? $query('father_id', $this->father_id) : collect([]);
+        $siblings_mother  = $this->mother_id ? $query('mother_id', $this->mother_id) : collect([]);
+        $siblings_parents = $this->parents_id ? $query('parents_id', $this->parents_id) : collect([]);
 
         // Merge the results and ensure no duplicate siblings are included
         $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents)->unique('id');
