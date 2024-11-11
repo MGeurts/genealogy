@@ -43,11 +43,15 @@
                                     <button type="button"
                                         class="relative px-4 py-3 inline-flex w-full rounded focus:z-10 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-600 {{ $index > 0 ? 'border-t border-gray-200 dark:border-gray-700 focus:border-none rounded-t-none' : '' }} {{ !$loop->last ? 'rounded-b-none' : '' }}"
                                         wire:click="$set('addTeamMemberForm.role', '{{ $role->key }}')">
-                                        <div @class(['opacity-50' => isset($addTeamMemberForm['role']) and $addTeamMemberForm['role'] !== $role->key])>
+                                        <div @class([
+                                            'opacity-50' =>
+                                                isset($addTeamMemberForm['role']) and
+                                                $addTeamMemberForm['role'] !== $role->key,
+                                        ])>
                                             {{-- role name --}}
                                             <div class="flex items-center">
                                                 <div class="text-sm text-gray-600 {{ $addTeamMemberForm['role'] == $role->key ? 'font-semibold' : '' }}">
-                                                    <b>{{ __('jetstream.role_' . strtolower($role->name) . '_name') }}</b>
+                                                    <b>{{ __('jetstream.role_' . strtolower($role->key) . '_name') }}</b>
                                                 </div>
 
                                                 @if ($addTeamMemberForm['role'] == $role->key)
@@ -57,7 +61,7 @@
 
                                             {{-- role description --}}
                                             <div class="mt-2 text-xs text-gray-600 text-start">
-                                                {{ __('jetstream.role_' . strtolower($role->name) . '_description') }}
+                                                {{ __('jetstream.role_' . strtolower($role->key) . '_description') }}
                                             </div>
                                         </div>
                                     </button>
@@ -198,7 +202,7 @@
                             {{-- role name --}}
                             <div class="flex items-center">
                                 <div class="text-sm text-gray-600 {{ $currentRole == $role->key ? 'font-semibold' : '' }}">
-                                    {{ $role->name }}
+                                    {{ __('jetstream.role_' . strtolower($role->key) . '_name') }}
                                 </div>
 
                                 @if ($currentRole == $role->key)
@@ -208,7 +212,7 @@
 
                             {{-- role description --}}
                             <div class="mt-2 text-xs text-gray-600">
-                                {{ $role->description }}
+                                {{ __('jetstream.role_' . strtolower($role->key) . '_description') }}
                             </div>
                         </div>
                     </button>
