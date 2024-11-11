@@ -15,13 +15,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Symfony\Component\Finder\Finder;
 
 class Person extends Model implements HasMedia
 {
@@ -161,7 +161,9 @@ class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     protected function getNameAttribute(): ?string
     {
-        return implode(' ', array_filter([$this->firstname, $this->surname]));
+        $name = trim("{$this->firstname} {$this->surname}");
+
+        return $name ?: null;
     }
 
     protected function getAgeAttribute(): ?int
@@ -209,12 +211,27 @@ class Person extends Model implements HasMedia
 
     protected function getNextBirthdayAgeAttribute(): ?int
     {
-        return $this->dob ? Carbon::parse($this->dob)->diffInYears() + 1 : null;
+        return $this->dob ? Carbon::parse($this->dob)->age + 1 : null;
     }
 
     protected function getNextBirthdayRemainingDaysAttribute(): ?int
     {
-        return $this->dob ? Carbon::today()->subDay()->diffInDays($this->next_birthday, false) : null;
+        if (! $this->dob) {
+            return null;
+        }
+
+        $today            = Carbon::today();
+        $birthdayThisYear = Carbon::parse($this->dob)->year($today->year);
+
+        // If the birthday is today, return 0 days remaining
+        if ($birthdayThisYear->isToday()) {
+            return 0;
+        }
+
+        // Determine if the next birthday is this year or next year
+        $nextBirthday = $birthdayThisYear->isPast() ? $birthdayThisYear->addYear() : $birthdayThisYear;
+
+        return $today->diffInDays($nextBirthday, false);
     }
 
     protected function getLifetimeAttribute(): ?string
@@ -291,65 +308,85 @@ class Person extends Model implements HasMedia
     {
         $countries = new Countries(app()->getLocale());
 
-        return implode("\n", array_filter([
-            implode(' ', array_filter([$this->street, $this->number])),
-            implode(' ', array_filter([$this->postal_code, $this->city])),
-            implode(' ', array_filter([$this->province, $this->state])),
-            $this->country ? $countries->getCountryName($this->country) : '',
-        ]));
+        $components = [
+            trim("{$this->street} {$this->number}"),
+            trim("{$this->postal_code} {$this->city}"),
+            trim("{$this->province} {$this->state}"),
+            $this->country ? $countries->getCountryName($this->country) : null,
+        ];
+
+        // Filter empty components and implode with newline characters.
+        $address = implode("\n", array_filter($components));
+
+        return $address ?: null;
     }
 
     protected function getAddressGoogleAttribute(): ?string
     {
-        $countries = new Countries(app()->getLocale());
+        $countries         = new Countries(app()->getLocale());
+        $hrefGoogleAddress = 'https://www.google.com/maps/search/';
 
-        $href_google_address = 'https://www.google.com/maps/search/';
+        $components = [
+            trim("{$this->street} {$this->number}"),
+            trim("{$this->postal_code} {$this->city}"),
+            trim("{$this->province} {$this->state}"),
+            $this->country ? $countries->getCountryName($this->country) : null,
+        ];
 
-        $address = implode(',', array_filter([
-            implode(' ', array_filter([$this->street, $this->number])),
-            implode(' ', array_filter([$this->postal_code, $this->city])),
-            implode(' ', array_filter([$this->province, $this->state])),
-            $this->country ? $countries->getCountryName($this->country) : '',
-        ]));
+        // Filter empty components, implode with commas, and URL-encode the address.
+        $address = implode(',', array_filter($components));
 
-        return $address ? $href_google_address . $address : '';
+        return $address ? $hrefGoogleAddress . urlencode($address) : null;
     }
 
     protected function getCemeteryGoogleAttribute(): ?string
     {
-        $href_google_address = 'https://www.google.com/maps/search/';
-        $href_google_geo     = 'https://www.google.com/maps/search/?api=1&query=';
+        $hrefGoogleGeo     = 'https://www.google.com/maps/search/?api=1&query=';
+        $hrefGoogleAddress = 'https://www.google.com/maps/search/';
 
-        if ($this->getMetadataValue('cemetery_location_latitude') and $this->getMetadataValue('cemetery_location_longitude')) {
-            return $href_google_geo . implode('%2C', [
-                $this->getMetadataValue('cemetery_location_latitude'),
-                $this->getMetadataValue('cemetery_location_longitude'),
-            ]);
-        } elseif ($this->getMetadataValue('cemetery_location_address')) {
-            return $href_google_address . str_replace("\n", ',', $this->getMetadataValue('cemetery_location_address'));
-        } else {
-            return '';
+        $latitude  = $this->getMetadataValue('cemetery_location_latitude');
+        $longitude = $this->getMetadataValue('cemetery_location_longitude');
+        $address   = $this->getMetadataValue('cemetery_location_address');
+
+        if ($latitude && $longitude) {
+            return $hrefGoogleGeo . urlencode("{$latitude},{$longitude}");
+        } elseif ($address) {
+            return $hrefGoogleAddress . urlencode(str_replace("\n", ',', $address));
         }
+
+        return null;
     }
 
     public function countFiles(): int
     {
-        return $this->getMedia('files')->count();
+        return $this->getMedia('files') ? $this->getMedia('files')->count() : 0;
     }
 
     public function countPhotos(): int
     {
-        return count(Finder::create()->in(public_path('storage/photos/' . $this->team_id))->name($this->id . '_*.webp'));
+        // Define the path
+        $directory = public_path('storage/photos/' . $this->team_id);
+
+        // Check if the directory exists
+        if (! File::exists($directory)) {
+            return 0;
+        }
+
+        // Get all files matching the pattern
+        $files = File::glob($directory . '/' . $this->id . '_*.webp');
+
+        // Count and return the number of matching files
+        return count($files);
     }
 
     public function isDeceased(): bool
     {
-        return $this->dod != null or $this->yod != null;
+        return ! is_null($this->dod) || ! is_null($this->yod);
     }
 
     public function isDeletable(): bool
     {
-        return count($this->children) == 0 and count($this->couples) == 0;
+        return $this->children->isEmpty() && $this->couples->isEmpty();
     }
 
     public function isBirthdayToday(): bool
