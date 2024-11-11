@@ -94,10 +94,12 @@ class Couple extends Model
     /* -------------------------------------------------------------------------------------------- */
     protected function getNameAttribute(): ?string
     {
-        return implode(' - ', array_filter([
+        $names = array_filter([
             optional($this->person_1)->name,
             optional($this->person_2)->name,
-        ]));
+        ]);
+
+        return $names ? implode(' - ', $names) : null;
     }
 
     protected function getDateStartFormattedAttribute(): ?string
