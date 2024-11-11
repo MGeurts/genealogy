@@ -447,38 +447,33 @@ class Person extends Model implements HasMedia
     public function childrenNaturalAll(): Collection
     {
         $children_natural = $this->children;
-        $children_partner = $this->currentPartner() ? $this->currentPartner()->children : collect([]);
+        $children_partner = $this->currentPartner()?->children ?: collect([]);
 
-        $children = $children_natural->merge($children_partner);
-
-        return $children->map(function ($child) use ($children_natural, $children_partner) {
-            if ($children_natural->contains('id', $child->id)) {
-                $child['type'] = null;
-            } elseif ($children_partner->contains('id', $child->id)) {
-                $child['type'] = '+';
-            }
+        return $children_natural->merge($children_partner)->map(function ($child) use ($children_natural, $children_partner) {
+            $child['type'] = $children_natural->contains('id', $child->id) ? null : ($children_partner->contains('id', $child->id) ? '+' : null);
 
             return $child;
-        })->sortBy('birthYear')->sortBy('type');
+        })->sortBy(['birthYear', 'type']);
     }
 
     /* returns ALL PARTNERS (n Person) related to the person, ordered by date_start */
     public function getPartnersAttribute(): Collection
     {
         if (! array_key_exists('partners', $this->relations)) {
-            $partners_1 = $this->belongsToMany(Person::class, 'couples', 'person1_id', 'person2_id')
+            $partners = $this->belongsToMany(Person::class, 'couples', 'person1_id', 'person2_id')
                 ->withPivot(['id', 'date_start', 'date_end', 'is_married', 'has_ended'])
                 ->with('children')
                 ->orderByPivot('date_start')
-                ->get();
+                ->get()
+                ->merge(
+                    $this->belongsToMany(Person::class, 'couples', 'person2_id', 'person1_id')
+                        ->withPivot(['id', 'date_start', 'date_end', 'is_married', 'has_ended'])
+                        ->with('children')
+                        ->orderByPivot('date_start')
+                        ->get()
+                );
 
-            $partners_2 = $this->belongsToMany(Person::class, 'couples', 'person2_id', 'person1_id')
-                ->withPivot(['id', 'date_start', 'date_end', 'is_married', 'has_ended'])
-                ->with('children')
-                ->orderByPivot('date_start')
-                ->get();
-
-            $this->setRelation('partners', $partners_1->merge($partners_2));
+            $this->setRelation('partners', $partners);
         }
 
         return $this->getRelation('partners');
@@ -506,80 +501,120 @@ class Person extends Model implements HasMedia
     public function getMetadataValue($key = null): ?string
     {
         if ($key) {
-            return $this->metadata->firstWhere('key', $key) ? $this->metadata->firstWhere('key', $key)->value : null;
-        } else {
-            return null;
+            $metadata = $this->metadata->firstWhere('key', $key);
+
+            return $metadata ? $metadata->value : null;
         }
+
+        return null;
     }
 
-    /* updates or creates 1 to n METADATA related to the person */
+    /* updates, deletes if empty or creates 1 to n METADATA related to the person */
     public function updateMetadata(Collection $personMetadata)
     {
+        // First, delete any existing metadata where the value is empty
         foreach (PersonMetadata::METADATA_KEYS as $key) {
-            if ($personMetadata->has($key)) {
-                PersonMetadata::updateOrCreate(
-                    [
-                        // find using ...
-                        'person_id' => $this->id,
-                        'key'       => $key,
-                    ],
-                    [
-                        // update or create using above and ...
-                        'value' => $personMetadata->get($key),
-                    ]
-                );
+            if ($personMetadata->has($key) && empty($personMetadata->get($key))) {
+                PersonMetadata::where('person_id', $this->id)
+                    ->where('key', $key)
+                    ->delete();
             }
+        }
+
+        // Collect data to update or create
+        $data = [];
+        foreach (PersonMetadata::METADATA_KEYS as $key) {
+            if ($personMetadata->has($key) && ! empty($personMetadata->get($key))) {
+                $data[] = [
+                    'person_id' => $this->id,
+                    'key'       => $key,
+                    'value'     => $personMetadata->get($key),
+                ];
+            }
+        }
+
+        // Perform bulk insert or update if there is data
+        if ($data) {
+            PersonMetadata::upsert($data, ['person_id', 'key'], ['value']);
         }
     }
 
     /* returns ALL SIBLINGS (n Person) related to the person, either through father_id, mother_id or parents_id ordered by type, birthyear */
     public function siblings(): Collection
     {
-        if (! $this->father_id and ! $this->mother_id and ! $this->parents_id) {
+        // Check if there are any parent identifiers to avoid unnecessary queries
+        if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
             return collect([]);
-        } else {
-            $siblings_father  = $this->father_id ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->get() : collect([]);
-            $siblings_mother  = $this->mother_id ? Person::where('id', '!=', $this->id)->where('mother_id', $this->mother_id)->get() : collect([]);
-            $siblings_parents = $this->parents_id ? Person::where('id', '!=', $this->id)->where('parents_id', $this->parents_id)->get() : collect([]);
-
-            $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents);
-
-            return $siblings->map(function ($sibling) use ($siblings_father, $siblings_mother, $siblings_parents) {
-                if ($siblings_father->contains('id', $sibling->id) and $siblings_mother->contains('id', $sibling->id)) {
-                    $sibling['type'] = '';
-                } elseif ($siblings_father->contains('id', $sibling->id) or $siblings_mother->contains('id', $sibling->id)) {
-                    $sibling['type'] = '[1/2]';
-                } elseif ($siblings_parents->contains('id', $sibling->id)) {
-                    $sibling['type'] = '[+]';
-                }
-
-                return $sibling;
-            })->sortBy('birthYear')->sortBy('type');
         }
+
+        // Get siblings from the father's side
+        $siblings_father = $this->father_id
+            ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->get()
+            : collect([]);
+
+        // Get siblings from the mother's side
+        $siblings_mother = $this->mother_id
+            ? Person::where('id', '!=', $this->id)->where('mother_id', $this->mother_id)->get()
+            : collect([]);
+
+        // Get siblings from the shared parents' side (if applicable)
+        $siblings_parents = $this->parents_id
+            ? Person::where('id', '!=', $this->id)->where('parents_id', $this->parents_id)->get()
+            : collect([]);
+
+        // Merge the results and ensure no duplicate siblings are included
+        $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents)->unique('id');
+
+        return $siblings->map(function ($sibling) use ($siblings_father, $siblings_mother, $siblings_parents) {
+            // Determine the sibling's type based on the shared parent(s)
+            if ($siblings_father->contains('id', $sibling->id) && $siblings_mother->contains('id', $sibling->id)) {
+                $sibling['type'] = ''; // Full siblings (same mother and father)
+            } elseif ($siblings_father->contains('id', $sibling->id) || $siblings_mother->contains('id', $sibling->id)) {
+                $sibling['type'] = '[1/2]'; // Half siblings (same father or mother)
+            } elseif ($siblings_parents->contains('id', $sibling->id)) {
+                $sibling['type'] = '[+]'; // Step-siblings or other variations
+            }
+
+            return $sibling;
+        })->sortBy(['birthYear', 'type']);
     }
 
     public function siblings_with_children(): Collection // only used in family chart
     {
-        if (! $this->father_id and ! $this->mother_id and ! $this->parents_id) {
+        // Check if there are any parent identifiers to avoid unnecessary queries
+        if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
             return collect([]);
-        } else {
-            $siblings_father  = $this->father_id ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->with('children')->get() : collect([]);
-            $siblings_mother  = $this->mother_id ? Person::where('id', '!=', $this->id)->where('mother_id', $this->mother_id)->with('children')->get() : collect([]);
-            $siblings_parents = $this->parents_id ? Person::where('id', '!=', $this->id)->where('parents_id', $this->parents_id)->with('children')->get() : collect([]);
-
-            $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents);
-
-            return $siblings->map(function ($sibling) use ($siblings_father, $siblings_mother, $siblings_parents) {
-                if ($siblings_father->contains('id', $sibling->id) and $siblings_mother->contains('id', $sibling->id)) {
-                    $sibling['type'] = '';
-                } elseif ($siblings_father->contains('id', $sibling->id) or $siblings_mother->contains('id', $sibling->id)) {
-                    $sibling['type'] = '[1/2]';
-                } elseif ($siblings_parents->contains('id', $sibling->id)) {
-                    $sibling['type'] = '[+]';
-                }
-
-                return $sibling;
-            })->sortBy('birthYear')->sortBy('type');
         }
+
+        // Get siblings from the father's side
+        $siblings_father = $this->father_id
+            ? Person::where('id', '!=', $this->id)->where('father_id', $this->father_id)->with('children')->get()
+            : collect([]);
+
+        // Get siblings from the mother's side
+        $siblings_mother = $this->mother_id
+            ? Person::where('id', '!=', $this->id)->where('mother_id', $this->mother_id)->with('children')->get()
+            : collect([]);
+
+        // Get siblings from the shared parents' side (if applicable)
+        $siblings_parents = $this->parents_id
+            ? Person::where('id', '!=', $this->id)->where('parents_id', $this->parents_id)->with('children')->get()
+            : collect([]);
+
+        // Merge the results and ensure no duplicate siblings are included
+        $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents)->unique('id');
+
+        return $siblings->map(function ($sibling) use ($siblings_father, $siblings_mother, $siblings_parents) {
+            // Determine the sibling's type based on the shared parent(s)
+            if ($siblings_father->contains('id', $sibling->id) && $siblings_mother->contains('id', $sibling->id)) {
+                $sibling['type'] = ''; // Full siblings (same mother and father)
+            } elseif ($siblings_father->contains('id', $sibling->id) || $siblings_mother->contains('id', $sibling->id)) {
+                $sibling['type'] = '[1/2]'; // Half siblings (same father or mother)
+            } elseif ($siblings_parents->contains('id', $sibling->id)) {
+                $sibling['type'] = '[+]'; // Step-siblings or other variations
+            }
+
+            return $sibling;
+        })->sortBy(['birthYear', 'type']);
     }
 }
