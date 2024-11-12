@@ -81,10 +81,6 @@
                         <x-ts-button xs href="https://image.intervention.io/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                     </li>
                     <li class="py-2">
-                        <x-link href="https://github.com/kevinkhill/lavacharts/" target="_blank">kevinkhill/lavacharts</x-link>
-                        <x-ts-button xs href="https://lavacharts.com/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
-                    </li>
-                    <li class="py-2">
                         <x-link href="https://github.com/korridor/laravel-has-many-merged/" target="_blank">korridor/laravel-has-many-merged</x-link>
                     </li>
                     <li class="py-2">
@@ -145,6 +141,10 @@
                 <ul class="w-full ml-4">
                     <li class="py-2">
                         <x-link href="https://www.chartjs.org/" target="_blank">Chart.js</x-link>
+                    </li>
+
+                    <li class="py-2">
+                        <x-link href="https://github.com/StephanWagner/svgMap/" target="_blank">StephanWagner/svgMap</x-link>
                     </li>
                 </ul>
             </x-ts-tab.items>

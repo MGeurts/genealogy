@@ -19,7 +19,7 @@
 
     {{-- scripts --}}
     <tallstackui:script />
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/chart.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/chart.js', 'resources/js/svgMap.js'])
 
     {{-- styles --}}
     @livewireStyles
