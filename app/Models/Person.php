@@ -171,13 +171,13 @@ class Person extends Model implements HasMedia
         if ($this->dob) {
             if ($this->dod) {
                 // deceased based on dob & dod
-                $age = Carbon::parse($this->dob)->diffInYears($this->dod);
+                $age = (int) Carbon::parse($this->dob)->diffInYears($this->dod);
             } elseif ($this->yod) {
                 // deceased based on dob & yod
                 $age = $this->yod - Carbon::parse($this->dob)->format('Y');
             } else {
                 // living
-                $age = Carbon::parse($this->dob)->diffInYears();
+                $age = (int) Carbon::parse($this->dob)->diffInYears();
             }
         } elseif ($this->yob) {
             if ($this->dod) {
@@ -231,7 +231,7 @@ class Person extends Model implements HasMedia
         // Determine if the next birthday is this year or next year
         $nextBirthday = $birthdayThisYear->isPast() ? $birthdayThisYear->addYear() : $birthdayThisYear;
 
-        return $today->diffInDays($nextBirthday, false);
+        return (int) $today->diffInDays($nextBirthday, false);
     }
 
     protected function getLifetimeAttribute(): ?string
