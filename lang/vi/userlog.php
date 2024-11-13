@@ -2,9 +2,11 @@
 
 return [
     // Labels
-    'users_log'    => 'Sổ ghi chép người dùng',
-    'users_origin' => 'Nguồn gốc người dùng',
-    'users_stats'  => 'Thống kê người dùng',
+    'users_log'        => 'Sổ ghi chép người dùng',
+    'users_origin'     => 'Nguồn gốc người dùng',
+    'users_stats'      => 'Thống kê người dùng',
+    'users_by_country' => 'Người dùng theo quốc gia',
+    'visitors'         => 'Du khách',
 
     'year'  => 'Năm',
     'month' => 'Tháng',

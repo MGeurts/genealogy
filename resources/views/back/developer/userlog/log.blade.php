@@ -1,8 +1,8 @@
-<div class="w-full">
-    @section('title')
-        &vert; {{ __('user.users') }}
-    @endsection
+@section('title')
+    &vert; {{ __('user.users') }}
+@endsection
 
+<x-app-layout>
     <x-slot name="heading">
         {{ __('userlog.users_log') }}
     </x-slot>
@@ -67,4 +67,4 @@
             </div>
         </div>
     </div>
-</div>
+</x-app-layout>

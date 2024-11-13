@@ -1,45 +1,8 @@
-<div class="w-full" x-data="{
-    init() {
-        const cData = {{ $chart_data }};
+@section('title')
+    &vert; {{ __('user.users') }}
+@endsection
 
-        const data = {
-            labels: cData.labels,
-            datasets: [{
-                label: 'Visitors',
-                borderWidth: 1,
-                data: cData.data,
-            }]
-        };
-
-        const config = {
-            type: 'bar',
-            data: data,
-            options: {
-                responsive: true,
-                scaleIntegersOnly: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            precision: 0,
-                        }
-                    }
-                }
-            }
-        }
-
-        // destroy any previous chart
-        if (Chart.getChart('mainChart')) {
-            Chart.getChart('mainChart').destroy();
-        }
-
-        const myChart = new Chart(this.$refs.canvas, config);
-    }
-}">
-    @section('title')
-        &vert; {{ __('user.users') }}
-    @endsection
-
+<x-app-layout>
     <x-slot name="heading">
         {{ __('userlog.users_origin') }}
     </x-slot>
@@ -67,4 +30,36 @@
             </div>
         </div>
     </div>
-</div>
+
+    @push('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <script>
+            const ctx = document.getElementById('mainChart').getContext('2d');
+
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: @js($labels),
+                    datasets: [{
+                        label: @js($title),
+                        data: @js($values),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scaleIntegersOnly: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0,
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+    @endpush
+</x-app-layout>

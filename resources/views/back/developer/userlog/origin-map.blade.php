@@ -1,33 +1,8 @@
-<div class="w-full" x-data="{
-    mapData: @js($countriesData),
+@section('title')
+    &vert; {{ __('user.users') }}
+@endsection
 
-    mapInitialized: false, // Flag to prevent re-initialization
-
-    init() {
-        if (!this.mapInitialized) {
-            new svgMap({
-                targetElementID: 'svgMap',
-                data: {
-                    data: {
-                        visitors: {
-                            name: 'Visitors',
-                            format: '{0}',
-                            thousandSeparator: ','
-                        }
-                    },
-                    applyData: 'visitors',
-                    values: this.mapData
-                }
-            });
-
-            this.mapInitialized = true; // Set flag to true after initialization
-        }
-    }
-}" x-init="init">
-    @section('title')
-        &vert; {{ __('user.users') }}
-    @endsection
-
+<x-app-layout>
     <x-slot name="heading">
         {{ __('userlog.users_origin') }}
     </x-slot>
@@ -55,4 +30,30 @@
             </div>
         </div>
     </div>
-</div>
+
+    @push('styles')
+        <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.12.0/dist/svgMap.min.css" rel="stylesheet">
+    @endpush
+
+    @push('scripts')
+        <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.12.0/dist/svgMap.min.js"></script>
+
+        <script>
+            const map = new svgMap({
+                targetElementID: 'svgMap',
+                data: {
+                    data: {
+                        visitors: {
+                            name: @json($title),
+                            format: '{0}',
+                            thousandSeparator: ','
+                        }
+                    },
+                    applyData: 'visitors',
+                    values: @json($countriesData)
+                }
+            });
+        </script>
+    @endpush
+</x-app-layout>

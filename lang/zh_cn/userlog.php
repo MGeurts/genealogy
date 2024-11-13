@@ -2,9 +2,11 @@
 
 return [
     // 标签
-    'users_log'    => '用户日志',
-    'users_origin' => '用户来源',
-    'users_stats'  => '用户统计',
+    'users_log'        => '用户日志',
+    'users_origin'     => '用户来源',
+    'users_stats'      => '用户统计',
+    'users_by_country' => '按国家/地区划分的用户',
+    'visitors'         => '访客',
 
     'year'  => '年',
     'month' => '月',

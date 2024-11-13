@@ -2,9 +2,11 @@
 
 return [
     // Labels
-    'users_log'    => 'User logbook',
-    'users_origin' => 'User origin',
-    'users_stats'  => 'User statictics',
+    'users_log'        => 'User logbook',
+    'users_origin'     => 'User origin',
+    'users_stats'      => 'User statictics',
+    'users_by_country' => 'Users by country',
+    'visitors'         => 'Visitors',
 
     'year'  => 'Year',
     'month' => 'Month',

@@ -23,7 +23,7 @@
                         @endforeach
                     @else
                         {{ __('auth.guest') }}
-                        
+
                         <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
                     @endauth
                 </div>
@@ -77,22 +77,22 @@
                         </x-nav-link-responsive>
                     </p>
                     <p>
-                        <x-nav-link-responsive href="{{ route('developer.userlogs.origin') }}" :active="request()->routeIs('developer.userlogs.origin')">
+                        <x-nav-link-responsive href="{{ route('developer.userlog.origin') }}" :active="request()->routeIs('developer.userlog.origin')">
                             {{ __('userlog.users_origin') }}
                         </x-nav-link-responsive>
                     </p>
                     <p>
-                        <x-nav-link-responsive href="{{ route('developer.userlogs.origin-map') }}" :active="request()->routeIs('developer.userlogs.origin-map')">
+                        <x-nav-link-responsive href="{{ route('developer.userlog.origin-map') }}" :active="request()->routeIs('developer.userlog.origin-map')">
                             {{ __('userlog.users_origin') }} (Map)
                         </x-nav-link-responsive>
                     </p>
                     <p>
-                        <x-nav-link-responsive href="{{ route('developer.userlogs.period') }}" :active="request()->routeIs('developer.userlogs.period')">
+                        <x-nav-link-responsive href="{{ route('developer.userlog.period') }}" :active="request()->routeIs('developer.userlog.period')">
                             {{ __('userlog.users_stats') }}
                         </x-nav-link-responsive>
                     </p>
                     <p>
-                        <x-nav-link-responsive href="{{ route('developer.userlogs.log') }}" :active="request()->routeIs('developer.userlogs.log')">
+                        <x-nav-link-responsive href="{{ route('developer.userlog.log') }}" :active="request()->routeIs('developer.userlog.log')">
                             {{ __('userlog.users_log') }}
                         </x-nav-link-responsive>
                     </p>

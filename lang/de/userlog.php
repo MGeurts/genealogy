@@ -2,9 +2,11 @@
 
 return [
     // Labels
-    'users_log'    => 'Benutzerprotokoll',
-    'users_origin' => 'Ursprung des Benutzerprotokolls',
-    'users_stats'  => 'Protokollsstatistiken',
+    'users_log'        => 'Benutzerprotokoll',
+    'users_origin'     => 'Ursprung des Benutzerprotokolls',
+    'users_stats'      => 'Protokollsstatistiken',
+    'users_by_country' => 'Benutzer nach Land',
+    'visitors'         => 'Besucher',
 
     'year'  => 'Jahr',
     'month' => 'Monat',

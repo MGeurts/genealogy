@@ -77,15 +77,12 @@ Route::middleware([
 
             Route::get('dependencies', 'dependencies')->name('dependencies');
             Route::get('session', 'session')->name('session');
-        });
 
-        // -----------------------------------------------------------------------------------
-        // userlog
-        // -----------------------------------------------------------------------------------
-        Route::get('userlogs/log', App\Livewire\Userlogs\Log::class)->name('userlogs.log');
-        Route::get('userlogs/origin', App\Livewire\Userlogs\Origin::class)->name('userlogs.origin');
-        Route::get('userlogs/originMap', App\Livewire\Userlogs\OriginMap::class)->name('userlogs.origin-map');
-        Route::get('userlogs/period', App\Livewire\Userlogs\Period::class)->name('userlogs.period');
+            Route::get('userlog/log', 'userlogLog')->name('userlog.log');
+            Route::get('userlog/origin', 'userlogOrigin')->name('userlog.origin');
+            Route::get('userlog/originmap', 'userlogOriginMap')->name('userlog.origin-map');
+            Route::get('userlog/period', 'userlogPeriod')->name('userlog.period');
+        });
 
         // -----------------------------------------------------------------------------------
         // backups

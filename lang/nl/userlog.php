@@ -2,9 +2,11 @@
 
 return [
     // Labels
-    'users_log'    => 'Gebruikers logboek',
-    'users_origin' => 'Gebruikers herkomst',
-    'users_stats'  => 'Gebruikers statistiek',
+    'users_log'        => 'Gebruikers logboek',
+    'users_origin'     => 'Gebruikers herkomst',
+    'users_stats'      => 'Gebruikers statistiek',
+    'users_by_country' => 'Gebruikers per land',
+    'visitors'         => 'Bezoekers',
 
     'year'  => 'Jaar',
     'month' => 'Maand',
