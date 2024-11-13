@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-EDunfMrM.css",
+    "file": "assets/app-lhnUNquz.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -9,20 +9,5 @@
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true
-  },
-  "resources/js/chart.js": {
-    "file": "assets/chart-Dj41Yt-Q.js",
-    "name": "chart",
-    "src": "resources/js/chart.js",
-    "isEntry": true
-  },
-  "resources/js/svgMap.js": {
-    "file": "assets/svgMap-CElMnS3p.js",
-    "name": "svgMap",
-    "src": "resources/js/svgMap.js",
-    "isEntry": true,
-    "css": [
-      "assets/svgMap-LjphnS28.css"
-    ]
   }
 }

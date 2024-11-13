@@ -17,8 +17,6 @@
         "vite": "^5.4"
     },
     "dependencies": {
-        "@tabler/icons-sprite": "^3.19.0",
-        "chart.js": "^4.4.5",
-        "svgmap": "^2.12.1"
+        "@tabler/icons-sprite": "^3.19.0"
     }
 }
