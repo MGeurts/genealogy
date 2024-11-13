@@ -31,6 +31,8 @@
         </div>
     </div>
 
+
+
     @push('styles')
         <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.12.0/dist/svgMap.min.css" rel="stylesheet">
     @endpush
@@ -40,19 +42,31 @@
         <script src="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.12.0/dist/svgMap.min.js"></script>
 
         <script>
+            const countryNames = {
+                @foreach ($countries as $code => $name)
+                    {{ strtoupper($code) }}: '{{ $name }}',
+                @endforeach
+            };
+
             const map = new svgMap({
+                countryNames: countryNames,
                 targetElementID: 'svgMap',
+                flagType: 'emoji',
+                colorMax: '#362925',
+                colorMin: '#dbc9b8',
+                colorNoData: '#ffffff',
+                noDataText: @json($nodata),
                 data: {
                     data: {
                         visitors: {
                             name: @json($title),
                             format: '{0}',
-                            thousandSeparator: ','
+                            thousandSeparator: ',',
                         }
                     },
                     applyData: 'visitors',
-                    values: @json($countriesData)
-                }
+                    values: @json($countriesData),
+                },
             });
         </script>
     @endpush

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Back;
 
+use App\Countries;
 use App\Http\Controllers\Controller;
 use App\Models\Userlog;
 use Illuminate\View\View;
@@ -73,7 +74,12 @@ class DeveloperController extends Controller
 
     public function userlogOriginMap(): View
     {
-        $title = __('userlog.visitors');
+        $title  = __('userlog.visitors');
+        $nodata = __('app.nothing_recorded');
+
+        $countries = new Countries(app()->getLocale());
+
+        $countries = $countries->getCountryNamesForSvgMap();
 
         $countriesData = Userlog::select('country_code')
             ->selectRaw('COUNT(*) AS visitors')
@@ -87,7 +93,7 @@ class DeveloperController extends Controller
                 ];
             })->toArray();
 
-        return view('back.developer.userlog.origin-map', compact('title', 'countriesData'));
+        return view('back.developer.userlog.origin-map', compact('title', 'nodata', 'countries', 'countriesData'));
     }
 
     public function userlogPeriod(): View

@@ -70,4 +70,14 @@ class Countries
             ];
         })->values();
     }
+
+    /**
+     * Get country names formatted for svgMap's countryNames configuration.
+     */
+    public function getCountryNamesForSvgMap(): Collection
+    {
+        return $this->countries->mapWithKeys(function ($item) {
+            return [$item['alpha2'] => $item['name']];
+        });
+    }
 }
