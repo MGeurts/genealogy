@@ -77,8 +77,7 @@ class DeveloperController extends Controller
         $title  = __('userlog.visitors');
         $nodata = __('app.nothing_recorded');
 
-        $countries = new Countries(app()->getLocale());
-        $countries = $countries->getCountryNamesForSvgMap();
+        $countries = (new Countries(app()->getLocale()))->getCountryNamesForSvgMap();
 
         $data = Userlog::select('country_code')
             ->selectRaw('COUNT(*) AS visitors')

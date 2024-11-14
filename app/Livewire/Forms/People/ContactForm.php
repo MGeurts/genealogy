@@ -29,9 +29,7 @@ class ContactForm extends Form
     // -----------------------------------------------------------------------
     public function countries()
     {
-        $countries = new Countries(app()->getLocale());
-
-        return $countries->getAllCountries();
+        return (new Countries(app()->getLocale()))->getAllCountries();
     }
 
     // -----------------------------------------------------------------------
