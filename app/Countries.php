@@ -77,7 +77,7 @@ class Countries
     public function getCountryNamesForSvgMap(): Collection
     {
         return $this->countries->mapWithKeys(function ($item) {
-            return [$item['alpha2'] => $item['name']];
+            return [strtoupper($item['alpha2']) => $item['name']];
         });
     }
 }

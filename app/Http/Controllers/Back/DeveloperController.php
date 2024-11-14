@@ -78,10 +78,9 @@ class DeveloperController extends Controller
         $nodata = __('app.nothing_recorded');
 
         $countries = new Countries(app()->getLocale());
-
         $countries = $countries->getCountryNamesForSvgMap();
 
-        $countriesData = Userlog::select('country_code')
+        $data = Userlog::select('country_code')
             ->selectRaw('COUNT(*) AS visitors')
             ->groupBy('country_code')
             ->get()
@@ -93,7 +92,7 @@ class DeveloperController extends Controller
                 ];
             })->toArray();
 
-        return view('back.developer.userlog.origin-map', compact('title', 'nodata', 'countries', 'countriesData'));
+        return view('back.developer.userlog.origin-map', compact('title', 'nodata', 'countries', 'data'));
     }
 
     public function userlogPeriod(): View
