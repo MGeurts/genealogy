@@ -14,7 +14,7 @@ return [
     'date'          => 'Date',
     'age'           => 'Âge',
     'actions'       => 'Actes',
-    'backup_daily'  => 'Les sauvegardes sont créées automatiquement quotidiennement (à 23:00 heure).',
+    'backup_daily'  => 'Les sauvegardes sont créées automatiquement quotidiennement (à ' . config('app.backup.daily_run') . ' heure).',
     'backup_email'  => 'Un e-mail sera envoyé à l\'adresse e-mail de votre application après chaque sauvegarde.',
     'backup_cron_1' => 'Les sauvegardes peuvent être automatisées (exécutées quotidiennement) en émettant la tâche cron suivante sur votre serveur de production :',
     'backup_cron_2' => '* * * * * cd /path_to_your_application && php artisan planning:run >> /dev/null 2>&1',
