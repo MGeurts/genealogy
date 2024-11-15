@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schedule;
 // --------------------------------------------------------------------------------
 // schedule daily backup
 // --------------------------------------------------------------------------------
-Schedule::command('backup:clean')->daily()->at(config('app.backup_daily_cleanup'))
+Schedule::command('backup:clean')->daily()->at(config('app.backup.daily_cleanup'))
     ->onSuccess(function () {
         Log::info('Backup (Scheduled) -- Cleanup succeeded');
     })
@@ -15,7 +15,7 @@ Schedule::command('backup:clean')->daily()->at(config('app.backup_daily_cleanup'
         Log::warning('Backup (Scheduled) -- Cleanup failed');
     });
 
-Schedule::command('backup:run --only-db')->daily()->at(config('app.backup_daily_run'))
+Schedule::command('backup:run --only-db')->daily()->at(config('app.backup.daily_run'))
     ->onSuccess(function () {
         Log::info('Backup (Scheduled) -- Backup succeeded');
     })

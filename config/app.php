@@ -140,10 +140,12 @@ return [
     | Custom values used in the application outside of the config files
     |--------------------------------------------------------------------------
     */
-    'backup_disk'          => env('BACKUP_DISK', 'backups'),
-    'backup_daily_cleanup' => env('BACKUP_DAILY_CLEANUP', '22:30'),
-    'backup_daily_run'     => env('BACKUP_DAILY_RUN', '23:00'),
-    'backup_mail_address'  => env('BACKUP_MAIL_ADDRESS', 'webmaster@yourdomain.com'),
+    'backup' => [
+        'disk'          => env('BACKUP_DISK', 'backups'),
+        'daily_cleanup' => env('BACKUP_DAILY_CLEANUP', '22:30'),
+        'daily_run'     => env('BACKUP_DAILY_RUN', '23:00'),
+        'mail_address'  => env('BACKUP_MAIL_ADDRESS', 'webmaster@yourdomain.com'),
+    ],
 
     'image_upload' => [
         'max_width'     => (int) env('IMAGE_UPLOAD_MAX_WIDTH', 600),

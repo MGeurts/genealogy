@@ -21,7 +21,7 @@ return [
     'actions' => '操作',
 
     // 注释
-    'backup_daily'  => '备份每天自动创建（在 ' . config('app.backup_daily_run') . ' 点）。',
+    'backup_daily'  => '备份每天自动创建（在 ' . config('app.backup.daily_run') . ' 点）。',
     'backup_email'  => '每次备份后，系统将发送一封电子邮件到您的应用程序电子邮件地址。',
     'backup_cron_1' => '可以通过在您的生产服务器上运行以下cron任务来自动化备份（每天运行）：',
     'backup_cron_2' => '* * * * * cd /path_to_your_application && php artisan schedule:run >> /dev/null 2>&1',
