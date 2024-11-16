@@ -27,8 +27,8 @@ class UserLogin
         // set language and timezone
         // -----------------------------------------------------------------------
         session([
-            'locale'   => $event->user->language ? $event->user->language : env('APP_LOCALE', 'en'),
-            'timezone' => $event->user->timezone ? $event->user->timezone : env('APP_TIMEZONE', 'UTC'),
+            'locale'   => $event->user->language ? $event->user->language : config('app.locale', 'en'),
+            'timezone' => $event->user->timezone ? $event->user->timezone : config('app.timezone', 'UTC'),
         ]);
 
         // -----------------------------------------------------------------------
