@@ -129,9 +129,11 @@
                     </li>
 
                     <li class="py-2">
-                        <x-link href="https://github.com/mcamara/laravel-localization/" target="_blank">mcamara/laravel-localization</x-link>
+                        <x-link href="https://github.com/alisalehi1380/laravel-lang-files-translator" target="_blank">alisalehi1380/laravel-lang-files-translator</x-link>
                         <br />
-                        <span class="ms-5">to create new language, use command :</span> <span class="text-red-500">php artisan lang:translate</span>
+                        <span class="ms-5">to create new language, use command :</span> <span class="text-red-500">php artisan translate:lang {from} {to}</span>
+                        <br />
+                        <span class="ms-5">example:</span> <span class="text-red-500">php artisan translate:lang en fa</span> for Persian (fa)
                     </li>
                 </ul>
             </x-ts-tab.items>
