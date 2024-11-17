@@ -14,15 +14,18 @@ class Localization
 {
     /**
      * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (session()->has('locale') and session()->get('locale') != app()->getLocale()) {
-            app()->setLocale(session()->get('locale'));
-            Carbon::SetLocale(session()->get('locale'));
-            Number::useLocale(session()->get('locale'));
+        // -----------------------------------------------------------------------
+        // Check and apply the locale from session if it differs from the current app locale
+        // -----------------------------------------------------------------------
+        $locale = session('locale');
+
+        if ($locale && $locale !== app()->getLocale()) {
+            app()->setLocale($locale);
+            Carbon::setLocale($locale);
+            Number::useLocale($locale);
         }
 
         return $next($request);
