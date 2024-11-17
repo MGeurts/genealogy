@@ -6,11 +6,10 @@ namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Console\AboutCommand;
-// use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
-// use Illuminate\Support\Str;
 use Opcodes\LogViewer\Facades\LogViewer;
 use TallStackUi\Facades\TallStackUi;
 
@@ -29,73 +28,71 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // -----------------------------------------------------------------------
-        // Use Strict Mode (not in production)
-        // -----------------------------------------------------------------------
-        // 1. Prevent Lazy Loading
-        // 2. Prevent Silently Discarding Attributes
-        // 3. Prevent Access Missing Attributes
-        // https://coderflex.com/blog/laravel-strict-mode-all-what-you-need-to-know
-        // -----------------------------------------------------------------------
+        // Configure application settings and services
+        $this->configureUrl();
+        $this->configureStrictMode();
+        $this->configureLogViewer();
+        $this->configureTallStackUiPersonalization();
+
+        $this->addAboutCommandDetails();
+
+        if (! app()->isProduction()) {
+            // $this->logAllQueries();
+            $this->LogAllSlowQueries();
+            $this->logAllNplusoneQueries();
+        }
+    }
+
+    /**
+     * Enforce HTTPS in production.
+     */
+    private function configureUrl(): void
+    {
+        if (app()->isProduction()) {
+            URL::forceScheme('https');
+        }
+    }
+
+    /**
+     * Use Strict Mode (not in production).
+     *
+     * 1. Prevent Lazy Loading
+     * 2. Prevent Silently Discarding Attributes
+     * 3. Prevent Accessing Missing Attributes
+     * Reference: https://coderflex.com/blog/laravel-strict-mode-all-what-you-need-to-know
+     */
+    private function configureStrictMode(): void
+    {
         Model::shouldBeStrict(! app()->isProduction());
+    }
 
-        // -----------------------------------------------------------------------
-        // LOG-VIEWER : log all N+1 queries
-        // -----------------------------------------------------------------------
-        Model::handleLazyLoadingViolationUsing(function ($model, $relation) {
-            Log::warning("N+1 Query detected.\r\n" . sprintf('N+1 Query detected in model %s on relation %s.', get_class($model), $relation));
-        });
-
-        // -----------------------------------------------------------------------
-        // LOG-VIEWER : grant access (in production) to developer
-        // -----------------------------------------------------------------------
+    /**
+     * Configure LogViewer settings, grant access to developers.
+     */
+    private function configureLogViewer(): void
+    {
         LogViewer::auth(function ($request) {
             return $request->user()->is_developer;
         });
+    }
 
-        // -----------------------------------------------------------------------
-        // LOG-VIEWER : log all queries (not in production)
-        // -----------------------------------------------------------------------
-        // if (! app()->isProduction()) {
-        //     DB::listen(fn ($query) => Log::debug($query->toRawSQL()));
-        // }
+    /**
+     * Personalize TallStackUi components.
+     *
+     * Reference: https://tallstackui.com/docs/personalization/soft
+     */
+    private function configureTallStackUiPersonalization(): void
+    {
+        $ui = TallStackUi::personalize();
 
-        // -----------------------------------------------------------------------
-        // LOG-VIEWER : log all SLOW queries (not in production)
-        // -----------------------------------------------------------------------
-        // if (! app()->isProduction()) {
-        //     DB::listen(function ($query) {
-        //         if ($query->time > 250) {
-        //             Log::warning("An individual database query exceeded 250 ms.", [
-        //                 'sql' => $query->sql,
-        //                 'raw' => $query->toRawSQL()
-        //             ]);
-        //         }
-        //     });
-        // }
+        // Alerts
+        $ui->alert()->block('wrapper')->replace('rounded-lg', 'rounded');
 
-        // -----------------------------------------------------------------------
-        // LOG-VIEWER : log all requests
-        // -----------------------------------------------------------------------
-        // This is done by the middleware \app\Http\Middleware\LogAllRequests.php
-        // and can be enabled/disable in \bootstrap\app.php
+        // Badges
+        $ui->badge()->block('wrapper.class')->replace('px-2', 'px-1');
 
-        // -----------------------------------------------------------------------
-        // log users (seen_at)
-        // -----------------------------------------------------------------------
-        // This is done by the event listener \app\Listeners\UserLogin.php
-
-        // -----------------------------------------------------------------------
-        // TallStackUI personalization
-        // Ref : https://tallstackui.com/docs/personalization/soft
-        // -----------------------------------------------------------------------
-        TallStackUi::personalize()->alert()
-            ->block('wrapper')->replace('rounded-lg', 'rounded');
-
-        TallStackUi::personalize()->badge()
-            ->block('wrapper.class')->replace('px-2', 'px-1');
-
-        TallStackUi::personalize()->card()
+        // Cards
+        $ui->card()
             ->block('wrapper.first')->replace('gap-4', 'gap-2')
             ->block('wrapper.second')->replace('rounded-lg', 'rounded')
             ->block('wrapper.second')->replace('dark:bg-dark-700', 'dark:bg-neutral-700')
@@ -103,59 +100,96 @@ class AppServiceProvider extends ServiceProvider
             ->block('footer.wrapper', 'text-secondary-700 dark:text-dark-300 dark:border-t-neutral-600 rounded rounded-t-none border-t p-2')
             ->block('footer.text', 'flex items-center justify-end gap-2');
 
-        TallStackUi::personalize()->dropdown()
+        // Dropdowns
+        $ui->dropdown()
             ->block('floating')->replace('rounded-lg', 'rounded')
             ->block('width')->replace('w-56', 'w-64')
-            ->block('action.icon')->replace('text-gray-400', 'text-primary-500 dark:text-primar-300');
+            ->block('action.icon')->replace('text-gray-400', 'text-primary-500 dark:text-primary-300');
 
-        TallStackUi::personalize()->form('input')
+        // Forms
+        $ui->form('input')
             ->block('input.wrapper')->replace('rounded-md', 'rounded')
             ->block('input.base')->replace('rounded-md', 'rounded');
 
-        TallStackUi::personalize()->form('textarea')
+        $ui->form('textarea')
             ->block('input.wrapper')->replace('rounded-md', 'rounded')
             ->block('input.base')->replace('rounded-md', 'rounded');
 
-        TallStackUi::personalize()->form('label')
+        $ui->form('label')
             ->block('text')->replace('text-gray-600', 'text-gray-700')
             ->block('text')->replace('dark:text-dark-400', 'dark:text-dark-500');
 
-        TallStackUi::personalize()->modal()
+        // Modals
+        $ui->modal()
             ->block('wrapper.first')->replace('bg-opacity-50', 'bg-opacity-20')
             ->block('wrapper.fourth')->replace('dark:bg-dark-700', 'dark:bg-dark-900')
             ->block('wrapper.fourth')->replace('rounded-xl', 'rounded');
 
-        TallStackUi::personalize()->slide()
+        // Slides
+        $ui->slide()
             ->block('wrapper.first')->replace('bg-opacity-50', 'bg-opacity-20')
             ->block('wrapper.fifth')->replace('dark:bg-dark-700', 'dark:bg-dark-900')
             ->block('footer')->append('dark:text-secondary-600');
 
-        TallStackUi::personalize()->tab()
+        // Tabs
+        $ui->tab()
             ->block('base.wrapper')->replace('rounded-lg', 'rounded')
             ->block('base.wrapper')->replace('dark:bg-dark-700', 'dark:bg-neutral-700')
             ->block('item.select')->replace('dark:text-dark-300', 'dark:text-neutral-50');
 
-        TallStackUi::personalize()->table()
+        // Tables
+        $ui->table()
             ->block('wrapper')->replace('rounded-lg', 'rounded')
             ->block('table.td')->replace('py-4', 'py-2');
-
-        // -----------------------------------------------------------------------
-        // about
-        // -----------------------------------------------------------------------
-        AboutCommand::add('Application', [
-            'Name'    => 'Genealogy',
-            'author'  => 'kreaweb.be',
-            'github'  => 'https://github.com/MGeurts/genealogy',
-            'license' => 'MIT License',
-        ]);
-        // -----------------------------------------------------------------------
     }
 
-    // -----------------------------------------------------------------------
-    // enforce https (in production)
-    // -----------------------------------------------------------------------
-    protected function configureUrl(): void
+    /**
+     * Add application details to the About command.
+     */
+    private function addAboutCommandDetails(): void
     {
-        app()->isProduction() and URL::forceScheme('https');
+        AboutCommand::add('Application', [
+            'Name'    => 'Genealogy',
+            'Author'  => 'kreaweb.be',
+            'GitHub'  => 'https://github.com/MGeurts/genealogy',
+            'License' => 'MIT License',
+        ]);
+    }
+
+    /**
+     * Log all queries for debugging purposes.
+     */
+    private function logAllQueries(): void
+    {
+        DB::listen(fn ($query) => Log::debug($query->toRawSQL()));
+    }
+
+    /**
+     * Log all slow queries (threshold: 250ms) for debugging purposes.
+     */
+    private function LogAllSlowQueries(): void
+    {
+        DB::listen(function ($query) {
+            if ($query->time > 250) {
+                Log::warning('An individual database query exceeded 250 ms.', [
+                    'sql' => $query->sql,
+                    'raw' => $query->toRawSQL(),
+                ]);
+            }
+        });
+    }
+
+    /**
+     * Log all (N+1) query issues for debugging purposes.
+     */
+    private function logAllNplusoneQueries(): void
+    {
+        Model::handleLazyLoadingViolationUsing(function ($model, $relation) {
+            Log::warning(sprintf(
+                'N+1 Query detected in model %s on relation %s.',
+                get_class($model),
+                $relation
+            ));
+        });
     }
 }
