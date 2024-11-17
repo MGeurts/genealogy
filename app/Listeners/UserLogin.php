@@ -11,51 +11,46 @@ use Stevebauman\Location\Facades\Location;
 class UserLogin
 {
     /**
-     * Create the event listener.
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Handle the event.
+     * Handle the login event.
      */
     public function handle(Login $event): void
     {
+        $user = $event->user;
+
         // -----------------------------------------------------------------------
-        // set language and timezone
+        // Set language and timezone
         // -----------------------------------------------------------------------
         session([
-            'locale'   => $event->user->language ? $event->user->language : config('app.locale', 'en'),
-            'timezone' => $event->user->timezone ? $event->user->timezone : config('app.timezone', 'UTC'),
+            'locale'   => $user->language ?? config('app.locale', 'en'),
+            'timezone' => $user->timezone ?? config('app.timezone', 'UTC'),
         ]);
 
         // -----------------------------------------------------------------------
-        // log user (seen_at)
+        // Update user's last seen timestamp
         // -----------------------------------------------------------------------
-        $event->user->timestamps = false;
-        $event->user->seen_at    = now()->getTimestamp();
-        $event->user->saveQuietly();
+        $user->timestamps = false;
+        $user->seen_at    = now()->getTimestamp();
+        $user->saveQuietly();
 
         // -----------------------------------------------------------------------
-        // log user (only in production)
+        // Log user location (only in production)
         // -----------------------------------------------------------------------
         if (app()->isProduction()) {
-            if ($position = Location::get()) {
-                $country_name = $position->countryName;
-                $country_code = $position->countryCode;
-            } else {
-                $country_name = null;
-                $country_code = null;
-            }
+            $this->logUserLocation($user->id);
+        }
+    }
 
+    /**
+     * Log the user's location.
+     */
+    private function logUserLocation(int $userId): void
+    {
+        if ($position = Location::get()) {
             Userlog::create([
-                'user_id'      => $event->user->id,
-                'country_name' => $country_name,
-                'country_code' => $country_code,
+                'user_id'      => $userId,
+                'country_name' => $position->countryName ?? null,
+                'country_code' => $position->countryCode ?? null,
             ]);
         }
-        // -----------------------------------------------------------------------
     }
 }
