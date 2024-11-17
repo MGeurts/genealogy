@@ -12,15 +12,16 @@ class IsDeveloper
 {
     /**
      * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user()->is_developer) {
-            return $next($request);
+        // -----------------------------------------------------------------------
+        // Check if the user has developer privileges
+        // -----------------------------------------------------------------------
+        if (! $request->user()?->is_developer) {
+            abort(403, 'Forbidden');
         }
 
-        abort(403);
+        return $next($request);
     }
 }
