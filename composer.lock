@@ -5951,16 +5951,16 @@
         },
         {
             "name": "spatie/color",
-            "version": "1.6.0",
+            "version": "1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/color.git",
-                "reference": "02ce48c480f86d65702188f738f4e8ccad1b999a"
+                "reference": "4c540ffbef68a3df3d209718ae06deaab081e708"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/color/zipball/02ce48c480f86d65702188f738f4e8ccad1b999a",
-                "reference": "02ce48c480f86d65702188f738f4e8ccad1b999a",
+                "url": "https://api.github.com/repos/spatie/color/zipball/4c540ffbef68a3df3d209718ae06deaab081e708",
+                "reference": "4c540ffbef68a3df3d209718ae06deaab081e708",
                 "shasum": ""
             },
             "require": {
@@ -5998,7 +5998,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/color/issues",
-                "source": "https://github.com/spatie/color/tree/1.6.0"
+                "source": "https://github.com/spatie/color/tree/1.6.1"
             },
             "funding": [
                 {
@@ -6006,20 +6006,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-20T14:00:15+00:00"
+            "time": "2024-11-18T15:00:47+00:00"
         },
         {
             "name": "spatie/db-dumper",
-            "version": "3.7.0",
+            "version": "3.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/db-dumper.git",
-                "reference": "22553ab8c34a9bb70645cb9bc2d9f236f3135705"
+                "reference": "55d4d6710e1ab18c1e7ce2b22b8ad4bea2a30016"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/db-dumper/zipball/22553ab8c34a9bb70645cb9bc2d9f236f3135705",
-                "reference": "22553ab8c34a9bb70645cb9bc2d9f236f3135705",
+                "url": "https://api.github.com/repos/spatie/db-dumper/zipball/55d4d6710e1ab18c1e7ce2b22b8ad4bea2a30016",
+                "reference": "55d4d6710e1ab18c1e7ce2b22b8ad4bea2a30016",
                 "shasum": ""
             },
             "require": {
@@ -6057,7 +6057,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/db-dumper/tree/3.7.0"
+                "source": "https://github.com/spatie/db-dumper/tree/3.7.1"
             },
             "funding": [
                 {
@@ -6069,7 +6069,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-23T08:58:35+00:00"
+            "time": "2024-11-18T14:54:31+00:00"
         },
         {
             "name": "spatie/image",
@@ -6260,16 +6260,16 @@
         },
         {
             "name": "spatie/laravel-activitylog",
-            "version": "4.9.0",
+            "version": "4.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-activitylog.git",
-                "reference": "e0fc28178515a5396f48e107ed697719189bbe02"
+                "reference": "9abddaa9f2681d97943748c7fa04161cf4642e8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/e0fc28178515a5396f48e107ed697719189bbe02",
-                "reference": "e0fc28178515a5396f48e107ed697719189bbe02",
+                "url": "https://api.github.com/repos/spatie/laravel-activitylog/zipball/9abddaa9f2681d97943748c7fa04161cf4642e8c",
+                "reference": "9abddaa9f2681d97943748c7fa04161cf4642e8c",
                 "shasum": ""
             },
             "require": {
@@ -6335,7 +6335,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-activitylog/issues",
-                "source": "https://github.com/spatie/laravel-activitylog/tree/4.9.0"
+                "source": "https://github.com/spatie/laravel-activitylog/tree/4.9.1"
             },
             "funding": [
                 {
@@ -6347,7 +6347,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-10-18T13:38:47+00:00"
+            "time": "2024-11-18T11:31:57+00:00"
         },
         {
             "name": "spatie/laravel-backup",
@@ -6560,16 +6560,16 @@
         },
         {
             "name": "spatie/laravel-package-tools",
-            "version": "1.16.5",
+            "version": "1.16.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "c7413972cf22ffdff97b68499c22baa04eddb6a2"
+                "reference": "1f26942dc1e5c49eacfced34fdbc29ed234bd7b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/c7413972cf22ffdff97b68499c22baa04eddb6a2",
-                "reference": "c7413972cf22ffdff97b68499c22baa04eddb6a2",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/1f26942dc1e5c49eacfced34fdbc29ed234bd7b3",
+                "reference": "1f26942dc1e5c49eacfced34fdbc29ed234bd7b3",
                 "shasum": ""
             },
             "require": {
@@ -6608,7 +6608,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.16.5"
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.16.6"
             },
             "funding": [
                 {
@@ -6616,7 +6616,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-08-27T18:56:10+00:00"
+            "time": "2024-11-18T15:02:02+00:00"
         },
         {
             "name": "spatie/laravel-signal-aware-command",
@@ -12213,16 +12213,16 @@
         },
         {
             "name": "spatie/backtrace",
-            "version": "1.6.2",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/backtrace.git",
-                "reference": "1a9a145b044677ae3424693f7b06479fc8c137a9"
+                "reference": "7c18db2bc667ac84e5d7c18e33f16c38ff2d8838"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/backtrace/zipball/1a9a145b044677ae3424693f7b06479fc8c137a9",
-                "reference": "1a9a145b044677ae3424693f7b06479fc8c137a9",
+                "url": "https://api.github.com/repos/spatie/backtrace/zipball/7c18db2bc667ac84e5d7c18e33f16c38ff2d8838",
+                "reference": "7c18db2bc667ac84e5d7c18e33f16c38ff2d8838",
                 "shasum": ""
             },
             "require": {
@@ -12260,7 +12260,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/backtrace/tree/1.6.2"
+                "source": "https://github.com/spatie/backtrace/tree/1.6.3"
             },
             "funding": [
                 {
@@ -12272,7 +12272,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2024-07-22T08:21:24+00:00"
+            "time": "2024-11-18T14:58:58+00:00"
         },
         {
             "name": "spatie/error-solutions",
