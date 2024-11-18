@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Livewire\People\Edit;
 
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -45,54 +44,46 @@ class Files extends Component
 
     public function deleteUpload(array $content): void
     {
-        /*
-        the $content contains:
-        [
-            'temporary_name',
-            'real_name',
-            'extension',
-            'size',
-            'path',
-            'url',
-        ]
+        /* the $content contains:
+            [
+                'temporary_name',
+                'real_name',
+                'extension',
+                'size',
+                'path',
+                'url',
+            ]
         */
 
-        if (! $this->uploads) {
+        if (empty($this->uploads)) {
             return;
         }
 
-        $files = Arr::wrap($this->uploads);
+        $this->uploads = collect($this->uploads)
+            ->filter(fn (UploadedFile $file) => $file->getFilename() !== $content['temporary_name'])
+            ->values()
+            ->toArray();
 
-        /** @var UploadedFile $file */
-        $file = collect($files)->filter(fn (UploadedFile $item) => $item->getFilename() === $content['temporary_name'])->first();
-
-        // here we delete the file.
-        // even if we have a error here, we simply ignore it because as long as the file is not persisted, it is temporary and will be deleted at some point if there is a failure here
-        rescue(fn () => $file->delete(), report: false);
-
-        $collect = collect($files)->filter(fn (UploadedFile $item) => $item->getFilename() !== $content['temporary_name']);
-
-        // we guarantee restore of remaining files regardless of upload type, whether you are dealing with multiple or single uploads
-        $this->uploads = is_array($this->uploads) ? $collect->toArray() : $collect->first();
+        rescue(
+            fn () => UploadedFile::deleteTemporaryFile($content['temporary_name']),
+            report: false
+        );
     }
 
     public function updatingUploads(): void
     {
-        // we store the uploaded files in the temporary property
         $this->backup = $this->uploads;
     }
 
     public function updatedUploads(): void
     {
-        if (! $this->uploads) {
+        if (empty($this->uploads)) {
             return;
         }
 
-        // we merge the newly uploaded files with the saved ones
-        $file = Arr::flatten(array_merge($this->backup, [$this->uploads]));
-
-        // we finishing by removing the duplicates
-        $this->uploads = collect($file)->unique(fn (UploadedFile $item) => $item->getClientOriginalName())->toArray();
+        $this->uploads = collect(array_merge($this->backup, (array) $this->uploads))
+            ->unique(fn (UploadedFile $file) => $file->getClientOriginalName())
+            ->toArray();
     }
 
     public function save()
@@ -118,60 +109,44 @@ class Files extends Component
 
     public function deleteFile(int $id): void
     {
-        foreach ($this->files as $file) {
-            if ($file->id == $id) {
-                $file->delete();
-            }
+        $file = $this->files->firstWhere('id', $id);
+
+        if ($file) {
+            $file->delete();
+
+            $this->reorderFiles();
+
+            $this->toast()->success(__('app.delete'), __('person.file_deleted'))->send();
+
+            $this->dispatch('files_updated');
         }
-
-        $this->reorderFiles();
-
-        $this->toast()->success(__('app.delete'), __('person.file_deleted'))->send();
-
-        $this->dispatch('files_updated');
     }
 
     private function reorderFiles(): void
     {
-        // renumber positions sequentially
-        $i = 0;
+        if ($this->files) {
+            // renumber positions sequentially
+            $ordered = $this->files->sortBy('order_column')->pluck('id')->toArray();
 
-        foreach ($this->files as $file) {
-            $file->order_column = ++$i;
+            Media::setNewOrder($ordered);
         }
-
-        $ordered = [];
-
-        foreach ($this->files as $file) {
-            array_push($ordered, $file->id);
-        }
-
-        Media::setNewOrder($ordered);
     }
 
     public function moveFile(int $position, string $direction): void
     {
-        if ($direction == 'up') {
-            foreach ($this->files as $file) {
-                if ($file->order_column == $position - 1) {
-                    $file->order_column = $file->order_column + 1;
-                } elseif ($file->order_column == $position) {
-                    $file->order_column = $file->order_column - 1;
-                }
+        $targetPosition = $direction === 'up' ? $position - 1 : $position + 1;
 
-                $file->save();
+        $this->files->transform(function ($file) use ($position, $targetPosition) {
+            if ($file->order_column === $position) {
+                $file->order_column = $targetPosition;
+            } elseif ($file->order_column === $targetPosition) {
+                $file->order_column = $position;
             }
-        } else {
-            foreach ($this->files as $file) {
-                if ($file->order_column == $position) {
-                    $file->order_column = $file->order_column + 1;
-                } elseif ($file->order_column == $position + 1) {
-                    $file->order_column = $file->order_column - 1;
-                }
 
-                $file->save();
-            }
-        }
+            $file->save();
+
+            return $file;
+        });
 
         $this->dispatch('files_updated');
     }

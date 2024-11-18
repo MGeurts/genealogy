@@ -9,7 +9,6 @@ use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
 use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -81,54 +80,46 @@ class Child extends Component
 
     public function deleteUpload(array $content): void
     {
-        /*
-        the $content contains:
-        [
-            'temporary_name',
-            'real_name',
-            'extension',
-            'size',
-            'path',
-            'url',
-        ]
+        /* the $content contains:
+            [
+                'temporary_name',
+                'real_name',
+                'extension',
+                'size',
+                'path',
+                'url',
+            ]
         */
 
-        if (! $this->photos) {
+        if (empty($this->uploads)) {
             return;
         }
 
-        $files = Arr::wrap($this->photos);
+        $this->uploads = collect($this->uploads)
+            ->filter(fn (UploadedFile $file) => $file->getFilename() !== $content['temporary_name'])
+            ->values()
+            ->toArray();
 
-        /** @var UploadedFile $file */
-        $file = collect($files)->filter(fn (UploadedFile $item) => $item->getFilename() === $content['temporary_name'])->first();
-
-        // here we delete the file.
-        // even if we have a error here, we simply ignore it because as long as the file is not persisted, it is temporary and will be deleted at some point if there is a failure here
-        rescue(fn () => $file->delete(), report: false);
-
-        $collect = collect($files)->filter(fn (UploadedFile $item) => $item->getFilename() !== $content['temporary_name']);
-
-        // we guarantee restore of remaining files regardless of upload type, whether you are dealing with multiple or single uploads
-        $this->photos = is_array($this->photos) ? $collect->toArray() : $collect->first();
+        rescue(
+            fn () => UploadedFile::deleteTemporaryFile($content['temporary_name']),
+            report: false
+        );
     }
 
-    public function updatingPhotos(): void
+    public function updatingUploads(): void
     {
-        // we store the uploaded files in the temporary property
-        $this->backup = $this->photos;
+        $this->backup = $this->uploads;
     }
 
-    public function updatedPhotos(): void
+    public function updatedUploads(): void
     {
-        if (! $this->photos) {
+        if (empty($this->uploads)) {
             return;
         }
 
-        // we merge the newly uploaded files with the saved ones
-        $file = Arr::flatten(array_merge($this->backup, [$this->photos]));
-
-        // we finishing by removing the duplicates
-        $this->photos = collect($file)->unique(fn (UploadedFile $item) => $item->getClientOriginalName())->toArray();
+        $this->uploads = collect(array_merge($this->backup, (array) $this->uploads))
+            ->unique(fn (UploadedFile $file) => $file->getClientOriginalName())
+            ->toArray();
     }
 
     public function saveChild()

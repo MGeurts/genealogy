@@ -6,7 +6,7 @@ namespace App\Livewire\People\Edit;
 
 use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Number;
@@ -22,127 +22,114 @@ class Photos extends Component
     use Interactions;
     use WithFileUploads;
 
-    // -----------------------------------------------------------------------
     public $person;
 
-    public $uploads = [];
+    public array $uploads = [];
 
-    public $backup = [];
+    public array $backup = [];
 
-    public $photos = null;
+    public ?Collection $photos = null;
 
-    // -----------------------------------------------------------------------
+    /**
+     * Initialize component and prepare photo directories.
+     */
     public function mount(): void
     {
-        // if needed, create team photo folders
-        $path = storage_path('app/public/photos/' . $this->person->team_id);
+        $teamId = $this->person->team_id;
 
-        if (! File::isDirectory($path)) {
-            File::makeDirectory($path, 0777, true, true);
-        }
+        // Create required directories if they do not exist.
+        $this->createDirectories([
+            "photos/{$teamId}",
+            "photos-096/{$teamId}",
+            "photos-384/{$teamId}",
+        ]);
 
-        $path = storage_path('app/public/photos-096/' . $this->person->team_id);
-
-        if (! File::isDirectory($path)) {
-            File::makeDirectory($path, 0777, true, true);
-        }
-
-        $path = storage_path('app/public/photos-384/' . $this->person->team_id);
-
-        if (! File::isDirectory($path)) {
-            File::makeDirectory($path, 0777, true, true);
-        }
-
-        $photos_person = Finder::create()->in(public_path('storage/photos/' . $this->person->team_id))->name($this->person->id . '_*.webp');
-
-        $this->photos = collect($photos_person)->map(fn (SplFileInfo $file) => [
-            'name'          => $file->getFilename(),
-            'name_download' => $this->person->name . ' - ' . $file->getFilename(),
-            'extension'     => $file->getExtension(),
-            'size'          => Number::fileSize($file->getSize(), 1),
-            'path'          => $file->getPath(),
-            'url'           => Storage::url('photos-384/' . $this->person->team_id . '/' . $file->getFilename()),
-            'url_original'  => Storage::url('photos/' . $this->person->team_id . '/' . $file->getFilename()),
-        ])->sortBy('name');
+        // Load existing photos for the person.
+        $this->photos = collect($this->getPersonPhotos())
+            ->map(fn (SplFileInfo $file) => $this->mapPhotoData($file))
+            ->sortBy('name');
     }
 
+    /**
+     * Handle file deletion from uploads.
+     */
     public function deleteUpload(array $content): void
     {
-        /*
-        the $content contains:
-        [
-            'temporary_name',
-            'real_name',
-            'extension',
-            'size',
-            'path',
-            'url',
-        ]
+        /* the $content contains:
+            [
+                'temporary_name',
+                'real_name',
+                'extension',
+                'size',
+                'path',
+                'url',
+            ]
         */
 
-        if (! $this->uploads) {
+        if (empty($this->uploads)) {
             return;
         }
 
-        $files = Arr::wrap($this->uploads);
+        $this->uploads = collect($this->uploads)
+            ->filter(fn (UploadedFile $file) => $file->getFilename() !== $content['temporary_name'])
+            ->values()
+            ->toArray();
 
-        /** @var UploadedFile $file */
-        $file = collect($files)->filter(fn (UploadedFile $item) => $item->getFilename() === $content['temporary_name'])->first();
-
-        // here we delete the file.
-        // even if we have a error here, we simply ignore it because as long as the file is not persisted, it is temporary and will be deleted at some point if there is a failure here
-        rescue(fn () => $file->delete(), report: false);
-
-        $collect = collect($files)->filter(fn (UploadedFile $item) => $item->getFilename() !== $content['temporary_name']);
-
-        // we guarantee restore of remaining files regardless of upload type, whether you are dealing with multiple or single uploads
-        $this->uploads = is_array($this->uploads) ? $collect->toArray() : $collect->first();
+        rescue(
+            fn () => UploadedFile::deleteTemporaryFile($content['temporary_name']),
+            report: false
+        );
     }
 
+    /**
+     * Handle updates to the uploads property.
+     */
     public function updatingUploads(): void
     {
-        // we store the uploaded files in the temporary property
         $this->backup = $this->uploads;
     }
 
+    /**
+     * Process uploaded files and remove duplicates.
+     */
     public function updatedUploads(): void
     {
-        if (! $this->uploads) {
+        if (empty($this->uploads)) {
             return;
         }
 
-        // we merge the newly uploaded files with the saved ones
-        $file = Arr::flatten(array_merge($this->backup, [$this->uploads]));
-
-        // we finishing by removing the duplicates
-        $this->uploads = collect($file)->unique(fn (UploadedFile $item) => $item->getClientOriginalName())->toArray();
+        $this->uploads = collect(array_merge($this->backup, (array) $this->uploads))
+            ->unique(fn (UploadedFile $file) => $file->getClientOriginalName())
+            ->toArray();
     }
 
-    public function save()
+    /**
+     * Save uploaded photos.
+     */
+    public function save(): void
     {
         if ($this->uploads) {
             $personPhotos = new PersonPhotos($this->person);
+
             $personPhotos->save($this->uploads);
 
             $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', count($this->uploads)))->send();
 
-            return $this->redirect('/people/' . $this->person->id . '/edit-photos');
+            $this->redirect(route('people.edit-photos', ['person' => $this->person->id]));
         }
     }
 
-    public function deletePhoto($photo): void
+    /**
+     * Delete a photo and update primary photo if necessary.
+     */
+    public function deletePhoto(string $photo): void
     {
-        Storage::disk('photos')->delete($this->person->team_id . '/' . $photo);
-        Storage::disk('photos-096')->delete($this->person->team_id . '/' . $photo);
-        Storage::disk('photos-384')->delete($this->person->team_id . '/' . $photo);
+        $teamId = $this->person->team_id;
 
-        // set new primary
-        if ($photo == $this->person->photo) {
-            $files = File::glob(public_path() . '/storage/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp');
+        $this->deletePhotoFiles($photo, $teamId);
 
-            $this->person->update([
-                'photo' => $files ? substr($files[0], strrpos($files[0], '/') + 1) : null,
-            ]);
+        if ($photo === $this->person->photo) {
+            $this->setNewPrimaryPhoto();
         }
 
         $this->toast()->success(__('app.delete'), __('person.photo_deleted'))->send();
@@ -152,18 +139,98 @@ class Photos extends Component
         $this->mount();
     }
 
-    public function setPrimary($photo): void
+    /**
+     * Set the primary photo for the person.
+     */
+    public function setPrimary(string $photo): void
     {
-        $this->person->update([
-            'photo' => $photo,
-        ]);
+        $this->person->update(['photo' => $photo]);
 
         $this->dispatch('photos_updated');
     }
 
-    // -----------------------------------------------------------------------
+    /**
+     * Render the component view.
+     */
     public function render(): View
     {
         return view('livewire.people.edit.photos');
+    }
+
+    // -----------------------------------------------------------------------
+
+    /**
+     * Create necessary directories.
+     */
+    private function createDirectories(array $paths): void
+    {
+        foreach ($paths as $path) {
+            $fullPath = storage_path("app/public/{$path}");
+            if (! File::isDirectory($fullPath)) {
+                File::makeDirectory($fullPath, 0777, true, true);
+            }
+        }
+    }
+
+    /**
+     * Retrieve person photos.
+     */
+    private function getPersonPhotos(): Finder
+    {
+        $teamId = $this->person->team_id;
+
+        return Finder::create()
+            ->in(public_path("storage/photos/{$teamId}"))
+            ->name("{$this->person->id}_*.webp");
+    }
+
+    /**
+     * Map photo data for easier access.
+     */
+    private function mapPhotoData(SplFileInfo $file): array
+    {
+        $teamId = $this->person->team_id;
+
+        return [
+            'name'          => $file->getFilename(),
+            'name_download' => "{$this->person->name} - {$file->getFilename()}",
+            'extension'     => $file->getExtension(),
+            'size'          => Number::fileSize($file->getSize(), 1),
+            'path'          => $file->getPath(),
+            'url'           => Storage::url("photos-384/{$teamId}/{$file->getFilename()}"),
+            'url_original'  => Storage::url("photos/{$teamId}/{$file->getFilename()}"),
+        ];
+    }
+
+    /**
+     * Filter uploads by temporary name.
+     */
+    private function filterUploadsByTemporaryName(string $temporaryName): array
+    {
+        return collect($this->uploads)
+            ->filter(fn (UploadedFile $item) => $item->getFilename() !== $temporaryName)
+            ->toArray();
+    }
+
+    /**
+     * Delete photo files from all storage locations.
+     */
+    private function deletePhotoFiles(string $photo, int $teamId): void
+    {
+        foreach (['photos', 'photos-096', 'photos-384'] as $disk) {
+            Storage::disk($disk)->delete("{$teamId}/{$photo}");
+        }
+    }
+
+    /**
+     * Set a new primary photo if the current one is deleted.
+     */
+    private function setNewPrimaryPhoto(): void
+    {
+        $files = File::glob(public_path("storage/photos/{$this->person->team_id}/{$this->person->id}_*.webp"));
+
+        $newPrimary = $files ? basename($files[0]) : null;
+
+        $this->person->update(['photo' => $newPrimary]);
     }
 }
