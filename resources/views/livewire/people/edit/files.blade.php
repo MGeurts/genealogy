@@ -18,20 +18,19 @@
     <div class="p-2 print:hidden">
         {{-- source --}}
         <div class="mb-3">
-            <x-ts-textarea id="source" wire:model="source" label="{{ __('person.source') }} :" placeholder="{{ __('person.source_hint') }} ..." maxlength="1024" count autofocus/>
+            <x-ts-textarea id="source" wire:model="source" label="{{ __('person.source') }} :" placeholder="{{ __('person.source_hint') }} ..." maxlength="1024" count autofocus />
         </div>
 
         {{-- source_date --}}
         <div class="mb-3">
-            <x-ts-date wire:model="source_date" id="source_date" label="{{ __('person.source_date') }} :" format="YYYY-MM-DD" :max-date="now()"
-                placeholder="{{ __('person.source_date_hint') }} ..." />
+            <x-ts-date wire:model="source_date" id="source_date" label="{{ __('person.source_date') }} :" format="YYYY-MM-DD" :max-date="now()" placeholder="{{ __('person.source_date_hint') }} ..." />
         </div>
 
         <x-hr.narrow class="my-2" />
 
         {{-- upload --}}
-        <x-ts-upload id="uploads" wire:model="uploads" label="{{ __('person.files') }} :" accept=".pdf, .txt, .doc, .docx, .xls, .xlsx" hint="Max : 10 MB,<br/>Format : pdf, txt, doc(x), xls(x)" tip="{{ __('person.update_files_tip') }} ..."
-            multiple delete>
+        <x-ts-upload id="uploads" wire:model="uploads" label="{{ __('person.files') }} :" accept=".pdf, .txt, .doc, .docx, .xls, .xlsx" hint="Max : 10 MB,<br/>Format : pdf, txt, doc(x), xls(x)"
+            tip="{{ __('person.update_files_tip') }} ..." multiple delete>
             <x-slot:footer when-uploaded>
                 <x-ts-button class="w-full" wire:click="save()">
                     {{ __('app.save') }}
@@ -46,67 +45,67 @@
 
     {{-- card body --}}
     <div class="p-2 text-sm border-t-2 rounded-b border-neutral-100 dark:border-neutral-600 bg-neutral-200">
-            @if (count($files) > 0)
-                <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                    @foreach ($files as $file)
-                        <x-ts-card class="!p-2">
-                            <x-slot:header>
-                                <div class="text-sm">
-                                    {{ $file['file_name'] }}
-                                </div>
-                            </x-slot:header>
-
-                            @php
-                                $file_type = substr($file['file_name'], strpos($file['file_name'], '.') + 1);
-                            @endphp
-
+        @if (count($files) > 0)
+            <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+                @foreach ($files as $file)
+                    <x-ts-card class="!p-2">
+                        <x-slot:header>
                             <x-ts-link href="{{ $file->getUrl() }}" target="_blank" title="{{ __('app.show') }}">
-                                <img src="{{ url('img/icons/' . $file_type . '.svg') }}" width="80px" alt="{{ $file['name'] }}" class="rounded" />
+                                {{ $file['file_name'] }}
                             </x-ts-link>
+                        </x-slot:header>
 
-                            @if ($file->hasCustomProperty('source'))
-                                <p>{{ __('person.source') }} :</p>
-                                <p>{{ $file->getCustomProperty('source') }}</p>
-                            @endif
+                        @php
+                            $file_type = substr($file['file_name'], strpos($file['file_name'], '.') + 1);
+                        @endphp
 
-                            @if ($file->hasCustomProperty('source_date'))
-                                <p>{{ __('person.source_date') }} : {{ Carbon::parse($file->getCustomProperty('source_date'))->isoFormat('LL') }}</p>
-                            @endif
+                        <x-ts-link href="{{ $file->getUrl() }}" target="_blank" title="{{ __('app.show') }}">
+                            <img src="{{ url('img/icons/' . $file_type . '.svg') }}" width="80px" alt="{{ $file['name'] }}" class="rounded" />
+                        </x-ts-link>
 
-                            <x-slot:footer>
-                                <div class="w-full">
-                                    @if ($file->order_column < count($files))
-                                        <x-ts-button color="secondary" class="!p-2" title="{{ __('app.move_down') }}" wire:click="moveFile({{ $file->order_column }}, 'down')">
-                                            <x-ts-icon icon="arrow-move-down" class="size-5" />
-                                        </x-ts-button>
-                                    @endif
+                        @if ($file->hasCustomProperty('source'))
+                            <p>{{ __('person.source') }} :</p>
+                            <p>{{ $file->getCustomProperty('source') }}</p>
+                        @endif
 
-                                    @if ($file->order_column > 1)
-                                        <x-ts-button color="secondary" class="!p-2" title="{{ __('app.move_up') }}" wire:click="moveFile({{ $file->order_column }}, 'up')">
-                                            <x-ts-icon icon="arrow-move-up" class="size-5" />
-                                        </x-ts-button>
-                                    @endif
-                                </div>
+                        @if ($file->hasCustomProperty('source_date'))
+                            <p>{{ __('person.source_date') }} : {{ Carbon::parse($file->getCustomProperty('source_date'))->isoFormat('LL') }}</p>
+                        @endif
 
-                                <div class="text-sm">{{ strtoupper($file_type) }}</div>
+                        <x-slot:footer>
+                            <div class="w-full">
+                                @if ($file->order_column < count($files))
+                                    <x-ts-button color="secondary" class="!p-2" title="{{ __('app.move_down') }}" wire:click="moveFile({{ $file->order_column }}, 'down')">
+                                        <x-ts-icon icon="arrow-move-down" class="size-5" />
+                                    </x-ts-button>
+                                @endif
 
-                                <x-ts-button href="{{ $file->getUrl() }}" color="secondary" class="!p-2" title="{{ __('app.download') }}" download="{{ $file['name'] }}">
-                                    <x-ts-icon icon="download" class="size-5" />
-                                </x-ts-button>
+                                @if ($file->order_column > 1)
+                                    <x-ts-button color="secondary" class="!p-2" title="{{ __('app.move_up') }}" wire:click="moveFile({{ $file->order_column }}, 'up')">
+                                        <x-ts-icon icon="arrow-move-up" class="size-5" />
+                                    </x-ts-button>
+                                @endif
+                            </div>
 
-                                <div class="text-sm text-end">{{ Number::fileSize($file['size'], 2) }}</div>
+                            {{ strtoupper($file_type) }}
 
-                                <x-ts-button color="danger" class="!p-2 text-white" title="{{ __('app.delete') }}" wire:click="deleteFile({{ $file->id }})">
-                                    <x-ts-icon icon="trash" class="size-5" />
-                                </x-ts-button>
-                            </x-slot:footer>
-                        </x-ts-card>
-                    @endforeach
-                </div>
-            @else
-                <div>
-                    <x-ts-alert title="{{ __('person.files') }}" text="{{ __('app.nothing_recorded') }}" color="cyan"/>
-                </div>
-            @endif
+                            <x-ts-button href="{{ $file->getUrl() }}" color="secondary" class="!p-2" title="{{ __('app.download') }}" download="{{ $file['name'] }}">
+                                <x-ts-icon icon="download" class="size-5" />
+                            </x-ts-button>
+
+                            <div class="text-end">{{ Number::fileSize($file['size'], 2) }}</div>
+
+                            <x-ts-button color="danger" class="!p-2 text-white" title="{{ __('app.delete') }}" wire:click="deleteFile({{ $file->id }})">
+                                <x-ts-icon icon="trash" class="size-5" />
+                            </x-ts-button>
+                        </x-slot:footer>
+                    </x-ts-card>
+                @endforeach
+            </div>
+        @else
+            <div>
+                <x-ts-alert title="{{ __('person.files') }}" text="{{ __('app.nothing_recorded') }}" color="cyan" />
+            </div>
+        @endif
     </div>
 </div>

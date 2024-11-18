@@ -26,15 +26,23 @@
     </div>
 
     @if (count($files) > 0)
-        @foreach ($files as $file)
-            <div class="flex flex-wrap items-start justify-center gap-2 px-2">
-                <div class="flex-1 flex-grow max-w-full min-w-max">
-                    <x-link href="{{ $file->getUrl() }}">
+        <div class="flex flex-col w-full">
+            @foreach ($files as $file)
+                @php
+                    $file_type = substr($file['file_name'], strpos($file['file_name'], '.') + 1);
+                @endphp
+
+                <div class="flex-1 flex-grow p-2">
+                    <img class="inline" src="{{ url('img/icons/' . $file_type . '.svg') }}" width="20px" alt="{{ $file['name'] }}" class="rounded" />
+
+                    <x-link href="{{ $file->getUrl() }}" target="_blank" title="{{ __('app.show') }}">
                         {{ $file->name }}
                     </x-link>
+
+                    {{ $file->human_readable_size }}
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     @else
         <p class="p-2">{{ __('app.nothing_recorded') }}</p>
     @endif
