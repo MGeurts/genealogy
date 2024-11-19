@@ -154,4 +154,10 @@ return [
         'type'          => env('IMAGE_UPLOAD_TYPE', 'webp'),
         'add_watermark' => env('IMAGE_UPLOAD_ADD_WATERMARK', true),
     ],
+
+    'photo_folders' => [
+        'photos',
+        'photos-096',
+        'photos-384',
+    ],
 ];

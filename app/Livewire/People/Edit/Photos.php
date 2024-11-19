@@ -35,15 +35,6 @@ class Photos extends Component
      */
     public function mount(): void
     {
-        $teamId = $this->person->team_id;
-
-        // Create required directories if they do not exist.
-        $this->createDirectories([
-            "photos/{$teamId}",
-            "photos-096/{$teamId}",
-            "photos-384/{$teamId}",
-        ]);
-
         // Load existing photos for the person.
         $this->photos = collect($this->getPersonPhotos())
             ->map(fn (SplFileInfo $file) => $this->mapPhotoData($file))
@@ -124,9 +115,7 @@ class Photos extends Component
      */
     public function deletePhoto(string $photo): void
     {
-        $teamId = $this->person->team_id;
-
-        $this->deletePhotoFiles($photo, $teamId);
+        $this->deletePhotoFiles($photo, $this->person->team_id);
 
         if ($photo === $this->person->photo) {
             $this->setNewPrimaryPhoto();
@@ -158,19 +147,6 @@ class Photos extends Component
     }
 
     // -----------------------------------------------------------------------
-
-    /**
-     * Create necessary directories.
-     */
-    private function createDirectories(array $paths): void
-    {
-        foreach ($paths as $path) {
-            $fullPath = storage_path("app/public/{$path}");
-            if (! File::isDirectory($fullPath)) {
-                File::makeDirectory($fullPath, 0777, true, true);
-            }
-        }
-    }
 
     /**
      * Retrieve person photos.
@@ -217,8 +193,8 @@ class Photos extends Component
      */
     private function deletePhotoFiles(string $photo, int $teamId): void
     {
-        foreach (['photos', 'photos-096', 'photos-384'] as $disk) {
-            Storage::disk($disk)->delete("{$teamId}/{$photo}");
+        foreach (config('app.photo_folders') as $folder) {
+            Storage::disk($folder)->delete("{$teamId}/{$photo}");
         }
     }
 

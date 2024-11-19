@@ -48,9 +48,9 @@ class PersonPhotos
     {
         $teamId = (string) $this->person->team_id;
 
-        foreach (['photos', 'photos-096', 'photos-384'] as $disk) {
-            if (! Storage::disk($disk)->exists($teamId)) {
-                Storage::disk($disk)->makeDirectory($teamId);
+        foreach (config('app.photo_folders') as $folder) {
+            if (! Storage::disk($folder)->exists($teamId)) {
+                Storage::disk($folder)->makeDirectory($teamId);
             }
         }
     }

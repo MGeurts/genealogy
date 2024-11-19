@@ -46,10 +46,8 @@ class Profile extends Component
 
     private function deletePersonPhotos(): void
     {
-        $directories = ['photos', 'photos-096', 'photos-384'];
-
-        foreach ($directories as $directory) {
-            File::delete(File::glob(storage_path("app/public/{$directory}/" . $this->person->team_id . '/' . $this->person->id . '_*.webp')));
+        foreach (config('app.photo_folders') as $folder) {
+            File::delete(File::glob(storage_path("app/public/{$folder}/" . $this->person->team_id . '/' . $this->person->id . '_*.webp')));
         }
     }
 
