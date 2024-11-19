@@ -45,7 +45,7 @@ class Partners extends Component
 
         $this->toast()->success(__('app.delete'), $this->couple_to_delete_name . ' ' . __('app.deleted') . '.')->flash()->send();
 
-        return $this->redirect('/people/' . $this->person->id);
+        $this->redirect('/people/' . $this->person->id);
     }
 
     // ------------------------------------------------------------------------------

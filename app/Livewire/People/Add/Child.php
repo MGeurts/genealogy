@@ -180,7 +180,7 @@ class Child extends Component
                 $this->toast()->success(__('app.create'), $new_person->name . ' ' . __('app.created') . '.')->flash()->send();
             }
 
-            return $this->redirect('/people/' . $this->person->id);
+            $this->redirect('/people/' . $this->person->id);
         }
     }
 

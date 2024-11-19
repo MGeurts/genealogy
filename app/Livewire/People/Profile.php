@@ -40,7 +40,7 @@ class Profile extends Component
 
             $this->toast()->success(__('app.delete'), $this->person->name . ' ' . __('app.deleted') . '.')->flash()->send();
 
-            return $this->redirect('/search');
+            $this->redirect('/search');
         }
     }
 

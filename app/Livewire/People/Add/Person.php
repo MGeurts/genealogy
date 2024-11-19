@@ -113,7 +113,7 @@ class Person extends Component
 
             $this->toast()->success(__('app.save'), $new_person->name . ' ' . __('app.created'))->flash()->send();
 
-            return $this->redirect('/people/' . $new_person->id);
+            $this->redirect('/people/' . $new_person->id);
         }
     }
 

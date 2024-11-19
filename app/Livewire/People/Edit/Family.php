@@ -76,7 +76,7 @@ class Family extends Component
 
             $this->toast()->success(__('app.save'), __('app.saved'))->flash()->send();
 
-            return $this->redirect('/people/' . $this->person->id);
+            $this->redirect('/people/' . $this->person->id);
         }
     }
 

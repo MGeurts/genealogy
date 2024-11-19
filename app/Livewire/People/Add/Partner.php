@@ -173,7 +173,7 @@ class Partner extends Component
                 }
             }
 
-            return $this->redirect('/people/' . $this->person->id);
+            $this->redirect('/people/' . $this->person->id);
         }
     }
 

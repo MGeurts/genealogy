@@ -56,7 +56,7 @@ class Children extends Component
 
         $this->toast()->success(__('app.disconnect'), $child->name . ' ' . __('app.disconnected') . '.')->flash()->send();
 
-        return $this->redirect('/people/' . $this->person->id);
+        $this->redirect('/people/' . $this->person->id);
     }
 
     // ------------------------------------------------------------------------------

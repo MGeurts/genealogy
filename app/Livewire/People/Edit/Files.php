@@ -104,7 +104,7 @@ class Files extends Component
 
         $this->toast()->success(__('app.save'), trans_choice('person.files_saved', count($this->uploads)))->flash()->send();
 
-        return $this->redirect('/people/' . $this->person->id . '/edit-files');
+        $this->redirect('/people/' . $this->person->id . '/edit-files');
     }
 
     public function deleteFile(int $id): void
