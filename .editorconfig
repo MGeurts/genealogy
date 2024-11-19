@@ -1,18 +1,39 @@
+# Set the root of the EditorConfig hierarchy
 root = true
 
+# General settings for all files
 [*]
 charset = utf-8
 end_of_line = lf
-indent_size = 4
 indent_style = space
+indent_size = 4
 insert_final_newline = true
 trim_trailing_whitespace = true
 
+# Markdown files: allow trailing whitespace for readability
 [*.md]
 trim_trailing_whitespace = false
 
+# YAML files: use 2 spaces for indentation
 [*.{yml,yaml}]
 indent_size = 2
 
+# Docker Compose files: override to 4 spaces for consistency with Docker standards
 [docker-compose.yml]
 indent_size = 4
+
+# PHP files: default indentation size for Laravel
+[*.php]
+indent_size = 4
+
+# Blade templates: Laravel's templating files
+[*.blade.php]
+indent_size = 4
+
+# JSON files: prettify with 2 spaces
+[*.json]
+indent_size = 2
+
+# CSS, SCSS, and JavaScript: consistent formatting
+[*.{css,scss,js}]
+indent_size = 2

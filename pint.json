@@ -20,7 +20,8 @@
                 "extra",
                 "throw",
                 "use",
-                "curly_brace_block"
+                "curly_brace_block",
+                "parenthesis_brace_block"
             ]
         },
         "class_attributes_separation": {
@@ -36,9 +37,21 @@
             "order": [
                 "use_trait"
             ]
+        },
+        "array_syntax": {
+            "syntax": "short"
+        },
+        "single_quote": true,
+        "control_structure_braces": true,
+        "blank_line_before_statement": {
+            "statements": [
+                "return"
+            ]
         }
     },
     "exclude": [
- 
+        "bootstrap/cache/*",
+        "storage/*",
+        "vendor/*"
     ]
 }
