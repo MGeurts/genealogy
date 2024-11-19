@@ -48,7 +48,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Database\\Factories\\": "database/factories/"
         }
     },
     "scripts": {
@@ -60,7 +61,6 @@
         ],
         "post-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
-
             "@php artisan ide-helper:generate"
         ],
         "post-root-package-install": [
