@@ -15,22 +15,16 @@ class DeleteTeam implements DeletesTeams
      */
     public function delete(Team $team): void
     {
-        // -----------------------------------------------------------------------
-        // delete team photo folders
-        // -----------------------------------------------------------------------
-        if (storage::disk('photos')->exists(strval($team->id))) {
-            Storage::disk('photos')->deleteDirectory(strval($team->id));
+        $teamId = (string) $team->id;
+
+        // Delete the photo folders
+        foreach (config('app.photo_folders') as $folder) {
+            if (Storage::disk($folder)->exists($teamId)) {
+                Storage::disk($folder)->deleteDirectory($teamId);
+            }
         }
 
-        if (storage::disk('photos-096')->exists(strval($team->id))) {
-            Storage::disk('photos-096')->deleteDirectory(strval($team->id));
-        }
-
-        if (storage::disk('photos-384')->exists(strval($team->id))) {
-            Storage::disk('photos-384')->deleteDirectory(strval($team->id));
-        }
-        // -----------------------------------------------------------------------
-
+        // Permanently delete the team
         $team->purge();
     }
 }
