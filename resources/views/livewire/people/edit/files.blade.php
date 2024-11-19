@@ -39,10 +39,6 @@
         </x-ts-upload>
     </div>
 
-    @php
-        use Carbon\Carbon;
-    @endphp
-
     {{-- card body --}}
     <div class="p-2 text-sm border-t-2 rounded-b border-neutral-100 dark:border-neutral-600 bg-neutral-200">
         @if (count($files) > 0)
@@ -69,7 +65,7 @@
                         @endif
 
                         @if ($file->hasCustomProperty('source_date'))
-                            <p>{{ __('person.source_date') }} : {{ Carbon::parse($file->getCustomProperty('source_date'))->isoFormat('LL') }}</p>
+                            <p>{{ __('person.source_date') }} : {{ Carbon\Carbon::parse($file->getCustomProperty('source_date'))->isoFormat('LL') }}</p>
                         @endif
 
                         <x-slot:footer>
