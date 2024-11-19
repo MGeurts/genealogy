@@ -9,7 +9,9 @@
             <div class="flex flex-row">
                 <div class="basis-1/2">
                     {{ __('auth.role') }} :
+
                     <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
+
                     {{ __('auth.permissions') }} :
                 </div>
 
@@ -18,6 +20,7 @@
                         {{ auth()->user()->teamRole(auth()->user()->currentTeam)->name }}
 
                         <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
+
                         @foreach (auth()->user()->teamPermissions(auth()->user()->currentTeam) as $permission)
                             {{ $permission }}<br />
                         @endforeach
