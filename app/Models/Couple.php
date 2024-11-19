@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Support\Facades\Auth;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -53,16 +52,16 @@ class Couple extends Model
     {
         static::addGlobalScope('team', function (Builder $builder) {
             // Skip if the user is a guest
-            if (Auth::guest()) {
+            if (Auth()->guest()) {
                 return;
             }
 
             // Apply team scope if the user is not a developer
-            if (Auth::user()->is_developer) {
+            if (Auth()->user()->is_developer) {
                 return;
             }
 
-            $builder->where('couples.team_id', Auth::user()->currentTeam->id);
+            $builder->where('couples.team_id', Auth()->user()->currentTeam->id);
         });
     }
 

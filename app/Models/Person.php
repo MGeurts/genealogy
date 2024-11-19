@@ -13,7 +13,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
@@ -85,11 +84,11 @@ class Person extends Model implements HasMedia
     protected static function booted(): void
     {
         static::addGlobalScope('team', function (Builder $builder) {
-            if (Auth::guest() || Auth::user()->is_developer) {
+            if (Auth()->guest() || Auth()->user()->is_developer) {
                 return;
             }
 
-            $builder->where('people.team_id', Auth::user()->currentTeam->id);
+            $builder->where('people.team_id', Auth()->user()->currentTeam->id);
         });
     }
 
