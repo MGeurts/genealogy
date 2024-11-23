@@ -54,16 +54,6 @@ class UserAndTeamSeeder extends Seeder
             'current_team_id' => $team_british_royals->id,
         ]);
 
-        $team_british_royals->users()->attach(
-            Jetstream::findUserByEmailOrFail($administrator->email),
-            ['role' => 'administrator']
-        );
-
-        $team_kennedy->users()->attach(
-            Jetstream::findUserByEmailOrFail($administrator->email),
-            ['role' => 'administrator']
-        );
-
         // -----------------------------------------------------------------------------------
         // create other special users
         // -----------------------------------------------------------------------------------
