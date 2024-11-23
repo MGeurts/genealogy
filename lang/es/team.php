@@ -56,4 +56,18 @@ return [
     'may_accept'                 => 'Puede aceptar esta invitación haciendo clic en el botón a continuación:',
     'accept_invitation'          => 'Aceptar invitación',
     'discard'                    => 'Si no esperaba recibir una invitación a este equipo, puede descartar este correo electrónico.',
+
+    'transfer'           => 'Transferir',
+    'transfer_ownership' => 'Transferir propiedad',
+    'transfer_message'   => 'Transfiere la propiedad de este equipo a otro miembro del equipo.',
+    'select_new_owner'   => 'Seleccione un miembro del equipo existente como nuevo propietario del equipo.',
+    'new_owner'          => 'Nuevo dueño',
+    'transferred_to'     => 'Propiedad transferida a',
+    'can_not_transfer'   => 'La propiedad del equipo sólo se puede transferir si hay otros miembros del equipo además del propietario del equipo.',
+
+    'transferred'       => 'Propiedad del equipo transferida',
+    'hello'             => 'Hola',
+    'you_are_new_owner' => 'Has sido nombrado el nuevo propietario del equipo: ',
+    'view_team'         => 'Ver equipo',
+    'thank_you'         => '¡Gracias por ser parte de nuestra plataforma!',
 ];

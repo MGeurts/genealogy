@@ -65,4 +65,17 @@ return [
     'accept_invitation'          => 'Die Einladung annehmen',
     'discard'                    => 'Wenn Sie nicht damit gerechnet haben, eine Einladung zu diesem Team zu erhalten, können Sie diese E-Mail verwerfen.',
 
+    'transfer'           => 'Übertragen',
+    'transfer_ownership' => 'Eigentum übertragen',
+    'transfer_message'   => 'Übertragen Sie den Besitz dieses Teams auf ein anderes Teammitglied.',
+    'select_new_owner'   => 'Wählen Sie ein bestehendes Teammitglied als neuen Teambesitzer aus.',
+    'new_owner'          => 'Neuer Besitzer',
+    'transferred_to'     => 'Eigentum übertragen an',
+    'can_not_transfer'   => 'Die Teameigentümerschaft kann nur übertragen werden, wenn neben dem Teameigentümer noch weitere Teammitglieder vorhanden sind.',
+
+    'transferred'       => 'Teameigentum übertragen',
+    'hello'             => 'Hallo',
+    'you_are_new_owner' => 'Sie wurden zum neuen Besitzer des Teams ernannt: ',
+    'view_team'         => 'Team ansehen',
+    'thank_you'         => 'Vielen Dank, dass Sie Teil unserer Plattform sind!',
 ];

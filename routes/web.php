@@ -20,6 +20,13 @@ Route::middleware([
     'verified',
 ])->group(function () {
     // -----------------------------------------------------------------------------------
+    // teams
+    // -----------------------------------------------------------------------------------
+    Route::controller(App\Http\Controllers\Back\TeamController::class)->group(function () {
+        Route::put('/teams/{team}/transfer-ownership')->name('teams.transfer-ownership');
+    });
+
+    // -----------------------------------------------------------------------------------
     // pages
     // -----------------------------------------------------------------------------------
     Route::controller(App\Http\Controllers\Back\PageController::class)->group(function () {

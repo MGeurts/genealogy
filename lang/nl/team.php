@@ -65,4 +65,17 @@ return [
     'accept_invitation'          => 'Uitnodiging accepteren',
     'discard'                    => 'Als u niet verwachtte een uitnodiging voor dit team te ontvangen, kunt u deze e-mail weggooien.',
 
+    'transfer'           => 'Overdragen',
+    'transfer_ownership' => 'Eigendom overdragen',
+    'transfer_message'   => 'Draag het eigendom van dit team over aan een ander teamlid.',
+    'select_new_owner'   => 'Selecteer een bestaand teamlid als de nieuwe teameigenaar.',
+    'new_owner'          => 'Nieuwe eigenaar',
+    'transferred_to'     => 'Eigendom overgedragen aan',
+    'can_not_transfer'   => 'Het teameigendom kan alleen worden overgedragen als er naast de teameigenaar nog andere teamleden zijn.',
+
+    'transferred'       => 'Teameigendom overgedragen',
+    'hello'             => 'Hallo',
+    'you_are_new_owner' => 'Je bent de nieuwe eigenaar van het team geworden: ',
+    'view_team'         => 'Bekijk team',
+    'thank_you'         => 'Bedankt dat je deel uitmaakt van ons platform!',
 ];

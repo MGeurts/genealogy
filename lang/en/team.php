@@ -64,4 +64,18 @@ return [
     'may_accept'                 => 'You may accept this invitation by clicking the button below:',
     'accept_invitation'          => 'Accept Invitation',
     'discard'                    => 'If you did not expect to receive an invitation to this team, you may discard this email.',
+
+    'transfer'           => 'Transfer',
+    'transfer_ownership' => 'Transfer ownership',
+    'transfer_message'   => 'Transfer this team\'s ownership to another team member.',
+    'select_new_owner'   => 'Select an existing team member as the new team owner.',
+    'new_owner'          => 'New owner',
+    'transferred_to'     => 'Ownership transferred to',
+    'can_not_transfer'   => 'The team ownership can only be transferred if there are other team members beside the team owner.',
+
+    'transferred'       => 'Team Ownership transferred',
+    'hello'             => 'Hello',
+    'you_are_new_owner' => 'You have been made the new owner of the team: ',
+    'view_team'         => 'View team',
+    'thank_you'         => 'Thank you for being part of our platform!',
 ];

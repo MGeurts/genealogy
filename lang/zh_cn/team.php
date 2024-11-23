@@ -64,4 +64,18 @@ return [
     'may_accept'                 => '您可以通过点击下面的按钮接受此邀请：',
     'accept_invitation'          => '接受邀请',
     'discard'                    => '如果您没有预期收到此家族的邀请，可以丢弃此电子邮件。',
+
+    'transfer'           => '转移',
+    'transfer_ownership' => '转让所有权',
+    'transfer_message'   => '将该团队的所有权转让给另一个团队成员。',
+    'select_new_owner'   => '选择现有团队成员作为新团队所有者。',
+    'new_owner'          => '新主人',
+    'transferred_to'     => '所有权转移至',
+    'can_not_transfer'   => '只有当团队所有者之外还有其他团队成员时，团队所有权才能转移。',
+
+    'transferred'       => '团队所有权转让',
+    'hello'             => '你好',
+    'you_are_new_owner' => '您已成为团队的新所有者：',
+    'view_team'         => '查看团队',
+    'thank_you'         => '感谢您成为我们平台的一部分！',
 ];

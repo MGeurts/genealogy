@@ -64,4 +64,18 @@ return [
     'may_accept'                 => 'Bạn có thể chấp nhận lời mời này bằng cách nhấp vào nút bên dưới:',
     'accept_invitation'          => 'Chấp nhận lời mời',
     'discard'                    => 'Nếu bạn không mong đợi nhận được lời mời tham gia đội này, bạn có thể bỏ qua email này.',
+
+    'transfer'           => 'Chuyển khoản',
+    'transfer_ownership' => 'Chuyển quyền sở hữu',
+    'transfer_message'   => 'Chuyển quyền sở hữu của nhóm này cho thành viên khác trong nhóm.',
+    'select_new_owner'   => 'Chọn một thành viên nhóm hiện có làm chủ sở hữu nhóm mới.',
+    'new_owner'          => 'Chủ sở hữu mới',
+    'transferred_to'     => 'Quyền sở hữu được chuyển giao cho',
+    'can_not_transfer'   => 'Quyền sở hữu nhóm chỉ có thể được chuyển nhượng nếu có các thành viên khác trong nhóm bên cạnh chủ sở hữu nhóm.',
+
+    'transferred'       => 'Đã chuyển quyền sở hữu nhóm',
+    'hello'             => 'Xin chào',
+    'you_are_new_owner' => 'Bạn đã trở thành chủ sở hữu mới của nhóm: ',
+    'view_team'         => 'Xem đội',
+    'thank_you'         => 'Cảm ơn bạn đã là một phần của nền tảng của chúng tôi!',
 ];

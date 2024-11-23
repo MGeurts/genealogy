@@ -123,7 +123,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <tbody>
         <tr>
             <td rowspan="3"><b>Administrator</b></td>
-            <td>user</td>
+            <td>user (team member)</td>
             <td>create, read, update, delete</td>
         </tr>
         <tr>
@@ -171,7 +171,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <li>Fully responsive</li>
     <li>Multi-language, language setting saved in authenticated users profile</li>
     <li>Multi-timezone, timezone setting saved in authenticated users profile</li>
-    <li>Multi-tenancy by Laravel Jetstream Teams</li>
+    <li>Multi-tenancy by Laravel Jetstream Teams, including Transfer Team Ownership</li>
     <li>Security through Laravel Jetstream Teams Roles & Permissions, 2FA & API can be enabled</li>
     <li>Offcanvas menu</li>
     <li>Multiple image upload with possibility of watermarking, photo carousel with navigation</li>
@@ -191,9 +191,10 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 <p>This application has a built-in <b>Log Viewer</b>, on demand showing :
     <ul>
         <li>INFO    : All scheduled backups</li>
-        <li>DEBUG   : All executed database queries, but only in local development mode</li>
-        <li>DEBUG   : All executed requests</li>
-        <li>WARNING : All detected N+1 queries, but only in local development mode</li>
+        <li>DEBUG   : All executed database queries (off by default), only in local development mode</li>
+        <li>DEBUG   : All executed requests (off by default)</li>
+        <li>WARNING : All detected N+1 queries, only in local development mode</li>
+        <li>WARNING : All detected slow (> 250 ms) queries, only in local development mode</li>
         <li>ERROR   : All detected errors</li>
    </ul>
 </p>

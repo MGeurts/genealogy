@@ -236,7 +236,7 @@
         </x-slot>
 
         <x-slot name="content">
-            {{ __('team_leave_team_sure') }}
+            {{ __('team.leave_team_sure') }}
         </x-slot>
 
         <x-slot name="footer">
