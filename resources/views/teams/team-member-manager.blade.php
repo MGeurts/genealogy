@@ -155,7 +155,7 @@
                                 <div class="flex items-center">
                                     {{-- manage team member role --}}
                                     @if (Gate::check('updateTeamMember', $team) and Laravel\Jetstream\Jetstream::hasRoles())
-                                        <x-ts-button sm class="text-sm min-w-28 ms-3" wire:click="manageRole('{{ $user->id }}')" title="{{ __('team.change_role') }}">
+                                        <x-ts-button class="min-w-28 ms-3" wire:click="manageRole('{{ $user->id }}')" title="{{ __('team.change_role') }}">
                                             {{ __('jetstream.role_' . strtolower(Laravel\Jetstream\Jetstream::findRole($user->membership->role)->key) . '_name') }}
                                         </x-ts-button>
                                     @elseif (Laravel\Jetstream\Jetstream::hasRoles())
@@ -166,13 +166,12 @@
 
                                     @if ($this->user->id === $user->id)
                                         {{-- leave team --}}
-                                        <x-ts-button color="danger" sm class="text-sm min-w-28 ms-3" wire:click="$toggle('confirmingLeavingTeam')" title="{{ __('team.leave_team') }}">
+                                        <x-ts-button color="danger" class="min-w-28 ms-3" wire:click="$toggle('confirmingLeavingTeam')" title="{{ __('team.leave_team') }}">
                                             {{ __('team.leave') }}
                                         </x-ts-button>
                                     @elseif (Gate::check('removeTeamMember', $team))
                                         {{-- remove team member --}}
-                                        <x-ts-button color="danger" sm class="text-sm min-w-28 ms-3" wire:click="confirmTeamMemberRemoval('{{ $user->id }}')"
-                                            title="{{ __('team.remove_member') }}">
+                                        <x-ts-button color="danger" class="min-w-28 ms-3" wire:click="confirmTeamMemberRemoval('{{ $user->id }}')" title="{{ __('team.remove_member') }}">
                                             {{ __('team.remove') }}
                                         </x-ts-button>
                                     @endif

@@ -14,7 +14,7 @@
     <div class="mt-5 md:mt-0 md:col-span-2">
         <form wire:submit="{{ $submit }}">
             @csrf
-            
+
             <div class="px-4 py-5 bg-white sm:p-6 {{ isset($actions) ? 'sm:rounded-tl sm:rounded-tr' : 'sm:rounded' }}">
                 <div class="grid grid-cols-6 gap-5">
                     {{ $form }}
@@ -22,7 +22,7 @@
             </div>
 
             @if (isset($actions))
-                <div class="flex items-center justify-end px-4 py-3 text-right bg-gray-50 sm:px-6 sm:rounded-bl sm:rounded-br">
+                <div class="flex items-center justify-end px-4 py-3 text-right bg-gray-200 sm:px-6 sm:rounded-bl sm:rounded-br">
                     {{ $actions }}
                 </div>
             @endif
