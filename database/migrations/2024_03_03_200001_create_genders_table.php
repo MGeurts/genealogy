@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
-     */
+    * Run the migrations.
+    *
+    * @return void
+    */
     public function up(): void
     {
         Schema::create('genders', function (Blueprint $table) {
@@ -21,8 +23,10 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
-     */
+    * Reverse the migrations.
+    *
+    * @return void
+    */
     public function down(): void
     {
         Schema::dropIfExists('genders');

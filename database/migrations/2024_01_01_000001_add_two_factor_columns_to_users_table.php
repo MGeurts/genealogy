@@ -8,8 +8,11 @@ use Laravel\Fortify\Fortify;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
-     */
+    /**
+    * Run the migrations.
+    *
+    * @return void
+    */
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
@@ -30,8 +33,10 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
-     */
+    * Reverse the migrations.
+    *
+    * @return void
+    */
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {

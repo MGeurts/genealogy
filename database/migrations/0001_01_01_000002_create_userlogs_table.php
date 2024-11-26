@@ -7,7 +7,12 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up()
+    /**
+    * Run the migrations.
+    *
+    * @return void
+    */
+    public function up(): void
     {
         Schema::create('userlogs', function (Blueprint $table) {
             $table->id();
@@ -24,7 +29,12 @@ return new class extends Migration
         DB::statement('ALTER TABLE `userlogs` ADD INDEX `userlogs_country_name_index` (`country_name`)');
     }
 
-    public function down()
+    /**
+    * Reverse the migrations.
+    *
+    * @return void
+    */
+    public function down(): void
     {
         Schema::dropIfExists('userlogs');
     }
