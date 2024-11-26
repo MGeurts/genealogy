@@ -38,7 +38,7 @@ class Couple extends Model
     protected $appends = ['name'];
 
     /* -------------------------------------------------------------------------------------------- */
-    // Log activity
+    // Log activities
     /* -------------------------------------------------------------------------------------------- */
     public function getActivitylogOptions(): LogOptions
     {

@@ -27,7 +27,7 @@ class PersonMetadata extends Model
     ];
 
     /* -------------------------------------------------------------------------------------------- */
-    // Log activity
+    // Log activities
     /* -------------------------------------------------------------------------------------------- */
     public function getActivitylogOptions(): LogOptions
     {

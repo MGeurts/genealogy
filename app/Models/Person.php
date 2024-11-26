@@ -71,7 +71,7 @@ class Person extends Model implements HasMedia
     ];
 
     /* -------------------------------------------------------------------------------------------- */
-    // Log activity
+    // Log activities
     /* -------------------------------------------------------------------------------------------- */
     public function getActivitylogOptions(): LogOptions
     {
