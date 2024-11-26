@@ -49,6 +49,20 @@ class TeamController extends Controller
                 $team->user_id = $newOwner->id;
                 $team->save();
 
+                /* -------------------------------------------------------------------------------------------- */
+                // Log activity
+                /* -------------------------------------------------------------------------------------------- */
+                activity()
+                    ->performedOn($team)
+                    ->causedBy($currentOwner)
+                    ->event(__('team.ownership_transferred'))
+                    ->withProperties([
+                        'email' => $newOwner->email,
+                        'name'  => $newOwner->name,
+                    ])
+                    ->log(__('team.ownership_transferred'));
+                /* -------------------------------------------------------------------------------------------- */
+
                 // Notify the new owner synchronously
                 $newOwner->notify(new OwnershipTransferred($team));
 

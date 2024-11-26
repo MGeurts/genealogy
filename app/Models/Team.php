@@ -57,7 +57,10 @@ class Team extends JetstreamTeam
     /* -------------------------------------------------------------------------------------------- */
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()->logFillable()->logOnlyDirty();
+        return LogOptions::defaults()
+            ->logFillable()
+            ->dontLogIfAttributesChangedOnly(['user_id', 'updated_at'])
+            ->logOnlyDirty();
     }
 
     /* -------------------------------------------------------------------------------------------- */
