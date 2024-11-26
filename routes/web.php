@@ -23,7 +23,7 @@ Route::middleware([
     // teams
     // -----------------------------------------------------------------------------------
     Route::controller(App\Http\Controllers\Back\TeamController::class)->group(function () {
-        Route::put('/teams/{team}/transfer-ownership')->name('teams.transfer-ownership');
+        Route::put('/teams/{team}/transfer-ownership', 'transferOwnership')->name('teams.transfer-ownership');
     });
 
     // -----------------------------------------------------------------------------------
