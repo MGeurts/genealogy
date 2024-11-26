@@ -78,4 +78,9 @@ return [
     'you_are_new_owner' => 'You have been made the new owner of the team: ',
     'view_team'         => 'View team',
     'thank_you'         => 'Thank you for being part of our platform!',
+
+    'member_invited' => 'Member invited',
+    'member_removed' => 'Member removed',
+    'member_joined'  => 'Member joined',
+
 ];

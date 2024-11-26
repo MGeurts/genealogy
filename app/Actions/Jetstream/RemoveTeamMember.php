@@ -19,6 +19,8 @@ class RemoveTeamMember implements RemovesTeamMembers
      */
     public function remove(User $user, Team $team, User $teamMember): void
     {
+        $role = $teamMember->teamRole($team);
+
         $this->authorize($user, $team, $teamMember);
 
         $this->ensureUserDoesNotOwnTeam($teamMember, $team);
@@ -26,6 +28,21 @@ class RemoveTeamMember implements RemovesTeamMembers
         $team->removeUser($teamMember);
 
         TeamMemberRemoved::dispatch($team, $teamMember);
+
+        /* -------------------------------------------------------------------------------------------- */
+        // Log activity
+        /* -------------------------------------------------------------------------------------------- */
+        activity()
+            ->performedOn($team)
+            ->causedBy($user)
+            ->event(__('team.member_removed'))
+            ->withProperties([
+                'email' => $teamMember->email,
+                'name'  => $teamMember->name,
+                'role'  => $role->name,
+            ])
+            ->log(__('team.member_removed'));
+        /* -------------------------------------------------------------------------------------------- */
     }
 
     /**
