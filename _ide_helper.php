@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 11.34.0.
+ * Generated for Laravel 11.34.2.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -11943,8 +11943,8 @@ namespace Illuminate\Support\Facades {
          * 
          * You should only list the reverse proxies that you manage directly.
          *
-         * @param array $proxies A list of trusted proxies, the string 'REMOTE_ADDR' will be replaced with $_SERVER['REMOTE_ADDR']
-         * @param int $trustedHeaderSet A bit field of Request::HEADER_*, to set which headers to trust from your proxies
+         * @param array $proxies A list of trusted proxies, the string 'REMOTE_ADDR' will be replaced with $_SERVER['REMOTE_ADDR'] and 'PRIVATE_SUBNETS' by IpUtils::PRIVATE_SUBNETS
+         * @param \Symfony\Component\HttpFoundation\int-mask-of<Request::HEADER_*> $trustedHeaderSet A bit field to set which headers to trust from your proxies
          * @static 
          */        public static function setTrustedProxies($proxies, $trustedHeaderSet)
         {            //Method inherited from \Symfony\Component\HttpFoundation\Request         
@@ -14584,6 +14584,8 @@ namespace Illuminate\Support\Facades {
      * @method static \Illuminate\Console\Scheduling\PendingEventAttributes runInBackground()
      * @method static \Illuminate\Console\Scheduling\PendingEventAttributes when(\Closure|bool $callback)
      * @method static \Illuminate\Console\Scheduling\PendingEventAttributes skip(\Closure|bool $callback)
+     * @method static \Illuminate\Console\Scheduling\PendingEventAttributes name(string $description)
+     * @method static \Illuminate\Console\Scheduling\PendingEventAttributes description(string $description)
      * @method static \Illuminate\Console\Scheduling\PendingEventAttributes cron(string $expression)
      * @method static \Illuminate\Console\Scheduling\PendingEventAttributes between(string $startTime, string $endTime)
      * @method static \Illuminate\Console\Scheduling\PendingEventAttributes unlessBetween(string $startTime, string $endTime)
