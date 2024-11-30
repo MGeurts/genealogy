@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\Models\Setting;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Console\AboutCommand;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\URL;
@@ -36,11 +38,17 @@ class AppServiceProvider extends ServiceProvider
 
         $this->addAboutCommandDetails();
 
-        if (! app()->isProduction()) {
-            // $this->logAllQueries();
-            $this->LogAllSlowQueries();
-            $this->logAllNplusoneQueries();
-        }
+        // Cache the applications settings
+        $this->app->singleton('settings', function () {
+            return Cache::rememberForever('settings', function () {
+                return Setting::all()->pluck('value', 'key');
+            });
+        });
+
+        // enable/disable logging based on application settings
+        $this->logAllQueries();
+        $this->LogAllQueriesSlow();
+        $this->logAllQueriesNplusone();
     }
 
     /**
@@ -159,35 +167,41 @@ class AppServiceProvider extends ServiceProvider
      */
     private function logAllQueries(): void
     {
-        DB::listen(fn ($query) => Log::debug($query->toRawSQL()));
+        if (settings('log_all_queries')) {
+            DB::listen(fn ($query) => Log::debug($query->toRawSQL()));
+        }
     }
 
     /**
      * Log all slow queries (threshold: 250ms) for debugging purposes.
      */
-    private function LogAllSlowQueries(): void
+    private function LogAllQueriesSlow(): void
     {
-        DB::listen(function ($query) {
-            if ($query->time > 250) {
-                Log::warning('An individual database query exceeded 250 ms.', [
-                    'sql' => $query->sql,
-                    'raw' => $query->toRawSQL(),
-                ]);
-            }
-        });
+        if (settings('log_all_queries_slow')) {
+            DB::listen(function ($query) {
+                if ($query->time > 250) {
+                    Log::warning('An individual database query exceeded 250 ms.', [
+                        'sql' => $query->sql,
+                        'raw' => $query->toRawSQL(),
+                    ]);
+                }
+            });
+        }
     }
 
     /**
-     * Log all (N+1) query issues for debugging purposes.
+     * Log all (N+1) queries for debugging purposes.
      */
-    private function logAllNplusoneQueries(): void
+    private function logAllQueriesNplusone(): void
     {
-        Model::handleLazyLoadingViolationUsing(function ($model, $relation) {
-            Log::warning(sprintf(
-                'N+1 Query detected in model %s on relation %s.',
-                get_class($model),
-                $relation
-            ));
-        });
+        if (settings('log_all_queries_n+1')) {
+            Model::handleLazyLoadingViolationUsing(function ($model, $relation) {
+                Log::warning(sprintf(
+                    'N+1 Query detected in model %s on relation %s.',
+                    get_class($model),
+                    $relation
+                ));
+            });
+        }
     }
 }

@@ -77,6 +77,8 @@ Route::middleware([
         // pages
         // -----------------------------------------------------------------------------------
         Route::controller(App\Http\Controllers\Back\DeveloperController::class)->group(function () {
+            Route::get('settings', 'settings')->name('settings');
+
             Route::get('teams', 'teams')->name('teams');
             Route::get('people', 'people')->name('people');
             Route::get('peoplelog', 'peoplelog')->name('peoplelog');

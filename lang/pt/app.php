@@ -90,4 +90,5 @@ return [
     'unauthorized_access'       => 'Acesso não autorizado.',
     'whoops'                    => 'Opa! Algo deu errado.',
     'terminal'                  => 'terminal',
+    'settings'                  => 'Configurações',
 ];

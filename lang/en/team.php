@@ -79,8 +79,6 @@ return [
     'view_team'         => 'View team',
     'thank_you'         => 'Thank you for being part of our platform!',
 
-    'member_invited' => 'Member invited',
-    'member_removed' => 'Member removed',
-    'member_joined'  => 'Member joined',
-
+    'member'     => 'Member',
+    'membership' => 'Membership',
 ];

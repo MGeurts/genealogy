@@ -116,4 +116,12 @@ return [
     'whoops' => 'Upps! Etwas ist schief gelaufen.',
 
     'terminal' => 'Terminal',
+
+    'couple_has_been'          => 'Dieses Paar wurde',
+    'person_has_been'          => 'Diese Person wurde',
+    'person_metadata_has_been' => 'Diese Personenmetadaten wurden',
+    'team_has_been'            => 'Dieses Team wurde',
+    'user_has_been'            => 'Dieser Benutzer wurde',
+
+    'settings' => 'Einstellungen',
 ];

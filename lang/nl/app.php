@@ -116,4 +116,12 @@ return [
     'whoops' => 'Oeps! Er liep iets mis.',
 
     'terminal' => 'Terminal',
+
+    'couple_has_been'          => 'Dit paar werd',
+    'person_has_been'          => 'Deze persoon werd',
+    'person_metadata_has_been' => 'De metadata van deze persoon werd',
+    'team_has_been'            => 'Dit team werd',
+    'user_has_been'            => 'Deze gebruiker werd',
+
+    'settings' => 'Instellingen',
 ];

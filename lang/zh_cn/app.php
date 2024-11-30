@@ -116,4 +116,6 @@ return [
     'whoops' => '哎呀！发生了错误。',
 
     'terminal' => '终端',
+
+    'settings' => '设置',
 ];

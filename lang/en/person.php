@@ -2,11 +2,12 @@
 
 return [
     // Labels
-    'biological' => 'biological',
-    'contact'    => 'Contact',
-    'person'     => 'Person',
-    'people'     => 'People',
-    'people_log' => 'People logbook',
+    'biological'      => 'biological',
+    'contact'         => 'Contact',
+    'person'          => 'Person',
+    'person_metadata' => 'Person metadata',
+    'people'          => 'People',
+    'people_log'      => 'People logbook',
 
     'family'  => 'Family',
     'profile' => 'Profile',

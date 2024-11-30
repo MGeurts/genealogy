@@ -11,6 +11,11 @@ use Illuminate\View\View;
 
 class DeveloperController extends Controller
 {
+    public function settings(): View
+    {
+        return view('back.developer.settings');
+    }
+
     public function teams(): View
     {
         return view('back.developer.teams');

@@ -43,6 +43,13 @@
 
                 <div>
                     <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
+                    <p>
+                        <x-nav-link-responsive href="{{ route('developer.settings') }}" :active="request()->routeIs('developer.settings')">
+                            {{ __('app.settings') }}
+                        </x-nav-link-responsive>
+                    </p>
+
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
                         <x-nav-link-responsive href="{{ route('team') }}" :active="request()->routeIs('team')">

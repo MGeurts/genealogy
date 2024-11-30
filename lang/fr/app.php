@@ -90,4 +90,12 @@ return [
     'unauthorized_access'       => 'Accès non autorisé.',
     'whoops'                    => 'Oups ! Quelque chose s\'est mal passé.',
     'terminal'                  => 'Terminal',
+
+    'couple_has_been'          => 'Ce couple a été',
+    'person_has_been'          => 'Cette personne a été',
+    'person_metadata_has_been' => 'Les métadonnées de cette personne ont été',
+    'team_has_been'            => 'Cette équipe a été',
+    'user_has_been'            => 'Cet utilisateur a été',
+
+    'settings' => 'Paramètres',
 ];

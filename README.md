@@ -191,12 +191,13 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 <p>This application has a built-in <b>Log Viewer</b>, on demand showing :
     <ul>
         <li>INFO    : All scheduled backups</li>
-        <li>DEBUG   : All executed database queries (off by default), only in local development mode</li>
         <li>DEBUG   : All executed requests (off by default)</li>
+        <li>DEBUG   : All executed database queries (off by default), only in local development mode</li>
         <li>WARNING : All detected N+1 queries, only in local development mode</li>
         <li>WARNING : All detected slow (> 250 ms) queries, only in local development mode</li>
         <li>ERROR   : All detected errors</li>
    </ul>
+   <p>Logging can be enabled or disabled by the developer in the Application Settings.</p>
 </p>
 
 <p>This application has a built-in <b>User management & logging</b>, available to the developer :
@@ -208,7 +209,8 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 
 <p>
     All activities (create, update, delete) on <b>persons</b> and <b>couples</b> are logged in the database.<br/>
-    Change history available on Persons.
+    All activities (create, update, delete, invite) on <b>users</b> and <b>teams</b> are logged in the database.<br/>
+    Change history available on Persons (with Couples) and Teams (with Users).
 </p>
 
 ## Languages

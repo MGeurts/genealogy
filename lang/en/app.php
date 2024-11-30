@@ -116,4 +116,13 @@ return [
     'whoops' => 'Whoops! Something went wrong.',
 
     'terminal' => 'Terminal',
+
+    'event_created'     => 'created',
+    'event_updated'     => 'updated',
+    'event_deleted'     => 'deleted',
+    'event_invited'     => 'invited',
+    'event_removed'     => 'removed',
+    'event_transferred' => 'transferred',
+
+    'settings' => 'Settings',
 ];

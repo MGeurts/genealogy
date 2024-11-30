@@ -116,4 +116,6 @@ return [
     'whoops' => 'Ôi không! Có gì đó không đúng xảy ra.',
 
     'terminal' => 'Giao diện dòng lệnh',
+
+    'settings' => 'Cài đặt',
 ];
