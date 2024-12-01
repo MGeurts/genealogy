@@ -117,11 +117,12 @@ return [
 
     'terminal' => 'Terminal',
 
-    'couple_has_been'          => 'Dieses Paar wurde',
-    'person_has_been'          => 'Diese Person wurde',
-    'person_metadata_has_been' => 'Diese Personenmetadaten wurden',
-    'team_has_been'            => 'Dieses Team wurde',
-    'user_has_been'            => 'Dieser Benutzer wurde',
+    'event_created'     => 'erstellt',
+    'event_updated'     => 'aktualisiert',
+    'event_deleted'     => 'gelöscht',
+    'event_invited'     => 'eingeladen',
+    'event_removed'     => 'entfernt',
+    'event_transferred' => 'übertragen',
 
     'settings' => 'Einstellungen',
 ];

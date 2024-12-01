@@ -2,11 +2,12 @@
 
 return [
     // Labels
-    'biological' => 'biologisch',
-    'contact'    => 'Contact',
-    'person'     => 'Persoon',
-    'people'     => 'Personen',
-    'people_log' => 'Personen logboek',
+    'biological'      => 'biologisch',
+    'contact'         => 'Contact',
+    'person'          => 'Persoon',
+    'person_metadata' => 'Metagegevens van persoon',
+    'people'          => 'Personen',
+    'people_log'      => 'Personen logboek',
 
     'family'  => 'Familie',
     'profile' => 'Profiel',

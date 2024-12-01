@@ -90,5 +90,13 @@ return [
     'unauthorized_access'       => 'Acesso não autorizado.',
     'whoops'                    => 'Opa! Algo deu errado.',
     'terminal'                  => 'terminal',
-    'settings'                  => 'Configurações',
+
+    'event_created'     => 'criada/criado',
+    'event_updated'     => 'atualizada/atualizado',
+    'event_deleted'     => 'excluída/excluído',
+    'event_invited'     => 'convidada/convidado',
+    'event_removed'     => 'removida/removido',
+    'event_transferred' => 'transferido',
+
+    'settings' => 'Configurações',
 ];

@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'couple'  => 'Cặp đôi',
+    'couples' => 'Cặp đôi',
+
     'date_end'   => 'Ngày kết thúc',
     'date_start' => 'Ngày bắt đầu',
 

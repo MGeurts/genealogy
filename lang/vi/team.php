@@ -78,4 +78,7 @@ return [
     'you_are_new_owner' => 'Bạn đã trở thành chủ sở hữu mới của nhóm: ',
     'view_team'         => 'Xem đội',
     'thank_you'         => 'Cảm ơn bạn đã là một phần của nền tảng của chúng tôi!',
+
+    'member'     => 'Thành viên',
+    'membership' => 'Tư cách thành viên',
 ];

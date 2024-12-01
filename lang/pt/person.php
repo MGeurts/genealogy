@@ -4,6 +4,7 @@ return [
     'biological'                     => 'biológico',
     'contact'                        => 'Contato',
     'person'                         => 'Pessoa',
+    'person_metadata'                => 'Metadados de pessoa',
     'people'                         => 'Pessoas',
     'people_log'                     => 'Diário de bordo de pessoas',
     'family'                         => 'Família',

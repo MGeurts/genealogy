@@ -117,5 +117,12 @@ return [
 
     'terminal' => '终端',
 
+    'event_created'     => '已创建',
+    'event_updated'     => '已更新',
+    'event_deleted'     => '已删除',
+    'event_invited'     => '邀请',
+    'event_removed'     => '已删除',
+    'event_transferred' => '转移',
+
     'settings' => '设置',
 ];

@@ -2,11 +2,12 @@
 
 return [
     // Labels
-    'biological' => '生理性别',
-    'contact'    => '联系方式',
-    'person'     => '人物',
-    'people'     => '人物',
-    'people_log' => '人物事迹',
+    'biological'      => '生理性别',
+    'contact'         => '联系方式',
+    'person'          => '人物',
+    'person_metadata' => '人员元数据',
+    'people'          => '人物',
+    'people_log'      => '人物事迹',
 
     'family'  => '家庭',
     'profile' => '人物简介',

@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'couple'  => 'Paar',
+    'couples' => 'Paare',
+
     'date_end'   => 'Enddatum',
     'date_start' => 'Startdatum',
 

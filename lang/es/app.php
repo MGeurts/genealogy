@@ -91,11 +91,12 @@ return [
     'whoops'                    => '¡Vaya! Algo salió mal.',
     'terminal'                  => 'Terminal',
 
-    'couple_has_been'          => 'Esta pareja ha sido',
-    'person_has_been'          => 'Esta/Este persona ha sido',
-    'person_metadata_has_been' => 'Los metadatos de esta persona han sido',
-    'team_has_been'            => 'Este equipo ha sido',
-    'user_has_been'            => 'Esta/Este usuaria/usuario ha',
+    'event_created'     => 'creada/creado',
+    'event_updated'     => 'actualizada/actualizado',
+    'event_deleted'     => 'eliminada/eliminado',
+    'event_invited'     => 'invitada/invitado',
+    'event_removed'     => 'remota/remoto',
+    'event_transferred' => 'transferida/transferido',
 
     'settings' => 'Ajustes',
 ];

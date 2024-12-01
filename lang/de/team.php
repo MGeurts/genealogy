@@ -78,4 +78,7 @@ return [
     'you_are_new_owner' => 'Sie wurden zum neuen Besitzer des Teams ernannt: ',
     'view_team'         => 'Team ansehen',
     'thank_you'         => 'Vielen Dank, dass Sie Teil unserer Plattform sind!',
+
+    'member'     => 'Mitglied',
+    'membership' => 'Mitgliedschaft',
 ];

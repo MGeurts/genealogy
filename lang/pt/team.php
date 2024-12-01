@@ -70,4 +70,7 @@ return [
     'you_are_new_owner' => 'Você se tornou o novo proprietário da equipe: ',
     'view_team'         => 'Ver equipe',
     'thank_you'         => 'Obrigado por fazer parte da nossa plataforma!',
+
+    'member'     => 'Membro',
+    'membership' => 'Associação',
 ];

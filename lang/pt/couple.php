@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'couple'     => 'Casal',
+    'couples'    => 'Casais',
     'date_end'   => 'Data de término',
     'date_start' => 'Data de início',
     'has_ended'  => 'Terminou',

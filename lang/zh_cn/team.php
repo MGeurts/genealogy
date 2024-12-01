@@ -78,4 +78,7 @@ return [
     'you_are_new_owner' => '您已成为团队的新所有者：',
     'view_team'         => '查看团队',
     'thank_you'         => '感谢您成为我们平台的一部分！',
+
+    'member'     => '成员',
+    'membership' => '会员资格',
 ];

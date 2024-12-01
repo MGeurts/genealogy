@@ -2,11 +2,12 @@
 
 return [
     // Labels
-    'biological' => 'Sinh học',
-    'contact'    => 'Liên hệ',
-    'person'     => 'Người',
-    'people'     => 'Người',
-    'people_log' => 'Nhật ký người',
+    'biological'      => 'Sinh học',
+    'contact'         => 'Liên hệ',
+    'person'          => 'Người',
+    'person_metadata' => 'Siêu dữ liệu về người',
+    'people'          => 'Người',
+    'people_log'      => 'Nhật ký người',
 
     'family'  => 'Gia đình',
     'profile' => 'Hồ sơ',

@@ -117,5 +117,12 @@ return [
 
     'terminal' => 'Giao diện dòng lệnh',
 
+    'event_created'     => 'tạo',
+    'event_updated'     => 'đã cập nhật',
+    'event_deleted'     => 'đã xóa',
+    'event_invited'     => 'được mời',
+    'event_removed'     => 'loẠi bỎ',
+    'event_transferred' => 'đã chuyển',
+
     'settings' => 'Cài đặt',
 ];

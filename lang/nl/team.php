@@ -78,4 +78,7 @@ return [
     'you_are_new_owner' => 'Je bent de nieuwe eigenaar van het team geworden: ',
     'view_team'         => 'Bekijk team',
     'thank_you'         => 'Bedankt dat je deel uitmaakt van ons platform!',
+
+    'member'     => 'Lid',
+    'membership' => 'Lidmaatschap',
 ];

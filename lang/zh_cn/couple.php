@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'couple'  => '夫妻',
+    'couples' => '情侣',
+
     'date_end'   => '离婚日期',
     'date_start' => '结婚日期',
 

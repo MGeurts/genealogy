@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'couple'     => 'Pareja',
+    'couples'    => 'Parejas',
     'date_end'   => 'Fecha de finalización',
     'date_start' => 'Fecha de inicio',
     'has_ended'  => 'Terminado',
