@@ -33,15 +33,16 @@ class RemoveTeamMember implements RemovesTeamMembers
         // Log activity
         /* -------------------------------------------------------------------------------------------- */
         activity()
+            ->useLog('user_team')
             ->performedOn($team)
             ->causedBy($user)
-            ->event(__('team.member_removed'))
+            ->event(__('app.event_removed'))
             ->withProperties([
                 'email' => $teamMember->email,
                 'name'  => $teamMember->name,
                 'role'  => $role->name,
             ])
-            ->log(__('team.member_removed'));
+            ->log(__('team.member') . ' ' . __('app.event_removed'));
         /* -------------------------------------------------------------------------------------------- */
     }
 

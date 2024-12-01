@@ -42,14 +42,15 @@ class InviteTeamMember implements InvitesTeamMembers
         // Log activity
         /* -------------------------------------------------------------------------------------------- */
         activity()
+            ->useLog('user_team')
             ->performedOn($team)
             ->causedBy($user)
-            ->event(__('team.member_invited'))
+            ->event(__('app.event_invited'))
             ->withProperties([
                 'email' => $email,
                 'role'  => $role,
             ])
-            ->log(__('team.member_invited'));
+            ->log(__('team.member') . ' ' . __('app.event_invited'));
         /* -------------------------------------------------------------------------------------------- */
     }
 

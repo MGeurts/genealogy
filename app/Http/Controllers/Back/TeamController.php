@@ -53,14 +53,15 @@ class TeamController extends Controller
                 // Log activity
                 /* -------------------------------------------------------------------------------------------- */
                 activity()
+                    ->useLog('user_team')
                     ->performedOn($team)
                     ->causedBy($currentOwner)
-                    ->event(__('team.ownership_transferred'))
+                    ->event(__('app.event_transferred'))
                     ->withProperties([
                         'email' => $newOwner->email,
                         'name'  => $newOwner->name,
                     ])
-                    ->log(__('team.ownership_transferred'));
+                    ->log(__('team.membership') . ' ' . __('app.event_transferred'));
                 /* -------------------------------------------------------------------------------------------- */
 
                 // Notify the new owner synchronously
