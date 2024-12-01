@@ -113,8 +113,6 @@ return [
 
     'unauthorized_access' => 'Truy cập không được phép.',
 
-    'whoops' => 'Ôi không! Có gì đó không đúng xảy ra.',
-
     'terminal' => 'Giao diện dòng lệnh',
 
     'event_created'     => 'tạo',

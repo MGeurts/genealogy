@@ -88,7 +88,6 @@ return [
     'people_search_help_2'      => 'Comece a string de pesquisa com <b class="text-emerald-600">%</b> se desejar pesquisar partes de nomes, por exemplo : <b class="text-emerald-600">%Jr </b>.<br/>Este tipo de pesquisa é mais lenta.',
     'people_search_help_3'      => 'Se um sobrenome, nome, nome de nascimento ou apelido contiver <b class="text-emerald-600">espaços</b>, coloque o nome entre aspas duplas,<br/>por exemplo : <b class=" text-emerald-600">"John Jr." Kennedy</b>.',
     'unauthorized_access'       => 'Acesso não autorizado.',
-    'whoops'                    => 'Opa! Algo deu errado.',
     'terminal'                  => 'terminal',
 
     'event_created'     => 'criada/criado',

@@ -113,8 +113,6 @@ return [
 
     'unauthorized_access' => 'Onbevoegde toegang.',
 
-    'whoops' => 'Oeps! Er liep iets mis.',
-
     'terminal' => 'Terminal',
 
     'event_created'     => 'aangemaakt',

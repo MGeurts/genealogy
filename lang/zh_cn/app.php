@@ -113,8 +113,6 @@ return [
 
     'unauthorized_access' => '未授权访问。',
 
-    'whoops' => '哎呀！发生了错误。',
-
     'terminal' => '终端',
 
     'event_created'     => '已创建',

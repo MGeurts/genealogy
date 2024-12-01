@@ -88,7 +88,6 @@ return [
     'people_search_help_2'      => 'Commencez la chaîne de recherche par <b class="text-emerald-600">%</b> si vous souhaitez rechercher des parties de noms, par exemple : <b class="text-emerald-600">%Jr </b>.<br/>Sachez que ce type de recherche est plus lent.',
     'people_search_help_3'      => 'Si un nom, un prénom, un nom de naissance ou un surnom contient des <b class="text-emerald-600">espaces</b>, placez le nom entre guillemets doubles,<br/>par exemple : <b class=" text-emerald-600">"John Jr." Kennedy.',
     'unauthorized_access'       => 'Accès non autorisé.',
-    'whoops'                    => 'Oups ! Quelque chose s\'est mal passé.',
     'terminal'                  => 'Terminal',
 
     'event_created'     => 'créé',

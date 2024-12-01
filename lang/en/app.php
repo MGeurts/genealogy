@@ -113,8 +113,6 @@ return [
 
     'unauthorized_access' => 'Unauthorized access.',
 
-    'whoops' => 'Whoops! Something went wrong.',
-
     'terminal' => 'Terminal',
 
     'event_created'     => 'created',
