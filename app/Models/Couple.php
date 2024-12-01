@@ -43,8 +43,19 @@ class Couple extends Model
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-            ->logFillable()
-            ->logOnlyDirty();
+            ->useLogName('person_couple')
+            ->setDescriptionForEvent(fn (string $eventName) => __('couple.couple') . ' ' . __('app.event_' . $eventName))
+            ->logOnly([
+                'person_1.name',
+                'person_2.name',
+                'date_start',
+                'date_end',
+                'is_married',
+                'has_ended',
+                'team.name',
+            ])
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs();
     }
 
     /* -------------------------------------------------------------------------------------------- */

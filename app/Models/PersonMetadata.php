@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -21,7 +22,7 @@ class PersonMetadata extends Model
     ];
 
     protected $fillable = [
-        'person_id',
+        'person.name',
         'key',
         'value',
     ];
@@ -32,8 +33,15 @@ class PersonMetadata extends Model
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-            ->logFillable()
-            ->logOnlyDirty();
+            ->useLogName('person_couple')
+            ->setDescriptionForEvent(fn (string $eventName) => __('person.person_metadata') . ' ' . __('app.event_' . $eventName))
+            ->logOnly([
+                'person.name',
+                'key',
+                'value',
+            ])
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs();
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -44,5 +52,14 @@ class PersonMetadata extends Model
         return new Attribute(
             set: fn ($value) => $value ? strtolower($value) : null,
         );
+    }
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Relations
+    /* -------------------------------------------------------------------------------------------- */
+    /* returns PERSON (1 Person) */
+    public function person(): BelongsTo
+    {
+        return $this->belongsTo(Person::class);
     }
 }

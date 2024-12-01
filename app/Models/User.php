@@ -15,6 +15,8 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 // -------------------------------------------------------------------------------------------
 // ATTENTION :
@@ -35,6 +37,7 @@ class User extends Authenticatable
     use HasFactory;
     use HasProfilePhoto;
     use HasTeams;
+    use LogsActivity;
     use Notifiable;
     use SoftDeletes;
     use TwoFactorAuthenticatable;
@@ -88,11 +91,34 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'seen_at'           => 'datetime',
             'email_verified_at' => 'datetime',
             'password'          => 'hashed',
             'is_developer'      => 'boolean',
+            'seen_at'           => 'datetime',
         ];
+    }
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Log activities
+    /* -------------------------------------------------------------------------------------------- */
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->useLogName('user_team')
+            ->setDescriptionForEvent(fn (string $eventName) => __('user.user') . ' ' . __('app.event_' . $eventName))
+            ->logOnly([
+                'firstname',
+                'surname',
+
+                'email',
+
+                'language',
+                'timezone',
+
+                'is_developer',
+            ])
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs();
     }
 
     /* -------------------------------------------------------------------------------------------- */

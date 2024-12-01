@@ -76,8 +76,38 @@ class Person extends Model implements HasMedia
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-            ->logFillable()
-            ->logOnlyDirty();
+            ->useLogName('person_couple')
+            ->setDescriptionForEvent(fn (string $eventName) => __('person.person') . ' ' . __('app.event_' . $eventName))
+            ->logOnly([
+                'firstname',
+                'surname',
+                'birthname',
+                'nickname',
+
+                'sex',
+                'gender_id',
+
+                'father.name',
+                'mother.name',
+                'parents.name',
+
+                'dob', 'yob', 'pob',
+                'dod', 'yod', 'pod',
+
+                'summary',
+
+                'street', 'number',
+                'postal_code', 'city',
+                'province', 'state',
+                'country',
+                'phone',
+
+                'photo',
+
+                'team.name',
+            ])
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs();
     }
 
     /* -------------------------------------------------------------------------------------------- */

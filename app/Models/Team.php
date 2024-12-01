@@ -58,9 +58,15 @@ class Team extends JetstreamTeam
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-            ->logFillable()
-            ->dontLogIfAttributesChangedOnly(['user_id', 'updated_at'])
-            ->logOnlyDirty();
+            ->useLogName('user_team')
+            ->setDescriptionForEvent(fn (string $eventName) => __('team.team') . ' ' . __('app.event_' . $eventName))
+            ->logOnly([
+                'name',
+                'description',
+                'personal_team',
+            ])
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs();
     }
 
     /* -------------------------------------------------------------------------------------------- */
