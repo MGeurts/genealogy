@@ -253,7 +253,7 @@
     {{-- remove team member confirmation modal --}}
     <x-confirmation-modal wire:model.live="confirmingTeamMemberRemoval">
         <x-slot name="title">
-            {{ __('team.remove_menber') }}
+            {{ __('team.remove_member') }}
         </x-slot>
 
         <x-slot name="content">
