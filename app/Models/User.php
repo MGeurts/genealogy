@@ -16,6 +16,7 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Models\Activity;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 // -------------------------------------------------------------------------------------------
@@ -119,6 +120,11 @@ class User extends Authenticatable
             ])
             ->logOnlyDirty()
             ->dontSubmitEmptyLogs();
+    }
+
+    public function tapActivity(Activity $activity, string $eventName)
+    {
+        $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
     }
 
     /* -------------------------------------------------------------------------------------------- */

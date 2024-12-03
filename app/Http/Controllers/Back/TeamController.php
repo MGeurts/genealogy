@@ -11,11 +11,27 @@ use App\Notifications\OwnershipTransferred;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 use TallStackUi\Traits\Interactions;
 
 class TeamController extends Controller
 {
     use Interactions;
+
+    public function team(): View
+    {
+        return view('back.team');
+    }
+
+    public function teamLog(): View
+    {
+        return view('back.teamlog');
+    }
+
+    public function peopleLog(): View
+    {
+        return view('back.peoplelog');
+    }
 
     public function transferOwnership(Request $request, Team $team)
     {

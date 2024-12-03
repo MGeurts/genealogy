@@ -1,13 +1,13 @@
 @section('title')
-    &vert; {{ __('person.people_log') }}
+    &vert; {{ __('app.people_logbook') }}
 @endsection
 
 <x-app-layout>
     <x-slot name="heading">
-        {{ __('person.people_log') }}
+        {{ __('app.people_logbook') }}
     </x-slot>
 
     <div class="py-5 w-full">
-        <livewire:developer.peoplelog />
+        <livewire:peoplelog />
     </div>
 </x-app-layout>

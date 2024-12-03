@@ -43,17 +43,20 @@
 
                 <div>
                     <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
-                    <p>
-                        <x-nav-link-responsive href="{{ route('developer.settings') }}" :active="request()->routeIs('developer.settings')">
-                            {{ __('app.settings') }}
-                        </x-nav-link-responsive>
-                    </p>
-
-                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
                         <x-nav-link-responsive href="{{ route('team') }}" :active="request()->routeIs('team')">
                             {{ __('team.team') }}
+                        </x-nav-link-responsive>
+                    </p>
+                    <p>
+                        <x-nav-link-responsive href="{{ route('teamlog') }}" :active="request()->routeIs('teamlog')">
+                            {{ __('app.team_logbook') }}
+                        </x-nav-link-responsive>
+                    </p>
+                    <p>
+                        <x-nav-link-responsive href="{{ route('peoplelog') }}" :active="request()->routeIs('peoplelog')">
+                            {{ __('app.people_logbook') }}
                         </x-nav-link-responsive>
                     </p>
                 </div>
@@ -69,11 +72,6 @@
                     <p>
                         <x-nav-link-responsive href="{{ route('developer.people') }}" :active="request()->routeIs('developer.people')">
                             {{ __('person.people') }}
-                        </x-nav-link-responsive>
-                    </p>
-                    <p>
-                        <x-nav-link-responsive href="{{ route('developer.peoplelog') }}" :active="request()->routeIs('developer.peoplelog')">
-                            {{ __('person.people_log') }}
                         </x-nav-link-responsive>
                     </p>
                 </div>
@@ -109,6 +107,14 @@
                 </div>
 
                 <div>
+                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
+
+                    <p>
+                        <x-nav-link-responsive href="{{ route('developer.settings') }}" :active="request()->routeIs('developer.settings')">
+                            {{ __('app.settings') }}
+                        </x-nav-link-responsive>
+                    </p>
+
                     <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
 
                     <p>
@@ -150,6 +156,16 @@
 
                     <p>
                         <x-nav-link-responsive href="{{ route('team') }}" :active="request()->routeIs('team')">{{ __('team.team') }}</x-nav-link-responsive>
+                    </p>
+                    <p>
+                        <x-nav-link-responsive href="{{ route('teamlog') }}" :active="request()->routeIs('teamlog')">
+                            {{ __('app.team_logbook') }}
+                        </x-nav-link-responsive>
+                    </p>
+                    <p>
+                        <x-nav-link-responsive href="{{ route('peoplelog') }}" :active="request()->routeIs('peoplelog')">
+                            {{ __('app.people_logbook') }}
+                        </x-nav-link-responsive>
                     </p>
                 </div>
             @endif

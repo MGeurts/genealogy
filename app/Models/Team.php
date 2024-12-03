@@ -11,6 +11,7 @@ use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
 use Laravel\Jetstream\Team as JetstreamTeam;
 use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Models\Activity;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class Team extends JetstreamTeam
@@ -67,6 +68,11 @@ class Team extends JetstreamTeam
             ])
             ->logOnlyDirty()
             ->dontSubmitEmptyLogs();
+    }
+
+    public function tapActivity(Activity $activity, string $eventName)
+    {
+        $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
     }
 
     /* -------------------------------------------------------------------------------------------- */

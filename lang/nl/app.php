@@ -123,4 +123,7 @@ return [
     'event_transferred' => 'overgedragen',
 
     'settings' => 'Instellingen',
+
+    'people_logbook' => 'Personenlogboek',
+    'team_logbook'   => 'Teamlogboek',
 ];

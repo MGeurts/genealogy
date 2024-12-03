@@ -98,4 +98,7 @@ return [
     'event_transferred' => 'transferida/transferido',
 
     'settings' => 'Ajustes',
+
+    'people_logbook' => 'Libro de registro de personas',
+    'team_logbook'   => 'Libro de registro del equipo',
 ];

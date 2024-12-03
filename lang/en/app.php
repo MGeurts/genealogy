@@ -123,4 +123,7 @@ return [
     'event_transferred' => 'transferred',
 
     'settings' => 'Settings',
+
+    'people_logbook' => 'People logbook',
+    'team_logbook'   => 'Team logbook',
 ];

@@ -7,7 +7,6 @@ return [
     'person'          => 'Người',
     'person_metadata' => 'Siêu dữ liệu về người',
     'people'          => 'Người',
-    'people_log'      => 'Nhật ký người',
 
     'family'  => 'Gia đình',
     'profile' => 'Hồ sơ',

@@ -22,8 +22,13 @@ return new class extends Migration
             $table->json('properties')->nullable();
             $table->char('batch_uuid', 36)->nullable();
 
+            $table->foreignId('team_id')->nullable()->constrained()->onDelete('cascade');
+
             $table->timestamps();
         });
+
+        // Add index on updated_at
+        DB::statement('ALTER TABLE `' . config('activitylog.table_name') . '` ADD INDEX `updated_at_index` (`updated_at`)');
     }
 
     /**

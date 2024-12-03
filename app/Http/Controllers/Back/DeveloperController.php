@@ -26,17 +26,11 @@ class DeveloperController extends Controller
         return view('back.developer.people');
     }
 
-    public function peoplelog(): View
-    {
-        return view('back.developer.peoplelog');
-    }
-
     public function users(): View
     {
         return view('back.developer.users');
     }
 
-    // --------------------------------------------------------------------------------
     public function dependencies(): View
     {
         return view('back.developer.dependencies');

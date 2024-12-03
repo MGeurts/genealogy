@@ -23,6 +23,10 @@ Route::middleware([
     // teams
     // -----------------------------------------------------------------------------------
     Route::controller(App\Http\Controllers\Back\TeamController::class)->group(function () {
+        Route::get('team', 'team')->name('team');
+        Route::get('teamlog', 'teamlog')->name('teamlog');
+        Route::get('peoplelog', 'peoplelog')->name('peoplelog');
+
         Route::put('/teams/{team}/transfer-ownership', 'transferOwnership')->name('teams.transfer-ownership');
     });
 
@@ -30,7 +34,6 @@ Route::middleware([
     // pages
     // -----------------------------------------------------------------------------------
     Route::controller(App\Http\Controllers\Back\PageController::class)->group(function () {
-        Route::get('team', 'team')->name('team');
         Route::get('test', 'test')->name('test');
     });
 
@@ -81,7 +84,6 @@ Route::middleware([
 
             Route::get('teams', 'teams')->name('teams');
             Route::get('people', 'people')->name('people');
-            Route::get('peoplelog', 'peoplelog')->name('peoplelog');
             Route::get('users', 'users')->name('users');
 
             Route::get('dependencies', 'dependencies')->name('dependencies');

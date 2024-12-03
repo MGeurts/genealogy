@@ -7,7 +7,6 @@ return [
     'person'          => 'Persoon',
     'person_metadata' => 'Metagegevens van persoon',
     'people'          => 'Personen',
-    'people_log'      => 'Personen logboek',
 
     'family'  => 'Familie',
     'profile' => 'Profiel',
