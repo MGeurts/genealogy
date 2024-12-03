@@ -409,11 +409,11 @@ Users can click a button in the top right-hand menu to open the <b>offcanvas men
 On top the users role and permissions in the current team are shown.<br/>
 If a user has the proper rights, additional features are presented.
 
-<img src="img/help/genealogy-006a.webp" class="rounded" alt="Offcanvas menu">
+<img src="img/help/genealogy-006.webp" class="rounded" alt="Offcanvas menu">
 
 ### a. Team
 
-The offcanvas menu allows <b>all users</b> to consult the <b>active team</b>.
+The offcanvas menu allows <b>all users</b> to consult the <b>active team</b> and the corresponding logbooks for People/Couples and Team/Users.
 
 <img src="img/help/genealogy-100.webp" class="rounded" alt="Team">
 
@@ -423,10 +423,6 @@ The offcanvas menu allows <b>developers</b> to consult all <b>teams</b> and <b>p
 
 <img src="img/help/genealogy-090a.webp" class="rounded" alt="Teams">
 <img src="img/help/genealogy-090b.webp" class="rounded" alt="People">
-
-You can also consult the people changes history in <b>People logbook</b>.
-
-<img src="img/help/genealogy-090c.webp" class="rounded" alt="People Logging">
 
 ### c. Users & logging
 

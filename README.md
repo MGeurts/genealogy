@@ -192,12 +192,12 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <ul>
         <li>INFO    : All scheduled backups</li>
         <li>DEBUG   : All executed requests (off by default)</li>
-        <li>DEBUG   : All executed database queries (off by default), only in local development mode</li>
-        <li>WARNING : All detected N+1 queries, only in local development mode</li>
-        <li>WARNING : All detected slow (> 250 ms) queries, only in local development mode</li>
+        <li>DEBUG   : All executed database queries (off by default)</li>
+        <li>WARNING : All detected slow (> 250 ms) queries</li>
+        <li>WARNING : All detected N+1 queries</li>
         <li>ERROR   : All detected errors</li>
    </ul>
-   <p>Logging can be enabled or disabled by the developer in the Application Settings.</p>
+   <p>Logging can be enabled or disabled by the developer in Offcanvas Menu Settings.</p>
 </p>
 
 <p>This application has a built-in <b>User management & logging</b>, available to the developer :
@@ -208,9 +208,20 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 </p>
 
 <p>
-    All activities (create, update, delete) on <b>persons</b> and <b>couples</b> are logged in the database.<br/>
-    All activities (create, update, delete, invite) on <b>users</b> and <b>teams</b> are logged in the database.<br/>
-    Change history available on Persons (with Couples) and Teams (with Users).
+    The following activities are logged in the database:
+    <ul>
+        <li>create, update, delete on <b>persons (including Metadata)</b> and <b>couples</b></li>
+        <li>create, update, delete on <b>teams</b></li>
+        <li>create, update, delete, invite, remove on <b>users (Team members)</b></li>
+    </ul>
+</p>
+
+<p>
+    Activity loggings are available in Offcanvas Menu :
+    <ul>
+        <li>Persons (with Couples) in <b>People logbook</b></li>
+        <li>Teams (with Users) in <b>Team logbook</b></li>
+    </ul>
 </p>
 
 ## Languages
