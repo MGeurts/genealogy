@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Userlog;
 use Illuminate\Database\Seeder;
 use Laravel\Jetstream\Jetstream;
+use Spatie\Activitylog\Facades\CauserResolver;
 
 class UserAndTeamSeeder extends Seeder
 {
@@ -28,6 +29,8 @@ class UserAndTeamSeeder extends Seeder
         if (! app()->isProduction()) {
             $this->createUserlogs($developer);
         }
+
+        CauserResolver::setCauser(User::findOrFail(1));
 
         // -----------------------------------------------------------------------------------
         // create administrator user

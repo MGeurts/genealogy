@@ -22,14 +22,38 @@ class DemoSeeder extends Seeder
      */
     public function run(): void
     {
-        CauserResolver::setCauser(User::findOrFail(1));
+        $user                  = User::find(3);
+        $user->current_team_id = $this->british_royals_team;
+        $user->save();
+        auth()->login($user);
+        CauserResolver::setCauser($user);
 
         $this->importBritishRoyalsPeople();
         $this->importBritishRoyalsCouples();
         $this->generateBritishRoyalsTestData();
 
+        auth()->logout();
+
+        $user                  = User::find(4);
+        $user->current_team_id = $this->kennedy_team;
+        $user->save();
+        auth()->login($user);
+        CauserResolver::setCauser($user);
+
         $this->importKennedyPeople();
         $this->importKennedyCouples();
+
+        auth()->logout();
+
+        $user                  = User::find(1);
+        $user->current_team_id = $this->developer_team;
+        $user->save();
+        auth()->login($user);
+        CauserResolver::setCauser($user);
+
+        $this->generatedeveloperTestData();
+
+        auth()->logout();
     }
 
     protected function importBritishRoyalsPeople(): void
@@ -311,31 +335,6 @@ class DemoSeeder extends Seeder
         ]);
 
         // -----------------------------------------------------------------------
-        // people in other teams (beside BRITISH ROYALS)
-        // -----------------------------------------------------------------------
-        Person::create([
-            'id'        => 209,
-            'firstname' => 'John',
-            'surname'   => 'DOE',
-            'sex'       => 'm',
-            'dob'       => '1963-01-01',
-            'photo'     => '209_001_demo.webp',
-
-            'team_id' => $this->developer_team,
-        ]);
-
-        Person::create([
-            'id'        => 210,
-            'firstname' => 'Fu',
-            'surname'   => 'BAR',
-            'sex'       => 'm',
-            'dob'       => '1963-01-01',
-            'photo'     => '210_001_demo.webp',
-
-            'team_id' => $this->developer_team,
-        ]);
-
-        // -----------------------------------------------------------------------
         // address
         // -----------------------------------------------------------------------
         Person::findOrFail(5)->update([
@@ -412,5 +411,30 @@ class DemoSeeder extends Seeder
                 'team_id' => $this->kennedy_team,
             ]);
         }
+    }
+
+    protected function generateDeveloperTestData(): void
+    {
+        Person::create([
+            'id'        => 209,
+            'firstname' => 'John',
+            'surname'   => 'DOE',
+            'sex'       => 'm',
+            'dob'       => '1963-01-01',
+            'photo'     => '209_001_demo.webp',
+
+            'team_id' => $this->developer_team,
+        ]);
+
+        Person::create([
+            'id'        => 210,
+            'firstname' => 'Fu',
+            'surname'   => 'BAR',
+            'sex'       => 'm',
+            'dob'       => '1963-01-01',
+            'photo'     => '210_001_demo.webp',
+
+            'team_id' => $this->developer_team,
+        ]);
     }
 }
