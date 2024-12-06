@@ -86,7 +86,7 @@ class Files extends Component
             ->toArray();
     }
 
-    public function save()
+    public function save(): void
     {
         foreach ($this->uploads as $upload) {
             $file = $this->person->addMedia($upload)->toMediaCollection('files', 'files');

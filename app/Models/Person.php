@@ -111,7 +111,7 @@ class Person extends Model implements HasMedia
             ->dontSubmitEmptyLogs();
     }
 
-    public function tapActivity(Activity $activity, string $eventName)
+    public function tapActivity(Activity $activity, string $eventName): void
     {
         $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
     }
@@ -547,7 +547,7 @@ class Person extends Model implements HasMedia
     }
 
     /* updates, deletes if empty or creates 1 to n METADATA related to the person */
-    public function updateMetadata(Collection $personMetadata)
+    public function updateMetadata(Collection $personMetadata): void
     {
         // First, delete any existing metadata where the value is empty
         foreach (PersonMetadata::METADATA_KEYS as $key) {

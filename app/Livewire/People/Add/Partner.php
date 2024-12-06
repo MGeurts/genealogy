@@ -114,7 +114,7 @@ class Partner extends Component
             ->toArray();
     }
 
-    public function savePartner()
+    public function savePartner(): void
     {
         if ($this->isDirty()) {
             $validated = $this->partnerForm->validate();

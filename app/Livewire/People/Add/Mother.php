@@ -107,7 +107,7 @@ class Mother extends Component
             ->toArray();
     }
 
-    public function saveMother()
+    public function saveMother(): void
     {
         if ($this->isDirty()) {
             $validated = $this->motherForm->validate();

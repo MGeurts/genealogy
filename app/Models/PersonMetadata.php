@@ -45,7 +45,7 @@ class PersonMetadata extends Model
             ->dontSubmitEmptyLogs();
     }
 
-    public function tapActivity(Activity $activity, string $eventName)
+    public function tapActivity(Activity $activity, string $eventName): void
     {
         $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
     }

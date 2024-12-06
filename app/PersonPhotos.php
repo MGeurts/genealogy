@@ -123,10 +123,12 @@ class PersonPhotos
     {
         $oneDayAgo = now()->subDay()->timestamp;
 
-        foreach (Storage::files('livewire-tmp') as $file) {
-            if (Storage::lastModified($file) < $oneDayAgo) {
-                Storage::delete($file);
+        defer(function () use ($oneDayAgo): void {
+            foreach (Storage::files('livewire-tmp') as $file) {
+                if (Storage::lastModified($file) < $oneDayAgo) {
+                    Storage::delete($file);
+                }
             }
-        }
+        });
     }
 }

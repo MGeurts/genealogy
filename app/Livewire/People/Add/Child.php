@@ -122,7 +122,7 @@ class Child extends Component
             ->toArray();
     }
 
-    public function saveChild()
+    public function saveChild(): void
     {
         if ($this->isDirty()) {
             $validated = $this->childForm->validate();

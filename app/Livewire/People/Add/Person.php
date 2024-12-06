@@ -88,7 +88,7 @@ class Person extends Component
             ->toArray();
     }
 
-    public function savePerson()
+    public function savePerson(): void
     {
         if ($this->isDirty()) {
             $validated = $this->personForm->validate();

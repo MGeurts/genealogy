@@ -31,7 +31,7 @@ class Profile extends Component
         $this->deleteConfirmed = true;
     }
 
-    public function deletePerson()
+    public function deletePerson(): void
     {
         if ($this->person->isDeletable()) {
             $this->deletePersonPhotos();
@@ -46,9 +46,11 @@ class Profile extends Component
 
     private function deletePersonPhotos(): void
     {
-        foreach (config('app.photo_folders') as $folder) {
-            File::delete(File::glob(storage_path("app/public/{$folder}/" . $this->person->team_id . '/' . $this->person->id . '_*.webp')));
-        }
+        defer(function (): void {
+            foreach (config('app.photo_folders') as $folder) {
+                File::delete(File::glob(storage_path("app/public/{$folder}/" . $this->person->team_id . '/' . $this->person->id . '_*.webp')));
+            }
+        });
     }
 
     // ------------------------------------------------------------------------------

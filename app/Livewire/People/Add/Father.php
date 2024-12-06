@@ -107,7 +107,7 @@ class Father extends Component
             ->toArray();
     }
 
-    public function saveFather()
+    public function saveFather(): void
     {
         if ($this->isDirty()) {
             $validated = $this->fatherForm->validate();
