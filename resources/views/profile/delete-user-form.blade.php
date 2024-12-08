@@ -21,19 +21,17 @@
                 ['index' => 'personal', 'label' => __('team.team_personal') . '?'],
             ];
 
-            $rows = [];
-
-            $teams = auth()->user()->teamsStatistics();
-
-            foreach ($teams as $team) {
-                array_push($rows, [
-                    'team' => $team->name,
-                    'users' => $team->users_count > 0 ? $team->users_count : '',
-                    'persons' => $team->persons_count > 0 ? $team->persons_count : '',
-                    'couples' => $team->couples_count > 0 ? $team->couples_count : '',
-                    'personal' => $team->personal_team,
-                ]);
-            }
+            $rows = collect(auth()->user()->teamsStatistics())
+                ->map(function ($team) {
+                    return [
+                        'team' => $team->name,
+                        'users' => $team->users_count > 0 ? $team->users_count : '',
+                        'persons' => $team->persons_count > 0 ? $team->persons_count : '',
+                        'couples' => $team->couples_count > 0 ? $team->couples_count : '',
+                        'personal' => $team->personal_team,
+                    ];
+                })
+                ->toArray();
         @endphp
 
         <x-ts-table :$headers :$rows>

@@ -37,14 +37,14 @@
                             @php
                                 $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.old')]];
 
-                                $rows = [];
-
-                                foreach ($log['properties_old'] as $key => $value) {
-                                    array_push($rows, [
-                                        'key' => $key,
-                                        'value' => $value,
-                                    ]);
-                                }
+                                $rows = collect($log['properties_old'])
+                                    ->map(function ($value, $key) {
+                                        return [
+                                            'key' => $key,
+                                            'value' => $value,
+                                        ];
+                                    })
+                                    ->toArray();
                             @endphp
 
                             <x-ts-table :$headers :$rows />
@@ -55,12 +55,14 @@
 
                                 $rows = [];
 
-                                foreach ($log['properties_new'] as $key => $value) {
-                                    array_push($rows, [
-                                        'key' => $key,
-                                        'value' => $value,
-                                    ]);
-                                }
+                                $rows = collect($log['properties_new'])
+                                    ->map(function ($value, $key) {
+                                        return [
+                                            'key' => $key,
+                                            'value' => $value,
+                                        ];
+                                    })
+                                    ->toArray();
                             @endphp
 
                             <x-ts-table :$headers :$rows />

@@ -12,19 +12,7 @@
     </x-slot>
 
     <x-slot name="content">
-        @php
-            $headers = [['index' => 'object', 'label' => $team->name], ['index' => 'count', 'label' => '#']];
-
-            $rows = [
-                ['object' => __('team.users'), 'count' => count($team->users)],
-                ['object' => __('team.persons'), 'count' => count($team->persons)],
-                ['object' => __('team.couples'), 'count' => count($team->couples)],
-            ];
-        @endphp
-
-        <x-ts-table :$headers :$rows />
-
-        <x-hr.normal />
+        @livewire('team.status', ['team' => $team])
 
         @if ($team->isDeletable())
             <div class="max-w-xl text-sm text-gray-600">

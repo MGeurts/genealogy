@@ -30,15 +30,15 @@
                         @php
                             $headers = [['index' => 'attribute', 'label' => __('app.attribute')], ['index' => 'old', 'label' => __('app.old')], ['index' => 'new', 'label' => __('app.new')]];
 
-                            $rows = [];
-
-                            foreach ($activity['new'] as $key => $value) {
-                                array_push($rows, [
-                                    'attribute' => $key,
-                                    'old' => $activity['old'] ? $activity['old'][$key] : null,
-                                    'new' => $value,
-                                ]);
-                            }
+                            $rows = collect($activity['new'])
+                                ->map(function ($value, $key) use ($activity) {
+                                    return [
+                                        'attribute' => $key,
+                                        'old' => $activity['old'][$key] ?? null,
+                                        'new' => $value,
+                                    ];
+                                })
+                                ->toArray();
                         @endphp
 
                         <x-ts-table :$headers :$rows />
