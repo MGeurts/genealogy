@@ -23,7 +23,7 @@ class TreeSeeder extends Seeder
         $this->createPerson(null, 0);
     }
 
-    protected function createPerson($father, $level)
+    protected function createPerson($father, $level): void
     {
         $person = Person::create([
             'firstname' => 'Child of ' . ($father ? $father->id : 'Nobody'),

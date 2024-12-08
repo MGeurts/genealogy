@@ -11,7 +11,7 @@ use Spatie\Activitylog\Facades\CauserResolver;
 
 class UserAndTeamSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
         // -----------------------------------------------------------------------------------
         // create developer user
