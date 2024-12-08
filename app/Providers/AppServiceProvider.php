@@ -38,17 +38,19 @@ class AppServiceProvider extends ServiceProvider
 
         $this->addAboutCommandDetails();
 
-        // Cache the applications settings
-        $this->app->singleton('settings', function () {
-            return Cache::rememberForever('settings', function () {
-                return Setting::all()->pluck('value', 'key');
+        if (\Schema::hasTable('settings')) {
+            // Cache the applications settings
+            $this->app->singleton('settings', function () {
+                return Cache::rememberForever('settings', function () {
+                    return Setting::all()->pluck('value', 'key');
+                });
             });
-        });
 
-        // enable/disable logging based on application settings
-        $this->logAllQueries();
-        $this->LogAllQueriesSlow();
-        $this->logAllQueriesNplusone();
+            // enable/disable logging based on application settings
+            $this->logAllQueries();
+            $this->LogAllQueriesSlow();
+            $this->logAllQueriesNplusone();
+        }
     }
 
     /**
