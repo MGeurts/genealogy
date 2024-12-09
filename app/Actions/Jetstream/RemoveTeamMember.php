@@ -17,7 +17,7 @@ class RemoveTeamMember implements RemovesTeamMembers
     /**
      * Remove the team member from the given team.
      */
-    public function remove(User $user, Team $team, User $teamMember): void
+    public function remove(User $user, Team $team, User $teamMember)
     {
         $role = $teamMember->teamRole($team);
 
@@ -30,20 +30,24 @@ class RemoveTeamMember implements RemovesTeamMembers
         TeamMemberRemoved::dispatch($team, $teamMember);
 
         /* -------------------------------------------------------------------------------------------- */
-        // Log activity
+        // Log activity: Remove Team Member
         /* -------------------------------------------------------------------------------------------- */
-        activity()
-            ->useLog('user_team')
-            ->performedOn($team)
-            ->causedBy($user)
-            ->event(__('app.event_removed'))
-            ->withProperties([
-                'email' => $teamMember->email,
-                'name'  => $teamMember->name,
-                'role'  => $role->name,
-            ])
-            ->log(__('team.member') . ' ' . __('app.event_removed'));
+        defer(function () use ($user, $team, $teamMember, $role): void {
+            activity()
+                ->useLog('user_team')
+                ->performedOn($team)
+                ->causedBy($user)
+                ->event(__('app.event_removed'))
+                ->withProperties([
+                    'email' => $teamMember->email,
+                    'name'  => $teamMember->name,
+                    'role'  => $role->name,
+                ])
+                ->log(__('team.member') . ' ' . __('app.event_removed'));
+        });
         /* -------------------------------------------------------------------------------------------- */
+
+        return redirect('/teams/' . $team->id);
     }
 
     /**

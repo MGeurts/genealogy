@@ -66,18 +66,20 @@ class TeamController extends Controller
                 $team->save();
 
                 /* -------------------------------------------------------------------------------------------- */
-                // Log activity
+                // Log activity: Transfer Team Membership
                 /* -------------------------------------------------------------------------------------------- */
-                activity()
-                    ->useLog('user_team')
-                    ->performedOn($team)
-                    ->causedBy($currentOwner)
-                    ->event(__('app.event_transferred'))
-                    ->withProperties([
-                        'email' => $newOwner->email,
-                        'name'  => $newOwner->name,
-                    ])
-                    ->log(__('team.membership') . ' ' . __('app.event_transferred'));
+                defer(function () use ($team, $currentOwner, $newOwner): void {
+                    activity()
+                        ->useLog('user_team')
+                        ->performedOn($team)
+                        ->causedBy($currentOwner)
+                        ->event(__('app.event_transferred'))
+                        ->withProperties([
+                            'email' => $newOwner->email,
+                            'name'  => $newOwner->name,
+                        ])
+                        ->log(__('team.membership') . ' ' . __('app.event_transferred'));
+                });
                 /* -------------------------------------------------------------------------------------------- */
 
                 // Notify the new owner synchronously

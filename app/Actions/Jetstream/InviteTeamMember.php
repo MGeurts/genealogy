@@ -39,18 +39,20 @@ class InviteTeamMember implements InvitesTeamMembers
         Mail::to($email)->send(new TeamInvitation($invitation));
 
         /* -------------------------------------------------------------------------------------------- */
-        // Log activity
+        // Log activity: Invite Team Member
         /* -------------------------------------------------------------------------------------------- */
-        activity()
-            ->useLog('user_team')
-            ->performedOn($team)
-            ->causedBy($user)
-            ->event(__('app.event_invited'))
-            ->withProperties([
-                'email' => $email,
-                'role'  => $role,
-            ])
-            ->log(__('team.member') . ' ' . __('app.event_invited'));
+        defer(function () use ($user, $team, $email, $role): void {
+            activity()
+                ->useLog('user_team')
+                ->performedOn($team)
+                ->causedBy($user)
+                ->event(__('app.event_invited'))
+                ->withProperties([
+                    'email' => $email,
+                    'role'  => $role,
+                ])
+                ->log(__('team.member') . ' ' . __('app.event_invited'));
+        });
         /* -------------------------------------------------------------------------------------------- */
     }
 
