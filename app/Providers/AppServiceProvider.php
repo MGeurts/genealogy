@@ -10,6 +10,7 @@ use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Opcodes\LogViewer\Facades\LogViewer;
@@ -38,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->addAboutCommandDetails();
 
-        if (\Schema::hasTable('settings')) {
+        if (Schema::hasTable('settings')) {
             // Cache the applications settings
             $this->app->singleton('settings', function () {
                 return Cache::rememberForever('settings', function () {
@@ -46,7 +47,7 @@ class AppServiceProvider extends ServiceProvider
                 });
             });
 
-            // enable/disable logging based on application settings
+            // enable or disable logging based on application settings
             $this->logAllQueries();
             $this->LogAllQueriesSlow();
             $this->logAllQueriesNplusone();
