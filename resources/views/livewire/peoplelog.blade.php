@@ -53,8 +53,6 @@
                             @php
                                 $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.new')]];
 
-                                $rows = [];
-
                                 $rows = collect($log['properties_new'])
                                     ->map(function ($value, $key) {
                                         return [

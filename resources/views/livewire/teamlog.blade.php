@@ -31,8 +31,6 @@
                                 @php
                                     $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.old')]];
 
-                                    $rows = [];
-
                                     $rows = collect($log['properties_old'])
                                         ->map(function ($value, $key) {
                                             return [
