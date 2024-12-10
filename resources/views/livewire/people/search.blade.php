@@ -26,20 +26,20 @@
             </div>
 
             <div class="flex-1 flex-grow max-w-full text-end">
-                @if ($this->search)
+                @if ($search)
                     @if (auth()->user()->is_developer)
                         {!! __('app.people_found', [
                             'found' => $people->total(),
                             'total' => $people_db,
                             'scope' => strtoupper(__('team.all_teams')),
-                            'keyword' => $this->search,
+                            'keyword' => $search,
                         ]) !!}
                     @else
                         {!! __('app.people_found', [
                             'found' => $people->total(),
                             'total' => $people_db,
                             'scope' => auth()->user()->currentTeam->name,
-                            'keyword' => $this->search,
+                            'keyword' => $search,
                         ]) !!}
                     @endif
                 @else
@@ -93,7 +93,7 @@
                 <livewire:people.person :person="$person" :key="$person->id" />
             @endforeach
         </div>
-    @else
+    @elseif(!$search)
         {{-- image caroussel --}}
         <x-caroussel />
     @endif
