@@ -20,7 +20,7 @@ class AddTeamMember implements AddsTeamMembers
     /**
      * Add a new team member to the given team.
      */
-    public function add(User $user, Team $team, string $email, ?string $role = null): void
+    public function add(User $user, Team $team, string $email, ?string $role = null)
     {
         Gate::forUser($user)->authorize('addTeamMember', $team);
 
@@ -35,6 +35,26 @@ class AddTeamMember implements AddsTeamMembers
         );
 
         TeamMemberAdded::dispatch($team, $newTeamMember);
+
+        /* -------------------------------------------------------------------------------------------- */
+        // Log activity: Added Team Member
+        /* -------------------------------------------------------------------------------------------- */
+        defer(function () use ($user, $team, $newTeamMember, $role): void {
+            activity()
+                ->useLog('user_team')
+                ->performedOn($team)
+                ->causedBy($user)
+                ->event(__('app.event_removed'))
+                ->withProperties([
+                    'email' => $newTeamMember->email,
+                    'name'  => $newTeamMember->name,
+                    'role'  => $role,
+                ])
+                ->log(__('team.member') . ' ' . __('app.event_removed'));
+        });
+        /* -------------------------------------------------------------------------------------------- */
+
+        return redirect('/teams/' . $team->id);
     }
 
     /**
