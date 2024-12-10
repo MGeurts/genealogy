@@ -115,6 +115,7 @@ return [
 
     'terminal' => 'Terminal',
 
+    'event_added'       => 'toegevoegd',
     'event_created'     => 'aangemaakt',
     'event_updated'     => 'bijgewerkt',
     'event_deleted'     => 'verwijderd',

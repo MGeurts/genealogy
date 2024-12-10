@@ -115,6 +115,7 @@ return [
 
     'terminal' => 'Giao diện dòng lệnh',
 
+    'event_added'       => 'đã thêm',
     'event_created'     => 'tạo',
     'event_updated'     => 'đã cập nhật',
     'event_deleted'     => 'đã xóa',

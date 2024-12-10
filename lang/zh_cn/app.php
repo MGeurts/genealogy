@@ -115,6 +115,7 @@ return [
 
     'terminal' => '终端',
 
+    'event_added'       => '额外',
     'event_created'     => '已创建',
     'event_updated'     => '已更新',
     'event_deleted'     => '已删除',

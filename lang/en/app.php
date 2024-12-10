@@ -115,6 +115,7 @@ return [
 
     'terminal' => 'Terminal',
 
+    'event_added'       => 'added',
     'event_created'     => 'created',
     'event_updated'     => 'updated',
     'event_deleted'     => 'deleted',

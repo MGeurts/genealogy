@@ -90,6 +90,7 @@ return [
     'unauthorized_access'       => 'Acceso no autorizado.',
     'terminal'                  => 'Terminal',
 
+    'event_added'       => 'agregada/agregado',
     'event_created'     => 'creada/creado',
     'event_updated'     => 'actualizada/actualizado',
     'event_deleted'     => 'eliminada/eliminado',
