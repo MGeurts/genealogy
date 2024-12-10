@@ -44,13 +44,13 @@ class AddTeamMember implements AddsTeamMembers
                 ->useLog('user_team')
                 ->performedOn($team)
                 ->causedBy($user)
-                ->event(__('app.event_removed'))
+                ->event(__('app.event_added'))
                 ->withProperties([
                     'email' => $newTeamMember->email,
                     'name'  => $newTeamMember->name,
                     'role'  => $role,
                 ])
-                ->log(__('team.member') . ' ' . __('app.event_removed'));
+                ->log(__('team.member') . ' ' . __('app.event_added'));
         });
         /* -------------------------------------------------------------------------------------------- */
 
