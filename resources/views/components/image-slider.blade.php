@@ -1,70 +1,119 @@
-@php
-    $images = collect(File::files(public_path('img/image-slider')))
-        ->filter(fn($file) => in_array($file->getExtension(), ['jpg', 'jpeg', 'png', 'webp']))
-        ->map(
-            fn($file) => [
-                'imgSrc' => asset('img/image-slider/' . $file->getFilename()),
-                'imgAlt' => pathinfo($file->getFilename(), PATHINFO_FILENAME),
-            ],
-        )
-        ->toArray();
-@endphp
-
-<div x-data="sliderComponent({{ json_encode($images) }})" x-init="init()" class="relative w-full overflow-hidden">
-    <!-- Previous Button -->
-    <button type="button"
-        class="absolute left-2 sm:left-5 top-1/2 z-20 flex items-center justify-center p-2 bg-white/40 rounded-full -translate-y-1/2 text-neutral-600 transition hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:bg-neutral-950/40 dark:text-neutral-300 dark:hover:bg-neutral-950/60 dark:focus-visible:outline-white"
-        aria-label="Previous Slide" x-on:click="previous()">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="3" class="w-5 h-5 sm:w-6 sm:h-6 pr-0.5" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-        </svg>
-    </button>
-
-    <!-- Next Button -->
-    <button type="button"
-        class="absolute right-2 sm:right-5 top-1/2 z-20 flex items-center justify-center p-2 bg-white/40 rounded-full -translate-y-1/2 text-neutral-600 transition hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:bg-neutral-950/40 dark:text-neutral-300 dark:hover:bg-neutral-950/60 dark:focus-visible:outline-white"
-        aria-label="Next Slide" x-on:click="next()">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="3" class="w-5 h-5 sm:w-6 sm:h-6 pl-0.5" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-        </svg>
-    </button>
-
-    <!-- Slides -->
-    <div class="relative w-full aspect-[16/9]">
-        <template x-for="(slide, index) in slides" :key="index">
-            <div x-show="currentSlideIndex == index + 1" class="absolute inset-0" x-transition.opacity.duration.1000ms>
-                <img class="w-full h-full object-cover rounded" x-bind:src="slide.imgSrc" x-bind:alt="slide.imgAlt" />
-            </div>
-        </template>
+<div x-data="slider()" x-init="initializeSlider()" class="relative mx-auto max-w-screen-xl" @mouseenter="pauseAutoRotation" @mouseleave="resumeAutoRotation">
+    <!-- Image container -->
+    <div class="overflow-hidden relative">
+        <div class="flex transition-transform duration-700 ease-in-out" :style="transformStyle">
+            <template x-for="(image, index) in images" :key="index">
+                <img :src="'/img/image-slider/' + image" :alt="`Slide ${index + 1}`" class="w-full h-auto object-cover flex-shrink-0 rounded lazyload">
+            </template>
+        </div>
     </div>
 
+    <!-- Navigation buttons -->
+    <button @click="prevImage" aria-label="Previous"
+        class="absolute top-1/2 left-4 transform -translate-y-1/2 p-3 bg-white text-black dark:bg-gray-800 dark:text-white rounded-full shadow-md hover:bg-gray-100 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+    </button>
+
+    <button @click="nextImage" aria-label="Next"
+        class="absolute top-1/2 right-4 transform -translate-y-1/2 p-3 bg-white text-black dark:bg-gray-800 dark:text-white rounded-full shadow-md hover:bg-gray-100 focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        </svg>
+    </button>
+
     <!-- Indicators -->
-    <div class="absolute bottom-3 md:bottom-5 left-1/2 z-20 flex -translate-x-1/2 gap-2 sm:gap-3 bg-white/75 px-2 py-1.5 rounded dark:bg-neutral-950/75">
-        <template x-for="(slide, index) in slides" :key="index">
-            <button class="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer rounded-full transition" x-on:click="currentSlideIndex = index + 1"
-                x-bind:class="[currentSlideIndex === index + 1 ? 'bg-neutral-600 dark:bg-neutral-300' : 'bg-neutral-600/50 dark:bg-neutral-300/50']"
-                x-bind:aria-label="'Go to Slide ' + (index + 1)"></button>
+    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+        <template x-for="(image, index) in images" :key="index">
+            <button
+                :class="{
+                    'bg-warning-500 dark:bg-warning-200': currentImage === index,
+                    'bg-gray-300 dark:bg-gray-700': currentImage !== index
+                }"
+                @click="goToImage(index)" aria-label="Go to" class="w-3 h-3 rounded-full focus:outline-none">
+            </button>
         </template>
     </div>
 </div>
 
 @push('scripts')
     <script>
-        function sliderComponent(images) {
+        function slider() {
             return {
-                slides: images,
-                currentSlideIndex: 1,
-                init() {
-                    setInterval(() => {
-                        this.next();
-                    }, 20000); // Rotate every 20 seconds
+                images: [],
+                currentImage: 0,
+                intervalId: null,
+                isPaused: false,
+
+                initializeSlider() {
+                    this.loadImages();
+                    if (this.images.length > 1) {
+                        this.shuffleImages();
+                        this.startAutoRotation();
+                    }
                 },
-                previous() {
-                    this.currentSlideIndex = this.currentSlideIndex > 1 ? this.currentSlideIndex - 1 : this.slides.length;
+
+                loadImages() {
+                    try {
+                        const allImages = @json(scandir(public_path('img/image-slider'))).filter(image => !image.startsWith('.'));
+                        const allowedExtensions = ['png', 'webp', 'jpg', 'jpeg'];
+                        this.images = allImages.filter(image => {
+                            const extension = image.split('.').pop().toLowerCase();
+                            return allowedExtensions.includes(extension);
+                        });
+                    } catch (error) {
+                        console.error("Error loading images: ", error);
+                        this.images = [];
+                    }
                 },
-                next() {
-                    this.currentSlideIndex = this.currentSlideIndex < this.slides.length ? this.currentSlideIndex + 1 : 1;
+
+                shuffleImages() {
+                    for (let i = this.images.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [this.images[i], this.images[j]] = [this.images[j], this.images[i]];
+                    }
                 },
+
+                prevImage() {
+                    this.currentImage = (this.currentImage === 0) ? this.images.length - 1 : this.currentImage - 1;
+                    this.resetAutoRotation();
+                },
+
+                nextImage() {
+                    this.currentImage = (this.currentImage === this.images.length - 1) ? 0 : this.currentImage + 1;
+                    this.resetAutoRotation();
+                },
+
+                goToImage(index) {
+                    this.currentImage = index;
+                    this.resetAutoRotation();
+                },
+
+                startAutoRotation() {
+                    this.intervalId = setInterval(() => {
+                        if (!this.isPaused) {
+                            this.nextImage();
+                        }
+                    }, 5000);
+                },
+
+                pauseAutoRotation() {
+                    this.isPaused = true;
+                },
+
+                resumeAutoRotation() {
+                    this.isPaused = false;
+                },
+
+                resetAutoRotation() {
+                    clearInterval(this.intervalId);
+                    this.startAutoRotation();
+                },
+
+                get transformStyle() {
+                    return `transform: translateX(-${this.currentImage * 100}%)`;
+                }
             };
         }
     </script>
