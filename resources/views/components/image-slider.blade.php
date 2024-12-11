@@ -1,19 +1,16 @@
-<div x-data="{
-    slides: [
-        { imgSrc: '{{ url('/img/caroussel/genealogy-research-001.webp') }}', imgAlt: 'Genealogy Research' },
-        { imgSrc: '{{ url('/img/caroussel/genealogy-research-002.webp') }}', imgAlt: 'Genealogy Research' },
-        { imgSrc: '{{ url('/img/caroussel/genealogy-research-003.webp') }}', imgAlt: 'Genealogy Research' },
-        { imgSrc: '{{ url('/img/caroussel/genealogy-research-004.webp') }}', imgAlt: 'Genealogy Research' },
-    ],
-    currentSlideIndex: 1,
-    previous() {
-        this.currentSlideIndex = this.currentSlideIndex > 1 ? this.currentSlideIndex - 1 : this.slides.length;
-    },
-    next() {
-        this.currentSlideIndex = this.currentSlideIndex < this.slides.length ? this.currentSlideIndex + 1 : 1;
-    },
-}" class="relative w-full overflow-hidden">
+@php
+    $images = collect(File::files(public_path('img/image-slider')))
+        ->filter(fn($file) => in_array($file->getExtension(), ['jpg', 'jpeg', 'png', 'webp']))
+        ->map(
+            fn($file) => [
+                'imgSrc' => asset('img/image-slider/' . $file->getFilename()),
+                'imgAlt' => pathinfo($file->getFilename(), PATHINFO_FILENAME),
+            ],
+        )
+        ->toArray();
+@endphp
 
+<div x-data="sliderComponent({{ json_encode($images) }})" x-init="init()" class="relative w-full overflow-hidden">
     <!-- Previous Button -->
     <button type="button"
         class="absolute left-2 sm:left-5 top-1/2 z-20 flex items-center justify-center p-2 bg-white/40 rounded-full -translate-y-1/2 text-neutral-600 transition hover:bg-white/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black dark:bg-neutral-950/40 dark:text-neutral-300 dark:hover:bg-neutral-950/60 dark:focus-visible:outline-white"
@@ -50,3 +47,25 @@
         </template>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        function sliderComponent(images) {
+            return {
+                slides: images,
+                currentSlideIndex: 1,
+                init() {
+                    setInterval(() => {
+                        this.next();
+                    }, 20000); // Rotate every 20 seconds
+                },
+                previous() {
+                    this.currentSlideIndex = this.currentSlideIndex > 1 ? this.currentSlideIndex - 1 : this.slides.length;
+                },
+                next() {
+                    this.currentSlideIndex = this.currentSlideIndex < this.slides.length ? this.currentSlideIndex + 1 : 1;
+                },
+            };
+        }
+    </script>
+@endpush

@@ -94,8 +94,8 @@
             @endforeach
         </div>
     @elseif(!$search)
-        {{-- image caroussel --}}
-        <x-caroussel />
+        {{-- image slider --}}
+        <x-image-slider />
     @endif
 
     {{-- search help modal --}}
