@@ -10,9 +10,9 @@
             <img src="img/genealogy-research.webp" alt="Genealogy Research" class="object-cover w-full h-full rounded-l">
         </div>
 
-        <div class="w-full md:w-2/3 bg-gray-100 p-8 mx-auto bg-white rounded-r">
+        <div class="w-full md:w-2/3 p-8 mx-auto bg-white rounded-r">
             <h1 class="text-4xl font-bold mb-8">{{ $header }}</h1>
-            
+
             {{ $slot }}
         </div>
     </div>
