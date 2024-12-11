@@ -95,7 +95,7 @@
                         if (!this.isPaused) {
                             this.nextImage();
                         }
-                    }, 5000);
+                    }, 10000);
                 },
 
                 pauseAutoRotation() {
