@@ -55,61 +55,59 @@
         </div>
     </div>
 
-    @push('scripts')
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        <script>
-            let ctxMonth = document.getElementById('visitorChartMonth').getContext('2d');
+    <script>
+        let ctxMonth = document.getElementById('visitorChartMonth').getContext('2d');
 
-            let chartMonth = new Chart(ctxMonth, {
-                type: 'bar',
-                data: {
-                    labels: @json($statistics_month_labels),
-                    datasets: [{
-                        label: @json($title),
-                        data: @json($statistics_month_values),
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scaleIntegersOnly: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                precision: 0,
-                            }
+        let chartMonth = new Chart(ctxMonth, {
+            type: 'bar',
+            data: {
+                labels: @json($statistics_month_labels),
+                datasets: [{
+                    label: @json($title),
+                    data: @json($statistics_month_values),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scaleIntegersOnly: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0,
                         }
                     }
                 }
-            });
+            }
+        });
 
-            let ctxYear = document.getElementById('visitorChartYear').getContext('2d');
+        let ctxYear = document.getElementById('visitorChartYear').getContext('2d');
 
-            let chartYear = new Chart(ctxYear, {
-                type: 'bar',
-                data: {
-                    labels: @json($statistics_year_labels),
-                    datasets: [{
-                        label: @json($title),
-                        data: @json($statistics_year_values),
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scaleIntegersOnly: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                precision: 0,
-                            }
+        let chartYear = new Chart(ctxYear, {
+            type: 'bar',
+            data: {
+                labels: @json($statistics_year_labels),
+                datasets: [{
+                    label: @json($title),
+                    data: @json($statistics_year_values),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scaleIntegersOnly: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0,
                         }
                     }
                 }
-            });
-        </script>
-    @endpush
+            }
+        });
+    </script>
 </x-app-layout>

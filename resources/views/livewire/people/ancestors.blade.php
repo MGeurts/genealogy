@@ -5,7 +5,7 @@
             <div class="flex flex-wrap items-start justify-center gap-2">
                 <div class="flex-1 flex-grow max-w-full min-w-max">
                     {{ __('person.ancestors') }}
-                    
+
                     <div class="inline-flex ml-2 border rounded" role="group">
                         @if ($count === $count_min)
                             <x-ts-button square xs color="danger" class="border-0 rounded-l" wire:click="decrement" disabled>
@@ -46,7 +46,5 @@
         </div>
     </div>
 
-    @push('styles')
-        <link href="{{ asset('css/tree-rtl.css') }}" rel="stylesheet">
-    @endpush
+    <link href="{{ asset('css/tree-rtl.css') }}" rel="stylesheet">
 </div>

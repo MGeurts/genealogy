@@ -31,35 +31,33 @@
         </div>
     </div>
 
-    @push('scripts')
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        <script>
-            const ctx = document.getElementById('mainChart').getContext('2d');
+    <script>
+        const ctx = document.getElementById('mainChart').getContext('2d');
 
-            const chart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: @js($labels),
-                    datasets: [{
-                        label: @js($title),
-                        data: @js($values),
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scaleIntegersOnly: true,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                precision: 0,
-                            }
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: @js($labels),
+                datasets: [{
+                    label: @js($title),
+                    data: @js($values),
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scaleIntegersOnly: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0,
                         }
                     }
                 }
-            });
-        </script>
-    @endpush
+            }
+        });
+    </script>
 </x-app-layout>

@@ -137,18 +137,16 @@
         </form>
     </x-authentication-card>
 
-    @push('scripts')
-        <script>
-            setSelectedValue(document.getElementById('timezone'), Intl.DateTimeFormat().resolvedOptions().timeZone);
+    <script>
+        setSelectedValue(document.getElementById('timezone'), Intl.DateTimeFormat().resolvedOptions().timeZone);
 
-            function setSelectedValue(selectObj, valueToSet) {
-                for (var i = 0; i < selectObj.options.length; i++) {
-                    if (selectObj.options[i].text == valueToSet) {
-                        selectObj.options[i].selected = true;
-                        return;
-                    }
+        function setSelectedValue(selectObj, valueToSet) {
+            for (var i = 0; i < selectObj.options.length; i++) {
+                if (selectObj.options[i].text == valueToSet) {
+                    selectObj.options[i].selected = true;
+                    return;
                 }
             }
-        </script>
-    @endpush
+        }
+    </script>
 </x-app-layout>

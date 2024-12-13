@@ -54,7 +54,7 @@
                 <x-ts-upload id="file" wire:model="file" accept=".ged" label="{{ __('gedcom.gedcom_file') }} : *" hint="{{ __('gedcom.team_gedcom_hint') }}"
                     tip="{{ __('gedcom.team_gedcom_tip') }}" required>
                     <x-slot:footer>
-                        <x-ts-alert text="{{  __('gedcom.team_gedcom_version') }}" color="cyan" />
+                        <x-ts-alert text="{{ __('gedcom.team_gedcom_version') }}" color="cyan" />
                     </x-slot:footer>
                 </x-ts-upload>
 
@@ -77,7 +77,5 @@
         </div>
     </div>
 
-    @push('styles')
-        <link href="{{ asset('css/terminal.css') }}" rel="stylesheet">
-    @endpush
+    <link href="{{ asset('css/terminal.css') }}" rel="stylesheet">
 </div>

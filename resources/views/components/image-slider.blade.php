@@ -37,84 +37,82 @@
     </div>
 </div>
 
-@push('scripts')
-    <script>
-        function slider() {
-            return {
-                images: [],
-                currentImage: 0,
-                intervalId: null,
-                isPaused: false,
+<script>
+    function slider() {
+        return {
+            images: [],
+            currentImage: 0,
+            intervalId: null,
+            isPaused: false,
 
-                initializeSlider() {
-                    this.loadImages();
-                    if (this.images.length > 1) {
-                        this.shuffleImages();
-                        this.startAutoRotation();
-                    }
-                },
-
-                loadImages() {
-                    try {
-                        const allImages = @json(scandir(public_path('img/image-slider'))).filter(image => !image.startsWith('.'));
-                        const allowedExtensions = ['png', 'webp', 'jpg', 'jpeg'];
-                        this.images = allImages.filter(image => {
-                            const extension = image.split('.').pop().toLowerCase();
-                            return allowedExtensions.includes(extension);
-                        });
-                    } catch (error) {
-                        console.error("Error loading images: ", error);
-                        this.images = [];
-                    }
-                },
-
-                shuffleImages() {
-                    for (let i = this.images.length - 1; i > 0; i--) {
-                        const j = Math.floor(Math.random() * (i + 1));
-                        [this.images[i], this.images[j]] = [this.images[j], this.images[i]];
-                    }
-                },
-
-                prevImage() {
-                    this.currentImage = (this.currentImage === 0) ? this.images.length - 1 : this.currentImage - 1;
-                    this.resetAutoRotation();
-                },
-
-                nextImage() {
-                    this.currentImage = (this.currentImage === this.images.length - 1) ? 0 : this.currentImage + 1;
-                    this.resetAutoRotation();
-                },
-
-                goToImage(index) {
-                    this.currentImage = index;
-                    this.resetAutoRotation();
-                },
-
-                startAutoRotation() {
-                    this.intervalId = setInterval(() => {
-                        if (!this.isPaused) {
-                            this.nextImage();
-                        }
-                    }, 10000);
-                },
-
-                pauseAutoRotation() {
-                    this.isPaused = true;
-                },
-
-                resumeAutoRotation() {
-                    this.isPaused = false;
-                },
-
-                resetAutoRotation() {
-                    clearInterval(this.intervalId);
+            initializeSlider() {
+                this.loadImages();
+                if (this.images.length > 1) {
+                    this.shuffleImages();
                     this.startAutoRotation();
-                },
-
-                get transformStyle() {
-                    return `transform: translateX(-${this.currentImage * 100}%)`;
                 }
-            };
-        }
-    </script>
-@endpush
+            },
+
+            loadImages() {
+                try {
+                    const allImages = @json(scandir(public_path('img/image-slider'))).filter(image => !image.startsWith('.'));
+                    const allowedExtensions = ['png', 'webp', 'jpg', 'jpeg'];
+                    this.images = allImages.filter(image => {
+                        const extension = image.split('.').pop().toLowerCase();
+                        return allowedExtensions.includes(extension);
+                    });
+                } catch (error) {
+                    console.error("Error loading images: ", error);
+                    this.images = [];
+                }
+            },
+
+            shuffleImages() {
+                for (let i = this.images.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [this.images[i], this.images[j]] = [this.images[j], this.images[i]];
+                }
+            },
+
+            prevImage() {
+                this.currentImage = (this.currentImage === 0) ? this.images.length - 1 : this.currentImage - 1;
+                this.resetAutoRotation();
+            },
+
+            nextImage() {
+                this.currentImage = (this.currentImage === this.images.length - 1) ? 0 : this.currentImage + 1;
+                this.resetAutoRotation();
+            },
+
+            goToImage(index) {
+                this.currentImage = index;
+                this.resetAutoRotation();
+            },
+
+            startAutoRotation() {
+                this.intervalId = setInterval(() => {
+                    if (!this.isPaused) {
+                        this.nextImage();
+                    }
+                }, 10000);
+            },
+
+            pauseAutoRotation() {
+                this.isPaused = true;
+            },
+
+            resumeAutoRotation() {
+                this.isPaused = false;
+            },
+
+            resetAutoRotation() {
+                clearInterval(this.intervalId);
+                this.startAutoRotation();
+            },
+
+            get transformStyle() {
+                return `transform: translateX(-${this.currentImage * 100}%)`;
+            }
+        };
+    }
+</script>
