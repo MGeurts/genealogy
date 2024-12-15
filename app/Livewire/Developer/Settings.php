@@ -20,12 +20,6 @@ class Settings extends Component
 
     public SettingsForm $settingsForm;
 
-    public bool $logAllQueries = false;
-
-    public bool $logAllQueriesSlow = false;
-
-    public bool $logAllQueriesNPlusOne = false;
-
     /**
      * Mount the component and load initial data.
      */
@@ -34,13 +28,10 @@ class Settings extends Component
         // Fetch settings and map them to the properties
         $this->settings = Setting::pluck('value', 'key');
 
-        $this->settingsForm->logAllQueries         = (bool) $this->settings->get('log_all_queries');
-        $this->settingsForm->logAllQueriesSlow     = (bool) $this->settings->get('log_all_queries_slow');
-        $this->settingsForm->logAllQueriesNPlusOne = (bool) $this->settings->get('log_all_queries_nplusone');
-
-        $this->logAllQueries         = (bool) $this->settings->get('log_all_queries');
-        $this->logAllQueriesSlow     = (bool) $this->settings->get('log_all_queries_slow');
-        $this->logAllQueriesNPlusOne = (bool) $this->settings->get('log_all_queries_nplusone');
+        $this->settingsForm->logAllQueries              = (bool) $this->settings->get('log_all_queries');
+        $this->settingsForm->logAllQueriesSlowThreshold = $this->settings->get('log_all_queries_slow_threshold');
+        $this->settingsForm->logAllQueriesSlow          = (bool) $this->settings->get('log_all_queries_slow');
+        $this->settingsForm->logAllQueriesNPlusOne      = (bool) $this->settings->get('log_all_queries_nplusone');
     }
 
     /**
@@ -49,13 +40,14 @@ class Settings extends Component
     public function saveSettings(): void
     {
         $settings = [
-            'log_all_queries'          => $this->settingsForm->logAllQueries,
-            'log_all_queries_slow'     => $this->settingsForm->logAllQueriesSlow,
-            'log_all_queries_nplusone' => $this->settingsForm->logAllQueriesNPlusOne,
+            'log_all_queries'                => $this->settingsForm->logAllQueries,
+            'log_all_queries_slow'           => $this->settingsForm->logAllQueriesSlow,
+            'log_all_queries_slow_threshold' => $this->settingsForm->logAllQueriesSlowThreshold,
+            'log_all_queries_nplusone'       => $this->settingsForm->logAllQueriesNPlusOne,
         ];
 
         foreach ($settings as $key => $value) {
-            Setting::updateOrCreate(['key' => $key], ['value' => $value ? 1 : 0]);
+            Setting::updateOrCreate(['key' => $key], ['value' => $value]);
         }
 
         // Clear the cache
@@ -72,9 +64,10 @@ class Settings extends Component
     public function isDirty(): bool
     {
         return
-            $this->settingsForm->logAllQueries != $this->logAllQueries or
-            $this->settingsForm->logAllQueriesSlow != $this->logAllQueriesSlow or
-            $this->settingsForm->logAllQueriesNPlusOne != $this->logAllQueriesNPlusOned;
+            $this->settingsForm->logAllQueries != (bool) $this->settings->get('log_all_queries') or
+            $this->settingsForm->logAllQueriesSlow != $this->settings->get('log_all_queries_slow_threshold') or
+            $this->settingsForm->logAllQueriesSlowThreshold != $this->logAllQueriesSlowThreshold or (bool) $this->settings->get('log_all_queries_slow') or
+            $this->settingsForm->logAllQueriesNPlusOne != (bool) $this->settings->get('log_all_queries_nplusone');
     }
 
     /**

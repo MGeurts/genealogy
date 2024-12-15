@@ -27,9 +27,17 @@
                         <x-ts-toggle wire:model="settingsForm.logAllQueries" label="{{ __('settings.log_all_queries') }} ?" />
                     </div>
 
-                    <div class="col-span-6">
+                    <x-hr.narrow class="col-span-6 !my-0" />
+
+                    <div class="col-span-3">
                         <x-ts-toggle wire:model="settingsForm.logAllQueriesSlow" label="{{ __('settings.log_all_queries_slow') }} ?" />
                     </div>
+
+                    <div class="col-span-3">
+                        <x-ts-input type="number" min="1" wire:model="settingsForm.logAllQueriesSlowThreshold" label="{{ __('settings.log_all_queries_slow_threshold') }} :" />
+                    </div>
+
+                    <x-hr.narrow class="col-span-6 !my-0" />
 
                     <div class="col-span-6">
                         <x-ts-toggle wire:model="settingsForm.logAllQueriesNPlusOne" label="{{ __('settings.log_all_queries_nplusone') }} ?" />

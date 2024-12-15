@@ -15,6 +15,7 @@ class SettingSeeder extends Seeder
         $settingsData = [
             ['key' => 'log_all_queries', 'value' => false],
             ['key' => 'log_all_queries_slow', 'value' => true],
+            ['key' => 'log_all_queries_slow_threshold', 'value' => 500],
             ['key' => 'log_all_queries_nplusone', 'value' => true],
         ];
 

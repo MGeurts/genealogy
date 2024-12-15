@@ -13,12 +13,19 @@ class SettingsForm extends Form
 
     public bool $logAllQueriesSlow = false;
 
+    public string $logAllQueriesSlowThreshold = '500';
+
     public bool $logAllQueriesNPlusOne = false;
 
     // -----------------------------------------------------------------------
     public function rules(): array
     {
-        return $rules = [];
+        return $rules = [
+            'log_all_queries'                => ['boolean'],
+            'log_all_queries_slow'           => ['boolean'],
+            'log_all_queries_slow_threshold' => ['integer'],
+            'log_all_queries_nplusone'       => ['boolean'],
+        ];
     }
 
     public function messages(): array
@@ -28,6 +35,11 @@ class SettingsForm extends Form
 
     public function validationAttributes(): array
     {
-        return [];
+        return [
+            'log_all_queries'                => __('settings.log_all_queries'),
+            'log_all_queries_slow'           => __('settings.log_all_queries_slow'),
+            'log_all_queries_slow_threshold' => __('settings.log_all_queries_slow_threshold'),
+            'log_all_queries_nplusone'       => __('settings.log_all_queries_nplusone'),
+        ];
     }
 }
