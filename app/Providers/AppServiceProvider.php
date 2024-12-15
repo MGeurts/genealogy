@@ -176,14 +176,14 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Log all slow queries (threshold: 250ms) for debugging purposes.
+     * Log all slow queries (threshold in ms) for debugging purposes.
      */
-    private function LogAllQueriesSlow(): void
+    private function LogAllQueriesSlow(int $threshold = 500): void
     {
         if (settings('log_all_queries_slow')) {
-            DB::listen(function ($query) {
-                if ($query->time > 250) {
-                    Log::warning('An individual database query exceeded 250 ms.', [
+            DB::listen(function ($query) use ($threshold) {
+                if ($query->time >= $threshold) {
+                    Log::warning('An individual database query exceeded ' . $threshold . ' ms.', [
                         'sql' => $query->sql,
                         'raw' => $query->toRawSQL(),
                     ]);
