@@ -1,8 +1,8 @@
 *
-!files
-!imports
-!photos
-!photos-096
-!photos-384
-!profile-photos
+!files/
+!imports/
+!photos/
+!photos-096/
+!photos-384/
+!profile-photos/
 !.gitignore
