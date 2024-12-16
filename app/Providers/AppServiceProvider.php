@@ -39,7 +39,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->addAboutCommandDetails();
 
-        if (Schema::hasTable('settings')) {
+        if ($this->isDatabaseOnline() && Schema::hasTable('settings')) {
             // Cache the applications settings
             $this->app->singleton('settings', function () {
                 return Cache::rememberForever('settings', function () {
@@ -47,7 +47,7 @@ class AppServiceProvider extends ServiceProvider
                 });
             });
 
-            // enable or disable logging based on application settings
+            // Enable or disable logging based on application settings
             $this->logAllQueries();
             $this->LogAllQueriesSlow();
             $this->logAllQueriesNplusone();
@@ -205,6 +205,22 @@ class AppServiceProvider extends ServiceProvider
                     $relation
                 ));
             });
+        }
+    }
+
+    /**
+     * Check if the database connection is available.
+     */
+    protected function isDatabaseOnline(): bool
+    {
+        try {
+            DB::connection()->getPdo();
+
+            return true;
+        } catch (\Exception $e) {
+            // Log the exception if needed for debugging
+            // Log::error('Database connection error: ' . $e->getMessage());
+            return false;
         }
     }
 }
