@@ -2,8 +2,8 @@
 
 **Genealogy** 是一个免费开源的家谱应用程序，用于记录家族人物及其关系。
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-000a.webp" class="rounded" alt="Genealogy-000a">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-020a.webp" class="rounded" alt="Genealogy-020a">
+<img src="img/help/genealogy-000a.webp" class="rounded" alt="Genealogy-000a">
+<img src="img/help/genealogy-020a.webp" class="rounded" alt="Genealogy-020a">
 
 ## 演示
 

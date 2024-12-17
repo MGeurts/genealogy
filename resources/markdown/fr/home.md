@@ -2,8 +2,8 @@
 
 **Genealogy** est une application gratuite et open-source pour enregistrer les membres de la famille et leurs relations.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-000a.webp" class="rounded" alt="Genealogy-000a">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-020a.webp" class="rounded" alt="Genealogy-020a">
+<img src="img/help/genealogy-000a.webp" class="rounded" alt="Genealogy-000a">
+<img src="img/help/genealogy-020a.webp" class="rounded" alt="Genealogy-020a">
 
 ## Démo
 

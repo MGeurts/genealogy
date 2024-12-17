@@ -2,8 +2,8 @@
 
 **Genealogy** ist eine kostenlose und Open-Source-Anwendung zur Erstellung von Familienstammbäumen, um Familienmitglieder und ihre Beziehungen zu dokumentieren.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-000a.webp" class="rounded" alt="Genealogy-000a">
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-020a.webp" class="rounded" alt="Genealogy-020a">
+<img src="img/help/genealogy-000a.webp" class="rounded" alt="Genealogy-000a">
+<img src="img/help/genealogy-020a.webp" class="rounded" alt="Genealogy-020a">
 
 ## Demo
 
