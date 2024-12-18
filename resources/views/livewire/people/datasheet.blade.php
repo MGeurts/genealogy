@@ -309,7 +309,9 @@
                 <tr>
                     <td colspan="3">&nbsp;</td>
                     <td>
-                        {{ $file }}
+                        <x-link href="{{ $file->getUrl() }}" target="_blank" title="{{ __('app.download') }}">
+                            {{ $file->file_name }}
+                        </x-link>
                     </td>
                 </tr>
             @endforeach

@@ -7,6 +7,7 @@ namespace App\Livewire\People;
 use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
 use Livewire\Component;
+use Illuminate\Support\Collection;
 
 class Datasheet extends Component
 {
@@ -14,7 +15,7 @@ class Datasheet extends Component
 
     public array $images = [];
 
-    public array $files = [];
+    public Collection $files;
 
     /**
      * Mount the component and load relevant data.
@@ -26,10 +27,8 @@ class Datasheet extends Component
             ->map(fn ($path) => basename($path)) // Extract filename with extension
             ->toArray();
 
-        // Load the media files associated with the person and extract only filenames (including extensions)
-        $this->files = $this->person->getMedia('files')
-            ->map(fn ($media) => basename($media->getPath())) // Extract filename with extension from media path
-            ->toArray();
+        // Load the media files associated with the person
+        $this->files = $this->person->getMedia('files');
     }
 
     /**
