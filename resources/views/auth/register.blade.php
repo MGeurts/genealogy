@@ -57,7 +57,7 @@
                 <div class="md:w-2/3">
                     <select id="language" class="block w-full rounded" name="language" required>
                         @foreach (config('app.available_locales') as $locale_name => $available_locale)
-                            <option value="{{ $available_locale }}" @if ($available_locale == app()->getLocale()) selected @endif>{{ $locale_name }}</option>
+                            <option value="{{ $available_locale }}" @selected($available_locale == app()->getLocale())>{{ $locale_name }}</option>
                         @endforeach
                     </select>
                 </div>

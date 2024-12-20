@@ -94,7 +94,7 @@
             <x-label for="language" value="{{ __('user.language') }} :" />
             <select id="language" class="block w-full mt-1 rounded" name="language" wire:model="state.language" required>
                 @foreach (config('app.available_locales') as $locale_name => $available_locale)
-                    <option value="{{ $available_locale }}" @if (old('language') == '{{ $available_locale }}') selected @endif>{{ $locale_name }}</option>
+                    <option value="{{ $available_locale }}" @selected(old('language') == $available_locale)>{{ $locale_name }}</option>
                 @endforeach
             </select>
         </div>
@@ -104,7 +104,7 @@
             <x-label for="timezone" value="{{ __('user.timezone') }} :" />
             <select id="timezone" class="block w-full mt-1 rounded" name="timezone" wire:model="state.timezone" required>
                 @foreach (timezone_identifiers_list() as $timezone)
-                    <option value="{{ $timezone }}" @if (old('timezone') == '{{ $timezone }}') selected @endif>{{ $timezone }}</option>
+                    <option value="{{ $timezone }}" @selected(old('timezone') == $timezone)>{{ $timezone }}</option>
                 @endforeach
             </select>
         </div>
