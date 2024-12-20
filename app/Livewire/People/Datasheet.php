@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Livewire\People;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
 use Livewire\Component;
-use Illuminate\Support\Collection;
 
 class Datasheet extends Component
 {
