@@ -6,24 +6,39 @@
 
     {{-- lifetime & age --}}
     <div class="flex px-2">
-        <div class="flex-grow">@if (isset($person->lifetime)) {{ $person->lifetime }} @endif</div>
-        <div class="flex-grow text-end">@if (isset($person->age)) {{ $person->age . ' ' . trans_choice('person.years', $person->age) }}  @endif</div>
+        <div class="flex-grow">
+            @if (isset($person->lifetime))
+                {{ $person->lifetime }}
+            @endif
+        </div>
+
+        <div class="flex-grow text-end">
+            @if (isset($person->age))
+                {{ $person->age . ' ' . trans_choice('person.years', $person->age) }}
+            @endif
+        </div>
     </div>
 
     {{-- data --}}
     <div class="p-2 pb-0">
         <p>
-            <x-link href="/people/{{ $person->id }}" @class(['text-danger-600 dark:text-danger-400' => $person->isDeceased()])>
+            <x-link href="/people/{{ $person->id }}" @class([
+                'text-danger-600 dark:text-danger-400' => $person->isDeceased(),
+            ])>
                 {{ $person->name }}
             </x-link>
             <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
         </p>
         <p>{{ __('person.birthname') }} : {{ $person->birthname ? $person->birthname : '' }}</p>
         <p>{{ __('person.nickname') }} : {{ $person->nickname ? $person->nickname : '' }}</p>
+
         <x-hr.narrow />
+
         <p class="py-1">{{ __('person.father') }} :
             @if ($person->father)
-                <x-link href="/people/{{ $person->father->id }}" @class(['text-danger-600 dark:text-danger-400' =>$person->father->isDeceased()])>
+                <x-link href="/people/{{ $person->father->id }}" @class([
+                    'text-danger-600 dark:text-danger-400' => $person->father->isDeceased(),
+                ])>
                     {{ $person->father->name }}
                 </x-link>
                 <x-ts-icon icon="{{ $person->father->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -32,12 +47,15 @@
 
         <p class="py-1">{{ __('person.mother') }} :
             @if ($person->mother)
-                <x-link href="/people/{{ $person->mother->id }}" @class(['text-danger-600 dark:text-danger-400' =>$person->mother->isDeceased()])>
+                <x-link href="/people/{{ $person->mother->id }}" @class([
+                    'text-danger-600 dark:text-danger-400' => $person->mother->isDeceased(),
+                ])>
                     {{ $person->mother->name }}
                 </x-link>
                 <x-ts-icon icon="{{ $person->mother->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
             @endif
         </p>
+
         <x-hr.narrow />
     </div>
 
