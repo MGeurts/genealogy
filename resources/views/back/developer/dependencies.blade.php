@@ -162,11 +162,13 @@
             <x-ts-tab.items tab="Javascript">
                 <ul class="w-full my-4">
                     <li class="py-2">
-                        <x-link href="https://www.chartjs.org/" target="_blank">Chart.js</x-link>
+                        <x-link href="https://www.chartjs.org/" target="_blank">Chart.js</x-link> - Charts
+                        <x-ts-button xs href="https://www.chartjs.org/docs/latest/samples/" target="_blank" class="ms-5">{{ __('app.demonstration') }}</x-ts-button>
                     </li>
 
                     <li class="py-2">
-                        <x-link href="https://github.com/StephanWagner/svgMap/" target="_blank">StephanWagner/svgMap</x-link>
+                        <x-link href="https://github.com/StephanWagner/svgMap/" target="_blank">StephanWagner/svgMap</x-link> - WordMap
+                        <x-ts-button xs href="https://stephanwagner.me/create-world-map-charts-with-svgmap#svgMapDemoGDP" target="_blank" class="ms-5">{{ __('app.demonstration') }}</x-ts-button>
                     </li>
                 </ul>
             </x-ts-tab.items>
