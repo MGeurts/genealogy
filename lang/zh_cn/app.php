@@ -127,4 +127,6 @@ return [
 
     'people_logbook' => '人员日志',
     'team_logbook'   => '团队日志',
+
+    'under_construction' => '建设中',
 ];

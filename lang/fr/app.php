@@ -102,4 +102,6 @@ return [
 
     'people_logbook' => 'Journal de bord des personnes',
     'team_logbook'   => 'Journal de bord de l\'équipe',
+
+    'under_construction' => 'En cours de construction',
 ];

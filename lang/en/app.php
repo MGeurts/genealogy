@@ -127,4 +127,6 @@ return [
 
     'people_logbook' => 'People logbook',
     'team_logbook'   => 'Team logbook',
+
+    'under_construction' => 'Under construction',
 ];

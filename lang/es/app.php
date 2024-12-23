@@ -102,4 +102,6 @@ return [
 
     'people_logbook' => 'Libro de registro de personas',
     'team_logbook'   => 'Libro de registro del equipo',
+
+    'under_construction' => 'Bajo construcción',
 ];

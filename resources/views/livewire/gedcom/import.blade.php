@@ -19,6 +19,8 @@
                     </x-link>
                 </p>
             </div>
+
+            <x-under-construction />
         </x-slot>
 
         <x-slot name="form" enctype="multipart/form-data">

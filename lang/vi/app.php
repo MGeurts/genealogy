@@ -127,4 +127,6 @@ return [
 
     'people_logbook' => 'Nhật ký những người',
     'team_logbook'   => 'Nhật ký đội',
+
+    'under_construction' => 'Đang xây dựng',
 ];
