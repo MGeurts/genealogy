@@ -129,4 +129,5 @@ return [
     'team_logbook'   => '团队日志',
 
     'under_construction' => '建设中',
+    'demonstration'      => '示范',
 ];

@@ -104,4 +104,5 @@ return [
     'team_logbook'   => 'Libro de registro del equipo',
 
     'under_construction' => 'Bajo construcción',
+    'demonstration'      => 'Demonstratión',
 ];

@@ -129,4 +129,5 @@ return [
     'team_logbook'   => 'Team-Logbuch',
 
     'under_construction' => 'Im Bau',
+    'demonstration'      => 'Demonstration',
 ];

@@ -104,4 +104,5 @@ return [
     'team_logbook'   => 'Diário de bordo da equipe',
 
     'under_construction' => 'Em construção',
+    'demonstration'      => 'Demonstração',
 ];

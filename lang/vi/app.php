@@ -129,4 +129,5 @@ return [
     'team_logbook'   => 'Nhật ký đội',
 
     'under_construction' => 'Đang xây dựng',
+    'demonstration'      => 'Cuộc biểu tình',
 ];
