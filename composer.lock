@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f02f6d8a2ee707975ce0e51b5a9f955",
+    "content-hash": "47faf451f4c3f8192c05b7cc7abc2fad",
     "packages": [
         {
             "name": "alisalehi/laravel-lang-files-translator",
@@ -3733,57 +3733,6 @@
             "time": "2024-12-08T08:18:47+00:00"
         },
         {
-            "name": "liberu-genealogy/php-gedcom",
-            "version": "v2.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/liberu-genealogy/php-gedcom.git",
-                "reference": "2acf76f45919fb2aa336eada65847b2f7a791eba"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/liberu-genealogy/php-gedcom/zipball/2acf76f45919fb2aa336eada65847b2f7a791eba",
-                "reference": "2acf76f45919fb2aa336eada65847b2f7a791eba",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=8.3"
-            },
-            "require-dev": {
-                "driftingly/rector-laravel": "^0.25.0",
-                "phpunit/phpunit": "11.*",
-                "rector/rector": "*",
-                "squizlabs/php_codesniffer": "3.6.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Gedcom\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A GEDCOM file parser (read + write) for PHP 8.0+",
-            "homepage": "http://github.com/familytree365/php-gedcom",
-            "keywords": [
-                "gedcom",
-                "parser"
-            ],
-            "support": {
-                "issues": "https://github.com/liberu-genealogy/php-gedcom/issues",
-                "source": "https://github.com/liberu-genealogy/php-gedcom/tree/v2.0.6"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/liberu-genealogy",
-                    "type": "github"
-                }
-            ],
-            "time": "2024-08-25T12:34:40+00:00"
-        },
-        {
             "name": "livewire/livewire",
             "version": "v3.5.12",
             "source": {
@@ -5957,16 +5906,16 @@
         },
         {
             "name": "spatie/color",
-            "version": "1.6.2",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/color.git",
-                "reference": "b4fac074a9e5999dcca12cbfab0f7c73e2684d6d"
+                "reference": "45c4354ffa7e65f05c502b009834ecac7928daa3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/color/zipball/b4fac074a9e5999dcca12cbfab0f7c73e2684d6d",
-                "reference": "b4fac074a9e5999dcca12cbfab0f7c73e2684d6d",
+                "url": "https://api.github.com/repos/spatie/color/zipball/45c4354ffa7e65f05c502b009834ecac7928daa3",
+                "reference": "45c4354ffa7e65f05c502b009834ecac7928daa3",
                 "shasum": ""
             },
             "require": {
@@ -6004,7 +5953,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/color/issues",
-                "source": "https://github.com/spatie/color/tree/1.6.2"
+                "source": "https://github.com/spatie/color/tree/1.6.3"
             },
             "funding": [
                 {
@@ -6012,7 +5961,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-12-09T16:20:38+00:00"
+            "time": "2024-12-23T11:00:34+00:00"
         },
         {
             "name": "spatie/db-dumper",
@@ -9597,16 +9546,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.14.9",
+            "version": "v3.14.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "2e805a6bd4e1aa83774316bb062703c65d0691ef"
+                "reference": "56b9bd235e3fe62e250124804009ce5bab97cc63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/2e805a6bd4e1aa83774316bb062703c65d0691ef",
-                "reference": "2e805a6bd4e1aa83774316bb062703c65d0691ef",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/56b9bd235e3fe62e250124804009ce5bab97cc63",
+                "reference": "56b9bd235e3fe62e250124804009ce5bab97cc63",
                 "shasum": ""
             },
             "require": {
@@ -9665,7 +9614,7 @@
             ],
             "support": {
                 "issues": "https://github.com/barryvdh/laravel-debugbar/issues",
-                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.14.9"
+                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.14.10"
             },
             "funding": [
                 {
@@ -9677,7 +9626,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-11-25T14:51:20+00:00"
+            "time": "2024-12-23T10:10:42+00:00"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
