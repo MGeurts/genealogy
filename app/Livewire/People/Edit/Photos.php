@@ -151,12 +151,19 @@ class Photos extends Component
     /**
      * Retrieve person photos.
      */
+
     private function getPersonPhotos(): Finder
     {
         $teamId = $this->person->team_id;
-
+        $photoPath = public_path("storage/photos/{$teamId}");
+        
+        // Create directory if it doesn't exist
+        if (!File::exists($photoPath)) {
+            File::makeDirectory($photoPath, 0755, true);
+        }
+    
         return Finder::create()
-            ->in(public_path("storage/photos/{$teamId}"))
+            ->in($photoPath)
             ->name("{$this->person->id}_*.webp");
     }
 

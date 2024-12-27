@@ -19,3 +19,4 @@ yarn-error.log
 /.vscode
 deploy-genealogy.sh
 herd.yml
+*.DS_Store
