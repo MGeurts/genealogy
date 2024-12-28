@@ -131,7 +131,7 @@ namespace App\Models{
  * @property int $id
  * @property string|null $firstname
  * @property string $surname
- * @property string|null $birthname
+ * @property string|null $marriedname
  * @property string|null $nickname
  * @property string $sex
  * @property int|null $gender_id
@@ -190,7 +190,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Person partnerOffset(?string $birth_date, ?int $birth_year, int $offset = 40)
  * @method static \Illuminate\Database\Eloquent\Builder|Person query()
  * @method static \Illuminate\Database\Eloquent\Builder|Person search(string $value)
- * @method static \Illuminate\Database\Eloquent\Builder|Person whereBirthname($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Person whereMarriedname($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Person whereCity($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Person whereCountryId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Person whereCreatedAt($value)

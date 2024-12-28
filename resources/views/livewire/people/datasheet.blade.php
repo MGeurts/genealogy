@@ -21,8 +21,8 @@
             </tr>
             <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
-                <td>{{ __('person.birthname') }} :</td>
-                <td class="break-words max-w-96">{{ $person->birthname }}</td>
+                <td>{{ __('person.marriedname') }} :</td>
+                <td class="break-words max-w-96">{{ $person->marriedname }}</td>
             </tr>
             <tr class="align-top">
                 <td colspan="2">&nbsp;</td>

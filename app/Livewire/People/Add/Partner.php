@@ -38,7 +38,7 @@ class Partner extends Component
     {
         $this->partnerForm->firstname = null;
         $this->partnerForm->surname   = null;
-        $this->partnerForm->birthname = null;
+        $this->partnerForm->marriedname = null;
         $this->partnerForm->nickname  = null;
 
         $this->partnerForm->sex       = null;
@@ -142,7 +142,7 @@ class Partner extends Component
                     $new_person = Person::create([
                         'firstname' => $validated['firstname'],
                         'surname'   => $validated['surname'],
-                        'birthname' => $validated['birthname'],
+                        'marriedname' => $validated['marriedname'],
                         'nickname'  => $validated['nickname'],
                         'sex'       => $validated['sex'],
                         'gender_id' => $validated['gender_id'] ?? null,
@@ -206,7 +206,7 @@ class Partner extends Component
         return
         $this->partnerForm->firstname != null or
         $this->partnerForm->surname != null or
-        $this->partnerForm->birthname != null or
+        $this->partnerForm->marriedname != null or
         $this->partnerForm->nickname != null or
 
         $this->partnerForm->sex != null or

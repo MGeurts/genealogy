@@ -37,7 +37,7 @@ class Mother extends Component
     {
         $this->motherForm->firstname = null;
         $this->motherForm->surname   = null;
-        $this->motherForm->birthname = null;
+        $this->motherForm->marriedname = null;
         $this->motherForm->nickname  = null;
 
         $this->motherForm->gender_id = null;
@@ -122,7 +122,7 @@ class Mother extends Component
                 $new_person = Person::create([
                     'firstname' => $validated['firstname'],
                     'surname'   => $validated['surname'],
-                    'birthname' => $validated['birthname'],
+                    'marriedname' => $validated['marriedname'],
                     'nickname'  => $validated['nickname'],
                     'sex'       => 'f',
                     'gender_id' => $validated['gender_id'] ?? null,
@@ -158,7 +158,7 @@ class Mother extends Component
         return
         $this->motherForm->firstname != null or
         $this->motherForm->surname != null or
-        $this->motherForm->birthname != null or
+        $this->motherForm->marriedname != null or
         $this->motherForm->nickname != null or
 
         $this->motherForm->gender_id != null or

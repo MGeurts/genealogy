@@ -78,7 +78,7 @@ return [
     'names'       => 'Namen',
     'firstname'   => 'Vorname',
     'surname'     => 'Nachname',
-    'birthname'   => 'Geburtsname',
+    'marriedname'   => 'Geburtsname',
     'nickname'    => 'Spitzname',
     'sex'         => 'Geschlecht',
     'gender'      => 'Geschlechtsidentität',

@@ -28,9 +28,9 @@
                     <x-ts-input wire:model="profileForm.surname" id="surname" label="{{ __('person.surname') }} : *" wire:dirty.class="bg-warning-200 dark:text-black" required />
                 </div>
 
-                {{-- birthname --}}
+                {{-- marriedname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="profileForm.birthname" id="birthname" label="{{ __('person.birthname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" />
+                    <x-ts-input wire:model="profileForm.marriedname" id="marriedname" label="{{ __('person.marriedname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" />
                 </div>
 
                 {{-- nickname --}}

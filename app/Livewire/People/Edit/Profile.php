@@ -27,7 +27,7 @@ class Profile extends Component
     {
         $this->profileForm->firstname = $this->person->firstname;
         $this->profileForm->surname   = $this->person->surname;
-        $this->profileForm->birthname = $this->person->birthname;
+        $this->profileForm->marriedname = $this->person->marriedname;
         $this->profileForm->nickname  = $this->person->nickname;
 
         $this->profileForm->sex       = $this->person->sex;
@@ -63,7 +63,7 @@ class Profile extends Component
         return
         $this->profileForm->firstname != $this->person->firstname or
         $this->profileForm->surname != $this->person->surname or
-        $this->profileForm->birthname != $this->person->birthname or
+        $this->profileForm->marriedname != $this->person->marriedname or
         $this->profileForm->nickname != $this->person->nickname or
 
         $this->profileForm->sex != $this->person->sex or

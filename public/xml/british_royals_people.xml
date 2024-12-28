@@ -5,7 +5,7 @@
 <id>1</id>
 <firstname>Elizabeth II</firstname>
 <surname>Queen</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>32</father_id>
@@ -83,7 +83,7 @@
 <id>7</id>
 <firstname>Diana</firstname>
 <surname>Princess of Wales</surname>
-<birthname>Spencer</birthname>
+<marriedname>Spencer</marriedname>
 <nickname>Queen of people's hearts</nickname>
 <sex>F</sex>
 <father_id>27</father_id>
@@ -125,7 +125,7 @@
 <id>10</id>
 <firstname>Camilla</firstname>
 <surname>Queen consort</surname>
-<birthname>Shand</birthname>
+<marriedname>Shand</marriedname>
 <sex>F</sex>
 <father_id>39</father_id>
 <mother_id>40</mother_id>
@@ -138,7 +138,7 @@
 <id>11</id>
 <firstname>Catherine</firstname>
 <surname>Duchess of Cambridge</surname>
-<birthname>Middleton</birthname>
+<marriedname>Middleton</marriedname>
 <nickname>Kate</nickname>
 <sex>F</sex>
 <father_id>30</father_id>
@@ -173,7 +173,7 @@
 <id>14</id>
 <firstname>Autumn</firstname>
 <surname>Phillips</surname>
-<birthname>Kelly</birthname>
+<marriedname>Kelly</marriedname>
 <sex>F</sex>
 <dob>1978-05-03</dob>
 <yob>1978</yob>
@@ -216,7 +216,7 @@
 <id>18</id>
 <firstname>Sarah</firstname>
 <surname>Duchess of York</surname>
-<birthname>Ferguson</birthname>
+<marriedname>Ferguson</marriedname>
 <nickname>Fergie</nickname>
 <sex>F</sex>
 <father_id>44</father_id>
@@ -254,7 +254,7 @@
 <id>21</id>
 <firstname>Zara</firstname>
 <surname>Tindall</surname>
-<birthname>Phillips</birthname>
+<marriedname>Phillips</marriedname>
 <sex>F</sex>
 <father_id>12</father_id>
 <mother_id>4</mother_id>
@@ -275,7 +275,7 @@
 <id>23</id>
 <firstname>Sopie</firstname>
 <surname>Countess of Wessex</surname>
-<birthname>Rhys-Jones</birthname>
+<marriedname>Rhys-Jones</marriedname>
 <sex>F</sex>
 <dob>1965-01-20</dob>
 <yob>1965</yob>
@@ -333,7 +333,7 @@
 <id>28</id>
 <firstname>Frances Ruth</firstname>
 <surname>Spencer</surname>
-<birthname>Roche</birthname>
+<marriedname>Roche</marriedname>
 <sex>F</sex>
 <dob>1936-01-20</dob>
 <yob>1936</yob>
@@ -344,7 +344,7 @@
 <id>29</id>
 <firstname>Carole</firstname>
 <surname>Middleton</surname>
-<birthname>Goldsmith</birthname>
+<marriedname>Goldsmith</marriedname>
 <sex>F</sex>
 <dob>1955-01-31</dob>
 <yob>1955</yob>
@@ -363,7 +363,7 @@
 <id>31</id>
 <firstname>Elizabeth</firstname>
 <surname>Bowes-Lyon</surname>
-<birthname>Bowes-Lyon</birthname>
+<marriedname>Bowes-Lyon</marriedname>
 <nickname>Queen Mum</nickname>
 <sex>F</sex>
 <father_id>35</father_id>
@@ -409,7 +409,7 @@
 <id>34</id>
 <firstname>Cecilia</firstname>
 <surname>Bowes-Lyon</surname>
-<birthname>Cavendish-Bentinck</birthname>
+<marriedname>Cavendish-Bentinck</marriedname>
 <sex>F</sex>
 <dob>1862-09-11</dob>
 <yob>1862</yob>
@@ -458,7 +458,7 @@
 <id>38</id>
 <firstname>Charlotte</firstname>
 <surname>Princess of Cambridge</surname>
-<birthname>Princess of Cambridge</birthname>
+<marriedname>Princess of Cambridge</marriedname>
 <sex>F</sex>
 <father_id>8</father_id>
 <mother_id>11</mother_id>
@@ -481,7 +481,7 @@
 <id>40</id>
 <firstname>Rosalind</firstname>
 <surname>Shand</surname>
-<birthname>Cubitt</birthname>
+<marriedname>Cubitt</marriedname>
 <sex>F</sex>
 <dob>1921-08-11</dob>
 <yob>1921</yob>
@@ -513,7 +513,7 @@
 <id>43</id>
 <firstname>Laura</firstname>
 <surname>Lopes</surname>
-<birthname>Bowles</birthname>
+<marriedname>Bowles</marriedname>
 <sex>F</sex>
 <father_id>41</father_id>
 <mother_id>10</mother_id>
@@ -536,7 +536,7 @@
 <id>45</id>
 <firstname>Susan</firstname>
 <surname>Ferguson</surname>
-<birthname>Wright</birthname>
+<marriedname>Wright</marriedname>
 <sex>F</sex>
 <dob>1937-06-09</dob>
 <yob>1937</yob>
@@ -549,7 +549,7 @@
 <id>46</id>
 <firstname>Louis</firstname>
 <surname>Prince of Cambridge</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <sex>M</sex>
 <father_id>8</father_id>
 <mother_id>11</mother_id>
@@ -561,7 +561,7 @@
 <id>47</id>
 <firstname>Meghan</firstname>
 <surname>Duchess of Sussex</surname>
-<birthname>Markle</birthname>
+<marriedname>Markle</marriedname>
 <sex>F</sex>
 <father_id>50</father_id>
 <mother_id>49</mother_id>
@@ -573,7 +573,7 @@
 <id>48</id>
 <firstname>Trevor</firstname>
 <surname>Engelson</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <sex>M</sex>
 <yob>1977</yob>
 </people>
@@ -581,7 +581,7 @@
 <id>49</id>
 <firstname>Doria</firstname>
 <surname>Markle</surname>
-<birthname>Ragland</birthname>
+<marriedname>Ragland</marriedname>
 <sex>F</sex>
 <yob>1957</yob>
 </people>
@@ -589,7 +589,7 @@
 <id>50</id>
 <firstname>Thomas</firstname>
 <surname>Markle</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <sex>M</sex>
 <dob>1944-07-18</dob>
 </people>
@@ -597,7 +597,7 @@
 <id>51</id>
 <firstname>Roslyn</firstname>
 <surname>Markle</surname>
-<birthname>Loveless</birthname>
+<marriedname>Loveless</marriedname>
 <sex>F</sex>
 <dob>1945-10-30</dob>
 <yob>1945</yob>
@@ -618,7 +618,7 @@
 <id>53</id>
 <firstname>Samantha</firstname>
 <surname>Grant</surname>
-<birthname>Markle</birthname>
+<marriedname>Markle</marriedname>
 <sex>F</sex>
 <father_id>50</father_id>
 <mother_id>51</mother_id>
@@ -629,7 +629,7 @@
 <id>54</id>
 <firstname>Archie</firstname>
 <surname>Mountbatten-Windsor</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <sex>M</sex>
 <father_id>9</father_id>
 <mother_id>47</mother_id>
@@ -642,7 +642,7 @@
 <id>55</id>
 <firstname>Mia Grace</firstname>
 <surname>Tindall</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <sex>F</sex>
 <father_id>22</father_id>
 <mother_id>21</mother_id>
@@ -654,7 +654,7 @@
 <id>56</id>
 <firstname>Lena</firstname>
 <surname>Tindall</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <sex>F</sex>
 <father_id>22</father_id>
 <mother_id>21</mother_id>
@@ -666,7 +666,7 @@
 <id>57</id>
 <firstname>Jack</firstname>
 <surname>Brooksbank</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <sex>M</sex>
 <yob>1986</yob>
 </people>
@@ -676,7 +676,7 @@
 <id>58</id>
 <firstname>Sarah</firstname>
 <surname>McCorquodale</surname>
-<birthname>Spencer</birthname>
+<marriedname>Spencer</marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>27</father_id>
@@ -690,7 +690,7 @@
 <id>59</id>
 <firstname>Jane</firstname>
 <surname>Fellowes</surname>
-<birthname>Spencer</birthname>
+<marriedname>Spencer</marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>27</father_id>

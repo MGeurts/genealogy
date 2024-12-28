@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->string('firstname')->nullable()->index();
             $table->string('surname')->index();
-            $table->string('birthname')->nullable()->index();
+            $table->string('marriedname')->nullable()->index();
             $table->string('nickname')->nullable()->index();
 
             $table->string('sex', 1)->default('m')->index();

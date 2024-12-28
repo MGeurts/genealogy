@@ -66,7 +66,7 @@ return [
     'names'                          => 'Nombres',
     'firstname'                      => 'Nombre de pila',
     'surname'                        => 'Apellido',
-    'birthname'                      => 'Nombre de nacimiento',
+    'marriedname'                      => 'Nombre de nacimiento',
     'nickname'                       => 'Apodo',
     'sex'                            => 'Sexo',
     'gender'                         => 'Identidad de género',

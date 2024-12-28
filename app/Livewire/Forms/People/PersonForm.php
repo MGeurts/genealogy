@@ -19,7 +19,7 @@ class PersonForm extends Form
 
     public $surname = null;
 
-    public $birthname = null;
+    public $marriedname = null;
 
     public $nickname = null;
 
@@ -50,7 +50,7 @@ class PersonForm extends Form
         return $rules = [
             'firstname' => ['nullable', 'string', 'max:255'],
             'surname'   => ['required', 'string', 'max:255'],
-            'birthname' => ['nullable', 'string', 'max:255'],
+            'marriedname' => ['nullable', 'string', 'max:255'],
             'nickname'  => ['nullable', 'string', 'max:255'],
 
             'sex'       => ['required', 'in:m,f'],
@@ -85,7 +85,7 @@ class PersonForm extends Form
         return [
             'firstname' => __('person.firstname'),
             'surname'   => __('person.surname'),
-            'birthname' => __('person.birthname'),
+            'marriedname' => __('person.marriedname'),
             'nickname'  => __('person.nickname'),
 
             'sex'       => __('person.sex'),

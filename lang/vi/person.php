@@ -78,7 +78,7 @@ return [
     'names'       => 'Tên',
     'firstname'   => 'Tên đầu tiên',
     'surname'     => 'Họ',
-    'birthname'   => 'Tên khai sinh',
+    'marriedname'   => 'Tên khai sinh',
     'nickname'    => 'Biệt danh',
     'sex'         => 'Giới tính',
     'gender'      => 'Giới tính xác định',

@@ -29,7 +29,7 @@
             </x-link>
             <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
         </p>
-        <p>{{ __('person.birthname') }} : {{ $person->birthname ? $person->birthname : '' }}</p>
+        <p>{{ __('person.marriedname') }} : {{ $person->marriedname ? $person->marriedname : '' }}</p>
         <p>{{ __('person.nickname') }} : {{ $person->nickname ? $person->nickname : '' }}</p>
 
         <x-hr.narrow />

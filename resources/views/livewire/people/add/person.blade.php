@@ -29,9 +29,9 @@
                     <x-ts-input wire:model="personForm.surname" id="surname" label="{{ __('person.surname') }} : *" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="surname" />
                 </div>
 
-                {{-- birthname --}}
+                {{-- marriedname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.birthname" id="birthname" label="{{ __('person.birthname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="birthname" />
+                    <x-ts-input wire:model="personForm.marriedname" id="marriedname" label="{{ __('person.marriedname') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="marriedname" />
                 </div>
 
                 {{-- nickname --}}

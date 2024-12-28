@@ -78,7 +78,7 @@ return [
     'names'       => 'Names',
     'firstname'   => 'First name',
     'surname'     => 'Surname',
-    'birthname'   => 'Birthname',
+    'marriedname'   => 'Married Name',
     'nickname'    => 'Nickname',
     'sex'         => 'Sex',
     'gender'      => 'Gender identity',

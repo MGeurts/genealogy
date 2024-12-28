@@ -78,7 +78,7 @@ return [
     'names'       => '姓名',
     'firstname'   => '名',
     'surname'     => '姓',
-    'birthname'   => '出生名',
+    'marriedname'   => '出生名',
     'nickname'    => '昵称',
     'sex'         => '性别',
     'gender'      => '性别认同',

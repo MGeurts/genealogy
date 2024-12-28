@@ -5,7 +5,7 @@
 <id>501</id>
 <firstname>Joseph Patrick</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname>Joe</nickname>
 <sex>M</sex>
 <father_id></father_id>
@@ -23,7 +23,7 @@
 <id>502</id>
 <firstname>Rose Elizabeth</firstname>
 <surname>Fitzgerald</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id></father_id>
@@ -41,7 +41,7 @@
 <id>503</id>
 <firstname>Joseph Patrick</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>501</father_id>
@@ -59,7 +59,7 @@
 <id>504</id>
 <firstname>John Fitzgerald</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname>JFK or Jack</nickname>
 <sex>M</sex>
 <father_id>501</father_id>
@@ -77,7 +77,7 @@
 <id>505</id>
 <firstname>Rose Marie</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname>Rosemary or Rosie</nickname>
 <sex>F</sex>
 <father_id>501</father_id>
@@ -95,7 +95,7 @@
 <id>506</id>
 <firstname>Kathleen Agnes</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname>Kick</nickname>
 <sex>F</sex>
 <father_id>501</father_id>
@@ -113,7 +113,7 @@
 <id>507</id>
 <firstname>Eunice Mary</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>501</father_id>
@@ -131,7 +131,7 @@
 <id>508</id>
 <firstname>Patricia Helen</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>501</father_id>
@@ -149,7 +149,7 @@
 <id>509</id>
 <firstname>Robert Francis</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname>Bobby</nickname>
 <sex>M</sex>
 <father_id>501</father_id>
@@ -167,7 +167,7 @@
 <id>510</id>
 <firstname>Jean Ann</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>501</father_id>
@@ -185,7 +185,7 @@
 <id>511</id>
 <firstname>Edward Moore</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname>Ted</nickname>
 <sex>M</sex>
 <father_id>501</father_id>
@@ -203,7 +203,7 @@
 <id>512</id>
 <firstname>Jaqueline Lee</firstname>
 <surname>Bouvier</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname>Jacky</nickname>
 <sex>F</sex>
 <father_id></father_id>
@@ -221,7 +221,7 @@
 <id>513</id>
 <firstname>William</firstname>
 <surname>Cavendish</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname>Marquess of Hartington</nickname>
 <sex>M</sex>
 <father_id></father_id>
@@ -239,7 +239,7 @@
 <id>514</id>
 <firstname>Robert Sargent Jr.</firstname>
 <surname>Shriver</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id></father_id>
@@ -257,7 +257,7 @@
 <id>515</id>
 <firstname>Peter Sydney Ernest</firstname>
 <surname>Lawford</surname>
-<birthname>Aylen</birthname>
+<marriedname>Aylen</marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id></father_id>
@@ -275,7 +275,7 @@
 <id>516</id>
 <firstname>Ethel</firstname>
 <surname>Skakel</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id></father_id>
@@ -293,7 +293,7 @@
 <id>517</id>
 <firstname>Stephen Edward</firstname>
 <surname>Smith</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id></father_id>
@@ -311,7 +311,7 @@
 <id>518</id>
 <firstname>Virginia Joan</firstname>
 <surname>Bennett</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id></father_id>
@@ -329,7 +329,7 @@
 <id>519</id>
 <firstname>Victoria</firstname>
 <surname>Reggie</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id></father_id>
@@ -347,7 +347,7 @@
 <id>520</id>
 <firstname>Arabella</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>504</father_id>
@@ -365,7 +365,7 @@
 <id>521</id>
 <firstname>Caroline Bouvier</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>504</father_id>
@@ -383,7 +383,7 @@
 <id>522</id>
 <firstname>John Fitzgerald Jr.</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname>John-John</nickname>
 <sex>M</sex>
 <father_id>504</father_id>
@@ -401,7 +401,7 @@
 <id>523</id>
 <firstname>Patrick Bouvier</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>504</father_id>
@@ -419,7 +419,7 @@
 <id>524</id>
 <firstname>Robert Sargent III</firstname>
 <surname>Shriver</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>514</father_id>
@@ -437,7 +437,7 @@
 <id>525</id>
 <firstname>Maria Owings</firstname>
 <surname>Shriver</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>514</father_id>
@@ -455,7 +455,7 @@
 <id>526</id>
 <firstname>Timothy Perry</firstname>
 <surname>Shriver</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>514</father_id>
@@ -473,7 +473,7 @@
 <id>527</id>
 <firstname>Mark Kennedy</firstname>
 <surname>Shriver</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>514</father_id>
@@ -491,7 +491,7 @@
 <id>528</id>
 <firstname>Anthony Paul Kennedy</firstname>
 <surname>Shriver</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>514</father_id>
@@ -509,7 +509,7 @@
 <id>529</id>
 <firstname>Christopher Kennedy</firstname>
 <surname>Lawford</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>516</father_id>
@@ -527,7 +527,7 @@
 <id>530</id>
 <firstname>Sidney Maleia</firstname>
 <surname>Lawford</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>516</father_id>
@@ -545,7 +545,7 @@
 <id>531</id>
 <firstname>Victoria Francis</firstname>
 <surname>Lawford</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>516</father_id>
@@ -563,7 +563,7 @@
 <id>532</id>
 <firstname>Robin Elizabeth</firstname>
 <surname>Lawford</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>516</father_id>
@@ -581,7 +581,7 @@
 <id>533</id>
 <firstname>Kathleen Hartington</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>509</father_id>
@@ -599,7 +599,7 @@
 <id>534</id>
 <firstname>Joseph Patrick II</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>509</father_id>
@@ -617,7 +617,7 @@
 <id>535</id>
 <firstname>Robert Francis Jr.</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>509</father_id>
@@ -635,7 +635,7 @@
 <id>536</id>
 <firstname>David Anthony</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>509</father_id>
@@ -653,7 +653,7 @@
 <id>537</id>
 <firstname>Mary Courtney</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>509</father_id>
@@ -671,7 +671,7 @@
 <id>538</id>
 <firstname>Michael LeMoyne</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>509</father_id>
@@ -689,7 +689,7 @@
 <id>539</id>
 <firstname>Marry Kerry</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>509</father_id>
@@ -707,7 +707,7 @@
 <id>540</id>
 <firstname>Christopher George</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>509</father_id>
@@ -725,7 +725,7 @@
 <id>541</id>
 <firstname>Mathew Maxell Taylor</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname>Max</nickname>
 <sex>M</sex>
 <father_id>509</father_id>
@@ -743,7 +743,7 @@
 <id>542</id>
 <firstname>Douglas Harriman</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>509</father_id>
@@ -761,7 +761,7 @@
 <id>543</id>
 <firstname>Rory Elizabeth</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>509</father_id>
@@ -779,7 +779,7 @@
 <id>544</id>
 <firstname>Stephen Edward Jr.</firstname>
 <surname>Smith</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>517</father_id>
@@ -797,7 +797,7 @@
 <id>545</id>
 <firstname>William Kennedy</firstname>
 <surname>Smith</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>517</father_id>
@@ -815,7 +815,7 @@
 <id>546</id>
 <firstname>Amanda Mary</firstname>
 <surname>Smith</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>517</father_id>
@@ -833,7 +833,7 @@
 <id>547</id>
 <firstname>Kym Maria</firstname>
 <surname>Smith</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>517</father_id>
@@ -851,7 +851,7 @@
 <id>548</id>
 <firstname>Kara Anne</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>F</sex>
 <father_id>511</father_id>
@@ -869,7 +869,7 @@
 <id>549</id>
 <firstname>Edward Moore Jr.</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>511</father_id>
@@ -887,7 +887,7 @@
 <id>550</id>
 <firstname>Patrick Joseph</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id>511</father_id>
@@ -905,7 +905,7 @@
 <id>551</id>
 <firstname>Arnold Alois</firstname>
 <surname>Schwarzenegger</surname>
-<birthname></birthname>
+<marriedname></marriedname>
 <nickname></nickname>
 <sex>M</sex>
 <father_id></father_id>

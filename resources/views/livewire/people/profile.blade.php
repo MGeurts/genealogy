@@ -86,8 +86,8 @@
                     <td class="pl-2 break-words max-w-96">{{ $person->surname }}</td>
                 </tr>
                 <tr class="align-top">
-                    <td class="pr-2 border-r-2">{{ __('person.birthname') }}</td>
-                    <td class="pl-2 break-words max-w-96">{{ $person->birthname }}</td>
+                    <td class="pr-2 border-r-2">{{ __('person.marriedname') }}</td>
+                    <td class="pl-2 break-words max-w-96">{{ $person->marriedname }}</td>
                 </tr>
                 <tr class="align-top border-b-2">
                     <td class="pr-2 border-r-2">{{ __('person.nickname') }}</td>

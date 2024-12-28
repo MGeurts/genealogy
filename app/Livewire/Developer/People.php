@@ -47,8 +47,8 @@ class People extends Component implements HasForms, HasTable
                     ->color('info')
                     ->sortable(['surname', 'firstname'])
                     ->searchable(['surname', 'firstname']),
-                Tables\Columns\TextColumn::make('birthname')
-                    ->label(__('person.birthname'))
+                Tables\Columns\TextColumn::make('marriedname')
+                    ->label(__('person.marriedname'))
                     ->sortable()
                     ->searchable(),
                 Tables\Columns\TextColumn::make('nickname')

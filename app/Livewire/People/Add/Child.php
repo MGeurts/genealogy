@@ -37,7 +37,7 @@ class Child extends Component
     {
         $this->childForm->firstname = null;
         $this->childForm->surname   = null;
-        $this->childForm->birthname = null;
+        $this->childForm->marriedname = null;
         $this->childForm->nickname  = null;
 
         $this->childForm->sex       = null;
@@ -146,7 +146,7 @@ class Child extends Component
                     $new_person = Person::create([
                         'firstname' => $validated['firstname'],
                         'surname'   => $validated['surname'],
-                        'birthname' => $validated['birthname'],
+                        'marriedname' => $validated['marriedname'],
                         'nickname'  => $validated['nickname'],
                         'sex'       => $validated['sex'],
                         'gender_id' => $validated['gender_id'] ?? null,
@@ -160,7 +160,7 @@ class Child extends Component
                     $new_person = Person::create([
                         'firstname' => $validated['firstname'],
                         'surname'   => $validated['surname'],
-                        'birthname' => $validated['birthname'],
+                        'marriedname' => $validated['marriedname'],
                         'nickname'  => $validated['nickname'],
                         'sex'       => $validated['sex'],
                         'gender_id' => $validated['gender_id'] ?? null,
@@ -194,7 +194,7 @@ class Child extends Component
         return
         $this->childForm->firstname != null or
         $this->childForm->surname != null or
-        $this->childForm->birthname != null or
+        $this->childForm->marriedname != null or
         $this->childForm->nickname != null or
 
         $this->childForm->sex != null or
