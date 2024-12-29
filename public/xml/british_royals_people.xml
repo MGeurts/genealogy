@@ -17,7 +17,9 @@
 <dod>2022-09-08</dod>
 <yod>2022</yod>
 <death_place>Balmoral Castle (UK)</death_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>2</id>
 <firstname>Philip</firstname>
@@ -30,7 +32,9 @@
 <dod>2021-04-09</dod>
 <yod>2021</yod>
 <death_place>Windsor Castle (UK)</death_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>3</id>
 <firstname>Charles III</firstname>
@@ -42,7 +46,9 @@
 <dob>1948-11-14</dob>
 <yob>1948</yob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>4</id>
 <firstname>Anne</firstname>
@@ -54,7 +60,9 @@
 <dob>1950-08-15</dob>
 <yo>1950</yo>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>5</id>
 <firstname>Andrew</firstname>
@@ -66,7 +74,9 @@
 <dob>1960-02-16</dob>
 <yob>1960</yob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>6</id>
 <firstname>Edward</firstname>
@@ -78,7 +88,9 @@
 <dob>1964-03-10</dob>
 <yob>1964</yob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>7</id>
 <firstname>Diana</firstname>
@@ -95,7 +107,9 @@
 <dod>1997-08-31</dod>
 <yod>1997</yod>
 <death_place>Paris (F)</death_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>8</id>
 <firstname>William</firstname>
@@ -107,7 +121,9 @@
 <dob>1982-06-21</dob>
 <yob>1982</yob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>9</id>
 <firstname>Harry</firstname>
@@ -120,7 +136,9 @@
 <dob>1984-09-15</dob>
 <yob>1984</yob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>10</id>
 <firstname>Camilla</firstname>
@@ -133,7 +151,9 @@
 <dob>1947-07-17</dob>
 <yob>1947</yob>
 <birth_place>London</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>11</id>
 <firstname>Catherine</firstname>
@@ -147,7 +167,9 @@
 <dob>1982-01-09</dob>
 <yob>1982</yob>
 <birth_place>Reading (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>12</id>
 <firstname>Mark</firstname>
@@ -156,7 +178,9 @@
 <dob>1948-09-22</dob>
 <yob>1948</yob>
 <birth_place>Tetbury (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>13</id>
 <firstname>Peter</firstname>
@@ -168,7 +192,9 @@
 <dob>1977-11-15</dob>
 <yob>1977</yob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>14</id>
 <firstname>Autumn</firstname>
@@ -178,7 +204,9 @@
 <dob>1978-05-03</dob>
 <yob>1978</yob>
 <birth_place>Montreal (CA)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>15</id>
 <firstname>Savannah</firstname>
@@ -190,7 +218,9 @@
 <dob>2010-12-29</dob>
 <yob>2010</yob>
 <birth_place>Gloucester (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>16</id>
 <firstname>Isla</firstname>
@@ -202,7 +232,9 @@
 <dob>2012-03-31</dob>
 <yob>2012</yob>
 <birth_place>Gloucester (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>17</id>
 <firstname>Timothy</firstname>
@@ -211,7 +243,9 @@
 <dob>1955-03-01</dob>
 <yob>1955</yob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>18</id>
 <firstname>Sarah</firstname>
@@ -225,7 +259,9 @@
 <dob>1959-10-15</dob>
 <yob>1959</yob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>19</id>
 <firstname>Beatrice</firstname>
@@ -237,7 +273,9 @@
 <dob>1988-08-08</dob>
 <yob>1988</yob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>20</id>
 <firstname>Eugenie</firstname>
@@ -249,7 +287,9 @@
 <dob>1990-03-23</dob>
 <yob>1990</yob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>21</id>
 <firstname>Zara</firstname>
@@ -262,7 +302,9 @@
 <dob>1981-05-15</dob>
 <yob>1981</yob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>22</id>
 <firstname>Mike</firstname>
@@ -270,7 +312,9 @@
 <sex>M</sex>
 <dob>1978-10-18</dob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>23</id>
 <firstname>Sopie</firstname>
@@ -280,7 +324,9 @@
 <dob>1965-01-20</dob>
 <yob>1965</yob>
 <birth_place>Oxford (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>24</id>
 <firstname>Louise</firstname>
@@ -292,7 +338,9 @@
 <dob>2003-11-08</dob>
 <yob>2003</yob>
 <birth_place>Frimley (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>25</id>
 <firstname>James</firstname>
@@ -304,7 +352,9 @@
 <dob>2007-12-17</dob>
 <yob>2007</yob>
 <birth_place>Frimley (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>26</id>
 <firstname>George</firstname>
@@ -316,7 +366,9 @@
 <dob>2013-07-22</dob>
 <yob>2013</yob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>27</id>
 <firstname>John</firstname>
@@ -328,7 +380,9 @@
 <dod>1992-03-29</dod>
 <yod>1992</yod>
 <death_place>London (UK)</death_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>28</id>
 <firstname>Frances Ruth</firstname>
@@ -339,7 +393,9 @@
 <yob>1936</yob>
 <dod>2004-06-03</dod>
 <yod>2004</yod>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>29</id>
 <firstname>Carole</firstname>
@@ -349,7 +405,9 @@
 <dob>1955-01-31</dob>
 <yob>1955</yob>
 <birth_place>Perrivate (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>30</id>
 <firstname>Michael</firstname>
@@ -358,7 +416,9 @@
 <dob>1949-06-23</dob>
 <yob>1949</yob>
 <birth_place>Leeds (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>31</id>
 <firstname>Elizabeth</firstname>
@@ -375,7 +435,9 @@
 <dod>2002-03-30</dod>
 <yod>2002</yod>
 <death_place>Windsor (UK)</death_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>32</id>
 <firstname>George VI</firstname>
@@ -390,7 +452,9 @@
 <dod>1952-02-06</dod>
 <yod>1952</yod>
 <death_place>Sandringham House (UK)</death_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>33</id>
 <firstname>Margaret</firstname>
@@ -404,7 +468,9 @@
 <dod>2002-02-09</dod>
 <yod>2002</yod>
 <death_place>London (UK)</death_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>34</id>
 <firstname>Cecilia</firstname>
@@ -417,7 +483,9 @@
 <dod>1938-06-23</dod>
 <yod>1938</yod>
 <death_place>London (UK)</death_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>35</id>
 <firstname>Claude</firstname>
@@ -429,7 +497,9 @@
 <dod>1944-11-07</dod>
 <yod>1944</yod>
 <death_place>Glamis Castle (UK)</death_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>36</id>
 <firstname>Mary</firstname>
@@ -442,7 +512,9 @@
 <dod>1953-03-24</dod>
 <yod>1953</yod>
 <death_place>London (UK)</death_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>37</id>
 <firstname>George V</firstname>
@@ -453,7 +525,9 @@
 <birth_place>London (UK)</birth_place>
 <dod>1936-01-20</dod>
 <yod>1936</yod>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>38</id>
 <firstname>Charlotte</firstname>
@@ -466,7 +540,9 @@
 <dob>2015-05-04</dob>
 <yob>2015</yob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>39</id>
 <firstname>Bruce</firstname>
@@ -476,7 +552,9 @@
 <birth_place>London (UK)</birth_place>
 <dod>2006-06-11</dod>
 <death_place>Stourpaine (UK)</death_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>40</id>
 <firstname>Rosalind</firstname>
@@ -489,7 +567,9 @@
 <dod>1994-07-14</dod>
 <yod>1994</yod>
 <death_place>Lewes (UK)</death_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>41</id>
 <firstname>Andrew</firstname>
@@ -498,7 +578,9 @@
 <dob>1939-12-27</dob>
 <yob>1939</yob>
 <birth_place>Surrey (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>42</id>
 <firstname>Tom</firstname>
@@ -508,7 +590,9 @@
 <mother_id>10</mother_id>
 <parents_id>17</parents_id>
 <dob>1974-12-18</dob>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>43</id>
 <firstname>Laura</firstname>
@@ -519,7 +603,9 @@
 <mother_id>10</mother_id>
 <parents_id>17</parents_id>
 <dob>1978-01-01</dob>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>44</id>
 <firstname>Ronald</firstname>
@@ -531,7 +617,9 @@
 <dod>2003-03-16</dod>
 <yod>2003</yod>
 <death_place>Basingstoke (UK)</death_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>45</id>
 <firstname>Susan</firstname>
@@ -544,7 +632,9 @@
 <dod>1998-09-19</dod>
 <yod>1998</yod>
 <death_place>Tres Lomas (Argentinia)</death_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>46</id>
 <firstname>Louis</firstname>
@@ -556,7 +646,9 @@
 <parents_id>10</parents_id>
 <dob>2018-04-23</dob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>47</id>
 <firstname>Meghan</firstname>
@@ -568,7 +660,9 @@
 <parents_id>21</parents_id>
 <dob>1981-08-04</dob>
 <birth_place>Los Angeles (US)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>48</id>
 <firstname>Trevor</firstname>
@@ -576,7 +670,9 @@
 <birthname></birthname>
 <sex>M</sex>
 <yob>1977</yob>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>49</id>
 <firstname>Doria</firstname>
@@ -584,7 +680,9 @@
 <birthname>Ragland</birthname>
 <sex>F</sex>
 <yob>1957</yob>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>50</id>
 <firstname>Thomas</firstname>
@@ -592,7 +690,9 @@
 <birthname></birthname>
 <sex>M</sex>
 <dob>1944-07-18</dob>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>51</id>
 <firstname>Roslyn</firstname>
@@ -601,7 +701,9 @@
 <sex>F</sex>
 <dob>1945-10-30</dob>
 <yob>1945</yob>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>52</id>
 <firstname>Thomas Jr.</firstname>
@@ -613,7 +715,9 @@
 <dob>1944-07-18</dob>
 <yob>1944</yob>
 <birth_place>Newport PA (USA)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>53</id>
 <firstname>Samantha</firstname>
@@ -624,7 +728,9 @@
 <mother_id>51</mother_id>
 <parents_id>22</parents_id>
 <yob>1966</yob>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>54</id>
 <firstname>Archie</firstname>
@@ -637,7 +743,9 @@
 <dob>2019-05-06</dob>
 <yob>2019</yob>
 <birth_place>London (UK)</birth_place>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>55</id>
 <firstname>Mia Grace</firstname>
@@ -649,7 +757,9 @@
 <parents_id>8</parents_id>
 <dob>2014-01-17</dob>
 <yob>2014</yob>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>56</id>
 <firstname>Lena</firstname>
@@ -661,7 +771,9 @@
 <parents_id>8</parents_id>
 <dob>2018-06-18</dob>
 <yob>2018</yob>
+<photo>Y</photo>
 </people>
+
 <people>
 <id>57</id>
 <firstname>Jack</firstname>
@@ -669,8 +781,8 @@
 <birthname></birthname>
 <sex>M</sex>
 <yob>1986</yob>
+<photo>Y</photo>
 </people>
-
 
 <people>
 <id>58</id>
@@ -684,6 +796,7 @@
 <parents_id>11</parents_id>
 <dob>1955-03-19</dob>
 <yob>1955</yob>
+<photo>Y</photo>
 </people>
 
 <people>
@@ -698,6 +811,7 @@
 <parents_id>11</parents_id>
 <dob>1957-02-11</dob>
 <yob>1957</yob>
+<photo>Y</photo>
 </people>
 
 <people>
@@ -711,6 +825,7 @@
 <parents_id>11</parents_id>
 <dob>1964-05-20</dob>
 <yob>1964</yob>
+<photo>Y</photo>
 </people>
 
 <people>
@@ -726,6 +841,7 @@
 <yob>1960</yob>
 <dod>1960-01-12</dod>
 <yod>1960</yod>
+<photo></photo>
 </people>
 
 </dataroot>

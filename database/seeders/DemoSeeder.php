@@ -88,7 +88,7 @@ class DemoSeeder extends Seeder
                 'yod' => ! empty($person['yod']) ? $person['yod'] : null,
                 'pod' => ! empty($person['death_place']) ? $person['death_place'] : null,
 
-                'photo' => $person['id'] . '_001_demo.webp',
+                'photo' => ! empty($person['photo']) ? $person['id'] . '_001_demo.webp' : null,
 
                 'team_id' => $this->british_royals_team,
             ]);
@@ -377,7 +377,7 @@ class DemoSeeder extends Seeder
                 'yod' => ! empty($person['yod']) ? $person['yod'] : null,
                 'pod' => ! empty($person['death_place']) ? $person['death_place'] : null,
 
-                'photo' => $person['id'] . '_001_demo.webp',
+                'photo' => ! empty($person['photo']) ? $person['id'] . '_001_demo.webp' : null,
 
                 'team_id' => $this->kennedy_team,
             ]);
