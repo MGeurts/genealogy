@@ -39,7 +39,7 @@
                         </li>
 
                         <li class="py-2">
-                            <x-link href="https://tailwindcss.com/" target="_blank">Tailwind CSS</x-link>
+                            <x-link href="https://tailwindcss.com/" target="_blank">Tailwind CSS</x-link> 3
                             <x-ts-button xs href="https://tailwindcss.com/docs/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
 
