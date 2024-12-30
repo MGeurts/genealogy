@@ -19,7 +19,7 @@
                         </li>
 
                         <li class="py-2">
-                            <x-link href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream</x-link>5 (featuring <x-link href="https://jetstream.laravel.com/features/teams.html"
+                            <x-link href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream</x-link> 5 (featuring <x-link href="https://jetstream.laravel.com/features/teams.html"
                                 target="_blank">Teams</x-link>)
                         </li>
 
@@ -29,12 +29,12 @@
                         </li>
 
                         <li class="py-2">
-                            <x-link href="https://alpinejs.dev/" target="_blank">Alpine.js</x-link> 3
+                            <x-link href="https://alpinejs.dev/" target="_blank">Alpine.js</x-link>3
                             <x-ts-button xs href="https://alpinejs.dev/start-here/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
 
                         <li class="py-2">
-                            <x-link href="https://filamentphp.com/" target="_blank">Laravel Filament</x-link>3 (only Table Builder)
+                            <x-link href="https://filamentphp.com/" target="_blank">Laravel Filament</x-link> 3 (only Table Builder)
                             <x-ts-button xs href="https://filamentphp.com/docs/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
 
@@ -44,7 +44,7 @@
                         </li>
 
                         <li class="py-2">
-                            <x-link href="https://tallstackui.com/" target="_blank">TallStackUI</x-link> (featuring <x-link href="https://tabler.io/icons" target="_blank">Tabler Icons</x-link>)
+                            <x-link href="https://tallstackui.com/" target="_blank">TallStackUI</x-link> 1 (featuring <x-link href="https://tabler.io/icons" target="_blank">Tabler Icons</x-link>)
                             <x-ts-button xs href="https://tallstackui.com/docs/get-started/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
                     </ul>
@@ -113,10 +113,6 @@
                     </li>
 
                     <li class="py-2">
-                        <x-link href="https://github.com/spatie/laravel-login-link/" target="_blank">spatie/laravel-login-link</x-link>
-                    </li>
-
-                    <li class="py-2">
                         <x-link href="https://github.com/spatie/laravel-medialibrary/" target="_blank">spatie/laravel-medialibrary</x-link>
                         <x-ts-button xs href="https://spatie.be/docs/laravel-medialibrary/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                     </li>
@@ -146,14 +142,16 @@
                         <x-link href="https://github.com/LarsWiegers/laravel-translations-checker/" target="_blank">LarsWiegers/laravel-translations-checker</x-link>
                         <br />
                         <span class="ms-5">to check languages, use command :</span> <span class="text-red-500">php artisan translations:check --excludedDirectories=vendor</span>
-                    </li>
+                </ul>
 
-                    <li class="py-2">
-                        <x-link href="https://github.com/alisalehi1380/laravel-lang-files-translator" target="_blank">alisalehi1380/laravel-lang-files-translator</x-link>
-                        <br />
-                        <span class="ms-5">to create new language, use command :</span> <span class="text-red-500">php artisan translate:lang {from} {to}</span>
-                        <br />
-                        <span class="ms-5">example:</span> <span class="text-red-500">php artisan translate:lang en fa</span> for Persian (fa)
+                <hr />
+
+                <ul class="w-full my-4">
+                    <x-link href="https://github.com/alisalehi1380/laravel-lang-files-translator" target="_blank">alisalehi1380/laravel-lang-files-translator</x-link>
+                    <br />
+                    <span class="ms-5">to create new language, use command :</span> <span class="text-red-500">php artisan translate:lang {from} {to}</span>
+                    <br />
+                    <span class="ms-5">example:</span> <span class="text-red-500">php artisan translate:lang en fa</span> for Persian (fa)
                     </li>
                 </ul>
             </x-ts-tab.items>
@@ -206,21 +204,7 @@
 
                 <ul class="w-full my-4">
                     <li class="py-2">
-                        <x-link href="https://ged-inline.org/" target="_blank">Validate your GEDCOM files here</x-link>
-                    </li>
-                </ul>
-
-                <hr />
-
-                <ul class="w-full my-4">
-                    <li class="py-2">
-                        <x-link href="https://github.com/liberu-genealogy/php-gedcom" target="_blank">liberu-genealogy/php-gedcom</x-link>
-                        <x-ts-badge xs color="secondary" class="ms-5">Possible candidate</x-ts-badge>
-                    </li>
-
-                    <li class="py-2">
-                        <x-link href="https://github.com/liberu-genealogy/laravel-gedcom" target="_blank">liberu-genealogy/laravel-gedcom</x-link>
-                        <x-ts-badge xs color="secondary" class="ms-5">Possible candidate</x-ts-badge>
+                        <x-link href="https://ged-inline.org/" target="_blank">Validate your GEDCOM files</x-link>
                     </li>
                 </ul>
             </x-ts-tab.items>
