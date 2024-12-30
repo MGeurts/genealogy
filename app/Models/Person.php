@@ -299,7 +299,7 @@ class Person extends Model implements HasMedia
             $lifetime = null;
         }
 
-        return strval($lifetime); //returns YEAR(dob) - YEAR(dod)
+        return strval($lifetime); // returns YEAR(dob) - YEAR(dod)
     }
 
     protected function getBirthYearAttribute(): ?string
@@ -439,7 +439,7 @@ class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     // Relations
     /* -------------------------------------------------------------------------------------------- */
-    /* returns TEAM (1 Team) based on team_id  */
+    /* returns TEAM (1 Team) based on team_id */
     public function team(): BelongsTo
     {
         return $this->BelongsTo(Team::class);
@@ -463,7 +463,7 @@ class Person extends Model implements HasMedia
         return $this->belongsTo(Person::class);
     }
 
-    /* returns PARENTS (1 Couple) based on parents_id  */
+    /* returns PARENTS (1 Couple) based on parents_id */
     public function parents(): BelongsTo
     {
         return $this->belongsTo(Couple::class)->with(['person_1', 'person_2']);
