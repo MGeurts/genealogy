@@ -9,7 +9,15 @@ return [
     'team_create_new_gedcom'     => 'Cree un nuevo equipo, importado desde un archivo GEDCOM, para colaborar con otros.',
     'team_gedcom_reference'      => 'Referencia',
     'team_gedcom_specifications' => 'Especificaciones de GEDCOM',
-    'team_gedcom_version'        => 'GEDCOM máxima versión 5.5.5',
+    'team_gedcom_version'        => 'GEDCOM versión 5.5 0 7',
     'team_gedcom_hint'           => 'Creemos un equipo basado en un archivo GEDCOM',
     'team_gedcom_tip'            => 'Arrastre y suelte su archivo GEDCOM aquí',
+
+    'filename'             => 'Nombre del archivo',
+    'format'               => 'Formato',
+    'includes_media'       => '(incluye archivos multimedia)',
+    'character_encoding'   => 'Codificación de caracteres',
+    'line_endings'         => 'Finales de línea',
+    'line_endings_windows' => 'CR/LF (Windows)',
+    'line_endings_unix'    => 'LF (Unix)',
 ];

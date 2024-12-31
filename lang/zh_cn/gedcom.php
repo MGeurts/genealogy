@@ -10,7 +10,15 @@ return [
     'team_create_new_gedcom'     => '创建一个新的家族，从 GEDCOM 文件导入，以便与他人合作。',
     'team_gedcom_reference'      => '参考',
     'team_gedcom_specifications' => 'GEDCOM 规范',
-    'team_gedcom_version'        => '最大 GEDCOM 版本 5.5.5',
+    'team_gedcom_version'        => 'GEDCOM 版本 5.5 或 7',
     'team_gedcom_hint'           => '让我们基于 GEDCOM 文件创建一个家族',
     'team_gedcom_tip'            => '将您的 GEDCOM 文件拖放到这里',
+
+    'filename'             => '文件名',
+    'format'               => '格式',
+    'includes_media'       => '（包括媒体文件）',
+    'character_encoding'   => '字符编码',
+    'line_endings'         => '行结尾',
+    'line_endings_windows' => '回车/换行（Windows）',
+    'line_endings_unix'    => '低频（Unix）',
 ];
