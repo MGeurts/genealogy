@@ -78,12 +78,13 @@
 
                 {{-- summary --}}
                 <div class="col-span-6">
-                    <x-ts-textarea wire:model="profileForm.summary" id="summary" label="{{ __('person.summary') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="summary"  maxlength="65535" count/>
+                    <x-ts-textarea wire:model="profileForm.summary" id="summary" label="{{ __('person.summary') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="summary"
+                        maxlength="65535" count />
                 </div>
             </div>
         </div>
 
-        <div class="flex items-center justify-end px-4 py-3 text-right rounded-b sm:px-6">
+        <div class="flex items-center justify-end p-4 text-right rounded-b sm:px-6">
             <div class="flex-1 flex-grow max-w-full text-left">
                 <x-action-message class="p-3 rounded bg-warning-200 text-warning-700" role="alert" on="" wire:dirty>
                     {{ __('app.unsaved_changes') }} ...

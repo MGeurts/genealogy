@@ -7,7 +7,7 @@
         {{ $exception->getStatuscode() }}
     </x-slot>
 
-    <div class="max-w-5xl py-5 overflow-x-auto grow dark:text-neutral-200">
+    <div class="p-2 max-w-5xl overflow-x-auto grow dark:text-neutral-200">
         <div class="hidden dark:flex">
             <x-ts-alert icon="bug" color="white">
                 <x-slot:title>

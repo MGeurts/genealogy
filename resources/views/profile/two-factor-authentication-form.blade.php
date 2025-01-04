@@ -71,7 +71,7 @@
                     </p>
                 </div>
 
-                <div class="grid max-w-xl gap-1 px-4 py-4 mt-4 font-mono text-sm bg-gray-100 rounded">
+                <div class="grid max-w-xl gap-1 p-4 mt-4 font-mono text-sm bg-gray-100 rounded">
                     @foreach (json_decode(decrypt($this->user->two_factor_recovery_codes), true) as $code)
                         <div>{{ $code }}</div>
                     @endforeach

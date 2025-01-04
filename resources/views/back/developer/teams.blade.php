@@ -7,7 +7,7 @@
         {{ __('team.teams') }}
     </x-slot>
 
-    <div class="py-5 w-full">
+    <div class="p-2 w-full">
         <livewire:developer.teams />
     </div>
 </x-app-layout>

@@ -7,7 +7,7 @@
         {{ __('person.ancestors') }}
     </x-slot>
 
-    <div class="w-full py-5 space-y-5">
+    <div class="w-full p-2 space-y-5">
         <livewire:people.heading :person="$person" />
 
         <div class="md:min-w-max md:max-w-sm">

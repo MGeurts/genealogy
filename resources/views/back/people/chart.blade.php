@@ -7,7 +7,7 @@
         {{ __('app.family_chart') }}
     </x-slot>
 
-    <div class="w-full py-5 space-y-5">
+    <div class="w-full p-2 space-y-5">
         {{-- heading --}}
         <livewire:people.heading :person="$person" />
 

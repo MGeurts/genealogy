@@ -5,7 +5,7 @@
         {{ __('app.settings') }}
     </x-slot>
 
-    <div class="py-5 w-full">
+    <div class="p-2 w-full">
         <div class="md:w-192 flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
             <div class="flex flex-col p-2 text-lg font-medium border-b-2 rounded-t h-14 min-h-min border-neutral-100 dark:border-neutral-600 dark:text-neutral-50">
                 <div class="flex flex-wrap items-start justify-center gap-2">
@@ -45,7 +45,7 @@
                 </div>
             </div>
 
-            <div class="flex items-center justify-end px-4 py-3 text-right rounded-b sm:px-6">
+            <div class="flex items-center justify-end p-4 text-right rounded-b sm:px-6">
                 <div class="flex-1 flex-grow max-w-full text-left">
                     <x-action-message class="p-3 rounded bg-warning-200 text-warning-700" role="alert" on="" wire:dirty>
                         {{ __('app.unsaved_changes') }} ...

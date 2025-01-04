@@ -7,7 +7,7 @@
         {{ __('app.team_logbook') }}
     </x-slot>
 
-    <div class="py-5 w-full">
+    <div class="p-2 w-full">
         <livewire:teamlog />
     </div>
 </x-app-layout>

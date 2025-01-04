@@ -41,7 +41,7 @@
                             <div class="relative z-0 mt-1 border border-gray-200 rounded cursor-pointer dark:border-gray-700">
                                 @foreach ($this->roles as $index => $role)
                                     <button type="button"
-                                        class="relative px-4 py-3 inline-flex w-full rounded focus:z-10 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-600 {{ $index > 0 ? 'border-t border-gray-200 dark:border-gray-700 focus:border-none rounded-t-none' : '' }} {{ !$loop->last ? 'rounded-b-none' : '' }}"
+                                        class="relative p-4 inline-flex w-full rounded focus:z-10 focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-600 {{ $index > 0 ? 'border-t border-gray-200 dark:border-gray-700 focus:border-none rounded-t-none' : '' }} {{ !$loop->last ? 'rounded-b-none' : '' }}"
                                         wire:click="$set('addTeamMemberForm.role', '{{ $role->key }}')">
                                         <div @class([
                                             'opacity-50' =>
@@ -194,7 +194,7 @@
             <div class="relative z-0 mt-1 border border-gray-200 rounded cursor-pointer dark:border-gray-700">
                 @foreach ($this->roles as $index => $role)
                     <button type="button" title="{{ __('team.change_role') }}"
-                        class="relative px-4 py-3 inline-flex w-full rounded focus:z-10 {{ $index > 0 ? 'border-t border-gray-200 dark:border-gray-700 rounded-t-none' : '' }} {{ !$loop->last ? 'rounded-b-none' : '' }}
+                        class="relative p-4 inline-flex w-full rounded focus:z-10 {{ $index > 0 ? 'border-t border-gray-200 dark:border-gray-700 rounded-t-none' : '' }} {{ !$loop->last ? 'rounded-b-none' : '' }}
                         {{ $currentRole == $role->key ? 'bg-warning-500 dark:bg-warning-200 text-indigo-700 dark:text-indigo-300 border-indigo-500' : 'text-gray-600 dark:text-gray-300' }}"
                         wire:click="$set('currentRole', '{{ $role->key }}')">
                         <div @class(['opacity-75' => $currentRole !== $role->key])>

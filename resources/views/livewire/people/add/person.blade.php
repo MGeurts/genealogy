@@ -86,7 +86,7 @@
             </div>
         </div>
 
-        <div class="flex items-center justify-end px-4 py-3 text-right rounded-b sm:px-6">
+        <div class="flex items-center justify-end p-4 text-right rounded-b sm:px-6">
             <div class="flex-1 flex-grow max-w-full text-left">
                 <x-action-message class="p-3 rounded bg-warning-200 text-warning-700" role="alert" on="" wire:dirty>
                     {{ __('app.unsaved_changes') }} ...

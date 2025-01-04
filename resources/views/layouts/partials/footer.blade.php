@@ -30,7 +30,7 @@
     </div>
 
     <!-- Middle Section: Main Content -->
-    <div class="px-2 py-5 text-center md:text-left bg-neutral-100 dark:bg-neutral-600">
+    <div class="p-2 text-center md:text-left bg-neutral-100 dark:bg-neutral-600">
         <div class="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             <!-- Logo Section -->
             <div class="flex justify-center md:justify-start">

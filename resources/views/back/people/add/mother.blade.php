@@ -7,7 +7,7 @@
         {{ __('person.add_mother') }}
     </x-slot>
 
-    <div class="w-full py-5 space-y-5 overflow-x-auto">
+    <div class="w-full p-2 space-y-5 overflow-x-auto">
         <livewire:people.heading :person="$person" />
 
         <div class="flex flex-wrap gap-5">

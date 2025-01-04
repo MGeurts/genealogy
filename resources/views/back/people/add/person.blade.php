@@ -7,7 +7,7 @@
         {{ __('person.add_person_in_team', ['team' => auth()->user()->currentTeam->name]) }}
     </x-slot>
 
-    <div class="w-full py-5 space-y-5">
+    <div class="w-full p-2 space-y-5">
         <livewire:people.add.person />
     </div>
 </x-app-layout>

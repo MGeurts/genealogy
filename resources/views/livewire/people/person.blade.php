@@ -34,7 +34,7 @@
 
         <x-hr.narrow />
 
-        <p class="py-1">{{ __('person.father') }} :
+        <p>{{ __('person.father') }} :
             @if ($person->father)
                 <x-link href="/people/{{ $person->father->id }}" @class([
                     'text-danger-600 dark:text-danger-400' => $person->father->isDeceased(),
@@ -45,7 +45,7 @@
             @endif
         </p>
 
-        <p class="py-1">{{ __('person.mother') }} :
+        <p>{{ __('person.mother') }} :
             @if ($person->mother)
                 <x-link href="/people/{{ $person->mother->id }}" @class([
                     'text-danger-600 dark:text-danger-400' => $person->mother->isDeceased(),

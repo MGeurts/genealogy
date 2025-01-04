@@ -46,7 +46,9 @@
         <div class="col-span-2 py-2 pl-2 border-b">{{ __('person.father') }}</div>
         <div class="col-span-4 p-2 border-b">
             @if ($person->father)
-                <x-link href="/people/{{ $person->father->id }}" @class(['text-danger-600 dark:text-danger-400' => $person->father->isDeceased()])>
+                <x-link href="/people/{{ $person->father->id }}" @class([
+                    'text-danger-600 dark:text-danger-400' => $person->father->isDeceased(),
+                ])>
                     {{ $person->father->name }}
                 </x-link>
                 <x-ts-icon icon="{{ $person->father->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -56,7 +58,9 @@
         <div class="col-span-2 py-2 pl-2 border-b">{{ __('person.mother') }}</div>
         <div class="col-span-4 p-2 border-b">
             @if ($person->mother)
-                <x-link href="/people/{{ $person->mother->id }}" @class(['text-danger-600 dark:text-danger-400' => $person->mother->isDeceased()])>
+                <x-link href="/people/{{ $person->mother->id }}" @class([
+                    'text-danger-600 dark:text-danger-400' => $person->mother->isDeceased(),
+                ])>
                     {{ $person->mother->name }}
                 </x-link>
                 <x-ts-icon icon="{{ $person->mother->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -66,12 +70,16 @@
         <div class="col-span-2 py-2 pl-2 border-b">{{ __('person.parents') }}</div>
         <div class="col-span-4 p-2 border-b">
             @if ($person->parents)
-                <x-link href="/people/{{ $person->parents->person_1->id }}" @class(['text-danger-600 dark:text-danger-400' => $person->parents->person_1->isDeceased()])>
+                <x-link href="/people/{{ $person->parents->person_1->id }}" @class([
+                    'text-danger-600 dark:text-danger-400' => $person->parents->person_1->isDeceased(),
+                ])>
                     {{ $person->parents->person_1->name }}
                 </x-link>
                 <x-ts-icon icon="{{ $person->parents->person_1->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                 <br />
-                <x-link href="/people/{{ $person->parents->person_2->id }}" @class(['text-danger-600 dark:text-danger-400' => $person->parents->person_2->isDeceased()])>
+                <x-link href="/people/{{ $person->parents->person_2->id }}" @class([
+                    'text-danger-600 dark:text-danger-400' => $person->parents->person_2->isDeceased(),
+                ])>
                     {{ $person->parents->person_2->name }}
                 </x-link>
                 <x-ts-icon icon="{{ $person->parents->person_2->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -81,7 +89,9 @@
         <div class="col-span-2 py-2 pl-2">{{ __('person.partner') }}</div>
         <div class="col-span-4 p-2">
             @if ($person->currentPartner())
-                <x-link href="/people/{{ $person->currentPartner()->id }}" @class(['text-danger-600 dark:text-danger-400' => $person->currentPartner()->isDeceased()])>
+                <x-link href="/people/{{ $person->currentPartner()->id }}" @class([
+                    'text-danger-600 dark:text-danger-400' => $person->currentPartner()->isDeceased(),
+                ])>
                     {{ $person->currentPartner()->name }}
                 </x-link>
                 <x-ts-icon icon="{{ $person->currentPartner()->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
