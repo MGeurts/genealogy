@@ -19,7 +19,7 @@
                 @csrf
                 @method('PUT')
 
-                <div class="px-4 py-5 bg-white sm:p-6 sm:rounded-tl sm:rounded-tr">
+                <div class="px-4 py-5 bg-white sm:p-6 rounded-tl rounded-tr">
                     <div class="grid grid-cols-6 gap-5">
                         <div class="col-span-6">
                             <div class="max-w-xl text-sm text-gray-600">
@@ -47,7 +47,7 @@
                     </div>
                 </div>
 
-                <div class="flex items-center justify-end px-4 py-3 text-right bg-gray-200 sm:px-6 sm:rounded-bl sm:rounded-br">
+                <div class="flex items-center justify-end px-4 py-3 text-right bg-gray-200 sm:px-6 rounded-bl rounded-br">
                     <x-ts-button type="submit" color="primary">
                         {{ __('team.transfer') }}
                     </x-ts-button>
