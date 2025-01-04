@@ -7,7 +7,5 @@
         {{ __('app.search') }}
     </x-slot>
 
-    <div class="w-full py-5 space-y-5">
-        <livewire:people.search />
-    </div>
+    <livewire:people.search />
 </x-app-layout>

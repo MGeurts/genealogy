@@ -44,7 +44,7 @@
         @include('layouts.partials.header')
 
         <!-- main content -->
-        <main class="flex flex-grow px-2 mx-auto">
+        <main>
             {{ $slot }}
         </main>
 
