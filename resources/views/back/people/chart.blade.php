@@ -7,10 +7,11 @@
         {{ __('app.family_chart') }}
     </x-slot>
 
-    <div class="w-full p-2 space-y-5">
-        {{-- heading --}}
+    <div class="p-2 pb-5 sticky top-[6.5rem] z-40 bg-gray-100 dark:bg-gray-900">
         <livewire:people.heading :person="$person" />
+    </div>
 
+    <div class="w-full p-2 space-y-5">
         {{-- chart --}}
         <div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
             <div class="flex flex-col p-2 text-lg font-medium border-b-2 rounded-t h-14 min-h-min border-neutral-100 dark:border-neutral-600 dark:text-neutral-50">

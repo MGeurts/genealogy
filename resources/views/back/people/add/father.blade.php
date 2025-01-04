@@ -7,9 +7,11 @@
         {{ __('person.add_father') }}
     </x-slot>
 
-    <div class="w-full p-2 space-y-5 overflow-x-auto">
+    <div class="p-2 pb-5 sticky top-[6.5rem] z-40 bg-gray-100 dark:bg-gray-900">
         <livewire:people.heading :person="$person" />
+    </div>
 
+    <div class="w-full p-2 space-y-5 overflow-x-auto">
         <div class="flex flex-wrap gap-5">
             <div class="flex flex-col flex-grow gap-5 min-w-100 md:max-w-max">
                 <livewire:people.profile :person="$person" />
