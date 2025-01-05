@@ -82,7 +82,8 @@ return [
     'member'     => 'Thành viên',
     'membership' => 'Tư cách thành viên',
 
-    'do_not_use_personal_team'         => 'Không sử dụng nhóm cá nhân của bạn để tạo cây phả hệ.',
-    'do_not_use_personal_team_reason'  => 'Đối với các nhóm cá nhân, quyền sở hữu nhóm không thể được chuyển cho thành viên khác trong nhóm.',
-    'do_not_use_personal_team_instead' => 'Thay vào đó, hãy tạo một nhóm riêng để quản lý và chia sẻ cây phả hệ với những người khác.',
+    'personal_team_caution' => 'Thận trọng',
+    'personal_team_avoid'   => 'Tránh sử dụng nhóm cá nhân của bạn để tạo cây phả hệ vì quyền sở hữu nhóm cá nhân không thể được chuyển giao cho thành viên khác.',
+    'personal_team_instead' => 'Thay vào đó, hãy chọn một nhóm mà bạn đã tham gia hoặc tạo một nhóm mới dành riêng để quản lý và chia sẻ cây phả hệ với những người khác.',
+    'personal_team_action'  => 'Để tạo nhóm mới hoặc chuyển sang nhóm hiện có, hãy sử dụng menu thả xuống ở góc trên bên phải.',
 ];

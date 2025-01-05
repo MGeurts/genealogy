@@ -82,7 +82,8 @@ return [
     'member'     => 'Mitglied',
     'membership' => 'Mitgliedschaft',
 
-    'do_not_use_personal_team'         => 'Benutzen Sie nicht Ihr persönliches Team, um Stammbäume zu erstellen.',
-    'do_not_use_personal_team_reason'  => 'Bei persönlichen Teams kann die Teameigentümerschaft nicht auf ein anderes Teammitglied übertragen werden.',
-    'do_not_use_personal_team_instead' => 'Erstellen Sie stattdessen ein separates Team, um Stammbäume zu verwalten und mit anderen zu teilen.',
+    'personal_team_caution' => 'Vorsicht',
+    'personal_team_avoid'   => 'Vermeiden Sie es, Ihr persönliches Team zum Erstellen von Stammbäumen zu verwenden, da der Besitz persönlicher Teams nicht auf ein anderes Mitglied übertragen werden kann.',
+    'personal_team_instead' => 'Wählen Sie stattdessen ein Team aus, dem Sie bereits angehören, oder erstellen Sie ein neues, speziell zum Verwalten und Teilen von Stammbäumen mit anderen.',
+    'personal_team_action'  => 'Um ein neues Team zu erstellen oder zu einem bestehenden zu wechseln, verwenden Sie das Dropdown-Menü in der oberen rechten Ecke.',
 ];

@@ -4,6 +4,20 @@
     <x-ts-tab selected="{{ __('person.add_new_person_as_child') }}" class="dark:bg-red-100">
         <x-ts-tab.items tab="{{ __('person.add_new_person_as_child') }}">
             <div class="p-4 rounded md:w-192 bg-neutral-200">
+                @if (auth()->user()->currentTeam->personal_team)
+                    <div class="mb-4">
+                        <x-ts-alert color="cyan" icon="exclamation-circle" close>
+                            <x-slot:title>
+                                {{ __('team.personal_team_caution') }}
+                            </x-slot:title>
+
+                            <p>{{ __('team.personal_team_avoid') }}</p><br />
+                            <p>{{ __('team.personal_team_instead') }}</p><br />
+                            <p>{{ __('team.personal_team_action') }}</p>
+                        </x-ts-alert>
+                    </div>
+                @endif
+
                 <x-ts-errors class="mb-2" close />
 
                 <div class="grid grid-cols-6 gap-5">

@@ -82,7 +82,8 @@ return [
     'member'     => '成员',
     'membership' => '会员资格',
 
-    'do_not_use_personal_team'         => '不要使用您的个人团队来创建家谱。',
-    'do_not_use_personal_team_reason'  => '对于个人团队，团队所有权不能转让给其他团队成员。',
-    'do_not_use_personal_team_instead' => '相反，创建一个单独的团队来管理并与其他人共享家谱。',
+    'personal_team_caution' => '警告',
+    'personal_team_avoid'   => '避免使用您的个人团队来创建家谱，因为个人团队的所有权不能转让给其他成员。',
+    'personal_team_instead' => '相反，选择一个您已经加入的团队或创建一个专门用于管理和与他人共享家谱的新团队。',
+    'personal_team_action'  => '要创建新团队或切换到现有团队，请使用右上角的下拉菜单。',
 ];

@@ -82,7 +82,8 @@ return [
     'member'     => 'Member',
     'membership' => 'Membership',
 
-    'do_not_use_personal_team'         => 'Do not use your personal team to create family trees.',
-    'do_not_use_personal_team_reason'  => 'For personal teams, the team ownership can not be transferred to another team member.',
-    'do_not_use_personal_team_instead' => 'Instead, create a separate team to manage and share family trees with others.',
+    'personal_team_caution' => 'Caution',
+    'personal_team_avoid'   => 'Avoid using your personal team for creating family trees, as ownership of personal teams cannot be transferred to another member.',
+    'personal_team_instead' => 'Instead, select a team you’re already part of or create a new one specifically for managing and sharing family trees with others.',
+    'personal_team_action'  => 'To create a new team or switch to an existing one, use the dropdown menu in the top-right corner.',
 ];

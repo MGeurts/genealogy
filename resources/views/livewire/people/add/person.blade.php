@@ -15,6 +15,20 @@
         </div>
 
         <div class="p-4 bg-neutral-200">
+            @if (auth()->user()->currentTeam->personal_team)
+                <div class="mb-4">
+                    <x-ts-alert color="cyan" icon="exclamation-circle" close>
+                        <x-slot:title>
+                            {{ __('team.personal_team_caution') }}
+                        </x-slot:title>
+
+                        <p>{{ __('team.personal_team_avoid') }}</p><br />
+                        <p>{{ __('team.personal_team_instead') }}</p><br />
+                        <p>{{ __('team.personal_team_action') }}</p>
+                    </x-ts-alert>
+                </div>
+            @endif
+
             <x-ts-errors class="mb-2" close />
 
             <div class="grid grid-cols-6 gap-5">
@@ -26,7 +40,8 @@
 
                 {{-- surname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.surname" id="surname" label="{{ __('person.surname') }} : *" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="surname" />
+                    <x-ts-input wire:model="personForm.surname" id="surname" label="{{ __('person.surname') }} : *" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="surname"
+                        required />
                 </div>
 
                 {{-- birthname --}}

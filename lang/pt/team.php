@@ -74,7 +74,8 @@ return [
     'member'     => 'Membro',
     'membership' => 'Associação',
 
-    'do_not_use_personal_team'         => 'Não use sua equipe pessoal para criar árvores genealógicas.',
-    'do_not_use_personal_team_reason'  => 'Para equipes pessoais, a propriedade da equipe não pode ser transferida para outro membro da equipe.',
-    'do_not_use_personal_team_instead' => 'Em vez disso, crie uma equipe separada para gerenciar e compartilhar árvores genealógicas com outras pessoas.',
+    'personal_team_caution' => 'Cuidado',
+    'personal_team_avoid'   => 'Evite usar sua equipe pessoal para criar árvores genealógicas, pois a propriedade de equipes pessoais não pode ser transferida para outro membro.',
+    'personal_team_instead' => 'Em vez disso, selecione uma equipe da qual você já faz parte ou crie uma nova especificamente para gerenciar e compartilhar árvores genealógicas com outras pessoas.',
+    'personal_team_action'  => 'Para criar uma nova equipe ou mudar para uma já existente, use o menu suspenso no canto superior direito.',
 ];
