@@ -76,7 +76,7 @@ The owner can transfer the team ownership to another team member. A notification
 <img src="img/help/genealogy-005bb.webp" class="rounded" alt="Team management">
 
 <span style="color:red">
-    Create a <b>new and seperate team</b> for each <b>family tree</b> you want to manage and invite other users to it</b>.<br/><br/>
+    Create a <b>new and separate team</b> for each <b>family tree</b> you want to manage and invite other users to it</b>.<br/><br/>
     <b>Do not use your personal team for building family trees because the ownership of peronal teams can NOT be transferred to another team member.</b><br/><br/>
     By assigning users the proper <b>role</b> you can define the rights they have in the selected team.
 </span>
