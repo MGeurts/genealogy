@@ -81,4 +81,8 @@ return [
 
     'member'     => 'Mitglied',
     'membership' => 'Mitgliedschaft',
+
+    'do_not_use_personal_team'         => 'Benutzen Sie nicht Ihr persönliches Team, um Stammbäume zu erstellen.',
+    'do_not_use_personal_team_reason'  => 'Bei persönlichen Teams kann die Teameigentümerschaft nicht auf ein anderes Teammitglied übertragen werden.',
+    'do_not_use_personal_team_instead' => 'Erstellen Sie stattdessen ein separates Team, um Stammbäume zu verwalten und mit anderen zu teilen.',
 ];

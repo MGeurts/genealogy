@@ -81,4 +81,8 @@ return [
 
     'member'     => 'Lid',
     'membership' => 'Lidmaatschap',
+
+    'do_not_use_personal_team'         => 'Gebruik uw persoonlijke team niet om stambomen te maken.',
+    'do_not_use_personal_team_reason'  => 'Voor persoonlijke teams kan het teameigendom niet worden overgedragen aan een ander teamlid.',
+    'do_not_use_personal_team_instead' => 'Creëer in plaats daarvan een apart team om stambomen te beheren en met anderen te delen.',
 ];

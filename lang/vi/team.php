@@ -81,4 +81,8 @@ return [
 
     'member'     => 'Thành viên',
     'membership' => 'Tư cách thành viên',
+
+    'do_not_use_personal_team'         => 'Không sử dụng nhóm cá nhân của bạn để tạo cây phả hệ.',
+    'do_not_use_personal_team_reason'  => 'Đối với các nhóm cá nhân, quyền sở hữu nhóm không thể được chuyển cho thành viên khác trong nhóm.',
+    'do_not_use_personal_team_instead' => 'Thay vào đó, hãy tạo một nhóm riêng để quản lý và chia sẻ cây phả hệ với những người khác.',
 ];

@@ -81,4 +81,8 @@ return [
 
     'member'     => 'Member',
     'membership' => 'Membership',
+
+    'do_not_use_personal_team'         => 'Do not use your personal team to create family trees.',
+    'do_not_use_personal_team_reason'  => 'For personal teams, the team ownership can not be transferred to another team member.',
+    'do_not_use_personal_team_instead' => 'Instead, create a separate team to manage and share family trees with others.',
 ];

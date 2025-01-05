@@ -73,4 +73,8 @@ return [
 
     'member'     => 'Membro',
     'membership' => 'Associação',
+
+    'do_not_use_personal_team'         => 'Não use sua equipe pessoal para criar árvores genealógicas.',
+    'do_not_use_personal_team_reason'  => 'Para equipes pessoais, a propriedade da equipe não pode ser transferida para outro membro da equipe.',
+    'do_not_use_personal_team_instead' => 'Em vez disso, crie uma equipe separada para gerenciar e compartilhar árvores genealógicas com outras pessoas.',
 ];

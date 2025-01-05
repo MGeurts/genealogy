@@ -73,4 +73,8 @@ return [
 
     'member'     => 'Membre',
     'membership' => 'Adhésion',
+
+    'do_not_use_personal_team'         => 'N\'utilisez pas votre équipe personnelle pour créer des arbres généalogiques.',
+    'do_not_use_personal_team_reason'  => 'Pour les équipes personnelles, la propriété de l\'équipe ne peut pas être transférée à un autre membre de l\'équipe.',
+    'do_not_use_personal_team_instead' => 'Créez plutôt une équipe distincte pour gérer et partager les arbres généalogiques avec d’autres.',
 ];
