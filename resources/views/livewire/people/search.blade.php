@@ -28,33 +28,17 @@
 
                 <div class="flex-1 flex-grow max-w-full text-end">
                     @if ($search)
-                        @if (auth()->user()->is_developer)
-                            {!! __('app.people_found', [
-                                'found' => $people->total(),
-                                'total' => $people_db,
-                                'scope' => strtoupper(__('team.all_teams')),
-                                'keyword' => $search,
-                            ]) !!}
-                        @else
-                            {!! __('app.people_found', [
-                                'found' => $people->total(),
-                                'total' => $people_db,
-                                'scope' => auth()->user()->currentTeam->name,
-                                'keyword' => $search,
-                            ]) !!}
-                        @endif
+                        {!! __('app.people_found', [
+                            'found' => $people->total(),
+                            'total' => $people_db,
+                            'scope' => auth()->user()->is_developer ? strtoupper(__('team.all_teams')) : auth()->user()->currentTeam->name,
+                            'keyword' => $search,
+                        ]) !!}
                     @else
-                        @if (auth()->user()->is_developer)
-                            {!! __('app.people_available', [
-                                'total' => $people_db,
-                                'scope' => strtoupper(__('team.all_teams')),
-                            ]) !!}
-                        @else
-                            {!! __('app.people_available', [
-                                'total' => $people_db,
-                                'scope' => auth()->user()->currentTeam->name,
-                            ]) !!}
-                        @endif
+                        {!! __('app.people_available', [
+                            'total' => $people_db,
+                            'scope' => auth()->user()->is_developer ? strtoupper(__('team.all_teams')) : auth()->user()->currentTeam->name,
+                        ]) !!}
                     @endif
                 </div>
             </div>

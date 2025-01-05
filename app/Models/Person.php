@@ -299,7 +299,7 @@ class Person extends Model implements HasMedia
             $lifetime = null;
         }
 
-        return strval($lifetime); // returns YEAR(dob) - YEAR(dod)
+        return $lifetime ? strval($lifetime) : null; // returns YEAR(dob) - YEAR(dod) or null
     }
 
     protected function getBirthYearAttribute(): ?string

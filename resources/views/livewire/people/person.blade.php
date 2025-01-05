@@ -7,20 +7,18 @@
     {{-- lifetime & age --}}
     <div class="flex px-2">
         <div class="flex-grow">
-            @if (isset($person->lifetime))
-                {{ $person->lifetime }}
-            @endif
+            {!! isset($person->lifetime) ? $person->lifetime : '&nbsp;' !!}
         </div>
 
         <div class="flex-grow text-end">
-            @if (isset($person->age))
-                {{ $person->age . ' ' . trans_choice('person.years', $person->age) }}
-            @endif
+            {!! isset($person->age) ? $person->age . ' ' . trans_choice('person.years', $person->age) : '&nbsp;' !!}
         </div>
     </div>
 
     {{-- data --}}
     <div class="p-2 pb-0">
+        <x-hr.narrow />
+
         <p>
             <x-link href="/people/{{ $person->id }}" @class([
                 'text-danger-600 dark:text-danger-400' => $person->isDeceased(),

@@ -61,15 +61,11 @@
     {{-- lifetime & age --}}
     <div class="flex px-2">
         <div class="flex-grow">
-            @if (isset($person->lifetime))
-                {{ $person->lifetime }}
-            @endif
+            {!! isset($person->lifetime) ? $person->lifetime : '&nbsp;' !!}
         </div>
 
         <div class="flex-grow text-end">
-            @if (isset($person->age))
-                {{ $person->age . ' ' . trans_choice('person.years', $person->age) }}
-            @endif
+            {!! isset($person->age) ? $person->age . ' ' . trans_choice('person.years', $person->age) : '&nbsp;' !!}
         </div>
     </div>
 
