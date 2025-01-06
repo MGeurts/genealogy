@@ -1,7 +1,7 @@
 <div>
     {{-- search box section --}}
     <div class="p-2 pb-5 sticky top-[6.5rem] z-40 bg-gray-100 dark:bg-gray-900">
-        <div class="p-5 flex flex-col rounded dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+        <div class="p-2 flex flex-col rounded dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
             {{-- header --}}
             <div class="flex flex-wrap mb-2 text-lg">
                 <div class="flex-1 flex-grow max-w-full">
@@ -59,7 +59,7 @@
 
             {{-- footer : perpage and pagination --}}
             @if (count($people) > 0)
-                <div class="flex flex-wrap items-center justify-center gap-2 mt-2">
+                <div class="flex flex-wrap items-center justify-center gap-2">
                     <div class="flex-1 flex-grow min-w-max max-w-36">
                         <x-ts-select.styled wire:model.live="perpage" name="perpage" id="perpage" :options="$options" select="label:label|value:value" required />
                     </div>
@@ -74,7 +74,7 @@
 
     @if (count($people) > 0)
         {{-- people grid --}}
-        <div class="p-2 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+        <div class="p-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
             @foreach ($people as $person)
                 <livewire:people.person :person="$person" :key="$person->id" />
             @endforeach
