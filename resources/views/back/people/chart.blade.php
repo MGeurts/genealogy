@@ -90,7 +90,7 @@
                 <div class="p-2 border basis-2/5">
                     <div class="grid grid-cols-1 gap-4 xl:grid-cols-2">
                         @if ($person->father)
-                            @foreach ($person->father->siblings() as $index => $sibling)
+                            @foreach ($person->father->siblings(true) as $index => $sibling)
                                 <div>
                                     {{ $index + 1 }}.
                                     <x-link href="/people/{{ $sibling->id }}/chart" @class([
@@ -121,7 +121,7 @@
                 <div class="p-2 border basis-2/5">
                     <div class="grid grid-cols-1 gap-4 xl:grid-cols-2">
                         @if ($person->mother)
-                            @foreach ($person->mother->siblings() as $index => $sibling)
+                            @foreach ($person->mother->siblings(true) as $index => $sibling)
                                 <div>
                                     {{ $index + 1 }}.
                                     <x-link href="/people/{{ $sibling->id }}/chart" @class([
