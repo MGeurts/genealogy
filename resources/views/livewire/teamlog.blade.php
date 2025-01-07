@@ -61,7 +61,7 @@
                             @else
                                 {{-- values --}}
                                 @php
-                                    $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('value')]];
+                                    $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.value')]];
 
                                     $rows = collect($log['properties'])
                                         ->map(function ($value, $key) {
