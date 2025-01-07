@@ -193,7 +193,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
         <li>INFO    : All scheduled backups</li>
         <li>DEBUG   : All executed requests (off by default)</li>
         <li>DEBUG   : All executed database queries (off by default)</li>
-        <li>WARNING : All detected slow (> 250 ms) queries</li>
+        <li>WARNING : All detected slow (> 500 ms) queries</li>
         <li>WARNING : All detected N+1 queries</li>
         <li>ERROR   : All detected errors</li>
    </ul>
