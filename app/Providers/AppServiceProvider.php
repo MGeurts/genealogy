@@ -72,7 +72,7 @@ class AppServiceProvider extends ServiceProvider
      */
     private function configureStrictMode(): void
     {
-        Model::shouldBeStrict(! app()->isProduction());
+        Model::shouldBeStrict();
     }
 
     /**
