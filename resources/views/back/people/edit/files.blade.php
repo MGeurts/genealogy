@@ -7,7 +7,7 @@
         {{ __('person.files') }}
     </x-slot>
 
-    <div class="p-2 pb-5 sticky top-[6.5rem] z-40 bg-gray-100 dark:bg-gray-900">
+    <div class="p-2 pb-5 sticky top-[6.5rem] z-20 bg-gray-100 dark:bg-gray-900">
         <livewire:people.heading :person="$person" />
     </div>
 
