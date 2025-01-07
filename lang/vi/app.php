@@ -45,6 +45,7 @@ return [
     'attribute' => 'Thuộc tính',
     'old'       => 'Cũ',
     'new'       => 'Mới',
+    'value'     => 'Giá trị',
 
     // Actions
     'add'     => 'Thêm',

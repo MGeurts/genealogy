@@ -39,6 +39,7 @@ return [
     'attribute'                 => 'Atributo',
     'old'                       => 'Viejo',
     'new'                       => 'Nuevo',
+    'value'                     => 'Valor',
     'add'                       => 'Agregar',
     'cancel'                    => 'Cancelar',
     'create'                    => 'Crear',

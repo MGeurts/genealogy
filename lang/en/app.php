@@ -45,6 +45,7 @@ return [
     'attribute' => 'Attribute',
     'old'       => 'Old',
     'new'       => 'New',
+    'value'     => 'Value',
 
     // Actions
     'add'     => 'Add',

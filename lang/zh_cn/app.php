@@ -45,6 +45,7 @@ return [
     'attribute' => '属性',
     'old'       => '旧',
     'new'       => '新',
+    'value'     => '价值',
 
     // Actions
     'add'     => '添加',

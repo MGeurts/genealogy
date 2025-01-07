@@ -45,6 +45,7 @@ return [
     'attribute' => 'Attribuut',
     'old'       => 'Oud',
     'new'       => 'Nieuw',
+    'value'     => 'Waarde',
 
     // Actions
     'add'     => 'Toevoegen',
