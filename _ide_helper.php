@@ -27664,12 +27664,39 @@ namespace Livewire\Features\SupportTesting {
          *
          * @see \Filament\Tables\Testing\TestsFilters::assertTableFilterExists()
          * @param string $name
+         * @param \Closure|null $checkFilterUsing
          * @return static 
          * @static 
          */
-        public static function assertTableFilterExists($name)
+        public static function assertTableFilterExists($name, $checkFilterUsing = null)
         {
-            return \Livewire\Features\SupportTesting\Testable::assertTableFilterExists($name);
+            return \Livewire\Features\SupportTesting\Testable::assertTableFilterExists($name, $checkFilterUsing);
+        }
+
+        /**
+         * 
+         *
+         * @see \Filament\Tables\Testing\TestsFilters::assertTableFilterVisible()
+         * @param string $name
+         * @return static 
+         * @static 
+         */
+        public static function assertTableFilterVisible($name)
+        {
+            return \Livewire\Features\SupportTesting\Testable::assertTableFilterVisible($name);
+        }
+
+        /**
+         * 
+         *
+         * @see \Filament\Tables\Testing\TestsFilters::assertTableFilterHidden()
+         * @param string $name
+         * @return static 
+         * @static 
+         */
+        public static function assertTableFilterHidden($name)
+        {
+            return \Livewire\Features\SupportTesting\Testable::assertTableFilterHidden($name);
         }
 
         /**
