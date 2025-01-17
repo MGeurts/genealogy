@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\Models\Setting;
+use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
@@ -36,6 +38,7 @@ class AppServiceProvider extends ServiceProvider
         $this->configureStrictMode();
         $this->configureLogViewer();
         $this->configureTallStackUiPersonalization();
+        $this->configureDates();
 
         $this->addAboutCommandDetails();
 
@@ -150,6 +153,14 @@ class AppServiceProvider extends ServiceProvider
         $ui->table()
             ->block('wrapper')->replace('rounded-lg', 'rounded')
             ->block('table.td')->replace('py-4', 'py-2');
+    }
+
+    /**
+     * Configure the application's dates.
+     */
+    private function configureDates(): void
+    {
+        Date::use(CarbonImmutable::class);
     }
 
     /**
