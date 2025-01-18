@@ -10,7 +10,7 @@ return [
     'team_create_new_gedcom'     => 'Tạo một đội mới, được nhập từ tệp GEDCOM, để hợp tác với những người khác.',
     'team_gedcom_reference'      => 'Tham chiếu',
     'team_gedcom_specifications' => 'Thông số GEDCOM',
-    'team_gedcom_version'        => 'GEDCOM phiên bản 5.5 hoặc 7',
+    'team_gedcom_version'        => 'GEDCOM phiên bản 5.5.x hoặc 7.x',
     'team_gedcom_hint'           => 'Hãy tạo một đội dựa trên tệp GEDCOM',
     'team_gedcom_tip'            => 'Kéo và thả tệp GEDCOM của bạn vào đây',
 
@@ -21,4 +21,7 @@ return [
     'line_endings'         => 'Kết thúc dòng',
     'line_endings_windows' => 'CR/LF (Windows)',
     'line_endings_unix'    => 'LF (Unix)',
+
+    'before_import'          => 'Trước khi nhập khẩu',
+    'before_import_validate' => 'Xác thực tệp GEDCOM của bạn tại',
 ];

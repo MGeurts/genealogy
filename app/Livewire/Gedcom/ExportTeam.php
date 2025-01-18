@@ -4,18 +4,21 @@ declare(strict_types=1);
 
 namespace App\Livewire\Gedcom;
 
+use App\Php\Gedcom\Export;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class Export extends Component
+class ExportTeam extends Component
 {
     use Interactions;
 
     public $user = null;
 
     public Collection $teamPersons;
+
+    public string $filename;
 
     public string $format = 'gedcom';
 
@@ -24,8 +27,6 @@ class Export extends Component
     public string $encoding = 'utf8';
 
     public array $encodings = [];
-
-    public string $filename;
 
     public string $line_endings = 'windows';
 
@@ -81,11 +82,14 @@ class Export extends Component
 
     public function exportTeam(): void
     {
-        $this->validate([
-            'format'   => 'required',
-            'encoding' => 'required',
-            'filename' => 'required',
-        ]);
+        $export = new Export(
+            $this->filename,
+            $this->format,
+            $this->encoding,
+            $this->line_endings
+        );
+
+        $export->Export();
 
         $this->toast()->success(__('app.download'), strtoupper(__('app.under_construction')))->send();
     }
@@ -93,6 +97,6 @@ class Export extends Component
     // -----------------------------------------------------------------------
     public function render()
     {
-        return view('livewire.gedcom.export');
+        return view('livewire.gedcom.exportteam');
     }
 }

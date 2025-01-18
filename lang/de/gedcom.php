@@ -10,7 +10,7 @@ return [
     'team_create_new_gedcom'     => 'Erstellen Sie ein neues Team, importiert aus einer GEDCOM-Datei, um mit anderen zusammenzuarbeiten.',
     'team_gedcom_reference'      => 'Referenz',
     'team_gedcom_specifications' => 'GEDCOM Specificationen',
-    'team_gedcom_version'        => 'GEDCOM version 5.5 oder 7',
+    'team_gedcom_version'        => 'GEDCOM version 5.5.x oder 7.x',
     'team_gedcom_hint'           => 'Lassen Sie uns ein Team basierend auf einer GEDCOM-Datei erstellen',
     'team_gedcom_tip'            => 'Ziehen Sie Ihre GEDCOM-Datei per Drag & Drop hierher',
 
@@ -21,4 +21,7 @@ return [
     'line_endings'         => 'Zeilenenden',
     'line_endings_windows' => 'CR/LF (Windows)',
     'line_endings_unix'    => 'LF (Unix)',
+
+    'before_import'          => 'Vor dem Import',
+    'before_import_validate' => 'Validieren Sie Ihre GEDCOM-Datei unter',
 ];

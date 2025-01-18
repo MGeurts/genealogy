@@ -13,11 +13,11 @@ class GedcomController extends Controller
     {
         abort_unless(auth()->user()->hasPermission('person:create'), 403, __('app.unauthorized_access'));
 
-        return view('back.gedcom.import');
+        return view('back.gedcom.importteam');
     }
 
     public function export(): View
     {
-        return view('back.gedcom.export');
+        return view('back.gedcom.exportteam');
     }
 }
