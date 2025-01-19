@@ -318,7 +318,7 @@ class Person extends Model implements HasMedia
     protected function getBirthFormattedAttribute(): ?string
     {
         if ($this->dob) {
-            $birth = Carbon::parse($this->dob)->isoFormat('LL');
+            $birth = Carbon::parse($this->dob)->timezone(session('timezone'))->isoFormat('LL');
         } elseif ($this->yob) {
             $birth = $this->yob;
         } else {
@@ -331,7 +331,7 @@ class Person extends Model implements HasMedia
     protected function getDeathFormattedAttribute(): ?string
     {
         if ($this->dod) {
-            $dead = Carbon::parse($this->dod)->isoFormat('LL');
+            $dead = Carbon::parse($this->dod)->timezone(session('timezone'))->isoFormat('LL');
         } elseif ($this->yod) {
             $dead = $this->yod;
         } else {

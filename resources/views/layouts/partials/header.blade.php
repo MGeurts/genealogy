@@ -12,7 +12,7 @@
 
             <div class="flex-1 p-2 mx-auto text-end" aria-label="Current Date">
                 <time datetime="{{ Carbon\Carbon::today()->toDateString() }}">
-                    {{ Carbon\Carbon::today()->isoFormat('LL') }}
+                    {{ Carbon\Carbon::today()->timezone(session('timezone'))->isoFormat('LL') }}
                 </time>
             </div>
         </div>

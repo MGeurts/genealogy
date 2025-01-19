@@ -122,7 +122,7 @@ class Couple extends Model
 
     protected function getDateStartFormattedAttribute(): ?string
     {
-        return $this->date_start ? Carbon::parse($this->date_start)->isoFormat('LL') : null;
+        return $this->date_start ? Carbon::parse($this->date_start)->timezone(session('timezone'))->isoFormat('LL') : null;
     }
 
     /* -------------------------------------------------------------------------------------------- */

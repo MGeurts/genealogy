@@ -49,7 +49,7 @@
                                         <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                                     </td>
                                     <td class="p-2 whitespace-nowrap text-end">
-                                        {{ $person->dob ? $person->dob->isoFormat('LL') : '' }}
+                                        {{ $person->dob ? $person->dob->timezone(session('timezone'))->isoFormat('LL') : '' }}
                                     </td>
                                     <td class="p-2 whitespace-nowrap text-end">
                                         {{ $person->next_birthday->isoFormat('LL') }}

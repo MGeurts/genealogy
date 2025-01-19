@@ -65,7 +65,7 @@
                         @endif
 
                         @if ($file->hasCustomProperty('source_date'))
-                            <p>{{ __('person.source_date') }} : {{ Carbon\Carbon::parse($file->getCustomProperty('source_date'))->isoFormat('LL') }}</p>
+                            <p>{{ __('person.source_date') }} : {{ Carbon\Carbon::parse($file->getCustomProperty('source_date'))->timezone(session('timezone'))->isoFormat('LL') }}</p>
                         @endif
 
                         <x-slot:footer>

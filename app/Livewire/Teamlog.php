@@ -29,7 +29,7 @@ class Teamlog extends Component
                     'properties'     => ($record->event == 'invited' or $record->event == 'removed') ? $record->properties : [],
                     'properties_old' => ($record->event == 'updated' or $record->event == 'deleted') ? $record->properties['old'] : [],
                     'properties_new' => ($record->event == 'updated' or $record->event == 'created') ? $record->properties['attributes'] : [],
-                    'updated_at'     => $record->updated_at->isoFormat('LLL'),
+                    'updated_at'     => $record->updated_at->timezone(session('timezone'))->isoFormat('LLL'),
                     'causer'         => $record->causer ? $record->causer->name : '',
                 ];
             });
