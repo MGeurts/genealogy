@@ -28,7 +28,7 @@ class History extends Component
             ->map(function ($record) {
                 return [
                     'event'      => strtoupper($record->event),
-                    'created_at' => Carbon::parse($record->created_at)->timezone(session('timezone'))->format('Y-m-d H:i'),
+                    'created_at' => Carbon::parse($record->created_at)->timezone(session('timezone') ?? 'UTC')->format('Y-m-d H:i'),
                     'causer'     => $record->causer ? implode(' ', array_filter([$record->causer->firstname, $record->causer->surname])) : null,
                     'old'        => $record->properties->get('old'),
                     'new'        => $record->properties->get('attributes'),
