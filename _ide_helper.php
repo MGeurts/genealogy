@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 11.40.0.
+ * Generated for Laravel 11.41.3.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -10400,6 +10400,19 @@ namespace Illuminate\Support\Facades {
         {
             /** @var \Illuminate\Translation\Translator $instance */
             $instance->addNamespace($namespace, $hint);
+        }
+
+        /**
+         * Add a new path to the loader.
+         *
+         * @param string $path
+         * @return void 
+         * @static 
+         */
+        public static function addPath($path)
+        {
+            /** @var \Illuminate\Translation\Translator $instance */
+            $instance->addPath($path);
         }
 
         /**
