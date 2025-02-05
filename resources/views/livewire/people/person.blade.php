@@ -25,7 +25,7 @@
             ])>
                 {{ $person->name }}
             </x-link>
-            <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+            <x-ts-icon icon="{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
         </p>
         <p>{{ __('person.birthname') }} : {{ $person->birthname ? $person->birthname : '' }}</p>
         <p>{{ __('person.nickname') }} : {{ $person->nickname ? $person->nickname : '' }}</p>
@@ -39,7 +39,7 @@
                 ])>
                     {{ $person->father->name }}
                 </x-link>
-                <x-ts-icon icon="{{ $person->father->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                <x-ts-icon icon="{{ $person->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
             @endif
         </p>
 
@@ -50,7 +50,7 @@
                 ])>
                     {{ $person->mother->name }}
                 </x-link>
-                <x-ts-icon icon="{{ $person->mother->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                <x-ts-icon icon="{{ $person->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
             @endif
         </p>
 

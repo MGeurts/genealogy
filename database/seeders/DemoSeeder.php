@@ -166,7 +166,7 @@ class DemoSeeder extends Seeder
                 'date_end'   => ! empty($couple['date_end']) ? $couple['date_end'] : null,
 
                 'is_married' => $couple['status'] >= 1 ? 1 : 0,
-                'has_ended'  => $couple['status'] == 2 ? 1 : 0,
+                'has_ended'  => $couple['status'] === 2 ? 1 : 0,
 
                 'team_id' => $this->british_royals_team,
             ]);
@@ -406,7 +406,7 @@ class DemoSeeder extends Seeder
                 'date_end'   => ! empty($couple['date_end']) ? $couple['date_end'] : null,
 
                 'is_married' => $couple['status'] >= 1 ? 1 : 0,
-                'has_ended'  => $couple['status'] == 2 ? 1 : 0,
+                'has_ended'  => $couple['status'] === 2 ? 1 : 0,
 
                 'team_id' => $this->kennedy_team,
             ]);

@@ -44,7 +44,7 @@
                         {{ $child->name }}
                     </x-link>
 
-                    <x-ts-icon icon="{{ $child->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                    <x-ts-icon icon="{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @if (isset($child->type))
                         <x-ts-icon icon="heart-plus" class="inline-block size-5 text-emerald-600" />
                     @endif

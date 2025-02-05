@@ -27,8 +27,8 @@ class Peoplelog extends Component
                     'subject_type'   => substr($record->subject_type, strrpos($record->subject_type, '\\') + 1),
                     'subject_id'     => $record->subject_id,
                     'description'    => strtoupper($record->description),
-                    'properties_old' => ($record->event == 'updated' or $record->event == 'deleted') ? $record->properties['old'] : [],
-                    'properties_new' => ($record->event == 'updated' or $record->event == 'created') ? $record->properties['attributes'] : [],
+                    'properties_old' => ($record->event === 'updated' or $record->event === 'deleted') ? $record->properties['old'] : [],
+                    'properties_new' => ($record->event === 'updated' or $record->event === 'created') ? $record->properties['attributes'] : [],
                     'updated_at'     => $record->updated_at->timezone(session('timezone') ?? 'UTC')->isoFormat('LLL'),
                     'causer'         => $record->causer ? $record->causer->name : '',
                 ];

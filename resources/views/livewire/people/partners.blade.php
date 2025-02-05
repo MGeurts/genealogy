@@ -63,13 +63,13 @@
                             {{ $couple->person_1->name }}
                         </x-link>
 
-                        <x-ts-icon icon="{{ $couple->person_1->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="{{ $couple->person_1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @else
                         <x-link href="/people/{{ $couple->person_2->id }}" @class(['text-danger-600 dark:text-danger-400' => $couple->person_2->isDeceased()])>
                             {{ $couple->person_2->name }}
                         </x-link>
 
-                        <x-ts-icon icon="{{ $couple->person_2->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="{{ $couple->person_2->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @endif
 
                     @if ($couple->is_married)

@@ -26,9 +26,9 @@ class Teamlog extends Component
                     'event'          => strtoupper($record->event),
                     'subject_type'   => substr($record->subject_type, strrpos($record->subject_type, '\\') + 1),
                     'description'    => strtoupper($record->description),
-                    'properties'     => ($record->event == 'invited' or $record->event == 'removed') ? $record->properties : [],
-                    'properties_old' => ($record->event == 'updated' or $record->event == 'deleted') ? $record->properties['old'] : [],
-                    'properties_new' => ($record->event == 'updated' or $record->event == 'created') ? $record->properties['attributes'] : [],
+                    'properties'     => ($record->event === 'invited' or $record->event === 'removed') ? $record->properties : [],
+                    'properties_old' => ($record->event === 'updated' or $record->event === 'deleted') ? $record->properties['old'] : [],
+                    'properties_new' => ($record->event === 'updated' or $record->event === 'created') ? $record->properties['attributes'] : [],
                     'updated_at'     => $record->updated_at->timezone(session('timezone') ?? 'UTC')->isoFormat('LLL'),
                     'causer'         => $record->causer ? $record->causer->name : '',
                 ];

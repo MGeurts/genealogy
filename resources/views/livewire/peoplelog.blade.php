@@ -22,7 +22,7 @@
                 @foreach ($logs as $log)
                     <x-ts-card>
                         <x-slot:header>
-                            @if (($log['subject_type'] == 'Person' or $log['subject_type'] == 'PersonMetadata') and $log['event'] != 'DELETED')
+                            @if (($log['subject_type'] === 'Person' or $log['subject_type'] === 'PersonMetadata') and $log['event'] != 'DELETED')
                                 {{ $log['description'] }} :
                                 <x-ts-link href="{{ url('people/' . $log['subject_id']) }}">
                                     {{ __('person.person') }}

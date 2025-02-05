@@ -46,7 +46,7 @@
                                         ])>
                                             {{ $person->name }}
                                         </x-link>
-                                        <x-ts-icon icon="{{ $person->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                                        <x-ts-icon icon="{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                                     </td>
                                     <td class="p-2 whitespace-nowrap text-end">
                                         {{ $person->dob ? $person->dob->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '' }}

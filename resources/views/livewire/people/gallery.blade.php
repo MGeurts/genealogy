@@ -3,7 +3,7 @@
     @if (count($images) > 1)
         <div class="flex items-center justify-center mb-2 print:hidden">
             {{-- previous page link --}}
-            @if ($selected == 0)
+            @if ($selected === 0)
                 <button type="button" wire:click="selectImage({{ count($images) - 1 }})" rel="prev"
                     class="relative inline-flex items-center p-2 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-l hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500">
                     <svg class="size-5" fill="currentColor" viewBox="0 0 20 20">
@@ -21,7 +21,7 @@
 
             @if (count($images) <= 7)
                 @foreach (range(0, count($images) - 1) as $i)
-                    @if ($i == $selected)
+                    @if ($i === $selected)
                         <span
                             class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-500 border border-gray-300 cursor-default select-none bg-warning-500 dark:bg-warning-200">
                             {{ $i + 1 }}
@@ -51,7 +51,7 @@
 
                 @foreach (range(0, count($images) - 1) as $i)
                     @if ($i >= $selected - 1 and $i <= $selected + 1)
-                        @if ($i == $selected)
+                        @if ($i === $selected)
                             <span
                                 class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-500 border border-gray-300 cursor-default select-none bg-warning-500 dark:bg-warning-200">
                                 {{ $i + 1 }}
@@ -81,7 +81,7 @@
             @endif
 
             {{-- next page link --}}
-            @if ($selected == count($images) - 1)
+            @if ($selected === count($images) - 1)
                 <button type="button" wire:click="selectImage(0)" rel="next"
                     class="relative inline-flex items-center p-2 -ml-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-r hover:text-gray-400 focus:z-10 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500">
                     <svg class="size-5" fill="currentColor" viewBox="0 0 20 20">

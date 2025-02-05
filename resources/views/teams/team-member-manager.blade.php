@@ -50,11 +50,11 @@
                                         ])>
                                             {{-- role name --}}
                                             <div class="flex items-center">
-                                                <div class="text-sm text-gray-600 {{ $addTeamMemberForm['role'] == $role->key ? 'font-semibold' : '' }}">
+                                                <div class="text-sm text-gray-600 {{ $addTeamMemberForm['role'] === $role->key ? 'font-semibold' : '' }}">
                                                     <b>{{ __('jetstream.role_' . strtolower($role->key) . '_name') }}</b>
                                                 </div>
 
-                                                @if ($addTeamMemberForm['role'] == $role->key)
+                                                @if ($addTeamMemberForm['role'] === $role->key)
                                                     <x-ts-icon icon="circle-check" class="inline-block size-5 ms-2 text-emerald-600" />
                                                 @endif
                                             </div>
@@ -195,16 +195,16 @@
                 @foreach ($this->roles as $index => $role)
                     <button type="button" title="{{ __('team.change_role') }}"
                         class="relative p-4 inline-flex w-full rounded focus:z-10 {{ $index > 0 ? 'border-t border-gray-200 dark:border-gray-700 rounded-t-none' : '' }} {{ !$loop->last ? 'rounded-b-none' : '' }}
-                        {{ $currentRole == $role->key ? 'bg-warning-500 dark:bg-warning-200 text-indigo-700 dark:text-indigo-300 border-indigo-500' : 'text-gray-600 dark:text-gray-300' }}"
+                        {{ $currentRole === $role->key ? 'bg-warning-500 dark:bg-warning-200 text-indigo-700 dark:text-indigo-300 border-indigo-500' : 'text-gray-600 dark:text-gray-300' }}"
                         wire:click="$set('currentRole', '{{ $role->key }}')">
                         <div @class(['opacity-75' => $currentRole !== $role->key])>
                             {{-- role name --}}
                             <div class="flex items-center">
-                                <div class="text-sm text-gray-600 {{ $currentRole == $role->key ? 'font-semibold' : '' }}">
+                                <div class="text-sm text-gray-600 {{ $currentRole === $role->key ? 'font-semibold' : '' }}">
                                     {{ __('jetstream.role_' . strtolower($role->key) . '_name') }}
                                 </div>
 
-                                @if ($currentRole == $role->key)
+                                @if ($currentRole === $role->key)
                                     <x-ts-icon icon="circle-check" class="inline-block size-5 ms-2 text-emerald-600" />
                                 @endif
                             </div>

@@ -516,7 +516,7 @@ class Person extends Model implements HasMedia
         return $this->getRelation('partners');
     }
 
-    /* returns CURRENT PARTNER (1 Person) related to the person, where relation not_ended and date_end == null */
+    /* returns CURRENT PARTNER (1 Person) related to the person, where relation not_ended and date_end === null */
     public function currentPartner(): ?Person
     {
         return $this->partners->where('pivot.has_ended', false)->whereNull('pivot.date_end')->sortBy('pivot.date_start')->last();

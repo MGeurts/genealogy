@@ -20,7 +20,7 @@
             {{ __('auth.verify_email') }}
         </div>
 
-        @if (session('status') == 'verification-link-sent')
+        @if (session('status') === 'verification-link-sent')
             <div class="mb-4 text-sm font-medium text-emerald-600">
                 {{ __('auth.link_send') }}
             </div>

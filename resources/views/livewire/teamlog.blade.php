@@ -26,7 +26,7 @@
                         </x-slot:header>
 
                         <div class="grid grid-cols-2 gap-2">
-                            @if ($log['event'] == 'updated' or $log['event'] == 'deleted')
+                            @if ($log['event'] === 'updated' or $log['event'] === 'deleted')
                                 {{-- old values --}}
                                 @php
                                     $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.old')]];

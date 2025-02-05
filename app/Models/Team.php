@@ -80,7 +80,7 @@ class Team extends JetstreamTeam
     /* -------------------------------------------------------------------------------------------- */
     public function isDeletable(): bool
     {
-        return $this->persons->count() == 0 and $this->couples->count() == 0 and $this->users->count() == 0;
+        return $this->persons->count() === 0 and $this->couples->count() === 0 and $this->users->count() === 0;
     }
 
     /* -------------------------------------------------------------------------------------------- */

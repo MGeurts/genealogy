@@ -51,7 +51,7 @@
                 ])>
                     {{ $person->father->name }}
                 </x-link>
-                <x-ts-icon icon="{{ $person->father->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                <x-ts-icon icon="{{ $person->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
             @endif
         </div>
 
@@ -63,7 +63,7 @@
                 ])>
                     {{ $person->mother->name }}
                 </x-link>
-                <x-ts-icon icon="{{ $person->mother->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                <x-ts-icon icon="{{ $person->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
             @endif
         </div>
 
@@ -75,14 +75,14 @@
                 ])>
                     {{ $person->parents->person_1->name }}
                 </x-link>
-                <x-ts-icon icon="{{ $person->parents->person_1->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                <x-ts-icon icon="{{ $person->parents->person_1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                 <br />
                 <x-link href="/people/{{ $person->parents->person_2->id }}" @class([
                     'text-danger-600 dark:text-danger-400' => $person->parents->person_2->isDeceased(),
                 ])>
                     {{ $person->parents->person_2->name }}
                 </x-link>
-                <x-ts-icon icon="{{ $person->parents->person_2->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                <x-ts-icon icon="{{ $person->parents->person_2->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
             @endif
         </div>
 
@@ -94,7 +94,7 @@
                 ])>
                     {{ $person->currentPartner()->name }}
                 </x-link>
-                <x-ts-icon icon="{{ $person->currentPartner()->sex == 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                <x-ts-icon icon="{{ $person->currentPartner()->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
             @endif
         </div>
     </div>

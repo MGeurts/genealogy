@@ -79,7 +79,7 @@ class Manage extends Component
         // make a collection of existing backup files, with their filesize and creation date
         foreach ($files as $file) {
             // only take zip files into account
-            if (substr($file, -4) == '.zip' and $disk->exists($file)) {
+            if (substr($file, -4) === '.zip' and $disk->exists($file)) {
                 $this->backups->push([
                     'file_name'    => str_replace(config('backup.backup.name') . '/', '', $file),
                     'file_size'    => Number::fileSize($disk->size($file), 2),
@@ -101,7 +101,7 @@ class Manage extends Component
         $exitCode = Artisan::call('backup:run --only-db');
         $output   = Artisan::output();
 
-        if ($exitCode == 0) {
+        if ($exitCode === 0) {
             Log::info("Backup (Manually) -- Backup started \r\n" . $output);
 
             $this->toast()->success(__('backup.backup'), __('backup.created'))->flash()->send();

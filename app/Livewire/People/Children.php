@@ -44,7 +44,7 @@ class Children extends Component
     {
         $child = Person::findOrFail($this->child_to_disconnect_id);
 
-        if ($this->person->sex == 'm') {
+        if ($this->person->sex === 'm') {
             $child->update([
                 'father_id' => null,
             ]);
