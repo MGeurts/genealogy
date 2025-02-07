@@ -116,6 +116,16 @@ class DeveloperController extends Controller
         $statistics_month_labels = $statistics_month->pluck('period')->toArray();
         $statistics_month_values = $statistics_month->pluck('visitors')->toArray();
 
-        return view('back.developer.userlog.period', compact('title', 'statistics_year_labels', 'statistics_year_values', 'statistics_month_labels', 'statistics_month_values'));
+        $statistics_week = Userlog::selectRaw('LPAD(WEEK(created_at), 2, 0) AS period')
+            ->selectRaw('COUNT(*) AS visitors')
+            ->whereYear('created_at', date('Y'))
+            ->groupBy('period')
+            ->orderBy('period')
+            ->get();
+
+        $statistics_week_labels = $statistics_week->pluck('period')->toArray();
+        $statistics_week_values = $statistics_week->pluck('visitors')->toArray();
+
+        return view('back.developer.userlog.period', compact('title', 'statistics_year_labels', 'statistics_year_values', 'statistics_month_labels', 'statistics_month_values', 'statistics_week_labels', 'statistics_week_values'));
     }
 }
