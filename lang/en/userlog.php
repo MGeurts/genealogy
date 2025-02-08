@@ -4,7 +4,7 @@ return [
     // Labels
     'users_log'        => 'User logbook',
     'users_origin'     => 'User origin',
-    'users_stats'      => 'User statictics',
+    'users_stats'      => 'User statistics',
     'users_by_country' => 'Users by country',
     'visitors'         => 'Visitors',
 
