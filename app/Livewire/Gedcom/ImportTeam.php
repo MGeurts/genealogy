@@ -13,7 +13,7 @@ use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
 
-class ImportTeam extends Component
+class Importteam extends Component
 {
     use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;

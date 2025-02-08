@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class ExportTeam extends Component
+class Exportteam extends Component
 {
     use Interactions;
 
