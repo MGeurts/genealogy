@@ -68,8 +68,8 @@
 
         {{-- upload --}}
         <div class="col-span-6">
-            <x-ts-upload id="file" wire:model="file" accept=".ged" label="{{ __('gedcom.gedcom_file') }} : *" hint="{{ __('gedcom.team_gedcom_hint') }}"
-                tip="{{ __('gedcom.team_gedcom_tip') }}" :preview="false" required>
+            <x-ts-upload id="file" wire:model="file" accept=".ged" label="{{ __('gedcom.gedcom_file') }} : *" hint="{{ __('gedcom.team_gedcom_hint') }}" tip="{{ __('gedcom.team_gedcom_tip') }}"
+                :preview="false" required>
                 <x-slot:footer>
                     <x-ts-alert text="{{ __('gedcom.team_gedcom_version') }}" color="cyan" />
                 </x-slot:footer>

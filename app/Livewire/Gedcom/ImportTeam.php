@@ -70,6 +70,7 @@ class Importteam extends Component
     }
 
     // -----------------------------------------------------------------------
+
     public function render(): View
     {
         return view('livewire.gedcom.importteam');

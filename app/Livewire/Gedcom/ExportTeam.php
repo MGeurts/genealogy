@@ -7,6 +7,7 @@ namespace App\Livewire\Gedcom;
 use App\Php\Gedcom\Export;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -95,7 +96,8 @@ class Exportteam extends Component
     }
 
     // -----------------------------------------------------------------------
-    public function render()
+
+    public function render(): View
     {
         return view('livewire.gedcom.exportteam');
     }
