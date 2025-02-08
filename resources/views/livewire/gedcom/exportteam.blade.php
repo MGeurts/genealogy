@@ -18,11 +18,11 @@
             <x-label value="{{ __('team.owner') }} :" />
 
             <div class="flex items-center mt-2">
-                <img class="object-cover w-12 h-12 rounded-full" src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}">
+                <img class="object-cover w-12 h-12 rounded-full" src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}">
 
                 <div class="leading-tight ms-4">
-                    <div class="text-sm text-gray-700">{{ $this->user->name }}</div>
-                    <div class="text-sm text-gray-700">{{ $this->user->email }}</div>
+                    <div class="text-sm text-gray-700">{{ $user->name }}</div>
+                    <div class="text-sm text-gray-700">{{ $user->email }}</div>
                 </div>
             </div>
         </div>
