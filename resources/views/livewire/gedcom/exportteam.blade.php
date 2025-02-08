@@ -1,4 +1,4 @@
-<x-form-section submit="exportTeam">
+<x-form-section submit="exportteam">
     <x-slot name="title">
         <div class="dark:text-gray-400">
             {{ __('team.team_details') }}

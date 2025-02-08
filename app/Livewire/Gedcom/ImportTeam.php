@@ -58,7 +58,7 @@ class Importteam extends Component
         $this->user = Auth()->user();
     }
 
-    public function importTeam(): void
+    public function importteam(): void
     {
         $this->import = new Import(
             $this->name,

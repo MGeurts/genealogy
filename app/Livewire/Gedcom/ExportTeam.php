@@ -81,7 +81,7 @@ class Exportteam extends Component
         return strtolower($string);
     }
 
-    public function exportTeam(): void
+    public function exportteam(): void
     {
         $export = new Export(
             $this->filename,
