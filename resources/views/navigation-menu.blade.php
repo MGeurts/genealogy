@@ -146,12 +146,12 @@
                                         <hr />
 
                                         {{-- gedcom --}}
-                                        <x-dropdown-link href="{{ route('gedcom.import') }}">
+                                        <x-dropdown-link href="{{ route('gedcom.importteam') }}">
                                             <x-ts-icon icon="droplet-up" class="inline-block mr-1 size-5" />
                                             {{ __('gedcom.gedcom_import') }}
                                         </x-dropdown-link>
 
-                                        <x-dropdown-link href="{{ route('gedcom.export') }}">
+                                        <x-dropdown-link href="{{ route('gedcom.exportteam') }}">
                                             <x-ts-icon icon="droplet-down" class="inline-block mr-1 size-5" />
                                             {{ __('gedcom.gedcom_export') }}
                                         </x-dropdown-link>
@@ -319,12 +319,12 @@
                             </x-nav-link-responsive>
 
                             {{-- gedcom --}}
-                            <x-nav-link-responsive href="{{ route('gedcom.import') }}" :active="request()->routeIs('gedcom.import')">
+                            <x-nav-link-responsive href="{{ route('gedcom.importteam') }}" :active="request()->routeIs('gedcom.importteam')">
                                 <x-ts-icon icon="droplet-up" class="inline-block mr-1 size-5" />
                                 {{ __('gedcom.gedcom_import') }}
                             </x-nav-link-responsive>
 
-                            <x-nav-link-responsive href="{{ route('gedcom.export') }}" :active="request()->routeIs('gedcom.export')">
+                            <x-nav-link-responsive href="{{ route('gedcom.exportteam') }}" :active="request()->routeIs('gedcom.exportteam')">
                                 <x-ts-icon icon="droplet-down" class="inline-block mr-1 size-5" />
                                 {{ __('gedcom.gedcom_export') }}
                             </x-nav-link-responsive>

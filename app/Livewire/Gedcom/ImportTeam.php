@@ -63,7 +63,7 @@ class ImportTeam extends Component
         $this->import = new Import(
             $this->name,
             $this->description,
-            $this->file
+            $this->file->getClientOriginalName()
         );
 
         $this->toast()->success(__('app.saved'), strtoupper(__('app.under_construction')))->send();

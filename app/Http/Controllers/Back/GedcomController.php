@@ -9,14 +9,14 @@ use Illuminate\View\View;
 
 class GedcomController extends Controller
 {
-    public function import(): View
+    public function importteam(): View
     {
         abort_unless(auth()->user()->hasPermission('person:create'), 403, __('app.unauthorized_access'));
 
         return view('back.gedcom.importteam');
     }
 
-    public function export(): View
+    public function exportteam(): View
     {
         return view('back.gedcom.exportteam');
     }
