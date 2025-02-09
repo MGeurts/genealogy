@@ -116,7 +116,7 @@ class DeveloperController extends Controller
         $statistics_month_labels = $statistics_month->pluck('period')->toArray();
         $statistics_month_values = $statistics_month->pluck('visitors')->toArray();
 
-        $statistics_week = Userlog::selectRaw('LPAD(WEEK(created_at), 2, 0) AS period')
+        $statistics_week = Userlog::selectRaw('LPAD(WEEK(created_at, 3), 2, 0) AS period')
             ->selectRaw('COUNT(*) AS visitors')
             ->whereYear('created_at', date('Y'))
             ->groupBy('period')
