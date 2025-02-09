@@ -3,7 +3,7 @@
     <div class="overflow-hidden relative">
         <div class="flex transition-transform duration-700 ease-in-out" :style="transformStyle">
             <template x-for="(image, index) in images" :key="index">
-                <img :src="'/img/image-slider/' + image" :alt="`Slide ${index + 1}`" class="w-full h-auto object-cover flex-shrink-0 rounded lazyload">
+                <img :src="'/img/image-slider/' + image" :alt="'Slide ' + (index + 1)" class="w-full h-auto object-cover flex-shrink-0 rounded lazyload">
             </template>
         </div>
     </div>
@@ -40,6 +40,8 @@
 <script>
     function slider() {
         return {
+            interval: 5000,
+
             images: [],
             currentImage: 0,
             intervalId: null,
@@ -94,7 +96,7 @@
                     if (!this.isPaused) {
                         this.nextImage();
                     }
-                }, 10000);
+                }, this.interval);
             },
 
             pauseAutoRotation() {
