@@ -192,11 +192,12 @@ class AppServiceProvider extends ServiceProvider
     private function LogAllQueriesSlow(): void
     {
         if (settings('log_all_queries_slow')) {
-            DB::listen(function ($query) {
-                if ($query->time >= settings('log_all_queries_slow_threshold')) {
+            DB::listen(function ($query): void {
+                if ($query->time > settings('log_all_queries_slow_threshold')) {
                     Log::warning('An individual database query exceeded ' . settings('log_all_queries_slow_threshold') . ' ms.', [
-                        'sql' => $query->sql,
-                        'raw' => $query->toRawSQL(),
+                        'sql'  => $query->sql,
+                        'raw'  => $query->toRawSQL(),
+                        'time' => $query->time,
                     ]);
                 }
             });
@@ -209,7 +210,7 @@ class AppServiceProvider extends ServiceProvider
     private function logAllQueriesNplusone(): void
     {
         if (settings('log_all_queries_n+1')) {
-            Model::handleLazyLoadingViolationUsing(function ($model, $relation) {
+            Model::handleLazyLoadingViolationUsing(function ($model, $relation): void {
                 Log::warning(sprintf(
                     'N+1 Query detected in model %s on relation %s.',
                     get_class($model),
