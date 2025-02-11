@@ -62,7 +62,7 @@ class Family extends Component
             ->map(function ($couple) {
                 return [
                     'id'     => $couple->id,
-                    'couple' => $couple->name . ($couple->date_start) ? ' (' . $couple->date_start_formatted . ')' : '',
+                    'couple' => $couple->name . ($couple->date_start ? ' (' . $couple->date_start_formatted . ')' : ''),
                 ];
             })->values();
     }
