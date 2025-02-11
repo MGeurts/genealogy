@@ -44,14 +44,14 @@ class Family extends Component
         $this->fathers = $persons->where('sex', 'm')->map(function ($p) {
             return [
                 'id'   => $p->id,
-                'name' => $p->name . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
+                'name' => $p->name . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
             ];
         })->values();
 
         $this->mothers = $persons->where('sex', 'f')->map(function ($p) {
             return [
                 'id'   => $p->id,
-                'name' => $p->name . ($p->birth_formatted ? '(' . $p->birth_formatted . ')' : ''),
+                'name' => $p->name . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
             ];
         })->values();
 
