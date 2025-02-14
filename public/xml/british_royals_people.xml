@@ -55,7 +55,7 @@
 <mother_id>1</mother_id>
 <parents_id>1</parents_id>
 <dob>1950-08-15</dob>
-<yod>1950</yod>
+<yob>1950</yob>
 <birth_place>London (UK)</birth_place>
 <photo>Y</photo>
 </people>
@@ -548,9 +548,10 @@
 <surname>Shand</surname>
 <sex>M</sex>
 <dob>1917-01-22</dob>
+<yob>1917</yob>
 <birth_place>London (UK)</birth_place>
 <dod>2006-06-11</dod>
-<yob>2006</yob>
+<yod>2006</yod>
 <death_place>Stourpaine (UK)</death_place>
 <photo>Y</photo>
 </people>
