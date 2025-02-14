@@ -5,18 +5,12 @@
 <id>501</id>
 <firstname>Joseph Patrick</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
 <nickname>Joe</nickname>
 <sex>M</sex>
-<father_id></father_id>
-<mother_id></mother_id>
-<parents_id></parents_id>
 <dob>1888-09-06</dob>
 <yob>1888</yob>
-<birth_place></birth_place>
 <dod>1969-11-18</dod>
 <yod>1969</yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -24,18 +18,11 @@
 <id>502</id>
 <firstname>Rose Elizabeth</firstname>
 <surname>Fitzgerald</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
-<father_id></father_id>
-<mother_id></mother_id>
-<parents_id></parents_id>
 <dob>1890-07-22</dob>
 <yob>1890</yob>
-<birth_place></birth_place>
 <dod>1995-01-22</dod>
 <yod>1995</yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -43,18 +30,13 @@
 <id>503</id>
 <firstname>Joseph Patrick</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>501</father_id>
 <mother_id>502</mother_id>
-<parents_id></parents_id>
 <dob>1915-07-25</dob>
 <yob>1915</yob>
-<birth_place></birth_place>
 <dod>1944-08-12</dod>
 <yod>1944</yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -62,15 +44,12 @@
 <id>504</id>
 <firstname>John Fitzgerald</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
 <nickname>JFK or Jack</nickname>
 <sex>M</sex>
 <father_id>501</father_id>
 <mother_id>502</mother_id>
-<parents_id></parents_id>
 <dob>1917-05-29</dob>
 <yob>1917</yob>
-<birth_place></birth_place>
 <dod>1963-11-22</dod>
 <yod>1963</yod>
 <death_place>Dallas, Texas, USA</death_place>
@@ -81,18 +60,14 @@
 <id>505</id>
 <firstname>Rose Marie</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
 <nickname>Rosemary or Rosie</nickname>
 <sex>F</sex>
 <father_id>501</father_id>
 <mother_id>502</mother_id>
-<parents_id></parents_id>
 <dob>1918-09-13</dob>
 <yob>1918</yob>
-<birth_place></birth_place>
 <dod>2005-01-07</dod>
 <yod>2005</yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -100,18 +75,14 @@
 <id>506</id>
 <firstname>Kathleen Agnes</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
 <nickname>Kick</nickname>
 <sex>F</sex>
 <father_id>501</father_id>
 <mother_id>502</mother_id>
-<parents_id></parents_id>
 <dob>1920-02-20</dob>
 <yob>1920</yob>
 <birth_place>Brookline, Massachusetts, USA</birth_place>
-<dod></dod>
 <yod>1948</yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -119,12 +90,9 @@
 <id>507</id>
 <firstname>Eunice Mary</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>501</father_id>
 <mother_id>502</mother_id>
-<parents_id></parents_id>
 <dob>1921-07-10</dob>
 <yob>1921</yob>
 <birth_place>Brookline, Massachusetts, USA</birth_place>
@@ -138,12 +106,9 @@
 <id>508</id>
 <firstname>Patricia Helen</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>501</father_id>
 <mother_id>502</mother_id>
-<parents_id></parents_id>
 <dob>1924-06-05</dob>
 <yob>1924</yob>
 <birth_place>Brookline, Massachusetts, USA</birth_place>
@@ -157,18 +122,15 @@
 <id>509</id>
 <firstname>Robert Francis</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
 <nickname>Bobby</nickname>
 <sex>M</sex>
 <father_id>501</father_id>
 <mother_id>502</mother_id>
-<parents_id></parents_id>
 <dob>1925-11-20</dob>
 <yob>1925</yob>
 <birth_place>Brookline, Massachusetts, USA</birth_place>
 <dod>1968-06-06</dod>
 <yod>1968</yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -176,18 +138,13 @@
 <id>510</id>
 <firstname>Jean Ann</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>501</father_id>
 <mother_id>502</mother_id>
-<parents_id></parents_id>
 <dob>1928-02-20</dob>
 <yob>1928</yob>
-<birth_place></birth_place>
 <dod>2020-06-17</dod>
 <yod>2020</yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -195,12 +152,10 @@
 <id>511</id>
 <firstname>Edward Moore</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
 <nickname>Ted</nickname>
 <sex>M</sex>
 <father_id>501</father_id>
 <mother_id>502</mother_id>
-<parents_id></parents_id>
 <dob>1932-02-22</dob>
 <yob>1932</yob>
 <birth_place>Boston, Massachusetts, UAS</birth_place>
@@ -214,12 +169,8 @@
 <id>512</id>
 <firstname>Jaqueline Lee</firstname>
 <surname>Bouvier</surname>
-<birthname></birthname>
 <nickname>Jacky</nickname>
 <sex>F</sex>
-<father_id></father_id>
-<mother_id></mother_id>
-<parents_id></parents_id>
 <dob>1929-07-28</dob>
 <yob>1929</yob>
 <birth_place>Southampton, New York, USA</birth_place>
@@ -233,12 +184,8 @@
 <id>513</id>
 <firstname>William</firstname>
 <surname>Cavendish</surname>
-<birthname></birthname>
 <nickname>Marquess of Hartington</nickname>
 <sex>M</sex>
-<father_id></father_id>
-<mother_id></mother_id>
-<parents_id></parents_id>
 <dob>1917-12-10</dob>
 <yob>1917</yob>
 <birth_place>London, England</birth_place>
@@ -252,18 +199,11 @@
 <id>514</id>
 <firstname>Robert Sargent Jr.</firstname>
 <surname>Shriver</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
-<father_id></father_id>
-<mother_id></mother_id>
-<parents_id></parents_id>
 <dob>1915-11-09</dob>
 <yob>1915</yob>
-<birth_place></birth_place>
 <dod>2011-01-18</dod>
 <yod>2011</yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -272,11 +212,7 @@
 <firstname>Peter Sydney Ernest</firstname>
 <surname>Lawford</surname>
 <birthname>Aylen</birthname>
-<nickname></nickname>
 <sex>M</sex>
-<father_id></father_id>
-<mother_id></mother_id>
-<parents_id></parents_id>
 <dob>1923-09-07</dob>
 <yob>1923</yob>
 <birth_place>London, England</birth_place>
@@ -290,18 +226,10 @@
 <id>516</id>
 <firstname>Ethel</firstname>
 <surname>Skakel</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
-<father_id></father_id>
-<mother_id></mother_id>
-<parents_id></parents_id>
 <dob>1928-04-11</dob>
 <yob>1928</yob>
 <birth_place>Chicago, Illinois, USA</birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -309,12 +237,7 @@
 <id>517</id>
 <firstname>Stephen Edward</firstname>
 <surname>Smith</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
-<father_id></father_id>
-<mother_id></mother_id>
-<parents_id></parents_id>
 <dob>1927-09-24</dob>
 <yob>1927</yob>
 <birth_place>Bayport, Suffolk County, New York, USA</birth_place>
@@ -328,18 +251,10 @@
 <id>518</id>
 <firstname>Virginia Joan</firstname>
 <surname>Bennett</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
-<father_id></father_id>
-<mother_id></mother_id>
-<parents_id></parents_id>
 <dob>1936-09-26</dob>
 <yob>1936</yob>
 <birth_place>New York City, USA</birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -347,18 +262,9 @@
 <id>519</id>
 <firstname>Victoria</firstname>
 <surname>Reggie</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
-<father_id></father_id>
-<mother_id></mother_id>
-<parents_id></parents_id>
 <dob>1954-02-26</dob>
 <yob>1954</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -366,37 +272,21 @@
 <id>520</id>
 <firstname>Arabella</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>504</father_id>
 <mother_id>512</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1956</yob>
-<birth_place></birth_place>
-<dod></dod>
 <yod>1956</yod>
-<death_place></death_place>
-<photo></photo>
 </people>
 
 <people>
 <id>521</id>
 <firstname>Caroline Bouvier</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>504</father_id>
 <mother_id>512</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1957</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -404,18 +294,12 @@
 <id>522</id>
 <firstname>John Fitzgerald Jr.</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
 <nickname>John-John</nickname>
 <sex>M</sex>
 <father_id>504</father_id>
 <mother_id>512</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1960</yob>
-<birth_place></birth_place>
-<dod></dod>
 <yod>1999</yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -423,37 +307,21 @@
 <id>523</id>
 <firstname>Patrick Bouvier</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>504</father_id>
 <mother_id>512</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1963</yob>
-<birth_place></birth_place>
-<dod></dod>
 <yod>1963</yod>
-<death_place></death_place>
-<photo></photo>
 </people>
 
 <people>
 <id>524</id>
 <firstname>Robert Sargent III</firstname>
 <surname>Shriver</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>514</father_id>
 <mother_id>507</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1954</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -461,18 +329,10 @@
 <id>525</id>
 <firstname>Maria Owings</firstname>
 <surname>Shriver</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>514</father_id>
 <mother_id>507</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1955</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -480,18 +340,10 @@
 <id>526</id>
 <firstname>Timothy Perry</firstname>
 <surname>Shriver</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>514</father_id>
 <mother_id>507</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1959</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -499,18 +351,10 @@
 <id>527</id>
 <firstname>Mark Kennedy</firstname>
 <surname>Shriver</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>514</father_id>
 <mother_id>507</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1964</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -518,18 +362,10 @@
 <id>528</id>
 <firstname>Anthony Paul Kennedy</firstname>
 <surname>Shriver</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>514</father_id>
 <mother_id>507</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1965</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -537,18 +373,11 @@
 <id>529</id>
 <firstname>Christopher Kennedy</firstname>
 <surname>Lawford</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>516</father_id>
 <mother_id>508</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1955</yob>
-<birth_place></birth_place>
-<dod></dod>
 <yod>2018</yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -556,18 +385,10 @@
 <id>530</id>
 <firstname>Sidney Maleia</firstname>
 <surname>Lawford</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>516</father_id>
 <mother_id>508</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1956</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -575,18 +396,10 @@
 <id>531</id>
 <firstname>Victoria Francis</firstname>
 <surname>Lawford</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>516</father_id>
 <mother_id>508</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1958</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -594,18 +407,10 @@
 <id>532</id>
 <firstname>Robin Elizabeth</firstname>
 <surname>Lawford</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>516</father_id>
 <mother_id>508</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1961</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -613,18 +418,10 @@
 <id>533</id>
 <firstname>Kathleen Hartington</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>509</father_id>
 <mother_id>516</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1951</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -632,18 +429,10 @@
 <id>534</id>
 <firstname>Joseph Patrick II</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>509</father_id>
 <mother_id>516</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1952</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -651,18 +440,10 @@
 <id>535</id>
 <firstname>Robert Francis Jr.</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>509</father_id>
 <mother_id>516</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1954</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -670,18 +451,11 @@
 <id>536</id>
 <firstname>David Anthony</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>509</father_id>
 <mother_id>516</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1955</yob>
-<birth_place></birth_place>
-<dod></dod>
 <yod>1984</yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -689,18 +463,10 @@
 <id>537</id>
 <firstname>Mary Courtney</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>509</father_id>
 <mother_id>516</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1956</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -708,18 +474,11 @@
 <id>538</id>
 <firstname>Michael LeMoyne</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>509</father_id>
 <mother_id>516</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1958</yob>
-<birth_place></birth_place>
-<dod></dod>
 <yod>1997</yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -727,18 +486,10 @@
 <id>539</id>
 <firstname>Marry Kerry</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>509</father_id>
 <mother_id>516</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1959</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -746,18 +497,10 @@
 <id>540</id>
 <firstname>Christopher George</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>509</father_id>
 <mother_id>516</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1963</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -765,18 +508,10 @@
 <id>541</id>
 <firstname>Mathew Maxell Taylor</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname>Max</nickname>
 <sex>M</sex>
 <father_id>509</father_id>
 <mother_id>516</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1965</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -784,18 +519,10 @@
 <id>542</id>
 <firstname>Douglas Harriman</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>509</father_id>
 <mother_id>516</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1967</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -803,18 +530,10 @@
 <id>543</id>
 <firstname>Rory Elizabeth</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>509</father_id>
 <mother_id>516</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1968</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -822,18 +541,10 @@
 <id>544</id>
 <firstname>Stephen Edward Jr.</firstname>
 <surname>Smith</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>517</father_id>
 <mother_id>510</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1957</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -841,18 +552,10 @@
 <id>545</id>
 <firstname>William Kennedy</firstname>
 <surname>Smith</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>517</father_id>
 <mother_id>510</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1960</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -860,18 +563,10 @@
 <id>546</id>
 <firstname>Amanda Mary</firstname>
 <surname>Smith</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>517</father_id>
 <mother_id>510</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1967</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -879,37 +574,20 @@
 <id>547</id>
 <firstname>Kym Maria</firstname>
 <surname>Smith</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>517</father_id>
 <mother_id>510</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1972</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
-<photo></photo>
 </people>
 
 <people>
 <id>548</id>
 <firstname>Kara Anne</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>F</sex>
 <father_id>511</father_id>
 <mother_id>518</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1960</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -917,18 +595,10 @@
 <id>549</id>
 <firstname>Edward Moore Jr.</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>511</father_id>
 <mother_id>518</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1961</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -936,18 +606,10 @@
 <id>550</id>
 <firstname>Patrick Joseph</firstname>
 <surname>Kennedy</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
 <father_id>511</father_id>
 <mother_id>518</mother_id>
-<parents_id></parents_id>
-<dob></dob>
 <yob>1967</yob>
-<birth_place></birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
@@ -955,18 +617,10 @@
 <id>551</id>
 <firstname>Arnold Alois</firstname>
 <surname>Schwarzenegger</surname>
-<birthname></birthname>
-<nickname></nickname>
 <sex>M</sex>
-<father_id></father_id>
-<mother_id></mother_id>
-<parents_id></parents_id>
 <dob>1947-07-30</dob>
 <yob>1947</yob>
 <birth_place>Thal, Styria, Austria</birth_place>
-<dod></dod>
-<yod></yod>
-<death_place></death_place>
 <photo>Y</photo>
 </people>
 
