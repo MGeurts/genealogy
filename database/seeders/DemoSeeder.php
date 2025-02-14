@@ -184,6 +184,7 @@ class DemoSeeder extends Seeder
             'surname'   => 'Only FATHER side',
             'sex'       => 'm',
             'dob'       => '1999-01-04',
+            'yob'       => '1999',
 
             'father_id' => 2,
 
@@ -224,6 +225,7 @@ class DemoSeeder extends Seeder
             'surname'   => 'Gay',
             'sex'       => 'f',
             'dob'       => '1970-01-01',
+            'yob'       => '1970',
 
             'team_id' => $this->british_royals_team,
         ]);
@@ -234,6 +236,7 @@ class DemoSeeder extends Seeder
             'surname'   => 'Gay',
             'sex'       => 'f',
             'dob'       => '1971-01-01',
+            'yob'       => '1971',
 
             'team_id' => $this->british_royals_team,
         ]);
@@ -244,6 +247,7 @@ class DemoSeeder extends Seeder
             'surname'   => 'Gay parents',
             'sex'       => 'm',
             'dob'       => '2000-01-01',
+            'yob'       => '2000',
             'mother_id' => 201,
 
             'team_id' => $this->british_royals_team,
@@ -255,6 +259,7 @@ class DemoSeeder extends Seeder
             'surname'   => 'Gay parents',
             'sex'       => 'm',
             'dob'       => '2001-01-01',
+            'yob'       => '2001',
             'mother_id' => 201,
 
             'team_id' => $this->british_royals_team,
@@ -266,6 +271,7 @@ class DemoSeeder extends Seeder
             'surname'   => 'King Charles',
             'sex'       => 'm',
             'dob'       => '1960-01-01',
+            'yob'       => '1960',
 
             'team_id' => $this->british_royals_team,
         ]);
@@ -276,6 +282,7 @@ class DemoSeeder extends Seeder
             'surname'   => 'New Partner King Charles',
             'sex'       => 'm',
             'dob'       => '2015-01-01',
+            'yob'       => '2015',
             'father_id' => 205,
 
             'team_id' => $this->british_royals_team,
@@ -305,6 +312,7 @@ class DemoSeeder extends Seeder
             'surname'    => 'Gay parents',
             'sex'        => 'f',
             'dob'        => '2002-01-01',
+            'yob'        => '2002',
             'parents_id' => 101,
 
             'team_id' => $this->british_royals_team,
@@ -316,6 +324,7 @@ class DemoSeeder extends Seeder
             'surname'    => 'Gay parents',
             'sex'        => 'f',
             'dob'        => '2003-01-01',
+            'yob'        => '2003',
             'parents_id' => 101,
 
             'team_id' => $this->british_royals_team,
@@ -421,6 +430,7 @@ class DemoSeeder extends Seeder
             'surname'   => 'DOE',
             'sex'       => 'm',
             'dob'       => '1963-01-01',
+            'yob'       => '1963',
             'photo'     => '209_001_demo.webp',
 
             'team_id' => $this->developer_team,
@@ -432,6 +442,7 @@ class DemoSeeder extends Seeder
             'surname'   => 'BAR',
             'sex'       => 'm',
             'dob'       => '1963-01-01',
+            'yob'       => '1963',
             'photo'     => '210_001_demo.webp',
 
             'team_id' => $this->developer_team,
