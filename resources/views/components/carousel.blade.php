@@ -57,7 +57,7 @@
 
             loadImages() {
                 try {
-                    const allImages = @json(scandir(public_path('img/image-slider'))).filter(image => !image.startsWith('.'));
+                    const allImages = @json(scandir(public_path('img/carousel'))).filter(image => !image.startsWith('.'));
                     const allowedExtensions = ['png', 'webp', 'jpg', 'jpeg'];
                     this.images = allImages.filter(image => {
                         const extension = image.split('.').pop().toLowerCase();

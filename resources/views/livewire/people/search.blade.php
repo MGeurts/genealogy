@@ -1,6 +1,6 @@
 <div>
     {{-- search box section --}}
-    <div class="p-2 pb-5 sticky top-[6.5rem] z-20 bg-gray-100 dark:bg-gray-900">
+    <div class="p-2 sticky top-[6.5rem] z-20 bg-gray-100 dark:bg-gray-900">
         <div class="p-2 flex flex-col rounded dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
             {{-- header --}}
             <div class="flex flex-wrap mb-2 text-lg">
@@ -46,8 +46,8 @@
             {{-- search box --}}
             <div class="flex flex-wrap items-start gap-2">
                 <div class="flex-1 flex-grow w-full">
-                    <x-ts-input wire:model.live.debounce.500ms="search" type="search" icon="tabler.search" hint="{{ __('app.people_search_tip') }}" placeholder="{{ __('app.people_search_placeholder') }}"
-                        autofocus />
+                    <x-ts-input wire:model.live.debounce.500ms="search" icon="tabler.search" hint="{{ __('app.people_search_tip') }}" placeholder="{{ __('app.people_search_placeholder') }}"
+                        autofocus clearable />
                 </div>
 
                 <div class="flex-1 max-w-max">
@@ -79,20 +79,16 @@
                 <livewire:people.person :person="$person" :key="$person->id" />
             @endforeach
         </div>
-    @elseif(!$search)
-        {{-- image slider --}}
-        <div class="p-2">
-            <x-image-slider />
-        </div>
-
-        {{-- <div class="p-2 w-192">
+    @else
+        {{-- carousel --}}
+        <div class="p-5 mx-auto text-center max-w-6xl">
             <x-ts-carousel :images="[
-            ['src' => url('img/image-slider/genealogy-research-001.webp'), 'alt' => 'Wallpaper 1'],
-            ['src' => url('img/image-slider/genealogy-research-002.webp'), 'alt' => 'Wallpaper 2'],
-            ['src' => url('img/image-slider/genealogy-research-003.webp'), 'alt' => 'Wallpaper 3'],
-            ['src' => url('img/image-slider/genealogy-research-004.webp'), 'alt' => 'Wallpaper 4'],
-        ]" autoplay stop-on-hover interval="5" wrapper="aspect-[3/1]" />
-        </div> --}}
+                ['src' => url('img/carousel/genealogy-research-001.webp'), 'alt' => '1'],
+                ['src' => url('img/carousel/genealogy-research-002.webp'), 'alt' => '2'],
+                ['src' => url('img/carousel/genealogy-research-003.webp'), 'alt' => '3'],
+                ['src' => url('img/carousel/genealogy-research-004.webp'), 'alt' => '4'],
+            ]" autoplay stop-on-hover interval="10" />
+        </div>
     @endif
 
     {{-- search help modal --}}
