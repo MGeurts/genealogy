@@ -99,7 +99,7 @@
                 </div>
 
                 <div class="flex-1 flex-grow max-w-full text-end">
-                    <x-ts-button color="secondary" class="mr-1" wire:click="resetChild()" wire:dirty>
+                    <x-ts-button color="secondary" class="mr-1" wire:click="resetMother()" wire:dirty>
                         {{ __('app.cancel') }}
                     </x-ts-button>
 
@@ -139,7 +139,7 @@
                 </div>
 
                 <div class="flex-1 flex-grow max-w-full text-end">
-                    <x-ts-button color="secondary" class="mr-1" wire:click="resetChild()" wire:dirty>
+                    <x-ts-button color="secondary" class="mr-1" wire:click="resetMother()" wire:dirty>
                         {{ __('app.cancel') }}
                     </x-ts-button>
 

@@ -104,7 +104,7 @@ class Photos extends Component
 
             $personPhotos->save($this->uploads);
 
-            $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', count($this->uploads)))->send();
+            $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', count($this->uploads)))->flash()->send();
 
             $this->redirect(route('people.edit-photos', ['person' => $this->person->id]));
         }
@@ -121,7 +121,7 @@ class Photos extends Component
             $this->setNewPrimaryPhoto();
         }
 
-        $this->toast()->success(__('app.delete'), __('person.photo_deleted'))->send();
+        $this->toast()->success(__('app.delete'), __('person.photo_deleted'))->flash()->send();
 
         $this->dispatch('photos_updated');
 

@@ -106,16 +106,26 @@ class AppServiceProvider extends ServiceProvider
         // Cards
         $ui->card()
             ->block('wrapper.first')->replace('gap-4', 'gap-2')
-            ->block('wrapper.second')->replace('rounded-lg', 'rounded')
-            ->block('wrapper.second')->replace('dark:bg-dark-700', 'dark:bg-neutral-700')
-            ->block('header.wrapper', 'dark:border-b-neutral-600 flex items-center justify-between border-b border-b-gray-100 p-2')
-            ->block('footer.wrapper', 'text-secondary-700 dark:text-dark-300 dark:border-t-neutral-600 rounded rounded-t-none border-t p-2')
-            ->block('footer.text', 'flex items-center justify-end gap-2');
+            ->block('wrapper.second')->replace([
+                'dark:bg-dark-700' => 'dark:bg-neutral-700',
+                'rounded-lg'       => 'rounded',
+            ])
+            ->block('header.wrapper.base')->replace([
+                'dark:border-b-dark-600' => 'dark:border-b-neutral-600',
+                'p-4 px-6'               => 'p-2',
+            ])
+            ->block('footer.wrapper')->replace([
+                'dark:border-t-dark-600' => 'dark:border-t-neutral-600',
+                'rounded-lg'             => 'rounded',
+            ]);
+
+        // Carousels
+        $ui->carousel()
+            ->block('images.base')->append('rounded');
 
         // Dropdowns
         $ui->dropdown()
             ->block('floating')->replace('rounded-lg', 'rounded')
-            ->block('width')->replace('w-56', 'w-64')
             ->block('action.icon')->replace('text-gray-400', 'text-primary-500 dark:text-primary-300');
 
         // Forms
@@ -128,14 +138,18 @@ class AppServiceProvider extends ServiceProvider
             ->block('input.base')->replace('rounded-md', 'rounded');
 
         $ui->form('label')
-            ->block('text')->replace('text-gray-600', 'text-gray-700')
-            ->block('text')->replace('dark:text-dark-400', 'dark:text-dark-500');
+            ->block('text')->replace([
+                'text-gray-600'      => 'text-gray-700',
+                'dark:text-dark-400' => 'dark:text-dark-500',
+            ]);
 
         // Modals
         $ui->modal()
             ->block('wrapper.first')->replace('bg-opacity-50', 'bg-opacity-20')
-            ->block('wrapper.fourth')->replace('dark:bg-dark-700', 'dark:bg-dark-900')
-            ->block('wrapper.fourth')->replace('rounded-xl', 'rounded');
+            ->block('wrapper.fourth')->replace([
+                'dark:bg-dark-700' => 'dark:bg-dark-900',
+                'rounded-xl'       => 'rounded',
+            ]);
 
         // Slides
         $ui->slide()
@@ -145,8 +159,10 @@ class AppServiceProvider extends ServiceProvider
 
         // Tabs
         $ui->tab()
-            ->block('base.wrapper')->replace('rounded-lg', 'rounded')
-            ->block('base.wrapper')->replace('dark:bg-dark-700', 'dark:bg-neutral-700')
+            ->block('base.wrapper')->replace([
+                'dark:bg-dark-700' => 'dark:bg-neutral-700',
+                'rounded-lg'       => 'rounded',
+            ])
             ->block('item.select')->replace('dark:text-dark-300', 'dark:text-neutral-50');
 
         // Tables

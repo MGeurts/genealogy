@@ -10,10 +10,10 @@
 
             @if (auth()->user()->hasPermission('person:create'))
                 <div class="flex-1 flex-grow min-w-max max-w-min text-end">
-                    <x-ts-dropdown icon="menu-2" position="bottom-end">
+                    <x-ts-dropdown icon="tabler.menu-2" position="bottom-end">
                         <a href="/people/{{ $person->id }}/add-child">
                             <x-ts-dropdown.items>
-                                <x-ts-icon icon="user-plus" class="mr-2" />
+                                <x-ts-icon icon="tabler.user-plus" class="mr-2" />
                                 {{ __('person.add_child') }}
                             </x-ts-dropdown.items>
                         </a>
@@ -25,7 +25,7 @@
                                 @if (!isset($child->type))
                                     <x-ts-dropdown.items class="!text-danger-600 dark:!text-danger-400" wire:click="confirmDisconnect({{ $child->id }} , '{{ $child->name }}')"
                                         title="{{ __('person.delete_child') }}">
-                                        <x-ts-icon icon="plug-connected-x" class="mr-2" /> {{ $child->name }}
+                                        <x-ts-icon icon="tabler.plug-connected-x" class="mr-2" /> {{ $child->name }}
                                     </x-ts-dropdown.items>
                                 @endif
                             @endforeach
@@ -44,9 +44,9 @@
                         {{ $child->name }}
                     </x-link>
 
-                    <x-ts-icon icon="{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                    <x-ts-icon icon="tabler.{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @if (isset($child->type))
-                        <x-ts-icon icon="heart-plus" class="inline-block size-5 text-emerald-600" />
+                        <x-ts-icon icon="tabler.heart-plus" class="inline-block size-5 text-emerald-600" />
                     @endif
                 </div>
             </div>

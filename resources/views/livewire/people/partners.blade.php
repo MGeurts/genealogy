@@ -10,10 +10,10 @@
 
             @if (auth()->user()->hasPermission('couple:create'))
                 <div class="flex-1 flex-grow min-w-max max-w-min text-end">
-                    <x-ts-dropdown icon="menu-2" position="bottom-end">
+                    <x-ts-dropdown icon="tabler.menu-2" position="bottom-end">
                         <a href="/people/{{ $person->id }}/add-partner">
                             <x-ts-dropdown.items>
-                                <x-ts-icon icon="user-plus" class="mr-2" />
+                                <x-ts-icon icon="tabler.user-plus" class="mr-2" />
                                 {{ __('person.add_relationship') }}
                             </x-ts-dropdown.items>
                         </a>
@@ -24,7 +24,7 @@
                             @foreach ($person->couples->sortBy('date_start') as $couple)
                                 <a href="/people/{{ $person->id }}/{{ $couple->id }}/edit-partner">
                                     <x-ts-dropdown.items title="{{ __('person.edit_relationship') }}">
-                                        <x-ts-icon icon="user-edit" class="mr-2" />
+                                        <x-ts-icon icon="tabler.user-edit" class="mr-2" />
                                         <div>
                                             {{ $couple->person2_id === $person->id ? $couple->person_1->name : $couple->person_2->name }}<br />
                                             {{ $couple->date_start ? $couple->date_start->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '??' }}
@@ -40,7 +40,7 @@
                             @foreach ($person->couples->sortBy('date_start') as $couple)
                                 <x-ts-dropdown.items class="!text-danger-600 dark:!text-danger-400" wire:click="confirmDeletion({{ $couple->id }} , '{{ $couple->name }}')"
                                     title="{{ __('person.delete_relationship') }}">
-                                    <x-ts-icon icon="trash" class="mr-2" />
+                                    <x-ts-icon icon="tabler.trash" class="mr-2" />
                                     <div>
                                         {{ $couple->person2_id === $person->id ? $couple->person_1->name : $couple->person_2->name }}<br />
                                         {{ $couple->date_start ? $couple->date_start->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '??' }}
@@ -63,27 +63,27 @@
                             {{ $couple->person_1->name }}
                         </x-link>
 
-                        <x-ts-icon icon="{{ $couple->person_1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="tabler.{{ $couple->person_1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @else
                         <x-link href="/people/{{ $couple->person_2->id }}" @class(['text-danger-600 dark:text-danger-400' => $couple->person_2->isDeceased()])>
                             {{ $couple->person_2->name }}
                         </x-link>
 
-                        <x-ts-icon icon="{{ $couple->person_2->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="tabler.{{ $couple->person_2->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @endif
 
                     @if ($couple->is_married)
-                        <x-ts-icon icon="circles-relation" class="inline-block text-yellow-500 size-5" />
+                        <x-ts-icon icon="tabler.circles-relation" class="inline-block text-yellow-500 size-5" />
                     @endif
                     <br />
 
                     <p>
-                        <x-ts-icon icon="hearts" class="inline-block size-5 text-emerald-600" />
+                        <x-ts-icon icon="tabler.hearts" class="inline-block size-5 text-emerald-600" />
                         {{ $couple->date_start ? $couple->date_start->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '??' }}
 
                         @if ($couple->date_end or $couple->has_ended)
                             <br />
-                            <x-ts-icon icon="hearts-off" class="inline-block size-5 text-danger-600 dark:text-danger-400" />
+                            <x-ts-icon icon="tabler.hearts-off" class="inline-block size-5 text-danger-600 dark:text-danger-400" />
                             {{ $couple->date_end ? $couple->date_end->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '??' }}
                         @endif
                     </p>

@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="flex-1 flex-grow max-w-full min-w-max text-end">
-                    <x-ts-icon icon="id" class="inline-block" />
+                    <x-ts-icon icon="tabler.id" class="inline-block" />
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@
 
                 {{-- pob --}}
                 <div class="col-span-6">
-                    <x-ts-input wire:model="profileForm.pob" id="pob" label="{{ __('person.pob') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="pod" />
+                    <x-ts-input wire:model="profileForm.pob" id="pob" label="{{ __('person.pob') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autocomplete="pob" />
                 </div>
                 <x-hr.narrow class="col-span-6 !my-0" />
 

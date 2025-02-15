@@ -16,7 +16,7 @@
                 <x-link href="/people/{{ $sibling->id }}" @class(['text-danger-600 dark:text-danger-400' => $sibling->isDeceased()])>
                     {{ $sibling->name }}
                 </x-link>
-                <x-ts-icon icon="{{ $sibling->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                <x-ts-icon icon="tabler.{{ $sibling->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                 <span class="text-warning-500">{{ $sibling->type }}</span>
             </p>
         @endforeach

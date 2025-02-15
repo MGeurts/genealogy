@@ -14,7 +14,7 @@
             </div>
 
             @if (auth()->user()->isCurrentTeam($team))
-                <x-ts-icon icon="circle-check" class="size-5 ms-2 text-emerald-600" />
+                <x-ts-icon icon="tabler.circle-check" class="size-5 ms-2 text-emerald-600" />
             @endif
         </div>
     </x-dynamic-component>

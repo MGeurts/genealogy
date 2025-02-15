@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="flex-1 flex-grow max-w-full min-w-max text-end">
-                    <x-ts-icon icon="user-edit" class="inline-block" />
+                    <x-ts-icon icon="tabler.user-edit" class="inline-block" />
                 </div>
             </div>
         </div>

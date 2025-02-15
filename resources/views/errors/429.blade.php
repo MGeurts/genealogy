@@ -9,7 +9,7 @@
 
     <div class="p-2 max-w-5xl overflow-x-auto grow dark:text-neutral-200">
         <div class="hidden dark:flex">
-            <x-ts-alert icon="bug" color="white">
+            <x-ts-alert icon="tabler.bug" color="white">
                 <x-slot:title>
                     {{ $exception->getStatuscode() }}
                 </x-slot:title>
@@ -21,7 +21,7 @@
                 <x-slot:footer>
                     <div class="flex justify-end">
                         <x-ts-button href="/" color="slate" class="text-sm">
-                            <x-ts-icon icon="home" class="size-5" />
+                            <x-ts-icon icon="tabler.home" class="size-5" />
                             {{ __('app.home') }}
                         </x-ts-button>
                     </div>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="flex dark:hidden">
-            <x-ts-alert icon="bug" color="black">
+            <x-ts-alert icon="tabler.bug" color="black">
                 <x-slot:title>
                     {{ $exception->getStatuscode() }}
                 </x-slot:title>
@@ -42,7 +42,7 @@
                 <x-slot:footer>
                     <div class="flex justify-end">
                         <x-ts-button href="/" color="slate" class="text-sm">
-                            <x-ts-icon icon="home" class="size-5" />
+                            <x-ts-icon icon="tabler.home" class="size-5" />
                             {{ __('app.home') }}
                         </x-ts-button>
                     </div>

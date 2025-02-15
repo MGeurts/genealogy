@@ -5,7 +5,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 11.42.0.
+ * Generated for Laravel 11.42.1.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -16094,6 +16094,21 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
+         * Create a new event stream response.
+         *
+         * @param \Closure $callback
+         * @param array $headers
+         * @param string $endStreamWith
+         * @return \Symfony\Component\HttpFoundation\StreamedResponse 
+         * @static 
+         */
+        public static function eventStream($callback, $headers = [], $endStreamWith = '</stream>')
+        {
+            /** @var \Illuminate\Routing\ResponseFactory $instance */
+            return $instance->eventStream($callback, $headers, $endStreamWith);
+        }
+
+        /**
          * Create a new streamed response instance.
          *
          * @param callable $callback
@@ -24466,7 +24481,7 @@ namespace TallStackUi\Facades {
      */
     class TallStackUi {
         /**
-         * 
+         * Create an instance of the BladeSupport class.
          *
          * @static 
          */
@@ -24477,18 +24492,7 @@ namespace TallStackUi\Facades {
         }
 
         /**
-         * 
-         *
-         * @static 
-         */
-        public static function component($name = null)
-        {
-            /** @var \TallStackUi\TallStackUi $instance */
-            return $instance->component($name);
-        }
-
-        /**
-         * 
+         * Create an instance of the BladeDirectives class.
          *
          * @static 
          */
@@ -24499,7 +24503,7 @@ namespace TallStackUi\Facades {
         }
 
         /**
-         * 
+         * Get the internal icon path.
          *
          * @static 
          */
@@ -24510,14 +24514,25 @@ namespace TallStackUi\Facades {
         }
 
         /**
-         * 
+         * Create an instance of the Personalization class.
          *
          * @static 
          */
-        public static function personalize($component = null)
+        public static function personalize($component = null, $scope = null)
         {
             /** @var \TallStackUi\TallStackUi $instance */
-            return $instance->personalize($component);
+            return $instance->personalize($component, $scope);
+        }
+
+        /**
+         * Set the component prefix or get the ComponentPrefix instance when $name is null.
+         *
+         * @static 
+         */
+        public static function prefix($name = null)
+        {
+            /** @var \TallStackUi\TallStackUi $instance */
+            return $instance->prefix($name);
         }
 
             }

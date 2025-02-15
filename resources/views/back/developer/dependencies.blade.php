@@ -44,7 +44,7 @@
                         </li>
 
                         <li class="py-2">
-                            <x-link href="https://tallstackui.com/" target="_blank">TallStackUI</x-link> 1 (featuring <x-link href="https://tabler.io/icons" target="_blank">Tabler Icons</x-link>)
+                            <x-link href="https://tallstackui.com/" target="_blank">TallStackUI</x-link> 2 (featuring <x-link href="https://tabler.io/icons" target="_blank">Tabler Icons</x-link>)
                             <x-ts-button xs href="https://tallstackui.com/docs/get-started/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
                     </ul>

@@ -17,7 +17,7 @@
                         </div>
 
                         <div class="flex-1 flex-grow min-w-max max-w-min text-end">
-                            <x-ts-icon icon="cake" />
+                            <x-ts-icon icon="tabler.cake" />
                         </div>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                                         ])>
                                             {{ $person->name }}
                                         </x-link>
-                                        <x-ts-icon icon="{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                                        <x-ts-icon icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                                     </td>
                                     <td class="p-2 whitespace-nowrap text-end">
                                         {{ $person->dob ? $person->dob->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '' }}
@@ -63,7 +63,7 @@
                                         @if ($person->isDeceased())
                                             <br />
                                             <span class="text-danger-600 dark:text-danger-400">
-                                                <x-ts-icon icon="coffin" class="inline-block mr-1" /> {{ $person->age }}
+                                                <x-ts-icon icon="tabler.coffin" class="inline-block mr-1" /> {{ $person->age }}
                                             </span>
                                         @endif
                                     </td>

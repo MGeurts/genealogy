@@ -33,6 +33,14 @@ class Button extends \TallStackUi\View\Components\Button\Button
                 'warning' => 'bg-warning-300 border-warning-300',
                 'info'    => 'bg-info-300 border-info-300',
             ],
+            'flat' => [
+                // other indexes goes here
+
+                'success' => 'bg-success-300 border-success-300',
+                'danger'  => 'bg-danger-300 border-danger-300',
+                'warning' => 'bg-warning-300 border-warning-300',
+                'info'    => 'bg-info-300 border-info-300',
+            ],
         ];
     }
 }

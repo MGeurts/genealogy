@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="flex-1 flex-grow max-w-full min-w-max text-end">
-                        <x-ts-icon icon="social" class="inline-block size-5" />
+                        <x-ts-icon icon="tabler.social" class="inline-block size-5" />
                     </div>
                 </div>
             </div>
@@ -37,9 +37,9 @@
                         ])>
                             {{ $person->father->father->name }}
                         </x-link>
-                        <x-ts-icon icon="{{ $person->father->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="tabler.{{ $person->father->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @else
-                        <x-ts-icon icon="user-question" class="inline-block" />
+                        <x-ts-icon icon="tabler.user-question" class="inline-block" />
                     @endif
                 </div>
                 <div class="p-2 text-center border basis-1/5">
@@ -49,9 +49,9 @@
                         ])>
                             {{ $person->father->mother->name }}
                         </x-link>
-                        <x-ts-icon icon="{{ $person->father->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="tabler.{{ $person->father->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @else
-                        <x-ts-icon icon="user-question" class="inline-block" />
+                        <x-ts-icon icon="tabler.user-question" class="inline-block" />
                     @endif
                 </div>
                 <div class="p-2 text-center border basis-1/5">
@@ -61,9 +61,9 @@
                         ])>
                             {{ $person->mother->father->name }}
                         </x-link>
-                        <x-ts-icon icon="{{ $person->mother->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="tabler.{{ $person->mother->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @else
-                        <x-ts-icon icon="user-question" class="inline-block" />
+                        <x-ts-icon icon="tabler.user-question" class="inline-block" />
                     @endif
                 </div>
                 <div class="p-2 text-center border basis-1/5">
@@ -73,9 +73,9 @@
                         ])>
                             {{ $person->mother->mother->name }}
                         </x-link>
-                        <x-ts-icon icon="{{ $person->mother->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="tabler.{{ $person->mother->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @else
-                        <x-ts-icon icon="user-question" class="inline-block" />
+                        <x-ts-icon icon="tabler.user-question" class="inline-block" />
                     @endif
                 </div>
             </div>
@@ -98,7 +98,7 @@
                                     ])>
                                         {{ $sibling->name }}
                                     </x-link>
-                                    <x-ts-icon icon="{{ $sibling->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                                    <x-ts-icon icon="tabler.{{ $sibling->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
 
                                     <ol class="ml-8 list-decimal">
                                         @foreach ($sibling->children as $child)
@@ -108,7 +108,7 @@
                                                 ])>
                                                     {{ $child->name }}
                                                 </x-link>
-                                                <x-ts-icon icon="{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                                                <x-ts-icon icon="tabler.{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                                             </li>
                                         @endforeach
                                     </ol>
@@ -129,7 +129,7 @@
                                     ])>
                                         {{ $sibling->name }}
                                     </x-link>
-                                    <x-ts-icon icon="{{ $sibling->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                                    <x-ts-icon icon="tabler.{{ $sibling->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
 
                                     <ol class="ml-8 list-decimal">
                                         @foreach ($sibling->children as $child)
@@ -139,7 +139,7 @@
                                                 ])>
                                                     {{ $child->name }}
                                                 </x-link>
-                                                <x-ts-icon icon="{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                                                <x-ts-icon icon="tabler.{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                                             </li>
                                         @endforeach
                                     </ol>
@@ -161,9 +161,9 @@
                         ])>
                             {{ $person->father->name }}
                         </x-link>
-                        <x-ts-icon icon="{{ $person->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="tabler.{{ $person->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @else
-                        <x-ts-icon icon="user-question" class="inline-block" />
+                        <x-ts-icon icon="tabler.user-question" class="inline-block" />
                     @endif
                 </div>
                 <div class="p-2 text-center border basis-2/5">
@@ -173,9 +173,9 @@
                         ])>
                             {{ $person->mother->name }}
                         </x-link>
-                        <x-ts-icon icon="{{ $person->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="tabler.{{ $person->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @else
-                        <x-ts-icon icon="user-question" class="inline-block" />
+                        <x-ts-icon icon="tabler.user-question" class="inline-block" />
                     @endif
                 </div>
             </div>
@@ -190,7 +190,7 @@
                     ])>
                         {{ $person->name }}
                     </x-link>
-                    <x-ts-icon icon="{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                    <x-ts-icon icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                 </div>
             </div>
 
@@ -211,7 +211,7 @@
                                 ])>
                                     {{ $child->name }}
                                 </x-link>
-                                <x-ts-icon icon="{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                                <x-ts-icon icon="tabler.{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
 
                                 <ol class="ml-8 list-decimal">
                                     @foreach ($child->children as $grandchild)
@@ -221,7 +221,7 @@
                                             ])>
                                                 {{ $grandchild->name }}
                                             </x-link>
-                                            <x-ts-icon icon="{{ $grandchild->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                                            <x-ts-icon icon="tabler.{{ $grandchild->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                                         </li>
                                     @endforeach
                                 </ol>
@@ -248,7 +248,7 @@
                                 ])>
                                     {{ $sibling->name }}
                                 </x-link>
-                                <x-ts-icon icon="{{ $sibling->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                                <x-ts-icon icon="tabler.{{ $sibling->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
 
                                 <ol class="ml-8 list-decimal">
                                     @foreach ($sibling->children as $child)
@@ -258,7 +258,7 @@
                                             ])>
                                                 {{ $child->name }}
                                             </x-link>
-                                            <x-ts-icon icon="{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                                            <x-ts-icon icon="tabler.{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                                         </li>
                                     @endforeach
                                 </ol>

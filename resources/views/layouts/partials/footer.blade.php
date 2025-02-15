@@ -9,22 +9,22 @@
         <!-- Social Media Icons -->
         <div class="flex justify-center">
             <a href="https://www.facebook.com/" class="mr-6" target="_blank" aria-label="Visit Facebook" title="Facebook">
-                <x-ts-icon icon="brand-facebook" class="text-neutral-900 dark:text-neutral-200" />
+                <x-ts-icon icon="tabler.brand-facebook" class="text-neutral-900 dark:text-neutral-200" />
             </a>
             <a href="https://twitter.com/Kreaweb_be" class="mr-6" target="_blank" aria-label="Visit X (formerly Twitter)" title="X">
-                <x-ts-icon icon="brand-x" class="text-neutral-900 dark:text-neutral-200" />
+                <x-ts-icon icon="tabler.brand-x" class="text-neutral-900 dark:text-neutral-200" />
             </a>
             <a href="https://www.instagram.com/" class="mr-6" target="_blank" aria-label="Visit Instagram" title="Instagram">
-                <x-ts-icon icon="brand-instagram" class="text-neutral-900 dark:text-neutral-200" />
+                <x-ts-icon icon="tabler.brand-instagram" class="text-neutral-900 dark:text-neutral-200" />
             </a>
             <a href="https://www.linkedin.com/" class="mr-6" target="_blank" aria-label="Visit LinkedIn" title="LinkedIn">
-                <x-ts-icon icon="brand-linkedin" class="text-neutral-900 dark:text-neutral-200" />
+                <x-ts-icon icon="tabler.brand-linkedin" class="text-neutral-900 dark:text-neutral-200" />
             </a>
             <a href="https://www.youtube.com/channel/UClUVszEUeb-nY7qM00ERCHg" class="mr-6" target="_blank" aria-label="Visit YouTube" title="YouTube">
-                <x-ts-icon icon="brand-youtube" class="text-neutral-900 dark:text-neutral-200" />
+                <x-ts-icon icon="tabler.brand-youtube" class="text-neutral-900 dark:text-neutral-200" />
             </a>
             <a href="https://github.com/MGeurts" class="" target="_blank" aria-label="Visit GitHub" title="GitHub">
-                <x-ts-icon icon="brand-github" class="text-neutral-900 dark:text-neutral-200" />
+                <x-ts-icon icon="tabler.brand-github" class="text-neutral-900 dark:text-neutral-200" />
             </a>
         </div>
     </div>
@@ -76,15 +76,15 @@
                 <h6 class="flex justify-center mb-4 font-semibold uppercase md:justify-start">{{ __('app.contact') }}</h6>
                 <x-hr.narrow class="w-48 h-1 my-4 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
                 <p class="flex items-center justify-center mb-4 md:justify-start">
-                    <x-ts-icon icon="home" class="mr-3 inline-block size-5" />
+                    <x-ts-icon icon="tabler.home" class="mr-3 inline-block size-5" />
                     New York, NY 10012, US
                 </p>
                 <p class="flex items-center justify-center mb-4 md:justify-start">
-                    <x-ts-icon icon="mail" class="mr-3 inline-block size-5" />
+                    <x-ts-icon icon="tabler.mail" class="mr-3 inline-block size-5" />
                     info@example.com
                 </p>
                 <p class="flex items-center justify-center mb-4 md:justify-start">
-                    <x-ts-icon icon="phone" class="mr-3 inline-block size-5" />
+                    <x-ts-icon icon="tabler.phone" class="mr-3 inline-block size-5" />
                     + 01 234 567 88
                 </p>
             </div>

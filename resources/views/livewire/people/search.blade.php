@@ -7,12 +7,12 @@
                 <div class="flex-1 flex-grow max-w-full">
                     @if (auth()->user()->is_developer)
                         {!! __('app.people_search', [
-                            'scope' => strtoupper(__('team.all_teams')),
-                        ]) !!}
+        'scope' => strtoupper(__('team.all_teams')),
+    ]) !!}
                     @else
                         {!! __('app.people_search', [
-                            'scope' => auth()->user()->currentTeam->name,
-                        ]) !!}
+        'scope' => auth()->user()->currentTeam->name,
+    ]) !!}
                     @endif
                 </div>
 
@@ -20,7 +20,7 @@
                     @if (auth()->user()->hasPermission('person:create'))
                         {{-- add button --}}
                         <x-ts-button href="/people/add" color="emerald" class="text-sm">
-                            <x-ts-icon icon="user-plus" class="size-5" />
+                            <x-ts-icon icon="tabler.user-plus" class="size-5" />
                             {{ __('person.add_person') }}
                         </x-ts-button>
                     @endif
@@ -29,16 +29,16 @@
                 <div class="flex-1 flex-grow max-w-full text-end">
                     @if ($search)
                         {!! __('app.people_found', [
-                            'found' => $people->total(),
-                            'total' => $people_db,
-                            'scope' => auth()->user()->is_developer ? strtoupper(__('team.all_teams')) : auth()->user()->currentTeam->name,
-                            'keyword' => $search,
-                        ]) !!}
+        'found' => $people->total(),
+        'total' => $people_db,
+        'scope' => auth()->user()->is_developer ? strtoupper(__('team.all_teams')) : auth()->user()->currentTeam->name,
+        'keyword' => $search,
+    ]) !!}
                     @else
                         {!! __('app.people_available', [
-                            'total' => $people_db,
-                            'scope' => auth()->user()->is_developer ? strtoupper(__('team.all_teams')) : auth()->user()->currentTeam->name,
-                        ]) !!}
+        'total' => $people_db,
+        'scope' => auth()->user()->is_developer ? strtoupper(__('team.all_teams')) : auth()->user()->currentTeam->name,
+    ]) !!}
                     @endif
                 </div>
             </div>
@@ -46,13 +46,13 @@
             {{-- search box --}}
             <div class="flex flex-wrap items-start gap-2">
                 <div class="flex-1 flex-grow w-full">
-                    <x-ts-input wire:model.live.debounce.500ms="search" type="search" icon="search" hint="{{ __('app.people_search_tip') }}" placeholder="{{ __('app.people_search_placeholder') }}"
+                    <x-ts-input wire:model.live.debounce.500ms="search" type="search" icon="tabler.search" hint="{{ __('app.people_search_tip') }}" placeholder="{{ __('app.people_search_placeholder') }}"
                         autofocus />
                 </div>
 
                 <div class="flex-1 max-w-max">
                     <x-ts-button color="info" title="{{ __('app.help') }}" x-on:click="$modalOpen('search-help')" class="!pb-1 !p-1.5 !mt-1 text-sm text-white">
-                        <x-ts-icon icon="help" />
+                        <x-ts-icon icon="tabler.help" />
                     </x-ts-button>
                 </div>
             </div>
@@ -84,12 +84,21 @@
         <div class="p-2">
             <x-image-slider />
         </div>
+
+        {{-- <div class="p-2 w-192">
+            <x-ts-carousel :images="[
+            ['src' => url('img/image-slider/genealogy-research-001.webp'), 'alt' => 'Wallpaper 1'],
+            ['src' => url('img/image-slider/genealogy-research-002.webp'), 'alt' => 'Wallpaper 2'],
+            ['src' => url('img/image-slider/genealogy-research-003.webp'), 'alt' => 'Wallpaper 3'],
+            ['src' => url('img/image-slider/genealogy-research-004.webp'), 'alt' => 'Wallpaper 4'],
+        ]" autoplay stop-on-hover interval="5" wrapper="aspect-[3/1]" />
+        </div> --}}
     @endif
 
     {{-- search help modal --}}
     <x-ts-modal id="search-help" size="6xl" blur>
         <x-slot:title>
-            <x-ts-icon icon="help" class="inline-block" />{{ __('app.help') }}
+            <x-ts-icon icon="tabler.help" class="inline-block" />{{ __('app.help') }}
         </x-slot:title>
 
         <p>{!! __('app.people_search_help_1') !!}</p><br />

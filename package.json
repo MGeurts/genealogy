@@ -17,6 +17,6 @@
         "vite": "^6.0"
     },
     "dependencies": {
-        "@tabler/icons-sprite": "^3.19.0"
+        "@tabler/icons": "^3.30.0"
     }
 }

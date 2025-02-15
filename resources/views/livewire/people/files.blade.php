@@ -3,18 +3,18 @@
         <div class="flex flex-wrap items-start justify-center gap-2">
             <div class="flex-1 flex-grow max-w-full min-w-max">
                 {{ __('person.files') }}
-                @if ($this->person->countFiles() > 0)
-                    <x-ts-badge color="emerald" text="{{ $this->person->countFiles() }}" />
+                @if ($person->countFiles() > 0)
+                    <x-ts-badge color="emerald" text="{{ $person->countFiles() }}" />
                 @endif
             </div>
 
             @if (auth()->user()->hasPermission('person:update') or auth()->user()->hasPermission('person:delete'))
                 <div class="flex-1 flex-grow min-w-max max-w-min text-end">
-                    <x-ts-dropdown icon="menu-2" position="bottom-end">
+                    <x-ts-dropdown icon="tabler.menu-2" position="bottom-end">
                         @if (auth()->user()->hasPermission('person:update'))
                             <a href="/people/{{ $person->id }}/edit-files">
                                 <x-ts-dropdown.items>
-                                    <x-ts-icon icon="files" class="mr-2" />
+                                    <x-ts-icon icon="tabler.files" class="mr-2" />
                                     {{ __('person.edit_files') }}
                                 </x-ts-dropdown.items>
                             </a>

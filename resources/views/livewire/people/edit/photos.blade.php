@@ -10,7 +10,7 @@
             </div>
 
             <div class="flex-1 flex-grow max-w-full min-w-max text-end">
-                <x-ts-icon icon="library-photo" class="inline-block" />
+                <x-ts-icon icon="tabler.library-photo" class="inline-block" />
             </div>
         </div>
     </div>
@@ -47,19 +47,19 @@
                                 <div class="w-full">
                                     @if ($photo['name'] != $person->photo)
                                         <x-ts-button color="secondary" class="!p-2" title="{{ __('person.set_primary') }}" wire:click="setPrimary('{{ $photo['name'] }}')">
-                                            <x-ts-icon icon="star" class="size-5" />
+                                            <x-ts-icon icon="tabler.star" class="size-5" />
                                         </x-ts-button>
                                     @endif
                                 </div>
 
                                 <x-ts-button href="{{ $photo['url'] }}" color="secondary" class="!p-2" title="{{ __('app.download') }}" download="{{ $photo['name_download'] }}">
-                                    <x-ts-icon icon="download" class="size-5" />
+                                    <x-ts-icon icon="tabler.download" class="size-5" />
                                 </x-ts-button>
 
                                 <div class="text-sm text-end">{{ $photo['size'] }}</div>
 
                                 <x-ts-button color="danger" class="!p-2 text-white" title="{{ __('app.delete') }}" wire:click="deletePhoto('{{ $photo['name'] }}')">
-                                    <x-ts-icon icon="trash" class="size-5" />
+                                    <x-ts-icon icon="tabler.trash" class="size-5" />
                                 </x-ts-button>
                             </x-slot:footer>
                         </x-ts-card>

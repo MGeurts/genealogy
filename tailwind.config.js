@@ -6,9 +6,9 @@ import typography from '@tailwindcss/typography';
 export default {
     presets: [
         require('./vendor/filament/support/tailwind.config.preset'),
-        require('./vendor/tallstackui/tallstackui/tailwind.config.js') 
+        require('./vendor/tallstackui/tallstackui/tailwind.config.js')
     ],
-    
+
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './vendor/laravel/jetstream/**/*.blade.php',
@@ -16,7 +16,7 @@ export default {
         './resources/views/**/*.blade.php',
         // TallStackUI
         './vendor/tallstackui/tallstackui/src/**/*.php',
-        './app/View/**/*.php',
+        './app/View/Components/**/*.php',
         './app/Providers/AppServiceProvider.php',
         // Filament Table Builder
         './app/Filament/**/*.php',
@@ -144,7 +144,7 @@ export default {
                 '128': '32rem',
                 '192': '48rem',
             },
-            
+
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },

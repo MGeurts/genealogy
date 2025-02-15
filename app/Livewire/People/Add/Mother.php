@@ -148,7 +148,7 @@ class Mother extends Component
         }
     }
 
-    public function resetFather(): void
+    public function resetMother(): void
     {
         $this->mount();
     }
