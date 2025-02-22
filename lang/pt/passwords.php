@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'password'      => 'As senhas devem ter pelo menos seis caracteres e corresponder à confirmação.',
     'reset'         => 'Sua senha foi redefinida!',

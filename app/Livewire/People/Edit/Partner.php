@@ -77,13 +77,13 @@ class Partner extends Component
     public function isDirty(): bool
     {
         return
-            $this->partnerForm->person2_id != $this->couple->person2_id or
+            $this->partnerForm->person2_id !== $this->couple->person2_id or
 
-            $this->partnerForm->date_start != $this->couple->date_start or
-            $this->partnerForm->date_end != $this->couple->date_end or
+            $this->partnerForm->date_start !== $this->couple->date_start or
+            $this->partnerForm->date_end !== $this->couple->date_end or
 
-            $this->partnerForm->is_married != $this->couple->is_married or
-            $this->partnerForm->has_ended != $this->couple->has_ended;
+            $this->partnerForm->is_married !== $this->couple->is_married or
+            $this->partnerForm->has_ended !== $this->couple->has_ended;
     }
 
     // ------------------------------------------------------------------------------

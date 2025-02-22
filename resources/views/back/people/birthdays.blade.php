@@ -7,16 +7,16 @@
         {{ __('birthday.birthdays') }}
     </x-slot>
 
-    <div class="flex flex-grow mx-auto">
+    <div class="flex grow mx-auto">
         <div class="p-2 space-y-5 overflow-x-auto">
-            <div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
+            <div class="flex flex-col rounded-sm bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
                 <div class="flex flex-col p-2 text-lg border-b-2 rounded-t h-14 min-h-min border-neutral-100 dark:border-neutral-600 dark:text-neutral-50">
                     <div class="flex flex-wrap items-start justify-center gap-2">
-                        <div class="flex-1 flex-grow max-w-full min-w-max">
+                        <div class="flex-1 grow max-w-full min-w-max">
                             {{ __('birthday.upcoming_birthdays') }}
                         </div>
 
-                        <div class="flex-1 flex-grow min-w-max max-w-min text-end">
+                        <div class="flex-1 grow min-w-max max-w-min text-end">
                             <x-ts-icon icon="tabler.cake" />
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                                     <td class="p-2 whitespace-nowrap text-end">{{ $key + 1 }}.</td>
                                     <td class="p-2 whitespace-nowrap">
                                         <x-link href="/people/{{ $person->id }}" @class([
-                                            'text-danger-600 dark:text-danger-400' => $person->isDeceased(),
+                                            'text-red-600 dark:text-red-400' => $person->isDeceased(),
                                         ])>
                                             {{ $person->name }}
                                         </x-link>
@@ -62,7 +62,7 @@
 
                                         @if ($person->isDeceased())
                                             <br />
-                                            <span class="text-danger-600 dark:text-danger-400">
+                                            <span class="text-red-600 dark:text-red-400">
                                                 <x-ts-icon icon="tabler.coffin" class="inline-block mr-1" /> {{ $person->age }}
                                             </span>
                                         @endif

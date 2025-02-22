@@ -192,17 +192,17 @@ class Child extends Component
     public function isDirty(): bool
     {
         return
-        $this->childForm->firstname != null or
-        $this->childForm->surname != null or
-        $this->childForm->birthname != null or
-        $this->childForm->nickname != null or
+        $this->childForm->firstname !== null or
+        $this->childForm->surname !== null or
+        $this->childForm->birthname !== null or
+        $this->childForm->nickname !== null or
 
-        $this->childForm->sex != null or
-        $this->childForm->gender_id != null or
+        $this->childForm->sex !== null or
+        $this->childForm->gender_id !== null or
 
-        $this->childForm->yob != null or
-        $this->childForm->dob != null or
-        $this->childForm->pob != null or
+        $this->childForm->yob !== null or
+        $this->childForm->dob !== null or
+        $this->childForm->pob !== null or
 
         $this->childForm->person_id;
     }

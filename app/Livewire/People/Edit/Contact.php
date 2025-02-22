@@ -55,14 +55,14 @@ class Contact extends Component
     public function isDirty(): bool
     {
         return
-            $this->contactForm->street != $this->person->street or
-            $this->contactForm->number != $this->person->number or
-            $this->contactForm->postal_code != $this->person->postal_code or
-            $this->contactForm->city != $this->person->city or
-            $this->contactForm->province != $this->person->province or
-            $this->contactForm->state != $this->person->state or
-            $this->contactForm->country != $this->person->country or
-            $this->contactForm->phone != $this->person->phone;
+            $this->contactForm->street !== $this->person->street or
+            $this->contactForm->number !== $this->person->number or
+            $this->contactForm->postal_code !== $this->person->postal_code or
+            $this->contactForm->city !== $this->person->city or
+            $this->contactForm->province !== $this->person->province or
+            $this->contactForm->state !== $this->person->state or
+            $this->contactForm->country !== $this->person->country or
+            $this->contactForm->phone !== $this->person->phone;
     }
 
     // ------------------------------------------------------------------------------

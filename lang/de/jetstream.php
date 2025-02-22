@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'role_administrator_name'        => 'Administrator',
     'role_administrator_description' => 'Administratoren können beliebige Aktionen ausführen und die Anwendung verwalten.',

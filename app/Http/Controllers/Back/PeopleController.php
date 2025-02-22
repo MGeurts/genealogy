@@ -114,6 +114,8 @@ class PeopleController extends Controller
 
     public function editFiles(Person $person): View
     {
+        abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
+
         return view('back.people.edit.files', compact('person'));
     }
 

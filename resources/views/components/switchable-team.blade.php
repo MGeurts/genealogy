@@ -9,7 +9,7 @@
 
     <x-dynamic-component :component="$component" href="#" x-on:click.prevent="$root.submit();">
         <div class="flex items-center">
-            <div class="truncate @if (auth()->user()->isCurrentTeam($team)) text-warning-500 @endif" title="{{ $team->description }}">
+            <div class="truncate @if (auth()->user()->isCurrentTeam($team)) text-yellow-500 @endif" title="{{ $team->description }}">
                 {{ $team->name }}
             </div>
 

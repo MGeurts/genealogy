@@ -73,7 +73,7 @@
             <x-input-error for="email" class="mt-2" />
 
             @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) and !$this->user->hasVerifiedEmail())
-                <p class="mt-2 text-sm text-danger-600 dark:text-danger-400">
+                <p class="mt-2 text-sm text-red-600 dark:text-red-400">
                     {{ __('user.email_unverified') }}
 
                     <x-ts-button color="secondary" class="mt-2 me-2" type="button" wire:click.prevent="sendEmailVerification">
@@ -92,7 +92,7 @@
         {{-- language --}}
         <div class="col-span-6 md:col-span-4">
             <x-label for="language" value="{{ __('user.language') }} :" />
-            <select id="language" class="block w-full mt-1 rounded" name="language" wire:model="state.language" required>
+            <select id="language" class="block w-full mt-1 rounded-sm" name="language" wire:model="state.language" required>
                 @foreach (config('app.available_locales') as $locale_name => $available_locale)
                     <option value="{{ $available_locale }}" @selected(old('language') === $available_locale)>{{ $locale_name }}</option>
                 @endforeach
@@ -102,7 +102,7 @@
         {{-- timezone --}}
         <div class="col-span-6 md:col-span-4">
             <x-label for="timezone" value="{{ __('user.timezone') }} :" />
-            <select id="timezone" class="block w-full mt-1 rounded" name="timezone" wire:model="state.timezone" required>
+            <select id="timezone" class="block w-full mt-1 rounded-sm" name="timezone" wire:model="state.timezone" required>
                 @foreach (timezone_identifiers_list() as $timezone)
                     <option value="{{ $timezone }}" @selected(old('timezone') === $timezone)>{{ $timezone }}</option>
                 @endforeach
@@ -111,7 +111,7 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-action-message class="p-3 mr-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
+        <x-action-message class="p-3 mr-3 rounded-sm bg-emerald-200 text-emerald-600" role="alert" on="saved">
             {{ __('app.saved') }}
         </x-action-message>
 

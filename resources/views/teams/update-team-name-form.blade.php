@@ -22,7 +22,7 @@
                 <div class="leading-tight ms-4">
                     <div class="text-sm text-gray-700">{{ $team->owner->name }}</div>
                     <div class="text-sm text-gray-700">
-                        <x-ts-link href="mailto:{{ $team->owner->email }}" title="{{ __('team.send_email') }}" icon="mail" position="right">
+                        <x-ts-link href="mailto:{{ $team->owner->email }}" title="{{ __('team.send_email') }}" icon="tabler.mail" position="right">
                             {{ $team->owner->email }}
                         </x-ts-link>
                     </div>
@@ -53,7 +53,7 @@
 
     @if (Gate::check('update', $team))
         <x-slot name="actions">
-            <x-action-message class="p-3 mr-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
+            <x-action-message class="p-3 mr-3 rounded-sm bg-emerald-200 text-emerald-600" role="alert" on="saved">
                 {{ __('app.saved') }}
             </x-action-message>
 

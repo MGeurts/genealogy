@@ -156,16 +156,16 @@ class Mother extends Component
     public function isDirty(): bool
     {
         return
-        $this->motherForm->firstname != null or
-        $this->motherForm->surname != null or
-        $this->motherForm->birthname != null or
-        $this->motherForm->nickname != null or
+        $this->motherForm->firstname !== null or
+        $this->motherForm->surname !== null or
+        $this->motherForm->birthname !== null or
+        $this->motherForm->nickname !== null or
 
-        $this->motherForm->gender_id != null or
+        $this->motherForm->gender_id !== null or
 
-        $this->motherForm->yob != null or
-        $this->motherForm->dob != null or
-        $this->motherForm->pob != null or
+        $this->motherForm->yob !== null or
+        $this->motherForm->dob !== null or
+        $this->motherForm->pob !== null or
 
         $this->motherForm->person_id;
     }

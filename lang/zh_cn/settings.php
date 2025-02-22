@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'log_all_queries'                => '记录所有数据库查询',
     'log_all_queries_slow'           => '记录所有 SLOW 数据库查询',

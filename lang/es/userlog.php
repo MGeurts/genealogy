@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'users_log'        => 'Libro de registro de usuario',
     'users_origin'     => 'Origen del usuario',

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'users_log'        => 'Diário de usuário',
     'users_origin'     => 'Origem do usuário',

@@ -22,7 +22,7 @@
             ];
         @endphp
 
-        <x-ts-table :$headers :$rows />
+        <x-ts-table :$headers :$rows striped />
 
         <x-hr.normal />
 
@@ -32,7 +32,7 @@
             </div>
 
             <div class="mt-5">
-                <x-ts-button color="danger" wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
+                <x-ts-button color="red" wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
                     {{ __('team.delete') }}
                 </x-ts-button>
             </div>
@@ -52,7 +52,7 @@
                         {{ __('team.cancel') }}
                     </x-ts-button>
 
-                    <x-ts-button color="danger" class="ms-3" wire:click="deleteTeam" wire:loading.attr="disabled">
+                    <x-ts-button color="red" class="ms-3" wire:click="deleteTeam" wire:loading.attr="disabled">
                         {{ __('team.delete') }}
                     </x-ts-button>
                 </x-slot>

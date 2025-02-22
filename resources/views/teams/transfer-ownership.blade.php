@@ -33,7 +33,7 @@
                             </div>
 
                             <div class="md:w-2/3">
-                                <select name="new_owner_id" id="new_owner_id" class="block w-full rounded" required>
+                                <select name="new_owner_id" id="new_owner_id" class="block w-full rounded-sm" required>
                                     <option value="">{{ __('app.select') }} ...</option>
 
                                     @foreach ($team->users as $user)
@@ -54,7 +54,7 @@
                 </div>
             </form>
         @else
-            <div class="p-4 bg-white sm:p-6 rounded">
+            <div class="p-4 bg-white sm:p-6 rounded-sm">
                 <x-ts-alert title="{{ __('team.transfer_ownership') }}" text="{{ __('team.can_not_transfer') }}" color="cyan" />
             </div>
         @endif

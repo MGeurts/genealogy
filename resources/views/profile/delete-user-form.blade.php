@@ -34,7 +34,7 @@
                 ->toArray();
         @endphp
 
-        <x-ts-table :$headers :$rows>
+        <x-ts-table :$headers :$rows striped>
             @interact('column_personal', $row)
                 @if ($row['personal'])
                     <x-ts-icon icon="tabler.circle-check" class="size-5 text-emerald-600" />
@@ -50,7 +50,7 @@
             </div>
 
             <div class="mt-5">
-                <x-ts-button color="danger" wire:click="confirmUserDeletion" wire:loading.attr="disabled">
+                <x-ts-button color="red" wire:click="confirmUserDeletion" wire:loading.attr="disabled">
                     {{ __('user.delete_account') }}
                 </x-ts-button>
             </div>
@@ -77,7 +77,7 @@
                         {{ __('user.cancel') }}
                     </x-ts-button>
 
-                    <x-ts-button color="danger" class="ms-3" wire:click="deleteUser" wire:loading.attr="disabled">
+                    <x-ts-button color="red" class="ms-3" wire:click="deleteUser" wire:loading.attr="disabled">
                         {{ __('user.delete_account') }}
                     </x-ts-button>
                 </x-slot>

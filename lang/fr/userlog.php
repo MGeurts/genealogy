@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'users_log'        => 'Journal de bord utilisateur',
     'users_origin'     => 'Origine de l\'utilisateur',

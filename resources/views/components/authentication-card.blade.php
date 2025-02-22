@@ -5,7 +5,7 @@
         {{ $logo }}
     </div>
 
-    <div class="flex w-full sm:max-w-4xl shadow-md overflow-hidden rounded">
+    <div class="flex w-full sm:max-w-4xl shadow-md overflow-hidden rounded-sm">
         <div class="w-full md:w-1/3 hidden md:block">
             <img src="img/genealogy-research.webp" alt="Genealogy Research" class="object-cover w-full h-full rounded-l">
         </div>

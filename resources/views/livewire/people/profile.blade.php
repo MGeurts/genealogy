@@ -1,12 +1,12 @@
-<div class="min-w-100 max-w-192 flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
+<div class="min-w-100 max-w-192 flex flex-col rounded-sm bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
     <div class="flex flex-col p-2 text-lg font-medium border-b-2 rounded-t h-14 min-h-min border-neutral-100 dark:border-neutral-600 dark:text-neutral-50">
         <div class="flex flex-wrap items-start justify-center gap-2">
-            <div class="items-center justify-center flex-1 flex-grow max-w-full align-middle min-w-max">
+            <div class="items-center justify-center flex-1 grow max-w-full align-middle min-w-max">
                 {{ __('person.profile') }}
             </div>
 
             @if (auth()->user()->hasPermission('person:update') or auth()->user()->hasPermission('person:delete'))
-                <div class="flex-1 flex-grow min-w-max max-w-min text-end">
+                <div class="flex-1 grow min-w-max max-w-min text-end">
                     <x-ts-dropdown icon="tabler.menu-2" position="bottom-end">
                         @if (auth()->user()->hasPermission('person:update'))
                             <a href="/people/{{ $person->id }}/edit-profile">
@@ -42,7 +42,7 @@
                         @if (auth()->user()->hasPermission('person:delete') and $person->isDeletable())
                             <hr />
 
-                            <x-ts-dropdown.items separator class="!text-danger-600 dark:!text-danger-400" wire:click="confirmDeletion()">
+                            <x-ts-dropdown.items separator class="text-red-600! dark:text-red-400!" wire:click="confirmDeletion()">
                                 <x-ts-icon icon="tabler.trash" class="mr-2" />
                                 {{ __('person.delete_person') }}
                             </x-ts-dropdown.items>
@@ -60,11 +60,11 @@
 
     {{-- lifetime & age --}}
     <div class="flex px-2">
-        <div class="flex-grow">
+        <div class="grow">
             {!! isset($person->lifetime) ? $person->lifetime : '&nbsp;' !!}
         </div>
 
-        <div class="flex-grow text-end">
+        <div class="grow text-end">
             {!! isset($person->age) ? $person->age . ' ' . trans_choice('person.years', $person->age) : '&nbsp;' !!}
         </div>
     </div>
@@ -107,7 +107,7 @@
                     <td class="pl-2">
                         {{ $person->birth_formatted }}
                         @if ($person->isBirthdayToday())
-                            <x-ts-icon icon="tabler.cake" class="inline-block size-5 text-danger-600 dark:text-danger-400" />
+                            <x-ts-icon icon="tabler.cake" class="inline-block size-5 text-red-600 dark:text-red-400" />
                         @endif
                     </td>
                 </tr>
@@ -122,7 +122,7 @@
                         <td class="pl-2">
                             {{ $person->death_formatted }}
                             @if ($person->isDeathdayToday())
-                                <x-ts-icon icon="tabler.cake" class="inline-block size-5 text-danger-600 dark:text-danger-400" />
+                                <x-ts-icon icon="tabler.cake" class="inline-block size-5 text-red-600 dark:text-red-400" />
                             @endif
                         </td>
                     </tr>
@@ -138,7 +138,7 @@
                         <td class="pr-2 border-b-2 border-r-2">
                             @if ($person->cemetery_google)
                                 <a target="_blank" href="{{ $person->cemetery_google }}">
-                                    <x-ts-button color="info" class="!p-2 mb-2 text-white" title="{{ __('app.show_on_google_maps') }}">
+                                    <x-ts-button color="cyan" class="p-2! mb-2 text-white" title="{{ __('app.show_on_google_maps') }}">
                                         <x-ts-icon icon="tabler.brand-google-maps" class="size-5" />
                                     </x-ts-button>
                                 </a>
@@ -152,7 +152,7 @@
                             {{ __('person.address') }}<br />
                             @if ($person->address)
                                 <a target="_blank" href="{{ $person->address_google }}">
-                                    <x-ts-button color="info" class="!p-2 mb-2 text-white" title="{{ __('app.show_on_google_maps') }}">
+                                    <x-ts-button color="cyan" class="p-2! mb-2 text-white" title="{{ __('app.show_on_google_maps') }}">
                                         <x-ts-icon icon="tabler.brand-google-maps" class="size-5" />
                                     </x-ts-button>
                                 </a>
@@ -191,7 +191,7 @@
                     {{ __('app.abort_no') }}
                 </x-ts-button>
 
-                <x-ts-button color="danger" class="ml-3" wire:click="deletePerson()" wire:loading.attr="disabled">
+                <x-ts-button color="red" class="ml-3" wire:click="deletePerson()" wire:loading.attr="disabled">
                     {{ __('app.delete_yes') }}
                 </x-ts-button>
             </x-slot>

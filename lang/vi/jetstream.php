@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'role_administrator_name'        => 'Quản trị viên',
     'role_administrator_description' => 'Quản trị viên có thể thực hiện bất kỳ hành động nào và quản lý ứng dụng.',

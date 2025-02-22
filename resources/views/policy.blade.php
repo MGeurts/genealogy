@@ -14,7 +14,7 @@
                     <x-authentication-card-logo />
                 </div>
 
-                <div class="w-full p-6 mt-6 overflow-hidden prose bg-white rounded shadow-md sm:max-w-5xl">
+                <div class="w-full p-6 mt-6 overflow-hidden prose bg-white rounded-sm shadow-md sm:max-w-5xl">
                     {!! $policy !!}
                 </div>
             </div>

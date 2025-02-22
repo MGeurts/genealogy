@@ -16,9 +16,9 @@
             <figure class="w-24">
                 <div class="user-image">
                     @if ($person->photo and Storage::exists('public/photos/' . $person->team_id . '/' . $person->photo))
-                        <img src="{{ asset('storage/photos-096/' . $person->team_id . '/' . $person->photo) }}" class="w-full rounded shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
+                        <img src="{{ asset('storage/photos-096/' . $person->team_id . '/' . $person->photo) }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
                     @else
-                        <x-svg.person-no-image class="w-full rounded shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
+                        <x-svg.person-no-image class="w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
                     @endif
 
                     @if ($person->dod or $person->yod)
@@ -27,7 +27,7 @@
                 </div>
 
                 <figcaption @class([
-                    'text-danger-600 dark:text-danger-400' => $person->dod or $person->yod,
+                    'text-red-600 dark:text-red-400' => $person->dod or $person->yod,
                     'text-primary-500 dark:text-primary-300' => !($person->dod or $person->yod),
                 ])>
                     {{ implode(' ', array_filter([$person->firstname, $person->surname])) }}

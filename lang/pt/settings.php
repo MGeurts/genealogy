@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'log_all_queries'                => 'Registrar TODAS as consultas do banco de dados',
     'log_all_queries_slow'           => 'Registrar todas as consultas LENTAS do banco de dados',

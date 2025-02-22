@@ -97,78 +97,75 @@ class AppServiceProvider extends ServiceProvider
     {
         $ui = TallStackUi::personalize();
 
-        // Alerts
-        $ui->alert()->block('wrapper')->replace('rounded-lg', 'rounded');
+        $ui->alert()->block('wrapper')->replace('rounded-lg', 'rounded-sm');
 
-        // Badges
-        $ui->badge()->block('wrapper.class')->replace('px-2', 'px-1');
-
-        // Cards
         $ui->card()
             ->block('wrapper.first')->replace('gap-4', 'gap-2')
             ->block('wrapper.second')->replace([
                 'dark:bg-dark-700' => 'dark:bg-neutral-700',
-                'rounded-lg'       => 'rounded',
+                'rounded-lg'       => 'rounded-sm',
             ])
             ->block('header.wrapper.base')->replace([
                 'dark:border-b-dark-600' => 'dark:border-b-neutral-600',
-                'p-4 px-6'               => 'p-2',
+                'p-4'                    => 'p-2',
             ])
             ->block('footer.wrapper')->replace([
                 'dark:border-t-dark-600' => 'dark:border-t-neutral-600',
-                'rounded-lg'             => 'rounded',
+                'rounded-lg'             => 'rounded-sm',
             ]);
 
-        // Carousels
         $ui->carousel()
-            ->block('images.base')->append('rounded');
+            ->block('images.base')->append('rounded-sm');
 
-        // Dropdowns
         $ui->dropdown()
-            ->block('floating')->replace('rounded-lg', 'rounded')
+            ->block('floating.default')->replace('rounded-lg', 'rounded-sm')
             ->block('action.icon')->replace('text-gray-400', 'text-primary-500 dark:text-primary-300');
 
-        // Forms
         $ui->form('input')
-            ->block('input.wrapper')->replace('rounded-md', 'rounded')
-            ->block('input.base')->replace('rounded-md', 'rounded');
+            ->block('input.wrapper')->replace('rounded-md', 'rounded-sm')
+            ->block('input.base')->replace('rounded-md', 'rounded-sm')
+            ->block('input.color.background')->replace('dark:bg-dark-800', 'dark:bg-dark-950');
 
         $ui->form('textarea')
-            ->block('input.wrapper')->replace('rounded-md', 'rounded')
-            ->block('input.base')->replace('rounded-md', 'rounded');
+            ->block('input.wrapper')->replace('rounded-md', 'rounded-sm')
+            ->block('input.base')->replace('rounded-md', 'rounded-sm')
+            ->block('input.color.background')->replace('dark:bg-dark-800', 'dark:bg-dark-950');
 
         $ui->form('label')
             ->block('text')->replace([
                 'text-gray-600'      => 'text-gray-700',
-                'dark:text-dark-400' => 'dark:text-dark-500',
+                'dark:text-dark-400' => 'dark:text-neutral-500',
             ]);
 
-        // Modals
         $ui->modal()
-            ->block('wrapper.first')->replace('bg-opacity-50', 'bg-opacity-20')
+            ->block('wrapper.first')->replace('bg-gray-400', 'bg-gray-400/10')
             ->block('wrapper.fourth')->replace([
-                'dark:bg-dark-700' => 'dark:bg-dark-900',
-                'rounded-xl'       => 'rounded',
+                'dark:bg-dark-700' => 'dark:bg-neutral-700',
+                'rounded-xl'       => 'rounded-sm',
             ]);
 
-        // Slides
         $ui->slide()
-            ->block('wrapper.first')->replace('bg-opacity-50', 'bg-opacity-20')
-            ->block('wrapper.fifth')->replace('dark:bg-dark-700', 'dark:bg-dark-900')
+            ->block('wrapper.first')->replace('bg-gray-400', 'bg-gray-400/10')
+            ->block('wrapper.fifth')->replace('dark:bg-dark-700', 'dark:bg-gray-900')
+            ->block('body')->replace('dark:text-dark-300', 'dark:text-neutral-300')
             ->block('footer')->append('dark:text-secondary-600');
 
-        // Tabs
         $ui->tab()
             ->block('base.wrapper')->replace([
                 'dark:bg-dark-700' => 'dark:bg-neutral-700',
-                'rounded-lg'       => 'rounded',
+                'rounded-lg'       => 'rounded-sm',
             ])
             ->block('item.select')->replace('dark:text-dark-300', 'dark:text-neutral-50');
 
-        // Tables
         $ui->table()
-            ->block('wrapper')->replace('rounded-lg', 'rounded')
+            ->block('wrapper')->replace('rounded-lg', 'rounded-sm')
             ->block('table.td')->replace('py-4', 'py-2');
+
+        $ui->select('styled')
+            ->block('input.wrapper.base')->replace([
+                'dark:bg-dark-800' => 'dark:bg-dark-950',
+                'rounded-md'       => 'rounded-sm',
+            ]);
     }
 
     /**

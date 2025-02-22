@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'all_teams'                  => 'Todos los equipos',
     'cancel'                     => 'Cancelar',

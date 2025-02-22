@@ -1,14 +1,14 @@
 <form wire:submit="saveDeath">
     @csrf
 
-    <div class="md:w-192 flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
+    <div class="md:w-192 flex flex-col rounded-sm bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
         <div class="flex flex-col p-2 text-lg font-medium border-b-2 rounded-t h-14 min-h-min border-neutral-100 dark:border-neutral-600 dark:text-neutral-50">
             <div class="flex flex-wrap items-start justify-center gap-2">
-                <div class="flex-1 flex-grow max-w-full min-w-max">
+                <div class="flex-1 grow max-w-full min-w-max">
                     {{ __('person.edit_death') }}
                 </div>
 
-                <div class="flex-1 flex-grow max-w-full min-w-max text-end">
+                <div class="flex-1 grow max-w-full min-w-max text-end">
                     <x-ts-icon icon="tabler.grave-2" class="inline-block" />
                 </div>
             </div>
@@ -20,20 +20,20 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- yod --}}
                 <div class="col-span-3">
-                    <x-ts-input wire:model="deathForm.yod" id="yod" label="{{ __('person.yod') }} :" wire:dirty.class="bg-warning-200 dark:text-black" autofocus />
+                    <x-ts-input wire:model="deathForm.yod" id="yod" label="{{ __('person.yod') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" autofocus />
                 </div>
 
                 {{-- dod --}}
                 <div class="col-span-3">
-                    <x-ts-date wire:model="deathForm.dod" id="dod" label="{{ __('person.dod') }} :" wire:dirty.class="bg-warning-200 dark:text-black" format="YYYY-MM-DD" :max-date="now()"
+                    <x-ts-date wire:model="deathForm.dod" id="dod" label="{{ __('person.dod') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" format="YYYY-MM-DD" :max-date="now()"
                         placeholder="{{ __('app.select') }} ..." />
                 </div>
 
                 {{-- pod --}}
                 <div class="col-span-6">
-                    <x-ts-input wire:model="deathForm.pod" id="pod" label="{{ __('person.pod') }} :" wire:dirty.class="bg-warning-200 dark:text-black" />
+                    <x-ts-input wire:model="deathForm.pod" id="pod" label="{{ __('person.pod') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" />
                 </div>
-                <x-hr.narrow class="col-span-6 !my-0" />
+                <x-hr.narrow class="col-span-6 my-0!" />
 
                 <div class="h-4 col-span-5">
                     <h4 class="text-lg font-medium text-neutral-800">{{ __('person.cemetery_location') }}</h4>
@@ -43,7 +43,7 @@
                 <div class="h-4 col-span-1 text-end">
                     @if ($person->cemetery_google)
                         <a target="_blank" href="{{ $person->cemetery_google }}">
-                            <x-ts-button color="info" class="!p-2 mb-2 text-white" title="{{ __('app.show_on_google_maps') }}">
+                            <x-ts-button color="cyan" class="p-2! mb-2 text-white" title="{{ __('app.show_on_google_maps') }}">
                                 <x-ts-icon icon="tabler.brand-google-maps" class="size-5" />
                             </x-ts-button>
                         </a>
@@ -53,41 +53,41 @@
                 {{-- cemetery_location_name --}}
                 <div class="col-span-6">
                     <x-ts-input wire:model="deathForm.cemetery_location_name" id="cemetery_location_name" label="{{ __('metadata.location_name') }} :"
-                        wire:dirty.class="bg-warning-200 dark:text-black" />
+                        wire:dirty.class="bg-yellow-200 dark:text-black" />
                 </div>
 
                 {{-- cemetery_location_address --}}
                 <div class="col-span-6">
                     <x-ts-textarea wire:model="deathForm.cemetery_location_address" id="cemetery_location_address" label="{{ __('metadata.address') }} :"
-                        wire:dirty.class="bg-warning-200 dark:text-black" resize-auto />
+                        wire:dirty.class="bg-yellow-200 dark:text-black" resize-auto />
                 </div>
 
                 {{-- cemetery_location_latitude --}}
                 <div class="col-span-3">
                     <x-ts-input wire:model="deathForm.cemetery_location_latitude" id="cemetery_location_latitude" label="{{ __('metadata.latitude') }} :"
-                        wire:dirty.class="bg-warning-200 dark:text-black" />
+                        wire:dirty.class="bg-yellow-200 dark:text-black" />
                 </div>
 
                 {{-- cemetery_location_longitude --}}
                 <div class="col-span-3">
                     <x-ts-input wire:model="deathForm.cemetery_location_longitude" id="cemetery_location_longitude" label="{{ __('metadata.longitude') }} :"
-                        wire:dirty.class="bg-warning-200 dark:text-black" />
+                        wire:dirty.class="bg-yellow-200 dark:text-black" />
                 </div>
             </div>
         </div>
 
         <div class="flex items-center justify-end p-4 text-right rounded-b sm:px-6">
-            <div class="flex-1 flex-grow max-w-full text-left">
-                <x-action-message class="p-3 rounded bg-warning-200 text-warning-700" role="alert" on="" wire:dirty>
+            <div class="flex-1 grow max-w-full text-left">
+                <x-action-message class="p-3 rounded-sm bg-yellow-200 text-yellow-700" role="alert" on="" wire:dirty>
                     {{ __('app.unsaved_changes') }} ...
                 </x-action-message>
 
-                <x-action-message class="p-3 rounded bg-success-200 text-emerald-600" role="alert" on="saved">
+                <x-action-message class="p-3 rounded-sm bg-emerald-200 text-emerald-600" role="alert" on="saved">
                     {{ __('app.saved') }}
                 </x-action-message>
             </div>
 
-            <div class="flex-1 flex-grow max-w-full text-end">
+            <div class="flex-1 grow max-w-full text-end">
                 <x-ts-button color="secondary" class="mr-1" wire:click="resetDeath()" wire:dirty>
                     {{ __('app.cancel') }}
                 </x-ts-button>

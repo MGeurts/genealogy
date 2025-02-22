@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 if (! function_exists('settings')) {
     function settings(?string $key = null, $default = null)
     {

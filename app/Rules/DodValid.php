@@ -38,7 +38,7 @@ class DodValid implements DataAwareRule, ValidationRule
     {
         if ($this->data['yod']) {
             // dod->year must match yod
-            if ($this->data['yod'] != date('Y', strtotime($value))) {
+            if ($this->data['yod'] !== date('Y', strtotime($value))) {
                 $fail(__('person.dod_not_matching_yod', ['value' => $this->data['yod']]));
             }
         } elseif (isset($this->data['person'])) {

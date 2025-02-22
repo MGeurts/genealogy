@@ -42,7 +42,7 @@
             <!-- Useful Links Section -->
             <div>
                 <h6 class="flex justify-center mb-4 font-semibold uppercase md:justify-start">{{ __('app.useful_links') }}</h6>
-                <x-hr.narrow class="w-48 h-1 my-4 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
+                <x-hr.narrow class="w-48 h-1 my-4 bg-gray-100 border-0 rounded-sm max-md:mx-auto dark:bg-gray-700" />
                 <p class="mb-4">
                     <x-nav-link-footer href="{{ route('about') }}" :active="request()->routeIs('about')">
                         {{ __('app.about') }}
@@ -58,7 +58,7 @@
             <!-- Impressum Section -->
             <div>
                 <h6 class="flex justify-center mb-4 font-semibold uppercase md:justify-start">{{ __('app.impressum') }}</h6>
-                <x-hr.narrow class="w-48 h-1 my-4 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
+                <x-hr.narrow class="w-48 h-1 my-4 bg-gray-100 border-0 rounded-sm max-md:mx-auto dark:bg-gray-700" />
                 <p class="mb-4">
                     <x-nav-link-footer href="{{ url('terms-of-service') }}" :active="request()->is('terms-of-service')">
                         {{ __('app.terms_of_service') }}
@@ -74,7 +74,7 @@
             <!-- Contact Section -->
             <div>
                 <h6 class="flex justify-center mb-4 font-semibold uppercase md:justify-start">{{ __('app.contact') }}</h6>
-                <x-hr.narrow class="w-48 h-1 my-4 bg-gray-100 border-0 rounded max-md:mx-auto dark:bg-gray-700" />
+                <x-hr.narrow class="w-48 h-1 my-4 bg-gray-100 border-0 rounded-sm max-md:mx-auto dark:bg-gray-700" />
                 <p class="flex items-center justify-center mb-4 md:justify-start">
                     <x-ts-icon icon="tabler.home" class="mr-3 inline-block size-5" />
                     New York, NY 10012, US

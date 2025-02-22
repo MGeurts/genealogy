@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'age'                   => '年龄',
     'birthday'              => '出生日期',

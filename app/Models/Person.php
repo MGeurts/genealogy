@@ -139,7 +139,7 @@ class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     public function scopeSearch(Builder $query, string $searchString): void
     {
-        if ($searchString != '%') {
+        if ($searchString !== '%') {
             collect(str_getcsv($searchString, ' ', '"'))->filter()->each(function (string $searchTerm) use ($query) {
                 $query->whereAny(['firstname', 'surname', 'birthname', 'nickname'], 'like', $searchTerm . '%');
             });

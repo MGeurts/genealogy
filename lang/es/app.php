@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'about'                     => 'Acerca de',
     'dependencies'              => 'Dependencias',

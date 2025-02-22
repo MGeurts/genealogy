@@ -71,7 +71,7 @@
                     </p>
                 </div>
 
-                <div class="grid max-w-xl gap-1 p-4 mt-4 font-mono text-sm bg-gray-100 rounded">
+                <div class="grid max-w-xl gap-1 p-4 mt-4 font-mono text-sm bg-gray-100 rounded-sm">
                     @foreach (json_decode(decrypt($this->user->two_factor_recovery_codes), true) as $code)
                         <div>{{ $code }}</div>
                     @endforeach
@@ -115,7 +115,7 @@
                     </x-confirms-password>
                 @else
                     <x-confirms-password wire:then="disableTwoFactorAuthentication">
-                        <x-ts-button color="danger" wire:loading.attr="disabled">
+                        <x-ts-button color="red" wire:loading.attr="disabled">
                             {{ __('user.2fa_disable') }}
                         </x-ts-button>
                     </x-confirms-password>

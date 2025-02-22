@@ -1,1 +1,1 @@
-<input {!! $attributes->merge(['class' => 'border-gray-300 rounded shadow-sm']) !!} disabled readonly>
+<input {!! $attributes->merge(['class' => 'border-gray-300 rounded-sm shadow-xs']) !!} disabled readonly>

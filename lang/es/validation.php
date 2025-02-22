@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'accepted'        => 'Se debe aceptar el campo :atributo.',
     'accepted_if'     => 'El campo :atributo debe aceptarse cuando :otro es :valor.',

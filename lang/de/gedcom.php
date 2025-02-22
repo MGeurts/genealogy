@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'export'        => 'Exportieren',
     'gedcom_export' => 'Exportiere Team als GEDCOM-Datei',

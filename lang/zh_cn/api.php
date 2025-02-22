@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'api_token'              => 'API 令牌',
     'api_token_permissions'  => 'API 令牌权限',

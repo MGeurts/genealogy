@@ -1,4 +1,4 @@
-<div class="flex flex-col justify-end rounded dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+<div class="flex flex-col justify-end rounded-sm dark:text-neutral-200 bg-white dark:bg-neutral-700 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
     {{-- image --}}
     <div class="p-2">
         <x-image.photo :person="$person" />
@@ -6,11 +6,11 @@
 
     {{-- lifetime & age --}}
     <div class="flex px-2">
-        <div class="flex-grow">
+        <div class="grow">
             {!! isset($person->lifetime) ? $person->lifetime : '&nbsp;' !!}
         </div>
 
-        <div class="flex-grow text-end">
+        <div class="grow text-end">
             {!! isset($person->age) ? $person->age . ' ' . trans_choice('person.years', $person->age) : '&nbsp;' !!}
         </div>
     </div>
@@ -21,7 +21,7 @@
 
         <p>
             <x-link href="/people/{{ $person->id }}" @class([
-                'text-danger-600 dark:text-danger-400' => $person->isDeceased(),
+                'text-red-600 dark:text-red-400' => $person->isDeceased(),
             ])>
                 {{ $person->name }}
             </x-link>
@@ -35,7 +35,7 @@
         <p>{{ __('person.father') }} :
             @if ($person->father)
                 <x-link href="/people/{{ $person->father->id }}" @class([
-                    'text-danger-600 dark:text-danger-400' => $person->father->isDeceased(),
+                    'text-red-600 dark:text-red-400' => $person->father->isDeceased(),
                 ])>
                     {{ $person->father->name }}
                 </x-link>
@@ -46,7 +46,7 @@
         <p>{{ __('person.mother') }} :
             @if ($person->mother)
                 <x-link href="/people/{{ $person->mother->id }}" @class([
-                    'text-danger-600 dark:text-danger-400' => $person->mother->isDeceased(),
+                    'text-red-600 dark:text-red-400' => $person->mother->isDeceased(),
                 ])>
                     {{ $person->mother->name }}
                 </x-link>
@@ -58,8 +58,8 @@
     </div>
 
     {{-- buttons --}}
-    <div class="flex flex-wrap flex-shrink-0 p-2 print:hidden">
-        <div class="flex-1 flex-grow max-w-full min-w-max">
+    <div class="flex flex-wrap shrink-0 p-2 print:hidden">
+        <div class="flex-1 grow max-w-full min-w-max">
             <a href="/people/{{ $person->id }}" title="{{ __('app.show_profile') }}">
                 <x-ts-button color="primary" class="text-sm">
                     <x-ts-icon icon="tabler.id" class="size-5" />
@@ -68,7 +68,7 @@
             </a>
         </div>
 
-        <div class="flex-1 flex-grow max-w-full min-w-max text-end">
+        <div class="flex-1 grow max-w-full min-w-max text-end">
             <a href="/people/{{ $person->id }}/chart">
                 <x-ts-button color="secondary" class="text-sm">
                     <x-ts-icon icon="tabler.social" class="size-5" />

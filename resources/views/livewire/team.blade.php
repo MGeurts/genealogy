@@ -1,4 +1,4 @@
-<div class="overflow-x-auto bg-white rounded dark:bg-neutral-700">
+<div class="overflow-x-auto bg-white rounded-sm dark:bg-neutral-700">
     <table class="min-w-full text-left whitespace-nowrap">
         <thead class="tracking-wider uppercase border-t border-b-2 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-800">
             <tr>
@@ -12,7 +12,7 @@
                 <th scope="col" class="p-2 border-x dark:border-neutral-600">
                     {{ __('team.persons') }}
                     <x-ts-badge color="emerald" text="{{ count($user->currentTeam->persons) }}" />
-                    </th>
+                </th>
                 <th scope="col" class="p-2 border-x dark:border-neutral-600">
                     {{ __('team.couples') }}
                     <x-ts-badge color="emerald" text="{{ count($user->currentTeam->couples) }}" />

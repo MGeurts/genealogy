@@ -335,8 +335,8 @@ Siblings are shown on the siblings card.<br/>
 <img src="img/help/genealogy-060a.webp" class="rounded" alt="Siblings">
 
 A sibling can be <b>full</b>: both the same biological parents as the selected person.<br/>
-A sibling can be <b>half</b>: only the biological mother or the biological father are common. <span class="text-warning-500">[1/2]</span><br/>
-A sibling can be <b>plus</b>: neither the biological father nor the biological mother are common, but the child is part of the current relationship of the selected person <span class="text-warning-500">[+]</span>
+A sibling can be <b>half</b>: only the biological mother or the biological father are common. <span class="text-yellow-500">[1/2]</span><br/>
+A sibling can be <b>plus</b>: neither the biological father nor the biological mother are common, but the child is part of the current relationship of the selected person <span class="text-yellow-500">[+]</span>
 
 ### g. Ancestors
 

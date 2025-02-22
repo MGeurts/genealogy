@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'agree'                     => 'Concordo com os :terms_of_service e :privacy_policy',
     'already_registered'        => 'Já cadastrado',

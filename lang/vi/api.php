@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'api_token'              => 'Mã thông báo API',
     'api_token_permissions'  => 'Quyền truy cập Mã thông báo API',

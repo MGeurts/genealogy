@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 
     // Uncomment the languages that your site supports - or add new ones.

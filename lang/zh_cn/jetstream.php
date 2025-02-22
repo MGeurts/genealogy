@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'role_administrator_name'        => '超级管理',
     'role_administrator_description' => '超级管理员可以执行任何操作并管理应用程序。',

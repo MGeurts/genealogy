@@ -64,10 +64,10 @@ class Settings extends Component
     public function isDirty(): bool
     {
         return
-            $this->settingsForm->logAllQueries != (bool) $this->settings->get('log_all_queries') or
-            $this->settingsForm->logAllQueriesSlow != $this->settings->get('log_all_queries_slow_threshold') or
-            $this->settingsForm->logAllQueriesSlowThreshold != $this->logAllQueriesSlowThreshold or (bool) $this->settings->get('log_all_queries_slow') or
-            $this->settingsForm->logAllQueriesNPlusOne != (bool) $this->settings->get('log_all_queries_nplusone');
+            $this->settingsForm->logAllQueries !== (bool) $this->settings->get('log_all_queries') or
+            $this->settingsForm->logAllQueriesSlow !== $this->settings->get('log_all_queries_slow_threshold') or
+            $this->settingsForm->logAllQueriesSlowThreshold !== $this->logAllQueriesSlowThreshold or (bool) $this->settings->get('log_all_queries_slow') or
+            $this->settingsForm->logAllQueriesNPlusOne !== (bool) $this->settings->get('log_all_queries_nplusone');
     }
 
     /**

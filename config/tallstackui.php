@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use TallStackUi\View\Components;
 
 return [
@@ -312,14 +314,12 @@ return [
     | List of all TallStackUI components.
     */
     'components' => [
-        'alert'   => Components\Alert::class,
-        'avatar'  => Components\Avatar::class,
-        'badge'   => Components\Badge::class,
-        'banner'  => Components\Banner::class,
-        'boolean' => Components\Boolean::class,
-
-        'button' => App\View\Components\Button::class,
-
+        'alert'              => Components\Alert::class,
+        'avatar'             => Components\Avatar::class,
+        'badge'              => Components\Badge::class,
+        'banner'             => Components\Banner::class,
+        'boolean'            => Components\Boolean::class,
+        'button'             => Components\Button\Button::class,
         'button.circle'      => Components\Button\Circle::class,
         'carousel'           => Components\Carousel::class,
         'card'               => Components\Card::class,

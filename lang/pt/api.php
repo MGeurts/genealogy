@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'api_token'              => 'Token de API',
     'api_token_permissions'  => 'Permissões de token de API',

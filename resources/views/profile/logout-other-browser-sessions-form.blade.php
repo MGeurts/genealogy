@@ -63,7 +63,7 @@
                 {{ __('user.log_out') }}
             </x-ts-button>
 
-            <x-action-message class="p-3 ml-3 rounded bg-success-200 text-emerald-600" on="loggedOut">
+            <x-action-message class="p-3 ml-3 rounded-sm bg-emerald-200 text-emerald-600" on="loggedOut">
                 {{ __('user.done') }}
             </x-action-message>
         </div>

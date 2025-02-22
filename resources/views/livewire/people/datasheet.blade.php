@@ -233,7 +233,7 @@
 
                         @if ($couple->date_end or $couple->has_ended)
                             <br />
-                            <x-ts-icon icon="tabler.hearts-off" class="inline-block size-5 text-danger-600 dark:text-danger-400" />
+                            <x-ts-icon icon="tabler.hearts-off" class="inline-block size-5 text-red-600 dark:text-red-400" />
                             {{ $couple->date_end ? $couple->date_end->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '??' }}
                         @endif
                     </td>
@@ -286,7 +286,7 @@
                         {{ $sibling->name }}
                         <x-ts-icon icon="tabler.{{ $sibling->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                         {{ $sibling->birth_year }}
-                        <span class="text-warning-500">{{ $sibling->type }}</span>
+                        <span class="text-yellow-500">{{ $sibling->type }}</span>
                     </td>
                 </tr>
             @endforeach
@@ -335,7 +335,7 @@
     <div class="grid grid-cols-3 gap-2 mt-2">
         @foreach ($images as $image)
             <div>
-                <img class="rounded max-w-48" src="{{ asset('storage/photos-384/' . $person->team_id . '/' . $image) }}" alt="{{ $person->name }}" />
+                <img class="rounded-sm max-w-48" src="{{ asset('storage/photos-384/' . $person->team_id . '/' . $image) }}" alt="{{ $person->name }}" />
             </div>
         @endforeach
     </div>

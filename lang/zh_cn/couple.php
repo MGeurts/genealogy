@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'couple'  => '夫妻',
     'couples' => '情侣',

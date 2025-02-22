@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'password'      => 'Las contraseñas deben tener al menos seis caracteres y coincidir con la confirmación.',
     'reset'         => '¡Tu contraseña ha sido restablecida!',

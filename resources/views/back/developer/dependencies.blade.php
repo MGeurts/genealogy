@@ -39,7 +39,7 @@
                         </li>
 
                         <li class="py-2">
-                            <x-link href="https://tailwindcss.com/" target="_blank">Tailwind CSS</x-link> 3
+                            <x-link href="https://tailwindcss.com/" target="_blank">Tailwind CSS</x-link> 4
                             <x-ts-button xs href="https://tailwindcss.com/docs/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
 
@@ -51,27 +51,27 @@
 
                     <div class="grid grid-cols-4 gap-4 mt-4 ml-4 max-w-96 justify-items-center">
                         <div class="content-center max-w-24">
-                            <img src="{{ url('img/logo/laravel.webp') }}" class="rounded" alt="laravel" title="Laravel" />
+                            <img src="{{ url('img/logo/laravel.webp') }}" class="rounded-sm" alt="laravel" title="Laravel" />
                         </div>
 
                         <div class="content-center max-w-24">
-                            <img src="{{ url('img/logo/livewire.webp') }}" class="rounded" alt="livewire" title="Livewire" />
+                            <img src="{{ url('img/logo/livewire.webp') }}" class="rounded-sm" alt="livewire" title="Livewire" />
                         </div>
 
                         <div class="content-center max-w-24">
-                            <img src="{{ url('img/logo/alpinejs.webp') }}" class="rounded" alt="alpinejs" title="alpine.js" />
+                            <img src="{{ url('img/logo/alpinejs.webp') }}" class="rounded-sm" alt="alpinejs" title="alpine.js" />
                         </div>
 
                         <div class="content-center max-w-24">
-                            <img src="{{ url('img/logo/tailwindcss.webp') }}" class="rounded" alt="tailwindcss" title="Tailwind CSS" />
+                            <img src="{{ url('img/logo/tailwindcss.webp') }}" class="rounded-sm" alt="tailwindcss" title="Tailwind CSS" />
                         </div>
 
                         <div class="content-center col-span-2 max-w-24">
-                            <img src="{{ url('img/logo/tallstackui.webp') }}" class="rounded" alt="talstackui" title="TallStackUI" />
+                            <img src="{{ url('img/logo/tallstackui.webp') }}" class="rounded-sm" alt="talstackui" title="TallStackUI" />
                         </div>
 
                         <div class="content-center col-span-2 max-w-24">
-                            <img src="{{ url('img/logo/filament.webp') }}" class="rounded" alt="filament" title="Filament" />
+                            <img src="{{ url('img/logo/filament.webp') }}" class="rounded-sm" alt="filament" title="Filament" />
                         </div>
                     </div>
                 </div>
@@ -81,11 +81,13 @@
             <x-ts-tab.items tab="Github">
                 <ul class="w-full my-4">
                     <li class="py-2">
-                        <x-link href="https://github.com/barryvdh/laravel-ide-helper/" target="_blank">barryvdh/laravel-ide-helper</x-link>
+                        <x-link href="https://github.com/csstools/postcss-plugins/" target="_blank">csstools/postcss-plugins</x-link> (needed by Filament Table Builder) (OBSOLETE ??)
                     </li>
 
+                   <br/><hr /><br />
+
                     <li class="py-2">
-                        <x-link href="https://github.com/csstools/postcss-plugins/" target="_blank">csstools/postcss-plugins</x-link> (needed by Filament Table Builder)
+                        <x-link href="https://github.com/barryvdh/laravel-ide-helper/" target="_blank">barryvdh/laravel-ide-helper</x-link>
                     </li>
 
                     <li class="py-2">

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'agree'                     => 'Acepto los :terms_of_service y :privacy_policy',
     'already_registered'        => 'Ya registrado',

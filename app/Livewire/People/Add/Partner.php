@@ -204,23 +204,23 @@ class Partner extends Component
     public function isDirty(): bool
     {
         return
-        $this->partnerForm->firstname != null or
-        $this->partnerForm->surname != null or
-        $this->partnerForm->birthname != null or
-        $this->partnerForm->nickname != null or
+        $this->partnerForm->firstname !== null or
+        $this->partnerForm->surname !== null or
+        $this->partnerForm->birthname !== null or
+        $this->partnerForm->nickname !== null or
 
-        $this->partnerForm->sex != null or
-        $this->partnerForm->gender_id != null or
+        $this->partnerForm->sex !== null or
+        $this->partnerForm->gender_id !== null or
 
-        $this->partnerForm->yob != null or
-        $this->partnerForm->dob != null or
-        $this->partnerForm->pob != null or
+        $this->partnerForm->yob !== null or
+        $this->partnerForm->dob !== null or
+        $this->partnerForm->pob !== null or
 
-        $this->partnerForm->person2_id != null or
-        $this->partnerForm->date_start != null or
-        $this->partnerForm->date_end != null or
-        $this->partnerForm->is_married != false or
-        $this->partnerForm->has_ended != false;
+        $this->partnerForm->person2_id !== null or
+        $this->partnerForm->date_start !== null or
+        $this->partnerForm->date_end !== null or
+        $this->partnerForm->is_married !== false or
+        $this->partnerForm->has_ended !== false;
     }
 
     // ------------------------------------------------------------------------------

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     // Labels
     'users_log'        => 'Sổ ghi chép người dùng',

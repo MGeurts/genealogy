@@ -13,14 +13,14 @@
 
     <div class="w-full p-2 space-y-5">
         {{-- chart --}}
-        <div class="flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
+        <div class="flex flex-col rounded-sm bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
             <div class="flex flex-col p-2 text-lg font-medium border-b-2 rounded-t h-14 min-h-min border-neutral-100 dark:border-neutral-600 dark:text-neutral-50">
                 <div class="flex flex-wrap items-start justify-center gap-2">
-                    <div class="flex-1 flex-grow max-w-full min-w-max">
+                    <div class="flex-1 grow max-w-full min-w-max">
                         {{ __('app.family_chart') }}
                     </div>
 
-                    <div class="flex-1 flex-grow max-w-full min-w-max text-end">
+                    <div class="flex-1 grow max-w-full min-w-max text-end">
                         <x-ts-icon icon="tabler.social" class="inline-block size-5" />
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                 <div class="items-center p-2 text-center border basis-1/5">
                     @if ($person->father and $person->father->father)
                         <x-link href="/people/{{ $person->father->father->id }}/chart" @class([
-                            'text-danger-600 dark:text-danger-400' => $person->father->father->isDeceased(),
+                            'text-red-600 dark:text-red-400' => $person->father->father->isDeceased(),
                         ])>
                             {{ $person->father->father->name }}
                         </x-link>
@@ -45,7 +45,7 @@
                 <div class="p-2 text-center border basis-1/5">
                     @if ($person->father and $person->father->mother)
                         <x-link href="/people/{{ $person->father->mother->id }}/chart" @class([
-                            'text-danger-600 dark:text-danger-400' => $person->father->mother->isDeceased(),
+                            'text-red-600 dark:text-red-400' => $person->father->mother->isDeceased(),
                         ])>
                             {{ $person->father->mother->name }}
                         </x-link>
@@ -57,7 +57,7 @@
                 <div class="p-2 text-center border basis-1/5">
                     @if ($person->mother and $person->mother->father)
                         <x-link href="/people/{{ $person->mother->father->id }}/chart" @class([
-                            'text-danger-600 dark:text-danger-400' => $person->mother->father->isDeceased(),
+                            'text-red-600 dark:text-red-400' => $person->mother->father->isDeceased(),
                         ])>
                             {{ $person->mother->father->name }}
                         </x-link>
@@ -69,7 +69,7 @@
                 <div class="p-2 text-center border basis-1/5">
                     @if ($person->mother and $person->mother->mother)
                         <x-link href="/people/{{ $person->mother->mother->id }}/chart" @class([
-                            'text-danger-600 dark:text-danger-400' => $person->mother->mother->isDeceased(),
+                            'text-red-600 dark:text-red-400' => $person->mother->mother->isDeceased(),
                         ])>
                             {{ $person->mother->mother->name }}
                         </x-link>
@@ -94,7 +94,7 @@
                                 <div>
                                     {{ $index + 1 }}.
                                     <x-link href="/people/{{ $sibling->id }}/chart" @class([
-                                        'text-danger-600 dark:text-danger-400' => $sibling->isDeceased(),
+                                        'text-red-600 dark:text-red-400' => $sibling->isDeceased(),
                                     ])>
                                         {{ $sibling->name }}
                                     </x-link>
@@ -104,7 +104,7 @@
                                         @foreach ($sibling->children as $child)
                                             <li>
                                                 <x-link href="/people/{{ $child->id }}/chart" @class([
-                                                    'text-danger-600 dark:text-danger-400' => $child->isDeceased(),
+                                                    'text-red-600 dark:text-red-400' => $child->isDeceased(),
                                                 ])>
                                                     {{ $child->name }}
                                                 </x-link>
@@ -125,7 +125,7 @@
                                 <div>
                                     {{ $index + 1 }}.
                                     <x-link href="/people/{{ $sibling->id }}/chart" @class([
-                                        'text-danger-600 dark:text-danger-400' => $sibling->isDeceased(),
+                                        'text-red-600 dark:text-red-400' => $sibling->isDeceased(),
                                     ])>
                                         {{ $sibling->name }}
                                     </x-link>
@@ -135,7 +135,7 @@
                                         @foreach ($sibling->children as $child)
                                             <li>
                                                 <x-link href="/people/{{ $child->id }}/chart" @class([
-                                                    'text-danger-600 dark:text-danger-400' => $child->isDeceased(),
+                                                    'text-red-600 dark:text-red-400' => $child->isDeceased(),
                                                 ])>
                                                     {{ $child->name }}
                                                 </x-link>
@@ -157,7 +157,7 @@
                 <div class="p-2 text-center border basis-2/5">
                     @if ($person->father)
                         <x-link href="/people/{{ $person->father->id }}/chart" @class([
-                            'text-danger-600 dark:text-danger-400' => $person->father->isDeceased(),
+                            'text-red-600 dark:text-red-400' => $person->father->isDeceased(),
                         ])>
                             {{ $person->father->name }}
                         </x-link>
@@ -169,7 +169,7 @@
                 <div class="p-2 text-center border basis-2/5">
                     @if ($person->mother)
                         <x-link href="/people/{{ $person->mother->id }}/chart" @class([
-                            'text-danger-600 dark:text-danger-400' => $person->mother->isDeceased(),
+                            'text-red-600 dark:text-red-400' => $person->mother->isDeceased(),
                         ])>
                             {{ $person->mother->name }}
                         </x-link>
@@ -186,7 +186,7 @@
 
                 <div class="p-2 text-center border basis-4/5">
                     <x-link href="/people/{{ $person->id }}/chart" @class([
-                        'text-danger-600 dark:text-danger-400' => $person->isDeceased(),
+                        'text-red-600 dark:text-red-400' => $person->isDeceased(),
                     ])>
                         {{ $person->name }}
                     </x-link>
@@ -207,7 +207,7 @@
                             <div>
                                 {{ $index + 1 }}.
                                 <x-link href="/people/{{ $child->id }}/chart" @class([
-                                    'text-danger-600 dark:text-danger-400' => $child->isDeceased(),
+                                    'text-red-600 dark:text-red-400' => $child->isDeceased(),
                                 ])>
                                     {{ $child->name }}
                                 </x-link>
@@ -217,7 +217,7 @@
                                     @foreach ($child->children as $grandchild)
                                         <li>
                                             <x-link href="/people/{{ $grandchild->id }}/chart" @class([
-                                                'text-danger-600 dark:text-danger-400' => $grandchild->isDeceased(),
+                                                'text-red-600 dark:text-red-400' => $grandchild->isDeceased(),
                                             ])>
                                                 {{ $grandchild->name }}
                                             </x-link>
@@ -244,7 +244,7 @@
                             <div>
                                 {{ $index + 1 }}.
                                 <x-link href="/people/{{ $sibling->id }}/chart" @class([
-                                    'text-danger-600 dark:text-danger-400' => $sibling->isDeceased(),
+                                    'text-red-600 dark:text-red-400' => $sibling->isDeceased(),
                                 ])>
                                     {{ $sibling->name }}
                                 </x-link>
@@ -254,7 +254,7 @@
                                     @foreach ($sibling->children as $child)
                                         <li>
                                             <x-link href="/people/{{ $child->id }}/chart" @class([
-                                                'text-danger-600 dark:text-danger-400' => $child->isDeceased(),
+                                                'text-red-600 dark:text-red-400' => $child->isDeceased(),
                                             ])>
                                                 {{ $child->name }}
                                             </x-link>

@@ -125,17 +125,17 @@ class Person extends Component
     public function isDirty(): bool
     {
         return
-        $this->personForm->firstname != null or
-        $this->personForm->surname != null or
-        $this->personForm->birthname != null or
-        $this->personForm->nickname != null or
+        $this->personForm->firstname !== null or
+        $this->personForm->surname !== null or
+        $this->personForm->birthname !== null or
+        $this->personForm->nickname !== null or
 
-        $this->personForm->sex != null or
-        $this->personForm->gender_id != null or
+        $this->personForm->sex !== null or
+        $this->personForm->gender_id !== null or
 
-        $this->personForm->yob != null or
-        $this->personForm->dob != null or
-        $this->personForm->pob != null;
+        $this->personForm->yob !== null or
+        $this->personForm->dob !== null or
+        $this->personForm->pob !== null;
     }
 
     // ------------------------------------------------------------------------------

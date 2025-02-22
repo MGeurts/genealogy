@@ -52,7 +52,7 @@ class Death extends Component
                 collect($validated)
                     ->forget(['yod', 'dod', 'pod'])
                     ->filter(function ($value, $key) {
-                        return $value != $this->person->getMetadataValue($key);
+                        return $value !== $this->person->getMetadataValue($key);
                     })
             );
             // ------------------------------------------------------
@@ -70,14 +70,14 @@ class Death extends Component
     public function isDirty(): bool
     {
         return
-        $this->deathForm->yod != $this->person->yod or
-        $this->deathForm->dod != ($this->person->dod ? Carbon::parse($this->person->dod)->format('Y-m-d') : null) or
-        $this->deathForm->pod != $this->person->pod or
+        $this->deathForm->yod !== $this->person->yod or
+        $this->deathForm->dod !== ($this->person->dod ? Carbon::parse($this->person->dod)->format('Y-m-d') : null) or
+        $this->deathForm->pod !== $this->person->pod or
 
-        $this->deathForm->cemetery_location_name != $this->person->getMetadataValue('cemetery_location_name') or
-        $this->deathForm->cemetery_location_address != $this->person->getMetadataValue('cemetery_location_address') or
-        $this->deathForm->cemetery_location_latitude != $this->person->getMetadataValue('cemetery_location_latitude') or
-        $this->deathForm->cemetery_location_longitude != $this->person->getMetadataValue('cemetery_location_longitude');
+        $this->deathForm->cemetery_location_name !== $this->person->getMetadataValue('cemetery_location_name') or
+        $this->deathForm->cemetery_location_address !== $this->person->getMetadataValue('cemetery_location_address') or
+        $this->deathForm->cemetery_location_latitude !== $this->person->getMetadataValue('cemetery_location_latitude') or
+        $this->deathForm->cemetery_location_longitude !== $this->person->getMetadataValue('cemetery_location_longitude');
     }
 
     // ------------------------------------------------------------------------------

@@ -90,7 +90,7 @@
                                         </x-ts-button>
                                     @endif
 
-                                    <x-ts-button sm color="danger" class="text-sm min-w-28 ms-3" wire:click="confirmApiTokenDeletion({{ $token->id }})" title="{{ __('api.delete_api_token') }}">
+                                    <x-ts-button sm color="red" class="text-sm min-w-28 ms-3" wire:click="confirmApiTokenDeletion({{ $token->id }})" title="{{ __('api.delete_api_token') }}">
                                         {{ __('api.delete') }}
                                     </x-ts-button>
                                 </div>
@@ -113,7 +113,7 @@
                 {{ __('api.please_copy') }}
             </div>
 
-            <x-input x-ref="plaintextToken" type="text" readonly :value="$plainTextToken" class="w-full px-4 py-2 mt-4 font-mono text-sm text-gray-500 break-all bg-gray-100 rounded" autofocus
+            <x-input x-ref="plaintextToken" type="text" readonly :value="$plainTextToken" class="w-full px-4 py-2 mt-4 font-mono text-sm text-gray-500 break-all bg-gray-100 rounded-sm" autofocus
                 autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" @showing-token-modal.window="setTimeout(() => $refs.plaintextToken.select(), 250)" />
         </x-slot>
 
@@ -167,7 +167,7 @@
                 {{ __('api.cancel') }}
             </x-ts-button>
 
-            <x-ts-button color="danger" class="ms-3" wire:click="deleteApiToken" wire:loading.attr="disabled">
+            <x-ts-button color="red" class="ms-3" wire:click="deleteApiToken" wire:loading.attr="disabled">
                 {{ __('api.delete') }}
             </x-ts-button>
         </x-slot>

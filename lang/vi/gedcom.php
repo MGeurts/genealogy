@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'export'        => 'Xuất khẩu',
     'gedcom_export' => 'Xuất đội sang tệp GEDCOM',

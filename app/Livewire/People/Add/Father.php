@@ -156,16 +156,16 @@ class Father extends Component
     public function isDirty(): bool
     {
         return
-        $this->fatherForm->firstname != null or
-        $this->fatherForm->surname != null or
-        $this->fatherForm->birthname != null or
-        $this->fatherForm->nickname != null or
+        $this->fatherForm->firstname !== null or
+        $this->fatherForm->surname !== null or
+        $this->fatherForm->birthname !== null or
+        $this->fatherForm->nickname !== null or
 
-        $this->fatherForm->gender_id != null or
+        $this->fatherForm->gender_id !== null or
 
-        $this->fatherForm->yob != null or
-        $this->fatherForm->dob != null or
-        $this->fatherForm->pob != null or
+        $this->fatherForm->yob !== null or
+        $this->fatherForm->dob !== null or
+        $this->fatherForm->pob !== null or
 
         $this->fatherForm->person_id;
     }

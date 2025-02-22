@@ -1,7 +1,7 @@
-<div class="min-w-80 flex flex-col rounded bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
+<div class="min-w-80 flex flex-col rounded-sm bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
     <div class="flex flex-col p-2 text-lg font-medium border-b-2 rounded-t h-14 min-h-min border-neutral-100 dark:border-neutral-600 dark:text-neutral-50">
         <div class="flex flex-wrap items-start justify-center gap-2">
-            <div class="flex-1 flex-grow max-w-full min-w-max">
+            <div class="flex-1 grow max-w-full min-w-max">
                 {{ __('person.partners') }}
                 @if (count($person->couples) > 0)
                     <x-ts-badge color="emerald" text="{{ count($person->couples) }}" />
@@ -9,7 +9,7 @@
             </div>
 
             @if (auth()->user()->hasPermission('couple:create'))
-                <div class="flex-1 flex-grow min-w-max max-w-min text-end">
+                <div class="flex-1 grow min-w-max max-w-min text-end">
                     <x-ts-dropdown icon="tabler.menu-2" position="bottom-end">
                         <a href="/people/{{ $person->id }}/add-partner">
                             <x-ts-dropdown.items>
@@ -38,7 +38,7 @@
                             <hr />
 
                             @foreach ($person->couples->sortBy('date_start') as $couple)
-                                <x-ts-dropdown.items class="!text-danger-600 dark:!text-danger-400" wire:click="confirmDeletion({{ $couple->id }} , '{{ $couple->name }}')"
+                                <x-ts-dropdown.items class="text-red-600! dark:text-red-400!" wire:click="confirmDeletion({{ $couple->id }} , '{{ $couple->name }}')"
                                     title="{{ __('person.delete_relationship') }}">
                                     <x-ts-icon icon="tabler.trash" class="mr-2" />
                                     <div>
@@ -57,15 +57,15 @@
     @if (count($person->couples) > 0)
         @foreach ($person->couples->sortBy('date_start') as $couple)
             <div class="p-2 flex flex-wrap gap-2 justify-center items-start @if (!$loop->last) border-b @endif">
-                <div class="flex-1 flex-grow max-w-full min-w-max">
+                <div class="flex-1 grow max-w-full min-w-max">
                     @if ($couple->person2_id === $person->id)
-                        <x-link href="/people/{{ $couple->person_1->id }}" @class(['text-danger-600 dark:text-danger-400' => $couple->person_1->isDeceased()])>
+                        <x-link href="/people/{{ $couple->person_1->id }}" @class(['text-red-600 dark:text-red-400' => $couple->person_1->isDeceased()])>
                             {{ $couple->person_1->name }}
                         </x-link>
 
                         <x-ts-icon icon="tabler.{{ $couple->person_1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @else
-                        <x-link href="/people/{{ $couple->person_2->id }}" @class(['text-danger-600 dark:text-danger-400' => $couple->person_2->isDeceased()])>
+                        <x-link href="/people/{{ $couple->person_2->id }}" @class(['text-red-600 dark:text-red-400' => $couple->person_2->isDeceased()])>
                             {{ $couple->person_2->name }}
                         </x-link>
 
@@ -83,7 +83,7 @@
 
                         @if ($couple->date_end or $couple->has_ended)
                             <br />
-                            <x-ts-icon icon="tabler.hearts-off" class="inline-block size-5 text-danger-600 dark:text-danger-400" />
+                            <x-ts-icon icon="tabler.hearts-off" class="inline-block size-5 text-red-600 dark:text-red-400" />
                             {{ $couple->date_end ? $couple->date_end->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '??' }}
                         @endif
                     </p>
@@ -111,7 +111,7 @@
                     {{ __('app.abort_no') }}
                 </x-ts-button>
 
-                <x-ts-button color="danger" class="ml-3" wire:click="deleteCouple()" wire:loading.attr="disabled">
+                <x-ts-button color="red" class="ml-3" wire:click="deleteCouple()" wire:loading.attr="disabled">
                     {{ __('app.delete_yes') }}
                 </x-ts-button>
             </x-slot>

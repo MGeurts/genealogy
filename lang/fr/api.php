@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'api_token'              => 'Jeton API',
     'api_token_permissions'  => 'Autorisations des jetons API',

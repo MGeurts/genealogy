@@ -10,7 +10,6 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Tables;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
-use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Grouping\Group;
 use Filament\Tables\Table;
@@ -118,7 +117,7 @@ class People extends Component implements HasForms, HasTable
                         'f' => __('app.female'),
                     ])
                     ->label(__('person.sex')),
-            ], layout: FiltersLayout::AboveContent)
+            ])
             ->actions([
                 Tables\Actions\DeleteAction::make()
                     ->iconButton()

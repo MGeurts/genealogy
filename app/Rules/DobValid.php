@@ -38,7 +38,7 @@ class DobValid implements DataAwareRule, ValidationRule
     {
         if ($this->data['yob']) {
             // dob->year must match yob
-            if ($this->data['yob'] != date('Y', strtotime($value))) {
+            if ($this->data['yob'] !== date('Y', strtotime($value))) {
                 $fail(__('person.dob_not_matching_yob', ['value' => $this->data['yob']]));
             }
         } elseif (isset($this->data['person'])) {

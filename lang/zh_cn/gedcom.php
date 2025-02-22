@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'export'        => '导出',
     'gedcom_export' => '将家族导出为 GEDCOM 文件',

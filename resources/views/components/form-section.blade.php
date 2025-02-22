@@ -15,7 +15,7 @@
         <form wire:submit="{{ $submit }}">
             @csrf
 
-            <div class="p-4 bg-white sm:p-6 {{ isset($actions) ? 'rounded-tl rounded-tr' : 'rounded' }}">
+            <div class="p-4 bg-white sm:p-6 {{ isset($actions) ? 'rounded-tl rounded-tr' : 'rounded-sm' }}">
                 <div class="grid grid-cols-6 gap-5">
                     {{ $form }}
                 </div>

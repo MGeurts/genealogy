@@ -10,7 +10,6 @@ use Filament\Forms\Contracts\HasForms;
 use Filament\Tables;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
-use Filament\Tables\Enums\FiltersLayout;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
 use Illuminate\View\View;
@@ -81,7 +80,7 @@ class Teams extends Component implements HasForms, HasTable
                 TernaryFilter::make('personal_team')
                     ->label(__('team.team_personal') . '?')
                     ->default(false),
-            ], layout: FiltersLayout::AboveContent)
+            ])
             ->defaultSort('name')
             ->striped();
     }

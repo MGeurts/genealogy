@@ -1,6 +1,8 @@
 {
     "preset": "laravel",
     "rules": {
+        "declare_strict_types": true,
+        "strict_comparison": true,
         "binary_operator_spaces": {
             "operators": {
                 "=>": "align_single_space_minimal",

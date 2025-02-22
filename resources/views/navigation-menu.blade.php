@@ -1,7 +1,7 @@
 <nav x-data="{ open: false }" class="border-b border-gray-100 bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-200">
     {{-- primary navigation menu --}}
     <div class="flex gap-5 px-2 min-h-16">
-        <div class="flex flex-grow gap-5">
+        <div class="flex grow gap-5">
             {{-- logo --}}
             <div class="flex items-center shrink-0">
                 <a href="{{ route('home') }}" title="{{ __('app.home') }}">
@@ -44,13 +44,13 @@
                     <x-dropdown align="left" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-                                <button class="flex text-sm transition border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300">
+                                <button class="flex text-sm transition border-2 border-transparent rounded-full focus:outline-hidden focus:border-gray-300">
                                     <img class="object-cover w-8 h-8 rounded-full" src="{{ auth()->user()->profile_photo_url }}" alt="{{ auth()->user()->name }}" title="{{ auth()->user()->name }}" />
                                 </button>
                             @else
-                                <span class="inline-flex rounded">
+                                <span class="inline-flex rounded-sm">
                                     <button type="button" title="{{ auth()->user()->name }}"
-                                        class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50">
+                                        class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-sm hover:text-gray-700 focus:outline-hidden focus:bg-gray-50 active:bg-gray-50">
                                         {{ auth()->user()->name }}
 
                                         <svg class="ml-2 -mr-0.5 size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -99,9 +99,9 @@
                     <div class="relative min-w-max">
                         <x-dropdown align="right" width="60px">
                             <x-slot name="trigger">
-                                <span class="inline-flex rounded">
+                                <span class="inline-flex rounded-sm">
                                     <button type="button"
-                                        class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50">
+                                        class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-sm hover:text-gray-700 focus:outline-hidden focus:bg-gray-50 active:bg-gray-50">
                                         {{ auth()->user()->currentTeam->name }}
 
                                         <svg class="ml-2 -mr-0.5 size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -188,7 +188,7 @@
         {{-- hamburger --}}
         <div class="flex items-center md:hidden">
             <button @click="open = ! open"
-                class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded hover:text-gray-500 hover:bg-gray-300 focus:outline-none focus:bg-gray-300 focus:text-gray-500">
+                class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-sm hover:text-gray-500 hover:bg-gray-300 focus:outline-hidden focus:bg-gray-300 focus:text-gray-500">
                 <svg class="size-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                     <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     <path :class="{ 'hidden': !open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />

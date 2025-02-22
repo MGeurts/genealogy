@@ -1,6 +1,78 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+@config "../../tailwind.config.js";
+
+@source "../views";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/laravel/jetstream/**/*.blade.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* TallStackUI START ------------------------------------------------------------------ */
+  --color-dark-50: #f1f5fb;
+  --color-dark-100: #ebeef3;
+  --color-dark-200: #d3d9e4;
+  --color-dark-300: #acb8cd;
+  --color-dark-400: #7f92b1;
+  --color-dark-500: #5f7498;
+  --color-dark-600: #4b5d7e;
+  --color-dark-700: #3f4d69;
+  --color-dark-800: #364156;
+  --color-dark-900: #30384a;
+  --color-dark-950: #202531;
+
+  --color-primary-50: #f1f5fb;
+  --color-primary-100: #e3ebf7;
+  --color-primary-200: #c7d7f0;
+  --color-primary-300: #abc2e8;
+  --color-primary-400: #8faee0;
+  --color-primary-500: #6590d5;
+  --color-primary-600: #3061af;
+  --color-primary-700: #285192;
+  --color-primary-800: #204075;
+  --color-primary-900: #183058;
+  --color-primary-950: #183058;
+
+  --color-secondary-50: #f8f9f9;
+  --color-secondary-100: #f1f2f4;
+  --color-secondary-200: #e4e6e9;
+  --color-secondary-300: #d6d9de;
+  --color-secondary-400: #c8ccd3;
+  --color-secondary-500: #b3b9c2;
+  --color-secondary-600: #848d9c;
+  --color-secondary-700: #6b7585;
+  --color-secondary-800: #565d6b;
+  --color-secondary-900: #404650;
+  --color-secondary-950: #404650;
+  /* TallStackUI END -------------------------------------------------------------------- */
+
+  --font-sans:
+    Figtree, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
 
 /* -------------------------------------------- */
 [x-cloak] { display: none !important; }
@@ -16,11 +88,11 @@
   --f: 5px;   /* control the folded part*/
   --r: 5px;   /* control the ribbon shape */
   --b: 2px;   /* control the bottom offset */
-  
+
   position: absolute;
   inset: auto calc(-1*var(--f)) var(--b) auto;
   padding: 0 10px var(--f) calc(10px + var(--r));
-  clip-path: 
+  clip-path:
     polygon(0 0,100% 0,100% calc(100% - var(--f)),calc(100% - var(--f)) 100%,
     calc(100% - var(--f)) calc(100% - var(--f)),0 calc(100% - var(--f)),
     var(--r) calc(50% - var(--f)/2));
