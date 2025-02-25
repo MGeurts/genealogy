@@ -10,13 +10,12 @@
     "require": {
         "php": "^8.3",
         "alisalehi/laravel-lang-files-translator": "^1.0",
-        "filament/tables": "^3.2",
+        "filament/tables": "^3.3",
         "intervention/image": "^3.11",
-        "korridor/laravel-has-many-merged": "^1.1",
-        "laravel/framework": "^11.43",
+        "laravel/framework": "^12.0",
         "laravel/jetstream": "^5.3",
         "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.10",
+        "laravel/tinker": "^2.10.1",
         "larswiegers/laravel-translations-checker": "^0.9",
         "livewire/livewire": "^3.5",
         "opcodesio/log-viewer": "^3.15",
@@ -36,7 +35,7 @@
         "laravel/sail": "^1.41",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.6",
-        "phpunit/phpunit": "^11.5",
+        "phpunit/phpunit": "^11.5.3",
         "spatie/laravel-ignition": "^2.9"
     },
     "autoload": {

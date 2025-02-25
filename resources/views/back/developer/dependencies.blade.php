@@ -14,7 +14,7 @@
                 <div class="grid gap-4 md:grid-cols-2">
                     <ul class="w-full my-4">
                         <li class="py-2">
-                            <x-link href="https://laravel.com/" target="_blank">Laravel</x-link> 11
+                            <x-link href="https://laravel.com/" target="_blank">Laravel</x-link> 12
                             <x-ts-button xs href="https://laravel.com/docs/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
 
@@ -96,7 +96,7 @@
                     </li>
 
                     <li class="py-2">
-                        <x-link href="https://github.com/korridor/laravel-has-many-merged/" target="_blank">korridor/laravel-has-many-merged</x-link>
+                        <x-link href="https://github.com/korridor/laravel-has-many-merged/" target="_blank">korridor/laravel-has-many-merged</x-link> (OBSOLETE ??)
                     </li>
 
                     <li class="py-2">
