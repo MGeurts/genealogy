@@ -148,9 +148,10 @@ class Person extends Model implements HasMedia
         if ($birth_year !== null) {
             $birth_year = (int) $birth_year;
 
-            $query->where(function ($q) use ($birth_year) {
-                $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '<=', $birth_year);
-            })
+            $query
+                ->where(function ($q) use ($birth_year) {
+                    $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '<=', $birth_year);
+                })
                 ->where(function ($q) use ($birth_year) {
                     $q->whereNull('yob')->orWhere('yob', '<=', $birth_year);
                 });
@@ -162,9 +163,10 @@ class Person extends Model implements HasMedia
         if ($birth_year !== null) {
             $birth_year = (int) $birth_year;
 
-            $query->where(function ($q) use ($birth_year) {
-                $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '>=', $birth_year);
-            })
+            $query
+                ->where(function ($q) use ($birth_year) {
+                    $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '>=', $birth_year);
+                })
                 ->where(function ($q) use ($birth_year) {
                     $q->whereNull('yob')->orWhere('yob', '>=', $birth_year);
                 });
@@ -181,9 +183,10 @@ class Person extends Model implements HasMedia
             $min_age    = $birth_year - $offset;
             $max_age    = $birth_year + $offset;
 
-            $query->where(function ($q) use ($min_age, $max_age) {
-                $q->whereNull('dob')->orWhereBetween(DB::raw('YEAR(dob)'), [$min_age, $max_age]);
-            })
+            $query
+                ->where(function ($q) use ($min_age, $max_age) {
+                    $q->whereNull('dob')->orWhereBetween(DB::raw('YEAR(dob)'), [$min_age, $max_age]);
+                })
                 ->where(function ($q) use ($min_age, $max_age) {
                     $q->whereNull('yob')->orWhereBetween('yob', [$min_age, $max_age]);
                 });

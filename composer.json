@@ -17,7 +17,7 @@
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10",
         "larswiegers/laravel-translations-checker": "^0.9",
-        "livewire/livewire": "^3.5",
+        "livewire/livewire": "^3.6",
         "opcodesio/log-viewer": "^3.15",
         "secondnetwork/blade-tabler-icons": "^3.30",
         "spatie/laravel-activitylog": "^4.10",
