@@ -2,6 +2,7 @@
 
 # Genealogy
 
+![](https://img.shields.io/packagist/dt/tallstackui/tallstackui?style=for-the-badge">)
 ![](https://img.shields.io/badge/PHP-8.3-informational?style=flat&logo=php&color=4f5b93)
 ![](https://img.shields.io/badge/Laravel-12-informational?style=flat&logo=laravel&color=ef3b2d)
 ![](https://img.shields.io/badge/Alpine.js-3-informational?style=flat&logo=Alpine.js&color=8BC0D0)
