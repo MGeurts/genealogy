@@ -171,7 +171,7 @@ class Photos extends Component
             'name'          => $file->getFilename(),
             'name_download' => "{$this->person->name} - {$file->getFilename()}",
             'extension'     => $file->getExtension(),
-            'size'          => Number::fileSize($file->getSize(), 1),
+            'size'          => Number::fileSize($file->getSize(), 2),
             'path'          => $file->getPath(),
             'url'           => Storage::url("photos-384/{$teamId}/{$file->getFilename()}"),
             'url_original'  => Storage::url("photos/{$teamId}/{$file->getFilename()}"),

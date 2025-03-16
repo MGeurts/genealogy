@@ -206,7 +206,7 @@ class AppServiceProvider extends ServiceProvider
     {
         if (settings('log_all_queries_slow')) {
             DB::listen(function ($query): void {
-                if ($query->time > settings('log_all_queries_slow_threshold')) {
+                if ($query->time > (int) settings('log_all_queries_slow_threshold')) {
                     Log::warning('An individual database query exceeded ' . settings('log_all_queries_slow_threshold') . ' ms.', [
                         'sql'  => $query->sql,
                         'raw'  => $query->toRawSQL(),
