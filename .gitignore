@@ -19,3 +19,5 @@ yarn-error.log
 /.vscode
 deploy-genealogy.sh
 herd.yml
+_ide_helper.php
+_ide_helper_models.php
