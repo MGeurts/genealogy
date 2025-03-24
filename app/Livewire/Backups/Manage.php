@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Number;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
@@ -71,25 +72,18 @@ class Manage extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->backups = collect();
+        $disk = Storage::disk(config('app.backup.disk'));
 
-        $disk  = Storage::disk(config('app.backup.disk'));
-        $files = $disk->files(config('backup.backup.name'));
-
-        // make a collection of existing backup files, with their filesize and creation date
-        foreach ($files as $file) {
-            // only take zip files into account
-            if (substr($file, -4) === '.zip' and $disk->exists($file)) {
-                $this->backups->push([
-                    'file_name'    => str_replace(config('backup.backup.name') . '/', '', $file),
-                    'file_size'    => Number::fileSize($disk->size($file), 2),
-                    'date_created' => Carbon::createFromTimestamp($disk->lastModified($file))->format('d-m-Y H:i:s'),
-                    'date_ago'     => Carbon::createFromTimestamp($disk->lastModified($file))->diffForHumans(Carbon::now()),
-                ]);
-            }
-        }
-
-        $this->backups = $this->backups->sortByDesc('date_created');
+        $this->backups = collect($disk->files(config('backup.backup.name')))
+            ->filter(fn ($file) => str_ends_with($file, '.zip') && $disk->exists($file))
+            ->map(fn ($file) => [
+                'file_name'    => Str::after($file, config('backup.backup.name') . '/'),
+                'file_size'    => Number::fileSize($disk->size($file), 2),
+                'date_created' => Carbon::createFromTimestamp($disk->lastModified($file))->format('d-m-Y H:i:s'),
+                'date_ago'     => Carbon::createFromTimestamp($disk->lastModified($file))->diffForHumans(),
+            ])
+            ->sortByDesc('date_created')
+            ->values(); // Reset collection keys
     }
 
     public function create(): void
