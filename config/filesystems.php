@@ -67,6 +67,24 @@ return [
             'throw'  => false,
         ],
 
+        // files
+        'files' => [
+            'driver'     => 'local',
+            'root'       => storage_path('app/public/files'),
+            'url'        => env('APP_URL') . '/storage/files',
+            'visibility' => 'public',
+            'throw'      => false,
+        ],
+
+        // imports
+        'imports' => [
+            'driver'     => 'local',
+            'root'       => storage_path('app/public/imports'),
+            'url'        => env('APP_URL') . '/storage/imports',
+            'visibility' => 'public',
+            'throw'      => false,
+        ],
+
         // photos
         'photos' => [
             'driver'     => 'local',
@@ -90,24 +108,6 @@ return [
             'driver'     => 'local',
             'root'       => storage_path('app/public/photos-384'),
             'url'        => env('APP_URL') . '/storage/photos-384',
-            'visibility' => 'public',
-            'throw'      => false,
-        ],
-
-        // files
-        'files' => [
-            'driver'     => 'local',
-            'root'       => storage_path('app/public/files'),
-            'url'        => env('APP_URL') . '/storage/files',
-            'visibility' => 'public',
-            'throw'      => false,
-        ],
-
-        // imports
-        'imports' => [
-            'driver'     => 'local',
-            'root'       => storage_path('app/public/imports'),
-            'url'        => env('APP_URL') . '/storage/imports',
             'visibility' => 'public',
             'throw'      => false,
         ],
