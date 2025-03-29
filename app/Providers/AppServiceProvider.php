@@ -140,7 +140,7 @@ class AppServiceProvider extends ServiceProvider
         $ui->modal()
             ->block('wrapper.first')->replace('bg-gray-400/75', 'bg-gray-400/10')
             ->block('wrapper.fourth')->replace([
-                'dark:bg-dark-700' => 'dark:bg-neutral-700',
+                'dark:bg-dark-700' => 'dark:bg-gray-900',
                 'rounded-xl'       => 'rounded-sm',
             ]);
 
