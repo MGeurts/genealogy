@@ -138,14 +138,14 @@ class AppServiceProvider extends ServiceProvider
             ]);
 
         $ui->modal()
-            ->block('wrapper.first')->replace('bg-gray-400', 'bg-gray-400/10')
+            ->block('wrapper.first')->replace('bg-gray-400/75', 'bg-gray-400/10')
             ->block('wrapper.fourth')->replace([
                 'dark:bg-dark-700' => 'dark:bg-neutral-700',
                 'rounded-xl'       => 'rounded-sm',
             ]);
 
         $ui->slide()
-            ->block('wrapper.first')->replace('bg-gray-400', 'bg-gray-400/10')
+            ->block('wrapper.first')->replace('bg-gray-400/75', 'bg-gray-400/10')
             ->block('wrapper.fifth')->replace('dark:bg-dark-700', 'dark:bg-gray-900')
             ->block('body')->replace('dark:text-dark-300', 'dark:text-neutral-300')
             ->block('footer')->append('dark:text-secondary-600');
