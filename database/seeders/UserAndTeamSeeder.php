@@ -28,7 +28,7 @@ class UserAndTeamSeeder extends Seeder
             ->withPersonalTeam()
             ->create();
 
-        if (! app()->isProduction()) {
+        if (app()->isLocal()) {
             $this->createUserlogs($developer);
         }
 
@@ -45,7 +45,7 @@ class UserAndTeamSeeder extends Seeder
             ->withPersonalTeam()
             ->create();
 
-        if (! app()->isProduction()) {
+        if (app()->isLocal()) {
             $this->createUserlogs($administrator);
         }
 
@@ -72,7 +72,7 @@ class UserAndTeamSeeder extends Seeder
             ->withPersonalTeam()
             ->create();
 
-        if (! app()->isProduction()) {
+        if (app()->isLocal()) {
             $this->createUserlogs($manager);
         }
 
@@ -91,7 +91,7 @@ class UserAndTeamSeeder extends Seeder
             ->withPersonalTeam()
             ->create();
 
-        if (! app()->isProduction()) {
+        if (app()->isLocal()) {
             $this->createUserlogs($editor);
         }
 
@@ -114,7 +114,7 @@ class UserAndTeamSeeder extends Seeder
                     ->withPersonalTeam()
                     ->create();
 
-                if (! app()->isProduction()) {
+                if (app()->isLocal()) {
                     $this->createUserlogs($user);
                 }
 
@@ -134,7 +134,7 @@ class UserAndTeamSeeder extends Seeder
                     ->withPersonalTeam()
                     ->create();
 
-                if (! app()->isProduction()) {
+                if (app()->isLocal()) {
                     $this->createUserlogs($user);
                 }
 
@@ -153,7 +153,7 @@ class UserAndTeamSeeder extends Seeder
                     ->withPersonalTeam()
                     ->create();
 
-                if (! app()->isProduction()) {
+                if (app()->isLocal()) {
                     $this->createUserlogs($user);
                 }
             }
