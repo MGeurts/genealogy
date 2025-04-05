@@ -49,7 +49,13 @@ class AppServiceProvider extends ServiceProvider
             RequestException::dontTruncate();
         }
 
-        DB::prohibitDestructiveCommands(app()->isProduction());
+        // ------------------------------------------------------------------------------
+        // This will prevent any destructive commands from being executed
+        // in production environments, such as dropping tables or truncating data.
+        // This is a safety measure to prevent accidental data loss.
+        // Uncomment the line below to enable this feature.
+        // ------------------------------------------------------------------------------
+        // DB::prohibitDestructiveCommands(app()->isProduction());
 
         // ------------------------------------------------------------------------------
         // Enable or disable logging based on application settings
