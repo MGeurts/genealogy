@@ -24,9 +24,11 @@ class Importteam extends Component
 
     public string $name;
 
-    public string $description;
+    public ?string $description = null;
 
     public ?TemporaryUploadedFile $file = null;
+
+    public ?Import $import = null;
 
     // -----------------------------------------------------------------------
     public function rules(): array

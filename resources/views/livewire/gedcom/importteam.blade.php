@@ -52,7 +52,7 @@
 
         {{-- team name --}}
         <div class="col-span-6">
-            <x-ts-input id="name" name="name" type="text" class="block w-full mt-1" wire:model="name" autofocus required label="{{ __('team.name') }} : *" />
+            <x-ts-input id="name" name="name" type="text" class="block w-full mt-1" wire:model="name" label="{{ __('team.name') }} : *" required autofocus />
 
             <x-input-error for="name" class="mt-2" />
         </div>

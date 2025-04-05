@@ -44,10 +44,10 @@
                                         class="relative p-4 inline-flex w-full rounded-sm focus:z-10 focus:outline-hidden focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-600 {{ $index > 0 ? 'border-t border-gray-200 dark:border-gray-700 focus:border-none rounded-t-none' : '' }} {{ !$loop->last ? 'rounded-b-none' : '' }}"
                                         wire:click="$set('addTeamMemberForm.role', '{{ $role->key }}')">
                                         <div @class([
-                'opacity-50' =>
-                    isset($addTeamMemberForm['role']) and
-                    $addTeamMemberForm['role'] !== $role->key,
-            ])>
+                                            'opacity-50' =>
+                                                isset($addTeamMemberForm['role']) and
+                                                $addTeamMemberForm['role'] !== $role->key,
+                                        ])>
                                             {{-- role name --}}
                                             <div class="flex items-center">
                                                 <div class="text-sm text-gray-600 {{ $addTeamMemberForm['role'] === $role->key ? 'font-semibold' : '' }}">
