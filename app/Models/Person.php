@@ -7,6 +7,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Countries;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -134,7 +135,8 @@ class Person extends Model implements HasMedia
     // Be aware that this kinds of searches are slower.
     // If a name containes any spaces, enclose the name in double quoutes, for instance "John Jr." Kennedy.
     /* -------------------------------------------------------------------------------------------- */
-    public function scopeSearch(Builder $query, string $searchString): void
+    #[scope]
+    public function Search(Builder $query, string $searchString): void
     {
         if ($searchString !== '%') {
             collect(str_getcsv($searchString, ' ', '"'))->filter()->each(function (string $searchTerm) use ($query) {
@@ -143,7 +145,8 @@ class Person extends Model implements HasMedia
         }
     }
 
-    public function scopeOlderThan(Builder $query, ?string $birth_year): void
+    #[scope]
+    public function OlderThan(Builder $query, ?string $birth_year): void
     {
         if ($birth_year !== null) {
             $birth_year = (int) $birth_year;
@@ -158,7 +161,8 @@ class Person extends Model implements HasMedia
         }
     }
 
-    public function scopeYoungerThan(Builder $query, ?string $birth_year): void
+    #[scope]
+    public function YoungerThan(Builder $query, ?string $birth_year): void
     {
         if ($birth_year !== null) {
             $birth_year = (int) $birth_year;
@@ -173,7 +177,8 @@ class Person extends Model implements HasMedia
         }
     }
 
-    public function scopePartnerOffset(Builder $query, ?string $birth_year, int $offset = 40): void
+    #[scope]
+    public function PartnerOffset(Builder $query, ?string $birth_year, int $offset = 40): void
     {
         // -------------------------------------------------------------------------
         // offset : possible partners can be +/- n ($offeset) years older or younger

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -87,7 +88,8 @@ class Couple extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Local Scopes
     /* -------------------------------------------------------------------------------------------- */
-    public function scopeOlderThan(Builder $query, ?string $birth_year = null): void
+    #[scope]
+    public function OlderThan(Builder $query, ?string $birth_year = null): void
     {
         if ($birth_year) {
             $query->where(function ($q) use ($birth_year) {
@@ -97,7 +99,8 @@ class Couple extends Model
         }
     }
 
-    public function scopeYoungerThan(Builder $query, ?string $birth_year = null): void
+    #[scope]
+    public function YoungerThan(Builder $query, ?string $birth_year = null): void
     {
         if ($birth_year) {
             $query->where(function ($q) use ($birth_year) {
