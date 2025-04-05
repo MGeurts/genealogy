@@ -8,6 +8,7 @@ use App\Models\Setting;
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Console\AboutCommand;
+use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
@@ -33,15 +34,26 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // ------------------------------------------------------------------------------
         // Configure application settings and services
+        // ------------------------------------------------------------------------------
         $this->configureUrl();
         $this->configureStrictMode();
         $this->configureLogViewer();
-        $this->configureTallStackUiPersonalization();
         $this->configureDates();
+        $this->configureTallStackUiPersonalization();
 
         $this->addAboutCommandDetails();
 
+        if (app()->isLocal()) {
+            RequestException::dontTruncate();
+        }
+
+        DB::prohibitDestructiveCommands(app()->isProduction());
+
+        // ------------------------------------------------------------------------------
+        // Enable or disable logging based on application settings
+        // ------------------------------------------------------------------------------
         if ($this->isDatabaseOnline() && Schema::hasTable('settings')) {
             // Cache the applications settings
             $this->app->singleton('settings', function () {
@@ -50,15 +62,15 @@ class AppServiceProvider extends ServiceProvider
                 });
             });
 
-            // Enable or disable logging based on application settings
             $this->logAllQueries();
             $this->LogAllQueriesSlow();
             $this->logAllQueriesNplusone();
         }
+        // ------------------------------------------------------------------------------
     }
 
     /**
-     * Enforce HTTPS in production.
+     * Enforce HTTPS (only in production).
      */
     private function configureUrl(): void
     {
@@ -66,7 +78,7 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Use Strict Mode (not in production).
+     * Use Strict Mode (only on local).
      *
      * 1. Prevent Lazy Loading
      * 2. Prevent Silently Discarding Attributes
@@ -75,7 +87,7 @@ class AppServiceProvider extends ServiceProvider
      */
     private function configureStrictMode(): void
     {
-        Model::shouldBeStrict();
+        Model::shouldBeStrict(app()->isLocal());
     }
 
     /**
