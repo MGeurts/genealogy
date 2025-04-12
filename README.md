@@ -2,7 +2,7 @@
 
 # Genealogy
 
-![](https://img.shields.io/badge/PHP-8.3-informational?style=flat&logo=php&color=4f5b93)
+![](https://img.shields.io/badge/PHP-8.4-informational?style=flat&logo=php&color=4f5b93)
 ![](https://img.shields.io/badge/Laravel-12-informational?style=flat&logo=laravel&color=ef3b2d)
 ![](https://img.shields.io/badge/Alpine.js-3-informational?style=flat&logo=Alpine.js&color=8BC0D0)
 ![](https://img.shields.io/badge/Livewire-3.6-informational?style=flat&logo=Livewire&color=fb70a9)
@@ -51,7 +51,7 @@ This <b>TallStack</b> application is build using :
 
 <ul>
     <li>
-        At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.3, supporting Laravel 12.<br/>
+        At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.4, supporting Laravel 12.<br/>
     </li>
     <li>
         At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0.1 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2.2 or an equivalent database, supporting <a href="https://dev.mysql.com/doc/refman/8.0/en/with.html" target="_blank">Recursive Common Table Expressions</a>.
