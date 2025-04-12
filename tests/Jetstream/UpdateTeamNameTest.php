@@ -10,7 +10,7 @@ use Laravel\Jetstream\Http\Livewire\UpdateTeamNameForm;
 use Livewire\Livewire;
 use Tests\TestCase;
 
-class UpdateTeamNameTest extends TestCase
+final class UpdateTeamNameTest extends TestCase
 {
     use RefreshDatabase;
 

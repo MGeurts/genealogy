@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Userlog>
  */
-class UserlogFactory extends Factory
+final class UserlogFactory extends Factory
 {
     /**
      * Define the model's default state.

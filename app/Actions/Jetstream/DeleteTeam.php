@@ -8,7 +8,7 @@ use App\Models\Team;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Jetstream\Contracts\DeletesTeams;
 
-class DeleteTeam implements DeletesTeams
+final class DeleteTeam implements DeletesTeams
 {
     /**
      * Delete the given team.

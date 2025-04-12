@@ -6,7 +6,7 @@ namespace App\Livewire\Forms\People;
 
 use Livewire\Form;
 
-class FamilyForm extends Form
+final class FamilyForm extends Form
 {
     // -----------------------------------------------------------------------
     public $father_id = null;

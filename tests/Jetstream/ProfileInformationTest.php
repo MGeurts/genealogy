@@ -10,7 +10,7 @@ use Laravel\Jetstream\Http\Livewire\UpdateProfileInformationForm;
 use Livewire\Livewire;
 use Tests\TestCase;
 
-class ProfileInformationTest extends TestCase
+final class ProfileInformationTest extends TestCase
 {
     use RefreshDatabase;
 

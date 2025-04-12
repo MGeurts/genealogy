@@ -17,7 +17,7 @@ use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use TallStackUi\Traits\Interactions;
 
-class Photos extends Component
+final class Photos extends Component
 {
     use Interactions;
     use WithFileUploads;

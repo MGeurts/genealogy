@@ -9,7 +9,7 @@ use App\Rules\YodValid;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class DeathForm extends Form
+final class DeathForm extends Form
 {
     // -----------------------------------------------------------------------
     #[Validate]

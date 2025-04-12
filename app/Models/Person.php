@@ -22,7 +22,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Person extends Model implements HasMedia
+final class Person extends Model implements HasMedia
 {
     use InteractsWithMedia;
     use LogsActivity;
@@ -56,14 +56,6 @@ class Person extends Model implements HasMedia
 
         'team_id',
     ];
-
-    protected function casts(): array
-    {
-        return [
-            'dob' => 'date:Y-m-d',
-            'dod' => 'date:Y-m-d',
-        ];
-    }
 
     protected $appends = [
         'name',
@@ -115,27 +107,13 @@ class Person extends Model implements HasMedia
     }
 
     /* -------------------------------------------------------------------------------------------- */
-    // Scopes (global)
-    /* -------------------------------------------------------------------------------------------- */
-    protected static function booted(): void
-    {
-        static::addGlobalScope('team', function (Builder $builder) {
-            if (Auth()->guest() || Auth()->user()->is_developer) {
-                return;
-            }
-
-            $builder->where('people.team_id', Auth()->user()->currentTeam->id);
-        });
-    }
-
-    /* -------------------------------------------------------------------------------------------- */
     // Scopes (local)
     // The system wil look up every word in the search value in the attributes surname, firstname, birthname and nickname
     // Begin the search string with % if you want to search parts of names, for instance %Jr.
     // Be aware that this kinds of searches are slower.
     // If a name containes any spaces, enclose the name in double quoutes, for instance "John Jr." Kennedy.
     /* -------------------------------------------------------------------------------------------- */
-    #[scope]
+    #[Scope]
     public function Search(Builder $query, string $searchString): void
     {
         if ($searchString !== '%') {
@@ -145,7 +123,7 @@ class Person extends Model implements HasMedia
         }
     }
 
-    #[scope]
+    #[Scope]
     public function OlderThan(Builder $query, ?string $birth_year): void
     {
         if ($birth_year !== null) {
@@ -161,7 +139,7 @@ class Person extends Model implements HasMedia
         }
     }
 
-    #[scope]
+    #[Scope]
     public function YoungerThan(Builder $query, ?string $birth_year): void
     {
         if ($birth_year !== null) {
@@ -177,7 +155,7 @@ class Person extends Model implements HasMedia
         }
     }
 
-    #[scope]
+    #[Scope]
     public function PartnerOffset(Builder $query, ?string $birth_year, int $offset = 40): void
     {
         // -------------------------------------------------------------------------
@@ -196,207 +174,6 @@ class Person extends Model implements HasMedia
                     $q->whereNull('yob')->orWhereBetween('yob', [$min_age, $max_age]);
                 });
         }
-    }
-
-    /* -------------------------------------------------------------------------------------------- */
-    // Accessors & Mutators
-    /* -------------------------------------------------------------------------------------------- */
-    protected function getNameAttribute(): ?string
-    {
-        $name = trim("{$this->firstname} {$this->surname}");
-
-        return $name ?: null;
-    }
-
-    protected function getAgeAttribute(): ?int
-    {
-        if ($this->dob) {
-            if ($this->dod) {
-                // deceased based on dob & dod
-                $age = (int) Carbon::parse($this->dob)->diffInYears($this->dod);
-            } elseif ($this->yod) {
-                // deceased based on dob & yod
-                $age = $this->yod - Carbon::parse($this->dob)->format('Y');
-            } else {
-                // living
-                $age = (int) Carbon::parse($this->dob)->diffInYears();
-            }
-        } elseif ($this->yob) {
-            if ($this->dod) {
-                // deceased based on yob & dod
-                $age = Carbon::parse($this->dod)->format('Y') - $this->yod;
-            } elseif ($this->yod) {
-                // deceased based on yob & yod
-                $age = $this->yod - $this->yob;
-            } else {
-                // living
-                $age = Carbon::today()->format('Y') - $this->yob;
-            }
-        } else {
-            $age = null;
-        }
-
-        return $age > 0 ? $age : null;
-    }
-
-    protected function getNextBirthdayAttribute(): ?Carbon
-    {
-        if ($this->dob) {
-            $today               = Carbon::today();
-            $this_years_birthday = Carbon::parse(date('Y') . substr(strval($this->dob), 4));
-
-            return $today->gt($this_years_birthday) ? $this_years_birthday->copy()->addYear() : $this_years_birthday;
-        } else {
-            return null;
-        }
-    }
-
-    protected function getNextBirthdayAgeAttribute(): ?int
-    {
-        return $this->dob ? Carbon::parse($this->dob)->age + 1 : null;
-    }
-
-    protected function getNextBirthdayRemainingDaysAttribute(): ?int
-    {
-        if (! $this->dob) {
-            return null;
-        }
-
-        $today            = Carbon::today();
-        $birthdayThisYear = Carbon::parse($this->dob)->year($today->year);
-
-        // If the birthday is today, return 0 days remaining
-        if ($birthdayThisYear->isToday()) {
-            return 0;
-        }
-
-        // Determine if the next birthday is this year or next year
-        $nextBirthday = $birthdayThisYear->isPast() ? $birthdayThisYear->addYear() : $birthdayThisYear;
-
-        return (int) $today->diffInDays($nextBirthday, false);
-    }
-
-    protected function getLifetimeAttribute(): ?string
-    {
-        if ($this->dob) {
-            if ($this->dod) {
-                // deceased based on dob & dod
-                $lifetime = Carbon::parse($this->dob)->format('Y') . ' - ' . Carbon::parse($this->dod)->format('Y');
-            } elseif ($this->yod) {
-                // deceased based on dob & yod
-                $lifetime = Carbon::parse($this->dob)->format('Y') . ' - ' . $this->yod;
-            } else {
-                // living
-                $lifetime = Carbon::parse($this->dob)->format('Y');
-            }
-        } elseif ($this->yob) {
-            if ($this->dod) {
-                // deceased based on yob & dod
-                $lifetime = $this->yod . ' - ' . Carbon::parse($this->dod)->format('Y');
-            } elseif ($this->yod) {
-                // deceased based on yob & yod
-                $lifetime = $this->yob . ' - ' . $this->yod;
-            } else {
-                // living
-                $lifetime = strval($this->yob);
-            }
-        } else {
-            $lifetime = null;
-        }
-
-        return $lifetime ? strval($lifetime) : null; // returns YEAR(dob) - YEAR(dod) or null
-    }
-
-    protected function getBirthYearAttribute(): ?string
-    {
-        if ($this->dob) {
-            $year = Carbon::parse($this->dob)->format('Y');
-        } elseif ($this->yob) {
-            $year = $this->yob;
-        } else {
-            $year = null;
-        }
-
-        return strval($year);
-    }
-
-    protected function getBirthFormattedAttribute(): ?string
-    {
-        if ($this->dob) {
-            $birth = Carbon::parse($this->dob)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL');
-        } elseif ($this->yob) {
-            $birth = $this->yob;
-        } else {
-            $birth = null;
-        }
-
-        return strval($birth);
-    }
-
-    protected function getDeathFormattedAttribute(): ?string
-    {
-        if ($this->dod) {
-            $dead = Carbon::parse($this->dod)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL');
-        } elseif ($this->yod) {
-            $dead = $this->yod;
-        } else {
-            $dead = null;
-        }
-
-        return strval($dead);
-    }
-
-    protected function getAddressAttribute(): ?string
-    {
-        $countries = new Countries(app()->getLocale());
-
-        $components = [
-            trim("{$this->street} {$this->number}"),
-            trim("{$this->postal_code} {$this->city}"),
-            trim("{$this->province} {$this->state}"),
-            $this->country ? $countries->getCountryName($this->country) : null,
-        ];
-
-        // Filter empty components and implode with newline characters.
-        $address = implode("\n", array_filter($components));
-
-        return $address ?: null;
-    }
-
-    protected function getAddressGoogleAttribute(): ?string
-    {
-        $countries         = new Countries(app()->getLocale());
-        $hrefGoogleAddress = 'https://www.google.com/maps/search/';
-
-        $components = [
-            trim("{$this->street} {$this->number}"),
-            trim("{$this->postal_code} {$this->city}"),
-            trim("{$this->province} {$this->state}"),
-            $this->country ? $countries->getCountryName($this->country) : null,
-        ];
-
-        // Filter empty components, implode with commas, and URL-encode the address.
-        $address = implode(',', array_filter($components));
-
-        return $address ? $hrefGoogleAddress . urlencode($address) : null;
-    }
-
-    protected function getCemeteryGoogleAttribute(): ?string
-    {
-        $hrefGoogleGeo     = 'https://www.google.com/maps/search/?api=1&query=';
-        $hrefGoogleAddress = 'https://www.google.com/maps/search/';
-
-        $latitude  = $this->getMetadataValue('cemetery_location_latitude');
-        $longitude = $this->getMetadataValue('cemetery_location_longitude');
-        $address   = $this->getMetadataValue('cemetery_location_address');
-
-        if ($latitude && $longitude) {
-            return $hrefGoogleGeo . urlencode("{$latitude},{$longitude}");
-        } elseif ($address) {
-            return $hrefGoogleAddress . urlencode(str_replace("\n", ',', $address));
-        }
-
-        return null;
     }
 
     public function countFiles(): int
@@ -459,13 +236,13 @@ class Person extends Model implements HasMedia
     /* returns FATHER (1 Person) based on father_id */
     public function father(): BelongsTo
     {
-        return $this->belongsTo(Person::class);
+        return $this->belongsTo(self::class);
     }
 
     /* returns MOTHER (1 Person) based on mother_id */
     public function mother(): BelongsTo
     {
-        return $this->belongsTo(Person::class);
+        return $this->belongsTo(self::class);
     }
 
     /* returns PARENTS (1 Couple) based on parents_id */
@@ -477,16 +254,16 @@ class Person extends Model implements HasMedia
     /* returns OWN NATURAL CHILDREN (n Person) based on father_id OR mother_id, ordered by dob */
     public function children(): HasMany
     {
-        $fatherChildren = $this->hasMany(Person::class, 'father_id');
-        $motherChildren = $this->hasMany(Person::class, 'mother_id');
+        $fatherChildren = $this->hasMany(self::class, 'father_id');
+        $motherChildren = $this->hasMany(self::class, 'mother_id');
 
         return $fatherChildren->union($motherChildren->getQuery())->orderBy('dob');
     }
 
     public function children_with_children(): HasMany // only used in family chart
     {
-        $fatherChildrenWithChildren = $this->hasMany(Person::class, 'father_id')->with('children');
-        $motherChildrenWithChildren = $this->hasMany(Person::class, 'mother_id')->with('children');
+        $fatherChildrenWithChildren = $this->hasMany(self::class, 'father_id')->with('children');
+        $motherChildrenWithChildren = $this->hasMany(self::class, 'mother_id')->with('children');
 
         return $fatherChildrenWithChildren->union($motherChildrenWithChildren->getQuery())->orderBy('dob');
     }
@@ -508,13 +285,13 @@ class Person extends Model implements HasMedia
     public function getPartnersAttribute(): Collection
     {
         if (! array_key_exists('partners', $this->relations)) {
-            $partners = $this->belongsToMany(Person::class, 'couples', 'person1_id', 'person2_id')
+            $partners = $this->belongsToMany(self::class, 'couples', 'person1_id', 'person2_id')
                 ->withPivot(['id', 'date_start', 'date_end', 'is_married', 'has_ended'])
                 ->with('children')
                 ->orderByPivot('date_start')
                 ->get()
                 ->merge(
-                    $this->belongsToMany(Person::class, 'couples', 'person2_id', 'person1_id')
+                    $this->belongsToMany(self::class, 'couples', 'person2_id', 'person1_id')
                         ->withPivot(['id', 'date_start', 'date_end', 'is_married', 'has_ended'])
                         ->with('children')
                         ->orderByPivot('date_start')
@@ -528,7 +305,7 @@ class Person extends Model implements HasMedia
     }
 
     /* returns CURRENT PARTNER (1 Person) related to the person, where relation not_ended and date_end === null */
-    public function currentPartner(): ?Person
+    public function currentPartner(): ?self
     {
         return $this->partners->where('pivot.has_ended', false)->whereNull('pivot.date_end')->sortBy('pivot.date_start')->last();
     }
@@ -626,5 +403,229 @@ class Person extends Model implements HasMedia
 
             return $sibling;
         })->sortBy(['birthYear', 'type']);
+    }
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Scopes (global)
+    /* -------------------------------------------------------------------------------------------- */
+    protected static function booted(): void
+    {
+        self::addGlobalScope('team', function (Builder $builder) {
+            if (Auth()->guest() || Auth()->user()->is_developer) {
+                return;
+            }
+
+            $builder->where('people.team_id', Auth()->user()->currentTeam->id);
+        });
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'dob' => 'date:Y-m-d',
+            'dod' => 'date:Y-m-d',
+        ];
+    }
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Accessors & Mutators
+    /* -------------------------------------------------------------------------------------------- */
+    protected function getNameAttribute(): ?string
+    {
+        $name = mb_trim("{$this->firstname} {$this->surname}");
+
+        return $name ?: null;
+    }
+
+    protected function getAgeAttribute(): ?int
+    {
+        if ($this->dob) {
+            if ($this->dod) {
+                // deceased based on dob & dod
+                $age = (int) Carbon::parse($this->dob)->diffInYears($this->dod);
+            } elseif ($this->yod) {
+                // deceased based on dob & yod
+                $age = $this->yod - Carbon::parse($this->dob)->format('Y');
+            } else {
+                // living
+                $age = (int) Carbon::parse($this->dob)->diffInYears();
+            }
+        } elseif ($this->yob) {
+            if ($this->dod) {
+                // deceased based on yob & dod
+                $age = Carbon::parse($this->dod)->format('Y') - $this->yod;
+            } elseif ($this->yod) {
+                // deceased based on yob & yod
+                $age = $this->yod - $this->yob;
+            } else {
+                // living
+                $age = Carbon::today()->format('Y') - $this->yob;
+            }
+        } else {
+            $age = null;
+        }
+
+        return $age > 0 ? $age : null;
+    }
+
+    protected function getNextBirthdayAttribute(): ?Carbon
+    {
+        if ($this->dob) {
+            $today               = Carbon::today();
+            $this_years_birthday = Carbon::parse(date('Y') . mb_substr((string) ($this->dob), 4));
+
+            return $today->gt($this_years_birthday) ? $this_years_birthday->copy()->addYear() : $this_years_birthday;
+        }
+
+        return null;
+    }
+
+    protected function getNextBirthdayAgeAttribute(): ?int
+    {
+        return $this->dob ? Carbon::parse($this->dob)->age + 1 : null;
+    }
+
+    protected function getNextBirthdayRemainingDaysAttribute(): ?int
+    {
+        if (! $this->dob) {
+            return null;
+        }
+
+        $today            = Carbon::today();
+        $birthdayThisYear = Carbon::parse($this->dob)->year($today->year);
+
+        // If the birthday is today, return 0 days remaining
+        if ($birthdayThisYear->isToday()) {
+            return 0;
+        }
+
+        // Determine if the next birthday is this year or next year
+        $nextBirthday = $birthdayThisYear->isPast() ? $birthdayThisYear->addYear() : $birthdayThisYear;
+
+        return (int) $today->diffInDays($nextBirthday, false);
+    }
+
+    protected function getLifetimeAttribute(): ?string
+    {
+        if ($this->dob) {
+            if ($this->dod) {
+                // deceased based on dob & dod
+                $lifetime = Carbon::parse($this->dob)->format('Y') . ' - ' . Carbon::parse($this->dod)->format('Y');
+            } elseif ($this->yod) {
+                // deceased based on dob & yod
+                $lifetime = Carbon::parse($this->dob)->format('Y') . ' - ' . $this->yod;
+            } else {
+                // living
+                $lifetime = Carbon::parse($this->dob)->format('Y');
+            }
+        } elseif ($this->yob) {
+            if ($this->dod) {
+                // deceased based on yob & dod
+                $lifetime = $this->yod . ' - ' . Carbon::parse($this->dod)->format('Y');
+            } elseif ($this->yod) {
+                // deceased based on yob & yod
+                $lifetime = $this->yob . ' - ' . $this->yod;
+            } else {
+                // living
+                $lifetime = (string) ($this->yob);
+            }
+        } else {
+            $lifetime = null;
+        }
+
+        return $lifetime ? (string) $lifetime : null; // returns YEAR(dob) - YEAR(dod) or null
+    }
+
+    protected function getBirthYearAttribute(): ?string
+    {
+        if ($this->dob) {
+            $year = Carbon::parse($this->dob)->format('Y');
+        } elseif ($this->yob) {
+            $year = $this->yob;
+        } else {
+            $year = null;
+        }
+
+        return (string) $year;
+    }
+
+    protected function getBirthFormattedAttribute(): ?string
+    {
+        if ($this->dob) {
+            $birth = Carbon::parse($this->dob)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL');
+        } elseif ($this->yob) {
+            $birth = $this->yob;
+        } else {
+            $birth = null;
+        }
+
+        return (string) $birth;
+    }
+
+    protected function getDeathFormattedAttribute(): ?string
+    {
+        if ($this->dod) {
+            $dead = Carbon::parse($this->dod)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL');
+        } elseif ($this->yod) {
+            $dead = $this->yod;
+        } else {
+            $dead = null;
+        }
+
+        return (string) $dead;
+    }
+
+    protected function getAddressAttribute(): ?string
+    {
+        $countries = new Countries(app()->getLocale());
+
+        $components = [
+            mb_trim("{$this->street} {$this->number}"),
+            mb_trim("{$this->postal_code} {$this->city}"),
+            mb_trim("{$this->province} {$this->state}"),
+            $this->country ? $countries->getCountryName($this->country) : null,
+        ];
+
+        // Filter empty components and implode with newline characters.
+        $address = implode("\n", array_filter($components));
+
+        return $address ?: null;
+    }
+
+    protected function getAddressGoogleAttribute(): ?string
+    {
+        $countries         = new Countries(app()->getLocale());
+        $hrefGoogleAddress = 'https://www.google.com/maps/search/';
+
+        $components = [
+            mb_trim("{$this->street} {$this->number}"),
+            mb_trim("{$this->postal_code} {$this->city}"),
+            mb_trim("{$this->province} {$this->state}"),
+            $this->country ? $countries->getCountryName($this->country) : null,
+        ];
+
+        // Filter empty components, implode with commas, and URL-encode the address.
+        $address = implode(',', array_filter($components));
+
+        return $address ? $hrefGoogleAddress . urlencode($address) : null;
+    }
+
+    protected function getCemeteryGoogleAttribute(): ?string
+    {
+        $hrefGoogleGeo     = 'https://www.google.com/maps/search/?api=1&query=';
+        $hrefGoogleAddress = 'https://www.google.com/maps/search/';
+
+        $latitude  = $this->getMetadataValue('cemetery_location_latitude');
+        $longitude = $this->getMetadataValue('cemetery_location_longitude');
+        $address   = $this->getMetadataValue('cemetery_location_address');
+
+        if ($latitude && $longitude) {
+            return $hrefGoogleGeo . urlencode("{$latitude},{$longitude}");
+        }
+        if ($address) {
+            return $hrefGoogleAddress . urlencode(str_replace("\n", ',', $address));
+        }
+
+        return null;
     }
 }

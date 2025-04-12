@@ -18,10 +18,15 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class People extends Component implements HasForms, HasTable
+final class People extends Component implements HasForms, HasTable
 {
     use InteractsWithForms;
     use InteractsWithTable;
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()->withoutGlobalScopes([SoftDeletingScope::class]);
+    }
 
     // -----------------------------------------------------------------------
     public function table(Table $table): Table
@@ -57,7 +62,7 @@ class People extends Component implements HasForms, HasTable
                 Tables\Columns\TextColumn::make('sex')
                     ->label(__('person.sex'))
                     ->getStateUsing(function (Person $record) {
-                        return strtoupper($record->sex);
+                        return mb_strtoupper($record->sex);
                     })
                     ->searchable(),
                 Tables\Columns\TextColumn::make('father.name')
@@ -138,11 +143,6 @@ class People extends Component implements HasForms, HasTable
             ->defaultGroup('team.name')
             ->defaultSort('name')
             ->striped();
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()->withoutGlobalScopes([SoftDeletingScope::class]);
     }
 
     // -----------------------------------------------------------------------

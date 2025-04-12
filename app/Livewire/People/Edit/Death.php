@@ -12,7 +12,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class Death extends Component
+final class Death extends Component
 {
     use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;

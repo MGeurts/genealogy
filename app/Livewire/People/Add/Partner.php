@@ -16,7 +16,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
 
-class Partner extends Component
+final class Partner extends Component
 {
     use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;
@@ -182,25 +182,6 @@ class Partner extends Component
         $this->mount();
     }
 
-    private function hasOverlap($start, $end): bool
-    {
-        $is_overlap = false;
-
-        if (! empty($start) or ! empty($end)) {
-            foreach ($this->person->couples as $couple) {
-                if (! empty($couple->date_start) and ! empty($couple->date_end)) {
-                    if (! empty($start) and $start >= $couple->date_start and $start <= $couple->date_end) {
-                        $is_overlap = true;
-                    } elseif (! empty($end) and $end >= $couple->date_start and $end <= $couple->date_end) {
-                        $is_overlap = true;
-                    }
-                }
-            }
-        }
-
-        return $is_overlap;
-    }
-
     public function isDirty(): bool
     {
         return
@@ -227,5 +208,24 @@ class Partner extends Component
     public function render(): View
     {
         return view('livewire.people.add.partner');
+    }
+
+    private function hasOverlap($start, $end): bool
+    {
+        $is_overlap = false;
+
+        if (! empty($start) or ! empty($end)) {
+            foreach ($this->person->couples as $couple) {
+                if (! empty($couple->date_start) and ! empty($couple->date_end)) {
+                    if (! empty($start) and $start >= $couple->date_start and $start <= $couple->date_end) {
+                        $is_overlap = true;
+                    } elseif (! empty($end) and $end >= $couple->date_start and $end <= $couple->date_end) {
+                        $is_overlap = true;
+                    }
+                }
+            }
+        }
+
+        return $is_overlap;
     }
 }

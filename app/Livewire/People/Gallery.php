@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class Gallery extends Component
+final class Gallery extends Component
 {
     // ------------------------------------------------------------------------------
     public $person;
@@ -38,17 +38,6 @@ class Gallery extends Component
         $this->selected = $this->getPrimaryImageIndex();
     }
 
-    protected function getPrimaryImageIndex(): ?int
-    {
-        if (count($this->images) === 0) {
-            return null;
-        }
-
-        return $this->person->photo
-            ? (int) array_search($this->person->photo, $this->images)
-            : 0;
-    }
-
     public function previousImage(): void
     {
         $this->selected = ($this->selected - 1 + count($this->images)) % count($this->images);
@@ -68,5 +57,16 @@ class Gallery extends Component
     public function render(): View
     {
         return view('livewire.people.gallery');
+    }
+
+    protected function getPrimaryImageIndex(): ?int
+    {
+        if (count($this->images) === 0) {
+            return null;
+        }
+
+        return $this->person->photo
+            ? (int) array_search($this->person->photo, $this->images)
+            : 0;
     }
 }

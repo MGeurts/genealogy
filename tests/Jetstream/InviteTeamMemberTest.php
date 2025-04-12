@@ -13,7 +13,7 @@ use Laravel\Jetstream\Mail\TeamInvitation;
 use Livewire\Livewire;
 use Tests\TestCase;
 
-class InviteTeamMemberTest extends TestCase
+final class InviteTeamMemberTest extends TestCase
 {
     use RefreshDatabase;
 

@@ -12,7 +12,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class Settings extends Component
+final class Settings extends Component
 {
     use Interactions;
 

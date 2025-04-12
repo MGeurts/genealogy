@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class Ancestors extends Component
+final class Ancestors extends Component
 {
     public $person;
 
@@ -38,6 +38,34 @@ class Ancestors extends Component
     public function mount(): void
     {
         $this->loadAncestors();
+    }
+
+    /**
+     * Increment the count of ancestors displayed.
+     */
+    public function increment(): void
+    {
+        if ($this->count < $this->count_max) {
+            $this->count++;
+        }
+    }
+
+    /**
+     * Decrement the count of ancestors displayed.
+     */
+    public function decrement(): void
+    {
+        if ($this->count > $this->count_min) {
+            $this->count--;
+        }
+    }
+
+    /**
+     * Render the Livewire component view.
+     */
+    public function render(): View
+    {
+        return view('livewire.people.ancestors');
     }
 
     /**
@@ -86,33 +114,5 @@ class Ancestors extends Component
 
             SELECT * FROM ancestors ORDER BY degree, sex DESC;
         ";
-    }
-
-    /**
-     * Increment the count of ancestors displayed.
-     */
-    public function increment(): void
-    {
-        if ($this->count < $this->count_max) {
-            $this->count++;
-        }
-    }
-
-    /**
-     * Decrement the count of ancestors displayed.
-     */
-    public function decrement(): void
-    {
-        if ($this->count > $this->count_min) {
-            $this->count--;
-        }
-    }
-
-    /**
-     * Render the Livewire component view.
-     */
-    public function render(): View
-    {
-        return view('livewire.people.ancestors');
     }
 }

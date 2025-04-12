@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use TallStackUi\Traits\Interactions;
 
-class TeamController extends Controller
+final class TeamController extends Controller
 {
     use Interactions;
 

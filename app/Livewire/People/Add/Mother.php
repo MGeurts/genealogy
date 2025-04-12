@@ -15,7 +15,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
 
-class Mother extends Component
+final class Mother extends Component
 {
     use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;

@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 
-class PageController extends Controller
+final class PageController extends Controller
 {
     public function test(): View
     {

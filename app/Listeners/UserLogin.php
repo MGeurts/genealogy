@@ -8,7 +8,7 @@ use App\Models\Userlog;
 use Illuminate\Auth\Events\Login;
 use Stevebauman\Location\Facades\Location;
 
-class UserLogin
+final class UserLogin
 {
     /**
      * Handle the login event.

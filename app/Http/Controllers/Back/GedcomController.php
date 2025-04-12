@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 
-class GedcomController extends Controller
+final class GedcomController extends Controller
 {
     public function importteam(): View
     {

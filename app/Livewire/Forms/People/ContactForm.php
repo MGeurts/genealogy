@@ -7,7 +7,7 @@ namespace App\Livewire\Forms\People;
 use App\Countries;
 use Livewire\Form;
 
-class ContactForm extends Form
+final class ContactForm extends Form
 {
     // -----------------------------------------------------------------------
     public $street = null;

@@ -14,7 +14,7 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Models\Activity;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class Team extends JetstreamTeam
+final class Team extends JetstreamTeam
 {
     use HasFactory;
     use LogsActivity;
@@ -40,18 +40,6 @@ class Team extends JetstreamTeam
         'updated' => TeamUpdated::class,
         'deleted' => TeamDeleted::class,
     ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'personal_team' => 'boolean',
-        ];
-    }
 
     /* -------------------------------------------------------------------------------------------- */
     // Log activities
@@ -96,5 +84,17 @@ class Team extends JetstreamTeam
     public function couples(): HasMany
     {
         return $this->hasMany(Couple::class);
+    }
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'personal_team' => 'boolean',
+        ];
     }
 }

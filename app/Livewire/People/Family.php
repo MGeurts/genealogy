@@ -7,7 +7,7 @@ namespace App\Livewire\People;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class Family extends Component
+final class Family extends Component
 {
     // ------------------------------------------------------------------------------
     public $person;

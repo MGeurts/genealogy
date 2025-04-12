@@ -12,7 +12,7 @@ use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class ProfileForm extends Form
+final class ProfileForm extends Form
 {
     // -----------------------------------------------------------------------
     public $firstname = null;

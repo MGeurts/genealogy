@@ -12,7 +12,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class Partner extends Component
+final class Partner extends Component
 {
     use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;

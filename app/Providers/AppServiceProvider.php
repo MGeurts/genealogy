@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use App\Models\Setting;
 use Carbon\CarbonImmutable;
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Http\Client\RequestException;
@@ -19,7 +20,7 @@ use Illuminate\Support\ServiceProvider;
 use Opcodes\LogViewer\Facades\LogViewer;
 use TallStackUi\Facades\TallStackUi;
 
-class AppServiceProvider extends ServiceProvider
+final class AppServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -73,6 +74,22 @@ class AppServiceProvider extends ServiceProvider
             $this->logAllQueriesNplusone();
         }
         // ------------------------------------------------------------------------------
+    }
+
+    /**
+     * Check if the database connection is available.
+     */
+    protected function isDatabaseOnline(): bool
+    {
+        try {
+            DB::connection()->getPdo();
+
+            return true;
+        } catch (Exception $e) {
+            // Log the exception if needed for debugging
+            // Log::error('Database connection error: ' . $e->getMessage());
+            return false;
+        }
     }
 
     /**
@@ -248,22 +265,6 @@ class AppServiceProvider extends ServiceProvider
                     $relation
                 ));
             });
-        }
-    }
-
-    /**
-     * Check if the database connection is available.
-     */
-    protected function isDatabaseOnline(): bool
-    {
-        try {
-            DB::connection()->getPdo();
-
-            return true;
-        } catch (\Exception $e) {
-            // Log the exception if needed for debugging
-            // Log::error('Database connection error: ' . $e->getMessage());
-            return false;
         }
     }
 }

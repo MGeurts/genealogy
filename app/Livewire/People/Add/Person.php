@@ -13,7 +13,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
 
-class Person extends Component
+final class Person extends Component
 {
     use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;

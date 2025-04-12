@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response;
 
-class LogAllRequests
+final class LogAllRequests
 {
     /**
      * Handle an incoming request.
@@ -107,6 +107,6 @@ class LogAllRequests
      */
     private function generateLogMessage(string $path): string
     {
-        return str_replace('/', '_', trim($path, '/'));
+        return str_replace('/', '_', mb_trim($path, '/'));
     }
 }

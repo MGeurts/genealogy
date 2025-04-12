@@ -9,7 +9,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class Profile extends Component
+final class Profile extends Component
 {
     use Interactions;
 
@@ -44,6 +44,12 @@ class Profile extends Component
         }
     }
 
+    // ------------------------------------------------------------------------------
+    public function render(): View
+    {
+        return view('livewire.people.profile');
+    }
+
     private function deletePersonPhotos(): void
     {
         defer(function (): void {
@@ -51,11 +57,5 @@ class Profile extends Component
                 File::delete(File::glob(storage_path("app/public/{$folder}/" . $this->person->team_id . '/' . $this->person->id . '_*.webp')));
             }
         });
-    }
-
-    // ------------------------------------------------------------------------------
-    public function render(): View
-    {
-        return view('livewire.people.profile');
     }
 }

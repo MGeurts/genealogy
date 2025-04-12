@@ -11,7 +11,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class Contact extends Component
+final class Contact extends Component
 {
     use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;

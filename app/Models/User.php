@@ -28,7 +28,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
 // including user management and managing all people in all teams
 // -------------------------------------------------------------------------------------------
 
-class User extends Authenticatable
+final class User extends Authenticatable
     // ---------------------------------------------------------------------------------------
     // class User extends Authenticatable implements MustVerifyEmail
     //
@@ -85,21 +85,6 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password'          => 'hashed',
-            'is_developer'      => 'boolean',
-            'seen_at'           => 'datetime',
-        ];
-    }
-
     /* -------------------------------------------------------------------------------------------- */
     // Log activities
     /* -------------------------------------------------------------------------------------------- */
@@ -126,14 +111,6 @@ class User extends Authenticatable
     public function tapActivity(Activity $activity, string $eventName): void
     {
         $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
-    }
-
-    /* -------------------------------------------------------------------------------------------- */
-    // Accessors & Mutators
-    /* -------------------------------------------------------------------------------------------- */
-    protected function getNameAttribute(): ?string
-    {
-        return implode(' ', array_filter([$this->firstname, $this->surname]));
     }
 
     public function hasPermission(string $permission): bool
@@ -169,5 +146,28 @@ class User extends Authenticatable
     public function userlogs(): HasMany
     {
         return $this->hasMany(Userlog::class);
+    }
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password'          => 'hashed',
+            'is_developer'      => 'boolean',
+            'seen_at'           => 'datetime',
+        ];
+    }
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Accessors & Mutators
+    /* -------------------------------------------------------------------------------------------- */
+    protected function getNameAttribute(): ?string
+    {
+        return implode(' ', array_filter([$this->firstname, $this->surname]));
     }
 }

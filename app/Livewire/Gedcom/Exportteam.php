@@ -11,7 +11,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class Exportteam extends Component
+final class Exportteam extends Component
 {
     use Interactions;
 
@@ -61,6 +61,27 @@ class Exportteam extends Component
         $this->setFilename();
     }
 
+    public function exportteam(): void
+    {
+        $export = new Export(
+            $this->filename,
+            $this->format,
+            $this->encoding,
+            $this->line_endings
+        );
+
+        $export->Export();
+
+        $this->toast()->success(__('app.download'), mb_strtoupper(__('app.under_construction')))->send();
+    }
+
+    // -----------------------------------------------------------------------
+
+    public function render(): View
+    {
+        return view('livewire.gedcom.exportteam');
+    }
+
     // -----------------------------------------------------------------------
     private function setFilename(): void
     {
@@ -78,27 +99,6 @@ class Exportteam extends Component
         $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);  // Removes special chars
         $string = preg_replace('/-+/', '-', $string);             // Replaces multiple hyphens with single one
 
-        return strtolower($string);
-    }
-
-    public function exportteam(): void
-    {
-        $export = new Export(
-            $this->filename,
-            $this->format,
-            $this->encoding,
-            $this->line_endings
-        );
-
-        $export->Export();
-
-        $this->toast()->success(__('app.download'), strtoupper(__('app.under_construction')))->send();
-    }
-
-    // -----------------------------------------------------------------------
-
-    public function render(): View
-    {
-        return view('livewire.gedcom.exportteam');
+        return mb_strtolower($string);
     }
 }

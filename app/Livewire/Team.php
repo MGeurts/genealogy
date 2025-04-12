@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class Team extends Component
+final class Team extends Component
 {
     // ------------------------------------------------------------------------------
     public $user;

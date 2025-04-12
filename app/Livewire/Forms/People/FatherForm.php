@@ -12,7 +12,7 @@ use Livewire\Attributes\Computed;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class FatherForm extends Form
+final class FatherForm extends Form
 {
     // -----------------------------------------------------------------------
     public $person = null;

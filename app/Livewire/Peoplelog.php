@@ -8,7 +8,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Spatie\Activitylog\Models\Activity;
 
-class Peoplelog extends Component
+final class Peoplelog extends Component
 {
     public $logs;
 
@@ -23,10 +23,10 @@ class Peoplelog extends Component
             ->sortByDesc('updated_at')
             ->map(function ($record) {
                 return [
-                    'event'          => strtoupper($record->event),
-                    'subject_type'   => substr($record->subject_type, strrpos($record->subject_type, '\\') + 1),
+                    'event'          => mb_strtoupper($record->event),
+                    'subject_type'   => mb_substr($record->subject_type, mb_strrpos($record->subject_type, '\\') + 1),
                     'subject_id'     => $record->subject_id,
-                    'description'    => strtoupper($record->description),
+                    'description'    => mb_strtoupper($record->description),
                     'properties_old' => ($record->event === 'updated' or $record->event === 'deleted') ? $record->properties['old'] : [],
                     'properties_new' => ($record->event === 'updated' or $record->event === 'created') ? $record->properties['attributes'] : [],
                     'updated_at'     => $record->updated_at->timezone(session('timezone') ?? 'UTC')->isoFormat('LLL'),

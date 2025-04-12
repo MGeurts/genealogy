@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Laravel\Jetstream\Jetstream;
 
-class PageController extends Controller
+final class PageController extends Controller
 {
     public function home(): View
     {

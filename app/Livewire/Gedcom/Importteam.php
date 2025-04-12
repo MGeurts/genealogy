@@ -13,7 +13,7 @@ use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
 
-class Importteam extends Component
+final class Importteam extends Component
 {
     use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;
@@ -68,7 +68,7 @@ class Importteam extends Component
             $this->file->getClientOriginalName()
         );
 
-        $this->toast()->success(__('app.saved'), strtoupper(__('app.under_construction')))->send();
+        $this->toast()->success(__('app.saved'), mb_strtoupper(__('app.under_construction')))->send();
     }
 
     // -----------------------------------------------------------------------

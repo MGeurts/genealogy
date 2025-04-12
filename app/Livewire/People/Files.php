@@ -7,7 +7,7 @@ namespace App\Livewire\People;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 
-class Files extends Component
+final class Files extends Component
 {
     // ------------------------------------------------------------------------------
     public $person;

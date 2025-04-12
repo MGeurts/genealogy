@@ -18,17 +18,25 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class Users extends Component implements HasForms, HasTable
+final class Users extends Component implements HasForms, HasTable
 {
     use InteractsWithForms;
     use InteractsWithTable;
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
+    }
 
     // -----------------------------------------------------------------------
     public function table(Table $table): Table
     {
         return $table
             // ->query(user::query()->with(['teams', 'ownedTeams.users', 'ownedTeams.couples', 'ownedTeams.persons']))
-            ->query(user::query()->with(['teams', 'ownedTeams']))
+            ->query(User::query()->with(['teams', 'ownedTeams']))
             ->columns([
                 Tables\Columns\TextColumn::make('id')
                     ->label(__('user.id'))
@@ -82,7 +90,7 @@ class Users extends Component implements HasForms, HasTable
                     ->label(__('user.language'))
                     ->verticallyAlignStart()
                     ->getStateUsing(function (User $record) {
-                        return strtoupper($record->language);
+                        return mb_strtoupper($record->language);
                     })
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_developer')
@@ -131,14 +139,6 @@ class Users extends Component implements HasForms, HasTable
             ])
             ->defaultSort('name')
             ->striped();
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
     }
 
     // -----------------------------------------------------------------------

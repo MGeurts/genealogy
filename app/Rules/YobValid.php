@@ -8,14 +8,14 @@ use Closure;
 use Illuminate\Contracts\Validation\DataAwareRule;
 use Illuminate\Contracts\Validation\ValidationRule;
 
-class YobValid implements DataAwareRule, ValidationRule
+final class YobValid implements DataAwareRule, ValidationRule
 {
     /**
      * All of the data under validation.
      *
      * @var array<string, mixed>
      */
-    protected $data = [];
+    private $data = [];
 
     /**
      * Set the data under validation.
@@ -32,7 +32,7 @@ class YobValid implements DataAwareRule, ValidationRule
     /**
      * Run the validation rule.
      *
-     * @param  \Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
+     * @param  Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {

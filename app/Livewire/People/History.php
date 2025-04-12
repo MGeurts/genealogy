@@ -10,7 +10,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Spatie\Activitylog\Models\Activity;
 
-class History extends Component
+final class History extends Component
 {
     // ------------------------------------------------------------------------------
     public $person;
@@ -27,7 +27,7 @@ class History extends Component
             ->get()
             ->map(function ($record) {
                 return [
-                    'event'      => strtoupper($record->event),
+                    'event'      => mb_strtoupper($record->event),
                     'created_at' => Carbon::parse($record->created_at)->timezone(session('timezone') ?? 'UTC')->format('Y-m-d H:i'),
                     'causer'     => $record->causer ? implode(' ', array_filter([$record->causer->firstname, $record->causer->surname])) : null,
                     'old'        => $record->properties->get('old'),

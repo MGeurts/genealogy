@@ -7,7 +7,7 @@ namespace App\Livewire\People;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class Heading extends Component
+final class Heading extends Component
 {
     // ------------------------------------------------------------------------------
     public $person;

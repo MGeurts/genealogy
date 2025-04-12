@@ -9,7 +9,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class Partners extends Component
+final class Partners extends Component
 {
     use Interactions;
 

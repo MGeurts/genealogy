@@ -13,7 +13,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class Family extends Component
+final class Family extends Component
 {
     use Interactions;
     use TrimStringsAndConvertEmptyStringsToNull;

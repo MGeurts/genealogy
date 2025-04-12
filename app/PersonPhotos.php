@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 
-class PersonPhotos
+final class PersonPhotos
 {
-    protected Person $person;
+    private Person $person;
 
-    protected ImageManager $imageManager;
+    private ImageManager $imageManager;
 
-    protected array $config;
+    private array $config;
 
     public function __construct(Person $person)
     {
@@ -44,7 +44,7 @@ class PersonPhotos
         $this->cleanupTemporaryFiles();
     }
 
-    protected function ensureDirectoriesExist(): void
+    private function ensureDirectoriesExist(): void
     {
         $teamId = (string) $this->person->team_id;
 
@@ -55,23 +55,23 @@ class PersonPhotos
         }
     }
 
-    protected function getLastImageIndex(): int
+    private function getLastImageIndex(): int
     {
         $files = File::glob(public_path() . '/storage/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp');
 
         if ($files) {
             $lastFile = last($files);
 
-            return (int) substr($lastFile, strpos($lastFile, '_') + 1, strrpos($lastFile, '_') - strpos($lastFile, '_') - 1);
+            return (int) mb_substr($lastFile, mb_strpos($lastFile, '_') + 1, mb_strrpos($lastFile, '_') - mb_strpos($lastFile, '_') - 1);
         }
 
         return 0;
     }
 
-    protected function savePhoto($photo, int $index): void
+    private function savePhoto($photo, int $index): void
     {
         $timestamp = now()->format('YmdHis');
-        $imageName = "{$this->person->id}_" . str_pad((string) $index, 3, '0', STR_PAD_LEFT) . "_{$timestamp}.{$this->config['type']}";
+        $imageName = "{$this->person->id}_" . mb_str_pad((string) $index, 3, '0', STR_PAD_LEFT) . "_{$timestamp}.{$this->config['type']}";
 
         if ($this->config['add_watermark']) {
             $this->processAndSaveImage($photo, $imageName, true);
@@ -84,7 +84,7 @@ class PersonPhotos
         }
     }
 
-    protected function processAndSaveImage($photo, string $imageName, bool $addWatermark): void
+    private function processAndSaveImage($photo, string $imageName, bool $addWatermark): void
     {
         $paths = [
             'photos' => [
@@ -119,7 +119,7 @@ class PersonPhotos
         }
     }
 
-    protected function cleanupTemporaryFiles(): void
+    private function cleanupTemporaryFiles(): void
     {
         $oneDayAgo = now()->subDay()->timestamp;
 

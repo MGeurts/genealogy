@@ -9,7 +9,7 @@ use App\Models\Couple;
 use App\Models\Person;
 use Illuminate\View\View;
 
-class PeopleController extends Controller
+final class PeopleController extends Controller
 {
     public function search(): View
     {

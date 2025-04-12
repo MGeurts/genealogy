@@ -10,7 +10,7 @@ use Laravel\Jetstream\Http\Livewire\TeamMemberManager;
 use Livewire\Livewire;
 use Tests\TestCase;
 
-class RemoveTeamMemberTest extends TestCase
+final class RemoveTeamMemberTest extends TestCase
 {
     use RefreshDatabase;
 

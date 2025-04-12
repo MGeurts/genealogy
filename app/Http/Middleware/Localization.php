@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Number;
 use Symfony\Component\HttpFoundation\Response;
 
-class Localization
+final class Localization
 {
     /**
      * Handle an incoming request.

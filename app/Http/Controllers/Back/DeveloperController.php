@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Userlog;
 use Illuminate\View\View;
 
-class DeveloperController extends Controller
+final class DeveloperController extends Controller
 {
     public function settings(): View
     {

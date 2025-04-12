@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class Siblings extends Component
+final class Siblings extends Component
 {
     // ------------------------------------------------------------------------------
     public $person;

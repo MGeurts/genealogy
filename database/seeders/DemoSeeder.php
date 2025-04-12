@@ -11,7 +11,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Activitylog\Facades\CauserResolver;
 
-class DemoSeeder extends Seeder
+final class DemoSeeder extends Seeder
 {
     protected $british_royals_team = 3;
 
@@ -77,7 +77,7 @@ class DemoSeeder extends Seeder
                 'birthname' => ! empty($person['birthname']) ? $person['birthname'] : null,
                 'nickname'  => ! empty($person['nickname']) ? $person['nickname'] : null,
 
-                'sex' => strtolower($person['sex']),
+                'sex' => mb_strtolower($person['sex']),
 
                 'father_id'  => ! empty($person['father_id']) ? $person['father_id'] : null,
                 'mother_id'  => ! empty($person['mother_id']) ? $person['mother_id'] : null,
@@ -375,7 +375,7 @@ class DemoSeeder extends Seeder
                 'birthname' => ! empty($person['birthname']) ? $person['birthname'] : null,
                 'nickname'  => ! empty($person['nickname']) ? $person['nickname'] : null,
 
-                'sex' => strtolower($person['sex']),
+                'sex' => mb_strtolower($person['sex']),
 
                 'father_id'  => ! empty($person['father_id']) ? $person['father_id'] : null,
                 'mother_id'  => ! empty($person['mother_id']) ? $person['mother_id'] : null,

@@ -11,7 +11,7 @@ use Illuminate\Database\Seeder;
 use Laravel\Jetstream\Jetstream;
 use Spatie\Activitylog\Facades\CauserResolver;
 
-class UserAndTeamSeeder extends Seeder
+final class UserAndTeamSeeder extends Seeder
 {
     public function run(): void
     {

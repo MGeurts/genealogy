@@ -15,7 +15,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class Manage extends Component
+final class Manage extends Component
 {
     // -----------------------------------------------------------------------
     // To make this BACKUP controller work, you need to :
@@ -117,9 +117,8 @@ class Manage extends Component
             $this->toast()->success(__('backup.backup'), __('backup.downloading'))->send();
 
             return Storage::download(config('app.backup.disk') . '/' . $file);
-        } else {
-            $this->toast()->error(__('backup.backup'), __('backup.not_found'))->send();
         }
+        $this->toast()->error(__('backup.backup'), __('backup.not_found'))->send();
     }
 
     public function deleteBackup(): void

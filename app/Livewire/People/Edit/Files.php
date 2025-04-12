@@ -12,7 +12,7 @@ use Livewire\WithFileUploads;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use TallStackUi\Traits\Interactions;
 
-class Files extends Component
+final class Files extends Component
 {
     use Interactions;
     use WithFileUploads;
@@ -122,16 +122,6 @@ class Files extends Component
         }
     }
 
-    private function reorderFiles(): void
-    {
-        if ($this->files) {
-            // renumber positions sequentially
-            $ordered = $this->files->sortBy('order_column')->pluck('id')->toArray();
-
-            Media::setNewOrder($ordered);
-        }
-    }
-
     public function moveFile(int $position, string $direction): void
     {
         $targetPosition = $direction === 'up' ? $position - 1 : $position + 1;
@@ -155,5 +145,15 @@ class Files extends Component
     public function render(): View
     {
         return view('livewire.people.edit.files');
+    }
+
+    private function reorderFiles(): void
+    {
+        if ($this->files) {
+            // renumber positions sequentially
+            $ordered = $this->files->sortBy('order_column')->pluck('id')->toArray();
+
+            Media::setNewOrder($ordered);
+        }
     }
 }

@@ -14,7 +14,7 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Models\Activity;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-class Couple extends Model
+final class Couple extends Model
 {
     use LogsActivity;
 
@@ -66,29 +66,9 @@ class Couple extends Model
     }
 
     /* -------------------------------------------------------------------------------------------- */
-    // Global Scopes
-    /* -------------------------------------------------------------------------------------------- */
-    protected static function booted(): void
-    {
-        static::addGlobalScope('team', function (Builder $builder) {
-            // Skip if the user is a guest
-            if (Auth()->guest()) {
-                return;
-            }
-
-            // Apply team scope if the user is not a developer
-            if (Auth()->user()->is_developer) {
-                return;
-            }
-
-            $builder->where('couples.team_id', Auth()->user()->currentTeam->id);
-        });
-    }
-
-    /* -------------------------------------------------------------------------------------------- */
     // Local Scopes
     /* -------------------------------------------------------------------------------------------- */
-    #[scope]
+    #[Scope]
     public function OlderThan(Builder $query, ?string $birth_year = null): void
     {
         if ($birth_year) {
@@ -99,7 +79,7 @@ class Couple extends Model
         }
     }
 
-    #[scope]
+    #[Scope]
     public function YoungerThan(Builder $query, ?string $birth_year = null): void
     {
         if ($birth_year) {
@@ -108,24 +88,6 @@ class Couple extends Model
                     ->orWhereYear('date_start', '>=', $birth_year);
             });
         }
-    }
-
-    /* -------------------------------------------------------------------------------------------- */
-    // Accessors & Mutators
-    /* -------------------------------------------------------------------------------------------- */
-    protected function getNameAttribute(): ?string
-    {
-        $names = array_filter([
-            optional($this->person_1)->name,
-            optional($this->person_2)->name,
-        ]);
-
-        return $names ? implode(' - ', $names) : null;
-    }
-
-    protected function getDateStartFormattedAttribute(): ?string
-    {
-        return $this->date_start ? Carbon::parse($this->date_start)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : null;
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -153,5 +115,43 @@ class Couple extends Model
     public function team(): BelongsTo
     {
         return $this->belongsTo(Team::class);
+    }
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Global Scopes
+    /* -------------------------------------------------------------------------------------------- */
+    protected static function booted(): void
+    {
+        self::addGlobalScope('team', function (Builder $builder) {
+            // Skip if the user is a guest
+            if (Auth()->guest()) {
+                return;
+            }
+
+            // Apply team scope if the user is not a developer
+            if (Auth()->user()->is_developer) {
+                return;
+            }
+
+            $builder->where('couples.team_id', Auth()->user()->currentTeam->id);
+        });
+    }
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Accessors & Mutators
+    /* -------------------------------------------------------------------------------------------- */
+    protected function getNameAttribute(): ?string
+    {
+        $names = array_filter([
+            optional($this->person_1)->name,
+            optional($this->person_2)->name,
+        ]);
+
+        return $names ? implode(' - ', $names) : null;
+    }
+
+    protected function getDateStartFormattedAttribute(): ?string
+    {
+        return $this->date_start ? Carbon::parse($this->date_start)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : null;
     }
 }

@@ -10,7 +10,7 @@ use Laravel\Jetstream\Http\Livewire\TeamMemberManager;
 use Livewire\Livewire;
 use Tests\TestCase;
 
-class UpdateTeamMemberRoleTest extends TestCase
+final class UpdateTeamMemberRoleTest extends TestCase
 {
     use RefreshDatabase;
 

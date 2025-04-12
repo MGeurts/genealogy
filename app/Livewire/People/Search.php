@@ -10,7 +10,7 @@ use Livewire\Attributes\Session;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Search extends Component
+final class Search extends Component
 {
     use WithPagination;
 

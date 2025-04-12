@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class Descendants extends Component
+final class Descendants extends Component
 {
     public $person;
 
@@ -38,6 +38,34 @@ class Descendants extends Component
     public function mount(): void
     {
         $this->loadDescendants();
+    }
+
+    /**
+     * Increment the count of descendants displayed.
+     */
+    public function increment(): void
+    {
+        if ($this->count < $this->count_max) {
+            $this->count++;
+        }
+    }
+
+    /**
+     * Decrement the count of descendants displayed.
+     */
+    public function decrement(): void
+    {
+        if ($this->count > $this->count_min) {
+            $this->count--;
+        }
+    }
+
+    /**
+     * Render the Livewire component view.
+     */
+    public function render(): View
+    {
+        return view('livewire.people.descendants');
     }
 
     /**
@@ -86,33 +114,5 @@ class Descendants extends Component
 
             SELECT * FROM descendants ORDER BY degree, dob, yob;
         ";
-    }
-
-    /**
-     * Increment the count of descendants displayed.
-     */
-    public function increment(): void
-    {
-        if ($this->count < $this->count_max) {
-            $this->count++;
-        }
-    }
-
-    /**
-     * Decrement the count of descendants displayed.
-     */
-    public function decrement(): void
-    {
-        if ($this->count > $this->count_min) {
-            $this->count--;
-        }
-    }
-
-    /**
-     * Render the Livewire component view.
-     */
-    public function render(): View
-    {
-        return view('livewire.people.descendants');
     }
 }

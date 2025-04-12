@@ -6,7 +6,7 @@ namespace App;
 
 use Illuminate\Support\Collection;
 
-class Countries
+final class Countries
 {
     // Mapping of locales to country directory names
     private const LOCALE_TO_COUNTRY = [
@@ -38,19 +38,6 @@ class Countries
     }
 
     /**
-     * Load countries data from the specified path.
-     */
-    private function loadCountriesData(string $path): ?Collection
-    {
-        $filePath = $path . '/countries.php';
-        if (file_exists($filePath)) {
-            return collect(require $filePath);
-        }
-
-        return null;
-    }
-
-    /**
      * Get the country name by its alpha2 code.
      */
     public function getCountryName(string $countryCode): ?string
@@ -77,7 +64,20 @@ class Countries
     public function getCountryNamesForSvgMap(): Collection
     {
         return $this->countries->mapWithKeys(function ($item) {
-            return [strtoupper($item['alpha2']) => $item['name']];
+            return [mb_strtoupper($item['alpha2']) => $item['name']];
         });
+    }
+
+    /**
+     * Load countries data from the specified path.
+     */
+    private function loadCountriesData(string $path): ?Collection
+    {
+        $filePath = $path . '/countries.php';
+        if (file_exists($filePath)) {
+            return collect(require $filePath);
+        }
+
+        return null;
     }
 }

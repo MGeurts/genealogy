@@ -7,7 +7,7 @@ namespace Database\Seeders;
 use App\Models\Person;
 use Illuminate\Database\Seeder;
 
-class TreeSeeder extends Seeder
+final class TreeSeeder extends Seeder
 {
     // -----------------------------------------------------------------------
     // this generates a father-son tree nested as deep as $level_max

@@ -8,7 +8,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Spatie\Activitylog\Models\Activity;
 
-class Teamlog extends Component
+final class Teamlog extends Component
 {
     public $logs;
 
@@ -23,9 +23,9 @@ class Teamlog extends Component
             ->sortByDesc('updated_at')
             ->map(function ($record) {
                 return [
-                    'event'          => strtoupper($record->event),
-                    'subject_type'   => substr($record->subject_type, strrpos($record->subject_type, '\\') + 1),
-                    'description'    => strtoupper($record->description),
+                    'event'          => mb_strtoupper($record->event),
+                    'subject_type'   => mb_substr($record->subject_type, mb_strrpos($record->subject_type, '\\') + 1),
+                    'description'    => mb_strtoupper($record->description),
                     'properties'     => ($record->event === 'invited' or $record->event === 'removed') ? $record->properties : [],
                     'properties_old' => ($record->event === 'updated' or $record->event === 'deleted') ? $record->properties['old'] : [],
                     'properties_new' => ($record->event === 'updated' or $record->event === 'created') ? $record->properties['attributes'] : [],

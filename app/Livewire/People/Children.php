@@ -10,7 +10,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
-class Children extends Component
+final class Children extends Component
 {
     use Interactions;
 

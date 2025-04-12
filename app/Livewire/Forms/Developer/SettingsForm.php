@@ -6,7 +6,7 @@ namespace App\Livewire\Forms\Developer;
 
 use Livewire\Form;
 
-class SettingsForm extends Form
+final class SettingsForm extends Form
 {
     // -----------------------------------------------------------------------
     public bool $logAllQueries = false;

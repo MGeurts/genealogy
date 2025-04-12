@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class Datasheet extends Component
+final class Datasheet extends Component
 {
     public $person;
 

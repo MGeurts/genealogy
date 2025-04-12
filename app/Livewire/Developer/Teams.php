@@ -15,7 +15,7 @@ use Filament\Tables\Table;
 use Illuminate\View\View;
 use Livewire\Component;
 
-class Teams extends Component implements HasForms, HasTable
+final class Teams extends Component implements HasForms, HasTable
 {
     use InteractsWithForms;
     use InteractsWithTable;

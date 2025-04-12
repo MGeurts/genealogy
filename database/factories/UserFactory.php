@@ -14,7 +14,7 @@ use Laravel\Jetstream\Features;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
  */
-class UserFactory extends Factory
+final class UserFactory extends Factory
 {
     /**
      * The current password being used by the factory.
@@ -33,7 +33,7 @@ class UserFactory extends Factory
             'surname'                   => $this->faker->lastName(),
             'email'                     => fake()->unique()->safeEmail(),
             'email_verified_at'         => now(),
-            'password'                  => static::$password ??= Hash::make('password'),
+            'password'                  => self::$password ??= Hash::make('password'),
             'two_factor_secret'         => null,
             'two_factor_recovery_codes' => null,
             'remember_token'            => Str::random(10),
