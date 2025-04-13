@@ -42,7 +42,7 @@ final class CreateNewUser implements CreatesNewUsers
                 'language'  => $input['language'],
                 'timezone'  => $input['timezone'],
                 'password'  => Hash::make($input['password']),
-            ]), function (User $user) {
+            ]), function (User $user): void {
                 $this->createTeam($user);
             });
         });

@@ -43,7 +43,7 @@ final class TeamController extends Controller
         $newOwner     = User::findOrFail($validated['new_owner_id']);
 
         try {
-            DB::transaction(function () use ($team, $currentOwner, $newOwner) {
+            DB::transaction(function () use ($team, $currentOwner, $newOwner): void {
                 $currentOwner_as_teamUser = $team->users()->find($currentOwner->id);  // `find()` retrieves the user with membership
 
                 if (! $currentOwner_as_teamUser) {

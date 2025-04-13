@@ -117,7 +117,7 @@ final class Person extends Model implements HasMedia
     public function Search(Builder $query, string $searchString): void
     {
         if ($searchString !== '%') {
-            collect(str_getcsv($searchString, ' ', '"'))->filter()->each(function (string $searchTerm) use ($query) {
+            collect(str_getcsv($searchString, ' ', '"'))->filter()->each(function (string $searchTerm) use ($query): void {
                 $query->whereAny(['firstname', 'surname', 'birthname', 'nickname'], 'like', $searchTerm . '%');
             });
         }
@@ -130,10 +130,10 @@ final class Person extends Model implements HasMedia
             $birth_year = (int) $birth_year;
 
             $query
-                ->where(function ($q) use ($birth_year) {
+                ->where(function ($q) use ($birth_year): void {
                     $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '<=', $birth_year);
                 })
-                ->where(function ($q) use ($birth_year) {
+                ->where(function ($q) use ($birth_year): void {
                     $q->whereNull('yob')->orWhere('yob', '<=', $birth_year);
                 });
         }
@@ -146,10 +146,10 @@ final class Person extends Model implements HasMedia
             $birth_year = (int) $birth_year;
 
             $query
-                ->where(function ($q) use ($birth_year) {
+                ->where(function ($q) use ($birth_year): void {
                     $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '>=', $birth_year);
                 })
-                ->where(function ($q) use ($birth_year) {
+                ->where(function ($q) use ($birth_year): void {
                     $q->whereNull('yob')->orWhere('yob', '>=', $birth_year);
                 });
         }
@@ -167,10 +167,10 @@ final class Person extends Model implements HasMedia
             $max_age    = $birth_year + $offset;
 
             $query
-                ->where(function ($q) use ($min_age, $max_age) {
+                ->where(function ($q) use ($min_age, $max_age): void {
                     $q->whereNull('dob')->orWhereBetween(DB::raw('YEAR(dob)'), [$min_age, $max_age]);
                 })
-                ->where(function ($q) use ($min_age, $max_age) {
+                ->where(function ($q) use ($min_age, $max_age): void {
                     $q->whereNull('yob')->orWhereBetween('yob', [$min_age, $max_age]);
                 });
         }
@@ -410,7 +410,7 @@ final class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     protected static function booted(): void
     {
-        self::addGlobalScope('team', function (Builder $builder) {
+        self::addGlobalScope('team', function (Builder $builder): void {
             if (Auth()->guest() || Auth()->user()->is_developer) {
                 return;
             }

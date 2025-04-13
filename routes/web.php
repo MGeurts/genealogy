@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 // -----------------------------------------------------------------------------------
 // frontend routes
 // -----------------------------------------------------------------------------------
-Route::controller(App\Http\Controllers\Front\PageController::class)->group(function () {
+Route::controller(App\Http\Controllers\Front\PageController::class)->group(function (): void {
     Route::get('/', 'home')->name('home');
     Route::get('about', 'about')->name('about');
     Route::get('help', 'help')->name('help');
@@ -20,11 +20,11 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-])->group(function () {
+])->group(function (): void {
     // -----------------------------------------------------------------------------------
     // teams
     // -----------------------------------------------------------------------------------
-    Route::controller(App\Http\Controllers\Back\TeamController::class)->group(function () {
+    Route::controller(App\Http\Controllers\Back\TeamController::class)->group(function (): void {
         Route::get('team', 'team')->name('team');
         Route::get('teamlog', 'teamlog')->name('teamlog');
         Route::get('peoplelog', 'peoplelog')->name('peoplelog');
@@ -35,14 +35,14 @@ Route::middleware([
     // -----------------------------------------------------------------------------------
     // pages
     // -----------------------------------------------------------------------------------
-    Route::controller(App\Http\Controllers\Back\PageController::class)->group(function () {
+    Route::controller(App\Http\Controllers\Back\PageController::class)->group(function (): void {
         Route::get('test', 'test')->name('test');
     });
 
     // -----------------------------------------------------------------------------------
     // people
     // -----------------------------------------------------------------------------------
-    Route::controller(App\Http\Controllers\Back\PeopleController::class)->group(function () {
+    Route::controller(App\Http\Controllers\Back\PeopleController::class)->group(function (): void {
         Route::get('search', 'search')->name('people.search');
         Route::get('birthdays', 'birthdays')->name('people.birthdays');
 
@@ -69,7 +69,7 @@ Route::middleware([
     // -----------------------------------------------------------------------------------
     // gedcom
     // -----------------------------------------------------------------------------------
-    Route::controller(App\Http\Controllers\Back\GedcomController::class)->prefix('gedcom')->as('gedcom.')->group(function () {
+    Route::controller(App\Http\Controllers\Back\GedcomController::class)->prefix('gedcom')->as('gedcom.')->group(function (): void {
         Route::get('exportteam', 'exportteam')->name('exportteam');
         Route::get('importteam', 'importteam')->name('importteam');
     });
@@ -77,11 +77,11 @@ Route::middleware([
     // -----------------------------------------------------------------------------------
     // developer
     // -----------------------------------------------------------------------------------
-    Route::middleware(App\Http\Middleware\IsDeveloper::class)->prefix('developer')->as('developer.')->group(function () {
+    Route::middleware(App\Http\Middleware\IsDeveloper::class)->prefix('developer')->as('developer.')->group(function (): void {
         // -----------------------------------------------------------------------------------
         // pages
         // -----------------------------------------------------------------------------------
-        Route::controller(App\Http\Controllers\Back\DeveloperController::class)->group(function () {
+        Route::controller(App\Http\Controllers\Back\DeveloperController::class)->group(function (): void {
             Route::get('settings', 'settings')->name('settings');
 
             Route::get('teams', 'teams')->name('teams');

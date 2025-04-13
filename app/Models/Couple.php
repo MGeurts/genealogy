@@ -72,7 +72,7 @@ final class Couple extends Model
     public function OlderThan(Builder $query, ?string $birth_year = null): void
     {
         if ($birth_year) {
-            $query->where(function ($q) use ($birth_year) {
+            $query->where(function ($q) use ($birth_year): void {
                 $q->whereNull('date_start')
                     ->orWhereYear('date_start', '<=', $birth_year);
             });
@@ -83,7 +83,7 @@ final class Couple extends Model
     public function YoungerThan(Builder $query, ?string $birth_year = null): void
     {
         if ($birth_year) {
-            $query->where(function ($q) use ($birth_year) {
+            $query->where(function ($q) use ($birth_year): void {
                 $q->whereNull('date_start')
                     ->orWhereYear('date_start', '>=', $birth_year);
             });
@@ -122,7 +122,7 @@ final class Couple extends Model
     /* -------------------------------------------------------------------------------------------- */
     protected static function booted(): void
     {
-        self::addGlobalScope('team', function (Builder $builder) {
+        self::addGlobalScope('team', function (Builder $builder): void {
             // Skip if the user is a guest
             if (Auth()->guest()) {
                 return;
