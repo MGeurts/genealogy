@@ -57,24 +57,20 @@ final class Child extends Component
                 ->YoungerThan($this->person->birth_year)
                 ->orderBy('firstname')->orderBy('surname')
                 ->get()
-                ->map(function ($p) {
-                    return [
-                        'id'   => $p->id,
-                        'name' => $p->name . ' [' . (($p->sex === 'm') ? __('app.male') : __('app.female')) . '] ' . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
-                    ];
-                });
+                ->map(fn($p) => [
+                    'id'   => $p->id,
+                    'name' => $p->name . ' [' . (($p->sex === 'm') ? __('app.male') : __('app.female')) . '] ' . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
+                ]);
         } else {
             $this->persons = Person::where('id', '!=', $this->person->id)
                 ->whereNull('mother_id')
                 ->YoungerThan($this->person->birth_year)
                 ->orderBy('firstname')->orderBy('surname')
                 ->get()
-                ->map(function ($p) {
-                    return [
-                        'id'   => $p->id,
-                        'name' => $p->name . ' [' . (($p->sex === 'm') ? __('app.male') : __('app.female')) . '] ' . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
-                    ];
-                });
+                ->map(fn($p) => [
+                    'id'   => $p->id,
+                    'name' => $p->name . ' [' . (($p->sex === 'm') ? __('app.male') : __('app.female')) . '] ' . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
+                ]);
         }
     }
 

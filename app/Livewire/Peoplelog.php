@@ -21,18 +21,16 @@ final class Peoplelog extends Component
             ->where('updated_at', '>=', today()->startOfMonth()->subMonths(1))
             ->get()
             ->sortByDesc('updated_at')
-            ->map(function ($record) {
-                return [
-                    'event'          => mb_strtoupper($record->event),
-                    'subject_type'   => mb_substr($record->subject_type, mb_strrpos($record->subject_type, '\\') + 1),
-                    'subject_id'     => $record->subject_id,
-                    'description'    => mb_strtoupper($record->description),
-                    'properties_old' => ($record->event === 'updated' or $record->event === 'deleted') ? $record->properties['old'] : [],
-                    'properties_new' => ($record->event === 'updated' or $record->event === 'created') ? $record->properties['attributes'] : [],
-                    'updated_at'     => $record->updated_at->timezone(session('timezone') ?? 'UTC')->isoFormat('LLL'),
-                    'causer'         => $record->causer ? $record->causer->name : '',
-                ];
-            });
+            ->map(fn($record) => [
+                'event'          => mb_strtoupper($record->event),
+                'subject_type'   => mb_substr($record->subject_type, mb_strrpos($record->subject_type, '\\') + 1),
+                'subject_id'     => $record->subject_id,
+                'description'    => mb_strtoupper($record->description),
+                'properties_old' => ($record->event === 'updated' or $record->event === 'deleted') ? $record->properties['old'] : [],
+                'properties_new' => ($record->event === 'updated' or $record->event === 'created') ? $record->properties['attributes'] : [],
+                'updated_at'     => $record->updated_at->timezone(session('timezone') ?? 'UTC')->isoFormat('LLL'),
+                'causer'         => $record->causer ? $record->causer->name : '',
+            ]);
     }
 
     // ------------------------------------------------------------------------------

@@ -12,16 +12,13 @@ final class OwnershipTransferred extends Notification
 {
     use Queueable;
 
-    public $team;
-
     /**
      * Create a new notification instance.
      *
      * @param  \App\Models\Team  $team
      */
-    public function __construct($team)
+    public function __construct(public $team)
     {
-        $this->team = $team;
     }
 
     /**

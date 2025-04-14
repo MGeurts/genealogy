@@ -376,12 +376,10 @@ final class Person extends Model implements HasMedia
         }
 
         // Prepare the query conditionally based on $withChildren
-        $query = function ($column, $id) use ($withChildren) {
-            return Person::where('id', '!=', $this->id)
-                ->where($column, $id)
-                ->when($withChildren, fn ($q) => $q->with('children'))
-                ->get();
-        };
+        $query = (fn($column, $id) => Person::where('id', '!=', $this->id)
+            ->where($column, $id)
+            ->when($withChildren, fn ($q) => $q->with('children'))
+            ->get());
 
         // Get siblings from each parent or both parents
         $siblings_father  = $this->father_id ? $query('father_id', $this->father_id) : collect([]);

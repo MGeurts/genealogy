@@ -41,12 +41,10 @@ final class Partner extends Component
             ->where('id', '!=', $this->person->id)
             ->orderBy('firstname')->orderBy('surname')
             ->get()
-            ->map(function ($p) {
-                return [
-                    'id'   => $p->id,
-                    'name' => $p->name . ' [' . (($p->sex === 'm') ? __('app.male') : __('app.female')) . '] ' . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
-                ];
-            });
+            ->map(fn($p) => [
+                'id'   => $p->id,
+                'name' => $p->name . ' [' . (($p->sex === 'm') ? __('app.male') : __('app.female')) . '] ' . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
+            ]);
     }
 
     public function savePartner()

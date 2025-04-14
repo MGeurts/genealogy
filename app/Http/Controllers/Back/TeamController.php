@@ -87,7 +87,7 @@ final class TeamController extends Controller
 
                 $this->toast()->success(__('team.transfer'), __('team.transferred_to') . $newOwner->name . '.')->flash()->send();
             });
-        } catch (Exception $e) {
+        } catch (Exception) {
             $this->toast()->error(__('team.transfer'), __('team.transfer_failed'))->flash()->send();
         }
 

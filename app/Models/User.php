@@ -132,9 +132,7 @@ final class User extends Authenticatable
 
     public function isDeletable(): bool
     {
-        $total = $this->teamsStatistics()->sum(function ($team) {
-            return $team->users_count + $team->persons_count + $team->couples_count;
-        });
+        $total = $this->teamsStatistics()->sum(fn($team) => $team->users_count + $team->persons_count + $team->couples_count);
 
         return $total === 0;
     }

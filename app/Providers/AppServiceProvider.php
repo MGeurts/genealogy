@@ -63,11 +63,7 @@ final class AppServiceProvider extends ServiceProvider
         // ------------------------------------------------------------------------------
         if ($this->isDatabaseOnline() && Schema::hasTable('settings')) {
             // Cache the applications settings
-            $this->app->singleton('settings', function () {
-                return Cache::rememberForever('settings', function () {
-                    return Setting::all()->pluck('value', 'key');
-                });
-            });
+            $this->app->singleton('settings', fn() => Cache::rememberForever('settings', fn() => Setting::all()->pluck('value', 'key')));
 
             $this->logAllQueries();
             $this->LogAllQueriesSlow();
@@ -85,7 +81,7 @@ final class AppServiceProvider extends ServiceProvider
             DB::connection()->getPdo();
 
             return true;
-        } catch (Exception $e) {
+        } catch (Exception) {
             // Log the exception if needed for debugging
             // Log::error('Database connection error: ' . $e->getMessage());
             return false;
@@ -118,9 +114,7 @@ final class AppServiceProvider extends ServiceProvider
      */
     private function configureLogViewer(): void
     {
-        LogViewer::auth(function ($request) {
-            return $request->user()->is_developer;
-        });
+        LogViewer::auth(fn($request) => $request->user()->is_developer);
     }
 
     /**
@@ -261,7 +255,7 @@ final class AppServiceProvider extends ServiceProvider
             Model::handleLazyLoadingViolationUsing(function ($model, $relation): void {
                 Log::warning(sprintf(
                     'N+1 Query detected in model %s on relation %s.',
-                    get_class($model),
+                    $model::class,
                     $relation
                 ));
             });

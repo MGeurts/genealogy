@@ -41,30 +41,24 @@ final class Family extends Component
             ->orderBy('firstname')->orderBy('surname')
             ->get();
 
-        $this->fathers = $persons->where('sex', 'm')->map(function ($p) {
-            return [
-                'id'   => $p->id,
-                'name' => $p->name . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
-            ];
-        })->values();
+        $this->fathers = $persons->where('sex', 'm')->map(fn($p) => [
+            'id'   => $p->id,
+            'name' => $p->name . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
+        ])->values();
 
-        $this->mothers = $persons->where('sex', 'f')->map(function ($p) {
-            return [
-                'id'   => $p->id,
-                'name' => $p->name . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
-            ];
-        })->values();
+        $this->mothers = $persons->where('sex', 'f')->map(fn($p) => [
+            'id'   => $p->id,
+            'name' => $p->name . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
+        ])->values();
 
         $this->parents = Couple::with(['person_1', 'person_2'])
             ->OlderThan($this->person->birth_year)
             ->get()
             ->sortBy('name')
-            ->map(function ($couple) {
-                return [
-                    'id'     => $couple->id,
-                    'couple' => $couple->name . ($couple->date_start ? ' (' . $couple->date_start_formatted . ')' : ''),
-                ];
-            })->values();
+            ->map(fn($couple) => [
+                'id'     => $couple->id,
+                'couple' => $couple->name . ($couple->date_start ? ' (' . $couple->date_start_formatted . ')' : ''),
+            ])->values();
     }
 
     public function saveFamily()

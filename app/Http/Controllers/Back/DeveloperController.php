@@ -82,13 +82,11 @@ final class DeveloperController extends Controller
             ->selectRaw('COUNT(*) AS visitors')
             ->groupBy('country_code')
             ->get()
-            ->mapWithKeys(function ($item) {
-                return [
-                    $item->country_code => [
-                        'visitors' => $item->visitors,
-                    ],
-                ];
-            })->toArray();
+            ->mapWithKeys(fn($item) => [
+                $item->country_code => [
+                    'visitors' => $item->visitors,
+                ],
+            ])->toArray();
 
         return view('back.developer.userlog.origin-map', compact('title', 'nodata', 'countries', 'data'));
     }

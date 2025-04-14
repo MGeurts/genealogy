@@ -6,20 +6,8 @@ namespace App\Php\Gedcom;
 
 final class Export
 {
-    public string $filename;
-
-    public string $format;
-
-    public string $encoding;
-
-    public string $line_endings;
-
-    public function __construct(string $filename, string $format = 'gedcom', string $encoding = 'utf8', string $line_endings = 'windows')
+    public function __construct(public string $filename, public string $format = 'gedcom', public string $encoding = 'utf8', public string $line_endings = 'windows')
     {
-        $this->filename     = $filename;
-        $this->format       = $format;
-        $this->encoding     = $encoding;
-        $this->line_endings = $line_endings;
     }
 
     public function Export(): void

@@ -12,16 +12,12 @@ use Intervention\Image\ImageManager;
 
 final class PersonPhotos
 {
-    private Person $person;
-
     private ImageManager $imageManager;
 
     private array $config;
 
-    public function __construct(Person $person)
+    public function __construct(private Person $person)
     {
-        $this->person = $person;
-
         $this->imageManager = new ImageManager(new Driver);
 
         $this->config = config('app.image_upload');

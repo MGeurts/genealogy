@@ -22,18 +22,16 @@ final class History extends Component
     public function mount(): void
     {
         $this->activities = Activity::with('causer')
-            ->where('subject_type', 'App\Models\Person')->where('subject_id', $this->person->id)
+            ->where('subject_type', \App\Models\Person::class)->where('subject_id', $this->person->id)
             ->orderByDesc('created_at')
             ->get()
-            ->map(function ($record) {
-                return [
-                    'event'      => mb_strtoupper($record->event),
-                    'created_at' => Carbon::parse($record->created_at)->timezone(session('timezone') ?? 'UTC')->format('Y-m-d H:i'),
-                    'causer'     => $record->causer ? implode(' ', array_filter([$record->causer->firstname, $record->causer->surname])) : null,
-                    'old'        => $record->properties->get('old'),
-                    'new'        => $record->properties->get('attributes'),
-                ];
-            });
+            ->map(fn($record) => [
+                'event'      => mb_strtoupper($record->event),
+                'created_at' => Carbon::parse($record->created_at)->timezone(session('timezone') ?? 'UTC')->format('Y-m-d H:i'),
+                'causer'     => $record->causer ? implode(' ', array_filter([$record->causer->firstname, $record->causer->surname])) : null,
+                'old'        => $record->properties->get('old'),
+                'new'        => $record->properties->get('attributes'),
+            ]);
     }
 
     // ------------------------------------------------------------------------------
