@@ -12,11 +12,11 @@ use Intervention\Image\ImageManager;
 
 final class PersonPhotos
 {
-    private ImageManager $imageManager;
+    private readonly ImageManager $imageManager;
 
     private array $config;
 
-    public function __construct(private Person $person)
+    public function __construct(private readonly Person $person)
     {
         $this->imageManager = new ImageManager(new Driver);
 
@@ -58,7 +58,7 @@ final class PersonPhotos
         if ($files) {
             $lastFile = last($files);
 
-            return (int) mb_substr($lastFile, mb_strpos($lastFile, '_') + 1, mb_strrpos($lastFile, '_') - mb_strpos($lastFile, '_') - 1);
+            return (int) mb_substr((string) $lastFile, mb_strpos((string) $lastFile, '_') + 1, mb_strrpos((string) $lastFile, '_') - mb_strpos((string) $lastFile, '_') - 1);
         }
 
         return 0;

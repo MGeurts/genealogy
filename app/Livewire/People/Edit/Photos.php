@@ -205,7 +205,7 @@ final class Photos extends Component
     {
         $files = File::glob(public_path("storage/photos/{$this->person->team_id}/{$this->person->id}_*.webp"));
 
-        $newPrimary = $files ? basename($files[0]) : null;
+        $newPrimary = $files ? basename((string) $files[0]) : null;
 
         $this->person->update(['photo' => $newPrimary]);
     }

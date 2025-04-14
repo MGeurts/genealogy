@@ -38,7 +38,7 @@ final class DodValid implements DataAwareRule, ValidationRule
     {
         if ($this->data['yod']) {
             // dod->year must match yod
-            if ($this->data['yod'] !== date('Y', strtotime($value))) {
+            if ($this->data['yod'] !== date('Y', strtotime((string) $value))) {
                 $fail(__('person.dod_not_matching_yod', ['value' => $this->data['yod']]));
             }
         } elseif (isset($this->data['person'])) {
@@ -49,7 +49,7 @@ final class DodValid implements DataAwareRule, ValidationRule
                 }
             } elseif ($this->data['person']['yob']) {
                 // dod can not be before yob
-                if (date('Y', strtotime($value)) < $this->data['person']['yob']) {
+                if (date('Y', strtotime((string) $value)) < $this->data['person']['yob']) {
                     $fail(__('person.dod_before_yob', ['value' => $this->data['person']['yob']]));
                 }
             }

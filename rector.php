@@ -4,31 +4,21 @@ declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\LevelSetList;
-use Rector\ValueObject\PhpVersion;
+use RectorLaravel\Set\LaravelSetList;
 
-return RectorConfig::configure()
-    ->withPaths([
+// use Rector\ValueObject\PhpVersion;
+
+return static function (RectorConfig $rectorConfig): void {
+    // Run Rector on these paths
+    $rectorConfig->paths([
         __DIR__ . '/app',
-        __DIR__ . '/resources',
         __DIR__ . '/routes',
-        __DIR__ . '/tests',
-    ])
-    ->withPhpSets(php81: true);
-// ->withPhpVersion(PhpVersion::UP_TO_PHP_82)
-// ->withPreparedSets(
-//     // deadCode: true,
-//     codeQuality: true,
-//     // TypeDeclarations: true,
-//     // privatization: true,
-//     // earlyReturn: true,
-//     // strictBooleans: true,
-// );
-// ->sets([LevelSetList::UP_TO_PHP_82]);
-// ->withRules([
-//     ListToArrayDestructRector::class,
-// ]);
-// uncomment to reach your current PHP version
-// ->withPhpSets()
-// ->withTypeCoverageLevel(1)
-// ->withDeadCodeLevel(0)
-// ->withCodeQualityLevel(0);
+        __DIR__ . '/database',
+    ]);
+
+    // Laravel-specific refactorings
+    $rectorConfig->sets([
+        LaravelSetList::LARAVEL_120, // Laravel 10 improvements
+        LevelSetList::UP_TO_PHP_82,  // Use PHP 8.2 improvements (adjust based on your PHP version)
+    ]);
+};

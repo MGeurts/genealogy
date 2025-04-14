@@ -22,8 +22,8 @@ final class Teamlog extends Component
             ->get()
             ->sortByDesc('updated_at')
             ->map(fn($record) => [
-                'event'          => mb_strtoupper($record->event),
-                'subject_type'   => mb_substr($record->subject_type, mb_strrpos($record->subject_type, '\\') + 1),
+                'event'          => mb_strtoupper((string) $record->event),
+                'subject_type'   => mb_substr((string) $record->subject_type, mb_strrpos((string) $record->subject_type, '\\') + 1),
                 'description'    => mb_strtoupper($record->description),
                 'properties'     => ($record->event === 'invited' or $record->event === 'removed') ? $record->properties : [],
                 'properties_old' => ($record->event === 'updated' or $record->event === 'deleted') ? $record->properties['old'] : [],

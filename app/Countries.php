@@ -61,7 +61,7 @@ final class Countries
      */
     public function getCountryNamesForSvgMap(): Collection
     {
-        return $this->countries->mapWithKeys(fn($item) => [mb_strtoupper($item['alpha2']) => $item['name']]);
+        return $this->countries->mapWithKeys(fn($item) => [mb_strtoupper((string) $item['alpha2']) => $item['name']]);
     }
 
     /**

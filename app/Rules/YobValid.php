@@ -38,13 +38,13 @@ final class YobValid implements DataAwareRule, ValidationRule
     {
         if ($this->data['dob']) {
             // yob must match dob->year
-            if ($value !== date('Y', strtotime($this->data['dob']))) {
+            if ($value !== date('Y', strtotime((string) $this->data['dob']))) {
                 $fail(__('person.yob_not_matching_dob', ['value' => $this->data['dob']]));
             }
         } elseif (isset($this->data['person'])) {
             if ($this->data['person']['dod']) {
                 // yob may not be after dod->year
-                if ($value < date('Y', strtotime($this->data['person']['dod']))) {
+                if ($value < date('Y', strtotime((string) $this->data['person']['dod']))) {
                     $fail(__('person.yob_after_dod', ['value' => $this->data['person']['dod']]));
                 }
             } elseif ($this->data['person']['yod']) {

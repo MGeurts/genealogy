@@ -25,7 +25,7 @@ final class LogAllRequests
         $timestamp = Carbon::now()->toDateTimeString();
 
         // Collect response content if available
-        $responseData = json_decode($response->getContent(), true, 512) ?? [];
+        $responseData = json_decode((string) $response->getContent(), true, 512) ?? [];
 
         // Prepare log data
         $logData = [

@@ -56,7 +56,7 @@ final class PersonMetadata extends Model
     public function key(): Attribute
     {
         return new Attribute(
-            set: fn ($value) => $value ? mb_strtolower($value) : null,
+            set: fn ($value) => $value ? mb_strtolower((string) $value) : null,
         );
     }
 

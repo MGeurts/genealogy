@@ -163,7 +163,7 @@ final class UserAndTeamSeeder extends Seeder
     // -----------------------------------------------------------------------------------
     protected function createUserlogs(User $user): void
     {
-        for ($i = 1; $i <= rand(20, 200); $i++) {
+        for ($i = 1; $i <= random_int(20, 200); $i++) {
             Userlog::factory([
                 'user_id' => $user->id,
             ])->create();
