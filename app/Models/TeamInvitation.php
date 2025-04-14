@@ -7,6 +7,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laravel\Jetstream\Jetstream;
 use Laravel\Jetstream\TeamInvitation as JetstreamTeamInvitation;
+use Override;
 
 final class TeamInvitation extends JetstreamTeamInvitation
 {
@@ -23,7 +24,7 @@ final class TeamInvitation extends JetstreamTeamInvitation
     /**
      * Get the team that the invitation belongs to.
      */
-    #[\Override]
+    #[Override]
     public function team(): BelongsTo
     {
         return $this->belongsTo(Jetstream::teamModel());

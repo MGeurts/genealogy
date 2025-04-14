@@ -55,7 +55,7 @@ final class Father extends Component
             ->OlderThan($this->person->birth_year)
             ->orderBy('firstname')->orderBy('surname')
             ->get()
-            ->map(fn($p) => [
+            ->map(fn ($p) => [
                 'id'   => $p->id,
                 'name' => $p->name . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
             ]);

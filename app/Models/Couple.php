@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Override;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Models\Activity;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -120,7 +121,7 @@ final class Couple extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Global Scopes
     /* -------------------------------------------------------------------------------------------- */
-    #[\Override]
+    #[Override]
     protected static function booted(): void
     {
         self::addGlobalScope('team', function (Builder $builder): void {

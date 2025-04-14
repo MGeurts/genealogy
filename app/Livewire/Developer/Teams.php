@@ -40,17 +40,17 @@ final class Teams extends Component implements HasForms, HasTable
                 Tables\Columns\TextColumn::make('users_count')
                     ->label(__('team.users'))
                     ->badge()
-                    ->color(static fn($state): string => $state > 0 ? 'primary' : 'gray')
+                    ->color(static fn ($state): string => $state > 0 ? 'primary' : 'gray')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('persons_count')
                     ->label(__('team.persons'))
                     ->badge()
-                    ->color(static fn($state): string => $state > 0 ? 'primary' : 'gray')
+                    ->color(static fn ($state): string => $state > 0 ? 'primary' : 'gray')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('couples_count')
                     ->label(__('team.couples'))
                     ->badge()
-                    ->color(static fn($state): string => $state > 0 ? 'primary' : 'gray')
+                    ->color(static fn ($state): string => $state > 0 ? 'primary' : 'gray')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('owner.name')
                     ->label(__('team.owner'))

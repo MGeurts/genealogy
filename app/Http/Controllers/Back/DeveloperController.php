@@ -82,7 +82,7 @@ final class DeveloperController extends Controller
             ->selectRaw('COUNT(*) AS visitors')
             ->groupBy('country_code')
             ->get()
-            ->mapWithKeys(fn($item) => [
+            ->mapWithKeys(fn ($item) => [
                 $item->country_code => [
                     'visitors' => $item->visitors,
                 ],

@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Opcodes\LogViewer\Facades\LogViewer;
+use Override;
 use TallStackUi\Facades\TallStackUi;
 
 final class AppServiceProvider extends ServiceProvider
@@ -25,7 +26,7 @@ final class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
-    #[\Override]
+    #[Override]
     public function register(): void
     {
         //
@@ -64,7 +65,7 @@ final class AppServiceProvider extends ServiceProvider
         // ------------------------------------------------------------------------------
         if ($this->isDatabaseOnline() && Schema::hasTable('settings')) {
             // Cache the applications settings
-            $this->app->singleton('settings', fn() => Cache::rememberForever('settings', fn() => Setting::all()->pluck('value', 'key')));
+            $this->app->singleton('settings', fn () => Cache::rememberForever('settings', fn () => Setting::all()->pluck('value', 'key')));
 
             $this->logAllQueries();
             $this->LogAllQueriesSlow();
@@ -115,7 +116,7 @@ final class AppServiceProvider extends ServiceProvider
      */
     private function configureLogViewer(): void
     {
-        LogViewer::auth(fn($request) => $request->user()->is_developer);
+        LogViewer::auth(fn ($request) => $request->user()->is_developer);
     }
 
     /**

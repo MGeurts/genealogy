@@ -40,7 +40,7 @@ final class People extends Component implements HasForms, HasTable
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\ImageColumn::make('photo')
                     ->label(__('person.avatar'))
-                    ->getStateUsing(fn(Person $record) => $record->photo ? url('storage/photos-096/' . $record->team_id . '/' . $record->photo) : url('/img/avatar.png'))
+                    ->getStateUsing(fn (Person $record) => $record->photo ? url('storage/photos-096/' . $record->team_id . '/' . $record->photo) : url('/img/avatar.png'))
                     ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('name')
                     ->label(__('person.name'))
@@ -59,7 +59,7 @@ final class People extends Component implements HasForms, HasTable
                     ->searchable(),
                 Tables\Columns\TextColumn::make('sex')
                     ->label(__('person.sex'))
-                    ->getStateUsing(fn(Person $record) => mb_strtoupper($record->sex))
+                    ->getStateUsing(fn (Person $record) => mb_strtoupper($record->sex))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('father.name')
                     ->label(__('person.father'))
@@ -122,7 +122,7 @@ final class People extends Component implements HasForms, HasTable
             ->actions([
                 Tables\Actions\DeleteAction::make()
                     ->iconButton()
-                    ->visible(fn(Person $record) => $record->isDeletable()),
+                    ->visible(fn (Person $record) => $record->isDeletable()),
                 Tables\Actions\ForceDeleteAction::make()->iconButton(),
                 Tables\Actions\RestoreAction::make()->iconButton(),
             ])

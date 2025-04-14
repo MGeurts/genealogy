@@ -51,7 +51,7 @@ final class Death extends Component
             $this->person->updateMetadata(
                 collect($validated)
                     ->forget(['yod', 'dod', 'pod'])
-                    ->filter(fn($value, $key) => $value !== $this->person->getMetadataValue($key))
+                    ->filter(fn ($value, $key) => $value !== $this->person->getMetadataValue($key))
             );
             // ------------------------------------------------------
             $this->dispatch('person_updated');

@@ -44,7 +44,7 @@ final class Users extends Component implements HasForms, HasTable
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\ImageColumn::make('profile_photo_path')
                     ->label(__('user.photo'))
-                    ->getStateUsing(fn(User $record) => $record->profile_photo_path ? url('storage/' . $record->profile_photo_path) : url('/img/avatar.png'))
+                    ->getStateUsing(fn (User $record) => $record->profile_photo_path ? url('storage/' . $record->profile_photo_path) : url('/img/avatar.png'))
                     ->toggleable(isToggledHiddenByDefault: false),
                 Tables\Columns\TextColumn::make('name')
                     ->label(__('user.name'))
@@ -58,7 +58,7 @@ final class Users extends Component implements HasForms, HasTable
                 Tables\Columns\IconColumn::make('email_verified')
                     ->label(__('user.email_verified') . '?')
                     ->verticallyAlignStart()
-                    ->getStateUsing(fn(User $record) => $record->email_verified_at)
+                    ->getStateUsing(fn (User $record) => $record->email_verified_at)
                     ->boolean(),
                 Tables\Columns\TextColumn::make('two_factor_confirmed_at')
                     ->label(__('user.two_factor_confirmed_at'))
@@ -72,16 +72,16 @@ final class Users extends Component implements HasForms, HasTable
                 Tables\Columns\TextColumn::make('team_personal')
                     ->label(__('team.team_personal'))
                     ->verticallyAlignStart()
-                    ->getStateUsing(fn(User $record) => $record->personalTeam()->name),
+                    ->getStateUsing(fn (User $record) => $record->personalTeam()->name),
                 Tables\Columns\TextColumn::make('teams')
                     ->label(__('team.teams'))
-                    ->getStateUsing(fn(User $record) => implode('<br/>', $record->allTeams()->where('personal_team', false)->pluck(['name'])->toArray()))
+                    ->getStateUsing(fn (User $record) => implode('<br/>', $record->allTeams()->where('personal_team', false)->pluck(['name'])->toArray()))
                     ->verticallyAlignStart()
                     ->html(),
                 Tables\Columns\TextColumn::make('language')
                     ->label(__('user.language'))
                     ->verticallyAlignStart()
-                    ->getStateUsing(fn(User $record) => mb_strtoupper($record->language))
+                    ->getStateUsing(fn (User $record) => mb_strtoupper($record->language))
                     ->sortable(),
                 Tables\Columns\IconColumn::make('is_developer')
                     ->label(__('user.developer') . '?')
@@ -121,7 +121,7 @@ final class Users extends Component implements HasForms, HasTable
             ->actions([
                 Tables\Actions\DeleteAction::make()
                     ->iconButton()
-                    ->visible(fn(User $record) => $record->isDeletable()),
+                    ->visible(fn (User $record) => $record->isDeletable()),
                 Tables\Actions\ForceDeleteAction::make()->iconButton(),
                 Tables\Actions\RestoreAction::make()->iconButton(),
             ])

@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Override;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Models\Activity;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -376,7 +377,7 @@ final class Person extends Model implements HasMedia
         }
 
         // Prepare the query conditionally based on $withChildren
-        $query = (fn($column, $id) => Person::where('id', '!=', $this->id)
+        $query = (fn ($column, $id) => Person::where('id', '!=', $this->id)
             ->where($column, $id)
             ->when($withChildren, fn ($q) => $q->with('children'))
             ->get());
@@ -406,7 +407,7 @@ final class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     // Scopes (global)
     /* -------------------------------------------------------------------------------------------- */
-    #[\Override]
+    #[Override]
     protected static function booted(): void
     {
         self::addGlobalScope('team', function (Builder $builder): void {

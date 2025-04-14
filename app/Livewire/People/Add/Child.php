@@ -57,7 +57,7 @@ final class Child extends Component
                 ->YoungerThan($this->person->birth_year)
                 ->orderBy('firstname')->orderBy('surname')
                 ->get()
-                ->map(fn($p) => [
+                ->map(fn ($p) => [
                     'id'   => $p->id,
                     'name' => $p->name . ' [' . (($p->sex === 'm') ? __('app.male') : __('app.female')) . '] ' . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
                 ]);
@@ -67,7 +67,7 @@ final class Child extends Component
                 ->YoungerThan($this->person->birth_year)
                 ->orderBy('firstname')->orderBy('surname')
                 ->get()
-                ->map(fn($p) => [
+                ->map(fn ($p) => [
                     'id'   => $p->id,
                     'name' => $p->name . ' [' . (($p->sex === 'm') ? __('app.male') : __('app.female')) . '] ' . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
                 ]);

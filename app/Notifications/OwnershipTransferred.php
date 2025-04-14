@@ -17,9 +17,7 @@ final class OwnershipTransferred extends Notification
      *
      * @param  \App\Models\Team  $team
      */
-    public function __construct(public $team)
-    {
-    }
+    public function __construct(public $team) {}
 
     /**
      * Get the notification's delivery channels.
