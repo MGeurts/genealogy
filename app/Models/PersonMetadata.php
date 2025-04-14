@@ -15,7 +15,7 @@ final class PersonMetadata extends Model
 {
     use LogsActivity;
 
-    public const METADATA_KEYS = [
+    public const array METADATA_KEYS = [
         'cemetery_location_name',
         'cemetery_location_address',
         'cemetery_location_latitude',

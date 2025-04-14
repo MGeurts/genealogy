@@ -406,6 +406,7 @@ final class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     // Scopes (global)
     /* -------------------------------------------------------------------------------------------- */
+    #[\Override]
     protected static function booted(): void
     {
         self::addGlobalScope('team', function (Builder $builder): void {

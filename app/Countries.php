@@ -9,7 +9,7 @@ use Illuminate\Support\Collection;
 final class Countries
 {
     // Mapping of locales to country directory names
-    private const LOCALE_TO_COUNTRY = [
+    private const array LOCALE_TO_COUNTRY = [
         'de'    => 'de',
         'en'    => 'en',
         'es'    => 'es',

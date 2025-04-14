@@ -19,6 +19,6 @@ return static function (RectorConfig $rectorConfig): void {
     // Laravel-specific refactorings
     $rectorConfig->sets([
         LaravelSetList::LARAVEL_120, // Laravel 10 improvements
-        LevelSetList::UP_TO_PHP_82,  // Use PHP 8.2 improvements (adjust based on your PHP version)
+        LevelSetList::UP_TO_PHP_84,  // Use PHP 8.2 improvements (adjust based on your PHP version)
     ]);
 };

@@ -120,6 +120,7 @@ final class Couple extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Global Scopes
     /* -------------------------------------------------------------------------------------------- */
+    #[\Override]
     protected static function booted(): void
     {
         self::addGlobalScope('team', function (Builder $builder): void {
