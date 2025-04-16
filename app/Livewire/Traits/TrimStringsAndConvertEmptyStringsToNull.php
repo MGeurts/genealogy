@@ -9,7 +9,7 @@ trait TrimStringsAndConvertEmptyStringsToNull
     // -----------------------------------------------------------------------
     // ONLY needed in Livewire forms, NOT in blade forms
     // -----------------------------------------------------------------------
-    public function updatedTrimStringsAndConvertEmptyStringsToNull($name, $value)
+    public function updatedTrimStringsAndConvertEmptyStringsToNull($name, $value): void
     {
         if (is_string($value)) {
             $trimmed = mb_trim($value);

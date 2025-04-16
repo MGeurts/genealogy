@@ -15,27 +15,27 @@ use Livewire\Form;
 final class ProfileForm extends Form
 {
     // -----------------------------------------------------------------------
-    public $firstname = null;
+    public $firstname;
 
-    public $surname = null;
+    public $surname;
 
-    public $birthname = null;
+    public $birthname;
 
-    public $nickname = null;
+    public $nickname;
 
-    public $sex = null;
+    public $sex;
 
-    public $gender_id = null;
-
-    #[Validate]
-    public $yob = null;
+    public $gender_id;
 
     #[Validate]
-    public $dob = null;
+    public $yob;
 
-    public $pob = null;
+    #[Validate]
+    public $dob;
 
-    public $summary = null;
+    public $pob;
+
+    public $summary;
 
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]

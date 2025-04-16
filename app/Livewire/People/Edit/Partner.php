@@ -41,13 +41,13 @@ final class Partner extends Component
             ->where('id', '!=', $this->person->id)
             ->orderBy('firstname')->orderBy('surname')
             ->get()
-            ->map(fn ($p) => [
+            ->map(fn ($p): array => [
                 'id'   => $p->id,
                 'name' => $p->name . ' [' . (($p->sex === 'm') ? __('app.male') : __('app.female')) . '] ' . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
             ]);
     }
 
-    public function savePartner()
+    public function savePartner(): void
     {
         if ($this->isDirty()) {
             $validated = $this->partnerForm->validate();
@@ -58,7 +58,7 @@ final class Partner extends Component
                 'date_start' => $validated['date_start'] ?? null,
                 'date_end'   => $validated['date_end'] ?? null,
                 'is_married' => $validated['is_married'],
-                'has_ended'  => ($validated['date_end'] or $validated['has_ended']) ? true : false,
+                'has_ended'  => $validated['date_end'] or $validated['has_ended'],
             ]);
 
             $this->toast()->success(__('app.save'), __('app.saved'))->flash()->send();

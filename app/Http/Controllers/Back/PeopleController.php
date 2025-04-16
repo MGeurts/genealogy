@@ -23,7 +23,7 @@ final class PeopleController extends Controller
             ->orderByRaw("(case when date_format(dob, '%m-%d') >= date_format(now(), '%m-%d') then 0 else 1 end), date_format(dob, '%m-%d')")
             ->get();
 
-        return view('back.people.birthdays', compact('months', 'people'));
+        return view('back.people.birthdays', ['months' => $months, 'people' => $people]);
     }
 
     public function add(): View
@@ -35,108 +35,108 @@ final class PeopleController extends Controller
 
     public function show(Person $person): View
     {
-        return view('back.people.show', compact('person'));
+        return view('back.people.show', ['person' => $person]);
     }
 
     public function ancestors(Person $person): View
     {
-        return view('back.people.ancestors', compact('person'));
+        return view('back.people.ancestors', ['person' => $person]);
     }
 
     public function descendants(Person $person): View
     {
-        return view('back.people.descendants', compact('person'));
+        return view('back.people.descendants', ['person' => $person]);
     }
 
     public function chart(Person $person): View
     {
-        return view('back.people.chart', compact('person'));
+        return view('back.people.chart', ['person' => $person]);
     }
 
     public function history(Person $person): View
     {
-        return view('back.people.history', compact('person'));
+        return view('back.people.history', ['person' => $person]);
     }
 
     public function datasheet(Person $person): View
     {
-        return view('back.people.datasheet', compact('person'));
+        return view('back.people.datasheet', ['person' => $person]);
     }
 
     public function addFather(Person $person): View
     {
         abort_unless(auth()->user()->hasPermission('person:create'), 403, __('app.unauthorized_access'));
 
-        return view('back.people.add.father', compact('person'));
+        return view('back.people.add.father', ['person' => $person]);
     }
 
     public function addMother(Person $person): View
     {
         abort_unless(auth()->user()->hasPermission('person:create'), 403, __('app.unauthorized_access'));
 
-        return view('back.people.add.mother', compact('person'));
+        return view('back.people.add.mother', ['person' => $person]);
     }
 
     public function addChild(Person $person): View
     {
         abort_unless(auth()->user()->hasPermission('person:create'), 403, __('app.unauthorized_access'));
 
-        return view('back.people.add.child', compact('person'));
+        return view('back.people.add.child', ['person' => $person]);
     }
 
     public function addPartner(Person $person): View
     {
         abort_unless(auth()->user()->hasPermission('couple:create'), 403, __('app.unauthorized_access'));
 
-        return view('back.people.add.partner', compact('person'));
+        return view('back.people.add.partner', ['person' => $person]);
     }
 
     public function editContact(Person $person): View
     {
         abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
 
-        return view('back.people.edit.contact', compact('person'));
+        return view('back.people.edit.contact', ['person' => $person]);
     }
 
     public function editDeath(Person $person): View
     {
         abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
 
-        return view('back.people.edit.death', compact('person'));
+        return view('back.people.edit.death', ['person' => $person]);
     }
 
     public function editFamily(Person $person): View
     {
         abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
 
-        return view('back.people.edit.family', compact('person'));
+        return view('back.people.edit.family', ['person' => $person]);
     }
 
     public function editFiles(Person $person): View
     {
         abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
 
-        return view('back.people.edit.files', compact('person'));
+        return view('back.people.edit.files', ['person' => $person]);
     }
 
     public function editPhotos(Person $person): View
     {
         abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
 
-        return view('back.people.edit.photos', compact('person'));
+        return view('back.people.edit.photos', ['person' => $person]);
     }
 
     public function editProfile(Person $person): View
     {
         abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
 
-        return view('back.people.edit.profile', compact('person'));
+        return view('back.people.edit.profile', ['person' => $person]);
     }
 
     public function editPartner(Person $person, Couple $couple): View
     {
         abort_unless(auth()->user()->hasPermission('couple:update'), 403, __('app.unauthorized_access'));
 
-        return view('back.people.edit.partner', compact('person', 'couple'));
+        return view('back.people.edit.partner', ['person' => $person, 'couple' => $couple]);
     }
 }

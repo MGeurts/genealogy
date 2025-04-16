@@ -15,31 +15,31 @@ use Livewire\Form;
 final class MotherForm extends Form
 {
     // -----------------------------------------------------------------------
-    public $person = null;
+    public $person;
 
     // -----------------------------------------------------------------------
-    public $firstname = null;
+    public $firstname;
 
-    public $surname = null;
+    public $surname;
 
-    public $birthname = null;
+    public $birthname;
 
-    public $nickname = null;
+    public $nickname;
 
-    public $gender_id = null;
-
-    #[Validate]
-    public $yob = null;
+    public $gender_id;
 
     #[Validate]
-    public $dob = null;
+    public $yob;
 
-    public $pob = null;
+    #[Validate]
+    public $dob;
 
-    public $photo = null;
+    public $pob;
+
+    public $photo;
 
     // -----------------------------------------------------------------------
-    public $person_id = null;
+    public $person_id;
 
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]

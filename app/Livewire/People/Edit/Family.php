@@ -41,12 +41,12 @@ final class Family extends Component
             ->orderBy('firstname')->orderBy('surname')
             ->get();
 
-        $this->fathers = $persons->where('sex', 'm')->map(fn ($p) => [
+        $this->fathers = $persons->where('sex', 'm')->map(fn ($p): array => [
             'id'   => $p->id,
             'name' => $p->name . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
         ])->values();
 
-        $this->mothers = $persons->where('sex', 'f')->map(fn ($p) => [
+        $this->mothers = $persons->where('sex', 'f')->map(fn ($p): array => [
             'id'   => $p->id,
             'name' => $p->name . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
         ])->values();
@@ -55,13 +55,13 @@ final class Family extends Component
             ->OlderThan($this->person->birth_year)
             ->get()
             ->sortBy('name')
-            ->map(fn ($couple) => [
+            ->map(fn ($couple): array => [
                 'id'     => $couple->id,
                 'couple' => $couple->name . ($couple->date_start ? ' (' . $couple->date_start_formatted . ')' : ''),
             ])->values();
     }
 
-    public function saveFamily()
+    public function saveFamily(): void
     {
         if ($this->isDirty()) {
             $validated = $this->familyForm->validate();

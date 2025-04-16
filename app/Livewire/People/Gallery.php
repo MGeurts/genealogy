@@ -31,7 +31,7 @@ final class Gallery extends Component
         $path = public_path("storage/photos/{$this->person->team_id}/{$this->person->id}_*.webp");
 
         $this->images = collect(File::glob($path))
-            ->map(fn ($p) => basename((string) $p)) // Extract filename
+            ->map(fn ($p): string => basename((string) $p)) // Extract filename
             ->toArray();
 
         // Set the primary image (if any) as selected
@@ -48,7 +48,7 @@ final class Gallery extends Component
         $this->selected = ($this->selected + 1) % count($this->images);
     }
 
-    public function selectImage($index): void
+    public function selectImage(?int $index): void
     {
         $this->selected = $index;
     }

@@ -57,7 +57,7 @@ final class Child extends Component
                 ->YoungerThan($this->person->birth_year)
                 ->orderBy('firstname')->orderBy('surname')
                 ->get()
-                ->map(fn ($p) => [
+                ->map(fn ($p): array => [
                     'id'   => $p->id,
                     'name' => $p->name . ' [' . (($p->sex === 'm') ? __('app.male') : __('app.female')) . '] ' . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
                 ]);
@@ -67,7 +67,7 @@ final class Child extends Component
                 ->YoungerThan($this->person->birth_year)
                 ->orderBy('firstname')->orderBy('surname')
                 ->get()
-                ->map(fn ($p) => [
+                ->map(fn ($p): array => [
                     'id'   => $p->id,
                     'name' => $p->name . ' [' . (($p->sex === 'm') ? __('app.male') : __('app.female')) . '] ' . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
                 ]);
@@ -92,7 +92,7 @@ final class Child extends Component
         }
 
         $this->uploads = collect($this->uploads)
-            ->filter(fn (UploadedFile $file) => $file->getFilename() !== $content['temporary_name'])
+            ->filter(fn (UploadedFile $file): bool => $file->getFilename() !== $content['temporary_name'])
             ->values()
             ->toArray();
 
@@ -114,7 +114,7 @@ final class Child extends Component
         }
 
         $this->uploads = collect(array_merge($this->backup, (array) $this->uploads))
-            ->unique(fn (UploadedFile $file) => $file->getClientOriginalName())
+            ->unique(fn (UploadedFile $file): string => $file->getClientOriginalName())
             ->toArray();
     }
 

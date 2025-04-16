@@ -13,20 +13,20 @@ final class DeathForm extends Form
 {
     // -----------------------------------------------------------------------
     #[Validate]
-    public $yod = null;
+    public $yod;
 
     #[Validate]
-    public $dod = null;
+    public $dod;
 
-    public $pod = null;
+    public $pod;
 
-    public $cemetery_location_name = null;
+    public $cemetery_location_name;
 
-    public $cemetery_location_address = null;
+    public $cemetery_location_address;
 
-    public $cemetery_location_latitude = null;
+    public $cemetery_location_latitude;
 
-    public $cemetery_location_longitude = null;
+    public $cemetery_location_longitude;
 
     // -----------------------------------------------------------------------
     public function rules(): array

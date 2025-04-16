@@ -69,6 +69,6 @@ final class Search extends Component
         // Paginate the results with the given perpage value
         $people = $query->paginate($this->perpage);
 
-        return view('livewire.people.search', compact('people'));
+        return view('livewire.people.search', ['people' => $people]);
     }
 }

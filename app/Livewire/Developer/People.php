@@ -45,7 +45,7 @@ final class People extends Component implements HasForms, HasTable
                 Tables\Columns\TextColumn::make('name')
                     ->label(__('person.name'))
                     ->verticallyAlignStart()
-                    ->url(fn (Person $record) => '../people/' . $record->id)
+                    ->url(fn (Person $record): string => '../people/' . $record->id)
                     ->color('info')
                     ->sortable(['surname', 'firstname'])
                     ->searchable(['surname', 'firstname']),
@@ -122,7 +122,7 @@ final class People extends Component implements HasForms, HasTable
             ->actions([
                 Tables\Actions\DeleteAction::make()
                     ->iconButton()
-                    ->visible(fn (Person $record) => $record->isDeletable()),
+                    ->visible(fn (Person $record): bool => $record->isDeletable()),
                 Tables\Actions\ForceDeleteAction::make()->iconButton(),
                 Tables\Actions\RestoreAction::make()->iconButton(),
             ])

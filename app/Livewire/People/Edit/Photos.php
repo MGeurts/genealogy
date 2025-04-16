@@ -37,7 +37,7 @@ final class Photos extends Component
     {
         // Load existing photos for the person.
         $this->photos = collect($this->getPersonPhotos())
-            ->map(fn (SplFileInfo $file) => $this->mapPhotoData($file))
+            ->map(fn (SplFileInfo $file): array => $this->mapPhotoData($file))
             ->sortBy('name');
     }
 
@@ -62,7 +62,7 @@ final class Photos extends Component
         }
 
         $this->uploads = collect($this->uploads)
-            ->filter(fn (UploadedFile $file) => $file->getFilename() !== $content['temporary_name'])
+            ->filter(fn (UploadedFile $file): bool => $file->getFilename() !== $content['temporary_name'])
             ->values()
             ->toArray();
 
@@ -90,7 +90,7 @@ final class Photos extends Component
         }
 
         $this->uploads = collect(array_merge($this->backup, (array) $this->uploads))
-            ->unique(fn (UploadedFile $file) => $file->getClientOriginalName())
+            ->unique(fn (UploadedFile $file): string => $file->getClientOriginalName())
             ->toArray();
     }
 
@@ -184,7 +184,7 @@ final class Photos extends Component
     private function filterUploadsByTemporaryName(string $temporaryName): array
     {
         return collect($this->uploads)
-            ->filter(fn (UploadedFile $item) => $item->getFilename() !== $temporaryName)
+            ->filter(fn (UploadedFile $item): bool => $item->getFilename() !== $temporaryName)
             ->toArray();
     }
 

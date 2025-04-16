@@ -10,24 +10,24 @@ use Livewire\Form;
 final class ContactForm extends Form
 {
     // -----------------------------------------------------------------------
-    public $street = null;
+    public $street;
 
-    public $number = null;
+    public $number;
 
-    public $postal_code = null;
+    public $postal_code;
 
-    public $city = null;
+    public $city;
 
-    public $province = null;
+    public $province;
 
-    public $state = null;
+    public $state;
 
-    public $country = null;
+    public $country;
 
-    public $phone = null;
+    public $phone;
 
     // -----------------------------------------------------------------------
-    public function countries()
+    public function countries(): \Illuminate\Support\Collection
     {
         return (new Countries(app()->getLocale()))->getAllCountries();
     }

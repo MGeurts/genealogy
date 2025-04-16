@@ -35,7 +35,7 @@ final class PersonMetadata extends Model
     {
         return LogOptions::defaults()
             ->useLogName('person_couple')
-            ->setDescriptionForEvent(fn (string $eventName) => __('person.person_metadata') . ' ' . __('app.event_' . $eventName))
+            ->setDescriptionForEvent(fn (string $eventName): string => __('person.person_metadata') . ' ' . __('app.event_' . $eventName))
             ->logOnly([
                 'person.name',
                 'key',

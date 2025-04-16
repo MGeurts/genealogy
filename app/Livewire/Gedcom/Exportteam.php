@@ -15,7 +15,7 @@ final class Exportteam extends Component
 {
     use Interactions;
 
-    public $user = null;
+    public $user;
 
     public Collection $teamPersons;
 

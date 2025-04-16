@@ -92,7 +92,7 @@ final class User extends Authenticatable
     {
         return LogOptions::defaults()
             ->useLogName('user_team')
-            ->setDescriptionForEvent(fn (string $eventName) => __('user.user') . ' ' . __('app.event_' . $eventName))
+            ->setDescriptionForEvent(fn (string $eventName): string => __('user.user') . ' ' . __('app.event_' . $eventName))
             ->logOnly([
                 'firstname',
                 'surname',
@@ -132,7 +132,7 @@ final class User extends Authenticatable
 
     public function isDeletable(): bool
     {
-        return $this->teamsStatistics()->sum(fn ($team) => $team->users_count + $team->persons_count + $team->couples_count) === 0;
+        return $this->teamsStatistics()->sum(fn ($team): float|int|array => $team->users_count + $team->persons_count + $team->couples_count) === 0;
     }
 
     /* -------------------------------------------------------------------------------------------- */

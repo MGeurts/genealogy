@@ -75,8 +75,8 @@ final class Manage extends Component
         $disk = Storage::disk(config('app.backup.disk'));
 
         $this->backups = collect($disk->files(config('backup.backup.name')))
-            ->filter(fn ($file) => str_ends_with($file, '.zip') && $disk->exists($file))
-            ->map(fn ($file) => [
+            ->filter(fn ($file): bool => str_ends_with($file, '.zip') && $disk->exists($file))
+            ->map(fn ($file): array => [
                 'file_name'    => Str::after($file, config('backup.backup.name') . '/'),
                 'file_size'    => Number::fileSize($disk->size($file), 2),
                 'date_created' => Carbon::createFromTimestamp($disk->lastModified($file))->format('d-m-Y H:i:s'),
@@ -118,7 +118,10 @@ final class Manage extends Component
 
             return Storage::download(config('app.backup.disk') . '/' . $file);
         }
+
         $this->toast()->error(__('backup.backup'), __('backup.not_found'))->send();
+
+        return null;
     }
 
     public function deleteBackup(): void

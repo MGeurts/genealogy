@@ -37,7 +37,7 @@ final class Partners extends Component
         $this->couple_to_delete_name = $name;
     }
 
-    public function deleteCouple()
+    public function deleteCouple(): void
     {
         Couple::findOrFail($this->couple_to_delete_id)->delete();
 

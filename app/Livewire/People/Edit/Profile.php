@@ -40,7 +40,7 @@ final class Profile extends Component
         $this->profileForm->summary = $this->person->summary;
     }
 
-    public function saveProfile()
+    public function saveProfile(): void
     {
         if ($this->isDirty()) {
             $validated = $this->profileForm->validate();

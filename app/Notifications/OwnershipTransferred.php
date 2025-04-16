@@ -23,9 +23,8 @@ final class OwnershipTransferred extends Notification
      * Get the notification's delivery channels.
      *
      * @param  mixed  $notifiable
-     * @return array
      */
-    public function via($notifiable)
+    public function via($notifiable): array
     {
         return ['mail'];
     }

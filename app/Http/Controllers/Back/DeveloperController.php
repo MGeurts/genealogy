@@ -52,7 +52,10 @@ final class DeveloperController extends Controller
             ->get()
             ->groupBy('date');
 
-        return view('back.developer.userlog.log', compact('userlogs_by_date', 'months'));
+        return view('back.developer.userlog.log', [
+            'userlogs_by_date' => $userlogs_by_date,
+            'months'           => $months,
+        ]);
     }
 
     public function userlogOrigin(): View
@@ -68,7 +71,11 @@ final class DeveloperController extends Controller
         $labels = $statistics->pluck('country_name')->toArray();
         $values = $statistics->pluck('visitors')->toArray();
 
-        return view('back.developer.userlog.origin', compact('title', 'labels', 'values'));
+        return view('back.developer.userlog.origin', [
+            'title'  => $title,
+            'labels' => $labels,
+            'values' => $values,
+        ]);
     }
 
     public function userlogOriginMap(): View
@@ -88,7 +95,12 @@ final class DeveloperController extends Controller
                 ],
             ])->toArray();
 
-        return view('back.developer.userlog.origin-map', compact('title', 'nodata', 'countries', 'data'));
+        return view('back.developer.userlog.origin-map', [
+            'title'     => $title,
+            'nodata'    => $nodata,
+            'countries' => $countries,
+            'data'      => $data,
+        ]);
     }
 
     public function userlogPeriod(): View
@@ -124,6 +136,14 @@ final class DeveloperController extends Controller
         $statistics_week_labels = $statistics_week->pluck('period')->toArray();
         $statistics_week_values = $statistics_week->pluck('visitors')->toArray();
 
-        return view('back.developer.userlog.period', compact('title', 'statistics_year_labels', 'statistics_year_values', 'statistics_month_labels', 'statistics_month_values', 'statistics_week_labels', 'statistics_week_values'));
+        return view('back.developer.userlog.period', [
+            'title'                   => $title,
+            'statistics_year_labels'  => $statistics_year_labels,
+            'statistics_year_values'  => $statistics_year_values,
+            'statistics_month_labels' => $statistics_month_labels,
+            'statistics_month_values' => $statistics_month_values,
+            'statistics_week_labels'  => $statistics_week_labels,
+            'statistics_week_values'  => $statistics_week_values,
+        ]);
     }
 }

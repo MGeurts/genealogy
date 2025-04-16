@@ -50,7 +50,7 @@ final class Countries
      */
     public function getAllCountries(): Collection
     {
-        return $this->countries->map(fn ($item) => [
+        return $this->countries->map(fn ($item): array => [
             'id'   => $item['alpha2'],
             'name' => $item['name'],
         ])->values();

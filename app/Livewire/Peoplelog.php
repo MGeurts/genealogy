@@ -21,7 +21,7 @@ final class Peoplelog extends Component
             ->where('updated_at', '>=', today()->startOfMonth()->subMonths(1))
             ->get()
             ->sortByDesc('updated_at')
-            ->map(fn ($record) => [
+            ->map(fn ($record): array => [
                 'event'          => mb_strtoupper((string) $record->event),
                 'subject_type'   => mb_substr((string) $record->subject_type, mb_strrpos((string) $record->subject_type, '\\') + 1),
                 'subject_id'     => $record->subject_id,

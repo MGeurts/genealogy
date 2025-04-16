@@ -69,7 +69,7 @@ final class Person extends Model implements HasMedia
     {
         return LogOptions::defaults()
             ->useLogName('person_couple')
-            ->setDescriptionForEvent(fn (string $eventName) => __('person.person') . ' ' . __('app.event_' . $eventName))
+            ->setDescriptionForEvent(fn (string $eventName): string => __('person.person') . ' ' . __('app.event_' . $eventName))
             ->logOnly([
                 'firstname',
                 'surname',
@@ -211,12 +211,12 @@ final class Person extends Model implements HasMedia
 
     public function isBirthdayToday(): bool
     {
-        return $this->dob ? Carbon::parse($this->dob)->isBirthday() : false;
+        return $this->dob && Carbon::parse($this->dob)->isBirthday();
     }
 
     public function isDeathdayToday(): bool
     {
-        return $this->dod ? Carbon::parse($this->dod)->isBirthday() : false;
+        return $this->dod && Carbon::parse($this->dod)->isBirthday();
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -275,7 +275,7 @@ final class Person extends Model implements HasMedia
         $children_natural = $this->children;
         $children_partner = $this->currentPartner()?->children ?: collect([]);
 
-        return $children_natural->merge($children_partner)->map(function ($child) use ($children_natural, $children_partner) {
+        return $children_natural->merge($children_partner)->map(function (Person $child) use ($children_natural, $children_partner): mixed {
             $child['type'] = $children_natural->contains('id', $child->id) ? null : ($children_partner->contains('id', $child->id) ? '+' : null);
 
             return $child;
@@ -363,7 +363,7 @@ final class Person extends Model implements HasMedia
         }
 
         // Perform bulk insert or update if there is data
-        if ($data) {
+        if ($data !== []) {
             PersonMetadata::upsert($data, ['person_id', 'key'], ['value']);
         }
     }
@@ -390,7 +390,7 @@ final class Person extends Model implements HasMedia
         // Merge the results and ensure no duplicate siblings are included
         $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents)->unique('id');
 
-        return $siblings->map(function ($sibling) use ($siblings_father, $siblings_mother, $siblings_parents) {
+        return $siblings->map(function (Person $sibling) use ($siblings_father, $siblings_mother, $siblings_parents): Person {
             // Determine the sibling's type based on the shared parent(s)
             if ($siblings_father->contains('id', $sibling->id) && $siblings_mother->contains('id', $sibling->id)) {
                 $sibling['type'] = ''; // Full siblings (same mother and father)
@@ -533,7 +533,7 @@ final class Person extends Model implements HasMedia
             $lifetime = null;
         }
 
-        return $lifetime ? (string) $lifetime : null; // returns YEAR(dob) - YEAR(dod) or null
+        return $lifetime ? $lifetime : null; // returns YEAR(dob) - YEAR(dod) or null
     }
 
     protected function getBirthYearAttribute(): ?string
@@ -592,6 +592,9 @@ final class Person extends Model implements HasMedia
         return $address ?: null;
     }
 
+    /**
+     * Get the full Google Maps address URL.
+     */
     protected function getAddressGoogleAttribute(): ?string
     {
         $countries         = new Countries(app()->getLocale());
@@ -605,9 +608,9 @@ final class Person extends Model implements HasMedia
         ];
 
         // Filter empty components, implode with commas, and URL-encode the address.
-        $address = implode(',', array_filter($components));
+        $address = implode(',', array: array_filter(array : $components));
 
-        return $address ? $hrefGoogleAddress . urlencode($address) : null;
+        return $address !== '' ? $hrefGoogleAddress . urlencode($address) : null;
     }
 
     protected function getCemeteryGoogleAttribute(): ?string

@@ -47,7 +47,7 @@ final class Couple extends Model
     {
         return LogOptions::defaults()
             ->useLogName('person_couple')
-            ->setDescriptionForEvent(fn (string $eventName) => __('couple.couple') . ' ' . __('app.event_' . $eventName))
+            ->setDescriptionForEvent(fn (string $eventName): string => __('couple.couple') . ' ' . __('app.event_' . $eventName))
             ->logOnly([
                 'person_1.name',
                 'person_2.name',
@@ -149,7 +149,7 @@ final class Couple extends Model
             optional($this->person_2)->name,
         ]);
 
-        return $names ? implode(' - ', $names) : null;
+        return $names !== [] ? implode(' - ', $names) : null;
     }
 
     protected function getDateStartFormattedAttribute(): ?string

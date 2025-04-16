@@ -75,7 +75,7 @@ final class Users extends Component implements HasForms, HasTable
                     ->getStateUsing(fn (User $record) => $record->personalTeam()->name),
                 Tables\Columns\TextColumn::make('teams')
                     ->label(__('team.teams'))
-                    ->getStateUsing(fn (User $record) => implode('<br/>', $record->allTeams()->where('personal_team', false)->pluck(['name'])->toArray()))
+                    ->getStateUsing(fn (User $record): string => implode('<br/>', $record->allTeams()->where('personal_team', false)->pluck(['name'])->toArray()))
                     ->verticallyAlignStart()
                     ->html(),
                 Tables\Columns\TextColumn::make('language')
@@ -121,7 +121,7 @@ final class Users extends Component implements HasForms, HasTable
             ->actions([
                 Tables\Actions\DeleteAction::make()
                     ->iconButton()
-                    ->visible(fn (User $record) => $record->isDeletable()),
+                    ->visible(fn (User $record): bool => $record->isDeletable()),
                 Tables\Actions\ForceDeleteAction::make()->iconButton(),
                 Tables\Actions\RestoreAction::make()->iconButton(),
             ])

@@ -48,7 +48,7 @@ final class Team extends JetstreamTeam
     {
         return LogOptions::defaults()
             ->useLogName('user_team')
-            ->setDescriptionForEvent(fn (string $eventName) => __('team.team') . ' ' . __('app.event_' . $eventName))
+            ->setDescriptionForEvent(fn (string $eventName): string => __('team.team') . ' ' . __('app.event_' . $eventName))
             ->logOnly([
                 'name',
                 'description',

@@ -20,7 +20,7 @@ final class Importteam extends Component
     use WithFileUploads;
 
     // -----------------------------------------------------------------------
-    public $user = null;
+    public $user;
 
     public string $name;
 

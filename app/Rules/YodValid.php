@@ -15,7 +15,7 @@ final class YodValid implements DataAwareRule, ValidationRule
      *
      * @var array<string, mixed>
      */
-    private $data = [];
+    private array $data = [];
 
     /**
      * Set the data under validation.

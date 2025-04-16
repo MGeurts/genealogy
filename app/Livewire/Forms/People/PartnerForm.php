@@ -15,37 +15,37 @@ use Livewire\Form;
 final class PartnerForm extends Form
 {
     // -----------------------------------------------------------------------
-    public $person = null;
+    public $person;
 
     // -----------------------------------------------------------------------
-    public $firstname = null;
+    public $firstname;
 
-    public $surname = null;
+    public $surname;
 
-    public $birthname = null;
+    public $birthname;
 
-    public $nickname = null;
+    public $nickname;
 
-    public $sex = null;
+    public $sex;
 
-    public $gender_id = null;
-
-    #[Validate]
-    public $yob = null;
+    public $gender_id;
 
     #[Validate]
-    public $dob = null;
+    public $yob;
 
-    public $pob = null;
+    #[Validate]
+    public $dob;
 
-    public $photo = null;
+    public $pob;
+
+    public $photo;
 
     // -----------------------------------------------------------------------
-    public $person2_id = null;
+    public $person2_id;
 
-    public $date_start = null;
+    public $date_start;
 
-    public $date_end = null;
+    public $date_end;
 
     public $is_married = false;
 

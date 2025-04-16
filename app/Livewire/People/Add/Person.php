@@ -62,7 +62,7 @@ final class Person extends Component
         }
 
         $this->uploads = collect($this->uploads)
-            ->filter(fn (UploadedFile $file) => $file->getFilename() !== $content['temporary_name'])
+            ->filter(fn (UploadedFile $file): bool => $file->getFilename() !== $content['temporary_name'])
             ->values()
             ->toArray();
 
@@ -84,7 +84,7 @@ final class Person extends Component
         }
 
         $this->uploads = collect(array_merge($this->backup, (array) $this->uploads))
-            ->unique(fn (UploadedFile $file) => $file->getClientOriginalName())
+            ->unique(fn (UploadedFile $file): string => $file->getClientOriginalName())
             ->toArray();
     }
 

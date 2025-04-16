@@ -40,7 +40,7 @@ final class Children extends Component
         $this->child_to_disconnect_name = $name;
     }
 
-    public function disconnectChild()
+    public function disconnectChild(): void
     {
         $child = Person::findOrFail($this->child_to_disconnect_id);
 
