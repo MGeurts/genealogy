@@ -2448,16 +2448,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v12.8.1",
+            "version": "v12.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d1ea3566f6e0cad34834c6d18db0bf995438eb87"
+                "reference": "7c201749cc4b463eea1b58698f5fb4f4c09dc32b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d1ea3566f6e0cad34834c6d18db0bf995438eb87",
-                "reference": "d1ea3566f6e0cad34834c6d18db0bf995438eb87",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/7c201749cc4b463eea1b58698f5fb4f4c09dc32b",
+                "reference": "7c201749cc4b463eea1b58698f5fb4f4c09dc32b",
                 "shasum": ""
             },
             "require": {
@@ -2566,7 +2566,7 @@
                 "league/flysystem-sftp-v3": "^3.25.1",
                 "mockery/mockery": "^1.6.10",
                 "orchestra/testbench-core": "^10.0.0",
-                "pda/pheanstalk": "^5.0.6",
+                "pda/pheanstalk": "^5.0.6|^7.0.0",
                 "php-http/discovery": "^1.15",
                 "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^10.5.35|^11.5.3|^12.0.1",
@@ -2659,7 +2659,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-04-08T19:58:59+00:00"
+            "time": "2025-04-16T12:02:03+00:00"
         },
         {
             "name": "laravel/jetstream",
@@ -9548,16 +9548,16 @@
     "packages-dev": [
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v3.15.3",
+            "version": "v3.15.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "4ccab20844d18c5af08b68d310e7151a791c3037"
+                "reference": "c0667ea91f7185f1e074402c5788195e96bf8106"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/4ccab20844d18c5af08b68d310e7151a791c3037",
-                "reference": "4ccab20844d18c5af08b68d310e7151a791c3037",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/c0667ea91f7185f1e074402c5788195e96bf8106",
+                "reference": "c0667ea91f7185f1e074402c5788195e96bf8106",
                 "shasum": ""
             },
             "require": {
@@ -9617,7 +9617,7 @@
             ],
             "support": {
                 "issues": "https://github.com/barryvdh/laravel-debugbar/issues",
-                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.15.3"
+                "source": "https://github.com/barryvdh/laravel-debugbar/tree/v3.15.4"
             },
             "funding": [
                 {
@@ -9629,7 +9629,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-08T15:11:06+00:00"
+            "time": "2025-04-16T06:32:06+00:00"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
