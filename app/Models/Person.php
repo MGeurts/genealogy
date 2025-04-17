@@ -115,7 +115,7 @@ final class Person extends Model implements HasMedia
     // If a name containes any spaces, enclose the name in double quoutes, for instance "John Jr." Kennedy.
     /* -------------------------------------------------------------------------------------------- */
     #[Scope]
-    public function Search(Builder $query, string $searchString): void
+    public function scopeSearch(Builder $query, string $searchString): void
     {
         if ($searchString !== '%') {
             collect(str_getcsv($searchString, ' ', '"'))->filter()->each(function (string $searchTerm) use ($query): void {
@@ -125,7 +125,7 @@ final class Person extends Model implements HasMedia
     }
 
     #[Scope]
-    public function OlderThan(Builder $query, ?string $birth_year): void
+    public function scopeOlderThan(Builder $query, ?string $birth_year): void
     {
         if ($birth_year !== null) {
             $birth_year = (int) $birth_year;
@@ -141,7 +141,7 @@ final class Person extends Model implements HasMedia
     }
 
     #[Scope]
-    public function YoungerThan(Builder $query, ?string $birth_year): void
+    public function scopeYoungerThan(Builder $query, ?string $birth_year): void
     {
         if ($birth_year !== null) {
             $birth_year = (int) $birth_year;
@@ -157,11 +157,11 @@ final class Person extends Model implements HasMedia
     }
 
     #[Scope]
-    public function PartnerOffset(Builder $query, ?string $birth_year, int $offset = 40): void
+    public function scopePartnerOffset(Builder $query, ?string $birth_year, int $offset = 40): void
     {
-        // -------------------------------------------------------------------------
-        // offset : possible partners can be +/- n ($offeset) years older or younger
-        // -------------------------------------------------------------------------
+        // ------------------------------------------------------------------------
+        // offset : possible partners can be +/- n ($offset) years older or younger
+        // ------------------------------------------------------------------------
         if ($birth_year !== null) {
             $birth_year = (int) $birth_year;
             $min_age    = $birth_year - $offset;

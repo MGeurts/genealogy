@@ -70,7 +70,7 @@ final class Couple extends Model
     // Local Scopes
     /* -------------------------------------------------------------------------------------------- */
     #[Scope]
-    public function OlderThan(Builder $query, ?string $birth_year = null): void
+    public function scopeOlderThan(Builder $query, ?string $birth_year = null): void
     {
         if ($birth_year) {
             $query->where(function ($q) use ($birth_year): void {
@@ -81,7 +81,7 @@ final class Couple extends Model
     }
 
     #[Scope]
-    public function YoungerThan(Builder $query, ?string $birth_year = null): void
+    public function scopeYoungerThan(Builder $query, ?string $birth_year = null): void
     {
         if ($birth_year) {
             $query->where(function ($q) use ($birth_year): void {
