@@ -17,21 +17,27 @@ final class Profile extends Component
     public $person;
 
     // -----------------------------------------------------------------------
-    public bool $deleteConfirmed = false;
-
-    // -----------------------------------------------------------------------
     protected $listeners = [
         'person_updated' => 'render',
         'couple_deleted' => 'render',
     ];
 
     // -----------------------------------------------------------------------
-    public function confirmDeletion(): void
+    public function confirm(): void
     {
-        $this->deleteConfirmed = true;
+        $this->dialog()
+            ->question(__('app.attention') . '!', __('app.are_you_sure'))
+            ->confirm(__('app.delete_yes'))
+            ->cancel(__('app.cancel'))
+            ->hook([
+                'ok' => [
+                    'method' => 'delete',
+                ],
+            ])
+            ->send();
     }
 
-    public function deletePerson(): void
+    public function delete(): void
     {
         if ($this->person->isDeletable()) {
             $this->deletePersonPhotos();

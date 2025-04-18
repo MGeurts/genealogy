@@ -38,7 +38,7 @@
                             <hr />
 
                             @foreach ($person->couples->sortBy('date_start') as $couple)
-                                <x-ts-dropdown.items class="text-red-600! dark:text-red-400!" wire:click="confirmDeletion({{ $couple->id }} , '{{ $couple->name }}')"
+                                <x-ts-dropdown.items class="text-red-600! dark:text-red-400!" wire:click="confirm({{ $couple->id }} , '{{ $couple->name }}')"
                                     title="{{ __('person.delete_relationship') }}">
                                     <x-ts-icon icon="tabler.trash" class="mr-2" />
                                     <div>
@@ -92,29 +92,5 @@
         @endforeach
     @else
         <p class="p-2">{{ __('app.nothing_recorded') }}</p>
-    @endif
-
-    @if (count($person->couples) > 0)
-        {{-- delete modal --}}
-        <x-confirmation-modal wire:model.live="deleteConfirmed">
-            <x-slot name="title">
-                {{ __('app.delete') }}
-            </x-slot>
-
-            <x-slot name="content">
-                <p>{{ __('app.delete_question', ['model' => __('app.delete_relationship')]) }}</p>
-                <p class="text-lg font-medium text-gray-900">{{ $couple_to_delete_name }}</p>
-            </x-slot>
-
-            <x-slot name="footer">
-                <x-ts-button color="secondary" wire:click="$toggle('deleteConfirmed')" wire:loading.attr="disabled">
-                    {{ __('app.abort_no') }}
-                </x-ts-button>
-
-                <x-ts-button color="red" class="ml-3" wire:click="deleteCouple()" wire:loading.attr="disabled">
-                    {{ __('app.delete_yes') }}
-                </x-ts-button>
-            </x-slot>
-        </x-confirmation-modal>
     @endif
 </div>

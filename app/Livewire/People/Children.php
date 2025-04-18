@@ -18,12 +18,6 @@ final class Children extends Component
     public $person;
 
     // ------------------------------------------------------------------------------
-    public int $child_to_disconnect_id;
-
-    public string $child_to_disconnect_name;
-
-    public bool $disconnectConfirmed = false;
-
     public Collection $children;
 
     // ------------------------------------------------------------------------------
@@ -32,17 +26,24 @@ final class Children extends Component
         $this->children = $this->person->childrenNaturalAll();
     }
 
-    public function confirmDisconnect(int $id, string $name): void
+    public function confirm(int $child_id): void
     {
-        $this->disconnectConfirmed = true;
-
-        $this->child_to_disconnect_id   = $id;
-        $this->child_to_disconnect_name = $name;
+        $this->dialog()
+            ->question(__('app.attention') . '!', __('app.are_you_sure'))
+            ->confirm(__('app.delete_yes'))
+            ->cancel(__('app.cancel'))
+            ->hook([
+                'ok' => [
+                    'method' => 'disconnect',
+                    'params' => $child_id,
+                ],
+            ])
+            ->send();
     }
 
-    public function disconnectChild(): void
+    public function disconnect(int $child_id): void
     {
-        $child = Person::findOrFail($this->child_to_disconnect_id);
+        $child = Person::findOrFail($child_id);
 
         if ($this->person->sex === 'm') {
             $child->update([

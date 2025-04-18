@@ -17,33 +17,34 @@ final class Partners extends Component
     public $person;
 
     // ------------------------------------------------------------------------------
-    public ?int $couple_to_delete_id = null;
-
-    public ?string $couple_to_delete_name = null;
-
-    public bool $deleteConfirmed = false;
-
-    // ------------------------------------------------------------------------------
     protected $listeners = [
         'couple_deleted' => 'render',
     ];
 
     // ------------------------------------------------------------------------------
-    public function confirmDeletion(int $id, string $name): void
+    public function confirm(int $id, string $name): void
     {
-        $this->deleteConfirmed = true;
-
-        $this->couple_to_delete_id   = $id;
-        $this->couple_to_delete_name = $name;
+        $this->dialog()
+            ->question(__('app.attention') . '!', __('app.are_you_sure'))
+            ->confirm(__('app.delete_yes'))
+            ->cancel(__('app.cancel'))
+            ->hook([
+                'ok' => [
+                    'method' => 'delete',
+                    'params' => [
+                        'id'   => $id,
+                        'name' => $name,
+                    ],
+                ],
+            ])
+            ->send();
     }
 
-    public function deleteCouple(): void
+    public function delete(array $couple): void
     {
-        Couple::findOrFail($this->couple_to_delete_id)->delete();
+        Couple::findOrFail($couple['id'])->delete();
 
-        $this->deleteConfirmed = false;
-
-        $this->toast()->success(__('app.delete'), $this->couple_to_delete_name . ' ' . __('app.deleted') . '.')->flash()->send();
+        $this->toast()->success(__('app.delete'), $couple['name'] . ' ' . __('app.deleted') . '.')->flash()->send();
 
         $this->redirect('/people/' . $this->person->id);
     }

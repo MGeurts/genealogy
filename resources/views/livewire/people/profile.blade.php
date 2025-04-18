@@ -42,7 +42,7 @@
                         @if (auth()->user()->hasPermission('person:delete') and $person->isDeletable())
                             <hr />
 
-                            <x-ts-dropdown.items separator class="text-red-600! dark:text-red-400!" wire:click="confirmDeletion()">
+                            <x-ts-dropdown.items separator class="text-red-600! dark:text-red-400!" wire:click="confirm()">
                                 <x-ts-icon icon="tabler.trash" class="mr-2" />
                                 {{ __('person.delete_person') }}
                             </x-ts-dropdown.items>
@@ -173,28 +173,4 @@
             </tbody>
         </table>
     </div>
-
-    @if (auth()->user()->hasPermission('person:delete') and $person->isDeletable())
-        {{-- delete modal --}}
-        <x-confirmation-modal wire:model.live="deleteConfirmed">
-            <x-slot name="title">
-                {{ __('app.delete') }}
-            </x-slot>
-
-            <x-slot name="content">
-                <p>{{ __('app.delete_question', ['model' => __('app.delete_person')]) }}</p>
-                <p class="text-lg font-medium text-gray-900">{{ $person->name }}</p>
-            </x-slot>
-
-            <x-slot name="footer">
-                <x-ts-button color="secondary" wire:click="$toggle('deleteConfirmed')" wire:loading.attr="disabled">
-                    {{ __('app.abort_no') }}
-                </x-ts-button>
-
-                <x-ts-button color="red" class="ml-3" wire:click="deletePerson()" wire:loading.attr="disabled">
-                    {{ __('app.delete_yes') }}
-                </x-ts-button>
-            </x-slot>
-        </x-confirmation-modal>
-    @endif
 </div>

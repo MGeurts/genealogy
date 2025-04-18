@@ -23,7 +23,7 @@
 
                             @foreach ($children as $child)
                                 @if (!isset($child->type))
-                                    <x-ts-dropdown.items class="text-red-600! dark:text-red-400!" wire:click="confirmDisconnect({{ $child->id }} , '{{ $child->name }}')"
+                                    <x-ts-dropdown.items class="text-red-600! dark:text-red-400!" wire:click="confirm({{ $child->id }})"
                                         title="{{ __('person.delete_child') }}">
                                         <x-ts-icon icon="tabler.plug-connected-x" class="mr-2" /> {{ $child->name }}
                                     </x-ts-dropdown.items>
@@ -53,29 +53,5 @@
         @endforeach
     @else
         <p class="p-2">{{ __('app.nothing_recorded') }}</p>
-    @endif
-
-    @if (count($children) > 0)
-        {{-- delete modal --}}
-        <x-confirmation-modal wire:model.live="disconnectConfirmed">
-            <x-slot name="title">
-                {{ __('app.disconnect') }}
-            </x-slot>
-
-            <x-slot name="content">
-                <p>{{ __('app.disconnect_question', ['model' => __('app.disconnect_child')]) }}</p>
-                <p class="text-lg font-medium text-gray-900">{{ $child_to_disconnect_name }}</p>
-            </x-slot>
-
-            <x-slot name="footer">
-                <x-ts-button color="secondary" wire:click="$toggle('disconnectConfirmed')" wire:loading.attr="disabled">
-                    {{ __('app.abort_no') }}
-                </x-ts-button>
-
-                <x-ts-button color="red" class="ml-3" wire:click="disconnectChild()" wire:loading.attr="disabled">
-                    {{ __('app.disconnect_yes') }}
-                </x-ts-button>
-            </x-slot>
-        </x-confirmation-modal>
     @endif
 </div>
