@@ -71,6 +71,8 @@ return [
 
     // Deletion confirm attributes
     'abort_no'            => '取消',
+    'are_you_sure'        => '你确定吗？',
+    'confirm'             => '确认',
     'delete'              => '解除关系',
     'deleted'             => '已删除',
     'delete_yes'          => '确定',

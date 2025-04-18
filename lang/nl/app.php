@@ -71,6 +71,8 @@ return [
 
     // Deletion confirm attributes
     'abort_no'            => 'Neen, afbreken',
+    'are_you_sure'        => 'Bent u zeker?',
+    'confirm'             => 'Bevestigen',
     'delete'              => 'Verwijder',
     'deleted'             => 'is verwijderd',
     'delete_yes'          => 'Ja, verwijder',

@@ -13,6 +13,7 @@ use Illuminate\Support\Number;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Livewire\Component;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use TallStackUi\Traits\Interactions;
 
 final class Manage extends Component
@@ -65,10 +66,6 @@ final class Manage extends Component
     // ------------------------------------------------------------------------------
     public Collection $backups;
 
-    public string $backup_to_delete = '';
-
-    public bool $deleteConfirmed = false;
-
     // -----------------------------------------------------------------------
     public function mount(): void
     {
@@ -108,7 +105,7 @@ final class Manage extends Component
         $this->redirect('/developer/backups');
     }
 
-    public function download(string $file_name)
+    public function download(string $file_name): ?StreamedResponse
     {
         $disk = Storage::disk(config('app.backup.disk'));
         $file = config('backup.backup.name') . '/' . $file_name;
@@ -124,14 +121,14 @@ final class Manage extends Component
         return null;
     }
 
-    public function deleteBackup(): void
+    public function delete(string $backup_to_delete): void
     {
         $disk = Storage::disk(config('app.backup.disk'));
 
-        if ($disk->exists(config('backup.backup.name') . '/' . $this->backup_to_delete)) {
-            $disk->delete(config('backup.backup.name') . '/' . $this->backup_to_delete);
+        if ($disk->exists(config('backup.backup.name') . '/' . $backup_to_delete)) {
+            $disk->delete(config('backup.backup.name') . '/' . $backup_to_delete);
 
-            $this->toast()->success(__('backup.backup'), $this->backup_to_delete . ' ' . __('backup.deleted'))->expandable(false)->flash()->send();
+            $this->toast()->success(__('backup.backup'), $backup_to_delete . ' ' . __('backup.deleted'))->expandable(false)->flash()->send();
         } else {
             $this->toast()->error(__('backup.backup'), __('backup.not_found'))->flash()->send();
         }
@@ -139,11 +136,19 @@ final class Manage extends Component
         $this->redirect('/developer/backups');
     }
 
-    public function confirmDeletion(string $file_name): void
+    public function confirm(string $file_name): void
     {
-        $this->backup_to_delete = $file_name;
-
-        $this->deleteConfirmed = true;
+        $this->dialog()
+            ->question(__('app.attention') . '!', __('app.are_you_sure'))
+            ->confirm(__('app.delete_yes'))
+            ->cancel(__('app.cancel'))
+            ->hook([
+                'ok' => [
+                    'method' => 'delete',
+                    'params' => $file_name,
+                ],
+            ])
+            ->send();
     }
 
     // -----------------------------------------------------------------------

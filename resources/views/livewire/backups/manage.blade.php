@@ -51,7 +51,7 @@
                             {{ __('backup.download') }}
                         </x-ts-button>
 
-                        <x-ts-button color="red" class="text-sm text-white" wire:click="confirmDeletion('{{ $backup['file_name'] }}')">
+                        <x-ts-button color="red" class="text-sm text-white" wire:click="confirm('{{ $backup['file_name'] }}')">
                             <x-ts-icon icon="tabler.trash" class="size-5" />
                             {{ __('backup.delete') }}
                         </x-ts-button>
@@ -75,28 +75,4 @@
             </div>
         </div>
     </div>
-
-    @if ($backups)
-        {{-- delete modal --}}
-        <x-confirmation-modal wire:model.live="deleteConfirmed">
-            <x-slot name="title">
-                {{ __('app.delete') }}
-            </x-slot>
-
-            <x-slot name="content">
-                <p>{{ __('app.delete_question', ['model' => __('backup.delete_backup')]) }}</p>
-                <p class="text-lg font-medium text-gray-900">{{ $backup_to_delete }}</p>
-            </x-slot>
-
-            <x-slot name="footer">
-                <x-ts-button color="secondary" wire:click="$toggle('deleteConfirmed')" wire:loading.attr="disabled">
-                    {{ __('app.abort_no') }}
-                </x-ts-button>
-
-                <x-ts-button color="red" class="ml-3" wire:click="deleteBackup()" wire:loading.attr="disabled">
-                    {{ __('app.delete_yes') }}
-                </x-ts-button>
-            </x-slot>
-        </x-confirmation-modal>
-    @endif
 </div>

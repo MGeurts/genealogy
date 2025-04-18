@@ -71,6 +71,8 @@ return [
 
     // Deletion confirm attributes
     'abort_no'            => 'No, abort',
+    'are_you_sure'        => 'Are you sure?',
+    'confirm'             => 'Confirm',
     'delete'              => 'Delete',
     'deleted'             => 'is deleted',
     'delete_yes'          => 'Yes, delete',

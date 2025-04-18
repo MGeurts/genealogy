@@ -57,6 +57,8 @@ return [
     'select'                    => 'Sélectionner',
     'show'                      => 'Montrer',
     'abort_no'                  => 'Non, abandonner',
+    'are_you_sure'              => 'Êtes-vous sûrs?',
+    'confirm'                   => 'Confirmer',
     'delete'                    => 'Supprimer',
     'deleted'                   => 'est supprimé',
     'delete_yes'                => 'Oui, supprimer',

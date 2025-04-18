@@ -71,6 +71,8 @@ return [
 
     // Deletion confirm attributes
     'abort_no'            => 'Không, hủy bỏ',
+    'are_you_sure'        => 'Bạn có chắc không?',
+    'confirm'             => 'Xác nhận',
     'delete'              => 'Xóa',
     'deleted'             => 'đã bị xóa',
     'delete_yes'          => 'Có, xóa',

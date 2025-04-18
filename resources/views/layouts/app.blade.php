@@ -32,6 +32,7 @@
     <div class="min-h-screen">
         <!-- notifications -->
         <x-ts-toast />
+        <x-ts-dialog />
 
         <!-- offcanvas menu -->
         @include('layouts.partials.offcanvas')
