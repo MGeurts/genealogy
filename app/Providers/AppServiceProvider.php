@@ -53,6 +53,11 @@ final class AppServiceProvider extends ServiceProvider
         }
 
         // ------------------------------------------------------------------------------
+        // Automatically eager load relations for all models
+        // ------------------------------------------------------------------------------
+        Model::automaticallyEagerLoadRelationships();
+
+        // ------------------------------------------------------------------------------
         // This will prevent any destructive commands from being executed
         // in production environments, such as dropping tables or truncating data.
         // This is a safety measure to prevent accidental data loss.
