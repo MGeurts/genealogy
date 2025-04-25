@@ -39,7 +39,7 @@
 
         <div class="hidden gap-5 md:flex md:items-center">
             @auth
-                {{-- settings dropdown --}}
+                {{-- user dropdown --}}
                 <div class="relative min-w-max">
                     <x-dropdown align="left" width="48">
                         <x-slot name="trigger">
@@ -137,6 +137,7 @@
                                         {{ __('team.settings') }}
                                     </x-dropdown-link>
 
+                                    {{-- create / import / export team --}}
                                     @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                         <x-dropdown-link href="{{ route('teams.create') }}">
                                             <x-ts-icon icon="tabler.droplet-plus" class="inline-block mr-1 size-5" />
@@ -176,6 +177,7 @@
             @endauth
         </div>
 
+         {{-- theme switch and offcanvas--}}
         <div class="flex flex-col place-items-center">
             <div class="hidden space-x-6 min-h-8 md:flex md:items-center md:ml-5">
                 <x-ts-theme-switch only-icons />
