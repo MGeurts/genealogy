@@ -154,7 +154,7 @@ return [
         'max_height'    => (int) env('IMAGE_UPLOAD_MAX_HEIGHT', 800),
         'quality'       => (int) env('IMAGE_UPLOAD_QUALITY', 80),
         'type'          => env('IMAGE_UPLOAD_TYPE', 'webp'),
-        'add_watermark' => env('IMAGE_UPLOAD_ADD_WATERMARK', true),
+        'add_watermark' => env('IMAGE_UPLOAD_ADD_WATERMARK', false),
     ],
 
     'photo_folders' => [

@@ -69,18 +69,18 @@ final class PersonPhotos
         $timestamp = now()->format('YmdHis');
         $imageName = "{$this->person->id}_" . mb_str_pad((string) $index, 3, '0', STR_PAD_LEFT) . "_{$timestamp}.{$this->config['type']}";
 
-        if ($this->config['add_watermark']) {
-            $this->processAndSaveImage($photo, $imageName, true);
-        } else {
-            $this->processAndSaveImage($photo, $imageName, false);
-        }
+        $this->processAndSaveImage(
+            photo: $photo,
+            imageName: $imageName,
+            addWatermark: $this->config['add_watermark']
+        );
 
         if (empty($this->person->photo)) {
             $this->person->update(['photo' => $imageName]);
         }
     }
 
-    private function processAndSaveImage($photo, string $imageName, bool $addWatermark): void
+    private function processAndSaveImage($photo, string $imageName, bool $addWatermark = false): void
     {
         $paths = [
             'photos' => [
