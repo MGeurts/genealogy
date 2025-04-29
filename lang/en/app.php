@@ -55,7 +55,8 @@ return [
     'create'  => 'Create',
     'created' => 'Created',
 
-    'download' => 'Download',
+    'download'    => 'Download',
+    'downloading' => 'The download is started.',
 
     'move_down' => 'Move down',
     'move_up'   => 'Move up',

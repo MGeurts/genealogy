@@ -55,7 +55,8 @@ return [
     'create'  => '创建',
     'created' => '已创建',
 
-    'download' => '下载',
+    'download'    => '下载',
+    'downloading' => '下载已开始。',
 
     'move_down' => '下移',
     'move_up'   => '上移',

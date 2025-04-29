@@ -47,6 +47,7 @@ return [
     'create'                    => 'Créer',
     'created'                   => 'Créé',
     'download'                  => 'Télécharger',
+    'downloading'               => 'Le téléchargement est lancé.',
     'move_down'                 => 'Descendre',
     'move_up'                   => 'Monter',
     'show_death'                => 'Montrer la mort',

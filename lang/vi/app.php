@@ -55,7 +55,8 @@ return [
     'create'  => 'Tạo',
     'created' => 'Đã tạo',
 
-    'download' => 'Tải xuống',
+    'download'    => 'Tải xuống',
+    'downloading' => 'Quá trình tải xuống đã bắt đầu.',
 
     'move_down' => 'Di chuyển xuống',
     'move_up'   => 'Di chuyển lên',

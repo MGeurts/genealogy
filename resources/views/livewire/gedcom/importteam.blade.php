@@ -1,7 +1,7 @@
 <x-form-section submit="importteam">
     <x-slot name="title">
         <div class="dark:text-gray-400">
-            {{ __('team.team_details') }}
+            {{ __('gedcom.import') }}
         </div>
     </x-slot>
 
@@ -25,7 +25,7 @@
                 {{ __('gedcom.before_import') }} ...
             </x-slot:title>
 
-            {{ __('gedcom.before_import_validate') }} :
+            {{ __('gedcom.validate') }} :
             <x-ts-link class="text-white text-lg" href="https://ged-inline.org/" target="_blank" />
         </x-ts-alert>
 

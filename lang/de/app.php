@@ -55,7 +55,8 @@ return [
     'create'  => 'Erstellen',
     'created' => 'Erstellt',
 
-    'download' => 'Herunterladen',
+    'download'    => 'Herunterladen',
+    'downloading' => 'Der Download wird gestartet.',
 
     'move_down' => 'Runter',
     'move_up'   => 'Hoch',

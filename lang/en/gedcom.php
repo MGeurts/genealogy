@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 return [
     'export'        => 'Export',
-    'gedcom_export' => 'Export team to GEDCOM file',
+    'gedcom_export' => 'Export team to GEDCOM file.',
     'gedcom_file'   => 'GEDCOM file',
-    'gedcom_import' => 'Import team from GEDCOM file',
+    'gedcom_import' => 'Import team from GEDCOM file.',
     'import'        => 'Import',
 
     'team_create_new_gedcom'     => 'Create a new team, imported from a GEDCOM file, to collaborate with others.',
@@ -24,6 +24,7 @@ return [
     'line_endings_windows' => 'CR/LF (Windows)',
     'line_endings_unix'    => 'LF (Unix)',
 
-    'before_import'          => 'Before importing',
-    'before_import_validate' => 'Validate your GEDCOM file at',
+    'after_import'  => 'After importing',
+    'before_import' => 'Before importing',
+    'validate'      => 'Validate your GEDCOM file at',
 ];

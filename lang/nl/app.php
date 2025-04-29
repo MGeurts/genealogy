@@ -55,7 +55,8 @@ return [
     'create'  => 'Aanmaken',
     'created' => 'Aangemaakt',
 
-    'download' => 'Download',
+    'download'    => 'Download',
+    'downloading' => 'Het downloaden is gestart.',
 
     'move_down' => 'Naar beneden',
     'move_up'   => 'Naar boven',

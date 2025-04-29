@@ -1,7 +1,7 @@
 <x-form-section submit="exportteam">
     <x-slot name="title">
         <div class="dark:text-gray-400">
-            {{ __('team.team_details') }}
+            {{ __('gedcom.export') }}
         </div>
     </x-slot>
 
@@ -10,7 +10,24 @@
             {{ __('gedcom.gedcom_export') }}
         </div>
 
-        <x-under-construction />
+        <div class="dark:text-gray-100">
+            <br />
+            <p>
+                {{ __('gedcom.team_gedcom_reference') }} :
+                <x-link href="https://gedcom.io/specs/" target="_blank" title="{{ __('gedcom.team_gedcom_specifications') }}">
+                    <x-svg.gedcom class="size-36 dark:fill-white hover:fill-primary-300 dark:hover:fill-primary-300" alt="gedcom" />
+                </x-link>
+            </p>
+        </div>
+
+        <x-ts-alert color="cyan">
+            <x-slot:title>
+                {{ __('gedcom.after_import') }} ...
+            </x-slot:title>
+
+            {{ __('gedcom.validate') }} :
+            <x-ts-link class="text-white text-lg" href="https://ged-inline.org/" target="_blank" />
+        </x-ts-alert>
     </x-slot>
 
     <x-slot name="form" enctype="multipart/form-data">
@@ -33,7 +50,7 @@
 
         {{-- filename --}}
         <div class="col-span-6">
-            <x-ts-input id="filename" type="text" class="block w-full mt-1" wire:model="filename" label="{{ __('gedcom.filename') }} :" required readonly />
+            <x-ts-input id="filename" type="text" class="block w-full mt-1" wire:model="filename" label="{{ __('gedcom.filename') }} :" required />
         </div>
 
         {{-- format --}}

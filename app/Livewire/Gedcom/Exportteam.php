@@ -7,8 +7,10 @@ namespace App\Livewire\Gedcom;
 use App\Php\Gedcom\Export;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Livewire\Component;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use TallStackUi\Traits\Interactions;
 
 final class Exportteam extends Component
@@ -17,31 +19,34 @@ final class Exportteam extends Component
 
     public $user;
 
-    public Collection $teamPersons;
+    public array $formats = [];
+
+    public array $encodings = [];
 
     public string $filename;
 
     public string $format = 'gedcom';
 
-    public array $formats = [];
-
     public string $encoding = 'utf8';
-
-    public array $encodings = [];
 
     public string $line_endings = 'windows';
 
+    public Collection $teamPersons;
+
+    public Collection $teamCouples;
+
     public function mount(): void
     {
-        $this->user = Auth()->user();
+        $this->user = Auth::user();
 
-        $this->teamPersons = Auth::user()->currentTeam->persons->sortBy('name')->values();
+        $this->teamPersons = $this->user->currentTeam->persons->sortBy('name')->values();
+        $this->teamCouples = $this->user->currentTeam->couples->sortBy('name')->values();
 
         $this->formats = [
-            ['value' => 'gedcom', 'label' => 'GEDCOM', 'extension' => '.ged'],
-            ['value' => 'zip', 'label' => 'ZIP', 'extension' => '.zip'],
-            ['value' => 'zipmedia', 'label' => 'ZIP ' . __('gedcom.includes_media'), 'extension' => '.zip'],
-            ['value' => 'gedzip', 'label' => 'GEDZIP ' . __('gedcom.includes_media'), 'extension' => '.gdz'],
+            ['value' => 'gedcom', 'label' => 'GEDCOM'],
+            ['value' => 'zip', 'label' => 'ZIP'],
+            ['value' => 'zipmedia', 'label' => 'ZIP ' . __('gedcom.includes_media')],
+            ['value' => 'gedzip', 'label' => 'GEDZIP ' . __('gedcom.includes_media')],
         ];
 
         $this->encodings = [
@@ -53,15 +58,10 @@ final class Exportteam extends Component
 
         ];
 
-        $this->setFilename();
+        $this->filename = Str::slug(($this->user->currentTeam->name) . '-' . now()->format('Y-m-d-H-i-s'));
     }
 
-    public function updatedFormat(): void
-    {
-        $this->setFilename();
-    }
-
-    public function exportteam(): void
+    public function exportteam(): StreamedResponse
     {
         $export = new Export(
             $this->filename,
@@ -70,35 +70,26 @@ final class Exportteam extends Component
             $this->line_endings
         );
 
-        $export->Export();
+        $gedcom = $export->Export(
+            individuals: $this->teamPersons,
+            families: $this->teamCouples,
+        );
 
-        $this->toast()->success(__('app.download'), mb_strtoupper(__('app.under_construction')))->send();
+        $this->toast()->success(
+            __('app.download'),
+            __('app.downloading')
+        )->send();
+
+        if (in_array($this->format, ['zip', 'zipmedia', 'gedzip'])) {
+            return $export->downloadZip($gedcom);
+        }
+
+        return $export->downloadGedcom($gedcom);
     }
 
     // -----------------------------------------------------------------------
-
     public function render(): View
     {
         return view('livewire.gedcom.exportteam');
-    }
-
-    // -----------------------------------------------------------------------
-    private function setFilename(): void
-    {
-        $this->filename = $this->cleanString(Auth()->user()->currentTeam->name) . '-' . now()->format('Y-m-d-H-i-s') . $this->getExtension();
-    }
-
-    private function getExtension(): string
-    {
-        return collect($this->formats)->where('value', $this->format)->first()['extension'];
-    }
-
-    private function cleanString(string $string): string
-    {
-        $string = str_replace(' ', '-', $string);                      // Replaces all spaces with hyphens
-        $string = preg_replace('/[^A-Za-z0-9\-]/', '', $string);  // Removes special chars
-        $string = preg_replace('/-+/', '-', (string) $string);             // Replaces multiple hyphens with single one
-
-        return mb_strtolower((string) $string);
     }
 }
