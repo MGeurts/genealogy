@@ -6024,16 +6024,16 @@
         },
         {
             "name": "spatie/image",
-            "version": "3.8.2",
+            "version": "3.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image.git",
-                "reference": "381f6363a07c3ea1cd32636535afde40af1c4744"
+                "reference": "54a7331a4d1ba7712603dd058522613506d2dfe0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image/zipball/381f6363a07c3ea1cd32636535afde40af1c4744",
-                "reference": "381f6363a07c3ea1cd32636535afde40af1c4744",
+                "url": "https://api.github.com/repos/spatie/image/zipball/54a7331a4d1ba7712603dd058522613506d2dfe0",
+                "reference": "54a7331a4d1ba7712603dd058522613506d2dfe0",
                 "shasum": ""
             },
             "require": {
@@ -6081,7 +6081,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/image/tree/3.8.2"
+                "source": "https://github.com/spatie/image/tree/3.8.3"
             },
             "funding": [
                 {
@@ -6093,7 +6093,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-24T08:28:20+00:00"
+            "time": "2025-04-25T08:04:51+00:00"
         },
         {
             "name": "spatie/image-optimizer",
@@ -6302,16 +6302,16 @@
         },
         {
             "name": "spatie/laravel-backup",
-            "version": "9.3.1",
+            "version": "9.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-backup.git",
-                "reference": "94f2fc556323ec57a6ab30d35d233a634645c135"
+                "reference": "c5ced5777fa1c6e89a11afb6520e37e2b98d9a47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/94f2fc556323ec57a6ab30d35d233a634645c135",
-                "reference": "94f2fc556323ec57a6ab30d35d233a634645c135",
+                "url": "https://api.github.com/repos/spatie/laravel-backup/zipball/c5ced5777fa1c6e89a11afb6520e37e2b98d9a47",
+                "reference": "c5ced5777fa1c6e89a11afb6520e37e2b98d9a47",
                 "shasum": ""
             },
             "require": {
@@ -6386,7 +6386,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-backup/issues",
-                "source": "https://github.com/spatie/laravel-backup/tree/9.3.1"
+                "source": "https://github.com/spatie/laravel-backup/tree/9.3.2"
             },
             "funding": [
                 {
@@ -6398,7 +6398,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2025-04-24T08:37:26+00:00"
+            "time": "2025-04-25T13:42:20+00:00"
         },
         {
             "name": "spatie/laravel-medialibrary",
@@ -9199,16 +9199,16 @@
         },
         {
             "name": "tallstackui/tallstackui",
-            "version": "v2.4.0",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tallstackui/tallstackui.git",
-                "reference": "ff2d2d825c25e0163041e06ae5120e6a399ef513"
+                "reference": "8701282921abeae07728993f1be448180c959680"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/ff2d2d825c25e0163041e06ae5120e6a399ef513",
-                "reference": "ff2d2d825c25e0163041e06ae5120e6a399ef513",
+                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/8701282921abeae07728993f1be448180c959680",
+                "reference": "8701282921abeae07728993f1be448180c959680",
                 "shasum": ""
             },
             "require": {
@@ -9218,7 +9218,7 @@
                 "illuminate/pagination": "^10.0|^11.0|^12.0",
                 "illuminate/support": "^10.0|^11.0|^12.0",
                 "illuminate/view": "^10.0|^11.0|^12.0",
-                "livewire/livewire": "^3.4.9",
+                "livewire/livewire": "^3.5.0",
                 "php": "^8.1"
             },
             "require-dev": {
@@ -9263,7 +9263,7 @@
             "description": "TallStackUI is a powerful suite of Blade components that elevate your workflow of Livewire applications.",
             "support": {
                 "issues": "https://github.com/tallstackui/tallstackui/issues",
-                "source": "https://github.com/tallstackui/tallstackui/tree/v2.4.0"
+                "source": "https://github.com/tallstackui/tallstackui/tree/v2.5.0"
             },
             "funding": [
                 {
@@ -9271,7 +9271,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-03-30T22:10:40+00:00"
+            "time": "2025-04-28T14:29:46+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -12033,16 +12033,16 @@
         },
         {
             "name": "spatie/backtrace",
-            "version": "1.7.1",
+            "version": "1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/backtrace.git",
-                "reference": "0f2477c520e3729de58e061b8192f161c99f770b"
+                "reference": "9807de6b8fecfaa5b3d10650985f0348b02862b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/backtrace/zipball/0f2477c520e3729de58e061b8192f161c99f770b",
-                "reference": "0f2477c520e3729de58e061b8192f161c99f770b",
+                "url": "https://api.github.com/repos/spatie/backtrace/zipball/9807de6b8fecfaa5b3d10650985f0348b02862b2",
+                "reference": "9807de6b8fecfaa5b3d10650985f0348b02862b2",
                 "shasum": ""
             },
             "require": {
@@ -12080,7 +12080,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/backtrace/tree/1.7.1"
+                "source": "https://github.com/spatie/backtrace/tree/1.7.2"
             },
             "funding": [
                 {
@@ -12092,7 +12092,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2024-12-02T13:28:15+00:00"
+            "time": "2025-04-28T14:55:53+00:00"
         },
         {
             "name": "spatie/error-solutions",
