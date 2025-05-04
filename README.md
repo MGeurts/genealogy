@@ -244,7 +244,7 @@ Translation integrity can be checked by issuing the command<br/>
 ## To Do ...
 
 <ul>
-    <li><a href="https://www.gedcom.org/" target="_blank">GEDCOM</a> import and export.</li>
+    <li>At the moment, basic <a href="https://www.gedcom.org/" target="_blank">GEDCOM</a> import and export is under development.</li>
 </ul>
 
 ## Techniques

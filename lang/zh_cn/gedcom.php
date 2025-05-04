@@ -3,11 +3,12 @@
 declare(strict_types=1);
 
 return [
-    'export'        => '导出',
-    'gedcom_export' => '将家族导出为 GEDCOM 文件。',
-    'gedcom_file'   => 'GEDCOM 文件',
-    'gedcom_import' => '从 GEDCOM 文件导入家族。',
-    'import'        => '导入',
+    'export'                    => '导出',
+    'gedcom_export'             => '将家族导出为 GEDCOM 文件。',
+    'gedcom_file'               => 'GEDCOM 文件',
+    'gedcom_import'             => '从 GEDCOM 文件导入家族。',
+    'gedcom_import_placeholder' => '选择一个GEDCOM文件',
+    'import'                    => '导入',
 
     'team_create_new_gedcom'     => '创建一个新的家族，从 GEDCOM 文件导入，以便与他人合作。',
     'team_gedcom_reference'      => '参考',

@@ -3,11 +3,12 @@
 declare(strict_types=1);
 
 return [
-    'export'        => 'Export',
-    'gedcom_export' => 'Export team to GEDCOM file.',
-    'gedcom_file'   => 'GEDCOM file',
-    'gedcom_import' => 'Import team from GEDCOM file.',
-    'import'        => 'Import',
+    'export'                    => 'Export',
+    'gedcom_export'             => 'Export team to GEDCOM file.',
+    'gedcom_file'               => 'GEDCOM file',
+    'gedcom_import'             => 'Import team from GEDCOM file.',
+    'gedcom_import_placeholder' => 'Choose a GEDCOM file',
+    'import'                    => 'Import',
 
     'team_create_new_gedcom'     => 'Create a new team, imported from a GEDCOM file, to collaborate with others.',
     'team_gedcom_reference'      => 'Reference',

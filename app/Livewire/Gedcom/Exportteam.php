@@ -75,10 +75,7 @@ final class Exportteam extends Component
             families: $this->teamCouples,
         );
 
-        $this->toast()->success(
-            __('app.download'),
-            __('app.downloading')
-        )->send();
+        $this->toast()->success(__('app.download'), __('app.downloading'))->send();
 
         if (in_array($this->format, ['zip', 'zipmedia', 'gedzip'])) {
             return $export->downloadZip($gedcom);

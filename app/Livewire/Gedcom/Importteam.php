@@ -7,6 +7,7 @@ namespace App\Livewire\Gedcom;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Php\Gedcom\Import;
 // use Laravel\Jetstream\Events\AddingTeam;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
@@ -27,8 +28,6 @@ final class Importteam extends Component
     public ?string $description = null;
 
     public ?TemporaryUploadedFile $file = null;
-
-    public ?Import $import = null;
 
     // -----------------------------------------------------------------------
     public function rules(): array
@@ -57,15 +56,15 @@ final class Importteam extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->user = Auth()->user();
+        $this->user = Auth::user();
     }
 
     public function importteam(): void
     {
-        $this->import = new Import(
+        $import = new Import(
             $this->name,
             $this->description,
-            $this->file->getClientOriginalName()
+            $this->file ? $this->file->getClientOriginalName() : '',
         );
 
         $this->toast()->success(__('app.saved'), mb_strtoupper(__('app.under_construction')))->send();

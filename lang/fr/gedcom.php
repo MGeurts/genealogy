@@ -3,11 +3,13 @@
 declare(strict_types=1);
 
 return [
-    'export'                     => 'Exporter',
-    'gedcom_export'              => 'Exporter l\'équipe vers le fichier GEDCOM.',
-    'gedcom_file'                => 'Fichier GEDCOM',
-    'gedcom_import'              => 'Importer une équipe à partir d\'un fichier GEDCOM.',
-    'import'                     => 'Importer',
+    'export'                    => 'Exporter',
+    'gedcom_export'             => 'Exporter l\'équipe vers le fichier GEDCOM.',
+    'gedcom_file'               => 'Fichier GEDCOM',
+    'gedcom_import'             => 'Importer une équipe à partir d\'un fichier GEDCOM.',
+    'gedcom_import_placeholder' => 'Choisissez un fichier GEDCOM',
+    'import'                    => 'Importer',
+
     'team_create_new_gedcom'     => 'Créez une nouvelle équipe, importée d\'un fichier GEDCOM, pour collaborer avec d\'autres.',
     'team_gedcom_reference'      => 'Référence',
     'team_gedcom_specifications' => 'Spécifications GEDCOM',

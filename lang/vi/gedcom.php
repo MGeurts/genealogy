@@ -3,11 +3,12 @@
 declare(strict_types=1);
 
 return [
-    'export'        => 'Xuất khẩu',
-    'gedcom_export' => 'Xuất đội sang tệp GEDCOM.',
-    'gedcom_file'   => 'Tệp GEDCOM',
-    'gedcom_import' => 'Nhập đội từ tệp GEDCOM.',
-    'import'        => 'Nhập',
+    'export'                    => 'Xuất khẩu',
+    'gedcom_export'             => 'Xuất đội sang tệp GEDCOM.',
+    'gedcom_file'               => 'Tệp GEDCOM',
+    'gedcom_import'             => 'Nhập đội từ tệp GEDCOM.',
+    'gedcom_import_placeholder' => 'Chọn một tập tin GEDCOM',
+    'import'                    => 'Nhập',
 
     'team_create_new_gedcom'     => 'Tạo một đội mới, được nhập từ tệp GEDCOM, để hợp tác với những người khác.',
     'team_gedcom_reference'      => 'Tham chiếu',
