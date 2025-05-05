@@ -273,6 +273,10 @@ make the needed changes regarding name, url, database connection & mail server
 
 `php artisan serve` or `npm run dev`
 
+## Updating
+
+Update instructions can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/UPDATE.md" target="_blank">UPDATE.md</a>
+
 ## Testing
 
 `php artisan test`
