@@ -43,11 +43,11 @@
 
 If you just downloaded a ZIP or copied the folder, do the following:
 
-1. **Backup your **`**, **`**, and any custom data**.
+1. **Backup your project and any custom data**.
 
-2. **Backup the old folder as a ZIP file**:
+2. **Backup the old folder as a ZIP file**.
 
-3. **Backup the database**:
+3. **Backup the database**.
 
 4. **Delete the old folder and clone the latest version**:
 
