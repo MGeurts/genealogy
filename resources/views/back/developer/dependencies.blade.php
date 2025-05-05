@@ -81,22 +81,12 @@
             <x-ts-tab.items tab="Github">
                 <ul class="w-full my-4">
                     <li class="py-2">
-                        <x-link href="https://github.com/csstools/postcss-plugins/" target="_blank">csstools/postcss-plugins</x-link> (needed by Filament Table Builder) (OBSOLETE ??)
-                    </li>
-
-                   <br/><hr /><br />
-
-                    <li class="py-2">
                         <x-link href="https://github.com/barryvdh/laravel-ide-helper/" target="_blank">barryvdh/laravel-ide-helper</x-link>
                     </li>
 
                     <li class="py-2">
                         <x-link href="https://github.com/Intervention/image/" target="_blank">intervention/image</x-link>
                         <x-ts-button xs href="https://image.intervention.io/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
-                    </li>
-
-                    <li class="py-2">
-                        <x-link href="https://github.com/korridor/laravel-has-many-merged/" target="_blank">korridor/laravel-has-many-merged</x-link> (OBSOLETE ??)
                     </li>
 
                     <li class="py-2">
