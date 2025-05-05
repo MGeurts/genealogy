@@ -31,11 +31,11 @@
             // }
 
             $parser = new \PhpGedcom\Parser();
-            $gedcom = $parser->parse(storage_path('app/gedcom/demo.ged'));
+            $gedcom = $parser->parse(storage_path('app/public/gedcom/test-2.ged'));
 
             $output = '';
 
-            // dd($gedcom);
+            dump($gedcom);
 
             foreach ($gedcom->getIndi() as $individual) {
                 $output .= $individual->getId() . ': ' . current($individual->getName())->getSurn() . ', ' . current($individual->getName())->getGivn() . "\n";
