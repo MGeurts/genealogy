@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -66,7 +68,7 @@ class Subn extends \Gedcom\Record
     protected $_note = [];
 
     /**
-     * @var \Gedcom\Record\Chan
+     * @var Chan
      */
     protected $_chan;
 
@@ -95,8 +97,7 @@ class Subn extends \Gedcom\Record
     }
 
     /**
-     * @param string $subn
-     *
+     * @param  string  $subn
      * @return Subn
      */
     public function setSubn($subn = '')
@@ -115,8 +116,7 @@ class Subn extends \Gedcom\Record
     }
 
     /**
-     * @param string $subm
-     *
+     * @param  string  $subm
      * @return Subn
      */
     public function setSubm($subm = '')
@@ -135,8 +135,7 @@ class Subn extends \Gedcom\Record
     }
 
     /**
-     * @param string $famf
-     *
+     * @param  string  $famf
      * @return Subn
      */
     public function setFamf($famf = '')
@@ -155,8 +154,7 @@ class Subn extends \Gedcom\Record
     }
 
     /**
-     * @param string $temp
-     *
+     * @param  string  $temp
      * @return Subn
      */
     public function setTemp($temp = '')
@@ -175,8 +173,7 @@ class Subn extends \Gedcom\Record
     }
 
     /**
-     * @param string $ance
-     *
+     * @param  string  $ance
      * @return Subn
      */
     public function setAnce($ance = '')
@@ -195,8 +192,7 @@ class Subn extends \Gedcom\Record
     }
 
     /**
-     * @param string $desc
-     *
+     * @param  string  $desc
      * @return Subn
      */
     public function setDesc($desc = '')
@@ -215,8 +211,7 @@ class Subn extends \Gedcom\Record
     }
 
     /**
-     * @param string $ordi
-     *
+     * @param  string  $ordi
      * @return Subn
      */
     public function setOrdi($ordi = '')
@@ -235,8 +230,7 @@ class Subn extends \Gedcom\Record
     }
 
     /**
-     * @param string $rin
-     *
+     * @param  string  $rin
      * @return Subn
      */
     public function setRin($rin = '')

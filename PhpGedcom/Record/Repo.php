@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,8 +10,8 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
@@ -19,7 +21,6 @@ use PhpGedcom\Record;
 
 /**
  * Class Repo
- * @package PhpGedcom\Record
  */
 class Repo extends Record implements Noteable
 {
@@ -51,25 +52,25 @@ class Repo extends Record implements Noteable
     /**
      * @var array
      */
-    protected $phon = array();
+    protected $phon = [];
 
     /**
      * @var array
      */
-    protected $refn = array();
+    protected $refn = [];
 
     /**
      * @var array
      */
-    protected $note = array();
+    protected $note = [];
 
     /**
-     * @param Phon $phon
      * @return Repo
      */
     public function addPhon(Phon $phon)
     {
         $this->phon[] = $phon;
+
         return $this;
     }
 
@@ -82,12 +83,12 @@ class Repo extends Record implements Noteable
     }
 
     /**
-     * @param Refn $refn
      * @return Repo
      */
     public function addRefn(Refn $refn)
     {
         $this->refn[] = $refn;
+
         return $this;
     }
 
@@ -100,12 +101,12 @@ class Repo extends Record implements Noteable
     }
 
     /**
-     * @param NoteRef $note
      * @return Repo
      */
     public function addNote(NoteRef $note)
     {
         $this->note[] = $note;
+
         return $this;
     }
 
@@ -118,12 +119,13 @@ class Repo extends Record implements Noteable
     }
 
     /**
-     * @param string $repo
+     * @param  string  $repo
      * @return Repo
      */
     public function setRepo($repo)
     {
         $this->repo = $repo;
+
         return $this;
     }
 
@@ -136,12 +138,13 @@ class Repo extends Record implements Noteable
     }
 
     /**
-     * @param string $name
+     * @param  string  $name
      * @return Repo
      */
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -154,17 +157,18 @@ class Repo extends Record implements Noteable
     }
 
     /**
-     * @param \PhpGedcom\Record\Addr $addr
+     * @param  Addr  $addr
      * @return Repo
      */
     public function setAddr($addr)
     {
         $this->addr = $addr;
+
         return $this;
     }
 
     /**
-     * @return \PhpGedcom\Record\Addr
+     * @return Addr
      */
     public function getAddr()
     {
@@ -172,12 +176,13 @@ class Repo extends Record implements Noteable
     }
 
     /**
-     * @param string $rin
+     * @param  string  $rin
      * @return Repo
      */
     public function setRin($rin)
     {
         $this->rin = $rin;
+
         return $this;
     }
 
@@ -190,17 +195,18 @@ class Repo extends Record implements Noteable
     }
 
     /**
-     * @param \PhpGedcom\Record\Chan $chan
+     * @param  Chan  $chan
      * @return Repo
      */
     public function setChan($chan)
     {
         $this->chan = $chan;
+
         return $this;
     }
 
     /**
-     * @return \PhpGedcom\Record\Chan
+     * @return Chan
      */
     public function getChan()
     {

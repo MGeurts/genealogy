@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,5 +20,6 @@ namespace Gedcom\Record\Sour\Data;
 class Even extends \Gedcom\Record
 {
     protected $_date;
+
     protected $_plac;
 }

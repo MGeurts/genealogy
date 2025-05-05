@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,37 +10,28 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser;
 
-/**
- *
- *
- */
-class Addr extends \PhpGedcom\Parser\Component
+class Addr extends Component
 {
-
-    /**
-     *
-     *
-     */
     public static function parse(\PhpGedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
-        $line = isset($record[2]) ? trim($record[2]) : '';
+        $depth  = (int) $record[0];
+        $line   = isset($record[2]) ? mb_trim($record[2]) : '';
 
         $addr = new \PhpGedcom\Record\Addr();
         $addr->setAddr($line);
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtolower(trim($record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtolower(mb_trim($record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -47,13 +40,13 @@ class Addr extends \PhpGedcom\Parser\Component
             }
 
             if ($addr->hasAttribute($recordType)) {
-                $addr->{'set' . $recordType}(trim($record[2]));
+                $addr->{'set' . $recordType}(mb_trim($record[2]));
             } else {
-                if ($recordType == 'cont') {
+                if ($recordType === 'cont') {
                     // FIXME: Can have CONT on multiple attributes
                     $addr->setAddr($addr->getAddr() . "\n");
                     if (isset($record[2])) {
-                        $addr->setAddr($addr->getAddr() . trim($record[2]));
+                        $addr->setAddr($addr->getAddr() . mb_trim($record[2]));
                     }
                 } else {
                     $parser->logUnhandledRecord(get_class() . ' @ ' . __LINE__);

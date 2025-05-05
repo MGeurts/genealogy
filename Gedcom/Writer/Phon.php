@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,14 +20,13 @@ namespace Gedcom\Writer;
 class Phon
 {
     /**
-     * @param string $phon
-     * @param string $format
-     * @param int    $level
-     *
+     * @param  string  $phon
+     * @param  string  $format
+     * @param  int  $level
      * @return string
      */
     public static function convert($phon, $level = 1)
     {
-        return "{$level} PHON ".$phon."\n";
+        return "{$level} PHON " . $phon . "\n";
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,9 +20,8 @@ namespace Gedcom\Writer\Indi;
 class Fams
 {
     /**
-     * @param \Gedcom\Record\Indi\Fams $attr
-     * @param int                      $level
-     *
+     * @param  \Gedcom\Record\Indi\Fams  $attr
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Indi\Fams &$fams, $level = 0)
@@ -31,13 +32,13 @@ class Fams
         if (empty($_fams)) {
             return $output;
         }
-        $output .= $level.' FAMS @'.$_fams."@\n";
+        $output .= $level . ' FAMS @' . $_fams . "@\n";
         // level up
         $level++;
 
         // note
         $note = $fams->getNote();
-        if (!empty($note) && (is_countable($note) ? count($note) : 0) > 0) {
+        if (! empty($note) && (is_countable($note) ? count($note) : 0) > 0) {
             foreach ($note as $item) {
                 $_convert = \Gedcom\Writer\NoteRef::convert($item, $level);
                 $output .= $_convert;

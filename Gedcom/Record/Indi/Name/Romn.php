@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -29,26 +31,32 @@ class Romn extends \Gedcom\Record
      * @var string romanized_type
      */
     protected $type;
+
     /**
      * string name_piece_prefix.
      */
     protected $_npfx;
+
     /**
      * string name_piece_given.
      */
     protected $_givn;
+
     /**
      * string name_piece_nickname.
      */
     protected $_nick;
+
     /**
      * strign name_piece_surname_prefix.
      */
     protected $_spfx;
+
     /**
      * string name_piece_surname.
      */
     protected $_surn;
+
     /**
      * string name_piece_suffix.
      */

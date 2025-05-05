@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,39 +10,30 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser;
 
-/**
- *
- *
- */
-class Caln extends \PhpGedcom\Parser\Component
+class Caln extends Component
 {
-
-    /**
-     *
-     *
-     */
     public static function parse(\PhpGedcom\Parser $parser)
     {
-        $record = $parser->getCurrentLineRecord();
+        $record     = $parser->getCurrentLineRecord();
         $identifier = $parser->normalizeIdentifier($record[2]);
-        $depth = (int) $record[0];
+        $depth      = (int) $record[0];
 
         $caln = new \PhpGedcom\Record\Caln();
         $caln->setCaln($identifier);
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtolower(trim($record[1]));
-            $lineDepth = (int) $record[0];
+        while (! $parser->eof()) {
+            $record     = $parser->getCurrentLineRecord();
+            $recordType = mb_strtolower(mb_trim($record[1]));
+            $lineDepth  = (int) $record[0];
 
             if ($lineDepth <= $depth) {
                 $parser->back();
@@ -48,7 +41,7 @@ class Caln extends \PhpGedcom\Parser\Component
             }
 
             if ($caln->hasAttribute($recordType)) {
-                $caln->{'set' . $recordType}(trim($record[2]));
+                $caln->{'set' . $recordType}(mb_trim($record[2]));
             } else {
                 $parser->logUnhandledRecord(get_class() . ' @ ' . __LINE__);
             }

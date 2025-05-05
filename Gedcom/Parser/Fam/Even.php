@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,19 +22,19 @@ class Even extends \Gedcom\Parser\Component
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
 
         $even = new \Gedcom\Record\Fam\Even();
 
-        if (isset($record[1]) && strtoupper(trim((string) $record[1])) != 'EVEN') {
-            $even->setType(trim((string) $record[1]));
+        if (isset($record[1]) && mb_strtoupper(mb_trim((string) $record[1])) !== 'EVEN') {
+            $even->setType(mb_trim((string) $record[1]));
         }
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim((string) $record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -42,12 +44,12 @@ class Even extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'TYPE':
-                    $even->setType(trim((string) $record[2]));
+                    $even->setType(mb_trim((string) $record[2]));
                     break;
                 case 'DATE':
                     $dat = \Gedcom\Parser\Date::parse($parser);
                     $even->setDate($dat);
-                    //$even->setDate(trim($record[2]));
+                    // $even->setDate(trim($record[2]));
                     break;
                 case 'PLAC':
                     $plac = \Gedcom\Parser\Plac::parse($parser);
@@ -62,20 +64,20 @@ class Even extends \Gedcom\Parser\Component
                     $even->addPhon($phone);
                     break;
                 case 'CAUS':
-                    $even->setCaus(trim((string) $record[2]));
+                    $even->setCaus(mb_trim((string) $record[2]));
                     break;
                 case 'AGE':
-                    $even->setAge(trim((string) $record[2]));
+                    $even->setAge(mb_trim((string) $record[2]));
                     break;
                 case 'AGNC':
-                    $even->setAgnc(trim((string) $record[2]));
+                    $even->setAgnc(mb_trim((string) $record[2]));
                     break;
                 case 'HUSB':
-                    $husb = \Gedcom\Parser\Fam\Even\Husb::parse($parser);
+                    $husb = Even\Husb::parse($parser);
                     $even->setHusb($husb);
                     break;
                 case 'WIFE':
-                    $wife = \Gedcom\Parser\Fam\Even\Wife::parse($parser);
+                    $wife = Even\Wife::parse($parser);
                     $even->setWife($wife);
                     break;
                 case 'SOUR':
@@ -93,7 +95,7 @@ class Even extends \Gedcom\Parser\Component
                     }
                     break;
                 default:
-                    $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                    $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,36 +10,27 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser;
 
-/**
- *
- *
- */
-class Chan extends \PhpGedcom\Parser\Component
+class Chan extends Component
 {
-
-    /**
-     *
-     *
-     */
     public static function parse(\PhpGedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
 
         $parser->forward();
 
         $chan = new \PhpGedcom\Record\Chan();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = trim($record[1]);
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_trim($record[1]);
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -47,13 +40,13 @@ class Chan extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'DATE':
-                    $chan->setDate(trim($record[2]));
+                    $chan->setDate(mb_trim($record[2]));
                     break;
                 case 'TIME':
-                    $chan->setTime(trim($record[2]));
+                    $chan->setTime(mb_trim($record[2]));
                     break;
                 case 'NOTE':
-                    $note = \PhpGedcom\Parser\NoteRef::parse($parser);
+                    $note = NoteRef::parse($parser);
                     if ($note) {
                         $chan->addNote($note);
                     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,12 +17,12 @@
 
 namespace Gedcom\Parser;
 
-class Obje extends \Gedcom\Parser\Component
+class Obje extends Component
 {
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[1])) {
             $identifier = $parser->normalizeIdentifier($record[1]);
         } else {
@@ -36,10 +38,10 @@ class Obje extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
             $currentDepth = (int) $record[0];
-            $recordType = strtoupper(trim((string) $record[1]));
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
 
             if ($currentDepth <= $depth) {
                 $parser->back();
@@ -48,36 +50,36 @@ class Obje extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'FORM':
-                    $obje->setForm(trim($record[2]));
+                    $obje->setForm(mb_trim($record[2]));
                     break;
                 case 'TITL':
-                    $obje->setTitl(trim($record[2]));
+                    $obje->setTitl(mb_trim($record[2]));
                     break;
                 case 'OBJE':
                     $obje->setForm($parser->normalizeIdentifier($record[2]));
                     break;
                 case 'RIN':
-                    $obje->setRin(trim($record[2]));
+                    $obje->setRin(mb_trim($record[2]));
                     break;
                 case 'REFN':
-                    $refn = \Gedcom\Parser\Refn::parse($parser);
+                    $refn = Refn::parse($parser);
                     $obje->addRefn($refn);
                     break;
                 case 'BLOB':
                     $obje->setBlob($parser->parseMultiLineRecord());
                     break;
                 case 'NOTE':
-                    $note = \Gedcom\Parser\NoteRef::parse($parser);
+                    $note = NoteRef::parse($parser);
                     if ($note) {
                         $obje->addNote($note);
                     }
                     break;
                 case 'CHAN':
-                    $chan = \Gedcom\Parser\Chan::parse($parser);
+                    $chan = Chan::parse($parser);
                     $obje->setChan($chan);
                     break;
                 default:
-                    $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                    $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

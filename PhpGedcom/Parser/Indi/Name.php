@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,37 +10,28 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser\Indi;
 
-/**
- *
- *
- */
 class Name extends \PhpGedcom\Parser\Component
 {
-
-    /**
-     *
-     *
-     */
     public static function parse(\PhpGedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
 
         $name = new \PhpGedcom\Record\Indi\Name();
-        $name->setName(trim($record[2]));
+        $name->setName(mb_trim($record[2]));
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim($record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim($record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -48,22 +41,22 @@ class Name extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'NPFX':
-                    $name->setNpfx(trim($record[2]));
+                    $name->setNpfx(mb_trim($record[2]));
                     break;
                 case 'GIVN':
-                    $name->setGivn(trim($record[2]));
+                    $name->setGivn(mb_trim($record[2]));
                     break;
                 case 'NICK':
-                    $name->setNick(trim($record[2]));
+                    $name->setNick(mb_trim($record[2]));
                     break;
                 case 'SPFX':
-                    $name->setSpfx(trim($record[2]));
+                    $name->setSpfx(mb_trim($record[2]));
                     break;
                 case 'SURN':
-                    $name->setSurn(trim($record[2]));
+                    $name->setSurn(mb_trim($record[2]));
                     break;
                 case 'NSFX':
-                    $name->setNsfx(trim($record[2]));
+                    $name->setNsfx(mb_trim($record[2]));
                     break;
                 case 'SOUR':
                     $sour = \PhpGedcom\Parser\SourRef::parse($parser);

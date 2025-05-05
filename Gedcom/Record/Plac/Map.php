@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -31,8 +33,7 @@ class Map extends \Gedcom\Record
     protected $long;
 
     /**
-     * @param string $lati
-     *
+     * @param  string  $lati
      * @return Map
      */
     public function setLati($lati = '')
@@ -43,8 +44,7 @@ class Map extends \Gedcom\Record
     }
 
     /**
-     * @param string $long
-     *
+     * @param  string  $long
      * @return Map
      */
     public function setLong($long = '')

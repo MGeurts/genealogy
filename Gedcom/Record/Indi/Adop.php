@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,8 +17,9 @@
 
 namespace Gedcom\Record\Indi;
 
-class Adop extends \Gedcom\Record\Indi\Even
+class Adop extends Even
 {
     protected $_adop;
+
     protected $_famc;
 }

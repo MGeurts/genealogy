@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,17 +20,16 @@ namespace Gedcom\Writer\Head;
 class Sour
 {
     /**
-     * @param string $format
-     * @param int    $level
-     *
+     * @param  string  $format
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Head\Sour &$sour, $level)
     {
         $output = '';
-        $_sour = $sour->getSour();
+        $_sour  = $sour->getSour();
         if ($_sour) {
-            $output .= $level.' SOUR '.$_sour."\n";
+            $output .= $level . ' SOUR ' . $_sour . "\n";
         } else {
             return $output;
         }
@@ -39,26 +40,26 @@ class Sour
         // VERS
         $vers = $sour->getVersion();
         if ($vers) {
-            $output .= $level.' VERS '.$vers."\n";
+            $output .= $level . ' VERS ' . $vers . "\n";
         }
 
         // NAME
         $name = $sour->getName();
         if ($name) {
-            $output .= $level.' NAME '.$name."\n";
+            $output .= $level . ' NAME ' . $name . "\n";
         }
 
         // CORP
         $corp = $sour->getCorp();
         if ($corp) {
-            $_convert = \Gedcom\Writer\Head\Sour\Corp::convert($corp, $level);
+            $_convert = Sour\Corp::convert($corp, $level);
             $output .= $_convert;
         }
 
         // DATA
         $data = $sour->getData();
         if ($data) {
-            $_convert = \Gedcom\Writer\Head\Sour\Data::convert($data, $level);
+            $_convert = Sour\Data::convert($data, $level);
             $output .= $_convert;
         }
 

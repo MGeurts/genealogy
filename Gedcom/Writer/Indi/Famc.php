@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,9 +20,8 @@ namespace Gedcom\Writer\Indi;
 class Famc
 {
     /**
-     * @param \Gedcom\Record\Indi\Famc $attr
-     * @param int                      $level
-     *
+     * @param  \Gedcom\Record\Indi\Famc  $attr
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Indi\Famc &$famc, $level = 0)
@@ -31,19 +32,19 @@ class Famc
         if (empty($_famc)) {
             return $output;
         }
-        $output .= $level.' FAMC @'.$_famc."@\n";
+        $output .= $level . ' FAMC @' . $_famc . "@\n";
         // level up
         $level++;
 
         // PEDI
         $pedi = $famc->getPedi();
-        if (!empty($pedi)) {
-            $output .= $level.' PEDI '.$pedi."\n";
+        if (! empty($pedi)) {
+            $output .= $level . ' PEDI ' . $pedi . "\n";
         }
 
         // note
         $note = $famc->getNote();
-        if (!empty($note) && (is_countable($note) ? count($note) : 0) > 0) {
+        if (! empty($note) && (is_countable($note) ? count($note) : 0) > 0) {
             foreach ($note as $item) {
                 $_convert = \Gedcom\Writer\NoteRef::convert($item, $level);
                 $output .= $_convert;

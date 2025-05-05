@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,134 +10,69 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Record;
 
-/**
- *
- *
- */
-class Fam extends \PhpGedcom\Record implements Noteable, Sourceable, Objectable
+class Fam extends \PhpGedcom\Record implements Noteable, Objectable, Sourceable
 {
-    /**
-     *
-     */
-    protected $_id   = null;
+    protected $_id = null;
 
-    /**
-     *
-     */
     protected $_chan = null;
 
-    /**
-     *
-     */
     protected $_husb = null;
 
-    /**
-     *
-     */
     protected $_wife = null;
 
-    /**
-     *
-     */
     protected $_nchi = null;
 
-    /**
-     *
-     */
-    protected $_chil = array();
+    protected $_chil = [];
 
-    /**
-     *
-     */
-    protected $_even = array();
+    protected $_even = [];
 
-    /**
-     *
-     */
-    protected $_slgs = array();
+    protected $_slgs = [];
 
-    /**
-     *
-     */
-    protected $_subm = array();
+    protected $_subm = [];
 
-    /**
-     *
-     */
-    protected $_refn = array();
+    protected $_refn = [];
 
-    /**
-     *
-     */
-    protected $_rin  = null;
+    protected $_rin = null;
 
-    /**
-     *
-     */
-    protected $_note = array();
+    protected $_note = [];
 
-    /**
-     *
-     */
-    protected $_sour = array();
+    protected $_sour = [];
 
-    /**
-     *
-     */
-    protected $_obje = array();
+    protected $_obje = [];
 
-    /**
-     *
-     */
-    public function addEven(\PhpGedcom\Record\Fam\Even $even)
+    public function addEven(Fam\Even $even)
     {
         $this->_even[] = $even;
     }
 
-    /**
-     *
-     */
-    public function addSlgs(\PhpGedcom\Record\Fam\Slgs $slgs)
+    public function addSlgs(Fam\Slgs $slgs)
     {
         $this->_slgs[] = $slgs;
     }
 
-    /**
-     *
-     *
-     */
-    public function addRefn(\PhpGedcom\Record\Refn $refn)
+    public function addRefn(Refn $refn)
     {
         $this->_refn[] = $refn;
     }
 
-    /**
-     *
-     */
-    public function addNote(\PhpGedcom\Record\NoteRef $note)
+    public function addNote(NoteRef $note)
     {
         $this->_note[] = $note;
     }
 
-    /**
-     *
-     */
-    public function addSour(\PhpGedcom\Record\SourRef $sour)
+    public function addSour(SourRef $sour)
     {
         $this->_sour[] = $sour;
     }
 
-    /**
-     *
-     */
-    public function addObje(\PhpGedcom\Record\ObjeRef $obje)
+    public function addObje(ObjeRef $obje)
     {
         $this->_obje[] = $obje;
     }

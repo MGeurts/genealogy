@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,29 +10,20 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser;
 
-/**
- *
- *
- */
-class Sour extends \PhpGedcom\Parser\Component
+class Sour extends Component
 {
-
-    /**
-     *
-     *
-     */
     public static function parse(\PhpGedcom\Parser $parser)
     {
-        $record = $parser->getCurrentLineRecord();
+        $record     = $parser->getCurrentLineRecord();
         $identifier = $parser->normalizeIdentifier($record[1]);
-        $depth = (int) $record[0];
+        $depth      = (int) $record[0];
 
         $sour = new \PhpGedcom\Record\Sour();
         $sour->setSour($identifier);
@@ -39,10 +32,10 @@ class Sour extends \PhpGedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
             $currentDepth = (int) $record[0];
-            $recordType = strtoupper(trim($record[1]));
+            $recordType   = mb_strtoupper(mb_trim($record[1]));
 
             if ($currentDepth <= $depth) {
                 $parser->back();
@@ -54,7 +47,7 @@ class Sour extends \PhpGedcom\Parser\Component
                     $sour->setTitl($parser->parseMultilineRecord());
                     break;
                 case 'RIN':
-                    $sour->setRin(trim($record[2]));
+                    $sour->setRin(mb_trim($record[2]));
                     break;
                 case 'AUTH':
                     $sour->setAuth($parser->parseMultilineRecord());
@@ -66,30 +59,30 @@ class Sour extends \PhpGedcom\Parser\Component
                     $sour->setPubl($parser->parseMultilineRecord());
                     break;
                 case 'ABBR':
-                    $sour->setAbbr(trim($record[2]));
+                    $sour->setAbbr(mb_trim($record[2]));
                     break;
                 case 'REPO':
-                    $sour->setRepo(\PhpGedcom\Parser\RepoRef::parse($parser));
+                    $sour->setRepo(RepoRef::parse($parser));
                     break;
                 case 'NOTE':
-                    $note = \PhpGedcom\Parser\NoteRef::parse($parser);
+                    $note = NoteRef::parse($parser);
                     if ($note) {
                         $sour->addNote($note);
                     }
                     break;
                 case 'DATA':
-                    $sour->setData(\PhpGedcom\Parser\Sour\Data::parse($parser));
+                    $sour->setData(Sour\Data::parse($parser));
                     break;
                 case 'OBJE':
-                    $obje = \PhpGedcom\Parser\ObjeRef::parse($parser);
+                    $obje = ObjeRef::parse($parser);
                     $sour->addObje($obje);
                     break;
                 case 'REFN':
-                    $refn = \PhpGedcom\Parser\Refn::parse($parser);
+                    $refn = Refn::parse($parser);
                     $sour->addRefn($refn);
                     break;
                 case 'CHAN':
-                    $chan = \PhpGedcom\Parser\Chan::parse($parser);
+                    $chan = Chan::parse($parser);
                     $sour->setChan($chan);
                     break;
                 default:

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Gedcom\Models;
 
 /**
@@ -20,7 +22,7 @@ interface RecordInterface
     /**
      * Sets the ID of the record.
      *
-     * @param mixed $id The new ID of the record.
+     * @param  mixed  $id  The new ID of the record.
      */
     public function setId($id);
 
@@ -34,7 +36,7 @@ interface RecordInterface
     /**
      * Sets the name of the record.
      *
-     * @param string $name The new name of the record.
+     * @param  string  $name  The new name of the record.
      */
     public function setName($name);
 }

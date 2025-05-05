@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,27 +10,21 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Record\Head\Sour;
 
-/**
- *
- */
 class Corp extends \PhpGedcom\Record
 {
     protected $_corp = null;
+
     protected $_addr = null;
 
-    protected $_phon = array();
+    protected $_phon = [];
 
-    /**
-     *
-     *
-     */
     public function addPhon($phon)
     {
         $this->_phon[] = $phon;

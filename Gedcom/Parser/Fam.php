@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,7 +17,7 @@
 
 namespace Gedcom\Parser;
 
-class Fam extends \Gedcom\Parser\Component
+class Fam extends Component
 {
     protected static $_eventTypes = [
         'ANUL',
@@ -33,7 +35,7 @@ class Fam extends \Gedcom\Parser\Component
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[1])) {
             $identifier = $parser->normalizeIdentifier($record[1]);
         } else {
@@ -49,10 +51,10 @@ class Fam extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
             $currentDepth = (int) $record[0];
-            $recordType = strtoupper(trim((string) $record[1]));
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
 
             if ($currentDepth <= $depth) {
                 $parser->back();
@@ -61,7 +63,7 @@ class Fam extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'RESN':
-                    $fam->setResn(trim((string) $record[2]));
+                    $fam->setResn(mb_trim((string) $record[2]));
                     break;
                 case 'EVEN':
                 case 'ANUL':
@@ -74,8 +76,8 @@ class Fam extends \Gedcom\Parser\Component
                 case 'MARC':
                 case 'MARL':
                 case 'MARS':
-                    $className = ucfirst(strtolower($recordType));
-                    $class = '\\Gedcom\\Parser\\Fam\\'.$className;
+                    $className = ucfirst(mb_strtolower($recordType));
+                    $class     = '\\Gedcom\\Parser\\Fam\\' . $className;
 
                     $even = $class::parse($parser);
                     $fam->addEven($recordType, $even);
@@ -90,43 +92,45 @@ class Fam extends \Gedcom\Parser\Component
                     $fam->addChil($parser->normalizeIdentifier($record[2]));
                     break;
                 case 'NCHI':
-                    if(isset($record[2])) $fam->setNchi(trim((string) $record[2]));
+                    if (isset($record[2])) {
+                        $fam->setNchi(mb_trim((string) $record[2]));
+                    }
                     break;
                 case 'SUBM':
                     $fam->addSubm($parser->normalizeIdentifier($record[2]));
                     break;
                 case 'SLGS':
-                    $slgs = \Gedcom\Parser\Fam\Slgs::parse($parser);
+                    $slgs = Fam\Slgs::parse($parser);
                     $fam->addSlgs($slgs);
                     break;
                 case 'REFN':
-                    $ref = \Gedcom\Parser\Refn::parse($parser);
+                    $ref = Refn::parse($parser);
                     $fam->addRefn($ref);
                     break;
                 case 'RIN':
-                    $fam->setRin(trim((string) $record[2]));
+                    $fam->setRin(mb_trim((string) $record[2]));
                     break;
                 case 'CHAN':
-                    $chan = \Gedcom\Parser\Chan::parse($parser);
+                    $chan = Chan::parse($parser);
                     $fam->setChan($chan);
                     break;
                 case 'NOTE':
-                    $note = \Gedcom\Parser\NoteRef::parse($parser);
+                    $note = NoteRef::parse($parser);
                     if ($note) {
                         $fam->addNote($note);
                     }
                     break;
                 case 'SOUR':
-                    $sour = \Gedcom\Parser\SourRef::parse($parser);
+                    $sour = SourRef::parse($parser);
                     $fam->addSour($sour);
                     break;
                 case 'OBJE':
-                    $obje = \Gedcom\Parser\ObjeRef::parse($parser);
+                    $obje = ObjeRef::parse($parser);
                     $fam->addObje($obje);
                     break;
 
                 default:
-                    if (strpos($recordType, '_') === 0) {
+                    if (mb_strpos($recordType, '_') === 0) {
                         $fam->addExtensionTag($recordType, $record[2]);
                     }
 

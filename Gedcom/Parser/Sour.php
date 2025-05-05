@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,18 +17,18 @@
 
 namespace Gedcom\Parser;
 
-class Sour extends \Gedcom\Parser\Component
-/**
- * Parser for GEDCOM Source (SOUR) records.
- *
- * Handles the parsing of source records from GEDCOM files, extracting relevant data and attributes
- * associated with sources.
- */
+class Sour extends Component
+    /**
+     * Parser for GEDCOM Source (SOUR) records.
+     *
+     * Handles the parsing of source records from GEDCOM files, extracting relevant data and attributes
+     * associated with sources.
+     */
 {
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[1])) {
             $identifier = $parser->normalizeIdentifier($record[1]);
         } else {
@@ -42,22 +44,22 @@ class Sour extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-/**
- * Sour class for parsing source records.
- *
- * This class extends the Component class and provides functionality to parse source (SOUR) records
- * from a GEDCOM file.
- */
-/**
- * Parses a source record from a GEDCOM file.
- *
- * @param \Gedcom\Parser $parser The parser instance.
- * @return \Gedcom\Record\Sour|null The parsed source record, or null if parsing fails.
- */
-            $record = $parser->getCurrentLineRecord();
+        while (! $parser->eof()) {
+            /**
+             * Sour class for parsing source records.
+             *
+             * This class extends the Component class and provides functionality to parse source (SOUR) records
+             * from a GEDCOM file.
+             */
+            /**
+             * Parses a source record from a GEDCOM file.
+             *
+             * @param  \Gedcom\Parser  $parser  The parser instance.
+             * @return \Gedcom\Record\Sour|null The parsed source record, or null if parsing fails.
+             */
+            $record       = $parser->getCurrentLineRecord();
             $currentDepth = (int) $record[0];
-            $recordType = strtoupper(trim((string) $record[1]));
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
 
             if ($currentDepth <= $depth) {
                 $parser->back();
@@ -65,14 +67,14 @@ class Sour extends \Gedcom\Parser\Component
             }
 
             switch ($recordType) {
-/**
- * Parses the source record's substructures and attributes.
- *
- * Iterates through the lines of the source record, parsing its substructures like DATA, AUTH, TITL, etc.,
- * based on the current depth and record type.
- */
+                /**
+                 * Parses the source record's substructures and attributes.
+                 *
+                 * Iterates through the lines of the source record, parsing its substructures like DATA, AUTH, TITL, etc.,
+                 * based on the current depth and record type.
+                 */
                 case 'DATA':
-                    $sour->setData(\Gedcom\Parser\Sour\Data::parse($parser));
+                    $sour->setData(Sour\Data::parse($parser));
                     break;
                 case 'AUTH':
                     $sour->setAuth($parser->parseMultilineRecord());
@@ -81,52 +83,52 @@ class Sour extends \Gedcom\Parser\Component
                     $sour->setTitl($parser->parseMultilineRecord());
                     break;
                 case 'ABBR':
-                    $sour->setAbbr(trim((string) $record[2]));
+                    $sour->setAbbr(mb_trim((string) $record[2]));
                     break;
                 case 'PUBL':
                     $sour->setPubl($parser->parseMultilineRecord());
                     break;
                 case 'TEXT':
-/**
- * Parses specific substructures of the source record.
- *
- * Depending on the record type, it delegates parsing to specialized methods or directly sets attributes
- * of the source record.
- */
+                    /**
+                     * Parses specific substructures of the source record.
+                     *
+                     * Depending on the record type, it delegates parsing to specialized methods or directly sets attributes
+                     * of the source record.
+                     */
                     $sour->setText($parser->parseMultilineRecord());
                     break;
                 case 'REPO':
-                    $sour->setRepo(\Gedcom\Parser\Sour\Repo::parse($parser));
+                    $sour->setRepo(Sour\Repo::parse($parser));
                     break;
                 case 'REFN':
-                    $refn = \Gedcom\Parser\Refn::parse($parser);
+                    $refn = Refn::parse($parser);
                     $sour->addRefn($refn);
                     break;
                 case 'RIN':
-                    $sour->setRin(trim((string) $record[2]));
+                    $sour->setRin(mb_trim((string) $record[2]));
                     break;
                 case 'CHAN':
-                    $chan = \Gedcom\Parser\Chan::parse($parser);
+                    $chan = Chan::parse($parser);
                     $sour->setChan($chan);
                     break;
                 case 'NOTE':
-/**
- * Continues parsing specific substructures of the source record.
- *
- * Handles additional record types like TEXT, REPO, REFN, and sets their corresponding attributes
- * in the source record.
- */
-                    $note = \Gedcom\Parser\NoteRef::parse($parser);
+                    /**
+                     * Continues parsing specific substructures of the source record.
+                     *
+                     * Handles additional record types like TEXT, REPO, REFN, and sets their corresponding attributes
+                     * in the source record.
+                     */
+                    $note = NoteRef::parse($parser);
                     if ($note) {
                         $sour->addNote($note);
                     }
                     break;
                 case 'OBJE':
-                    $obje = \Gedcom\Parser\ObjeRef::parse($parser);
+                    $obje = ObjeRef::parse($parser);
                     $sour->addObje($obje);
                     break;
                 default:
-                    $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                    $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,22 +10,17 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Record;
 
 use PhpGedcom\Record;
-use PhpGedcom\Record\NoteRef;
-use PhpGedcom\Record\ObjeRef;
-use PhpGedcom\Record\Refn;
-use PhpGedcom\Record\SourRef;
 
 /**
  * Class Indi
- * @package PhpGedcom\Record
  */
 class Indi extends Record implements Noteable, Objectable, Sourceable
 {
@@ -40,97 +37,82 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     /**
      * @var array
      */
-    protected $attr = array();
+    protected $attr = [];
 
     /**
      * @var array
      */
-    protected $even = array();
+    protected $even = [];
 
     /**
      * @var array
      */
-    protected $note = array();
+    protected $note = [];
 
     /**
      * @var array
      */
-    protected $obje = array();
+    protected $obje = [];
 
     /**
      * @var array
      */
-    protected $sour = array();
+    protected $sour = [];
 
     /**
      * @var array
      */
-    protected $name = array();
+    protected $name = [];
 
     /**
      * @var array
      */
-    protected $alia = array();
+    protected $alia = [];
 
-    /**
-     *
-     */
     protected $sex;
 
-    /**
-     *
-     */
     protected $rin;
 
-    /**
-     *
-     */
     protected $resn;
 
-    /**
-     *
-     */
     protected $rfn;
 
-    /**
-     *
-     */
     protected $afn;
 
     /**
      * @var array
      */
-    protected $fams = array();
+    protected $fams = [];
 
     /**
      * @var array
      */
-    protected $famc = array();
+    protected $famc = [];
 
     /**
      * @var array
      */
-    protected $asso = array();
+    protected $asso = [];
 
     /**
      * @var array
      */
-    protected $subm = array();
+    protected $subm = [];
 
     /**
      * @var array
      */
-    protected $anci = array();
+    protected $anci = [];
 
     /**
      * @var array
      */
-    protected $desi = array();
+    protected $desi = [];
 
     /**
      * @var array
      */
-    protected $refn = array();
+    protected $refn = [];
 
     /**
      * @var Indi\Bapl
@@ -153,12 +135,13 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     protected $slgc;
 
     /**
-     * @param string $id
+     * @param  string  $id
      * @return Indi
      */
     public function setId($id)
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -171,12 +154,12 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Name $name
      * @return Indi
      */
     public function addName(Indi\Name $name)
     {
         $this->name[] = $name;
+
         return $this;
     }
 
@@ -189,12 +172,12 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Attr $attr
      * @return Indi
      */
     public function addAttr(Indi\Attr $attr)
     {
         $this->attr[] = $attr;
+
         return $this;
     }
 
@@ -207,12 +190,12 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Even $even
      * @return Indi
      */
     public function addEven(Indi\Even $even)
     {
         $this->even[] = $even;
+
         return $this;
     }
 
@@ -225,12 +208,12 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Asso $asso
      * @return Indi
      */
     public function addAsso(Indi\Asso $asso)
     {
         $this->asso[] = $asso;
+
         return $this;
     }
 
@@ -243,12 +226,12 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Refn $ref
      * @return Indi
      */
     public function addRefn(Refn $ref)
     {
         $this->refn[] = $ref;
+
         return $this;
     }
 
@@ -261,12 +244,12 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param NoteRef $note
      * @return Indi
      */
     public function addNote(NoteRef $note)
     {
         $this->note[] = $note;
+
         return $this;
     }
 
@@ -279,12 +262,12 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param ObjeRef $obje
      * @return Indi
      */
     public function addObje(ObjeRef $obje)
     {
         $this->obje[] = $obje;
+
         return $this;
     }
 
@@ -297,12 +280,12 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param SourRef $sour
      * @return Indi
      */
     public function addSour(SourRef $sour)
     {
         $this->sour[] = $sour;
+
         return $this;
     }
 
@@ -315,12 +298,13 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $indi
+     * @param  string  $indi
      * @return Indi
      */
     public function addAlia($indi)
     {
         $this->alia[] = $indi;
+
         return $this;
     }
 
@@ -333,12 +317,12 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Famc $famc
      * @return Indi
      */
     public function addFamc(Indi\Famc $famc)
     {
         $this->famc[] = $famc;
+
         return $this;
     }
 
@@ -351,12 +335,12 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Fams $fams
      * @return Indi
      */
     public function addFams(Indi\Fams $fams)
     {
         $this->fams[] = $fams;
+
         return $this;
     }
 
@@ -369,12 +353,13 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $subm
+     * @param  string  $subm
      * @return Indi
      */
     public function addAnci($subm)
     {
         $this->anci[] = $subm;
+
         return $this;
     }
 
@@ -387,12 +372,13 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $subm
+     * @param  string  $subm
      * @return Indi
      */
     public function addDesi($subm)
     {
         $this->desi[] = $subm;
+
         return $this;
     }
 
@@ -405,12 +391,13 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $subm
+     * @param  string  $subm
      * @return Indi
      */
     public function addSubm($subm)
     {
         $this->subm[] = $subm;
+
         return $this;
     }
 
@@ -423,12 +410,13 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $resn
+     * @param  string  $resn
      * @return Indi
      */
     public function setResn($resn)
     {
         $this->resn = $resn;
+
         return $this;
     }
 
@@ -441,12 +429,13 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $sex
+     * @param  string  $sex
      * @return Indi
      */
     public function setSex($sex)
     {
         $this->sex = $sex;
+
         return $this;
     }
 
@@ -459,12 +448,13 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $rfn
+     * @param  string  $rfn
      * @return Indi
      */
     public function setRfn($rfn)
     {
         $this->rfn = $rfn;
+
         return $this;
     }
 
@@ -477,12 +467,13 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $afn
+     * @param  string  $afn
      * @return Indi
      */
     public function setAfn($afn)
     {
         $this->afn = $afn;
+
         return $this;
     }
 
@@ -495,12 +486,13 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $chan
+     * @param  string  $chan
      * @return Indi
      */
     public function setChan($chan)
     {
         $this->chan = $chan;
+
         return $this;
     }
 
@@ -513,12 +505,13 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $rin
+     * @param  string  $rin
      * @return Indi
      */
     public function setRin($rin)
     {
         $this->rin = $rin;
+
         return $this;
     }
 
@@ -531,12 +524,12 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Bapl $bapl
      * @return Indi
      */
     public function setBapl(Indi\Bapl $bapl)
     {
         $this->bapl = $bapl;
+
         return $this;
     }
 
@@ -549,12 +542,12 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Conl $conl
      * @return Indi
      */
     public function setConl(Indi\Conl $conl)
     {
         $this->conl = $conl;
+
         return $this;
     }
 
@@ -567,12 +560,12 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Endl $endl
      * @return Indi
      */
     public function setEndl(Indi\Endl $endl)
     {
         $this->endl = $endl;
+
         return $this;
     }
 
@@ -585,12 +578,12 @@ class Indi extends Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Slgc $slgc
      * @return Indi
      */
     public function setSlgc(Indi\Slgc $slgc)
     {
         $this->slgc = $slgc;
+
         return $this;
     }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -23,28 +25,28 @@ class Gedcom
     /**
      * Stores the header information of the GEDCOM file.
      *
-     * @var \Gedcom\Record\Head
+     * @var Record\Head
      */
     protected $head;
 
     /**
      * Stores the submission information for the GEDCOM file.
      *
-     * @var \Gedcom\Record\Subn
+     * @var Record\Subn
      */
     protected $subn;
 
     /**
      * Stores sources cited throughout the GEDCOM file.
      *
-     * @var \Gedcom\Record\Sour[]
+     * @var Record\Sour[]
      */
     protected $sour = [];
 
     /**
      * Stores all the individuals contained within the GEDCOM file.
      *
-     * @var \Gedcom\Record\Indi[]
+     * @var Record\Indi[]
      */
     protected $indi = [];
 
@@ -58,42 +60,42 @@ class Gedcom
     /**
      * Stores all the families contained within the GEDCOM file.
      *
-     * @var \Gedcom\Record\Fam[]
+     * @var Record\Fam[]
      */
     protected $fam = [];
 
     /**
      * Stores all the notes contained within the GEDCOM file that are not inline.
      *
-     * @var \Gedcom\Record\Note[]
+     * @var Record\Note[]
      */
     protected $note = [];
 
     /**
      * Stores all repositories that are contained within the GEDCOM file and referenced by sources.
      *
-     * @var \Gedcom\Record\Repo[]
+     * @var Record\Repo[]
      */
     protected $repo = [];
 
     /**
      * Stores all the media objects that are contained within the GEDCOM file.
      *
-     * @var \Gedcom\Record\Obje[]
+     * @var Record\Obje[]
      */
     protected $obje = [];
 
     /**
      * Stores information about all the submitters to the GEDCOM file.
      *
-     * @var \Gedcom\Record\Subm[]
+     * @var Record\Subm[]
      */
     protected $subm = [];
 
     /**
      * Retrieves the header record of the GEDCOM file.
      */
-    public function setHead(\Gedcom\Record\Head $head)
+    public function setHead(Record\Head $head)
     {
         $this->head = $head;
     }
@@ -101,7 +103,7 @@ class Gedcom
     /**
      * Retrieves the submission record of the GEDCOM file.
      */
-    public function setSubn(\Gedcom\Record\Subn $subn)
+    public function setSubn(Record\Subn $subn)
     {
         $this->subn = $subn;
     }
@@ -109,7 +111,7 @@ class Gedcom
     /**
      * Adds a source to the collection of sources.
      */
-    public function addSour(\Gedcom\Record\Sour $sour)
+    public function addSour(Record\Sour $sour)
     {
         $this->sour[$sour->getSour()] = $sour;
     }
@@ -117,7 +119,7 @@ class Gedcom
     /**
      * Adds an individual to the collection of individuals.
      */
-    public function addIndi(\Gedcom\Record\Indi $indi)
+    public function addIndi(Record\Indi $indi)
     {
         $this->indi[$indi->getId()] = $indi;
         if ($indi->getUid() !== '' && $indi->getUid() !== '0') {
@@ -128,7 +130,7 @@ class Gedcom
     /**
      * Adds a family to the collection of families.
      */
-    public function addFam(\Gedcom\Record\Fam $fam)
+    public function addFam(Record\Fam $fam)
     {
         $this->fam[$fam->getId()] = $fam;
     }
@@ -136,7 +138,7 @@ class Gedcom
     /**
      * Adds a note to the collection of notes.
      */
-    public function addNote(\Gedcom\Record\Note $note)
+    public function addNote(Record\Note $note)
     {
         $this->note[$note->getId()] = $note;
     }
@@ -144,7 +146,7 @@ class Gedcom
     /**
      * Adds a repository to the collection of repositories.
      */
-    public function addRepo(\Gedcom\Record\Repo $repo)
+    public function addRepo(Record\Repo $repo)
     {
         $this->repo[$repo->getRepo()] = $repo;
     }
@@ -152,7 +154,7 @@ class Gedcom
     /**
      * Adds an object to the collection of objects.
      */
-    public function addObje(\Gedcom\Record\Obje $obje)
+    public function addObje(Record\Obje $obje)
     {
         $this->obje[$obje->getId()] = $obje;
     }
@@ -160,7 +162,7 @@ class Gedcom
     /**
      * Adds a submitter record to the collection of submitters.
      */
-    public function addSubm(\Gedcom\Record\Subm $subm)
+    public function addSubm(Record\Subm $subm)
     {
         $this->subm[$subm->getSubm()] = $subm;
     }
@@ -168,7 +170,7 @@ class Gedcom
     /**
      * Gets the header information of the GEDCOM file.
      *
-     * @return \Gedcom\Record\Head
+     * @return Record\Head
      */
     public function getHead()
     {
@@ -178,7 +180,7 @@ class Gedcom
     /**
      * Gets the submission record of the GEDCOM file.
      *
-     * @return \Gedcom\Record\Subn
+     * @return Record\Subn
      */
     public function getSubn()
     {
@@ -188,7 +190,7 @@ class Gedcom
     /**
      * Gets the collection of submitters to the GEDCOM file.
      *
-     * @return \Gedcom\Record\Subm[]
+     * @return Record\Subm[]
      */
     public function getSubm()
     {
@@ -198,7 +200,7 @@ class Gedcom
     /**
      * Gets the collection of individuals stored in the GEDCOM file.
      *
-     * @return \Gedcom\Record\Indi[]
+     * @return Record\Indi[]
      */
     public function getIndi()
     {
@@ -208,7 +210,7 @@ class Gedcom
     /**
      * Gets the collection of families stored in the GEDCOM file.
      *
-     * @return \Gedcom\Record\Fam[]
+     * @return Record\Fam[]
      */
     public function getFam()
     {
@@ -218,7 +220,7 @@ class Gedcom
     /**
      * Gets the collection of repositories stored in the GEDCOM file.
      *
-     * @return \Gedcom\Record\Repo[]
+     * @return Record\Repo[]
      */
     public function getRepo()
     {
@@ -228,7 +230,7 @@ class Gedcom
     /**
      * Gets the collection of sources stored in the GEDCOM file.
      *
-     * @return \Gedcom\Record\Sour[]
+     * @return Record\Sour[]
      */
     public function getSour()
     {
@@ -238,7 +240,7 @@ class Gedcom
     /**
      * Gets the collection of note stored in the GEDCOM file.
      *
-     * @return \Gedcom\Record\Note[]
+     * @return Record\Note[]
      */
     public function getNote()
     {
@@ -248,7 +250,7 @@ class Gedcom
     /**
      * Gets the collection of objects stored in the GEDCOM file.
      *
-     * @return \Gedcom\Record\Obje[]
+     * @return Record\Obje[]
      */
     public function getObje()
     {

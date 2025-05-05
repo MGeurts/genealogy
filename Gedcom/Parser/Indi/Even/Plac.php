@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,19 +22,19 @@ class Plac extends \Gedcom\Parser\Component
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
 
         $plac = new \Gedcom\Record\Indi\Even\Plac();
 
         if (isset($record[2])) {
-            $plac->setPlac(trim((string) $record[2]));
+            $plac->setPlac(mb_trim((string) $record[2]));
         }
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim((string) $record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -42,7 +44,7 @@ class Plac extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'FORM':
-                    $plac->setForm(trim((string) $record[2]));
+                    $plac->setForm(mb_trim((string) $record[2]));
                     break;
                 case 'NOTE':
                     $note = \Gedcom\Parser\NoteRef::parse($parser);
@@ -55,7 +57,7 @@ class Plac extends \Gedcom\Parser\Component
                     $plac->addSour($sour);
                     break;
                 default:
-                    $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                    $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,8 +10,8 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
@@ -17,21 +19,20 @@ namespace PhpGedcom;
 
 /**
  * Class Gedcom
- * @package PhpGedcom
  */
 class Gedcom
 {
     /**
      * Stores the header information of the GEDCOM file.
      *
-     * @var \PhpGedcom\Record\Head
+     * @var Record\Head
      */
     protected $head;
 
     /**
      * Stores the submission information for the GEDCOM file.
      *
-     * @var \PhpGedcom\Record\Subn
+     * @var Record\Subn
      */
     protected $subn;
 
@@ -40,54 +41,52 @@ class Gedcom
      *
      * @var array
      */
-    protected $sour = array();
+    protected $sour = [];
 
     /**
      * Stores all the individuals contained within the GEDCOM file.
      *
      * @var array
      */
-    protected $indi = array();
+    protected $indi = [];
 
     /**
      * Stores all the families contained within the GEDCOM file.
      *
      * @var array
      */
-    protected $fam  = array();
+    protected $fam = [];
 
     /**
      * Stores all the notes contained within the GEDCOM file that are not inline.
      *
      * @var array
      */
-    protected $note = array();
+    protected $note = [];
 
     /**
      * Stores all repositories that are contained within the GEDCOM file and referenced by sources.
      *
      * @var array
      */
-    protected $repo = array();
+    protected $repo = [];
 
     /**
      * Stores all the media objects that are contained within the GEDCOM file.
      *
      * @var array
      */
-    protected $obje = array();
+    protected $obje = [];
 
     /**
      * Stores information about all the submitters to the GEDCOM file.
      *
      * @var array
      */
-    protected $subm = array();
+    protected $subm = [];
 
     /**
      * Retrieves the header record of the GEDCOM file.
-     *
-     * @param Record\Head $head
      */
     public function setHead(Record\Head $head)
     {
@@ -96,8 +95,6 @@ class Gedcom
 
     /**
      * Retrieves the submission record of the GEDCOM file.
-     *
-     * @param Record\Subn $subn
      */
     public function setSubn(Record\Subn $subn)
     {
@@ -106,8 +103,6 @@ class Gedcom
 
     /**
      * Adds a source to the collection of sources.
-     *
-     * @param Record\Sour $sour
      */
     public function addSour(Record\Sour $sour)
     {
@@ -116,8 +111,6 @@ class Gedcom
 
     /**
      * Adds an individual to the collection of individuals.
-     *
-     * @param Record\Indi $indi
      */
     public function addIndi(Record\Indi $indi)
     {
@@ -126,8 +119,6 @@ class Gedcom
 
     /**
      * Adds a family to the collection of families.
-     *
-     * @param Record\Fam $fam
      */
     public function addFam(Record\Fam $fam)
     {
@@ -136,8 +127,6 @@ class Gedcom
 
     /**
      * Adds a note to the collection of notes.
-     *
-     * @param Record\Note $note
      */
     public function addNote(Record\Note $note)
     {
@@ -146,8 +135,6 @@ class Gedcom
 
     /**
      * Adds a repository to the collection of repositories.
-     *
-     * @param Record\Repo $repo
      */
     public function addRepo(Record\Repo $repo)
     {
@@ -156,8 +143,6 @@ class Gedcom
 
     /**
      * Adds an object to the collection of objects.
-     *
-     * @param Record\Obje $obje
      */
     public function addObje(Record\Obje $obje)
     {
@@ -166,8 +151,6 @@ class Gedcom
 
     /**
      * Adds a submitter record to the collection of submitters.
-     *
-     * @param Record\Subm $subm
      */
     public function addSubm(Record\Subm $subm)
     {

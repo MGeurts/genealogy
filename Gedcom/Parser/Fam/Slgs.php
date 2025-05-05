@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,15 +22,15 @@ class Slgs extends \Gedcom\Parser\Component
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
 
         $slgs = new \Gedcom\Record\Fam\Slgs();
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim((string) $record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -38,17 +40,17 @@ class Slgs extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'STAT':
-                    $stat = \Gedcom\Parser\Fam\Slgs\Stat::parse($parser);
+                    $stat = Slgs\Stat::parse($parser);
                     $slgs->setStat($stat);
                     break;
                 case 'DATE':
-                    $slgs->setDate(trim((string) $record[2]));
+                    $slgs->setDate(mb_trim((string) $record[2]));
                     break;
                 case 'PLAC':
-                    $slgs->setPlac(trim((string) $record[2]));
+                    $slgs->setPlac(mb_trim((string) $record[2]));
                     break;
                 case 'TEMP':
-                    $slgs->setTemp(trim((string) $record[2]));
+                    $slgs->setTemp(mb_trim((string) $record[2]));
                     break;
                 case 'SOUR':
                     $sour = \Gedcom\Parser\SourRef::parse($parser);
@@ -61,7 +63,7 @@ class Slgs extends \Gedcom\Parser\Component
                     }
                     break;
                 default:
-                    $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                    $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

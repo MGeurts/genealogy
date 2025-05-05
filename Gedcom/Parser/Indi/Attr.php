@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,12 +22,12 @@ abstract class Attr extends \Gedcom\Parser\Component
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[1])) {
-            $className = '\\Gedcom\\Record\\Indi\\'.ucfirst(strtolower(trim((string) $record[1])));
-            $attr = new $className();
+            $className = '\\Gedcom\\Record\\Indi\\' . ucfirst(mb_strtolower(mb_trim((string) $record[1])));
+            $attr      = new $className();
 
-            $attr->setType(trim((string) $record[1]));
+            $attr->setType(mb_trim((string) $record[1]));
         } else {
             $parser->skipToNextLevel($depth);
 
@@ -33,14 +35,14 @@ abstract class Attr extends \Gedcom\Parser\Component
         }
 
         if (isset($record[2])) {
-            $attr->setAttr(trim((string) $record[2]));
+            $attr->setAttr(mb_trim((string) $record[2]));
         }
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim((string) $record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -50,13 +52,13 @@ abstract class Attr extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'TYPE':
-                    $attr->setType(trim((string) $record[2]));
+                    $attr->setType(mb_trim((string) $record[2]));
                     break;
                 case 'DATE':
-                    $attr->setDate(trim((string) $record[2]));
+                    $attr->setDate(mb_trim((string) $record[2]));
                     break;
                 case 'PLAC':
-                    $plac = \Gedcom\Parser\Indi\Even\Plac::parse($parser);
+                    $plac = Even\Plac::parse($parser);
                     $attr->setPlac($plac);
                     break;
                 case 'ADDR':
@@ -67,13 +69,13 @@ abstract class Attr extends \Gedcom\Parser\Component
                     $attr->addPhon($phone);
                     break;
                 case 'CAUS':
-                    $attr->setCaus(trim((string) $record[2]));
+                    $attr->setCaus(mb_trim((string) $record[2]));
                     break;
                 case 'AGE':
-                    $attr->setAge(trim((string) $record[2]));
+                    $attr->setAge(mb_trim((string) $record[2]));
                     break;
                 case 'AGNC':
-                    $attr->setAgnc(trim((string) $record[2]));
+                    $attr->setAgnc(mb_trim((string) $record[2]));
                     break;
                 case 'SOUR':
                     $sour = \Gedcom\Parser\SourRef::parse($parser);
@@ -90,7 +92,7 @@ abstract class Attr extends \Gedcom\Parser\Component
                     }
                     break;
                 default:
-                    $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                    $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

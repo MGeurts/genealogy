@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,12 +17,12 @@
 
 namespace Gedcom\Parser;
 
-class Repo extends \Gedcom\Parser\Component
+class Repo extends Component
 {
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[1])) {
             $identifier = $parser->normalizeIdentifier($record[1]);
         } else {
@@ -36,10 +38,10 @@ class Repo extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
             $currentDepth = (int) $record[0];
-            $recordType = strtoupper(trim((string) $record[1]));
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
 
             if ($currentDepth <= $depth) {
                 $parser->back();
@@ -48,42 +50,42 @@ class Repo extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'NAME':
-                    $repo->setName(trim((string) $record[2]));
+                    $repo->setName(mb_trim((string) $record[2]));
                     break;
                 case 'ADDR':
-                    $addr = \Gedcom\Parser\Addr::parse($parser);
+                    $addr = Addr::parse($parser);
                     $repo->setAddr($addr);
                     break;
                 case 'PHON':
-                    $repo->addPhon(trim((string) $record[2]));
+                    $repo->addPhon(mb_trim((string) $record[2]));
                     break;
                 case 'EMAIL':
-                    $repo->addEmail(trim((string) $record[2]));
+                    $repo->addEmail(mb_trim((string) $record[2]));
                     break;
                 case 'FAX':
-                    $repo->addFax(trim((string) $record[2]));
+                    $repo->addFax(mb_trim((string) $record[2]));
                     break;
                 case 'WWW':
-                    $repo->addWww(trim((string) $record[2]));
+                    $repo->addWww(mb_trim((string) $record[2]));
                     break;
                 case 'NOTE':
-                    if ($note = \Gedcom\Parser\NoteRef::parse($parser)) {
+                    if ($note = NoteRef::parse($parser)) {
                         $repo->addNote($note);
                     }
                     break;
                 case 'REFN':
-                    $refn = \Gedcom\Parser\Refn::parse($parser);
+                    $refn = Refn::parse($parser);
                     $repo->addRefn($refn);
                     break;
                 case 'RIN':
-                    $repo->setRin(trim((string) $record[2]));
+                    $repo->setRin(mb_trim((string) $record[2]));
                     break;
                 case 'CHAN':
-                    $chan = \Gedcom\Parser\Chan::parse($parser);
+                    $chan = Chan::parse($parser);
                     $repo->setChan($chan);
                     break;
                 default:
-                    $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                    $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

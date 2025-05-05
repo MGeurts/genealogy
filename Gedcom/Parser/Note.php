@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,12 +17,12 @@
 
 namespace Gedcom\Parser;
 
-class Note extends \Gedcom\Parser\Component
+class Note extends Component
 {
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord(4);
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[1])) {
             $identifier = $parser->normalizeIdentifier($record[1]);
         } else {
@@ -38,10 +40,10 @@ class Note extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
             $currentDepth = (int) $record[0];
-            $recordType = strtoupper(trim((string) $record[1]));
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
 
             if ($currentDepth <= $depth) {
                 $parser->back();
@@ -50,33 +52,33 @@ class Note extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'CONT':
-                    $note->setNote($note->getNote()."\n");
+                    $note->setNote($note->getNote() . "\n");
                     if (isset($record[2])) {
-                        $note->setNote($note->getNote().$record[2]);
+                        $note->setNote($note->getNote() . $record[2]);
                     }
                     break;
                 case 'CONC':
                     if (isset($record[2])) {
-                        $note->setNote($note->getNote().$record[2]);
+                        $note->setNote($note->getNote() . $record[2]);
                     }
                     break;
                 case 'REFN':
-                    $refn = \Gedcom\Parser\Refn::parse($parser);
+                    $refn = Refn::parse($parser);
                     $note->addRefn($refn);
                     break;
                 case 'RIN':
-                    $note->setRin(trim((string) $record[2]));
+                    $note->setRin(mb_trim((string) $record[2]));
                     break;
                 case 'SOUR':
-                    $sour = \Gedcom\Parser\SourRef::parse($parser);
+                    $sour = SourRef::parse($parser);
                     $note->addSour($sour);
                     break;
                 case 'CHAN':
-                    $chan = \Gedcom\Parser\Chan::parse($parser);
+                    $chan = Chan::parse($parser);
                     $note->setChan($chan);
                     break;
                 default:
-                    $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                    $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

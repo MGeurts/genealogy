@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -39,10 +41,12 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
      * @var string
      */
     protected $resn;
+
     /**
      * @var Indi\Name[]
      */
     protected $name = [];
+
     /**
      * @var string
      */
@@ -52,10 +56,12 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
      * @var Indi\Even[]
      */
     protected $even = [];
+
     /**
      * @var Indi\Attr[]
      */
     protected $attr = [];
+
     /**
      * @var Indi\Bapl
      */
@@ -80,38 +86,47 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
      * @var Indi\Famc[]
      */
     protected $famc = [];
+
     /**
      * @var Indi\Fams[]
      */
     protected $fams = [];
+
     /**
      * @var string[]
      */
     protected $subm = [];
+
     /**
      * @var string[]
      */
     protected $alia = [];
+
     /**
      * @var string[]
      */
     protected $anci = [];
+
     /**
      * @var string[]
      */
     protected $desi = [];
+
     /**
      * @var string
      */
     protected $rfn;
+
     /**
      * @var string
      */
     protected $afn;
+
     /**
      * @var Refn[]
      */
     protected $refn = [];
+
     /**
      * @var string
      */
@@ -193,8 +208,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $id
-     *
+     * @param  string  $id
      * @return Indi
      */
     public function setId($id = '')
@@ -213,8 +227,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $id
-     *
+     * @param  string  $id
      * @return Indi
      */
     public function setGid($gid = '')
@@ -233,8 +246,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $uid
-     *
+     * @param  string  $uid
      * @return Indi
      */
     public function setUid($uid = '')
@@ -253,8 +265,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Name $name
-     *
+     * @param  Indi\Name  $name
      * @return Indi
      */
     public function addName($name = [])
@@ -273,15 +284,14 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Attr $attr
-     *
+     * @param  Indi\Attr  $attr
      * @return Indi
      */
     public function addAttr($attr = [])
     {
         $attrName = $attr->getType();
 
-        if (!array_key_exists($attrName, $this->attr)) {
+        if (! array_key_exists($attrName, $this->attr)) {
             $this->attr[$attrName] = [];
         }
 
@@ -303,21 +313,20 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
      */
     public function getAttr($key = '')
     {
-        if (isset($this->attr[strtoupper((string) $key)])) {
-            return $this->attr[strtoupper((string) $key)];
+        if (isset($this->attr[mb_strtoupper((string) $key)])) {
+            return $this->attr[mb_strtoupper((string) $key)];
         }
     }
 
     /**
-     * @param Indi\Even $even
-     *
+     * @param  Indi\Even  $even
      * @return Indi
      */
     public function addEven($even = [])
     {
         $evenName = $even->getType();
 
-        if (!array_key_exists($evenName, $this->even)) {
+        if (! array_key_exists($evenName, $this->even)) {
             $this->even[$evenName] = [];
         }
 
@@ -339,16 +348,15 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
      */
     public function getEven($key = '')
     {
-        if (isset($this->even[strtoupper((string) $key)])) {
-            return $this->even[strtoupper((string) $key)];
+        if (isset($this->even[mb_strtoupper((string) $key)])) {
+            return $this->even[mb_strtoupper((string) $key)];
         }
 
         return [];
     }
 
     /**
-     * @param Indi\Asso $asso
-     *
+     * @param  Indi\Asso  $asso
      * @return Indi
      */
     public function addAsso($asso = [])
@@ -367,8 +375,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Refn $ref
-     *
+     * @param  Refn  $ref
      * @return Indi
      */
     public function addRefn($ref = [])
@@ -387,8 +394,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param \Gedcom\Record\NoteRef $note
-     *
+     * @param  NoteRef  $note
      * @return Indi
      */
     public function addNote($note = [])
@@ -407,8 +413,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param ObjeRef $obje
-     *
+     * @param  ObjeRef  $obje
      * @return Indi
      */
     public function addObje($obje = [])
@@ -427,8 +432,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param SourRef $sour
-     *
+     * @param  SourRef  $sour
      * @return Indi
      */
     public function addSour($sour = [])
@@ -447,8 +451,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $indi
-     *
+     * @param  string  $indi
      * @return Indi
      */
     public function addAlia($indi = '')
@@ -467,8 +470,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Famc $famc
-     *
+     * @param  Indi\Famc  $famc
      * @return Indi
      */
     public function addFamc($famc = [])
@@ -487,8 +489,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Fams $fams
-     *
+     * @param  Indi\Fams  $fams
      * @return Indi
      */
     public function addFams($fams = [])
@@ -507,8 +508,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $subm
-     *
+     * @param  string  $subm
      * @return Indi
      */
     public function addAnci($subm = '')
@@ -527,8 +527,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $subm
-     *
+     * @param  string  $subm
      * @return Indi
      */
     public function addDesi($subm = '')
@@ -547,8 +546,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $subm
-     *
+     * @param  string  $subm
      * @return Indi
      */
     public function addSubm($subm = '')
@@ -567,8 +565,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $resn
-     *
+     * @param  string  $resn
      * @return Indi
      */
     public function setResn($resn = '')
@@ -587,8 +584,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $sex
-     *
+     * @param  string  $sex
      * @return Indi
      */
     public function setSex($sex = '')
@@ -607,8 +603,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $rfn
-     *
+     * @param  string  $rfn
      * @return Indi
      */
     public function setRfn($rfn = '')
@@ -627,8 +622,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $afn
-     *
+     * @param  string  $afn
      * @return Indi
      */
     public function setAfn($afn = '')
@@ -647,8 +641,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $chan
-     *
+     * @param  string  $chan
      * @return Indi
      */
     public function setChan($chan = null)
@@ -667,8 +660,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param string $rin
-     *
+     * @param  string  $rin
      * @return Indi
      */
     public function setRin($rin = '')
@@ -687,8 +679,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Bapl $bapl
-     *
+     * @param  Indi\Bapl  $bapl
      * @return Indi
      */
     public function setBapl($bapl = [])
@@ -699,8 +690,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Bapl $bapl
-     *
+     * @param  Indi\Bapl  $bapl
      * @return Indi
      */
     public function addBapl($bapl = null)
@@ -719,8 +709,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Conl $conl
-     *
+     * @param  Indi\Conl  $conl
      * @return Indi
      */
     public function setConl($conl = [])
@@ -731,8 +720,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Conl $conl
-     *
+     * @param  Indi\Conl  $conl
      * @return Indi
      */
     public function addConl($conl)
@@ -751,8 +739,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Endl $endl
-     *
+     * @param  Indi\Endl  $endl
      * @return Indi
      */
     public function setEndl($endl = [])
@@ -763,8 +750,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Endl $endl
-     *
+     * @param  Indi\Endl  $endl
      * @return Indi
      */
     public function addEndl($endl)
@@ -783,8 +769,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Slgc $slgc
-     *
+     * @param  Indi\Slgc  $slgc
      * @return Indi
      */
     public function setSlgc($slgc = [])
@@ -795,8 +780,7 @@ class Indi extends \Gedcom\Record implements Noteable, Objectable, Sourceable
     }
 
     /**
-     * @param Indi\Slgc $slgc
-     *
+     * @param  Indi\Slgc  $slgc
      * @return Indi
      */
     public function addSlgc($slgc)

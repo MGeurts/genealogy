@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,33 +10,21 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Record\Indi;
 
-use \PhpGedcom\Record\Noteable;
+use PhpGedcom\Record\Noteable;
 
-/**
- *
- */
 class Fams extends \PhpGedcom\Record implements Noteable
 {
-    /**
-     *
-     */
     protected $_fams = null;
 
-    /**
-     *
-     */
-    protected $_note = array();
+    protected $_note = [];
 
-    /**
-     *
-     */
     public function addNote(\PhpGedcom\Record\NoteRef $note)
     {
         $this->_note[] = $note;

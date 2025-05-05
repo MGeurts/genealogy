@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,6 +17,4 @@
 
 namespace Gedcom\Parser\Fam;
 
-class Mars extends \Gedcom\Parser\Fam\Even
-{
-}
+class Mars extends Even {}

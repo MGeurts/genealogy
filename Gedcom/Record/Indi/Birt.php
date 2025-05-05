@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -26,8 +28,7 @@ class Birt extends Even
     protected $famc;
 
     /**
-     * @param string $famc
-     *
+     * @param  string  $famc
      * @return Birt
      */
     public function setFamc($famc = '')

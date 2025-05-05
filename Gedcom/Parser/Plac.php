@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,14 +17,14 @@
 
 namespace Gedcom\Parser;
 
-class Plac extends \Gedcom\Parser\Component
+class Plac extends Component
 {
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[2])) {
-            $_plac = trim((string) $record[2]);
+            $_plac = mb_trim((string) $record[2]);
         } else {
             $parser->skipToNextLevel($depth);
 
@@ -34,10 +36,10 @@ class Plac extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
             $currentDepth = (int) $record[0];
-            $recordType = strtoupper(trim((string) $record[1]));
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
 
             if ($currentDepth <= $depth) {
                 $parser->back();
@@ -46,27 +48,27 @@ class Plac extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'FORM':
-                    $plac->setForm(trim((string) $record[2]));
+                    $plac->setForm(mb_trim((string) $record[2]));
                     break;
                 case 'FONE':
-                    $fone = \Gedcom\Parser\Plac\Fone::parse($parser);
+                    $fone = Plac\Fone::parse($parser);
                     $plac->setFone($fone);
                     break;
                 case 'ROMN':
-                    $romn = \Gedcom\Parser\Plac\Romn::parse($parser);
+                    $romn = Plac\Romn::parse($parser);
                     $plac->setRomn($romn);
                     break;
                 case 'NOTE':
-                    if ($note = \Gedcom\Parser\NoteRef::parse($parser)) {
+                    if ($note = NoteRef::parse($parser)) {
                         $plac->addNote($note);
                     }
                     break;
                 case 'MAP':
-                    $map = \Gedcom\Parser\Plac\Map::parse($parser);
+                    $map = Plac\Map::parse($parser);
                     $plac->setMap($map);
                     break;
                 default:
-                    $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                    $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

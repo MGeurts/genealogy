@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,8 +20,7 @@ namespace Gedcom\Writer\Indi;
 class Attr
 {
     /**
-     * @param int $level
-     *
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Indi\Attr &$attr, $level = 0)

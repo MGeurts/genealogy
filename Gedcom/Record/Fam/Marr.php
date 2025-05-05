@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,6 +17,4 @@
 
 namespace Gedcom\Record\Fam;
 
-class Marr extends \Gedcom\Record\Fam\Even
-{
-}
+class Marr extends Even {}

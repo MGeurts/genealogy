@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,18 +20,17 @@ namespace Gedcom\Writer;
 class Obje
 {
     /**
-     * @param \Gedcom\Record\Obje $sour
-     * @param int                 $level
-     *
+     * @param  \Gedcom\Record\Obje  $sour
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Obje &$obje)
     {
-        $level = 0;
+        $level  = 0;
         $output = '';
-        $id = $obje->getId();
+        $id     = $obje->getId();
         if ($id) {
-            $output .= $level.' '.$id." OBJE\n";
+            $output .= $level . ' ' . $id . " OBJE\n";
         } else {
             return $output;
         }
@@ -40,13 +41,13 @@ class Obje
         // FORM
         $form = $obje->getName();
         if ($form) {
-            $output .= $level.' FORM '.$form."\n";
+            $output .= $level . ' FORM ' . $form . "\n";
         }
 
         // TITL
         $titl = $obje->getTitl();
         if ($titl) {
-            $output .= $level.' TITL '.$titl."\n";
+            $output .= $level . ' TITL ' . $titl . "\n";
         }
 
         // OBJE
@@ -55,15 +56,15 @@ class Obje
         // RIN
         $rin = $obje->getRin();
         if ($rin) {
-            $output .= $level.' RIN '.$rin."\n";
+            $output .= $level . ' RIN ' . $rin . "\n";
         }
 
         // REFN
         $refn = $obje->getRefn();
-        if (!empty($refn) && (is_countable($refn) ? count($refn) : 0) > 0) {
+        if (! empty($refn) && (is_countable($refn) ? count($refn) : 0) > 0) {
             foreach ($refn as $item) {
                 if ($item) {
-                    $_convert = \Gedcom\Writer\Refn::convert($item, $level);
+                    $_convert = Refn::convert($item, $level);
                     $output .= $_convert;
                 }
             }
@@ -72,14 +73,14 @@ class Obje
         // BLOB
         $blob = $obje->getBlob();
         if ($blob) {
-            $output .= $level.' BLOB '.$blob."\n";
+            $output .= $level . ' BLOB ' . $blob . "\n";
         }
 
         // NOTE
         $note = $obje->getNote();
         foreach ($note as $item) {
             if ($item) {
-                $_convert = \Gedcom\Writer\NoteRef::convert($item, $level);
+                $_convert = NoteRef::convert($item, $level);
                 $output .= $_convert;
             }
         }
@@ -87,14 +88,14 @@ class Obje
         // CHAN
         $chan = $obje->getChan();
         if ($chan) {
-            $_convert = \Gedcom\Writer\Chan::convert($chan, $level);
+            $_convert = Chan::convert($chan, $level);
             $output .= $_convert;
         }
 
         // FILE
         $file = $obje->getFile();
         if ($file) {
-            $output .= $level.' FILE '.$file."\n";
+            $output .= $level . ' FILE ' . $file . "\n";
         }
 
         //

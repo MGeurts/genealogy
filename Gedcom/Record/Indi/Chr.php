@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,7 +17,7 @@
 
 namespace Gedcom\Record\Indi;
 
-class Chr extends \Gedcom\Record\Indi\Even
+class Chr extends Even
 {
     protected $_famc;
 }

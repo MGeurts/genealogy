@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -31,8 +33,7 @@ class Refn extends \Gedcom\Record
     protected $type;
 
     /**
-     * @param string $refn
-     *
+     * @param  string  $refn
      * @return Refn
      */
     public function setRefn($refn = '')
@@ -51,8 +52,7 @@ class Refn extends \Gedcom\Record
     }
 
     /**
-     * @param string $type
-     *
+     * @param  string  $type
      * @return Refn
      */
     public function setType($type = '')

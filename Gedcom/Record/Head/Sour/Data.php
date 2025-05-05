@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,6 +20,8 @@ namespace Gedcom\Record\Head\Sour;
 class Data extends \Gedcom\Record
 {
     protected $_data;
+
     protected $_date;
+
     protected $_copr;
 }

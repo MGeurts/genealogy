@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,55 +10,32 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Record;
 
-use \PhpGedcom\Record\Sourceable;
-
-/**
- *
- */
 class NoteRef extends \PhpGedcom\Record implements Sourceable
 {
-    /**
-     *
-     */
-    protected $_isRef   = false;
+    protected $_isRef = false;
 
-    /**
-     *
-     */
-    protected $_note    = '';
+    protected $_note = '';
 
-    /**
-     *
-     */
-    protected $_sour = array();
+    protected $_sour = [];
 
-    /**
-     *
-     */
     public function setIsReference($isReference = true)
     {
         $this->_isRef = $isReference;
     }
 
-    /**
-     *
-     */
     public function getIsReference()
     {
         return $this->_isRef;
     }
 
-    /**
-     *
-     */
-    public function addSour(\PhpGedcom\Record\SourRef $sour)
+    public function addSour(SourRef $sour)
     {
         $this->_sour[] = $sour;
     }

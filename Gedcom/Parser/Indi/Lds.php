@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,10 +22,10 @@ abstract class Lds extends \Gedcom\Parser\Component
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[1])) {
-            $className = '\\Gedcom\\Record\\Indi\\'.ucfirst(strtolower(trim((string) $record[1])));
-            $lds = new $className();
+            $className = '\\Gedcom\\Record\\Indi\\' . ucfirst(mb_strtolower(mb_trim((string) $record[1])));
+            $lds       = new $className();
         } else {
             $parser->skipToNextLevel($depth);
 
@@ -32,9 +34,9 @@ abstract class Lds extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim((string) $record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -44,16 +46,16 @@ abstract class Lds extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'STAT':
-                    $lds->setStat(trim((string) $record[2]));
+                    $lds->setStat(mb_trim((string) $record[2]));
                     break;
                 case 'DATE':
-                    $lds->setDate(trim((string) $record[2]));
+                    $lds->setDate(mb_trim((string) $record[2]));
                     break;
                 case 'PLAC':
-                    $lds->setPlac(trim((string) $record[2]));
+                    $lds->setPlac(mb_trim((string) $record[2]));
                     break;
                 case 'TEMP':
-                    $lds->setTemp(trim((string) $record[2]));
+                    $lds->setTemp(mb_trim((string) $record[2]));
                     break;
                 case 'SOUR':
                     $sour = \Gedcom\Parser\SourRef::parse($parser);
@@ -66,13 +68,13 @@ abstract class Lds extends \Gedcom\Parser\Component
                     }
                     break;
                 default:
-                    $self = static::class;
-                    $method = 'parse'.$recordType;
+                    $self   = static::class;
+                    $method = 'parse' . $recordType;
 
                     if (method_exists($self, $method)) {
                         $self::$method($parser, $lds);
                     } else {
-                        $parser->logUnhandledRecord($self.' @ '.__LINE__);
+                        $parser->logUnhandledRecord($self . ' @ ' . __LINE__);
                     }
             }
 

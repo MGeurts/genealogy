@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,13 +20,17 @@ namespace Gedcom\Record;
 class Note extends \Gedcom\Record implements Sourceable
 {
     protected $_id;
+
     protected $_note;
 
     protected $_even;
+
     protected $_refn = [];
+
     protected $_rin;
 
     protected $_sour = [];
+
     protected $_chan;
 
     public function addRefn($refn = [])

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Gedcom;
 
 class FormatInformation
@@ -25,6 +27,6 @@ class FormatInformation
  * - JSON: Returns a string with JSON format object.
  * - Default: Returns a simple string indicating the format.
  *
- * @param string $format The output format.
+ * @param  string  $format  The output format.
  * @return string The format information string.
  */

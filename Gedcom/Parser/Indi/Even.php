@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,34 +22,34 @@ class Even extends \Gedcom\Parser\Component
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (empty($record[1])) {
             $parser->skipToNextLevel($depth);
 
             return null;
         }
 
-        if (strtoupper(trim((string) $record[1])) != 'EVEN') {
-            $className = '\Gedcom\Record\Indi\\' . ucfirst(strtolower(trim((string) $record[1])));
-            $even = new $className();
+        if (mb_strtoupper(mb_trim((string) $record[1])) !== 'EVEN') {
+            $className = '\Gedcom\Record\Indi\\' . ucfirst(mb_strtolower(mb_trim((string) $record[1])));
+            $even      = new $className();
         } else {
             $even = new \Gedcom\Record\Indi\Even();
         }
 
-        if (isset($record[1]) && strtoupper(trim((string) $record[1])) != 'EVEN') {
-            $even->setType(trim((string) $record[1]));
+        if (isset($record[1]) && mb_strtoupper(mb_trim((string) $record[1])) !== 'EVEN') {
+            $even->setType(mb_trim((string) $record[1]));
         }
 
         // ensures we capture any data following the EVEN type
-        if (isset($record[2]) && !empty($record[2])) {
-            $even->setAttr(trim((string) $record[2]));
+        if (isset($record[2]) && ! empty($record[2])) {
+            $even->setAttr(mb_trim((string) $record[2]));
         }
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim((string) $record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -57,15 +59,15 @@ class Even extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'TYPE':
-                    $even->setType(trim((string) $record[2]));
+                    $even->setType(mb_trim((string) $record[2]));
                     break;
                 case 'DATE':
                     $dat = \Gedcom\Parser\Date::parse($parser);
                     $even->setDate($dat);
-                    //$even->setDate(trim($record[2]))
+                    // $even->setDate(trim($record[2]))
                     break;
                 case 'PLAC':
-                    $plac = \Gedcom\Parser\Indi\Even\Plac::parse($parser);
+                    $plac = Even\Plac::parse($parser);
                     $even->setPlac($plac);
                     break;
                 case 'ADDR':
@@ -76,13 +78,13 @@ class Even extends \Gedcom\Parser\Component
                     $even->addPhone($phone);
                     break;
                 case 'CAUS':
-                    $even->setCaus(trim((string) $record[2]));
+                    $even->setCaus(mb_trim((string) $record[2]));
                     break;
                 case 'AGE':
                     $even->setAge($record);
                     break;
                 case 'AGNC':
-                    $even->setAgnc(trim((string) $record[2]));
+                    $even->setAgnc(mb_trim((string) $record[2]));
                     break;
                 case 'SOUR':
                     $sour = \Gedcom\Parser\SourRef::parse($parser);
@@ -103,7 +105,7 @@ class Even extends \Gedcom\Parser\Component
                     $even->setChan($change);
                     break;
                 default:
-                    $self = static::class;
+                    $self   = static::class;
                     $method = 'parse' . $recordType;
 
                     if (method_exists($self, $method)) {

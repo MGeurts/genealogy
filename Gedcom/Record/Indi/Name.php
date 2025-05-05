@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -27,14 +29,23 @@ namespace Gedcom\Record\Indi;
 class Name extends \Gedcom\Record implements \Gedcom\Record\Sourceable
 {
     protected $_name;
+
     protected $_npfx;
+
     protected $_givn;
+
     protected $_nick;
+
     protected $_spfx;
+
     protected $_surn;
+
     protected $_nsfx;
+
     protected $_fone; // Gedcom/
+
     protected $_romn;
+
     protected $_type;
 
     protected $_note = [];

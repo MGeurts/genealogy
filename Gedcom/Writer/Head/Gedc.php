@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,27 +20,26 @@ namespace Gedcom\Writer\Head;
 class Gedc
 {
     /**
-     * @param string $format
-     * @param int    $level
-     *
+     * @param  string  $format
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Head\Gedc &$gedc, $level)
     {
-        $output = $level." GEDC \n";
+        $output = $level . " GEDC \n";
 
         // level up
         $level++;
         // VERS
         $vers = $gedc->getVersion();
         if ($vers) {
-            $output .= $level.' VERS '.$vers."\n";
+            $output .= $level . ' VERS ' . $vers . "\n";
         }
 
         // FORM
         $form = $gedc->getForm();
         if ($form) {
-            $output .= $level.' FORM '.$form."\n";
+            $output .= $level . ' FORM ' . $form . "\n";
         }
 
         return $output;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Gedcom\Record\Head;
 
 class Dest extends \Gedcom\Record

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,6 +17,4 @@
 
 namespace Gedcom\Parser\Indi;
 
-class Barm extends \Gedcom\Parser\Indi\Even
-{
-}
+class Barm extends Even {}

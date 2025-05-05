@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,31 +20,30 @@ namespace Gedcom\Writer;
 class Chan
 {
     /**
-     * @param \Gedcom\Record\Chan $note
-     * @param int                 $level
-     *
+     * @param  \Gedcom\Record\Chan  $note
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Chan &$chan, $level)
     {
-        $output = $level." CHAN \n";
+        $output = $level . " CHAN \n";
         // level up
         $level++;
         // DATE
         $_date = $chan->getDate();
-        if (!empty($_date)) {
-            $output .= $level.' DATE '.$_date."\n";
+        if (! empty($_date)) {
+            $output .= $level . ' DATE ' . $_date . "\n";
         }
         // TIME
         $_time = $chan->getDate();
-        if (!empty($_time)) {
-            $output .= $level.' DATE '.$_time."\n";
+        if (! empty($_time)) {
+            $output .= $level . ' DATE ' . $_time . "\n";
         }
         // $_note = array()
         $_note = $chan->getNote();
-        if (!empty($_note) && $_note !== []) {
+        if (! empty($_note) && $_note !== []) {
             foreach ($_note as $item) {
-                $_convert = \Gedcom\Writer\NoteRef::convert($item, $level);
+                $_convert = NoteRef::convert($item, $level);
                 $output .= $_convert;
             }
         }

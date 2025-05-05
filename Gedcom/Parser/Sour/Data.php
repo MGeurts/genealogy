@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,15 +22,15 @@ class Data extends \Gedcom\Parser\Component
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
 
         $data = new \Gedcom\Record\Sour\Data();
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim((string) $record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -38,13 +40,13 @@ class Data extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'EVEN':
-                    $data->addEven(\Gedcom\Parser\Sour\Data\Even::parse($parser));
+                    $data->addEven(Data\Even::parse($parser));
                     break;
                 case 'DATE': // not in 5.5.1
-                    $data->setDate(trim((string) $record[2]));
+                    $data->setDate(mb_trim((string) $record[2]));
                     break;
                 case 'AGNC':
-                    $data->setAgnc(trim((string) $record[2]));
+                    $data->setAgnc(mb_trim((string) $record[2]));
                     break;
                 case 'NOTE':
                     $note = \Gedcom\Parser\NoteRef::parse($parser);
@@ -56,7 +58,7 @@ class Data extends \Gedcom\Parser\Component
                     $data->setText($parser->parseMultiLineRecord());
                     break;
                 default:
-                    $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                    $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

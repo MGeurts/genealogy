@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,15 +17,15 @@
 
 namespace Gedcom\Parser;
 
-class Phon extends \Gedcom\Parser\Component
+class Phon extends Component
 {
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[2])) {
             $phone = new \Gedcom\Record\Phon();
-            $phone->setPhon(trim((string) $record[2]));
+            $phone->setPhon(mb_trim((string) $record[2]));
         } else {
             $parser->skipToNextLevel($depth);
 
@@ -32,9 +34,9 @@ class Phon extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim((string) $record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -42,7 +44,7 @@ class Phon extends \Gedcom\Parser\Component
                 break;
             }
 
-            $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+            $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
 
             $parser->forward();
         }

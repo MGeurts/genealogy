@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,12 +17,12 @@
 
 namespace Gedcom\Parser;
 
-class ObjeRef extends \Gedcom\Parser\Component
+class ObjeRef extends Component
 {
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
 
         $obje = new \Gedcom\Record\ObjeRef();
 
@@ -33,9 +35,9 @@ class ObjeRef extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim((string) $record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -45,16 +47,16 @@ class ObjeRef extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'TITL':
-                    $obje->setTitl(trim((string) $record[2]));
+                    $obje->setTitl(mb_trim((string) $record[2]));
                     break;
                 case 'FILE':
-                    $obje->setFile(trim((string) $record[2]));
+                    $obje->setFile(mb_trim((string) $record[2]));
                     break;
                 case 'FORM':
-                    $obje->setForm(trim((string) $record[2]));
+                    $obje->setForm(mb_trim((string) $record[2]));
                     break;
                 case 'NOTE':
-                    $note = \Gedcom\Parser\NoteRef::parse($parser);
+                    $note = NoteRef::parse($parser);
                     if ($note) {
                         $obje->addNote($note);
                     }

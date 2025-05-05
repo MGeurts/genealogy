@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,8 +10,8 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
@@ -19,7 +21,6 @@ use PhpGedcom\Record;
 
 /**
  * Class Data
- * @package PhpGedcom\Record
  */
 class Data extends Record
 {
@@ -34,12 +35,13 @@ class Data extends Record
     protected $date;
 
     /**
-     * @param string $text
+     * @param  string  $text
      * @return Data
      */
     public function setText($text)
     {
         $this->text = $text;
+
         return $this;
     }
 
@@ -52,12 +54,13 @@ class Data extends Record
     }
 
     /**
-     * @param string $date
+     * @param  string  $date
      * @return Data
      */
     public function setDate($date)
     {
         $this->date = $date;
+
         return $this;
     }
 

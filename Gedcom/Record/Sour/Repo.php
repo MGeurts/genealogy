@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,6 +22,7 @@ use Gedcom\Record\Noteable;
 class Repo extends \Gedcom\Record implements Noteable
 {
     protected $_repo;
+
     /**
      * array PhpRecord\Sour\Repo\Caln.
      */

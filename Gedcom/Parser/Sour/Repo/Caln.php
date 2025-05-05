@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -19,9 +21,9 @@ class Caln extends \Gedcom\Parser\Component
 {
     public static function parse(\Gedcom\Parser $parser)
     {
-        $caln = new \Gedcom\Record\Sour\Repo\Caln();
+        $caln   = new \Gedcom\Record\Sour\Repo\Caln();
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[2])) {
             $_caln = $record[2];
             $caln->setCaln($_caln);
@@ -31,9 +33,9 @@ class Caln extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim((string) $record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -42,8 +44,8 @@ class Caln extends \Gedcom\Parser\Component
             }
 
             match ($recordType) {
-                'MEDI' => $caln->setMedi(trim((string) $record[2])),
-                default => $parser->logUnhandledRecord(self::class.' @ '.__LINE__),
+                'MEDI'  => $caln->setMedi(mb_trim((string) $record[2])),
+                default => $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__),
             };
 
             $parser->forward();

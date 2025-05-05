@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,26 +10,19 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser;
 
-/**
- *
- *
- */
-class ObjeRef extends \PhpGedcom\Parser\Component
+class ObjeRef extends Component
 {
-    /**
-     *
-     */
     public static function parse(\PhpGedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
 
         $obje = new \PhpGedcom\Record\ObjeRef();
 
@@ -40,9 +35,9 @@ class ObjeRef extends \PhpGedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim($record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim($record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -52,16 +47,16 @@ class ObjeRef extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'TITL':
-                    $obje->setTitl(trim($record[2]));
+                    $obje->setTitl(mb_trim($record[2]));
                     break;
                 case 'FILE':
-                    $obje->setFile(trim($record[2]));
+                    $obje->setFile(mb_trim($record[2]));
                     break;
                 case 'FORM':
-                    $obje->setForm(trim($record[2]));
+                    $obje->setForm(mb_trim($record[2]));
                     break;
                 case 'NOTE':
-                    $note = \PhpGedcom\Parser\NoteRef::parse($parser);
+                    $note = NoteRef::parse($parser);
                     if ($note) {
                         $obje->addNote($note);
                     }

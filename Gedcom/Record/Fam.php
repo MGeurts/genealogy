@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,7 +17,7 @@
 
 namespace Gedcom\Record;
 
-class Fam extends \Gedcom\Record implements Noteable, Sourceable, Objectable, Extendable
+class Fam extends \Gedcom\Record implements Extendable, Noteable, Objectable, Sourceable
 {
     protected $_id;
 
@@ -51,7 +53,7 @@ class Fam extends \Gedcom\Record implements Noteable, Sourceable, Objectable, Ex
 
     public function addEven($recordType, $even)
     {
-        if (!array_key_exists($recordType, $this->_even)) {
+        if (! array_key_exists($recordType, $this->_even)) {
             $this->_even[$recordType] = [];
         }
 
@@ -69,11 +71,11 @@ class Fam extends \Gedcom\Record implements Noteable, Sourceable, Objectable, Ex
     }
 
     /**
-     * @return void|\Gedcom\Record\Fam\Even|\Gedcom\Record\Fam\Even[]
+     * @return void|Fam\Even|Fam\Even[]
      */
     public function getEven($key = '')
     {
-        $key = strtoupper((string) $key);
+        $key = mb_strtoupper((string) $key);
 
         if (isset($this->_even[$key])) {
             if (count($this->_even[$key]) === 1) {
@@ -111,7 +113,7 @@ class Fam extends \Gedcom\Record implements Noteable, Sourceable, Objectable, Ex
 
     public function addExtensionTag($tag, $value)
     {
-        if (strpos($tag, '_') !== 0) {
+        if (mb_strpos($tag, '_') !== 0) {
             $tag = "_$tag";
         }
 
@@ -120,7 +122,7 @@ class Fam extends \Gedcom\Record implements Noteable, Sourceable, Objectable, Ex
 
     public function getExtensionTag(string $tag): string
     {
-        if (!isset($this->_extensiontags["_$tag"])) {
+        if (! isset($this->_extensiontags["_$tag"])) {
             return '';
         }
 

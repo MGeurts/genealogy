@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,8 +10,8 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
@@ -19,7 +21,6 @@ use PhpGedcom\Record;
 
 /**
  * Class Chan
- * @package PhpGedcom\Record
  */
 class Chan extends Record
 {
@@ -36,15 +37,16 @@ class Chan extends Record
     /**
      * @var array
      */
-    protected $note = array();
+    protected $note = [];
 
     /**
-     * @param string $date
+     * @param  string  $date
      * @return Chan
      */
     public function setDate($date)
     {
         $this->date = $date;
+
         return $this;
     }
 
@@ -57,12 +59,12 @@ class Chan extends Record
     }
 
     /**
-     * @param Record\NoteRef $note
      * @return Chan
      */
-    public function addNote(Record\NoteRef $note)
+    public function addNote(NoteRef $note)
     {
         $this->note[] = $note;
+
         return $this;
     }
 
@@ -75,12 +77,13 @@ class Chan extends Record
     }
 
     /**
-     * @param string $time
+     * @param  string  $time
      * @return Chan
      */
     public function setTime($time)
     {
         $this->time = $time;
+
         return $this;
     }
 

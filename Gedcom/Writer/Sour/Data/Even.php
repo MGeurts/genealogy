@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,25 +20,24 @@ namespace Gedcom\Writer\Sour\Data;
 class Even
 {
     /**
-     * @param int $level
-     *
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Sour\Data\Even &$even, $level)
     {
-        $output = $level." EVEN\n";
+        $output = $level . " EVEN\n";
         $level++;
 
         // $date;
         $date = $even->getDate();
-        if (!empty($date)) {
-            $output .= $level.' DATE '.$date."\n";
+        if (! empty($date)) {
+            $output .= $level . ' DATE ' . $date . "\n";
         }
 
         // Plac
         $plac = $even->getPlac();
-        if (!empty($plac)) {
-            $output .= $level.' PLAC '.$plac."\n";
+        if (! empty($plac)) {
+            $output .= $level . ' PLAC ' . $plac . "\n";
         }
 
         return $output;

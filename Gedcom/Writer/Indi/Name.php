@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,9 +20,8 @@ namespace Gedcom\Writer\Indi;
 class Name
 {
     /**
-     * @param \Gedcom\Record\Indi\Name $attr
-     * @param int                      $level
-     *
+     * @param  \Gedcom\Record\Indi\Name  $attr
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Indi\Name &$name, $level = 0)
@@ -31,44 +32,44 @@ class Name
         if (empty($_name)) {
             return $output;
         }
-        $output .= $level.' NAME '.$_name."\n";
+        $output .= $level . ' NAME ' . $_name . "\n";
         // level up
         $level++;
 
         // NPFX
         $npfx = $name->getNpfx();
-        if (!empty($npfx)) {
-            $output .= $level.' NPFX '.$npfx."\n";
+        if (! empty($npfx)) {
+            $output .= $level . ' NPFX ' . $npfx . "\n";
         }
 
         // GIVN
         $givn = $name->getGivn();
-        if (!empty($givn)) {
-            $output .= $level.' GIVN '.$givn."\n";
+        if (! empty($givn)) {
+            $output .= $level . ' GIVN ' . $givn . "\n";
         }
         // NICK
         $nick = $name->getNick();
-        if (!empty($nick)) {
-            $output .= $level.' NICK '.$nick."\n";
+        if (! empty($nick)) {
+            $output .= $level . ' NICK ' . $nick . "\n";
         }
         // SPFX
         $spfx = $name->getSpfx();
-        if (!empty($spfx)) {
-            $output .= $level.' SPFX '.$spfx."\n";
+        if (! empty($spfx)) {
+            $output .= $level . ' SPFX ' . $spfx . "\n";
         }
         // SURN
         $surn = $name->getSurn();
-        if (!empty($surn)) {
-            $output .= $level.' SURN '.$surn."\n";
+        if (! empty($surn)) {
+            $output .= $level . ' SURN ' . $surn . "\n";
         }
         // NSFX
         $nsfx = $name->getNsfx();
-        if (!empty($nsfx)) {
-            $output .= $level.' NSFX '.$nsfx."\n";
+        if (! empty($nsfx)) {
+            $output .= $level . ' NSFX ' . $nsfx . "\n";
         }
         // SOUR
         $sour = $name->getSour();
-        if (!empty($sour) && (is_countable($sour) ? count($sour) : 0) > 0) {
+        if (! empty($sour) && (is_countable($sour) ? count($sour) : 0) > 0) {
             foreach ($sour as $item) {
                 $_convert = \Gedcom\Writer\SourRef::convert($item, $level);
                 $output .= $_convert;
@@ -76,7 +77,7 @@ class Name
         }
         // note
         $note = $name->getSour();
-        if (!empty($note) && (is_countable($note) ? count($note) : 0) > 0) {
+        if (! empty($note) && (is_countable($note) ? count($note) : 0) > 0) {
             foreach ($note as $item) {
                 $_convert = \Gedcom\Writer\NoteRef::convert($item, $level);
                 $output .= $_convert;
@@ -85,7 +86,7 @@ class Name
 
         // TYPE
         $type = $name->getType();
-        if (!empty($type)) {
+        if (! empty($type)) {
             $output .= $level . ' TYPE ' . $type . "\n";
         }
 

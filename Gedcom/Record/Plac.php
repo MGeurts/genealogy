@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -21,30 +23,34 @@ class Plac extends \Gedcom\Record implements Noteable
      * string plac.
      */
     protected $_plac;
+
     /**
      * string place_hierarchy.
      */
     protected $_form;
+
     /**
      * array PhpRecord\Plac\Fone.
      */
     protected $_fone;
+
     /**
      * array PhpRecord\Plac\Romn.
      */
     protected $_romn;
+
     /**
      * PhpRecord\Plac\Map.
      */
     protected $_map;
+
     /**
      * array PhpRecord\NoteRef.
      */
     protected $_note;
 
     /**
-     * @param PhpRecord\NoteRef $note
-     *
+     * @param  PhpRecord\NoteRef  $note
      * @return Plac
      */
     public function addNote($note = null)

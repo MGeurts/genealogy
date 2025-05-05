@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,8 +10,8 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
@@ -19,7 +21,6 @@ use PhpGedcom\Record;
 
 /**
  * Class Phon
- * @package PhpGedcom\Record
  */
 class Phon extends Record
 {
@@ -29,12 +30,12 @@ class Phon extends Record
     protected $phon = null;
 
     /**
-     * @param $phon
      * @return Phon
      */
     public function setPhon($phon)
     {
         $this->phon = $phon;
+
         return $this;
     }
 

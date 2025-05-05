@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,10 +22,10 @@ class Romn extends \Gedcom\Parser\Component
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[2])) {
             $romn = new \Gedcom\Record\Indi\Name\Romn();
-            $romn->setRomn(trim((string) $record[2]));
+            $romn->setRomn(mb_trim((string) $record[2]));
         } else {
             $parser->skipToNextLevel($depth);
 
@@ -32,9 +34,9 @@ class Romn extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim((string) $record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -42,19 +44,19 @@ class Romn extends \Gedcom\Parser\Component
                 break;
             }
 
-            if (!isset($record[2])) {
+            if (! isset($record[2])) {
                 $record[2] = '';
             }
 
             match ($recordType) {
-                'TYPE' => $romn->setRomn(trim((string) $record[2])),
-                'NPFX' => $romn->setNpfx(trim((string) $record[2])),
-                'GIVN' => $romn->setGivn(trim((string) $record[2])),
-                'NICK' => $romn->setNick(trim((string) $record[2])),
-                'SPFX' => $romn->setSpfx(trim((string) $record[2])),
-                'SURN' => $romn->setSurn(trim((string) $record[2])),
-                'NSFX' => $romn->setNsfx(trim((string) $record[2])),
-                default => $parser->logUnhandledRecord(self::class.' @ '.__LINE__),
+                'TYPE'  => $romn->setRomn(mb_trim((string) $record[2])),
+                'NPFX'  => $romn->setNpfx(mb_trim((string) $record[2])),
+                'GIVN'  => $romn->setGivn(mb_trim((string) $record[2])),
+                'NICK'  => $romn->setNick(mb_trim((string) $record[2])),
+                'SPFX'  => $romn->setSpfx(mb_trim((string) $record[2])),
+                'SURN'  => $romn->setSurn(mb_trim((string) $record[2])),
+                'NSFX'  => $romn->setNsfx(mb_trim((string) $record[2])),
+                default => $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__),
             };
 
             $parser->forward();

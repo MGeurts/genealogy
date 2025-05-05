@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -28,7 +30,7 @@ class Sour extends \Gedcom\Record
     protected $_data;
 
     /**
-     * @param Sour\Corp $corp
+     * @param  Sour\Corp  $corp
      */
     public function setCorp($corp = [])
     {
@@ -44,7 +46,7 @@ class Sour extends \Gedcom\Record
     }
 
     /**
-     * @param \Gedcom\Record\Head\Sour\Data $data
+     * @param  Sour\Data  $data
      */
     public function setData($data = [])
     {
@@ -52,7 +54,7 @@ class Sour extends \Gedcom\Record
     }
 
     /**
-     * @return \Gedcom\Record\Head\Sour\Data
+     * @return Sour\Data
      */
     public function getData()
     {

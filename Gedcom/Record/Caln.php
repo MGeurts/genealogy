@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -31,8 +33,7 @@ class Caln extends \Gedcom\Record
     protected $medi;
 
     /**
-     * @param string $caln
-     *
+     * @param  string  $caln
      * @return Caln
      */
     public function setCaln($caln = '')
@@ -51,8 +52,7 @@ class Caln extends \Gedcom\Record
     }
 
     /**
-     * @param string $medi
-     *
+     * @param  string  $medi
      * @return Caln
      */
     public function setMedi($medi = '')

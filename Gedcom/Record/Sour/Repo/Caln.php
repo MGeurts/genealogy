@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -21,6 +23,7 @@ class Caln extends \Gedcom\Record
      * string source_call_number.
      */
     protected $_caln;
+
     /**
      * string source_media_type.
      */

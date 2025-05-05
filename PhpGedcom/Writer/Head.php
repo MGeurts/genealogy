@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,21 +10,17 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2020, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Writer;
 
-/**
- *
- */
 class Head
 {
     /**
-     * @param \PhpGedcom\Record\Head $head
-     * @param string $format
+     * @param  string  $format
      * @return string
      */
     public static function convert(\PhpGedcom\Record\Head &$head, $format = self::GEDCOM55)
@@ -30,9 +28,9 @@ class Head
         $output = "0 HEAD\n" .
 
             ($head->getSour() ? Head\Sour::convert($head->getSour(), $format) : '') .
-            //"1 DEST " . $head-> . "\n" .
-            "1 DATE " . date("d M Y") . "\n" .
-            "2 TIME " . date("H:i:s") . "\n";
+            // "1 DEST " . $head-> . "\n" .
+            '1 DATE ' . date('d M Y') . "\n" .
+            '2 TIME ' . date('H:i:s') . "\n";
 
         /*
             +1 SUBM @<XREF:SUBM>@  {1:1}

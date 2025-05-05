@@ -4,7 +4,15 @@ declare(strict_types=1);
 
 namespace Gedcom;
 
-use Gedcom\Writer\{Fam, Head, Indi, Note, Obje, Repo, Sour, Subm, Subn};
+use Gedcom\Writer\Fam;
+use Gedcom\Writer\Head;
+use Gedcom\Writer\Indi;
+use Gedcom\Writer\Note;
+use Gedcom\Writer\Obje;
+use Gedcom\Writer\Repo;
+use Gedcom\Writer\Sour;
+use Gedcom\Writer\Subm;
+use Gedcom\Writer\Subn;
 
 final class Writer
 {
@@ -12,7 +20,7 @@ final class Writer
 
     public static function convert(Gedcom $gedcom, string $format = self::GEDCOM55): string
     {
-        $output = '';
+        $output            = '';
         $formatInformation = FormatInformation::addFormatInformation($format);
 
         $output .= self::convertHead($gedcom->getHead(), $format, $formatInformation);
@@ -29,30 +37,31 @@ final class Writer
     }
 
     /**
-     * @param        $gedcom The GEDCOM object
-     * @param string $format The format to convert the GEDCOM object to
-     *
+     * @param  $gedcom  The GEDCOM object
+     * @param  string  $format  The format to convert the GEDCOM object to
      * @return string The contents of the document in the converted format
      */
-    protected static function convertHead($head, string $format, string $formatInformation): string
+    private static function convertHead($head, string $format, string $formatInformation): string
     {
         $output = '';
         if ($head) {
             $output = $formatInformation . Head::convert($head, $format);
         }
+
         return $output;
     }
 
-    protected static function convertSubn($subn): string
+    private static function convertSubn($subn): string
     {
         $output = '';
         if ($subn) {
             $output .= Subn::convert($subn);
         }
+
         return $output;
     }
 
-    protected static function convertSubms(array $subms): string
+    private static function convertSubms(array $subms): string
     {
         $output = '';
         foreach ($subms as $item) {
@@ -60,10 +69,11 @@ final class Writer
                 $output .= Subm::convert($item);
             }
         }
+
         return $output;
     }
 
-    protected static function convertSours(array $sours): string
+    private static function convertSours(array $sours): string
     {
         $output = '';
         foreach ($sours as $item) {
@@ -71,10 +81,11 @@ final class Writer
                 $output .= Sour::convert($item, 0);
             }
         }
+
         return $output;
     }
 
-    protected static function convertIndis(array $indis): string
+    private static function convertIndis(array $indis): string
     {
         $output = '';
         foreach ($indis as $indi) {
@@ -87,10 +98,11 @@ final class Writer
                 }
             }
         }
+
         return $output;
     }
 
-    protected static function convertFams(array $fams): string
+    private static function convertFams(array $fams): string
     {
         $output = '';
         foreach ($fams as $item) {
@@ -98,11 +110,11 @@ final class Writer
                 $output .= Fam::convert($item);
             }
         }
+
         return $output;
     }
 
-
-    protected static function convertNotes(array $notes): string
+    private static function convertNotes(array $notes): string
     {
         $output = '';
         foreach ($notes as $item) {
@@ -110,10 +122,11 @@ final class Writer
                 $output .= Note::convert($item);
             }
         }
+
         return $output;
     }
 
-    protected static function convertRepos(array $repos): string
+    private static function convertRepos(array $repos): string
     {
         $output = '';
         foreach ($repos as $item) {
@@ -121,10 +134,11 @@ final class Writer
                 $output .= Repo::convert($item);
             }
         }
+
         return $output;
     }
 
-    protected static function convertObjes(array $objes): string
+    private static function convertObjes(array $objes): string
     {
         $output = '';
         foreach ($objes as $item) {
@@ -132,6 +146,7 @@ final class Writer
                 $output .= Obje::convert($item);
             }
         }
+
         return $output;
     }
 }

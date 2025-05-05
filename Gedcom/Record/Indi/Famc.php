@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,6 +22,7 @@ use Gedcom\Record\Noteable;
 class Famc extends \Gedcom\Record implements Noteable
 {
     protected $_famc;
+
     protected $_pedi;
 
     protected $_note = [];

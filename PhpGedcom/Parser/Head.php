@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,30 +10,23 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser;
 
-/**
- *
- *
- */
-class Head extends \PhpGedcom\Parser\Component
+class Head extends Component
 {
-
     /**
-     *
-     * @param \PhpGedcom\Parser $parser
      * @return \PhpGedcom\Record\Head
      */
     public static function parse(\PhpGedcom\Parser $parser)
     {
-        $record = $parser->getCurrentLineRecord();
+        $record     = $parser->getCurrentLineRecord();
         $identifier = $parser->normalizeIdentifier($record[1]);
-        $depth = (int) $record[0];
+        $depth      = (int) $record[0];
 
         $head = new \PhpGedcom\Record\Head();
 
@@ -39,10 +34,10 @@ class Head extends \PhpGedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
             $currentDepth = (int) $record[0];
-            $recordType = strtoupper(trim($record[1]));
+            $recordType   = mb_strtoupper(mb_trim($record[1]));
 
             if ($currentDepth <= $depth) {
                 $parser->back();
@@ -51,11 +46,11 @@ class Head extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'SOUR':
-                    $sour = \PhpGedcom\Parser\Head\Sour::parse($parser);
+                    $sour = Head\Sour::parse($parser);
                     $head->setSour($sour);
                     break;
                 case 'DEST':
-                    $head->setDest(trim($record[2]));
+                    $head->setDest(mb_trim($record[2]));
                     break;
                 case 'SUBM':
                     $head->setSubm($parser->normalizeIdentifier($record[2]));
@@ -64,31 +59,31 @@ class Head extends \PhpGedcom\Parser\Component
                     $head->setSubn($parser->normalizeIdentifier($record[2]));
                     break;
                 case 'DEST':
-                    $head->setDest(trim($record[2]));
+                    $head->setDest(mb_trim($record[2]));
                     break;
                 case 'FILE':
-                    $head->setFile(trim($record[2]));
+                    $head->setFile(mb_trim($record[2]));
                     break;
                 case 'COPR':
-                    $head->setCopr(trim($record[2]));
+                    $head->setCopr(mb_trim($record[2]));
                     break;
                 case 'LANG':
-                    $head->setLang(trim($record[2]));
+                    $head->setLang(mb_trim($record[2]));
                     break;
                 case 'DATE':
-                    $date = \PhpGedcom\Parser\Head\Date::parse($parser);
+                    $date = Head\Date::parse($parser);
                     $head->setDate($date);
                     break;
                 case 'GEDC':
-                    $gedc = \PhpGedcom\Parser\Head\Gedc::parse($parser);
+                    $gedc = Head\Gedc::parse($parser);
                     $head->setGedc($gedc);
                     break;
                 case 'CHAR':
-                    $char = \PhpGedcom\Parser\Head\Char::parse($parser);
+                    $char = Head\Char::parse($parser);
                     $head->setChar($char);
                     break;
                 case 'PLAC':
-                    $plac = \PhpGedcom\Parser\Head\Plac::parse($parser);
+                    $plac = Head\Plac::parse($parser);
                     $head->setPlac($plac);
                     break;
                 case 'NOTE':

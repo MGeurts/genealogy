@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,13 +17,13 @@
 
 namespace Gedcom\Parser\Indi;
 
-class Birt extends \Gedcom\Parser\Indi\Even
+class Birt extends Even
 {
     public static function parseFamc($parser, $even)
     {
         $record = $parser->getCurrentLineRecord();
         if (isset($record[2])) {
-            $even->setFamc(trim((string) $record[2]));
+            $even->setFamc(mb_trim((string) $record[2]));
         }
     }
 }

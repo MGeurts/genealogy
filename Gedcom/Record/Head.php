@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -81,8 +83,7 @@ class Head extends \Gedcom\Record
     protected $note;
 
     /**
-     * @param \Gedcom\Record\Head\Sour $sour
-     *
+     * @param  Head\Sour  $sour
      * @return Head
      */
     public function setSour($sour = [])
@@ -93,7 +94,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @return \Gedcom\Record\Head\Sour
+     * @return Head\Sour
      */
     public function getSour()
     {
@@ -101,8 +102,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @param \Gedcom\Record\Head\Date $date
-     *
+     * @param  Head\Date  $date
      * @return Head
      */
     public function setDate($date = [])
@@ -113,7 +113,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @return \Gedcom\Record\Head\Date
+     * @return Head\Date
      */
     public function getDate()
     {
@@ -121,8 +121,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @param \Gedcom\Record\Head\Gedc $gedc
-     *
+     * @param  Head\Gedc  $gedc
      * @return Head
      */
     public function setGedc($gedc = [])
@@ -133,7 +132,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @return \Gedcom\Record\Head\Gedc
+     * @return Head\Gedc
      */
     public function getGedc()
     {
@@ -141,8 +140,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @param \Gedcom\Record\Head\Char $char
-     *
+     * @param  Head\Char  $char
      * @return Head
      */
     public function setChar($char = [])
@@ -153,7 +151,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @return \Gedcom\Record\Head\Char
+     * @return Head\Char
      */
     public function getChar()
     {
@@ -161,8 +159,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @param \Gedcom\Record\Head\Plac $plac
-     *
+     * @param  Head\Plac  $plac
      * @return Head
      */
     public function setPlac($plac = [])
@@ -173,7 +170,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @return \Gedcom\Record\Head\Plac
+     * @return Head\Plac
      */
     public function getPlac()
     {
@@ -181,8 +178,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @param string $subm
-     *
+     * @param  string  $subm
      * @return Head
      */
     public function setSubm($subm = '')
@@ -201,8 +197,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @param string $subn
-     *
+     * @param  string  $subn
      * @return Head
      */
     public function setSubn($subn = '')
@@ -221,8 +216,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @param string $lang
-     *
+     * @param  string  $lang
      * @return Head
      */
     public function setLang($lang = '')
@@ -241,8 +235,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @param string $file
-     *
+     * @param  string  $file
      * @return Head
      */
     public function setFile($file = '')
@@ -261,8 +254,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @param string $dest
-     *
+     * @param  string  $dest
      * @return Head
      */
     public function setDest($dest = '')
@@ -281,8 +273,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @param string $copr
-     *
+     * @param  string  $copr
      * @return Head
      */
     public function setCopr($copr = '')
@@ -301,8 +292,7 @@ class Head extends \Gedcom\Record
     }
 
     /**
-     * @param string $note
-     *
+     * @param  string  $note
      * @return Head
      */
     public function setNote($note = '')

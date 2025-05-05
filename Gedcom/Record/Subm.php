@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,7 +22,7 @@ use Gedcom\Record;
 /**
  * Class Subm.
  */
-class Subm extends \Gedcom\Record implements Objectable
+class Subm extends Record implements Objectable
 {
     /**
      * @var string
@@ -28,7 +30,7 @@ class Subm extends \Gedcom\Record implements Objectable
     protected $subm;
 
     /**
-     * @var Record\Chan
+     * @var Chan
      */
     protected $chan;
 
@@ -38,7 +40,7 @@ class Subm extends \Gedcom\Record implements Objectable
     protected $name;
 
     /**
-     * @var Record\Addr
+     * @var Addr
      */
     protected $addr;
 
@@ -88,8 +90,7 @@ class Subm extends \Gedcom\Record implements Objectable
     protected $note = [];
 
     /**
-     * @param string $subm
-     *
+     * @param  string  $subm
      * @return Subm
      */
     public function setSubm($subm = '')
@@ -108,8 +109,7 @@ class Subm extends \Gedcom\Record implements Objectable
     }
 
     /**
-     * @param string $name
-     *
+     * @param  string  $name
      * @return Subm
      */
     public function setName($name = '')
@@ -128,8 +128,7 @@ class Subm extends \Gedcom\Record implements Objectable
     }
 
     /**
-     * @param array $phon
-     *
+     * @param  array  $phon
      * @return Subm
      */
     public function setPhon($phon = [])
@@ -148,8 +147,7 @@ class Subm extends \Gedcom\Record implements Objectable
     }
 
     /**
-     * @param Record\Phon $phon
-     *
+     * @param  Phon  $phon
      * @return Subm
      */
     public function addPhon($phon = [])
@@ -168,8 +166,7 @@ class Subm extends \Gedcom\Record implements Objectable
     }
 
     /**
-     * @param Record\Phon $phon
-     *
+     * @param  Phon  $phon
      * @return Subm
      */
     public function addEmail($email)
@@ -188,8 +185,7 @@ class Subm extends \Gedcom\Record implements Objectable
     }
 
     /**
-     * @param Record\Phon $phon
-     *
+     * @param  Phon  $phon
      * @return Subm
      */
     public function addFax($fax)
@@ -208,8 +204,7 @@ class Subm extends \Gedcom\Record implements Objectable
     }
 
     /**
-     * @param Record\Phon $phon
-     *
+     * @param  Phon  $phon
      * @return Subm
      */
     public function addWww($www)
@@ -220,8 +215,7 @@ class Subm extends \Gedcom\Record implements Objectable
     }
 
     /**
-     * @param string $rfn
-     *
+     * @param  string  $rfn
      * @return Subm
      */
     public function setRfn($rfn = '')
@@ -240,8 +234,7 @@ class Subm extends \Gedcom\Record implements Objectable
     }
 
     /**
-     * @param string $rin
-     *
+     * @param  string  $rin
      * @return Subm
      */
     public function setRin($rin = '')
@@ -260,8 +253,7 @@ class Subm extends \Gedcom\Record implements Objectable
     }
 
     /**
-     * @param \Gedcom\Record\Chan $chan
-     *
+     * @param  Chan  $chan
      * @return Subm
      */
     public function setChan($chan = [])
@@ -272,7 +264,7 @@ class Subm extends \Gedcom\Record implements Objectable
     }
 
     /**
-     * @return \Gedcom\Record\Chan
+     * @return Chan
      */
     public function getChan()
     {
@@ -288,8 +280,7 @@ class Subm extends \Gedcom\Record implements Objectable
     }
 
     /**
-     * @param string $lang
-     *
+     * @param  string  $lang
      * @return Subm
      */
     public function addLang($lang = '')
@@ -308,8 +299,7 @@ class Subm extends \Gedcom\Record implements Objectable
     }
 
     /**
-     * @param Addr $addr
-     *
+     * @param  Addr  $addr
      * @return Subm
      */
     public function setAddr($addr = [])
@@ -328,8 +318,7 @@ class Subm extends \Gedcom\Record implements Objectable
     }
 
     /**
-     * @param Record\ObjeRef $obje
-     *
+     * @param  ObjeRef  $obje
      * @return Subm
      */
     public function addObje($obje)
@@ -348,8 +337,7 @@ class Subm extends \Gedcom\Record implements Objectable
     }
 
     /**
-     * @param Record\Note $note
-     *
+     * @param  Note  $note
      * @return Subm
      */
     public function addNote($note = [])

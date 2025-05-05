@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,7 +17,7 @@
 
 namespace Gedcom\Parser;
 
-class Date extends \Gedcom\Parser\Component
+class Date extends Component
 {
     public static function parse(\Gedcom\Parser $parser)
     {
@@ -23,7 +25,7 @@ class Date extends \Gedcom\Parser\Component
 
         if (isset($record[1])) {
             $dat = new \Gedcom\Record\Date();
-            if (!empty($record[2])) {
+            if (! empty($record[2])) {
                 $dat->setDate($record[2]);
             }
         } else {
@@ -31,11 +33,11 @@ class Date extends \Gedcom\Parser\Component
         }
 
         if ($dat->getYear() && $dat->getMonth() && $dat->getDay()) {
-            return $dat->getYear().'-'.substr("0{$dat->getMonth()}", -2).'-'.substr("0{$dat->getDay()}", -2);
+            return $dat->getYear() . '-' . mb_substr("0{$dat->getMonth()}", -2) . '-' . mb_substr("0{$dat->getDay()}", -2);
         }
 
         if ($dat->getYear() && $dat->getMonth()) {
-            return $dat->getYear().'-'.substr("0{$dat->getMonth()}", -2);
+            return $dat->getYear() . '-' . mb_substr("0{$dat->getMonth()}", -2);
         }
 
         return $dat->getYear();

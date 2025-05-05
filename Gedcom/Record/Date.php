@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -31,8 +33,7 @@ class Date extends \Gedcom\Record
     ];
 
     /**
-     * @param string $date Date array
-     *
+     * @param  string  $date  Date array
      * @return Date
      */
     public function setDate($date)
@@ -62,8 +63,8 @@ class Date extends \Gedcom\Record
             unset($record[0]);
         }
         foreach ($record as $part) {
-            if (isset($this->months[trim($part)])) {
-                return $this->months[trim($part)];
+            if (isset($this->months[mb_trim($part)])) {
+                return $this->months[mb_trim($part)];
             }
         }
 
@@ -115,8 +116,7 @@ class Date extends \Gedcom\Record
     /**
      * Check if the first part is a prefix (eg 'BEF', 'ABT',).
      *
-     * @param string $datePart Date part to be checked
-     *
+     * @param  string  $datePart  Date part to be checked
      * @return bool
      */
     private function isPrefix($datePart)

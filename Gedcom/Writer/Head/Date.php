@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,17 +20,16 @@ namespace Gedcom\Writer\Head;
 class Date
 {
     /**
-     * @param string $format
-     * @param int    $level
-     *
+     * @param  string  $format
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Head\Date &$date, $level)
     {
         $output = '';
-        $_date = $date->getDate();
+        $_date  = $date->getDate();
         if ($_date) {
-            $output .= $level.' DATE '.$_date."\n";
+            $output .= $level . ' DATE ' . $_date . "\n";
         } else {
             return $output;
         }
@@ -38,7 +39,7 @@ class Date
         // Time
         $time = $date->getTime();
         if ($time) {
-            $output .= $level.' TIME '.$time."\n";
+            $output .= $level . ' TIME ' . $time . "\n";
         }
 
         return $output;

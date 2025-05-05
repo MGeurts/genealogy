@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,36 +10,27 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser\Fam;
 
-/**
- *
- *
- */
 class Slgs extends \PhpGedcom\Parser\Component
 {
-
-    /**
-     *
-     *
-     */
     public static function parse(\PhpGedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
 
         $slgs = new \PhpGedcom\Record\Fam\Slgs();
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim($record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim($record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -47,16 +40,16 @@ class Slgs extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'STAT':
-                    $slgs->setStat(trim($record[2]));
+                    $slgs->setStat(mb_trim($record[2]));
                     break;
                 case 'DATE':
-                    $slgs->setDate(trim($record[2]));
+                    $slgs->setDate(mb_trim($record[2]));
                     break;
                 case 'PLAC':
-                    $slgs->setPlac(trim($record[2]));
+                    $slgs->setPlac(mb_trim($record[2]));
                     break;
                 case 'TEMP':
-                    $slgs->setTemp(trim($record[2]));
+                    $slgs->setTemp(mb_trim($record[2]));
                     break;
                 case 'SOUR':
                     $sour = \PhpGedcom\Parser\SourRef::parse($parser);

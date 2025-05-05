@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,8 +20,7 @@ namespace Gedcom\Writer\SourRef;
 class Even
 {
     /**
-     * @param int $level
-     *
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\SourRef\Even &$even, $level = 0)
@@ -28,18 +29,18 @@ class Even
 
         // $_date;
         $_even = $even->getEven();
-        if (!empty($_even)) {
-            $output .= $level.' EVEN '.$_even."\n";
+        if (! empty($_even)) {
+            $output .= $level . ' EVEN ' . $_even . "\n";
         } else {
-            $output = $level." EVEN\n";
+            $output = $level . " EVEN\n";
         }
         // level up
         $level++;
 
         // $_role ROLE
         $_role = $data->getRole();
-        if (!empty($_role)) {
-            $output .= $level.' ROLE '.$_role."\n";
+        if (! empty($_role)) {
+            $output .= $level . ' ROLE ' . $_role . "\n";
         }
 
         return $output;

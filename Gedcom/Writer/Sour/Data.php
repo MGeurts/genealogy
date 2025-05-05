@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,31 +20,30 @@ namespace Gedcom\Writer\Sour;
 class Data
 {
     /**
-     * @param int $level
-     *
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Sour\Data &$data, $level = 0)
     {
-        $output = $level." DATA\n";
+        $output = $level . " DATA\n";
         $level++;
 
         // $_date;
         $date = $data->getDate();
-        if (!empty($date)) {
-            $output .= $level.' DATE '.$date."\n";
+        if (! empty($date)) {
+            $output .= $level . ' DATE ' . $date . "\n";
         }
 
         // $_agnc AGNC
         $_agnc = $data->getAgnc();
-        if (!empty($_agnc)) {
-            $output .= $level.' AGNC '.$_agnc."\n";
+        if (! empty($_agnc)) {
+            $output .= $level . ' AGNC ' . $_agnc . "\n";
         }
 
         // $_text
         $_text = $data->getText();
-        if (!empty($_text)) {
-            $output .= $level.' TEXT '.$_text."\n";
+        if (! empty($_text)) {
+            $output .= $level . ' TEXT ' . $_text . "\n";
         }
 
         // $_note
@@ -55,7 +56,7 @@ class Data
         // $_even
         $_even = $data->getEven();
         foreach ($_even as $item) {
-            $_convert = \Gedcom\Writer\Sour\Data\Even::convert($item, $level);
+            $_convert = Data\Even::convert($item, $level);
             $output .= $_convert;
         }
 

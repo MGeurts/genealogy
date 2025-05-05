@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,6 +17,4 @@
 
 namespace Gedcom\Record\Indi;
 
-class Cast extends \Gedcom\Record\Indi\Attr
-{
-}
+class Cast extends Attr {}

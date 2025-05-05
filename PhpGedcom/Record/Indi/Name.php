@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,47 +10,38 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Record\Indi;
 
-/**
- *
- */
 class Name extends \PhpGedcom\Record implements \PhpGedcom\Record\Sourceable
 {
     protected $_name = null;
+
     protected $_npfx = null;
+
     protected $_givn = null;
+
     protected $_nick = null;
+
     protected $_spfx = null;
+
     protected $_surn = null;
+
     protected $_nsfx = null;
 
-    /**
-     *
-     */
-    protected $_note = array();
+    protected $_note = [];
 
-    /**
-     *
-     */
-    protected $_sour = array();
+    protected $_sour = [];
 
-    /**
-     *
-     */
     public function addSour(\PhpGedcom\Record\SourRef $sour)
     {
         $this->_sour[] = $sour;
     }
 
-    /**
-     *
-     */
     public function addNote(\PhpGedcom\Record\NoteRef $note)
     {
         $this->_note[] = $note;

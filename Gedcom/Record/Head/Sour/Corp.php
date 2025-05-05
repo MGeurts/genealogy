@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,6 +20,7 @@ namespace Gedcom\Record\Head\Sour;
 class Corp extends \Gedcom\Record
 {
     protected $_corp;
+
     protected $_addr;
 
     protected $_phon = [];

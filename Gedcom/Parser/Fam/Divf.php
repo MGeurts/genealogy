@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,6 +17,4 @@
 
 namespace Gedcom\Parser\Fam;
 
-class Divf extends \Gedcom\Parser\Fam\Even
-{
-}
+class Divf extends Even {}

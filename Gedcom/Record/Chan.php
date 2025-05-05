@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Gedcom\Record;
 
-use DateTimeInterface;
-
 class Chan extends \Gedcom\Record
 {
     private const MONTHS = [
@@ -15,62 +13,47 @@ class Chan extends \Gedcom\Record
     ];
 
     private string $date = '';
+
     private string $time = '';
+
     private string $datetime = '';
+
     private array $note = [];
 
-    /**
-     * @param string $date
-     *
-     * @return Chan
-     */
     public function setDate(string $date = ''): self
     {
         $this->date = $date;
+
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getDate(): string
     {
         return $this->date;
     }
 
     /**
-     * @param Record\NoteRef $note
-     *
-     * @return Chan
+     * @param  Record\NoteRef  $note
      */
     public function addNote(NoteRef $note): self
     {
         $this->note[] = $note;
+
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getNote(): array
     {
         return $this->note;
     }
 
-    /**
-     * @param string $time
-     *
-     * @return Chan
-     */
     public function setTime(string $time = ''): self
     {
         $this->time = $time;
+
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getTime(): string
     {
         return $this->time;
@@ -78,7 +61,8 @@ class Chan extends \Gedcom\Record
 
     public function setDatetime(string $date = ''): self
     {
-        $this->datetime = $date.' '.$this->time;
+        $this->datetime = $date . ' ' . $this->time;
+
         return $this;
     }
 
@@ -94,8 +78,8 @@ class Chan extends \Gedcom\Record
             unset($record[0]);
         }
         foreach ($record as $part) {
-            if (isset($this->MONTHS[trim($part)])) {
-                return $this->MONTHS[trim($part)];
+            if (isset($this->MONTHS[mb_trim($part)])) {
+                return $this->MONTHS[mb_trim($part)];
             }
         }
 
@@ -132,7 +116,7 @@ class Chan extends \Gedcom\Record
             if ($record !== []) {
                 $day = (int) reset($record);
                 if ($day >= 1 && $day <= 31) {
-                    return substr("0{$day}", -2);
+                    return mb_substr("0{$day}", -2);
                 }
             }
         }
@@ -143,8 +127,7 @@ class Chan extends \Gedcom\Record
     /**
      * Check if the first part is a prefix (eg 'BEF', 'ABT',).
      *
-     * @param string $datePart Date part to be checked
-     *
+     * @param  string  $datePart  Date part to be checked
      * @return bool
      */
     private function isPrefix($datePart)

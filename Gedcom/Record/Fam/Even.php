@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -22,16 +24,20 @@ use Gedcom\Record\Sourceable;
 /**
  * Event record.
  *
- * @method mixed        getType()
+ * @method mixed getType()
  * @method \Record\Date getDate()
- * @method string       getPlac()
+ * @method string getPlac()
  */
-class Even extends \Gedcom\Record implements Objectable, Sourceable, Noteable
+class Even extends \Gedcom\Record implements Noteable, Objectable, Sourceable
 {
     protected $_type;
+
     protected $_date;
+
     protected $_plac;
+
     protected $_caus;
+
     protected $_age;
 
     protected $_addr;
@@ -41,6 +47,7 @@ class Even extends \Gedcom\Record implements Objectable, Sourceable, Noteable
     protected $_agnc;
 
     protected $_husb;
+
     protected $_wife;
 
     protected $_obje = [];

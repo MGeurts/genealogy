@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,5 +20,6 @@ namespace Gedcom\Record\SourRef;
 class Even extends \Gedcom\Record
 {
     protected $_even;
+
     protected $_role;
 }

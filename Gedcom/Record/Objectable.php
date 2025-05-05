@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -17,5 +19,5 @@ namespace Gedcom\Record;
 
 interface Objectable
 {
-    public function addObje(\Gedcom\Record\ObjeRef $obje);
+    public function addObje(ObjeRef $obje);
 }

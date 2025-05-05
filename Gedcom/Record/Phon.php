@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -26,8 +28,6 @@ class Phon extends \Gedcom\Record
     protected $phon;
 
     /**
-     * @param $phon
-     *
      * @return Phon
      */
     public function setPhon($phon = [])

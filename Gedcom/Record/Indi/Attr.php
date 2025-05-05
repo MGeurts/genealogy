@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -19,9 +21,10 @@ use Gedcom\Record\Noteable;
 use Gedcom\Record\Objectable;
 use Gedcom\Record\Sourceable;
 
-class Attr extends \Gedcom\Record\Indi\Even implements Sourceable, Noteable, Objectable
+class Attr extends Even implements Noteable, Objectable, Sourceable
 {
     protected $type;
+
     protected $_attr;
 
     protected $sour = [];

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,8 +20,7 @@ namespace Gedcom\Writer\Fam;
 class Even
 {
     /**
-     * @param int $level
-     *
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Fam\Even &$even, $eventType, $level)
@@ -27,8 +28,8 @@ class Even
         $output = '';
 
         // $type;
-        if (!empty($eventType)) {
-            $output .= $level.' '.$eventType."\n";
+        if (! empty($eventType)) {
+            $output .= $level . ' ' . $eventType . "\n";
         } else {
             return $output;
         }
@@ -36,45 +37,45 @@ class Even
 
         // $type;
         $type = $even->getType();
-        if (!empty($type) && $type != $eventType) {
-            $output .= $level.' TYPE '.$type."\n";
+        if (! empty($type) && $type !== $eventType) {
+            $output .= $level . ' TYPE ' . $type . "\n";
         }
 
         // $date;
         $date = $even->getDate();
-        if (!empty($date)) {
-            $output .= $level.' DATE '.$date."\n";
+        if (! empty($date)) {
+            $output .= $level . ' DATE ' . $date . "\n";
         }
 
         // Plac
         $plac = $even->getPlac();
-        if (!empty($plac)) {
+        if (! empty($plac)) {
             $_convert = \Gedcom\Writer\Indi\Even\Plac::convert($plac, $level);
             $output .= $_convert;
         }
 
         // $caus;
         $caus = $even->getCaus();
-        if (!empty($caus)) {
-            $output .= $level.' CAUS '.$caus."\n";
+        if (! empty($caus)) {
+            $output .= $level . ' CAUS ' . $caus . "\n";
         }
 
         // $age;
         $age = $even->getAge();
-        if (!empty($age)) {
-            $output .= $level.' AGE '.$age."\n";
+        if (! empty($age)) {
+            $output .= $level . ' AGE ' . $age . "\n";
         }
 
         // $addr
         $addr = $even->getAddr();
-        if (!empty($addr)) {
+        if (! empty($addr)) {
             $_convert = \Gedcom\Writer\Addr::convert($addr, $level);
             $output .= $_convert;
         }
 
         // $phon = array()
         $phon = $even->getPhon();
-        if (!empty($phon) && (is_countable($phon) ? count($phon) : 0) > 0) {
+        if (! empty($phon) && (is_countable($phon) ? count($phon) : 0) > 0) {
             foreach ($phon as $item) {
                 $_convert = \Gedcom\Writer\Phon::convert($item, $level);
                 $output .= $_convert;
@@ -82,21 +83,21 @@ class Even
         }
         // $agnc
         $agnc = $even->getAgnc();
-        if (!empty($agnc)) {
-            $output .= $level.' AGNC '.$agnc."\n";
+        if (! empty($agnc)) {
+            $output .= $level . ' AGNC ' . $agnc . "\n";
         }
 
         // HUSB
         $husb = $even->getHusb();
-        if (!empty($husb)) {
-            $_convert = \Gedcom\Writer\Fam\Even\Husb::convert($husb, $level);
+        if (! empty($husb)) {
+            $_convert = Even\Husb::convert($husb, $level);
             $output .= $_convert;
         }
 
         // WIFE
         $wife = $even->getWife();
-        if (!empty($wife)) {
-            $_convert = \Gedcom\Writer\Fam\Even\Wife::convert($wife, $level);
+        if (! empty($wife)) {
+            $_convert = Even\Wife::convert($wife, $level);
             $output .= $_convert;
         }
 
@@ -105,7 +106,7 @@ class Even
 
         // $obje = array();
         $obje = $even->getObje();
-        if (!empty($obje) && $obje !== []) {
+        if (! empty($obje) && $obje !== []) {
             foreach ($obje as $item) {
                 $_convert = \Gedcom\Writer\ObjeRef::convert($item, $level);
                 $output .= $_convert;
@@ -113,7 +114,7 @@ class Even
         }
         // $sour = array();
         $sour = $even->getSour();
-        if (!empty($sour) && $sour !== []) {
+        if (! empty($sour) && $sour !== []) {
             foreach ($sour as $item) {
                 $_convert = \Gedcom\Writer\SourRef::convert($item, $level);
                 $output .= $_convert;
@@ -121,7 +122,7 @@ class Even
         }
         // $note = array();
         $note = $even->getNote();
-        if (!empty($note) && $note !== []) {
+        if (! empty($note) && $note !== []) {
             foreach ($note as $item) {
                 $_convert = \Gedcom\Writer\NoteRef::convert($item, $level);
                 $output .= $_convert;

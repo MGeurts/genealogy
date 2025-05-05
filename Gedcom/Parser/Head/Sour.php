@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,10 +22,10 @@ class Sour extends \Gedcom\Parser\Component
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[2])) {
             $source = new \Gedcom\Record\Head\Sour();
-            $source->setSour(trim((string) $record[2]));
+            $source->setSour(mb_trim((string) $record[2]));
         } else {
             $parser->skipToNextLevel($depth);
 
@@ -32,9 +34,9 @@ class Sour extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim((string) $record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -44,21 +46,21 @@ class Sour extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'VERS':
-                    $source->setVers(trim((string) $record[2]));
+                    $source->setVers(mb_trim((string) $record[2]));
                     break;
                 case 'NAME':
-                    $source->setName(trim((string) $record[2]));
+                    $source->setName(mb_trim((string) $record[2]));
                     break;
                 case 'CORP':
-                    $corp = \Gedcom\Parser\Head\Sour\Corp::parse($parser);
+                    $corp = Sour\Corp::parse($parser);
                     $source->setCorp($corp);
                     break;
                 case 'DATA':
-                    $data = \Gedcom\Parser\Head\Sour\Data::parse($parser);
+                    $data = Sour\Data::parse($parser);
                     $source->setData($data);
                     break;
                 default:
-                    $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                    $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,20 +10,16 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser;
 
-/**
- *
- *
- */
-class Fam extends \PhpGedcom\Parser\Component
+class Fam extends Component
 {
-    protected static $_eventTypes = array(
+    protected static $_eventTypes = [
         'ANUL',
         'CENS',
         'DIV',
@@ -31,18 +29,14 @@ class Fam extends \PhpGedcom\Parser\Component
         'MARB',
         'MARC',
         'MARL',
-        'MARS'
-    );
+        'MARS',
+    ];
 
-    /**
-     *
-     *
-     */
     public static function parse(\PhpGedcom\Parser $parser)
     {
-        $record = $parser->getCurrentLineRecord();
+        $record     = $parser->getCurrentLineRecord();
         $identifier = $parser->normalizeIdentifier($record[1]);
-        $depth = (int) $record[0];
+        $depth      = (int) $record[0];
 
         $fam = new \PhpGedcom\Record\Fam();
         $fam->setId($identifier);
@@ -51,10 +45,10 @@ class Fam extends \PhpGedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
             $currentDepth = (int) $record[0];
-            $recordType = strtoupper(trim($record[1]));
+            $recordType   = mb_strtoupper(mb_trim($record[1]));
 
             if ($currentDepth <= $depth) {
                 $parser->back();
@@ -72,38 +66,38 @@ class Fam extends \PhpGedcom\Parser\Component
                     $fam->addChil($parser->normalizeIdentifier($record[2]));
                     break;
                 case 'NCHI':
-                    $fam->setNchi(trim($record[2]));
+                    $fam->setNchi(mb_trim($record[2]));
                     break;
                 case 'SUBM':
                     $fam->addSubm($parser->normalizeIdentifier($record[2]));
                     break;
                 case 'RIN':
-                    $fam->setRin(trim($record[2]));
+                    $fam->setRin(mb_trim($record[2]));
                     break;
                 case 'CHAN':
-                    $chan = \PhpGedcom\Parser\Chan::parse($parser);
+                    $chan = Chan::parse($parser);
                     $fam->setChan($chan);
                     break;
                 case 'SLGS':
-                    $slgs = \PhpGedcom\Parser\Fam\Slgs::parse($parser);
+                    $slgs = Fam\Slgs::parse($parser);
                     $fam->addSlgs($slgs);
                     break;
                 case 'REFN':
-                    $ref = \PhpGedcom\Parser\Refn::parse($parser);
+                    $ref = Refn::parse($parser);
                     $fam->addRefn($ref);
                     break;
                 case 'NOTE':
-                    $note = \PhpGedcom\Parser\NoteRef::parse($parser);
+                    $note = NoteRef::parse($parser);
                     if ($note) {
                         $fam->addNote($note);
                     }
                     break;
                 case 'SOUR':
-                    $sour = \PhpGedcom\Parser\SourRef::parse($parser);
+                    $sour = SourRef::parse($parser);
                     $fam->addSour($sour);
                     break;
                 case 'OBJE':
-                    $obje = \PhpGedcom\Parser\ObjeRef::parse($parser);
+                    $obje = ObjeRef::parse($parser);
                     $fam->addObje($obje);
                     break;
                 case 'EVEN':
@@ -117,8 +111,8 @@ class Fam extends \PhpGedcom\Parser\Component
                 case 'MARC':
                 case 'MARL':
                 case 'MARS':
-                    $className = ucfirst(strtolower($recordType));
-                    $class = '\\PhpGedcom\\Parser\\Fam\\' . $className;
+                    $className = ucfirst(mb_strtolower($recordType));
+                    $class     = '\\PhpGedcom\\Parser\\Fam\\' . $className;
 
                     $even = $class::parse($parser);
                     $fam->addEven($even);

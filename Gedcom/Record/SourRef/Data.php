@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -21,6 +23,7 @@ class Data extends \Gedcom\Record
      * string entry_recording_date.
      */
     protected $_date;
+
     /**
      * string text_from_source.
      */

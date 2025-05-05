@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,22 +10,18 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2020, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Writer\Head\Sour;
 
-/**
- *
- */
 class Corp
 {
     /**
-     * @param \PhpGedcom\Record\Head\Sour\Corp $corp
-     * @param string $format
-     * @param int $level
+     * @param  string  $format
+     * @param  int  $level
      * @return string
      */
     public static function convert(\PhpGedcom\Record\Head\Sour\Corp &$corp, $format = self::GEDCOM55, $level = 2)

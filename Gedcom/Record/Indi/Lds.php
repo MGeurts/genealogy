@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,11 +20,14 @@ namespace Gedcom\Record\Indi;
 use Gedcom\Record\Noteable;
 use Gedcom\Record\Sourceable;
 
-abstract class Lds extends \Gedcom\Record implements Sourceable, Noteable
+abstract class Lds extends \Gedcom\Record implements Noteable, Sourceable
 {
     protected $_stat;
+
     protected $_date;
+
     protected $_plac;
+
     protected $_temp;
 
     protected $_sour = [];

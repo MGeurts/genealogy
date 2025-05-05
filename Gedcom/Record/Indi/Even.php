@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,8 +22,13 @@ use Gedcom\Record;
 /**
  * Class Even.
  */
-class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceable, Record\Noteable
+class Even extends Record implements Record\Noteable, Record\Objectable, Record\Sourceable
 {
+    /**
+     * @var array
+     */
+    public $ref = [];
+
     /**
      * @var string
      */
@@ -70,11 +77,6 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     /**
      * @var array
      */
-    public $ref = [];
-
-    /**
-     * @var array
-     */
     protected $obje = [];
 
     /**
@@ -101,8 +103,7 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @param Record\Phon $phon
-     *
+     * @param  Record\Phon  $phon
      * @return Even
      */
     public function addPhon($phon = [])
@@ -121,8 +122,7 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @param Record\ObjeRef $obje
-     *
+     * @param  Record\ObjeRef  $obje
      * @return Even
      */
     public function addObje($obje = [])
@@ -141,8 +141,7 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @param Record\SourRef $sour
-     *
+     * @param  Record\SourRef  $sour
      * @return Even
      */
     public function addSour($sour = [])
@@ -161,8 +160,7 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @param Record\NoteRef $note
-     *
+     * @param  Record\NoteRef  $note
      * @return Even
      */
     public function addNote($note = [])
@@ -173,8 +171,7 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @param \Gedcom\Record\Addr $addr
-     *
+     * @param  Record\Addr  $addr
      * @return Even
      */
     public function setAddr($addr = [])
@@ -185,7 +182,7 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @return \Gedcom\Record\Addr
+     * @return Record\Addr
      */
     public function getAddr()
     {
@@ -193,14 +190,13 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @param string $age
-     *
+     * @param  string  $age
      * @return Even
      */
     public function setAge($record)
     {
         if (isset($record[2])) {
-            $this->age = trim($record[2]);
+            $this->age = mb_trim($record[2]);
         } else {
             $this->age = '';
         }
@@ -217,8 +213,7 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @param string $agnc
-     *
+     * @param  string  $agnc
      * @return Even
      */
     public function setAgnc($agnc = '')
@@ -237,8 +232,7 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @param string $caus
-     *
+     * @param  string  $caus
      * @return Even
      */
     public function setCaus($caus = '')
@@ -257,8 +251,7 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @param string $date
-     *
+     * @param  string  $date
      * @return Even
      */
     public function setDate($date = '')
@@ -277,8 +270,7 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @param \Gedcom\Record\Indi\Even\Plac $plac
-     *
+     * @param  Even\Plac  $plac
      * @return Even
      */
     public function setPlac($plac = [])
@@ -289,7 +281,7 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @return \Gedcom\Record\Indi\Even\Plac
+     * @return Even\Plac
      */
     public function getPlac()
     {
@@ -297,8 +289,7 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @param string $type
-     *
+     * @param  string  $type
      * @return Even
      */
     public function setType($type = '')
@@ -317,8 +308,7 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @param array $ref
-     *
+     * @param  array  $ref
      * @return Even
      */
     public function setRef($ref = '')
@@ -345,8 +335,7 @@ class Even extends \Gedcom\Record implements Record\Objectable, Record\Sourceabl
     }
 
     /**
-     * @param Record\Chan $chan
-     *
+     * @param  Record\Chan  $chan
      * @return $this
      */
     public function setChan($chan = [])

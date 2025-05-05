@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,13 +22,19 @@ class SourRef extends \Gedcom\Record
     protected $_isRef = false;
 
     protected $_sour;
+
     protected $_page;
+
     protected $_even;
+
     protected $_data;
+
     protected $_quay;
+
     protected $_text;
 
     protected $_obje = [];
+
     protected $_note = [];
 
     public function setSour($sour = '')

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,11 +22,6 @@ namespace Gedcom\Record;
  */
 class Birt extends \Gedcom\Record
 {
-    private array $months = [
-        'JAN' => '01', 'FEB' => '02', 'MAR' => '03', 'APR' => '04', 'MAY' => '05', 'JUN' => '06',
-        'JUL' => '07', 'AUG' => '08', 'SEP' => '09', 'OCT' => '10', 'NOV' => '11', 'DEC' => '12',
-    ];
-
     public $date;
 
     public $month;
@@ -37,14 +34,19 @@ class Birt extends \Gedcom\Record
 
     public $plac;
 
+    private array $months = [
+        'JAN' => '01', 'FEB' => '02', 'MAR' => '03', 'APR' => '04', 'MAY' => '05', 'JUN' => '06',
+        'JUL' => '07', 'AUG' => '08', 'SEP' => '09', 'OCT' => '10', 'NOV' => '11', 'DEC' => '12',
+    ];
+
     public function setDate($date)
     {
         $this->date = $date;
         if ($this->getDay()) {
-            $this->dateFormatted = $this->getYear().'-'.$this->getMonth().'-'.substr("0{$this->getDay()}", -2);
+            $this->dateFormatted = $this->getYear() . '-' . $this->getMonth() . '-' . mb_substr("0{$this->getDay()}", -2);
         } else {
             $this->month = $this->getMonth();
-            $this->year = $this->getYear();
+            $this->year  = $this->getYear();
         }
     }
 
@@ -103,8 +105,8 @@ class Birt extends \Gedcom\Record
             unset($record[0]);
         }
         foreach ($record as $part) {
-            if (isset($this->months[trim($part)])) {
-                return $this->months[trim($part)];
+            if (isset($this->months[mb_trim($part)])) {
+                return $this->months[mb_trim($part)];
             }
         }
 

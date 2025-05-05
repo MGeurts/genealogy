@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,18 +10,15 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Record\Indi;
 
-use PhpGedcom\Record\Indi\Even;
-
 /**
  * Class Birt
- * @package PhpGedcom\Record\Indi
  */
 class Birt extends Even
 {
@@ -29,12 +28,13 @@ class Birt extends Even
     protected $famc;
 
     /**
-     * @param string $famc
+     * @param  string  $famc
      * @return Birt
      */
     public function setFamc($famc)
     {
         $this->famc = $famc;
+
         return $this;
     }
 

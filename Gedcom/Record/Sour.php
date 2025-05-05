@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -86,8 +88,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     protected $obje = [];
 
     /**
-     * @param string $sour
-     *
+     * @param  string  $sour
      * @return Sour
      */
     public function setSour($sour = '')
@@ -106,8 +107,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     }
 
     /**
-     * @param string $titl
-     *
+     * @param  string  $titl
      * @return Sour
      */
     public function setTitl($titl = '')
@@ -126,8 +126,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     }
 
     /**
-     * @param string $abbr
-     *
+     * @param  string  $abbr
      * @return Sour
      */
     public function setAbbr($abbr = '')
@@ -146,8 +145,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     }
 
     /**
-     * @param string $auth
-     *
+     * @param  string  $auth
      * @return Sour
      */
     public function setAuth($auth = '')
@@ -166,8 +164,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     }
 
     /**
-     * @param string $publ
-     *
+     * @param  string  $publ
      * @return Sour
      */
     public function setPubl($publ = '')
@@ -186,8 +183,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     }
 
     /**
-     * @param \Gedcom\Record\Repo $repo
-     *
+     * @param  Repo  $repo
      * @return Sour
      */
     public function setRepo($repo)
@@ -198,7 +194,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     }
 
     /**
-     * @return \Gedcom\Record\Repo
+     * @return Repo
      */
     public function getRepo()
     {
@@ -206,8 +202,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     }
 
     /**
-     * @param string $text
-     *
+     * @param  string  $text
      * @return Sour
      */
     public function setText($text = '')
@@ -226,8 +221,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     }
 
     /**
-     * @param string $data
-     *
+     * @param  string  $data
      * @return Sour
      */
     public function setData($data = '')
@@ -246,8 +240,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     }
 
     /**
-     * @param string $rin
-     *
+     * @param  string  $rin
      * @return Sour
      */
     public function setRin($rin = '')
@@ -266,8 +259,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     }
 
     /**
-     * @param \Gedcom\Record\Chan $chan
-     *
+     * @param  Chan  $chan
      * @return Sour
      */
     public function setChan($chan = [])
@@ -278,7 +270,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     }
 
     /**
-     * @return \Gedcom\Record\Chan
+     * @return Chan
      */
     public function getChan()
     {
@@ -286,8 +278,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     }
 
     /**
-     * @param Refn $refn
-     *
+     * @param  Refn  $refn
      * @return Sour
      */
     public function addRefn($refn = [])
@@ -306,8 +297,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     }
 
     /**
-     * @param NoteRef $note
-     *
+     * @param  NoteRef  $note
      * @return Sour
      */
     public function addNote($note = [])
@@ -326,8 +316,7 @@ class Sour extends \Gedcom\Record implements Noteable, Objectable
     }
 
     /**
-     * @param ObjeRef $obje
-     *
+     * @param  ObjeRef  $obje
      * @return Sour
      */
     public function addObje($obje = [])

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,28 +20,26 @@ namespace Gedcom\Writer;
 class Caln
 {
     /**
-     * @param \Gedcom\Record\Caln $note
-     * @param int                 $level
-     *
+     * @param  \Gedcom\Record\Caln  $note
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Caln &$caln, $level)
     {
         $output = '';
-        $_caln = $caln->getCaln();
+        $_caln  = $caln->getCaln();
         if (empty($_caln)) {
             return $output;
-        } else {
-            $output .= $level.' CALN '.$_caln."\n";
         }
+        $output .= $level . ' CALN ' . $_caln . "\n";
 
         // level up
         $level++;
 
         // medi
         $medi = $caln->getMedi();
-        if (!empty($medi)) {
-            $output .= $level.' MEDI '.$medi."\n";
+        if (! empty($medi)) {
+            $output .= $level . ' MEDI ' . $medi . "\n";
         }
 
         return $output;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,37 +10,28 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser;
 
-/**
- *
- *
- */
-class SourRef extends \PhpGedcom\Parser\Component
+class SourRef extends Component
 {
-
-    /**
-     *
-     *
-     */
     public static function parse(\PhpGedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
 
         $sour = new \PhpGedcom\Record\SourRef();
         $sour->setSour($record[2]);
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim($record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim($record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -63,22 +56,22 @@ class SourRef extends \PhpGedcom\Parser\Component
                     $sour->setText($parser->parseMultiLineRecord());
                     break;
                 case 'NOTE':
-                    $note = \PhpGedcom\Parser\NoteRef::parse($parser);
+                    $note = NoteRef::parse($parser);
                     if ($note) {
                         $sour->addNote($note);
                     }
                     break;
                 case 'DATA':
-                    $sour->setData(\PhpGedcom\Parser\Sour\Data::parse($parser));
+                    $sour->setData(Sour\Data::parse($parser));
                     break;
                 case 'QUAY':
-                    $sour->setQuay(trim($record[2]));
+                    $sour->setQuay(mb_trim($record[2]));
                     break;
                 case 'PAGE':
-                    $sour->setPage(trim($record[2]));
+                    $sour->setPage(mb_trim($record[2]));
                     break;
                 case 'EVEN':
-                    $even = \PhpGedcom\Parser\SourRef\Even::parse($parser);
+                    $even = SourRef\Even::parse($parser);
                     $sour->setEven($even);
                     break;
                 default:

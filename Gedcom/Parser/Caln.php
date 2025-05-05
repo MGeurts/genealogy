@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,12 +17,12 @@
 
 namespace Gedcom\Parser;
 
-class Caln extends \Gedcom\Parser\Component
+class Caln extends Component
 {
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[2])) {
             $identifier = $parser->normalizeIdentifier($record[2]);
         } else {
@@ -34,10 +36,10 @@ class Caln extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtolower(trim((string) $record[1]));
-            $lineDepth = (int) $record[0];
+        while (! $parser->eof()) {
+            $record     = $parser->getCurrentLineRecord();
+            $recordType = mb_strtolower(mb_trim((string) $record[1]));
+            $lineDepth  = (int) $record[0];
 
             if ($lineDepth <= $depth) {
                 $parser->back();
@@ -45,9 +47,9 @@ class Caln extends \Gedcom\Parser\Component
             }
 
             if ($caln->hasAttribute($recordType)) {
-                $caln->{'set'.$recordType}(trim((string) $record[2]));
+                $caln->{'set' . $recordType}(mb_trim((string) $record[2]));
             } else {
-                $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

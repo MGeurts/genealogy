@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,6 +17,4 @@
 
 namespace Gedcom\Record\Indi;
 
-class Ssn extends \Gedcom\Record\Indi\Attr
-{
-}
+class Ssn extends Attr {}

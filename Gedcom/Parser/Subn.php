@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,12 +17,12 @@
 
 namespace Gedcom\Parser;
 
-class Subn extends \Gedcom\Parser\Component
+class Subn extends Component
 {
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[1])) {
             $identifier = $parser->normalizeIdentifier($record[1]);
         } else {
@@ -36,10 +38,10 @@ class Subn extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
             $currentDepth = (int) $record[0];
-            $recordType = strtoupper(trim((string) $record[1]));
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
 
             if ($currentDepth <= $depth) {
                 $parser->back();
@@ -51,35 +53,35 @@ class Subn extends \Gedcom\Parser\Component
                     $subn->setSubm($parser->normalizeIdentifier($record[2]));
                     break;
                 case 'FAMF':
-                    $subn->setFamf(trim((string) $record[2]));
+                    $subn->setFamf(mb_trim((string) $record[2]));
                     break;
                 case 'TEMP':
-                    $subn->setTemp(trim((string) $record[2]));
+                    $subn->setTemp(mb_trim((string) $record[2]));
                     break;
                 case 'ANCE':
-                    $subn->setAnce(trim((string) $record[2]));
+                    $subn->setAnce(mb_trim((string) $record[2]));
                     break;
                 case 'DESC':
-                    $subn->setDesc(trim((string) $record[2]));
+                    $subn->setDesc(mb_trim((string) $record[2]));
                     break;
                 case 'ORDI':
-                    $subn->setOrdi(trim((string) $record[2]));
+                    $subn->setOrdi(mb_trim((string) $record[2]));
                     break;
                 case 'RIN':
-                    $subn->setRin(trim((string) $record[2]));
+                    $subn->setRin(mb_trim((string) $record[2]));
                     break;
                 case 'NOTE':
-                    $note = \Gedcom\Parser\NoteRef::parse($parser);
+                    $note = NoteRef::parse($parser);
                     if ($note) {
                         $subn->addNote($note);
                     }
                     break;
                 case 'CHAN':
-                    $chan = \Gedcom\Parser\Chan::parse($parser);
+                    $chan = Chan::parse($parser);
                     $subn->setChan($chan);
                     break;
                 default:
-                    $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                    $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

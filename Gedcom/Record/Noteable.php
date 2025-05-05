@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -17,5 +19,5 @@ namespace Gedcom\Record;
 
 interface Noteable
 {
-    public function addNote(\Gedcom\Record\NoteRef $note);
+    public function addNote(NoteRef $note);
 }

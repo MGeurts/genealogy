@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,23 +20,22 @@ namespace Gedcom\Writer\Fam\Even;
 class Husb
 {
     /**
-     * @param \Gedcom\Record\Fam\Even\Husb $attr
-     * @param int                          $level
-     *
+     * @param  \Gedcom\Record\Fam\Even\Husb  $attr
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Fam\Even\Husb &$husb, $level = 0)
     {
         $output = '';
 
-        $output .= $level." HUSB \n";
+        $output .= $level . " HUSB \n";
         // level up
         $level++;
 
         // AGE
         $age = $husb->getAge();
-        if (!empty($age)) {
-            $output .= $level.' AGE '.$age."\n";
+        if (! empty($age)) {
+            $output .= $level . ' AGE ' . $age . "\n";
         }
 
         return $output;

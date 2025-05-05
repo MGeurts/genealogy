@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,7 +17,7 @@
 
 namespace Gedcom\Parser;
 
-class Head extends \Gedcom\Parser\Component
+class Head extends Component
 {
     /**
      * @return \Gedcom\Record\Head
@@ -23,7 +25,7 @@ class Head extends \Gedcom\Parser\Component
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[1])) {
             $parser->normalizeIdentifier($record[1]);
         } else {
@@ -38,10 +40,10 @@ class Head extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
             $currentDepth = (int) $record[0];
-            $recordType = strtoupper(trim((string) $record[1]));
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
 
             if ($currentDepth <= $depth) {
                 $parser->back();
@@ -50,7 +52,7 @@ class Head extends \Gedcom\Parser\Component
 
             switch ($recordType) {
                 case 'SOUR':
-                    $sour = \Gedcom\Parser\Head\Sour::parse($parser);
+                    $sour = Head\Sour::parse($parser);
                     $head->setSour($sour);
                     break;
                 case 'SUBM':
@@ -60,39 +62,39 @@ class Head extends \Gedcom\Parser\Component
                     $head->setSubn($parser->normalizeIdentifier($record[2]));
                     break;
                 case 'DEST':
-                    $dest = \Gedcom\Parser\Head\Dest::parse($parser);
+                    $dest = Head\Dest::parse($parser);
                     $head->setDest($dest);
                     break;
                 case 'FILE':
-                    $head->setFile(trim((string) $record[2]));
+                    $head->setFile(mb_trim((string) $record[2]));
                     break;
                 case 'COPR':
-                    $head->setCopr(trim((string) $record[2]));
+                    $head->setCopr(mb_trim((string) $record[2]));
                     break;
                 case 'LANG':
-                    $head->setLang(trim((string) $record[2]));
+                    $head->setLang(mb_trim((string) $record[2]));
                     break;
                 case 'DATE':
-                    $date = \Gedcom\Parser\Head\Date::parse($parser);
+                    $date = Head\Date::parse($parser);
                     $head->setDate($date);
                     break;
                 case 'GEDC':
-                    $gedc = \Gedcom\Parser\Head\Gedc::parse($parser);
+                    $gedc = Head\Gedc::parse($parser);
                     $head->setGedc($gedc);
                     break;
                 case 'CHAR':
-                    $char = \Gedcom\Parser\Head\Char::parse($parser);
+                    $char = Head\Char::parse($parser);
                     $head->setChar($char);
                     break;
                 case 'PLAC':
-                    $plac = \Gedcom\Parser\Head\Plac::parse($parser);
+                    $plac = Head\Plac::parse($parser);
                     $head->setPlac($plac);
                     break;
                 case 'NOTE':
                     $head->setNote($parser->parseMultiLineRecord());
                     break;
                 default:
-                    $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                    $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

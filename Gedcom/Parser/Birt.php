@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -15,20 +17,20 @@
 
 namespace Gedcom\Parser;
 
-class Birt extends \Gedcom\Parser\Component
+class Birt extends Component
 {
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
 
         $parser->forward();
 
         $birt = new \Gedcom\Record\Birt();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = trim((string) $record[1]);
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_trim((string) $record[1]);
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -37,10 +39,10 @@ class Birt extends \Gedcom\Parser\Component
             }
 
             match ($recordType) {
-                'DATE' => $birt->setDate(trim((string) $record[2])),
-                '_DATI' => $birt->setDati(trim((string) $record[2])),
-                'PLAC' => $birt->setPlac(trim((string) $record[2])),
-                default => $parser->logUnhandledRecord(self::class.' @ '.__LINE__),
+                'DATE'  => $birt->setDate(mb_trim((string) $record[2])),
+                '_DATI' => $birt->setDati(mb_trim((string) $record[2])),
+                'PLAC'  => $birt->setPlac(mb_trim((string) $record[2])),
+                default => $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__),
             };
 
             $parser->forward();

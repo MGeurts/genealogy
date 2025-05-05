@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,21 +20,20 @@ namespace Gedcom\Writer\Head;
 class Plac
 {
     /**
-     * @param string $format
-     * @param int    $level
-     *
+     * @param  string  $format
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Head\Plac &$plac, $level)
     {
-        $output = $level." PLAC \n";
+        $output = $level . " PLAC \n";
 
         // level up
         $level++;
         // FORM
         $form = $plac->getForm();
         if ($form) {
-            $output .= $level.' FORM '.$form."\n";
+            $output .= $level . ' FORM ' . $form . "\n";
         }
 
         return $output;

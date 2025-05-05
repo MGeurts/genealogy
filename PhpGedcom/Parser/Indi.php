@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,28 +10,20 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser;
 
-/**
- *
- *
- */
-class Indi extends \PhpGedcom\Parser\Component
+class Indi extends Component
 {
-    /**
-     *
-     *
-     */
     public static function parse(\PhpGedcom\Parser $parser)
     {
-        $record = $parser->getCurrentLineRecord();
+        $record     = $parser->getCurrentLineRecord();
         $identifier = $parser->normalizeIdentifier($record[1]);
-        $depth = (int) $record[0];
+        $depth      = (int) $record[0];
 
         $indi = new \PhpGedcom\Record\Indi();
         $indi->setId($identifier);
@@ -38,9 +32,9 @@ class Indi extends \PhpGedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim($record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim($record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -50,45 +44,45 @@ class Indi extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'NAME':
-                    $name = \PhpGedcom\Parser\Indi\Name::parse($parser);
+                    $name = Indi\Name::parse($parser);
                     $indi->addName($name);
                     break;
                 case 'ALIA':
                     $indi->addAlia($parser->normalizeIdentifier($record[2]));
                     break;
                 case 'SEX':
-                    $indi->setSex(trim($record[2]));
+                    $indi->setSex(mb_trim($record[2]));
                     break;
                 case 'RIN':
-                    $indi->setRin(trim($record[2]));
+                    $indi->setRin(mb_trim($record[2]));
                     break;
                 case 'RESN':
-                    $indi->setResn(trim($record[2]));
+                    $indi->setResn(mb_trim($record[2]));
                     break;
                 case 'RFN':
-                    $indi->setRfn(trim($record[2]));
+                    $indi->setRfn(mb_trim($record[2]));
                     break;
                 case 'AFN':
-                    $indi->setAfn(trim($record[2]));
+                    $indi->setAfn(mb_trim($record[2]));
                     break;
                 case 'CHAN':
-                    $chan = \PhpGedcom\Parser\Chan::parse($parser);
+                    $chan = Chan::parse($parser);
                     $indi->setChan($chan);
                     break;
                 case 'FAMS':
-                    $fams = \PhpGedcom\Parser\Indi\Fams::parse($parser);
+                    $fams = Indi\Fams::parse($parser);
                     if ($fams) {
                         $indi->addFams($fams);
                     }
                     break;
                 case 'FAMC':
-                    $famc = \PhpGedcom\Parser\Indi\Famc::parse($parser);
+                    $famc = Indi\Famc::parse($parser);
                     if ($famc) {
                         $indi->addFamc($famc);
                     }
                     break;
                 case 'ASSO':
-                    $asso = \PhpGedcom\Parser\Indi\Asso::parse($parser);
+                    $asso = Indi\Asso::parse($parser);
                     $indi->addAsso($asso);
                     break;
                 case 'ANCI':
@@ -101,31 +95,31 @@ class Indi extends \PhpGedcom\Parser\Component
                     $indi->addSubm($parser->normalizeIdentifier($record[2]));
                     break;
                 case 'REFN':
-                    $ref = \PhpGedcom\Parser\Refn::parse($parser);
+                    $ref = Refn::parse($parser);
                     $indi->addRefn($ref);
                     break;
                 case 'BAPL':
                 case 'CONL':
                 case 'ENDL':
                 case 'SLGC':
-                    $className = ucfirst(strtolower($recordType));
-                    $class = '\\PhpGedcom\\Parser\\Indi\\' . $className;
+                    $className = ucfirst(mb_strtolower($recordType));
+                    $class     = '\\PhpGedcom\\Parser\\Indi\\' . $className;
 
                     $lds = $class::parse($parser);
                     $indi->{'set' . $recordType}($lds);
                     break;
                 case 'OBJE':
-                    $obje = \PhpGedcom\Parser\ObjeRef::parse($parser);
+                    $obje = ObjeRef::parse($parser);
                     $indi->addObje($obje);
                     break;
                 case 'NOTE':
-                    $note = \PhpGedcom\Parser\NoteRef::parse($parser);
+                    $note = NoteRef::parse($parser);
                     if ($note) {
                         $indi->addNote($note);
                     }
                     break;
                 case 'SOUR':
-                    $sour = \PhpGedcom\Parser\SourRef::parse($parser);
+                    $sour = SourRef::parse($parser);
                     $indi->addSour($sour);
                     break;
                 case 'ADOP':
@@ -151,8 +145,8 @@ class Indi extends \PhpGedcom\Parser\Component
                 case 'PROB':
                 case 'WILL':
                 case 'EVEN':
-                    $className = ucfirst(strtolower($recordType));
-                    $class = '\\PhpGedcom\\Parser\\Indi\\' . $className;
+                    $className = ucfirst(mb_strtolower($recordType));
+                    $class     = '\\PhpGedcom\\Parser\\Indi\\' . $className;
 
                     $event = $class::parse($parser);
                     $indi->addEven($event);
@@ -170,8 +164,8 @@ class Indi extends \PhpGedcom\Parser\Component
                 case 'RESI':
                 case 'SSN':
                 case 'TITL':
-                    $className = ucfirst(strtolower($recordType));
-                    $class = '\\PhpGedcom\\Parser\\Indi\\' . $className;
+                    $className = ucfirst(mb_strtolower($recordType));
+                    $class     = '\\PhpGedcom\\Parser\\Indi\\' . $className;
 
                     $att = $class::parse($parser);
                     $indi->addAttr($att);

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,29 +10,20 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser;
 
-/**
- *
- *
- */
-class Note extends \PhpGedcom\Parser\Component
+class Note extends Component
 {
-
-    /**
-     *
-     *
-     */
     public static function parse(\PhpGedcom\Parser $parser)
     {
-        $record = $parser->getCurrentLineRecord(4);
+        $record     = $parser->getCurrentLineRecord(4);
         $identifier = $parser->normalizeIdentifier($record[1]);
-        $depth = (int) $record[0];
+        $depth      = (int) $record[0];
 
         $note = new \PhpGedcom\Record\Note();
         $note->setId($identifier);
@@ -47,10 +40,10 @@ class Note extends \PhpGedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
             $currentDepth = (int) $record[0];
-            $recordType = strtoupper(trim($record[1]));
+            $recordType   = mb_strtoupper(mb_trim($record[1]));
 
             if ($currentDepth <= $depth) {
                 $parser->back();
@@ -59,7 +52,7 @@ class Note extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'RIN':
-                    $note->setRin(trim($record[2]));
+                    $note->setRin(mb_trim($record[2]));
                     break;
                 case 'CONT':
                     $note->setNote($note->getNote() . "\n");
@@ -74,15 +67,15 @@ class Note extends \PhpGedcom\Parser\Component
                     }
                     break;
                 case 'REFN':
-                    $refn = \PhpGedcom\Parser\Refn::parse($parser);
+                    $refn = Refn::parse($parser);
                     $note->addRefn($refn);
                     break;
                 case 'CHAN':
-                    $chan = \PhpGedcom\Parser\Chan::parse($parser);
+                    $chan = Chan::parse($parser);
                     $note->setChan($chan);
                     break;
                 case 'SOUR':
-                    $sour = \PhpGedcom\Parser\SourRef::parse($parser);
+                    $sour = SourRef::parse($parser);
                     $note->addSour($sour);
                     break;
                 default:

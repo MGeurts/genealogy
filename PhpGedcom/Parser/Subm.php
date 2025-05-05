@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,29 +10,20 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser;
 
-/**
- *
- *
- */
-class Subm extends \PhpGedcom\Parser\Component
+class Subm extends Component
 {
-
-    /**
-     *
-     *
-     */
     public static function parse(\PhpGedcom\Parser $parser)
     {
-        $record = $parser->getCurrentLineRecord();
+        $record     = $parser->getCurrentLineRecord();
         $identifier = $parser->normalizeIdentifier($record[1]);
-        $depth = (int) $record[0];
+        $depth      = (int) $record[0];
 
         $subm = new \PhpGedcom\Record\Subm();
         $subm->setSubm($identifier);
@@ -39,10 +32,10 @@ class Subm extends \PhpGedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
             $currentDepth = (int) $record[0];
-            $recordType = strtoupper(trim($record[1]));
+            $recordType   = mb_strtoupper(mb_trim($record[1]));
 
             if ($currentDepth <= $depth) {
                 $parser->back();
@@ -51,38 +44,38 @@ class Subm extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'NAME':
-                    $subm->setName(isset($record[2]) ? trim($record[2]) : '');
+                    $subm->setName(isset($record[2]) ? mb_trim($record[2]) : '');
                     break;
                 case 'ADDR':
-                    $addr = \PhpGedcom\Parser\Addr::parse($parser);
+                    $addr = Addr::parse($parser);
                     $subm->setAddr($addr);
                     break;
                 case 'PHON':
-                    $phone = \PhpGedcom\Parser\Phon::parse($parser);
+                    $phone = Phon::parse($parser);
                     $subm->addPhon($phone);
                     break;
                 case 'NOTE':
-                    $note = \PhpGedcom\Parser\NoteRef::parse($parser);
+                    $note = NoteRef::parse($parser);
                     if ($note) {
                         $subm->addNote($note);
                     }
                     break;
                 case 'OBJE':
-                    $obje = \PhpGedcom\Parser\ObjeRef::parse($parser);
+                    $obje = ObjeRef::parse($parser);
                     $subm->addObje($obje);
                     break;
                 case 'CHAN':
-                    $chan = \PhpGedcom\Parser\Chan::parse($parser);
+                    $chan = Chan::parse($parser);
                     $subm->setChan($chan);
                     break;
                 case 'RIN':
-                    $subm->setRin(isset($record[2]) ? trim($record[2]) : '');
+                    $subm->setRin(isset($record[2]) ? mb_trim($record[2]) : '');
                     break;
                 case 'RFN':
-                    $subm->setRfn(isset($record[2]) ? trim($record[2]) : '');
+                    $subm->setRfn(isset($record[2]) ? mb_trim($record[2]) : '');
                     break;
                 case 'LANG':
-                    $subm->addLang(isset($record[2]) ? trim($record[2]) : '');
+                    $subm->addLang(isset($record[2]) ? mb_trim($record[2]) : '');
                     break;
                 default:
                     $parser->logUnhandledRecord(get_class() . ' @ ' . __LINE__);

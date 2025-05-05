@@ -7,31 +7,34 @@ namespace Gedcom\Record;
 final class Repo extends \Gedcom\Record implements Noteable
 {
     private string $repo = '';
+
     private string $name = '';
+
     private ?Addr $addr = null;
+
     private array $phon = [];
+
     private array $email = [];
+
     private array $fax = [];
+
     private array $www = [];
+
     private string $rin = '';
+
     private ?Chan $chan = null;
+
     private array $refn = [];
+
     private array $note = [];
 
-    /**
-     * @param string $phon
-     *
-     * @return Repo
-     */
     public function addPhon(string $phon): self
     {
         $this->phon[] = $phon;
+
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getPhon(): array
     {
         return $this->phon;
@@ -39,7 +42,6 @@ final class Repo extends \Gedcom\Record implements Noteable
 
     /**
      * @param null
-     *
      * @return Repo
      */
     public function addEmail($email = null)
@@ -59,7 +61,6 @@ final class Repo extends \Gedcom\Record implements Noteable
 
     /**
      * @param null
-     *
      * @return Repo
      */
     public function addFax($fax = null)
@@ -79,7 +80,6 @@ final class Repo extends \Gedcom\Record implements Noteable
 
     /**
      * @param null
-     *
      * @return Repo
      */
     public function addWww($www = null)
@@ -98,14 +98,13 @@ final class Repo extends \Gedcom\Record implements Noteable
     }
 
     /**
-     * @param null|\Gedcom\Record\Refn $refn
-     *
+     * @param  null|Refn  $refn
      * @return Repo
      */
     public function addRefn($refn = null)
     {
         if (empty($refn)) {
-            $refn = new \Gedcom\Record\Refn();
+            $refn = new Refn();
         }
         $this->refn[] = $refn;
 
@@ -121,14 +120,13 @@ final class Repo extends \Gedcom\Record implements Noteable
     }
 
     /**
-     * @param null|\Gedcom\Record\NoteRef $note
-     *
+     * @param  null|NoteRef  $note
      * @return Repo
      */
     public function addNote($note = null)
     {
         if (empty($node)) {
-            $note = new \Gedcom\Record\NoteRef();
+            $note = new NoteRef();
         }
         $this->note[] = $note;
 
@@ -144,8 +142,7 @@ final class Repo extends \Gedcom\Record implements Noteable
     }
 
     /**
-     * @param string $repo
-     *
+     * @param  string  $repo
      * @return Repo
      */
     public function setRepo($repo = '')
@@ -164,8 +161,7 @@ final class Repo extends \Gedcom\Record implements Noteable
     }
 
     /**
-     * @param string $name
-     *
+     * @param  string  $name
      * @return Repo
      */
     public function setName($name = '')
@@ -184,14 +180,13 @@ final class Repo extends \Gedcom\Record implements Noteable
     }
 
     /**
-     * @param null|\Gedcom\Record\Addr $addr
-     *
+     * @param  null|Addr  $addr
      * @return Repo
      */
     public function setAddr($addr = null)
     {
         if (empty($addr)) {
-            $addr = new \Gedcom\Record\Addr();
+            $addr = new Addr();
         }
         $this->addr = $addr;
 
@@ -199,7 +194,7 @@ final class Repo extends \Gedcom\Record implements Noteable
     }
 
     /**
-     * @return \Gedcom\Record\Addr
+     * @return Addr
      */
     public function getAddr()
     {
@@ -207,8 +202,7 @@ final class Repo extends \Gedcom\Record implements Noteable
     }
 
     /**
-     * @param string $rin
-     *
+     * @param  string  $rin
      * @return Repo
      */
     public function setRin($rin = '')
@@ -227,8 +221,7 @@ final class Repo extends \Gedcom\Record implements Noteable
     }
 
     /**
-     * @param \Gedcom\Record\Chan $chan
-     *
+     * @param  Chan  $chan
      * @return Repo
      */
     public function setChan($chan = [])
@@ -239,7 +232,7 @@ final class Repo extends \Gedcom\Record implements Noteable
     }
 
     /**
-     * @return \Gedcom\Record\Chan
+     * @return Chan
      */
     public function getChan()
     {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,9 +20,8 @@ namespace Gedcom\Writer\Head;
 class Char
 {
     /**
-     * @param string $format
-     * @param int    $level
-     *
+     * @param  string  $format
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Head\Char &$char, $level)
@@ -29,7 +30,7 @@ class Char
         // char
         $_char = $char->getChar();
         if ($_char) {
-            $output .= $level.' CHAR '.$_char."\n";
+            $output .= $level . ' CHAR ' . $_char . "\n";
         } else {
             return $output;
         }
@@ -39,7 +40,7 @@ class Char
         // VERS
         $vers = $char->getVersion();
         if ($vers) {
-            $output .= $level.' VERS '.$vers."\n";
+            $output .= $level . ' VERS ' . $vers . "\n";
         }
 
         return $output;

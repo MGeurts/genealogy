@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,17 +20,16 @@ namespace Gedcom\Writer\Head\Sour;
 class Corp
 {
     /**
-     * @param string $format
-     * @param int    $level
-     *
+     * @param  string  $format
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Head\Sour\Corp &$corp, $level)
     {
         $output = '';
-        $_corp = $corp->getCorp();
+        $_corp  = $corp->getCorp();
         if ($_corp) {
-            $output .= $level.' CORP '.$_corp."\n";
+            $output .= $level . ' CORP ' . $_corp . "\n";
         } else {
             return $output;
         }

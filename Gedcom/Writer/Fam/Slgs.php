@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,45 +20,44 @@ namespace Gedcom\Writer\Fam;
 class Slgs
 {
     /**
-     * @param int $level
-     *
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Fam\Slgs &$slgs, $level)
     {
         $output = '';
-        $output .= $level." SLGS \n";
+        $output .= $level . " SLGS \n";
 
         // Level up
         $level++;
 
         // $STAT;
         $stat = $slgs->getStat();
-        if (!empty($stat)) {
-            $output .= $level.' STAT '.$stat."\n";
+        if (! empty($stat)) {
+            $output .= $level . ' STAT ' . $stat . "\n";
         }
 
         // $date;
         $date = $slgs->getDate();
-        if (!empty($date)) {
-            $output .= $level.' DATE '.$date."\n";
+        if (! empty($date)) {
+            $output .= $level . ' DATE ' . $date . "\n";
         }
 
         // PLAC
         $plac = $slgs->getPlac();
-        if (!empty($plac)) {
-            $output .= $level.' PLAC '.$plac."\n";
+        if (! empty($plac)) {
+            $output .= $level . ' PLAC ' . $plac . "\n";
         }
 
         // $TEMP;
         $temp = $slgs->getTemp();
-        if (!empty($temp)) {
-            $output .= $level.' TEMP '.$temp."\n";
+        if (! empty($temp)) {
+            $output .= $level . ' TEMP ' . $temp . "\n";
         }
 
         // $sour = array();
         $sour = $slgs->getSour();
-        if (!empty($sour) && (is_countable($sour) ? count($sour) : 0) > 0) {
+        if (! empty($sour) && (is_countable($sour) ? count($sour) : 0) > 0) {
             foreach ($sour as $item) {
                 $_convert = \Gedcom\Writer\SourRef::convert($item, $level);
                 $output .= $_convert;
@@ -64,7 +65,7 @@ class Slgs
         }
         // $note = array();
         $note = $slgs->getNote();
-        if (!empty($note) && (is_countable($note) ? count($note) : 0) > 0) {
+        if (! empty($note) && (is_countable($note) ? count($note) : 0) > 0) {
             foreach ($note as $item) {
                 $_convert = \Gedcom\Writer\NoteRef::convert($item, $level);
                 $output .= $_convert;

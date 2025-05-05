@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,8 +10,8 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
@@ -83,17 +85,17 @@ class Head extends Record
     protected $note = null;
 
     /**
-     * @param \PhpGedcom\Record\Head\Sour $sour
      * @return Head
      */
     public function setSour(Head\Sour $sour)
     {
         $this->sour = $sour;
+
         return $this;
     }
 
     /**
-     * @return \PhpGedcom\Record\Head\Sour
+     * @return Head\Sour
      */
     public function getSour()
     {
@@ -101,17 +103,17 @@ class Head extends Record
     }
 
     /**
-     * @param \PhpGedcom\Record\Head\Date $date
      * @return Head
      */
     public function setDate(Head\Date $date)
     {
         $this->date = $date;
+
         return $this;
     }
 
     /**
-     * @return \PhpGedcom\Record\Head\Date
+     * @return Head\Date
      */
     public function getDate()
     {
@@ -119,17 +121,17 @@ class Head extends Record
     }
 
     /**
-     * @param \PhpGedcom\Record\Head\Gedc $gedc
      * @return Head
      */
     public function setGedc(Head\Gedc $gedc)
     {
         $this->gedc = $gedc;
+
         return $this;
     }
 
     /**
-     * @return \PhpGedcom\Record\Head\Gedc
+     * @return Head\Gedc
      */
     public function getGedc()
     {
@@ -137,17 +139,17 @@ class Head extends Record
     }
 
     /**
-     * @param \PhpGedcom\Record\Head\Char $char
      * @return Head
      */
     public function setChar(Head\Char $char)
     {
         $this->char = $char;
+
         return $this;
     }
 
     /**
-     * @return \PhpGedcom\Record\Head\Char
+     * @return Head\Char
      */
     public function getChar()
     {
@@ -155,17 +157,17 @@ class Head extends Record
     }
 
     /**
-     * @param \PhpGedcom\Record\Head\Plac $plac
      * @return Head
      */
     public function setPlac(Head\Plac $plac)
     {
         $this->plac = $plac;
+
         return $this;
     }
 
     /**
-     * @return \PhpGedcom\Record\Head\Plac
+     * @return Head\Plac
      */
     public function getPlac()
     {
@@ -173,12 +175,13 @@ class Head extends Record
     }
 
     /**
-     * @param string $subm
+     * @param  string  $subm
      * @return Head
      */
     public function setSubm($subm)
     {
         $this->subm = $subm;
+
         return $this;
     }
 
@@ -191,12 +194,13 @@ class Head extends Record
     }
 
     /**
-     * @param string $subn
+     * @param  string  $subn
      * @return Head
      */
     public function setSubn($subn)
     {
         $this->subn = $subn;
+
         return $this;
     }
 
@@ -209,12 +213,13 @@ class Head extends Record
     }
 
     /**
-     * @param string $lang
+     * @param  string  $lang
      * @return Head
      */
     public function setLang($lang)
     {
         $this->lang = $lang;
+
         return $this;
     }
 
@@ -227,12 +232,13 @@ class Head extends Record
     }
 
     /**
-     * @param string $file
+     * @param  string  $file
      * @return Head
      */
     public function setFile($file)
     {
         $this->file = $file;
+
         return $this;
     }
 
@@ -245,12 +251,13 @@ class Head extends Record
     }
 
     /**
-     * @param string $dest
+     * @param  string  $dest
      * @return Head
      */
     public function setDest($dest)
     {
         $this->dest = $dest;
+
         return $this;
     }
 
@@ -263,12 +270,13 @@ class Head extends Record
     }
 
     /**
-     * @param string $copr
+     * @param  string  $copr
      * @return Head
      */
     public function setCopr($copr)
     {
         $this->copr = $copr;
+
         return $this;
     }
 
@@ -281,12 +289,13 @@ class Head extends Record
     }
 
     /**
-     * @param string $note
+     * @param  string  $note
      * @return Head
      */
     public function setNote($note)
     {
         $this->note = $note;
+
         return $this;
     }
 

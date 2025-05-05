@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,18 +10,17 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Record\Indi\Even;
 
-use \PhpGedcom\Record;
+use PhpGedcom\Record;
 
 /**
  * Class Plac
- * @package PhpGedcom\Record\Indi\Even
  */
 class Plac extends Record implements Record\Noteable, Record\Sourceable
 {
@@ -36,20 +37,21 @@ class Plac extends Record implements Record\Noteable, Record\Sourceable
     /**
      * @var array
      */
-    protected $note = array();
+    protected $note = [];
 
     /**
      * @var array
      */
-    protected $sour = array();
+    protected $sour = [];
 
     /**
-     * @param string $form
+     * @param  string  $form
      * @return Plac
      */
     public function setForm($form)
     {
         $this->form = $form;
+
         return $this;
     }
 
@@ -62,12 +64,13 @@ class Plac extends Record implements Record\Noteable, Record\Sourceable
     }
 
     /**
-     * @param string $plac
+     * @param  string  $plac
      * @return Plac
      */
     public function setPlac($plac)
     {
         $this->plac = $plac;
+
         return $this;
     }
 
@@ -88,12 +91,12 @@ class Plac extends Record implements Record\Noteable, Record\Sourceable
     }
 
     /**
-     * @param Record\NoteRef $note
      * @return Plac
      */
     public function addNote(Record\NoteRef $note)
     {
         $this->note[] = $note;
+
         return $this;
     }
 
@@ -106,12 +109,12 @@ class Plac extends Record implements Record\Noteable, Record\Sourceable
     }
 
     /**
-     * @param Record\SourRef $sour
      * @return Plac
      */
     public function addSour(Record\SourRef $sour)
     {
         $this->sour[] = $sour;
+
         return $this;
     }
 }

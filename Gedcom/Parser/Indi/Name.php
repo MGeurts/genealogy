@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,10 +22,10 @@ class Name extends \Gedcom\Parser\Component
     public static function parse(\Gedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
         if (isset($record[2])) {
             $name = new \Gedcom\Record\Indi\Name();
-            $name->setName(trim((string) $record[2]));
+            $name->setName(mb_trim((string) $record[2]));
         } else {
             $parser->skipToNextLevel($depth);
 
@@ -32,9 +34,9 @@ class Name extends \Gedcom\Parser\Component
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim((string) $record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim((string) $record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -42,31 +44,31 @@ class Name extends \Gedcom\Parser\Component
                 break;
             }
 
-            if (!isset($record[2])) {
+            if (! isset($record[2])) {
                 $record[2] = '';
             }
 
             switch ($recordType) {
                 case 'TYPE':
-                    $name->setType(trim((string) $record[2]));
+                    $name->setType(mb_trim((string) $record[2]));
                     break;
                 case 'NPFX':
-                    $name->setNpfx(trim((string) $record[2]));
+                    $name->setNpfx(mb_trim((string) $record[2]));
                     break;
                 case 'GIVN':
-                    $name->setGivn(trim((string) $record[2]));
+                    $name->setGivn(mb_trim((string) $record[2]));
                     break;
                 case 'NICK':
-                    $name->setNick(trim((string) $record[2]));
+                    $name->setNick(mb_trim((string) $record[2]));
                     break;
                 case 'SPFX':
-                    $name->setSpfx(trim((string) $record[2]));
+                    $name->setSpfx(mb_trim((string) $record[2]));
                     break;
                 case 'SURN':
-                    $name->setSurn(trim((string) $record[2]));
+                    $name->setSurn(mb_trim((string) $record[2]));
                     break;
                 case 'NSFX':
-                    $name->setNsfx(trim((string) $record[2]));
+                    $name->setNsfx(mb_trim((string) $record[2]));
                     break;
                 case 'SOUR':
                     $sour = \Gedcom\Parser\SourRef::parse($parser);
@@ -85,7 +87,7 @@ class Name extends \Gedcom\Parser\Component
                     $name->setRomn(\Parser\Indi\Name\Romn::parse($parser));
                     break;
                 default:
-                    $parser->logUnhandledRecord(self::class.' @ '.__LINE__);
+                    $parser->logUnhandledRecord(self::class . ' @ ' . __LINE__);
             }
 
             $parser->forward();

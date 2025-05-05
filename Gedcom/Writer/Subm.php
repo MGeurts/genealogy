@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,61 +20,60 @@ namespace Gedcom\Writer;
 class Subm
 {
     /**
-     * @param \Gedcom\Record\Subm $note
-     * @param int                 $level
-     *
+     * @param  \Gedcom\Record\Subm  $note
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Subm &$subm)
     {
-        $level = 0;
+        $level  = 0;
         $output = '';
-        $_subm = $subm->getSubn();
+        $_subm  = $subm->getSubn();
         if (empty($_subm)) {
             return $output;
-        } else {
-            $output .= $level.' '.$_subm.' SUBM '."\n";
         }
+        $output .= $level . ' ' . $_subm . ' SUBM ' . "\n";
+
         // level up
         $level++;
 
         // NAME
         $name = $subm->getName();
-        if (!empty($name)) {
-            $output .= $level.' NAME '.$name."\n";
+        if (! empty($name)) {
+            $output .= $level . ' NAME ' . $name . "\n";
         }
         // $chan
         $chan = $subm->getChan();
         if ($chan) {
-            $_convert = \Gedcom\Writer\Chan::convert($chan, $level);
+            $_convert = Chan::convert($chan, $level);
             $output .= $_convert;
         }
 
         // $addr
         $addr = $subm->getAddr();
         if ($addr) {
-            $_convert = \Gedcom\Writer\Addr::convert($addr, $level);
+            $_convert = Addr::convert($addr, $level);
             $output .= $_convert;
         }
 
         // $rin
         $rin = $subm->getRin();
-        if (!empty($rin)) {
-            $output .= $level.' RIN '.$rin."\n";
+        if (! empty($rin)) {
+            $output .= $level . ' RIN ' . $rin . "\n";
         }
 
         // $rfn
         $rfn = $subm->getRfn();
-        if (!empty($rfn)) {
-            $output .= $level.' RFN '.$rfn."\n";
+        if (! empty($rfn)) {
+            $output .= $level . ' RFN ' . $rfn . "\n";
         }
 
         // $lang = array()
         $langs = $subm->getLang();
-        if (!empty($langs) && $langs !== []) {
+        if (! empty($langs) && $langs !== []) {
             foreach ($langs as $item) {
                 if ($item) {
-                    $_convert = $level.' LANG '.$item."\n";
+                    $_convert = $level . ' LANG ' . $item . "\n";
                     $output .= $_convert;
                 }
             }
@@ -80,10 +81,10 @@ class Subm
 
         // $phon = array()
         $phon = $subm->getLang();
-        if (!empty($phon) && $phon !== []) {
+        if (! empty($phon) && $phon !== []) {
             foreach ($phon as $item) {
                 if ($item) {
-                    $_convert = \Gedcom\Writer\Phon::convert($item, $level);
+                    $_convert = Phon::convert($item, $level);
                     $output .= $_convert;
                 }
             }
@@ -91,18 +92,18 @@ class Subm
 
         // $obje = array()
         $obje = $subm->getObje();
-        if (!empty($obje) && $obje !== []) {
+        if (! empty($obje) && $obje !== []) {
             foreach ($obje as $item) {
-                $_convert = \Gedcom\Writer\ObjeRef::convert($item, $level);
+                $_convert = ObjeRef::convert($item, $level);
                 $output .= $_convert;
             }
         }
 
         // note
         $note = $subm->getNote();
-        if (!empty($note) && $note !== []) {
+        if (! empty($note) && $note !== []) {
             foreach ($note as $item) {
-                $_convert = \Gedcom\Writer\NoteRef::convert($item, $level);
+                $_convert = NoteRef::convert($item, $level);
                 $output .= $_convert;
             }
         }

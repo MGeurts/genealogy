@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,8 +20,7 @@ namespace Gedcom\Writer;
 class NoteRef
 {
     /**
-     * @param int $level
-     *
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\NoteRef &$note, $level)
@@ -28,15 +29,15 @@ class NoteRef
 
         // $_note
         $_note = $note->getNote();
-        if (!empty($_note)) {
-            $output .= $level.' NOTE '.$_note."\n";
+        if (! empty($_note)) {
+            $output .= $level . ' NOTE ' . $_note . "\n";
         }
 
         $level++;
         // $sour
         $sour = $note->getSour();
         foreach ($sour as $item) {
-            $_convert = \Gedcom\Writer\SourRef::convert($item, $level);
+            $_convert = SourRef::convert($item, $level);
             $output .= $_convert;
         }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,7 +22,9 @@ use Gedcom\Record\Noteable;
 class Data extends \Gedcom\Record implements Noteable
 {
     protected $_even = [];
+
     protected $_agnc;
+
     protected $_date;
 
     protected $_text;

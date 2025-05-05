@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -29,5 +31,6 @@ class File extends \Gedcom\Record
      * @var PhpRecord\ObjeRef\File\Form
      */
     protected $_form;
+
     protected $_titl;
 }

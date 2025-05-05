@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,8 +20,7 @@ namespace Gedcom\Writer\Indi\Even;
 class Plac
 {
     /**
-     * @param int $level
-     *
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Indi\Even\Plac &$plac, $level = 0)
@@ -28,10 +29,10 @@ class Plac
 
         // $plac
         $_plac = $plac->getPlac();
-        if (!empty($_plac)) {
-            $output .= $level.' PLAC '.$_plac."\n";
+        if (! empty($_plac)) {
+            $output .= $level . ' PLAC ' . $_plac . "\n";
         } else {
-            $output .= $level." PLAC\n";
+            $output .= $level . " PLAC\n";
         }
 
         // level up
@@ -39,8 +40,8 @@ class Plac
 
         // $form
         $form = $plac->getForm();
-        if (!empty($form)) {
-            $output .= $level.' FORM '.$form."\n";
+        if (! empty($form)) {
+            $output .= $level . ' FORM ' . $form . "\n";
         }
 
         // $note -array

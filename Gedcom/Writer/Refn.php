@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,26 +20,25 @@ namespace Gedcom\Writer;
 class Refn
 {
     /**
-     * @param \Gedcom\Record\Refn $note
-     * @param int                 $level
-     *
+     * @param  \Gedcom\Record\Refn  $note
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Refn &$refn, $level)
     {
         $output = '';
-        $_refn = $refn->getRefn();
+        $_refn  = $refn->getRefn();
         if (empty($_refn)) {
             return $output;
-        } else {
-            $output .= $level.' REFN '.$_refn."\n";
         }
+        $output .= $level . ' REFN ' . $_refn . "\n";
+
         // level up
         $level++;
         // DATE
         $type = $refn->getType();
-        if (!empty($type)) {
-            $output .= $level.' TYPE '.$type."\n";
+        if (! empty($type)) {
+            $output .= $level . ' TYPE ' . $type . "\n";
         }
 
         return $output;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,43 +10,34 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser\Indi;
 
-/**
- *
- *
- */
 abstract class Attr extends \PhpGedcom\Parser\Component
 {
-
-    /**
-     *
-     *
-     */
     public static function parse(\PhpGedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
 
-        $className = '\\PhpGedcom\\Record\\Indi\\' . ucfirst(strtolower(trim($record[1])));
-        $attr = new $className();
+        $className = '\\PhpGedcom\\Record\\Indi\\' . ucfirst(mb_strtolower(mb_trim($record[1])));
+        $attr      = new $className();
 
-        $attr->setType(trim($record[1]));
+        $attr->setType(mb_trim($record[1]));
 
         if (isset($record[2])) {
-            $attr->setAttr(trim($record[2]));
+            $attr->setAttr(mb_trim($record[2]));
         }
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim($record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim($record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -54,13 +47,13 @@ abstract class Attr extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'TYPE':
-                    $attr->setType(trim($record[2]));
+                    $attr->setType(mb_trim($record[2]));
                     break;
                 case 'DATE':
-                    $attr->setDate(trim($record[2]));
+                    $attr->setDate(mb_trim($record[2]));
                     break;
                 case 'PLAC':
-                    $plac = \PhpGedcom\Parser\Indi\Even\Plac::parse($parser);
+                    $plac = Even\Plac::parse($parser);
                     $attr->setPlac($plac);
                     break;
                 case 'ADDR':
@@ -71,13 +64,13 @@ abstract class Attr extends \PhpGedcom\Parser\Component
                     $attr->addPhon($phone);
                     break;
                 case 'CAUS':
-                    $attr->setCaus(trim($record[2]));
+                    $attr->setCaus(mb_trim($record[2]));
                     break;
                 case 'AGE':
-                    $attr->setAge(trim($record[2]));
+                    $attr->setAge(mb_trim($record[2]));
                     break;
                 case 'AGNC':
-                    $attr->setAgnc(trim($record[2]));
+                    $attr->setAgnc(mb_trim($record[2]));
                     break;
                 case 'SOUR':
                     $sour = \PhpGedcom\Parser\SourRef::parse($parser);

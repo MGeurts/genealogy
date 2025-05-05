@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Gedcom\Writer\Head;
 
 class Dest
@@ -7,9 +9,9 @@ class Dest
     public static function convert(\Gedcom\Record\Head\Dest $dest, $level)
     {
         $output = '';
-        $_dest = $dest->getDest();
+        $_dest  = $dest->getDest();
         if ($_dest) {
-            $output .= $level.' DEST '.$_dest."\n";
+            $output .= $level . ' DEST ' . $_dest . "\n";
         }
 
         // Add conversion for sub-tags if needed

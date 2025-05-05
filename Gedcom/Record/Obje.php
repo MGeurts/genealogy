@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -17,33 +19,28 @@ namespace Gedcom\Record;
 
 class Obje extends \Gedcom\Record implements Noteable
 {
-    protected $_id   = null;
+    protected $_id = null;
 
     protected $_form = null;
+
     protected $_titl = null;
+
     protected $_blob = null;
-    protected $_rin  = null;
+
+    protected $_rin = null;
+
     protected $_chan = null;
 
-    protected $_refn = array();
+    protected $_refn = [];
 
-    /**
-     *
-     */
-    protected $_note = array();
+    protected $_note = [];
 
-    /**
-     *
-     */
-    public function addRefn(\Gedcom\Record\Refn $refn)
+    public function addRefn(Refn $refn)
     {
         $this->_refn[] = $refn;
     }
 
-    /**
-     *
-     */
-    public function addNote(\Gedcom\Record\NoteRef $note)
+    public function addNote(NoteRef $note)
     {
         $this->_note[] = $note;
     }

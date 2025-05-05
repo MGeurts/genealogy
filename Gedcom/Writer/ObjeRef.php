@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,9 +20,8 @@ namespace Gedcom\Writer;
 class ObjeRef
 {
     /**
-     * @param \Gedcom\Record\ObjeRef $note
-     * @param int                    $level
-     *
+     * @param  \Gedcom\Record\ObjeRef  $note
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\ObjeRef &$obje, $level)
@@ -29,36 +30,36 @@ class ObjeRef
 
         // $_note
         $_obje = $obje->getObje();
-        if (!empty($_note)) {
-            $output .= $level.' OBJE '.$_obje."\n";
+        if (! empty($_note)) {
+            $output .= $level . ' OBJE ' . $_obje . "\n";
         } else {
-            $output .= $level." OBJE \n";
+            $output .= $level . " OBJE \n";
         }
 
         $level++;
         // _form
         $_form = $obje->getForm();
-        if (!empty($_form)) {
-            $output .= $level.' FORM '.$_form."\n";
+        if (! empty($_form)) {
+            $output .= $level . ' FORM ' . $_form . "\n";
         }
 
         // _titl
         $_titl = $obje->getTitl();
-        if (!empty($_titl)) {
-            $output .= $level.' TITL '.$_titl."\n";
+        if (! empty($_titl)) {
+            $output .= $level . ' TITL ' . $_titl . "\n";
         }
 
         // _file
         $_file = $obje->getFile();
-        if (!empty($_file)) {
-            $output .= $level.' FILE '.$_file."\n";
+        if (! empty($_file)) {
+            $output .= $level . ' FILE ' . $_file . "\n";
         }
 
         // $_note = array()
         $_note = $obje->getNote();
-        if (!empty($_note) && (is_countable($_note) ? count($_note) : 0) > 0) {
+        if (! empty($_note) && (is_countable($_note) ? count($_note) : 0) > 0) {
             foreach ($_note as $item) {
-                $_convert = \Gedcom\Writer\NoteRef::convert($item, $level);
+                $_convert = NoteRef::convert($item, $level);
                 $output .= $_convert;
             }
         }

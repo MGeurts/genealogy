@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -18,9 +20,8 @@ namespace Gedcom\Writer\Indi;
 class Asso
 {
     /**
-     * @param \Gedcom\Record\Indi\Asso $attr
-     * @param int                      $level
-     *
+     * @param  \Gedcom\Record\Indi\Asso  $attr
+     * @param  int  $level
      * @return string
      */
     public static function convert(\Gedcom\Record\Indi\Asso &$asso, $level = 0)
@@ -31,18 +32,18 @@ class Asso
         if (empty($_indi)) {
             return $output;
         }
-        $output .= $level.' ASSO '.$_indi."\n";
+        $output .= $level . ' ASSO ' . $_indi . "\n";
         // level up
         $level++;
 
         // RELA
         $rela = $asso->getRela();
-        if (!empty($rela)) {
-            $output .= $level.' RELA '.$rela."\n";
+        if (! empty($rela)) {
+            $output .= $level . ' RELA ' . $rela . "\n";
         }
         // sour
         $sour = $asso->getSour();
-        if (!empty($sour) && (is_countable($sour) ? count($sour) : 0) > 0) {
+        if (! empty($sour) && (is_countable($sour) ? count($sour) : 0) > 0) {
             foreach ($sour as $item) {
                 $_convert = \Gedcom\Writer\SourRef::convert($item, $level);
                 $output .= $_convert;
@@ -51,7 +52,7 @@ class Asso
 
         // note
         $note = $asso->getSour();
-        if (!empty($note) && (is_countable($note) ? count($note) : 0) > 0) {
+        if (! empty($note) && (is_countable($note) ? count($note) : 0) > 0) {
             foreach ($note as $item) {
                 $_convert = \Gedcom\Writer\NoteRef::convert($item, $level);
                 $output .= $_convert;

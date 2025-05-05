@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -20,7 +22,7 @@ use Gedcom\Record;
 /**
  * Class Plac.
  */
-class Plac extends \Gedcom\Record implements Record\Noteable, Record\Sourceable
+class Plac extends Record implements Record\Noteable, Record\Sourceable
 {
     /**
      * @var string
@@ -43,8 +45,7 @@ class Plac extends \Gedcom\Record implements Record\Noteable, Record\Sourceable
     protected $sour = [];
 
     /**
-     * @param string $form
-     *
+     * @param  string  $form
      * @return Plac
      */
     public function setForm($form = '')
@@ -63,8 +64,7 @@ class Plac extends \Gedcom\Record implements Record\Noteable, Record\Sourceable
     }
 
     /**
-     * @param string $plac
-     *
+     * @param  string  $plac
      * @return Plac
      */
     public function setPlac($plac = '')
@@ -91,8 +91,7 @@ class Plac extends \Gedcom\Record implements Record\Noteable, Record\Sourceable
     }
 
     /**
-     * @param Record\NoteRef $note
-     *
+     * @param  Record\NoteRef  $note
      * @return Plac
      */
     public function addNote($note = [])
@@ -111,8 +110,7 @@ class Plac extends \Gedcom\Record implements Record\Noteable, Record\Sourceable
     }
 
     /**
-     * @param Record\SourRef $sour
-     *
+     * @param  Record\SourRef  $sour
      * @return Plac
      */
     public function addSour($sour = [])

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,8 +10,8 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
@@ -19,7 +21,6 @@ use PhpGedcom\Record;
 
 /**
  * Class Caln
- * @package PhpGedcom\Record
  */
 class Caln extends Record
 {
@@ -34,12 +35,13 @@ class Caln extends Record
     protected $medi;
 
     /**
-     * @param string $caln
+     * @param  string  $caln
      * @return Caln
      */
     public function setCaln($caln)
     {
         $this->caln = $caln;
+
         return $this;
     }
 
@@ -52,12 +54,13 @@ class Caln extends Record
     }
 
     /**
-     * @param string $medi
+     * @param  string  $medi
      * @return Caln
      */
     public function setMedi($medi)
     {
         $this->medi = $medi;
+
         return $this;
     }
 

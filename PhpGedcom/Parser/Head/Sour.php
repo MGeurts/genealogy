@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom
  *
@@ -8,37 +10,28 @@
  *
  * @author          Kristopher Wilson <kristopherwilson@gmail.com>
  * @copyright       Copyright (c) 2010-2013, Kristopher Wilson
- * @package         php-gedcom
  * @license         MIT
+ *
  * @link            http://github.com/mrkrstphr/php-gedcom
  */
 
 namespace PhpGedcom\Parser\Head;
 
-/**
- *
- *
- */
 class Sour extends \PhpGedcom\Parser\Component
 {
-
-    /**
-     *
-     *
-     */
     public static function parse(\PhpGedcom\Parser $parser)
     {
         $record = $parser->getCurrentLineRecord();
-        $depth = (int) $record[0];
+        $depth  = (int) $record[0];
 
         $source = new \PhpGedcom\Record\Head\Sour();
-        $source->setSour(trim($record[2]));
+        $source->setSour(mb_trim($record[2]));
 
         $parser->forward();
 
-        while (!$parser->eof()) {
-            $record = $parser->getCurrentLineRecord();
-            $recordType = strtoupper(trim($record[1]));
+        while (! $parser->eof()) {
+            $record       = $parser->getCurrentLineRecord();
+            $recordType   = mb_strtoupper(mb_trim($record[1]));
             $currentDepth = (int) $record[0];
 
             if ($currentDepth <= $depth) {
@@ -48,17 +41,17 @@ class Sour extends \PhpGedcom\Parser\Component
 
             switch ($recordType) {
                 case 'VERS':
-                    $source->setVers(trim($record[2]));
+                    $source->setVers(mb_trim($record[2]));
                     break;
                 case 'NAME':
-                    $source->setName(trim($record[2]));
+                    $source->setName(mb_trim($record[2]));
                     break;
                 case 'CORP':
-                    $corp = \PhpGedcom\Parser\Head\Sour\Corp::parse($parser);
+                    $corp = Sour\Corp::parse($parser);
                     $source->setCorp($corp);
                     break;
                 case 'DATA':
-                    $data = \PhpGedcom\Parser\Head\Sour\Data::parse($parser);
+                    $data = Sour\Data::parse($parser);
                     $source->setData($data);
                     break;
                 default:

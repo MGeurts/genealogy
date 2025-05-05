@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * php-gedcom.
  *
@@ -31,8 +33,7 @@ class Data extends \Gedcom\Record
     protected $date;
 
     /**
-     * @param string $text
-     *
+     * @param  string  $text
      * @return Data
      */
     public function setText($text = '')
@@ -51,8 +52,7 @@ class Data extends \Gedcom\Record
     }
 
     /**
-     * @param string $date
-     *
+     * @param  string  $date
      * @return Data
      */
     public function setDate($date = '')
