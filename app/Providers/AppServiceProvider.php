@@ -53,7 +53,7 @@ final class AppServiceProvider extends ServiceProvider
         }
 
         // ------------------------------------------------------------------------------
-        // Automatically eager load relations for all models
+        // Automatically eager load relations when needed for all models
         // ------------------------------------------------------------------------------
         Model::automaticallyEagerLoadRelationships();
 
