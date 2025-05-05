@@ -24,8 +24,6 @@
     git pull origin main
     ```
 
-    > Replace `main` with `master` if that’s the branch name.
-
 4. **Update dependencies**:
 
     ```bash
@@ -41,19 +39,23 @@
 
 ---
 
-## ❗ If Your Local Copy Is Not a Git Clone
+## ❗ If Your Local Copy Is NOT a Git Clone
 
 If you just downloaded a ZIP or copied the folder, do the following:
 
 1. **Backup your **`**, **`**, and any custom data**.
 
-2. **Delete the old folder and clone the latest version**:
+2. **Backup the old folder as a ZIP file**:
+
+3. **Backup the database**:
+
+4. **Delete the old folder and clone the latest version**:
 
     ```bash
     git clone https://github.com/MGeurts/genealogy.git
     ```
 
-3. Replace your old `.env`, restore any backed-up data.
+5. Replace your old `.env`, restore any backed-up data.
 
 ---
 
