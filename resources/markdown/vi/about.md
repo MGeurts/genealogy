@@ -1,8 +1,6 @@
 ## Giấy phép MIT
 
-Bản quyền &copy; : 2017 <a href="https://github.com/nafiesl/silsilah" target="_blank">Nafies Luthfi</a>
-
-Bản quyền &copy; : 2023 <a href="https://www.kreaweb.be" target="_blank">kreaweb.be</a>
+Bản quyền &copy; : {{ date('Y') }} <a href="https://www.kreaweb.be" target="_blank">kreaweb.be</a>
 
 Giấy phép này được cấp miễn phí cho bất kỳ người nào có được bản sao
 của phần mềm này và các tệp tài liệu liên quan ("<b>Phần mềm</b>") để xử lý

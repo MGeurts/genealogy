@@ -1,8 +1,6 @@
 ## MIT 许可证
 
-版权 &copy; : 2017 `<a href="https://github.com/nafiesl/silsilah" target="_blank">`Nafies Luthfi`</a>`
-
-版权 &copy; : 2023 `<a href="https://www.kreaweb.be" target="_blank">`kreaweb.be`</a>`
+版权 &copy; : {{ date('Y') }} `<a href="https://www.kreaweb.be" target="_blank">`kreaweb.be`</a>`
 
 本软件及相关文档文件（以下简称“`<b>`软件 `</b>`”）在此免费授权任何获得该软件副本的人，可以在不受限制的情况下使用该软件，包括但不限于使用、复制、修改、合并、发布、分发、再授权和/或销售软件副本，并且允许将软件提供给他人使用，前提是遵守以下条件：
 

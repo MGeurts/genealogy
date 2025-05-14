@@ -1,8 +1,6 @@
 ## Licence MIT
 
-Droit d'auteur &copy; : 2017 <a href="https://github.com/nafiesl/silsilah" target="_blank">Nafies Luthfi</a>
-
-Droit d'auteur &copy; : 2023 <a href="https://www.kreaweb.be" target="_blank">kreaweb.be</a>
+Droit d'auteur &copy; : {{ date('Y') }} <a href="https://www.kreaweb.be" target="_blank">kreaweb.be</a>
 
 L'autorisation est accordée gratuitement à toute personne obtenant une copie
 de ce logiciel et des fichiers de documentation associés (le "<b>Logiciel</b>"), pour traiter
