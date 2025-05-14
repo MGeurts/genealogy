@@ -90,6 +90,7 @@ return [
         'Français'   => 'fr',               // French
         'Nederlands' => 'nl',               // Dutch
         'Português'  => 'pt',               // Portuguese
+        'Türkçe'     => 'tr',               // Turkish
         'Việt Nam'   => 'vi',               // Vietnamese
         '中文简体'   => 'zh_cn',            // Chinees
     ],

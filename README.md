@@ -233,6 +233,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <li>French (FR)</li>
     <li>Dutch (NL)</li>
     <li>Portuguese (PT)</li>
+    <li>Turkish (TR)</li>
     <li>Vietnamese (VI)</li>
     <li>Simplified Chinese (ZH_CN)</li>
 </ul>

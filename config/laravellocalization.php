@@ -189,7 +189,7 @@ return [
         // 'lu'          => ['name' => 'Luba-Katanga',           'script' => 'Latn', 'native' => 'Tshiluba', 'regional' => 've_ZA'],
         // 've'          => ['name' => 'Venda',                  'script' => 'Latn', 'native' => 'Tshivenḓa', 'regional' => ''],
         // 'tw'          => ['name' => 'Twi',                    'script' => 'Latn', 'native' => 'Twi', 'regional' => ''],
-        // 'tr'          => ['name' => 'Turkish',                'script' => 'Latn', 'native' => 'Türkçe', 'regional' => 'tr_TR'],
+        'tr' => ['name' => 'Turkish',                'script' => 'Latn', 'native' => 'Türkçe', 'regional' => 'tr_TR'],
         // 'ale'         => ['name' => 'Aleut',                  'script' => 'Latn', 'native' => 'Unangax tunuu', 'regional' => ''],
         // 'ca-valencia' => ['name' => 'Valencian',              'script' => 'Latn', 'native' => 'valencià', 'regional' => ''],
         // 'vai-Latn'    => ['name' => 'Vai (Latin)',            'script' => 'Latn', 'native' => 'Viyamíĩ', 'regional' => ''],
