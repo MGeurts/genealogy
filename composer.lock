@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee544f1bc620dae9fd2f37436357653b",
+    "content-hash": "c009d760ff6b8e1178785dea47a5d896",
     "packages": [
         {
             "name": "alisalehi/laravel-lang-files-translator",
@@ -2380,6 +2380,61 @@
                 "source": "https://github.com/kirschbaum-development/eloquent-power-joins/tree/4.2.3"
             },
             "time": "2025-04-01T14:41:56+00:00"
+        },
+        {
+            "name": "korridor/laravel-has-many-merged",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/korridor/laravel-has-many-merged.git",
+                "reference": "01a37dc0aaa3ace1a53225c0982ddc658e165e8c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/korridor/laravel-has-many-merged/zipball/01a37dc0aaa3ace1a53225c0982ddc658e165e8c",
+                "reference": "01a37dc0aaa3ace1a53225c0982ddc658e165e8c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^10|^11|^12",
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3",
+                "nunomaduro/larastan": "^2.0|^3",
+                "orchestra/testbench": "^8|^9|^10",
+                "phpunit/phpunit": "^10|^11",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Korridor\\LaravelHasManyMerged\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "korridor",
+                    "email": "26689068+korridor@users.noreply.github.com"
+                }
+            ],
+            "description": "Custom relationship for Eloquent that merges/combines multiple one-to-may (hasMany) relationships",
+            "homepage": "https://github.com/korridor/laravel-has-many-merged",
+            "keywords": [
+                "eloquent",
+                "has-many",
+                "laravel",
+                "relations"
+            ],
+            "support": {
+                "issues": "https://github.com/korridor/laravel-has-many-merged/issues",
+                "source": "https://github.com/korridor/laravel-has-many-merged/tree/1.2.0"
+            },
+            "time": "2025-03-03T23:18:32+00:00"
         },
         {
             "name": "laravel/fortify",

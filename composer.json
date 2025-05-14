@@ -12,6 +12,7 @@
         "alisalehi/laravel-lang-files-translator": "^1.0",
         "filament/tables": "^3.3",
         "intervention/image": "^3.11",
+        "korridor/laravel-has-many-merged": "^1.2",
         "laravel/framework": "^12.12",
         "laravel/jetstream": "^5.3",
         "laravel/sanctum": "^4.1",

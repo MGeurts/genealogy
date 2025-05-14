@@ -90,6 +90,10 @@
                     </li>
 
                     <li class="py-2">
+                        <x-link href="https://github.com/korridor/laravel-has-many-merged/" target="_blank">korridor/laravel-has-many-merged</x-link>
+                    </li>
+
+                    <li class="py-2">
                         <x-link href="https://github.com/opcodesio/log-viewer/" target="_blank">opcodesio/log-viewer</x-link>
                         <x-ts-button xs href="https://log-viewer.opcodes.io/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                     </li>
