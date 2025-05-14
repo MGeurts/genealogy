@@ -17,7 +17,7 @@ return [
     'delete'           => 'Sil',
     'delete_api_token' => 'API Token Sil',
 
-    'last_used' => 'Last used',
+    'last_used' => 'Son kullanılan',
 
     'manage_api_tokens' => 'API Tokens Yönet',
     'may_delete'        => 'Artık ihtiyaç duyulmuyorsa mevcut tokenlarınızdan herhangi birini silebilirsiniz.',
