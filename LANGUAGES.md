@@ -9,9 +9,7 @@ Assume the new language has the language code `xx`.
 ### 1. Add Translation Files
 
 -   Copy all files from `/lang/en/` to `/lang/xx/` and translate them.
--   Copy the file from  
-    [`/lang/locales/xx/json.json`](https://github.com/Laravel-Lang/lang/tree/main/locales)  
-    to `/lang/xx.json`.
+-   Save the file `/lang/locales/xx/json.json` from the package [Laravel-Lang/lang](https://github.com/Laravel-Lang/lang/tree/main/locales) as `/lang/xx.json`.
 -   Run the following command to check for missing translations:
 
     ```bash
