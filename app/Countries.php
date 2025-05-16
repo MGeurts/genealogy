@@ -16,6 +16,7 @@ final class Countries
         'fr'    => 'fr',
         'nl'    => 'nl',
         'pt'    => 'pt',
+        'tr'    => 'tr',
         'zh_cn' => 'zh',
     ];
 
@@ -70,6 +71,7 @@ final class Countries
     private function loadCountriesData(string $path): ?Collection
     {
         $filePath = $path . '/countries.php';
+
         if (file_exists($filePath)) {
             return collect(require $filePath);
         }
