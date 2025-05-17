@@ -49,7 +49,7 @@ If you just downloaded a ZIP or copied the folder, do the following:
 
 3. **Backup the database**.
 
-4. **Delete the old folder and clone the latest version**:
+4. **Empty the old folder and clone the latest version**:
 
     ```bash
     git clone https://github.com/MGeurts/genealogy.git
