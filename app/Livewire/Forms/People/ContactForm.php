@@ -5,29 +5,32 @@ declare(strict_types=1);
 namespace App\Livewire\Forms\People;
 
 use App\Countries;
+use Illuminate\Support\Collection;
+use Livewire\Attributes\Computed;
 use Livewire\Form;
 
 final class ContactForm extends Form
 {
     // -----------------------------------------------------------------------
-    public $street;
+    public $street = null;
 
-    public $number;
+    public $number = null;
 
-    public $postal_code;
+    public $postal_code = null;
 
-    public $city;
+    public $city = null;
 
-    public $province;
+    public $province = null;
 
-    public $state;
+    public $state = null;
 
-    public $country;
+    public $country = null;
 
-    public $phone;
+    public $phone = null;
 
     // -----------------------------------------------------------------------
-    public function countries(): \Illuminate\Support\Collection
+    #[Computed(persist: true, seconds: 3600, cache: true)]
+    public function countries(): Collection
     {
         return (new Countries(app()->getLocale()))->getAllCountries();
     }

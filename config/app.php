@@ -150,17 +150,41 @@ return [
         'mail_address'  => env('BACKUP_MAIL_ADDRESS', 'webmaster@yourdomain.com'),
     ],
 
-    'image_upload' => [
-        'max_width'     => (int) env('IMAGE_UPLOAD_MAX_WIDTH', 600),
-        'max_height'    => (int) env('IMAGE_UPLOAD_MAX_HEIGHT', 800),
-        'quality'       => (int) env('IMAGE_UPLOAD_QUALITY', 80),
-        'type'          => env('IMAGE_UPLOAD_TYPE', 'webp'),
-        'add_watermark' => env('IMAGE_UPLOAD_ADD_WATERMARK', false),
-    ],
-
+    // folders where the photos are stored
     'photo_folders' => [
         'photos',
         'photos-096',
         'photos-384',
     ],
+
+    // default values for resizing, watermarking and saving photo uploads
+    'upload_photo' => [
+        'max_width'     => 600,
+        'max_height'    => 800,
+        'quality'       => 80,
+        'type'          => 'webp',
+        'add_watermark' => true,
+    ],
+
+    // accepted file types for photo uploads
+    'upload_photo_accept' => [
+        'image/gif'     => 'GIF',
+        'image/jpeg'    => 'JPEG',
+        'image/png'     => 'PNG',
+        'image/svg+xml' => 'SVG',
+        'image/webp'    => 'WEBP',
+    ],
+
+    // accepted file types for file uploads
+    'upload_file_accept' => [
+        'text/plain'                                                              => 'TXT',
+        'application/pdf'                                                         => 'PDF',
+        'application/vnd.oasis.opendocument.text'                                 => 'ODT',
+        'application/msword'                                                      => 'DOC',
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document' => 'DOCX',
+        'application/vnd.ms-excel'                                                => 'XLS',
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'       => 'XLSX',
+    ],
+
+    'upload_max_size' => 10240, // set this according to your webserver settings (in KB)
 ];

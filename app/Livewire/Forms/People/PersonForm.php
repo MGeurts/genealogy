@@ -15,27 +15,27 @@ use Livewire\Form;
 final class PersonForm extends Form
 {
     // -----------------------------------------------------------------------
-    public $firstname;
+    public $firstname = null;
 
-    public $surname;
+    public $surname = null;
 
-    public $birthname;
+    public $birthname = null;
 
-    public $nickname;
+    public $nickname = null;
 
-    public $sex;
+    public $sex = null;
 
-    public $gender_id;
-
-    #[Validate]
-    public $yob;
+    public $gender_id = null;
 
     #[Validate]
-    public $dob;
+    public $yob = null;
 
-    public $pob;
+    #[Validate]
+    public $dob = null;
 
-    public $photo;
+    public $pob = null;
+
+    public $photo = null;
 
     // -----------------------------------------------------------------------
     #[Computed(persist: true, seconds: 3600, cache: true)]
@@ -45,6 +45,20 @@ final class PersonForm extends Form
     }
 
     // -----------------------------------------------------------------------
+    public function resetFields(): void
+    {
+        $this->firstname = null;
+        $this->surname   = null;
+        $this->birthname = null;
+        $this->nickname  = null;
+        $this->sex       = null;
+        $this->gender_id = null;
+        $this->yob       = null;
+        $this->dob       = null;
+        $this->pob       = null;
+        $this->photo     = null;
+    }
+
     public function rules(): array
     {
         return $rules = [

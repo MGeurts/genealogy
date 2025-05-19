@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\People\Edit;
 
+use App\Models\Person;
 use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
@@ -22,7 +23,7 @@ final class Photos extends Component
     use Interactions;
     use WithFileUploads;
 
-    public $person;
+    public Person $person;
 
     public array $uploads = [];
 
@@ -30,15 +31,10 @@ final class Photos extends Component
 
     public ?Collection $photos = null;
 
-    /**
-     * Initialize component and prepare photo directories.
-     */
+    // ------------------------------------------------------------------------------
     public function mount(): void
     {
-        // Load existing photos for the person.
-        $this->photos = collect($this->getPersonPhotos())
-            ->map(fn (SplFileInfo $file): array => $this->mapPhotoData($file))
-            ->sortBy('name');
+        $this->loadPhotos();
     }
 
     /**
@@ -67,7 +63,7 @@ final class Photos extends Component
             ->toArray();
 
         rescue(
-            fn () => UploadedFile::deleteTemporaryFile($content['temporary_name']),
+            fn () => File::delete(storage_path('app/livewire-tmp/' . $content['temporary_name'])),
             report: false
         );
     }
@@ -85,6 +81,8 @@ final class Photos extends Component
      */
     public function updatedUploads(): void
     {
+        $this->validate();
+
         if (empty($this->uploads)) {
             return;
         }
@@ -99,14 +97,22 @@ final class Photos extends Component
      */
     public function save(): void
     {
+        $this->validate();
+
         if ($this->uploads) {
             $personPhotos = new PersonPhotos($this->person);
 
             $personPhotos->save($this->uploads);
 
-            $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', count($this->uploads)))->flash()->send();
+            $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', count($this->uploads)))->send();
 
-            $this->redirect(route('people.edit-photos', ['person' => $this->person->id]));
+            $this->dispatch('photos_updated');
+
+            // Reload the photos collection to reflect changes in the UI
+            $this->loadPhotos();
+
+            // Clear uploads array
+            $this->uploads = [];
         }
     }
 
@@ -121,11 +127,12 @@ final class Photos extends Component
             $this->setNewPrimaryPhoto();
         }
 
-        $this->toast()->success(__('app.delete'), __('person.photo_deleted'))->flash()->send();
+        $this->toast()->success(__('app.delete'), __('person.photo_deleted'))->send();
 
         $this->dispatch('photos_updated');
 
-        $this->mount();
+        // Reload the photos collection to reflect changes in the UI
+        $this->loadPhotos();
     }
 
     /**
@@ -147,6 +154,39 @@ final class Photos extends Component
     }
 
     // -----------------------------------------------------------------------
+    protected function rules(): array
+    {
+        return [
+            'uploads.*' => [
+                'file',
+                'mimetypes:' . implode(',', array_keys(config('app.upload_photo_accept'))),
+                'max:' . config('app.upload_max_size'),
+            ],
+        ];
+    }
+
+    protected function messages(): array
+    {
+        return [
+            'uploads.*.file'      => __('validation.file', ['attribute' => __('person.photo')]),
+            'uploads.*.mimetypes' => __('validation.mimetypes', [
+                'attribute' => __('person.photo'),
+                'values'    => implode(', ', array_values(config('app.upload_photo_accept'))),
+            ]),
+            'uploads.*.max' => __('validation.max.file', [
+                'attribute' => __('person.photo'),
+                'max'       => config('app.upload_max_size'),
+            ]),
+        ];
+    }
+
+    // -----------------------------------------------------------------------
+    private function loadPhotos(): void
+    {
+        $this->photos = collect($this->getPersonPhotos())
+            ->map(fn (SplFileInfo $file): array => $this->mapPhotoData($file))
+            ->sortBy('name');
+    }
 
     /**
      * Retrieve person photos.
@@ -176,16 +216,6 @@ final class Photos extends Component
             'url'           => Storage::url("photos-384/{$teamId}/{$file->getFilename()}"),
             'url_original'  => Storage::url("photos/{$teamId}/{$file->getFilename()}"),
         ];
-    }
-
-    /**
-     * Filter uploads by temporary name.
-     */
-    private function filterUploadsByTemporaryName(string $temporaryName): array
-    {
-        return collect($this->uploads)
-            ->filter(fn (UploadedFile $item): bool => $item->getFilename() !== $temporaryName)
-            ->toArray();
     }
 
     /**

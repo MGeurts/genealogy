@@ -25,14 +25,7 @@ final class Death extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->deathForm->yod = $this->person->yod;
-        $this->deathForm->dod = $this->person->dod ? Carbon::parse($this->person->dod)->format('Y-m-d') : null;
-        $this->deathForm->pod = $this->person->pod;
-
-        $this->deathForm->cemetery_location_name      = $this->person->getMetadataValue('cemetery_location_name');
-        $this->deathForm->cemetery_location_address   = $this->person->getMetadataValue('cemetery_location_address');
-        $this->deathForm->cemetery_location_latitude  = $this->person->getMetadataValue('cemetery_location_latitude');
-        $this->deathForm->cemetery_location_longitude = $this->person->getMetadataValue('cemetery_location_longitude');
+        $this->loadData();
     }
 
     public function saveDeath(): void
@@ -62,25 +55,39 @@ final class Death extends Component
 
     public function resetDeath(): void
     {
-        $this->mount();
-    }
+        $this->loadData();
 
-    public function isDirty(): bool
-    {
-        return
-        $this->deathForm->yod !== $this->person->yod or
-        $this->deathForm->dod !== ($this->person->dod ? Carbon::parse($this->person->dod)->format('Y-m-d') : null) or
-        $this->deathForm->pod !== $this->person->pod or
-
-        $this->deathForm->cemetery_location_name !== $this->person->getMetadataValue('cemetery_location_name') or
-        $this->deathForm->cemetery_location_address !== $this->person->getMetadataValue('cemetery_location_address') or
-        $this->deathForm->cemetery_location_latitude !== $this->person->getMetadataValue('cemetery_location_latitude') or
-        $this->deathForm->cemetery_location_longitude !== $this->person->getMetadataValue('cemetery_location_longitude');
+        $this->resetErrorBag();
+        $this->resetValidation();
     }
 
     // ------------------------------------------------------------------------------
     public function render(): View
     {
         return view('livewire.people.edit.death');
+    }
+
+    // ------------------------------------------------------------------------------
+    private function isDirty(): bool
+    {
+        return
+        $this->deathForm->yod !== $this->person->yod or
+        $this->deathForm->dod !== ($this->person->dod ? Carbon::parse($this->person->dod)->format('Y-m-d') : null) or
+        $this->deathForm->pod !== $this->person->pod or
+        $this->deathForm->cemetery_location_name !== $this->person->getMetadataValue('cemetery_location_name') or
+        $this->deathForm->cemetery_location_address !== $this->person->getMetadataValue('cemetery_location_address') or
+        $this->deathForm->cemetery_location_latitude !== $this->person->getMetadataValue('cemetery_location_latitude') or
+        $this->deathForm->cemetery_location_longitude !== $this->person->getMetadataValue('cemetery_location_longitude');
+    }
+
+    private function loadData(): void
+    {
+        $this->deathForm->yod                         = $this->person->yod;
+        $this->deathForm->dod                         = $this->person->dod ? Carbon::parse($this->person->dod)->format('Y-m-d') : null;
+        $this->deathForm->pod                         = $this->person->pod;
+        $this->deathForm->cemetery_location_name      = $this->person->getMetadataValue('cemetery_location_name');
+        $this->deathForm->cemetery_location_address   = $this->person->getMetadataValue('cemetery_location_address');
+        $this->deathForm->cemetery_location_latitude  = $this->person->getMetadataValue('cemetery_location_latitude');
+        $this->deathForm->cemetery_location_longitude = $this->person->getMetadataValue('cemetery_location_longitude');
     }
 }

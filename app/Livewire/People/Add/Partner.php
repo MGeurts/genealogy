@@ -11,6 +11,7 @@ use App\Models\Person;
 use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -23,11 +24,11 @@ final class Partner extends Component
     use WithFileUploads;
 
     // -----------------------------------------------------------------------
-    public $person;
+    public Person $person;
 
     public PartnerForm $partnerForm;
 
-    public array $photos = [];
+    public array $uploads = [];
 
     public array $backup = [];
 
@@ -36,28 +37,6 @@ final class Partner extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->partnerForm->firstname = null;
-        $this->partnerForm->surname   = null;
-        $this->partnerForm->birthname = null;
-        $this->partnerForm->nickname  = null;
-
-        $this->partnerForm->sex       = null;
-        $this->partnerForm->gender_id = null;
-
-        $this->partnerForm->yob = null;
-        $this->partnerForm->dob = null;
-        $this->partnerForm->pob = null;
-
-        $this->partnerForm->photo = null;
-
-        $this->partnerForm->person2_id = null;
-
-        $this->partnerForm->date_start = null;
-        $this->partnerForm->date_end   = null;
-
-        $this->partnerForm->is_married = false;
-        $this->partnerForm->has_ended  = false;
-
         $this->persons = Person::PartnerOffset($this->person->birth_year)
             ->where('id', '!=', $this->person->id)
             ->orderBy('firstname')->orderBy('surname')
@@ -91,7 +70,7 @@ final class Partner extends Component
             ->toArray();
 
         rescue(
-            fn () => UploadedFile::deleteTemporaryFile($content['temporary_name']),
+            fn () => File::delete(storage_path('app/livewire-tmp/' . $content['temporary_name'])),
             report: false
         );
     }
@@ -150,9 +129,9 @@ final class Partner extends Component
                         'team_id'   => $this->person->team_id,
                     ]);
 
-                    if ($this->photos) {
+                    if ($this->uploads) {
                         $personPhotos = new PersonPhotos($new_person);
-                        $personPhotos->save($this->photos);
+                        $personPhotos->save($this->uploads);
                     }
 
                     $this->toast()->success(__('app.create'), $new_person->name . ' ' . __('app.created') . '.')->flash()->send();
@@ -171,13 +150,8 @@ final class Partner extends Component
                 }
             }
 
-            $this->redirect('/people/' . $this->person->id);
+            $this->redirect(route('people.show', $this->person->id));
         }
-    }
-
-    public function resetPartner(): void
-    {
-        $this->mount();
     }
 
     public function isDirty(): bool
@@ -187,13 +161,12 @@ final class Partner extends Component
         $this->partnerForm->surname !== null or
         $this->partnerForm->birthname !== null or
         $this->partnerForm->nickname !== null or
-
         $this->partnerForm->sex !== null or
         $this->partnerForm->gender_id !== null or
-
         $this->partnerForm->yob !== null or
         $this->partnerForm->dob !== null or
         $this->partnerForm->pob !== null or
+        $this->partnerForm->photo = null or
 
         $this->partnerForm->person2_id !== null or
         $this->partnerForm->date_start !== null or
@@ -202,12 +175,50 @@ final class Partner extends Component
         $this->partnerForm->has_ended !== false;
     }
 
+    public function resetPartner(): void
+    {
+        $this->partnerForm->resetFields();
+        $this->uploads = [];
+        $this->backup  = [];
+
+        $this->resetErrorBag();
+        $this->resetValidation();
+    }
+
     // ------------------------------------------------------------------------------
     public function render(): View
     {
         return view('livewire.people.add.partner');
     }
 
+    // -----------------------------------------------------------------------
+    protected function rules(): array
+    {
+        return [
+            'uploads.*' => [
+                'file',
+                'mimetypes:' . implode(',', array_keys(config('app.upload_photo_accept'))),
+                'max:' . config('app.upload_max_size'),
+            ],
+        ];
+    }
+
+    protected function messages(): array
+    {
+        return [
+            'uploads.*.file'      => __('validation.file', ['attribute' => __('person.photo')]),
+            'uploads.*.mimetypes' => __('validation.mimetypes', [
+                'attribute' => __('person.photo'),
+                'values'    => implode(', ', array_values(config('app.upload_photo_accept'))),
+            ]),
+            'uploads.*.max' => __('validation.max.file', [
+                'attribute' => __('person.photo'),
+                'max'       => config('app.upload_max_size'),
+            ]),
+        ];
+    }
+
+    // -----------------------------------------------------------------------
     private function hasOverlap($start, $end): bool
     {
         $is_overlap = false;

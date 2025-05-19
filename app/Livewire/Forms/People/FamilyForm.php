@@ -9,11 +9,11 @@ use Livewire\Form;
 final class FamilyForm extends Form
 {
     // -----------------------------------------------------------------------
-    public $father_id;
+    public $father_id = null;
 
-    public $mother_id;
+    public $mother_id = null;
 
-    public $parents_id;
+    public $parents_id = null;
 
     // -----------------------------------------------------------------------
     public function rules(): array

@@ -61,7 +61,7 @@
 
                 {{-- yob --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="profileForm.yob" id="yob" label="{{ __('person.yob') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" />
+                    <x-ts-input wire:model="profileForm.yob" id="yob" label="{{ __('person.yob') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" autocomplete="yob" type="number" max="{{ date('Y') }}" />
                 </div>
 
                 {{-- dob --}}

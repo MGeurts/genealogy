@@ -110,12 +110,15 @@ return [
     'cemetery_location' => 'Mezarlık Konumu',
 
     // files
-    'upload_files'     => 'Dosya yükle',
     'files'            => 'Dosyalar',
     'files_saved'      => '[0] Hiçbir dosya kaydedilmedi|[1] Dosya kaydedildi|[2,*] Dosyalar kaydedildi',
     'file'             => 'Dosya',
     'file_deleted'     => 'Dosya silindi',
-    'update_files_tip' => 'Yeni dosyalarınızı buraya sürükleyip bırakın',
+    'upload_files'     => 'Dosya yükle',
+    'upload_files_tip' => 'Yeni dosyalarınızı buraya sürükleyip bırakın ...',
+
+    'upload_accept_types' => 'İzin verilmiş: :types',
+    'upload_max_size'     => 'Maksimum boyut : :max KB',
 
     // Photo
     'avatar'            => 'Avatar',
@@ -127,7 +130,7 @@ return [
     'photos_existing'   => 'Mevcut fotoğraflar',
     'set_primary'       => 'Birincil olarak ayarla',
     'upload_photos'     => 'Fotoğraf yükle',
-    'update_photos_tip' => 'Yeni fotoğraflarınızı buraya sürükleyip bırakın',
+    'upload_photos_tip' => 'Yeni fotoğraflarınızı buraya sürükleyip bırakın ...',
 
     // Messages
     'yod_not_matching_dod' => 'Ölüm yılı, ölüm tarihiyle eşleşmelidir (:value).',

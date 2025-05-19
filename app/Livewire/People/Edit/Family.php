@@ -19,7 +19,7 @@ final class Family extends Component
     use TrimStringsAndConvertEmptyStringsToNull;
 
     // -----------------------------------------------------------------------
-    public $person;
+    public Person $person;
 
     public FamilyForm $familyForm;
 
@@ -32,9 +32,7 @@ final class Family extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->familyForm->father_id  = $this->person->father_id;
-        $this->familyForm->mother_id  = $this->person->mother_id;
-        $this->familyForm->parents_id = $this->person->parents_id;
+        $this->loadData();
 
         $persons = Person::where('id', '!=', $this->person->id)
             ->OlderThan($this->person->birth_year)
@@ -76,9 +74,19 @@ final class Family extends Component
 
     public function resetFamily(): void
     {
-        $this->mount();
+        $this->loadData();
+
+        $this->resetErrorBag();
+        $this->resetValidation();
     }
 
+    // ------------------------------------------------------------------------------
+    public function render(): View
+    {
+        return view('livewire.people.edit.family');
+    }
+
+    // ------------------------------------------------------------------------------
     public function isDirty(): bool
     {
         return
@@ -87,9 +95,10 @@ final class Family extends Component
         $this->familyForm->parents_id !== $this->person->parents_id;
     }
 
-    // ------------------------------------------------------------------------------
-    public function render(): View
+    private function loadData(): void
     {
-        return view('livewire.people.edit.family');
+        $this->familyForm->father_id  = $this->person->father_id;
+        $this->familyForm->mother_id  = $this->person->mother_id;
+        $this->familyForm->parents_id = $this->person->parents_id;
     }
 }

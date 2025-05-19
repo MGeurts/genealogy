@@ -20,7 +20,7 @@ final class PersonPhotos
     {
         $this->imageManager = new ImageManager(new Driver);
 
-        $this->config = config('app.image_upload');
+        $this->config = config('app.upload_photo');
     }
 
     public function save(array $photos): void

@@ -25,19 +25,7 @@ final class Profile extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->profileForm->firstname = $this->person->firstname;
-        $this->profileForm->surname   = $this->person->surname;
-        $this->profileForm->birthname = $this->person->birthname;
-        $this->profileForm->nickname  = $this->person->nickname;
-
-        $this->profileForm->sex       = $this->person->sex;
-        $this->profileForm->gender_id = $this->person->gender_id;
-
-        $this->profileForm->yob = $this->person->yob ?? null;
-        $this->profileForm->dob = $this->person->dob ? Carbon::parse($this->person->dob)->format('Y-m-d') : null;
-        $this->profileForm->pob = $this->person->pob;
-
-        $this->profileForm->summary = $this->person->summary;
+        $this->loadData();
     }
 
     public function saveProfile(): void
@@ -55,30 +43,45 @@ final class Profile extends Component
 
     public function resetProfile(): void
     {
-        $this->mount();
-    }
+        $this->loadData();
 
-    public function isDirty(): bool
-    {
-        return
-        $this->profileForm->firstname !== $this->person->firstname or
-        $this->profileForm->surname !== $this->person->surname or
-        $this->profileForm->birthname !== $this->person->birthname or
-        $this->profileForm->nickname !== $this->person->nickname or
-
-        $this->profileForm->sex !== $this->person->sex or
-        $this->profileForm->gender_id !== $this->person->gender_id or
-
-        $this->profileForm->yob !== $this->person->yob or
-        $this->profileForm->dob !== ($this->person->dob ? Carbon::parse($this->person->dob)->format('Y-m-d') : null) or
-        $this->profileForm->pob !== $this->person->pob or
-
-        $this->profileForm->summary !== $this->person->summary;
+        $this->resetErrorBag();
+        $this->resetValidation();
     }
 
     // ------------------------------------------------------------------------------
     public function render(): View
     {
         return view('livewire.people.edit.profile');
+    }
+
+    // ------------------------------------------------------------------------------
+    private function isDirty(): bool
+    {
+        return
+        $this->profileForm->firstname !== $this->person->firstname or
+        $this->profileForm->surname !== $this->person->surname or
+        $this->profileForm->birthname !== $this->person->birthname or
+        $this->profileForm->nickname !== $this->person->nickname or
+        $this->profileForm->sex !== $this->person->sex or
+        $this->profileForm->gender_id !== $this->person->gender_id or
+        $this->profileForm->yob !== $this->person->yob or
+        $this->profileForm->dob !== ($this->person->dob ? Carbon::parse($this->person->dob)->format('Y-m-d') : null) or
+        $this->profileForm->pob !== $this->person->pob or
+        $this->profileForm->summary !== $this->person->summary;
+    }
+
+    private function loadData(): void
+    {
+        $this->profileForm->firstname = $this->person->firstname;
+        $this->profileForm->surname   = $this->person->surname;
+        $this->profileForm->birthname = $this->person->birthname;
+        $this->profileForm->nickname  = $this->person->nickname;
+        $this->profileForm->sex       = $this->person->sex;
+        $this->profileForm->gender_id = $this->person->gender_id;
+        $this->profileForm->yob       = $this->person->yob ?? null;
+        $this->profileForm->dob       = $this->person->dob ? Carbon::parse($this->person->dob)->format('Y-m-d') : null;
+        $this->profileForm->pob       = $this->person->pob;
+        $this->profileForm->summary   = $this->person->summary;
     }
 }

@@ -77,7 +77,7 @@
 
                 {{-- yob --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="personForm.yob" id="yob" label="{{ __('person.yob') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" autocomplete="yob" />
+                    <x-ts-input wire:model="personForm.yob" id="yob" label="{{ __('person.yob') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" autocomplete="yob" type="number" max="{{ date('Y') }}"/>
                 </div>
 
                 {{-- dob --}}
@@ -92,11 +92,14 @@
                 </div>
                 <x-hr.narrow class="col-span-6 my-0!" />
 
-                {{-- images --}}
+                {{-- uploads --}}
                 <div class="col-span-6">
-                    <x-ts-upload id="photos" wire:model="photos" label="{{ __('person.photos') }} :" accept=".jpeg, .jpg, .gif, .png, .svg, .webp"
-                        hint="Max: 1024 KB, Format: jpeg/jpg, gif, png, svg or webp" tip="{{ __('person.update_photos_tip') }} ..." multiple delete>
-                    </x-ts-upload>
+                    <x-ts-upload id="uploads" wire:model="uploads"
+                        label="{{ __('person.photos') }} :"
+                        accept="{{ implode(',', array_keys(config('app.upload_photo_accept'))) }}"
+                        hint="{{ __('person.upload_max_size', ['max' => config('app.upload_max_size')]) }}<br/>{{ __('person.upload_accept_types', ['types' => implode(', ', array_values(config('app.upload_photo_accept')))]) }}"
+                        tip="{{ __('person.upload_photos_tip') }}"
+                        multiple delete />
                 </div>
             </div>
         </div>

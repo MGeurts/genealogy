@@ -110,12 +110,15 @@ return [
     'cemetery_location' => 'Ort des Friedhofs',
 
     // Files
-    'upload_files'     => 'Dateien hochladen',
     'files'            => 'Dateien',
     'files_saved'      => '[0] Keine Dateien gespeicherd|[1] Datei gespeicherd|[2,*] Dateien gespeicherd',
     'file'             => 'Datei gelöscht',
     'file_deleted'     => 'Datei',
-    'update_files_tip' => 'Ziehen Sie Ihr neue Dateien hierher',
+    'upload_files'     => 'Dateien hochladen',
+    'upload_files_tip' => 'Ziehen Sie Ihr neue Dateien hierher ...',
+
+    'upload_accept_types' => 'Erlaubt : :types',
+    'upload_max_size'     => 'Maximale Größe : :max KB',
 
     // Photo
     'avatar'            => 'Benutzerbild',
@@ -127,7 +130,7 @@ return [
     'photos_existing'   => 'Bestehende Fotos',
     'set_primary'       => 'Als Hauptfoto einstellen',
     'upload_photos'     => 'Fotos hochladen',
-    'update_photos_tip' => 'Ziehen Sie Ihr neue Fotos hierher',
+    'upload_photos_tip' => 'Ziehen Sie Ihr neue Fotos hierher ...',
 
     // Messages
     'yod_not_matching_dod' => 'Das Sterbejahr muss übereinstimmen mit dem Sterbedatum (:value).',

@@ -110,12 +110,15 @@ return [
     'cemetery_location' => 'Cemetery Location',
 
     // files
-    'upload_files'     => 'Upload files',
     'files'            => 'Files',
     'files_saved'      => '[0] No files saved|[1] File saved|[2,*] Files saved',
     'file'             => 'File',
     'file_deleted'     => 'File deleted',
-    'update_files_tip' => 'Drag and drop your new files here',
+    'upload_files'     => 'Upload files',
+    'upload_files_tip' => 'Drag and drop your new files here ...',
+
+    'upload_accept_types' => 'Allowed : :types',
+    'upload_max_size'     => 'Maximum size : :max KB',
 
     // Photo
     'avatar'            => 'Avatar',
@@ -127,7 +130,7 @@ return [
     'photos_existing'   => 'Existing photos',
     'set_primary'       => 'Set as primary',
     'upload_photos'     => 'Upload photos',
-    'update_photos_tip' => 'Drag and drop your new photos here',
+    'upload_photos_tip' => 'Drag and drop your new photos here ...',
 
     // Messages
     'yod_not_matching_dod' => 'The Year of death must match the Date of death (:value).',

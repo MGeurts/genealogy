@@ -110,12 +110,15 @@ return [
     'cemetery_location' => 'Locatie begraafplaats',
 
     // Files
-    'upload_files'     => 'Bestanden uploaden',
     'files'            => 'Bestanden',
     'files_saved'      => '[0] Geen bestand bewaard|[1] Bestand bewaard|[2,*] Bestanden bewaard',
     'file'             => 'Bestand',
     'file_deleted'     => 'Bestand verwijderd',
-    'update_files_tip' => 'Sleep uw nieuwe bestanden hierheen',
+    'upload_files'     => 'Bestanden uploaden',
+    'upload_files_tip' => 'Sleep uw nieuwe bestanden hierheen ...',
+
+    'upload_accept_types' => 'Toegestaan: :types',
+    'upload_max_size'     => 'Maximale grootte : :max KB',
 
     // Photo
     'avatar'            => 'Avatar',
@@ -127,7 +130,7 @@ return [
     'photos_existing'   => 'Bestaande afbeeldingen',
     'set_primary'       => 'Als primaire afbeelding instellen',
     'upload_photos'     => 'Afbeeldingen uploaden',
-    'update_photos_tip' => 'Sleep uw nieuwe afbeeldingen hierheen',
+    'upload_photos_tip' => 'Sleep uw nieuwe afbeeldingen hierheen ...',
 
     // Messages
     'yod_not_matching_dod' => 'Het Jaar overlijden moet overeenkomen met de Datum overlijden (:value).',

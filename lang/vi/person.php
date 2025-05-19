@@ -110,12 +110,15 @@ return [
     'cemetery_location' => 'Vị trí nghĩa trang',
 
     // files
-    'upload_files'     => 'Tải lên tệp',
     'files'            => 'Tệp',
     'files_saved'      => '[0] Không có tệp nào được lưu|[1] Tệp được lưu|[2,*] Tệp được lưu',
     'file'             => 'Tệp',
     'file_deleted'     => 'Tệp đã bị xóa',
-    'update_files_tip' => 'Kéo và thả các tệp mới của bạn vào đây',
+    'upload_files'     => 'Tải lên tệp',
+    'upload_files_tip' => 'Kéo và thả các tệp mới của bạn vào đây ...',
+
+    'upload_accept_types' => 'Cho phép : :types',
+    'upload_max_size'     => 'Kích thước tối đa : :max KB',
 
     // Photo
     'avatar'            => 'Ảnh đại diện',
@@ -127,7 +130,7 @@ return [
     'photos_existing'   => 'Ảnh hiện có',
     'set_primary'       => 'Đặt làm chính',
     'upload_photos'     => 'Tải lên ảnh',
-    'update_photos_tip' => 'Kéo và thả các ảnh mới của bạn vào đây',
+    'upload_photos_tip' => 'Kéo và thả các ảnh mới của bạn vào đây ...',
 
     // Messages
     'yod_not_matching_dod' => 'Năm mất phải khớp với ngày mất (:value).',

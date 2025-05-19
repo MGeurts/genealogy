@@ -24,14 +24,7 @@ final class Contact extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->contactForm->street      = $this->person->street;
-        $this->contactForm->number      = $this->person->number;
-        $this->contactForm->postal_code = $this->person->postal_code;
-        $this->contactForm->city        = $this->person->city;
-        $this->contactForm->province    = $this->person->province;
-        $this->contactForm->state       = $this->person->state;
-        $this->contactForm->country     = $this->person->country;
-        $this->contactForm->phone       = $this->person->phone;
+        $this->loadData();
     }
 
     public function saveContact(): void
@@ -49,10 +42,20 @@ final class Contact extends Component
 
     public function resetContact(): void
     {
-        $this->mount();
+        $this->loadData();
+
+        $this->resetErrorBag();
+        $this->resetValidation();
     }
 
-    public function isDirty(): bool
+    // ------------------------------------------------------------------------------
+    public function render(): View
+    {
+        return view('livewire.people.edit.contact');
+    }
+
+    // ------------------------------------------------------------------------------
+    private function isDirty(): bool
     {
         return
             $this->contactForm->street !== $this->person->street or
@@ -65,9 +68,15 @@ final class Contact extends Component
             $this->contactForm->phone !== $this->person->phone;
     }
 
-    // ------------------------------------------------------------------------------
-    public function render(): View
+    private function loadData(): void
     {
-        return view('livewire.people.edit.contact');
+        $this->contactForm->street      = $this->person->street;
+        $this->contactForm->number      = $this->person->number;
+        $this->contactForm->postal_code = $this->person->postal_code;
+        $this->contactForm->city        = $this->person->city;
+        $this->contactForm->province    = $this->person->province;
+        $this->contactForm->state       = $this->person->state;
+        $this->contactForm->country     = $this->person->country;
+        $this->contactForm->phone       = $this->person->phone;
     }
 }

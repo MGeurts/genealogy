@@ -20,7 +20,7 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- yod --}}
                 <div class="col-span-3">
-                    <x-ts-input wire:model="deathForm.yod" id="yod" label="{{ __('person.yod') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" autofocus />
+                    <x-ts-input wire:model="deathForm.yod" id="yod" label="{{ __('person.yod') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" autofocus type="number" max="{{ date('Y') }}"/>
                 </div>
 
                 {{-- dod --}}

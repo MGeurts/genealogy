@@ -15,10 +15,14 @@
         </div>
     </div>
 
-    {{-- upload --}}
+    {{-- uploads --}}
     <div class="p-2 print:hidden">
-        <x-ts-upload id="uploads" wire:model="uploads" accept=".jpeg, .jpg, .gif, .png, .svg, .webp" hint="Max : 1024 KB<br/>Format : jpeg/jpg, gif, png, svg, webp"
-            tip="{{ __('person.update_photos_tip') }} ..." multiple delete>
+        <x-ts-upload id="uploads" wire:model="uploads"
+            label="{{ __('person.photos') }} :"
+            accept="{{ implode(',', array_keys(config('app.upload_photo_accept'))) }}"
+            hint="{{ __('person.upload_max_size', ['max' => config('app.upload_max_size')]) }}<br/>{{ __('person.upload_accept_types', ['types' => implode(', ', array_values(config('app.upload_photo_accept')))]) }}"
+            tip="{{ __('person.upload_photos_tip') }}"
+            multiple delete>
             <x-slot:footer when-uploaded>
                 <x-ts-button class="w-full" wire:click="save()">
                     {{ __('app.save') }}

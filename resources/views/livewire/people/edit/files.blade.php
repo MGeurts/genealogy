@@ -18,7 +18,7 @@
     <div class="p-2 print:hidden">
         {{-- source --}}
         <div class="mb-3">
-            <x-ts-textarea id="source" wire:model="source" label="{{ __('person.source') }} :" placeholder="{{ __('person.source_hint') }} ..." maxlength="1024" count autofocus />
+            <x-ts-textarea id="source" wire:model="source" label="{{ __('person.source') }} :" placeholder="{{ __('person.source_hint') }}" maxlength="1024" count autofocus />
         </div>
 
         {{-- source_date --}}
@@ -28,9 +28,13 @@
 
         <x-hr.narrow class="my-2" />
 
-        {{-- upload --}}
-        <x-ts-upload id="uploads" wire:model="uploads" label="{{ __('person.files') }} :" accept=".pdf, .txt, .doc, .docx, .xls, .xlsx" hint="Max : 10 MB,<br/>Format : pdf, txt, doc(x), xls(x)"
-            tip="{{ __('person.update_files_tip') }} ..." multiple delete>
+        {{-- uploads --}}
+        <x-ts-upload id="uploads" wire:model="uploads"
+            label="{{ __('person.files') }} :"
+            accept="{{ implode(',', array_keys(config('app.upload_file_accept'))) }}"
+            hint="{{ __('person.upload_max_size', ['max' => config('app.upload_max_size')]) }}<br/>{{ __('person.upload_accept_types', ['types' => implode(', ', array_values(config('app.upload_file_accept')))]) }}"
+            tip="{{ __('person.upload_photos_tip') }}"
+            multiple delete>
             <x-slot:footer when-uploaded>
                 <x-ts-button class="w-full" wire:click="save()">
                     {{ __('app.save') }}

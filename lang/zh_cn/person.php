@@ -110,12 +110,15 @@ return [
     'cemetery_location' => '墓地位置',
 
     // files
-    'upload_files'     => '上传文件',
     'files'            => '文件',
     'files_saved'      => '[0] 没有文件保存|[1] 文件已保存|[2,*] 文件已保存',
     'file'             => '文件',
     'file_deleted'     => '文件已删除',
-    'update_files_tip' => '将文件拖放到此处',
+    'upload_files'     => '上传文件',
+    'upload_files_tip' => '将文件拖放到此处 ...',
+
+    'upload_accept_types' => '允许 : :types',
+    'upload_max_size'     => '最大尺寸 : :max KB',
 
     // Photo
     'avatar'            => '头像',
@@ -127,7 +130,7 @@ return [
     'photos_existing'   => '现有照片',
     'set_primary'       => '设为主照片',
     'upload_photos'     => '上传照片',
-    'update_photos_tip' => '将照片拖放到此处',
+    'upload_photos_tip' => '将照片拖放到此处 ...',
 
     // Messages
     'yod_not_matching_dod' => '死亡年份必须与死亡日期匹配 (:value)。',
