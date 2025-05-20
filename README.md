@@ -242,7 +242,11 @@ Translations can be added by submitting a <b>Pull Request</b> to the project.
 Translation integrity can be checked by issuing the command<br/>
 `php artisan translations:check --excludedDirectories=vendor`
 
-Instructions on how to add a language to your own project clone can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/LANGUAGES.md" target="_blank">LANGUAGES.md</a>.
+Instructions on how to add a language to your own project clone can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-LANGUAGES.md" target="_blank">README-LANGUAGES.md</a>.
+
+## Uploads
+
+Instructions on how to configure file and image uploads can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-UPLOADS.md" target="_blank">README-UPLOADS.md</a>.
 
 ## To Do ...
 

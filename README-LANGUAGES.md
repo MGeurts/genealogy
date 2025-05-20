@@ -1,4 +1,4 @@
-# LANGUAGES.md
+# README-LANGUAGES.md
 
 ## How to Add a Language (`xx`) to the Project
 
