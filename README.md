@@ -282,7 +282,7 @@ make the needed changes regarding name, url, database connection & mail server
 
 ## Updating
 
-Update instructions can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/UPDATE.md" target="_blank">UPDATE.md</a>.
+Update instructions can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-UPDATE.md" target="_blank">README-UPDATE.md</a>.
 
 ## Testing
 
