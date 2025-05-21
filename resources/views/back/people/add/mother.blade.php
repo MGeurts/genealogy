@@ -4,7 +4,7 @@
 
 <x-app-layout>
     <x-slot name="heading">
-        {{ __('person.add_mother') }}
+        {{ $person->name . ' | ' . __('person.add_mother') }}
     </x-slot>
 
     <div class="p-2 pb-5 sticky top-[6.5rem] z-20 bg-gray-100 dark:bg-gray-900">

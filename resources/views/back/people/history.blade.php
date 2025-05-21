@@ -4,7 +4,7 @@
 
 <x-app-layout>
     <x-slot name="heading">
-        {{ __('app.history') }}
+        {{ $person->name . ' | ' . __('app.history') }}
     </x-slot>
 
     <div class="p-2 pb-5 sticky top-[6.5rem] z-20 bg-gray-100 dark:bg-gray-900">
