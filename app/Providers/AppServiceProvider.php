@@ -70,7 +70,7 @@ final class AppServiceProvider extends ServiceProvider
         // ------------------------------------------------------------------------------
         if ($this->isDatabaseOnline() && Schema::hasTable('settings')) {
             // Cache the applications settings
-            $this->app->singleton('settings', fn () => Cache::rememberForever('settings', fn () => Setting::all()->pluck('value', 'key')));
+            $this->app->singleton('settings', fn () => Cache::rememberForever('settings', fn () => Setting::pluck('value', 'key')));
 
             $this->logAllQueries();
             $this->LogAllQueriesSlow();
