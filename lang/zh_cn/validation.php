@@ -165,6 +165,7 @@ return [
     */
 
     'surname.required_without'   => '添加新人物时，姓氏是必需的。',
+    'sex.required_without'       => '添加新人时，必须定义性别。',
     'person_id.required_without' => '添加现有人物时，请选择一个人。',
 
     /*

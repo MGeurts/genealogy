@@ -166,6 +166,7 @@ return [
     */
 
     'surname.required_without'   => 'YENİ bir kişi eklerken, soyadı gereklidir.',
+    'sex.required_without'       => 'YENİ bir kişi eklerken cinsiyetin tanımlanması zorunludur.',
     'person_id.required_without' => 'MEVCUT bir kişi eklerken, bir kişi seçin.',
 
     /*

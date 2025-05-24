@@ -165,8 +165,9 @@ return [
     |
     */
 
-    'surname.required_without'   => 'Bij het toevoegen van een NIEUWE persoon is een achternaam vereist.',
-    'person_id.required_without' => 'Wanneer u een BESTAANDE persoon toevoegt, selecteert u een persoon.',
+    'surname.required_without'   => 'Bij het toevoegen van een NIEUWE persoon, is een achternaam vereist.',
+    'sex.required_without'       => 'Bij het toevoegen van een NIEUWE persoon, moet het geslacht worden opgeven.',
+    'person_id.required_without' => 'Wanneer u een BESTAANDE persoon toevoegt, moet een persoon worden geselecteerd.',
 
     /*
     |--------------------------------------------------------------------------

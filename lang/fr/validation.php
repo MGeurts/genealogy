@@ -142,7 +142,7 @@ return [
     'ulid'                       => 'Le champ :attribute doit être un ULID valide.',
     'uuid'                       => 'Le champ :attribute doit être un UUID valide.',
     'surname.required_without'   => 'Lors de l’ajout d’une NOUVELLE personne, un nom de famille est requis.',
+    'sex.required_without'       => 'Lors de l’ajout d’une NOUVELLE personne, un sexe doit être défini.',
     'person_id.required_without' => 'Lors de l\'ajout d\'une personne EXISTANTE, sélectionnez une personne.',
-    'attributes'                 => [
-    ],
+    'attributes'                 => [],
 ];

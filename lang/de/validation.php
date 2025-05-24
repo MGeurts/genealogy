@@ -166,6 +166,7 @@ return [
     */
 
     'surname.required_without'   => 'Beim Hinzufügen einer NEUEN Person ist ein Nachname erforderlich.',
+    'sex.required_without'       => 'Beim Hinzufügen einer NEUEN Person muss ein Geschlecht angegeben werden.',
     'person_id.required_without' => 'Wenn Sie eine BESTEHENDE Person hinzufügen, wählen Sie eine Person aus.',
 
     /*
