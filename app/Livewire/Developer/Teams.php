@@ -61,12 +61,12 @@ final class Teams extends Component implements HasForms, HasTable
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label(__('app.created_at'))
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone(Auth()->user()->timezone)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
                     ->label(__('app.updated_at'))
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone(Auth()->user()->timezone)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])

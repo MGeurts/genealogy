@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Actions\Jetstream;
 
 use App\Models\Team;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Jetstream\Contracts\DeletesTeams;
 
@@ -25,7 +24,7 @@ final class DeleteTeam implements DeletesTeams
             }
         }
 
-        $user = Auth::user();
+        $user = Auth()->user();
 
         // If the user is currently on this team, switch to another team if available
         if ($user && $user->current_team_id === $team->id) {

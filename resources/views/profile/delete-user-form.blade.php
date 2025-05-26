@@ -21,7 +21,7 @@
                 ['index' => 'personal', 'label' => __('team.team_personal') . '?'],
             ];
 
-            $rows = collect(auth()->user()->teamsStatistics())
+            $rows = collect(Auth()->user()->teamsStatistics())
                 ->map(function ($team) {
                     return [
                         'team' => $team->name,
@@ -44,7 +44,7 @@
 
         <x-hr.normal />
 
-        @if (auth()->user()->isDeletable())
+        @if (Auth()->user()->isDeletable())
             <div class="max-w-xl text-sm text-gray-600 dark:text-gray-400">
                 {{ __('user.once_deleted') }}
             </div>

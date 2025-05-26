@@ -16,11 +16,11 @@
             <x-label value="{{ __('team.owner') }} :" />
 
             <div class="flex items-center mt-2">
-                <img class="object-cover w-12 h-12 rounded-full" src="{{ auth()->user()->profile_photo_url }}" alt="{{ auth()->user()->name }}">
+                <img class="object-cover w-12 h-12 rounded-full" src="{{ Auth()->user()->profile_photo_url }}" alt="{{ Auth()->user()->name }}">
 
                 <div class="leading-tight ms-4">
-                    <div class="text-sm text-gray-700">{{ auth()->user()->name }}</div>
-                    <div class="text-sm text-gray-700">{{ auth()->user()->email }}</div>
+                    <div class="text-sm text-gray-700">{{ Auth()->user()->name }}</div>
+                    <div class="text-sm text-gray-700">{{ Auth()->user()->email }}</div>
                 </div>
             </div>
         </div>

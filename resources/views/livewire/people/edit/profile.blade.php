@@ -20,22 +20,22 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- firstname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="profileForm.firstname" id="firstname" label="{{ __('person.firstname') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" required autofocus />
+                    <x-ts-input wire:model="form.firstname" id="firstname" label="{{ __('person.firstname') }} :" required autofocus />
                 </div>
 
                 {{-- surname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="profileForm.surname" id="surname" label="{{ __('person.surname') }} : *" wire:dirty.class="bg-yellow-200 dark:text-black" required />
+                    <x-ts-input wire:model="form.surname" id="surname" label="{{ __('person.surname') }} : *" required />
                 </div>
 
                 {{-- birthname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="profileForm.birthname" id="birthname" label="{{ __('person.birthname') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" />
+                    <x-ts-input wire:model="form.birthname" id="birthname" label="{{ __('person.birthname') }} :" />
                 </div>
 
                 {{-- nickname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="profileForm.nickname" id="nickname" label="{{ __('person.nickname') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" />
+                    <x-ts-input wire:model="form.nickname" id="nickname" label="{{ __('person.nickname') }} :" />
                 </div>
                 <x-hr.narrow class="col-span-6 my-0!" />
 
@@ -44,66 +44,50 @@
                     <x-label for="sex" class="mr-5" value="{{ __('person.sex') }} ({{ __('person.biological') }}) : *" />
                     <div class="flex">
                         <div class="mt-3 mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
-                            <x-ts-radio color="primary" wire:model="profileForm.sex" name="sex" id="sexM" value="m" label="{{ __('app.male') }}" />
+                            <x-ts-radio color="primary" wire:model="form.sex" name="sex" id="sexM" value="m" label="{{ __('app.male') }}" />
                         </div>
                         <div class="mt-3 mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
-                            <x-ts-radio color="primary" wire:model="profileForm.sex" name="sex" id="sexF" value="f" label="{{ __('app.female') }}" />
+                            <x-ts-radio color="primary" wire:model="form.sex" name="sex" id="sexF" value="f" label="{{ __('app.female') }}" />
                         </div>
                     </div>
                 </div>
 
                 {{-- gender_id --}}
                 <div class="col-span-3">
-                    <x-ts-select.styled wire:model="profileForm.gender_id" id="gender_id" label="{{ __('person.gender') }} :" :options="$profileForm->genders()" select="label:name|value:id"
-                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-yellow-200 dark:text-black" searchable />
+                    <x-ts-select.styled wire:model="form.gender_id" id="gender_id" label="{{ __('person.gender') }} :" :options="$form->genders()" select="label:name|value:id"
+                        placeholder="{{ __('app.select') }} ..." searchable />
                 </div>
                 <x-hr.narrow class="col-span-6 my-0!" />
 
                 {{-- yob --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="profileForm.yob" id="yob" label="{{ __('person.yob') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" autocomplete="yob" type="number" max="{{ date('Y') }}" />
+                    <x-ts-input wire:model="form.yob" id="yob" label="{{ __('person.yob') }} :" autocomplete="yob" type="number" max="{{ date('Y') }}" />
                 </div>
 
                 {{-- dob --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-date wire:model="profileForm.dob" id="dob" name="dob" label="{{ __('person.dob') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" format="YYYY-MM-DD"
+                    <x-ts-date wire:model="form.dob" id="dob" name="dob" label="{{ __('person.dob') }} :" format="YYYY-MM-DD"
                         :max-date="now()" placeholder="{{ __('app.select') }} ..." />
                 </div>
 
                 {{-- pob --}}
                 <div class="col-span-6">
-                    <x-ts-input wire:model="profileForm.pob" id="pob" label="{{ __('person.pob') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" autocomplete="pob" />
+                    <x-ts-input wire:model="form.pob" id="pob" label="{{ __('person.pob') }} :" autocomplete="pob" />
                 </div>
                 <x-hr.narrow class="col-span-6 my-0!" />
 
                 {{-- summary --}}
                 <div class="col-span-6">
-                    <x-ts-textarea wire:model="profileForm.summary" id="summary" label="{{ __('person.summary') }} :" wire:dirty.class="bg-yellow-200 dark:text-black" autocomplete="summary"
+                    <x-ts-textarea wire:model="form.summary" id="summary" label="{{ __('person.summary') }} :" autocomplete="summary"
                         maxlength="65535" count />
                 </div>
             </div>
         </div>
 
-        <div class="flex items-center justify-end p-4 text-right rounded-b sm:px-6">
-            <div class="flex-1 grow max-w-full text-left">
-                <x-action-message class="p-3 rounded-sm bg-yellow-200 text-yellow-700" role="alert" on="" wire:dirty>
-                    {{ __('app.unsaved_changes') }} ...
-                </x-action-message>
-
-                <x-action-message class="p-3 rounded-sm bg-emerald-200 text-emerald-600" role="alert" on="saved">
-                    {{ __('app.saved') }}
-                </x-action-message>
-            </div>
-
-            <div class="flex-1 grow max-w-full text-end">
-                <x-ts-button color="secondary" class="mr-1" wire:click="resetProfile()" wire:dirty>
-                    {{ __('app.cancel') }}
-                </x-ts-button>
-
-                <x-ts-button type="submit" color="primary">
-                    {{ __('app.save') }}
-                </x-ts-button>
-            </div>
+        <div class="flex items-center justify-end p-4 rounded-b">
+            <x-ts-button type="submit" color="primary">
+                {{ __('app.save') }}
+            </x-ts-button>
         </div>
     </div>
 </form>
