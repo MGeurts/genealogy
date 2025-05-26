@@ -45,26 +45,10 @@
                 </div>
             </div>
 
-            <div class="flex items-center justify-end p-4 text-right rounded-b sm:px-6">
-                <div class="flex-1 grow max-w-full text-left">
-                    <x-action-message class="p-3 rounded-sm bg-yellow-200 text-yellow-700" role="alert" on="" wire:dirty>
-                        {{ __('app.unsaved_changes') }} ...
-                    </x-action-message>
-
-                    <x-action-message class="p-3 rounded-sm bg-emerald-200 text-emerald-600" role="alert" on="saved">
-                        {{ __('app.saved') }}
-                    </x-action-message>
-                </div>
-
-                <div class="flex-1 grow max-w-full text-end">
-                    <x-ts-button color="secondary" class="mr-1" wire:click="resetSettings()" wire:dirty>
-                        {{ __('app.cancel') }}
-                    </x-ts-button>
-
-                    <x-ts-button type="submit" color="primary">
-                        {{ __('app.save') }}
-                    </x-ts-button>
-                </div>
+            <div class="flex items-center justify-end p-4 rounded-b">
+                <x-ts-button type="submit" color="primary">
+                    {{ __('app.save') }}
+                </x-ts-button>
             </div>
         </div>
     </div>
