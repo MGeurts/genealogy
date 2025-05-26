@@ -3,7 +3,7 @@
         <div class="flex-1 grow max-w-full text-lg font-medium">
             <div>{{ $person->name }}</div>
 
-            @if (auth()->user()->is_developer)
+            @if (Auth()->user()->is_developer)
                 <div class="text-cyan-500">{{ $person->team->name }}</div>
             @endif
         </div>

@@ -5,10 +5,10 @@
                 {{ __('person.profile') }}
             </div>
 
-            @if (auth()->user()->hasPermission('person:update') or auth()->user()->hasPermission('person:delete'))
+            @if (Auth()->user()->hasPermission('person:update') or Auth()->user()->hasPermission('person:delete'))
                 <div class="flex-1 grow min-w-max max-w-min text-end">
                     <x-ts-dropdown icon="tabler.menu-2" position="bottom-end">
-                        @if (auth()->user()->hasPermission('person:update'))
+                        @if (Auth()->user()->hasPermission('person:update'))
                             <a href="/people/{{ $person->id }}/edit-profile">
                                 <x-ts-dropdown.items>
                                     <x-ts-icon icon="tabler.id" class="mr-2" />
@@ -39,7 +39,7 @@
                             </a>
                         @endif
 
-                        @if (auth()->user()->hasPermission('person:delete') and $person->isDeletable())
+                        @if (Auth()->user()->hasPermission('person:delete') and $person->isDeletable())
                             <hr />
 
                             <x-ts-dropdown.items separator class="text-red-600! dark:text-red-400!" wire:click="confirm()">

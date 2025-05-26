@@ -8,7 +8,7 @@
                 @endif
             </div>
 
-            @if (auth()->user()->hasPermission('person:create'))
+            @if (Auth()->user()->hasPermission('person:create'))
                 <div class="flex-1 grow min-w-max max-w-min text-end">
                     <x-ts-dropdown icon="tabler.menu-2" position="bottom-end">
                         <a href="/people/{{ $person->id }}/add-child">
@@ -18,7 +18,7 @@
                             </x-ts-dropdown.items>
                         </a>
 
-                        @if (auth()->user()->hasPermission('person:update') and $person->children->count() > 0)
+                        @if (Auth()->user()->hasPermission('person:update') and $person->children->count() > 0)
                             <hr />
 
                             @foreach ($children as $child)

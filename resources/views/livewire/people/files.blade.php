@@ -8,10 +8,10 @@
                 @endif
             </div>
 
-            @if (auth()->user()->hasPermission('person:update') or auth()->user()->hasPermission('person:delete'))
+            @if (Auth()->user()->hasPermission('person:update') or Auth()->user()->hasPermission('person:delete'))
                 <div class="flex-1 grow min-w-max max-w-min text-end">
                     <x-ts-dropdown icon="tabler.menu-2" position="bottom-end">
-                        @if (auth()->user()->hasPermission('person:update'))
+                        @if (Auth()->user()->hasPermission('person:update'))
                             <a href="/people/{{ $person->id }}/edit-files">
                                 <x-ts-dropdown.items>
                                     <x-ts-icon icon="tabler.files" class="mr-2" />

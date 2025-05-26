@@ -13,7 +13,7 @@
 
             @livewire('teams.team-member-manager', ['team' => $team])
 
-            @if (auth()->user()->ownsTeam($team) and !$team->personal_team)
+            @if (Auth()->user()->ownsTeam($team) and !$team->personal_team)
                 <x-section-border />
 
                 <div class="mt-10 sm:mt-0">

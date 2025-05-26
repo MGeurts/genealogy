@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
@@ -107,7 +108,7 @@ final class Person extends Model implements HasMedia
 
     public function tapActivity(Activity $activity, string $eventName): void
     {
-        $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
+        $activity->team_id = Auth()->user()?->currentTeam?->id ?? null;
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -405,7 +406,7 @@ final class Person extends Model implements HasMedia
     protected static function booted(): void
     {
         self::addGlobalScope('team', function (Builder $builder): void {
-            if (Auth()->guest() || Auth()->user()->is_developer) {
+            if (Auth::guest() || Auth()->user()->is_developer) {
                 return;
             }
 
