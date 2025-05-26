@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\People;
 
+use App\Models\Person;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
@@ -13,7 +14,7 @@ use Spatie\Activitylog\Models\Activity;
 final class History extends Component
 {
     // ------------------------------------------------------------------------------
-    public $person;
+    public Person $person;
 
     // ------------------------------------------------------------------------------
     public Collection $activities;
@@ -22,7 +23,7 @@ final class History extends Component
     public function mount(): void
     {
         $this->activities = Activity::with('causer')
-            ->where('subject_type', \App\Models\Person::class)->where('subject_id', $this->person->id)
+            ->where('subject_type', Person::class)->where('subject_id', $this->person->id)
             ->orderByDesc('created_at')
             ->get()
             ->map(fn ($record): array => [

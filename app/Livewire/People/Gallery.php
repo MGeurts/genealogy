@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\People;
 
+use App\Models\Person;
 use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -11,7 +12,7 @@ use Livewire\Component;
 final class Gallery extends Component
 {
     // ------------------------------------------------------------------------------
-    public $person;
+    public Person $person;
 
     // ------------------------------------------------------------------------------
     public array $images = [];

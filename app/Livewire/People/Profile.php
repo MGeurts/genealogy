@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\People;
 
+use App\Models\Person;
 use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -14,7 +15,7 @@ final class Profile extends Component
     use Interactions;
 
     // -----------------------------------------------------------------------
-    public $person;
+    public Person $person;
 
     // -----------------------------------------------------------------------
     protected $listeners = [

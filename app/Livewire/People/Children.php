@@ -15,7 +15,7 @@ final class Children extends Component
     use Interactions;
 
     // ------------------------------------------------------------------------------
-    public $person;
+    public Person $person;
 
     // ------------------------------------------------------------------------------
     public Collection $children;

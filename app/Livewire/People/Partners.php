@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\People;
 
 use App\Models\Couple;
+use App\Models\Person;
 use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
@@ -14,7 +15,7 @@ final class Partners extends Component
     use Interactions;
 
     // ------------------------------------------------------------------------------
-    public $person;
+    public Person $person;
 
     // ------------------------------------------------------------------------------
     protected $listeners = [

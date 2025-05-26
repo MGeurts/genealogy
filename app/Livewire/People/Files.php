@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace App\Livewire\People;
 
+use App\Models\Person;
 use Illuminate\Support\Collection;
 use Livewire\Component;
 
 final class Files extends Component
 {
     // ------------------------------------------------------------------------------
-    public $person;
+    public Person $person;
 
     // ------------------------------------------------------------------------------
     public Collection $files;
