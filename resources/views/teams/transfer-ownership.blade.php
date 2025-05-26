@@ -47,7 +47,7 @@
                     </div>
                 </div>
 
-                <div class="flex items-center justify-end p-4 text-right bg-gray-200 sm:px-6 rounded-bl rounded-br">
+                <div class="flex items-center justify-end p-4 text-right bg-gray-200 sm:px-6 rounded-b">
                     <x-ts-button type="submit" color="primary">
                         {{ __('team.transfer') }}
                     </x-ts-button>

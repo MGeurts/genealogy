@@ -4,7 +4,9 @@
 
 <x-app-layout>
     <x-slot name="heading">
-        {{ $person->name . ' | ' . __('app.family_chart') }}
+        {{ $person->name }}
+        <x-ts-icon icon="tabler.arrow-right-circle" class="inline-block size-5" alt="Arrow Icon" />
+        {{ __('app.family_chart') }}
     </x-slot>
 
     <div class="p-2 pb-5 sticky top-[6.5rem] z-20 bg-gray-100 dark:bg-gray-900">
@@ -33,8 +35,8 @@
                 <div class="items-center p-2 text-center border basis-1/5">
                     @if ($person->father and $person->father->father)
                         <x-link href="/people/{{ $person->father->father->id }}/chart" @class([
-                            'text-red-600 dark:text-red-400' => $person->father->father->isDeceased(),
-                        ])>
+        'text-red-600 dark:text-red-400' => $person->father->father->isDeceased(),
+    ])>
                             {{ $person->father->father->name }}
                         </x-link>
                         <x-ts-icon icon="tabler.{{ $person->father->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -45,8 +47,8 @@
                 <div class="p-2 text-center border basis-1/5">
                     @if ($person->father and $person->father->mother)
                         <x-link href="/people/{{ $person->father->mother->id }}/chart" @class([
-                            'text-red-600 dark:text-red-400' => $person->father->mother->isDeceased(),
-                        ])>
+        'text-red-600 dark:text-red-400' => $person->father->mother->isDeceased(),
+    ])>
                             {{ $person->father->mother->name }}
                         </x-link>
                         <x-ts-icon icon="tabler.{{ $person->father->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -57,8 +59,8 @@
                 <div class="p-2 text-center border basis-1/5">
                     @if ($person->mother and $person->mother->father)
                         <x-link href="/people/{{ $person->mother->father->id }}/chart" @class([
-                            'text-red-600 dark:text-red-400' => $person->mother->father->isDeceased(),
-                        ])>
+        'text-red-600 dark:text-red-400' => $person->mother->father->isDeceased(),
+    ])>
                             {{ $person->mother->father->name }}
                         </x-link>
                         <x-ts-icon icon="tabler.{{ $person->mother->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -69,8 +71,8 @@
                 <div class="p-2 text-center border basis-1/5">
                     @if ($person->mother and $person->mother->mother)
                         <x-link href="/people/{{ $person->mother->mother->id }}/chart" @class([
-                            'text-red-600 dark:text-red-400' => $person->mother->mother->isDeceased(),
-                        ])>
+        'text-red-600 dark:text-red-400' => $person->mother->mother->isDeceased(),
+    ])>
                             {{ $person->mother->mother->name }}
                         </x-link>
                         <x-ts-icon icon="tabler.{{ $person->mother->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -94,8 +96,8 @@
                                 <div>
                                     {{ $index + 1 }}.
                                     <x-link href="/people/{{ $sibling->id }}/chart" @class([
-                                        'text-red-600 dark:text-red-400' => $sibling->isDeceased(),
-                                    ])>
+            'text-red-600 dark:text-red-400' => $sibling->isDeceased(),
+        ])>
                                         {{ $sibling->name }}
                                     </x-link>
                                     <x-ts-icon icon="tabler.{{ $sibling->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -104,8 +106,8 @@
                                         @foreach ($sibling->children as $child)
                                             <li>
                                                 <x-link href="/people/{{ $child->id }}/chart" @class([
-                                                    'text-red-600 dark:text-red-400' => $child->isDeceased(),
-                                                ])>
+                'text-red-600 dark:text-red-400' => $child->isDeceased(),
+            ])>
                                                     {{ $child->name }}
                                                 </x-link>
                                                 <x-ts-icon icon="tabler.{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -125,8 +127,8 @@
                                 <div>
                                     {{ $index + 1 }}.
                                     <x-link href="/people/{{ $sibling->id }}/chart" @class([
-                                        'text-red-600 dark:text-red-400' => $sibling->isDeceased(),
-                                    ])>
+            'text-red-600 dark:text-red-400' => $sibling->isDeceased(),
+        ])>
                                         {{ $sibling->name }}
                                     </x-link>
                                     <x-ts-icon icon="tabler.{{ $sibling->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -135,8 +137,8 @@
                                         @foreach ($sibling->children as $child)
                                             <li>
                                                 <x-link href="/people/{{ $child->id }}/chart" @class([
-                                                    'text-red-600 dark:text-red-400' => $child->isDeceased(),
-                                                ])>
+                'text-red-600 dark:text-red-400' => $child->isDeceased(),
+            ])>
                                                     {{ $child->name }}
                                                 </x-link>
                                                 <x-ts-icon icon="tabler.{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -157,8 +159,8 @@
                 <div class="p-2 text-center border basis-2/5">
                     @if ($person->father)
                         <x-link href="/people/{{ $person->father->id }}/chart" @class([
-                            'text-red-600 dark:text-red-400' => $person->father->isDeceased(),
-                        ])>
+        'text-red-600 dark:text-red-400' => $person->father->isDeceased(),
+    ])>
                             {{ $person->father->name }}
                         </x-link>
                         <x-ts-icon icon="tabler.{{ $person->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -169,8 +171,8 @@
                 <div class="p-2 text-center border basis-2/5">
                     @if ($person->mother)
                         <x-link href="/people/{{ $person->mother->id }}/chart" @class([
-                            'text-red-600 dark:text-red-400' => $person->mother->isDeceased(),
-                        ])>
+        'text-red-600 dark:text-red-400' => $person->mother->isDeceased(),
+    ])>
                             {{ $person->mother->name }}
                         </x-link>
                         <x-ts-icon icon="tabler.{{ $person->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -186,8 +188,8 @@
 
                 <div class="p-2 text-center border basis-4/5">
                     <x-link href="/people/{{ $person->id }}/chart" @class([
-                        'text-red-600 dark:text-red-400' => $person->isDeceased(),
-                    ])>
+    'text-red-600 dark:text-red-400' => $person->isDeceased(),
+])>
                         {{ $person->name }}
                     </x-link>
                     <x-ts-icon icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -207,8 +209,8 @@
                             <div>
                                 {{ $index + 1 }}.
                                 <x-link href="/people/{{ $child->id }}/chart" @class([
-                                    'text-red-600 dark:text-red-400' => $child->isDeceased(),
-                                ])>
+        'text-red-600 dark:text-red-400' => $child->isDeceased(),
+    ])>
                                     {{ $child->name }}
                                 </x-link>
                                 <x-ts-icon icon="tabler.{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -217,8 +219,8 @@
                                     @foreach ($child->children as $grandchild)
                                         <li>
                                             <x-link href="/people/{{ $grandchild->id }}/chart" @class([
-                                                'text-red-600 dark:text-red-400' => $grandchild->isDeceased(),
-                                            ])>
+            'text-red-600 dark:text-red-400' => $grandchild->isDeceased(),
+        ])>
                                                 {{ $grandchild->name }}
                                             </x-link>
                                             <x-ts-icon icon="tabler.{{ $grandchild->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -244,8 +246,8 @@
                             <div>
                                 {{ $index + 1 }}.
                                 <x-link href="/people/{{ $sibling->id }}/chart" @class([
-                                    'text-red-600 dark:text-red-400' => $sibling->isDeceased(),
-                                ])>
+        'text-red-600 dark:text-red-400' => $sibling->isDeceased(),
+    ])>
                                     {{ $sibling->name }}
                                 </x-link>
                                 <x-ts-icon icon="tabler.{{ $sibling->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
@@ -254,8 +256,8 @@
                                     @foreach ($sibling->children as $child)
                                         <li>
                                             <x-link href="/people/{{ $child->id }}/chart" @class([
-                                                'text-red-600 dark:text-red-400' => $child->isDeceased(),
-                                            ])>
+            'text-red-600 dark:text-red-400' => $child->isDeceased(),
+        ])>
                                                 {{ $child->name }}
                                             </x-link>
                                             <x-ts-icon icon="tabler.{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />

@@ -191,6 +191,7 @@ final class AppServiceProvider extends ServiceProvider
                 'dark:bg-dark-700' => 'dark:bg-neutral-700',
                 'rounded-lg'       => 'rounded-sm',
             ])
+            ->block('base.content')->remove('p-4')
             ->block('item.select')->replace('dark:text-dark-300', 'dark:text-neutral-50');
 
         $ui->table()
