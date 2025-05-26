@@ -7,6 +7,8 @@ namespace App\Livewire\People\Add;
 use App\Livewire\Forms\People\PersonForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\PersonPhotos;
+use App\Rules\DobValid;
+use App\Rules\YobValid;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\View\View;
@@ -16,19 +18,32 @@ use TallStackUi\Traits\Interactions;
 
 final class Person extends Component
 {
-    use Interactions;
+    use Interactions, WithFileUploads;
     use TrimStringsAndConvertEmptyStringsToNull;
-    use WithFileUploads;
 
     // -----------------------------------------------------------------------
-    public PersonForm $personForm;
+    public PersonForm $form;
 
-    public array $uploads = [];
-
-    public array $backup = [];
+    public ?string $selectedTab = null;
 
     // -----------------------------------------------------------------------
     public function mount(): void {}
+
+    public function updatingUploads(): void
+    {
+        $this->form->backup = $this->form->uploads;
+    }
+
+    public function updatedUploads(): void
+    {
+        if (empty($this->form->uploads)) {
+            return;
+        }
+
+        $this->form->uploads = collect(array_merge($this->form->backup, (array) $this->form->uploads))
+            ->unique(fn (UploadedFile $file): string => $file->getClientOriginalName())
+            ->toArray();
+    }
 
     public function deleteUpload(array $content): void
     {
@@ -43,11 +58,11 @@ final class Person extends Component
             ]
         */
 
-        if (empty($this->uploads)) {
+        if (empty($this->form->uploads)) {
             return;
         }
 
-        $this->uploads = collect($this->uploads)
+        $this->form->uploads = collect($this->form->uploads)
             ->filter(fn (UploadedFile $file): bool => $file->getFilename() !== $content['temporary_name'])
             ->values()
             ->toArray();
@@ -58,74 +73,23 @@ final class Person extends Component
         );
     }
 
-    public function updatingUploads(): void
-    {
-        $this->backup = $this->uploads;
-    }
-
-    public function updatedUploads(): void
-    {
-        if (empty($this->uploads)) {
-            return;
-        }
-
-        $this->uploads = collect(array_merge($this->backup, (array) $this->uploads))
-            ->unique(fn (UploadedFile $file): string => $file->getClientOriginalName())
-            ->toArray();
-    }
-
     public function savePerson(): void
     {
-        if ($this->isDirty()) {
-            $validated = $this->personForm->validate();
+        $validated = $this->validate($this->rules());
 
-            $new_person = \App\Models\Person::create([
-                'firstname' => $validated['firstname'],
-                'surname'   => $validated['surname'],
-                'birthname' => $validated['birthname'],
-                'nickname'  => $validated['nickname'],
-                'sex'       => $validated['sex'],
-                'gender_id' => $validated['gender_id'] ?? null,
-                'yob'       => $validated['yob'],
-                'dob'       => $validated['dob'],
-                'pob'       => $validated['pob'],
-                'team_id'   => auth()->user()->currentTeam->id,
-            ]);
+        $newPerson = \App\Models\Person::create([
+            ...$validated['form'],
+            'team_id' => Auth()->user()->currentTeam->id,
+        ]);
 
-            if ($this->uploads) {
-                $personPhotos = new PersonPhotos($new_person);
-                $personPhotos->save($this->uploads);
-            }
-
-            $this->toast()->success(__('app.save'), $new_person->name . ' ' . __('app.created'))->flash()->send();
-
-            $this->redirect('/people/' . $new_person->id);
+        if ($this->form->uploads) {
+            $photos = new PersonPhotos($newPerson);
+            $photos->save($this->form->uploads);
         }
-    }
 
-    public function isDirty(): bool
-    {
-        return
-        $this->personForm->firstname !== null or
-        $this->personForm->surname !== null or
-        $this->personForm->birthname !== null or
-        $this->personForm->nickname !== null or
-        $this->personForm->sex !== null or
-        $this->personForm->gender_id !== null or
-        $this->personForm->yob !== null or
-        $this->personForm->dob !== null or
-        $this->personForm->pob !== null or
-        $this->personForm->photo !== null;
-    }
+        $this->toast()->success(__('app.save'), $newPerson->name . ' ' . __('app.created'))->flash()->send();
 
-    public function resetPerson(): void
-    {
-        $this->personForm->resetFields();
-        $this->uploads = [];
-        $this->backup  = [];
-
-        $this->resetErrorBag();
-        $this->resetValidation();
+        $this->redirect('/people/' . $newPerson->id);
     }
 
     // ------------------------------------------------------------------------------
@@ -134,11 +98,20 @@ final class Person extends Component
         return view('livewire.people.add.person');
     }
 
-    // -----------------------------------------------------------------------
+    // ------------------------------------------------------------------------------
     protected function rules(): array
     {
         return [
-            'uploads.*' => [
+            'form.firstname' => ['nullable', 'string', 'max:255'],
+            'form.surname'   => ['required', 'string', 'max:255'],
+            'form.birthname' => ['nullable', 'string', 'max:255'],
+            'form.nickname'  => ['nullable', 'string', 'max:255'],
+            'form.sex'       => ['required', 'string', 'max:1', 'in:m,f'],
+            'form.gender_id' => ['nullable', 'integer'],
+            'form.yob'       => ['nullable', 'integer', 'min:1', 'max:' . date('Y'), new YobValid],
+            'form.dob'       => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', new DobValid],
+            'form.pob'       => ['nullable', 'string', 'max:255'],
+            'form.uploads.*' => [
                 'file',
                 'mimetypes:' . implode(',', array_keys(config('app.upload_photo_accept'))),
                 'max:' . config('app.upload_max_size'),
@@ -149,15 +122,31 @@ final class Person extends Component
     protected function messages(): array
     {
         return [
-            'uploads.*.file'      => __('validation.file', ['attribute' => __('person.photo')]),
-            'uploads.*.mimetypes' => __('validation.mimetypes', [
+            'form.uploads.*.file'      => __('validation.file', ['attribute' => __('person.photo')]),
+            'form.uploads.*.mimetypes' => __('validation.mimetypes', [
                 'attribute' => __('person.photo'),
                 'values'    => implode(', ', array_values(config('app.upload_photo_accept'))),
             ]),
-            'uploads.*.max' => __('validation.max.file', [
+            'form.uploads.*.max' => __('validation.max.file', [
                 'attribute' => __('person.photo'),
                 'max'       => config('app.upload_max_size'),
             ]),
+        ];
+    }
+
+    protected function validationAttributes(): array
+    {
+        return [
+            'form.firstname' => __('person.firstname'),
+            'form.surname'   => __('person.surname'),
+            'form.birthname' => __('person.birthname'),
+            'form.nickname'  => __('person.nickname'),
+            'form.sex'       => __('person.sex'),
+            'form.gender_id' => __('person.gender'),
+            'form.yob'       => __('person.yob'),
+            'form.dob'       => __('person.dob'),
+            'form.pob'       => __('person.pob'),
+            'form.uploads'   => __('person.photos'),
         ];
     }
 }

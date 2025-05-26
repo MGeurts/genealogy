@@ -4,7 +4,7 @@
 
 <x-app-layout>
     <x-slot name="heading">
-        {{ __('person.add_person_in_team', ['team' => auth()->user()->currentTeam->name]) }}
+        {{ __('person.add_person_in_team', ['team' => Auth()->user()->currentTeam->name]) }}
     </x-slot>
 
     <div class="w-full p-2 space-y-5">

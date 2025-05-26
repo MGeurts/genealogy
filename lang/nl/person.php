@@ -151,4 +151,16 @@ return [
 
     'not_found' => 'Persoon niet gevonden',
     'use_tab'   => 'Gebruik tab',
+
+    'existing_person_linked_as_father'  => 'Bestaande persoon gekoppeld als vader.',
+    'new_person_linked_as_father'       => 'Nieuwe persoon gekoppeld als vader.',
+    'existing_person_linked_as_mother'  => 'Bestaande persoon gekoppeld als moeder.',
+    'new_person_linked_as_mother'       => 'Nieuwe persoon gekoppeld als moeder.',
+    'existing_person_linked_as_child'   => 'Bestaande persoon gekoppeld als kind.',
+    'new_person_linked_as_child'        => 'Nieuwe persoon gekoppeld als kind.',
+    'existing_person_linked_as_partner' => 'Bestaande persoon gekoppeld als partner.',
+    'new_person_linked_as_parther'      => 'Nieuwe persoon gekoppeld als partner.',
+
+    'family_caution_1' => 'Vader en Moeder mogen alleen worden gebruikt voor de biologische ouders en moeten daarom van verschillend geslacht zijn.',
+    'family_caution_2' => 'Ouders kunnen de biologische ouders zijn, maar ook niet-biologische (homoseksuele of adoptieve) ouders. Laat in dat geval Vader en Moeder gewoon leeg.',
 ];

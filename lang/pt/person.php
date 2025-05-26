@@ -134,4 +134,16 @@ return [
     'dob_after_yod'        => 'A Data de nascimento não pode ser posterior ao Ano do falecimento (:valor).',
     'not_found'            => 'Pessoa não encontrada',
     'use_tab'              => 'Usar guia',
+
+    'existing_person_linked_as_father'  => 'Pessoa existente vinculada como pai.',
+    'new_person_linked_as_father'       => 'Nova pessoa vinculada como pai.',
+    'existing_person_linked_as_mother'  => 'Pessoa existente vinculada como mãe.',
+    'new_person_linked_as_mother'       => 'Nova pessoa vinculada como mãe.',
+    'existing_person_linked_as_child'   => 'Pessoa existente vinculada como filho.',
+    'new_person_linked_as_child'        => 'Nova pessoa vinculada como filho.',
+    'existing_person_linked_as_partner' => 'Pessoa existente vinculada como parceiro.',
+    'new_person_linked_as_parther'      => 'Nova pessoa vinculada como parceiro.',
+
+    'family_caution_1' => 'Pai e Mãe devem ser usados apenas para os pais biológicos e, portanto, devem ser de sexos opostos.',
+    'family_caution_2' => 'Os pais podem ser biológicos, mas também podem ser não biológicos (homossexuais ou adotivos). Nesse caso, deixe Pai e Mãe em branco.',
 ];

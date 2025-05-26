@@ -151,4 +151,16 @@ return [
 
     'not_found' => '没有找到此人',
     'use_tab'   => '使用选项卡',
+
+    'existing_person_linked_as_father'  => '现有人员已作为父亲关联。',
+    'new_person_linked_as_father'       => '新人员已作为父亲关联。',
+    'existing_person_linked_as_mother'  => '现有人员已作为母亲关联。',
+    'new_person_linked_as_mother'       => '新人员已作为母亲关联。',
+    'existing_person_linked_as_child'   => '现有人员已作为子女关联。',
+    'new_person_linked_as_child'        => '新人员已作为子女关联。',
+    'existing_person_linked_as_partner' => '现有人员已作为配偶关联。',
+    'new_person_linked_as_parther'      => '新人员已作为配偶关联。',
+
+    'family_caution_1' => '父亲和母亲只能用于生物学父母，因此必须是异性。',
+    'family_caution_2' => '父母可以是生物学父母，也可以是非生物学父母（同性或收养）。在这种情况下，只需将父亲和母亲留空。',
 ];

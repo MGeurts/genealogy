@@ -4,7 +4,9 @@
 
 <x-app-layout>
     <x-slot name="heading">
-        {{ $person->name . ' | ' . __('person.edit_relationship') }}
+        {{ $person->name }}
+        <x-ts-icon icon="tabler.arrow-right-circle" class="inline-block size-5" alt="Arrow Icon" />
+        {{ __('person.edit_relationship') }}
     </x-slot>
 
     <div class="p-2 pb-5 sticky top-[6.5rem] z-20 bg-gray-100 dark:bg-gray-900">

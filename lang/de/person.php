@@ -151,4 +151,16 @@ return [
 
     'not_found' => 'Person nicht gefunden',
     'use_tab'   => 'Benutze tab',
+
+    'existing_person_linked_as_father'  => 'Vorhandene Person als Vater verknüpft.',
+    'new_person_linked_as_father'       => 'Neue Person als Vater verknüpft.',
+    'existing_person_linked_as_mother'  => 'Vorhandene Person als Mutter verknüpft.',
+    'new_person_linked_as_mother'       => 'Neue Person als Mutter verknüpft.',
+    'existing_person_linked_as_child'   => 'Vorhandene Person als Kind verknüpft.',
+    'new_person_linked_as_child'        => 'Neue Person als Kind verknüpft.',
+    'existing_person_linked_as_partner' => 'Vorhandene Person als Partner verknüpft.',
+    'new_person_linked_as_parther'      => 'Neue Person als Partner verknüpft.',
+
+    'family_caution_1' => 'Vater und Mutter dürfen nur für die biologischen Eltern verwendet werden und müssen daher unterschiedlichen Geschlechts sein.',
+    'family_caution_2' => 'Eltern können die biologischen Eltern sein, aber auch nicht-biologische (gleichgeschlechtliche oder Adoptiveltern). In diesem Fall lassen Sie Vater und Mutter einfach leer.',
 ];

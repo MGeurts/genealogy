@@ -20,51 +20,42 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- father_id --}}
                 <div class="col-span-6">
-                    <x-ts-select.styled wire:model="familyForm.father_id" id="father_id" label="{{ __('person.father') }} ({{ __('person.biological') }}) :" :options="$fathers"
-                        select="label:name|value:id" placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-yellow-200 dark:text-black" searchable />
+                    <x-ts-select.styled wire:model="form.father_id" id="father_id" label="{{ __('person.father') }} ({{ __('person.biological') }}) :" :options="$fathers"
+                        select="label:name|value:id" placeholder="{{ __('app.select') }} ..." searchable />
                 </div>
 
                 {{-- mother_id --}}
                 <div class="col-span-6">
-                    <x-ts-select.styled wire:model="familyForm.mother_id" id="mother_id" label="{{ __('person.mother') }} ({{ __('person.biological') }}) :" :options="$mothers"
-                        select="label:name|value:id" placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-yellow-200 dark:text-black" searchable />
+                    <x-ts-select.styled wire:model="form.mother_id" id="mother_id" label="{{ __('person.mother') }} ({{ __('person.biological') }}) :" :options="$mothers"
+                        select="label:name|value:id" placeholder="{{ __('app.select') }} ..." searchable />
                 </div>
 
-                <div class="col-span-6 p-3 text-sm rounded-sm bg-yellow-200 text-yellow-700" role="alert">
-                    <b>{{ __('person.father') }}</b> and <b>{{ __('person.mother') }}</b> <u>may only be used</u> for the <b>biological parents</b> and must therefore be of opposite sex.
-                    <x-hr.narrow class="col-span-6" />
-                    <b>{{ __('person.parents') }}</b> <u>may be</u> the biological parents, but <u>may also be</u> used for non-biological parents (gay or adoptive).<br />
-                    In the latter case, simply leave <b>{{ __('person.father') }}</b> and/or <b>{{ __('person.mother') }}</b> blank.
+                <div class="col-span-6">
+                    <x-ts-alert color="cyan" icon="tabler.exclamation-circle" close>
+                        <x-slot:title>
+                            {{ __('team.personal_team_caution') }}
+                        </x-slot:title>
+
+                        <p>{{ __('person.family_caution_1') }}</p>
+
+                        <x-hr.narrow class="col-span-6" />
+
+                        <p>{{ __('person.family_caution_2') }}</p>
+                    </x-ts-alert>
                 </div>
 
                 {{-- parents_id --}}
                 <div class="col-span-6">
-                    <x-ts-select.styled wire:model="familyForm.parents_id" id="parents_id" label="{{ __('person.parents') }} :" :options="$parents" select="label:couple|value:id"
-                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-yellow-200 dark:text-black" searchable />
+                    <x-ts-select.styled wire:model="form.parents_id" id="parents_id" label="{{ __('person.parents') }} :" :options="$parents" select="label:couple|value:id"
+                        placeholder="{{ __('app.select') }} ..." searchable />
                 </div>
             </div>
         </div>
 
-        <div class="flex items-center justify-end p-4 text-right rounded-b sm:px-6">
-            <div class="flex-1 grow max-w-full text-left">
-                <x-action-message class="p-3 rounded-sm bg-yellow-200 text-yellow-700" role="alert" on="" wire:dirty>
-                    {{ __('app.unsaved_changes') }} ...
-                </x-action-message>
-
-                <x-action-message class="p-3 rounded-sm bg-emerald-200 text-emerald-600" role="alert" on="saved">
-                    {{ __('app.saved') }}
-                </x-action-message>
-            </div>
-
-            <div class="flex-1 grow max-w-full text-end">
-                <x-ts-button color="secondary" class="mr-1" wire:click="resetFamily()" wire:dirty>
-                    {{ __('app.cancel') }}
-                </x-ts-button>
-
-                <x-ts-button type="submit" color="primary">
-                    {{ __('app.save') }}
-                </x-ts-button>
-            </div>
+        <div class="flex items-center justify-end p-4 rounded-b">
+            <x-ts-button type="submit" color="primary">
+                {{ __('app.save') }}
+            </x-ts-button>
         </div>
     </div>
 </form>

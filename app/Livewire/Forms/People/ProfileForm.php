@@ -45,20 +45,6 @@ final class ProfileForm extends Form
     }
 
     // -----------------------------------------------------------------------
-    public function resetFields(): void
-    {
-        $this->firstname = null;
-        $this->surname   = null;
-        $this->birthname = null;
-        $this->nickname  = null;
-        $this->sex       = null;
-        $this->gender_id = null;
-        $this->yob       = null;
-        $this->dob       = null;
-        $this->pob       = null;
-        $this->summary   = null;
-    }
-
     public function rules(): array
     {
         return [
@@ -67,7 +53,7 @@ final class ProfileForm extends Form
             'birthname' => ['nullable', 'string', 'max:255'],
             'nickname'  => ['nullable', 'string', 'max:255'],
 
-            'sex'       => ['required', 'in:m,f'],
+            'sex'       => ['required', 'string', 'max:1', 'in:m,f'],
             'gender_id' => ['nullable', 'integer'],
 
             'yob' => [

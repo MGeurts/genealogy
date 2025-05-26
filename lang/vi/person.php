@@ -151,4 +151,16 @@ return [
 
     'not_found' => 'Không tìm thấy người',
     'use_tab'   => 'Sử dụng tab',
+
+    'existing_person_linked_as_father'  => 'Người hiện có được liên kết là cha.',
+    'new_person_linked_as_father'       => 'Người mới được liên kết là cha.',
+    'existing_person_linked_as_mother'  => 'Người hiện có được liên kết là mẹ.',
+    'new_person_linked_as_mother'       => 'Người mới được liên kết là mẹ.',
+    'existing_person_linked_as_child'   => 'Người hiện có được liên kết là con.',
+    'new_person_linked_as_child'        => 'Người mới được liên kết là con.',
+    'existing_person_linked_as_partner' => 'Người hiện có được liên kết là bạn đời.',
+    'new_person_linked_as_parther'      => 'Người mới được liên kết là bạn đời.',
+
+    'family_caution_1' => 'Cha và Mẹ chỉ nên dùng cho cha mẹ ruột và do đó phải khác giới.',
+    'family_caution_2' => 'Cha mẹ có thể là cha mẹ ruột, nhưng cũng có thể là cha mẹ không ruột thịt (đồng giới hoặc nhận nuôi). Trong trường hợp đó, chỉ cần để trống Cha và Mẹ.',
 ];

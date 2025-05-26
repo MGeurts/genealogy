@@ -20,7 +20,7 @@ final class Profile extends Component
     // -----------------------------------------------------------------------
     public Person $person;
 
-    public ProfileForm $profileForm;
+    public ProfileForm $form;
 
     // -----------------------------------------------------------------------
     public function mount(): void
@@ -30,23 +30,13 @@ final class Profile extends Component
 
     public function saveProfile(): void
     {
-        if ($this->isDirty()) {
-            $validated = $this->profileForm->validate();
+        $validated = $this->form->validate();
 
-            $this->person->update($validated);
+        $this->person->update($validated);
 
-            $this->toast()->success(__('app.save'), __('app.saved'))->flash()->send();
+        $this->toast()->success(__('app.save'), __('app.saved'))->flash()->send();
 
-            $this->redirect('/people/' . $this->person->id);
-        }
-    }
-
-    public function resetProfile(): void
-    {
-        $this->loadData();
-
-        $this->resetErrorBag();
-        $this->resetValidation();
+        $this->redirect('/people/' . $this->person->id);
     }
 
     // ------------------------------------------------------------------------------
@@ -56,32 +46,17 @@ final class Profile extends Component
     }
 
     // ------------------------------------------------------------------------------
-    private function isDirty(): bool
-    {
-        return
-        $this->profileForm->firstname !== $this->person->firstname or
-        $this->profileForm->surname !== $this->person->surname or
-        $this->profileForm->birthname !== $this->person->birthname or
-        $this->profileForm->nickname !== $this->person->nickname or
-        $this->profileForm->sex !== $this->person->sex or
-        $this->profileForm->gender_id !== $this->person->gender_id or
-        $this->profileForm->yob !== $this->person->yob or
-        $this->profileForm->dob !== ($this->person->dob ? Carbon::parse($this->person->dob)->format('Y-m-d') : null) or
-        $this->profileForm->pob !== $this->person->pob or
-        $this->profileForm->summary !== $this->person->summary;
-    }
-
     private function loadData(): void
     {
-        $this->profileForm->firstname = $this->person->firstname;
-        $this->profileForm->surname   = $this->person->surname;
-        $this->profileForm->birthname = $this->person->birthname;
-        $this->profileForm->nickname  = $this->person->nickname;
-        $this->profileForm->sex       = $this->person->sex;
-        $this->profileForm->gender_id = $this->person->gender_id;
-        $this->profileForm->yob       = $this->person->yob ?? null;
-        $this->profileForm->dob       = $this->person->dob ? Carbon::parse($this->person->dob)->format('Y-m-d') : null;
-        $this->profileForm->pob       = $this->person->pob;
-        $this->profileForm->summary   = $this->person->summary;
+        $this->form->firstname = $this->person->firstname;
+        $this->form->surname   = $this->person->surname;
+        $this->form->birthname = $this->person->birthname;
+        $this->form->nickname  = $this->person->nickname;
+        $this->form->sex       = $this->person->sex;
+        $this->form->gender_id = $this->person->gender_id;
+        $this->form->yob       = $this->person->yob ?? null;
+        $this->form->dob       = $this->person->dob ? Carbon::parse($this->person->dob)->format('Y-m-d') : null;
+        $this->form->pob       = $this->person->pob;
+        $this->form->summary   = $this->person->summary;
     }
 }

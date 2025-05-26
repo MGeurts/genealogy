@@ -20,39 +20,39 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- street --}}
                 <div class="col-span-4">
-                    <x-ts-input wire:model="contactForm.street" id="street" label="{{ __('person.street') }} :" autocomplete="street" wire:dirty.class="bg-yellow-200 dark:text-black" autofocus />
+                    <x-ts-input wire:model="form.street" id="street" label="{{ __('person.street') }} :" autocomplete="street" autofocus />
                 </div>
 
                 {{-- number --}}
                 <div class="col-span-2">
-                    <x-ts-input wire:model="contactForm.number" id="number" label="{{ __('person.number') }} :" autocomplete="number" wire:dirty.class="bg-yellow-200 dark:text-black" />
+                    <x-ts-input wire:model="form.number" id="number" label="{{ __('person.number') }} :" autocomplete="number" />
                 </div>
 
                 {{-- postal_code --}}
                 <div class="col-span-2">
-                    <x-ts-input wire:model="contactForm.postal_code" id="postal_code" label="{{ __('person.postal_code') }} :" autocomplete="postal_code"
-                        wire:dirty.class="bg-yellow-200 dark:text-black" />
+                    <x-ts-input wire:model="form.postal_code" id="postal_code" label="{{ __('person.postal_code') }} :" autocomplete="postal_code"
+                        />
                 </div>
 
                 {{-- city --}}
                 <div class="col-span-4">
-                    <x-ts-input wire:model="contactForm.city" id="postal_code" label="{{ __('person.city') }} :" autocomplete="city" wire:dirty.class="bg-yellow-200 dark:text-black" />
+                    <x-ts-input wire:model="form.city" id="postal_code" label="{{ __('person.city') }} :" autocomplete="city" />
                 </div>
 
                 {{-- province --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="contactForm.province" id="province" label="{{ __('person.province') }} :" autocomplete="province" wire:dirty.class="bg-yellow-200 dark:text-black" />
+                    <x-ts-input wire:model="form.province" id="province" label="{{ __('person.province') }} :" autocomplete="province" />
                 </div>
 
                 {{-- state --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="contactForm.state" id="province" label="{{ __('person.state') }} :" autocomplete="state" wire:dirty.class="bg-yellow-200 dark:text-black" />
+                    <x-ts-input wire:model="form.state" id="province" label="{{ __('person.state') }} :" autocomplete="state" />
                 </div>
 
                 {{-- country --}}
                 <div class="col-span-5">
-                    <x-ts-select.styled wire:model="contactForm.country" id="country" label="{{ __('person.country') }} :" :options="$contactForm->countries()" select="label:name|value:id"
-                        placeholder="{{ __('app.select') }} ..." wire:dirty.class="bg-yellow-200 dark:text-black" searchable />
+                    <x-ts-select.styled wire:model="form.country" id="country" label="{{ __('person.country') }} :" :options="$form->countries()" select="label:name|value:id"
+                        placeholder="{{ __('app.select') }} ..." searchable />
                 </div>
 
                 {{-- show on google maps button --}}
@@ -67,31 +67,15 @@
 
                 {{-- phone --}}
                 <div class="col-span-6">
-                    <x-ts-input wire:model="contactForm.phone" id="phone" label="{{ __('person.phone') }} :" autocomplete="phone" wire:dirty.class="bg-yellow-200 dark:text-black" />
+                    <x-ts-input wire:model="form.phone" id="phone" label="{{ __('person.phone') }} :" autocomplete="phone" />
                 </div>
             </div>
         </div>
 
-        <div class="flex items-center justify-end p-4 text-right rounded-b sm:px-6">
-            <div class="flex-1 grow max-w-full text-left">
-                <x-action-message class="p-3 rounded-sm bg-yellow-200 text-yellow-700" role="alert" on="" wire:dirty>
-                    {{ __('app.unsaved_changes') }} ...
-                </x-action-message>
-
-                <x-action-message class="p-3 rounded-sm bg-emerald-200 text-emerald-600" role="alert" on="saved">
-                    {{ __('app.saved') }}
-                </x-action-message>
-            </div>
-
-            <div class="flex-1 grow max-w-full text-end">
-                <x-ts-button color="secondary" class="mr-1" wire:click="resetContact()" wire:dirty>
-                    {{ __('app.cancel') }}
-                </x-ts-button>
-
-                <x-ts-button type="submit" color="primary">
-                    {{ __('app.save') }}
-                </x-ts-button>
-            </div>
+        <div class="flex items-center justify-end p-4 rounded-b">
+            <x-ts-button type="submit" color="primary">
+                {{ __('app.save') }}
+            </x-ts-button>
         </div>
     </div>
 </form>

@@ -133,4 +133,16 @@ return [
     'dob_after_yod'        => 'La Fecha de nacimiento no puede ser posterior al Año de muerte (:valor).',
     'not_found'            => 'Persona no encontrada',
     'use_tab'              => 'Usar pestaña',
+
+    'existing_person_linked_as_father'  => 'Persona existente vinculada como padre.',
+    'new_person_linked_as_father'       => 'Nueva persona vinculada como padre.',
+    'existing_person_linked_as_mother'  => 'Persona existente vinculada como madre.',
+    'new_person_linked_as_mother'       => 'Nueva persona vinculada como madre.',
+    'existing_person_linked_as_child'   => 'Persona existente vinculada como hijo.',
+    'new_person_linked_as_child'        => 'Nueva persona vinculada como hijo.',
+    'existing_person_linked_as_partner' => 'Persona existente vinculada como pareja.',
+    'new_person_linked_as_parther'      => 'Nueva persona vinculada como pareja.',
+
+    'family_caution_1' => 'Padre y Madre solo deben usarse para los padres biológicos y, por lo tanto, deben ser de sexo opuesto.',
+    'family_caution_2' => 'Los padres pueden ser biológicos, pero también pueden ser no biológicos (homosexuales o adoptivos). En este último caso, simplemente deje Padre y Madre en blanco.',
 ];

@@ -151,4 +151,16 @@ return [
 
     'not_found' => 'Person not found',
     'use_tab'   => 'Use tab',
+
+    'existing_person_linked_as_father'  => 'Existing person linked as father.',
+    'new_person_linked_as_father'       => 'New person linked as father.',
+    'existing_person_linked_as_mother'  => 'Existing person linked as mother.',
+    'new_person_linked_as_mother'       => 'New person linked as mother.',
+    'existing_person_linked_as_child'   => 'Existing person linked as child.',
+    'new_person_linked_as_child'        => 'New person linked as child.',
+    'existing_person_linked_as_partner' => 'Existing person linked as partner.',
+    'new_person_linked_as_parther'      => 'New person linked as parter.',
+
+    'family_caution_1' => 'Father and Mother may only be used for the biological parents and must therefore be of opposite sex.',
+    'family_caution_2' => 'Parents may be the biological parents, but may also be used for non-biological parents (gay or adoptive). In the latter case, simply leave Father and Mother blank.',
 ];

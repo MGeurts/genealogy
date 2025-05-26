@@ -151,4 +151,16 @@ return [
 
     'not_found' => 'Kişi bulunamadı',
     'use_tab'   => 'Sekme kullanın',
+
+    'existing_person_linked_as_father'  => 'Mevcut kişi baba olarak bağlandı.',
+    'new_person_linked_as_father'       => 'Yeni kişi baba olarak bağlandı.',
+    'existing_person_linked_as_mother'  => 'Mevcut kişi anne olarak bağlandı.',
+    'new_person_linked_as_mother'       => 'Yeni kişi anne olarak bağlandı.',
+    'existing_person_linked_as_child'   => 'Mevcut kişi çocuk olarak bağlandı.',
+    'new_person_linked_as_child'        => 'Yeni kişi çocuk olarak bağlandı.',
+    'existing_person_linked_as_partner' => 'Mevcut kişi eş olarak bağlandı.',
+    'new_person_linked_as_parther'      => 'Yeni kişi eş olarak bağlandı.',
+
+    'family_caution_1' => 'Baba ve Anne yalnızca biyolojik ebeveynler için kullanılmalı ve bu nedenle zıt cinsiyetlerde olmalıdır.',
+    'family_caution_2' => 'Ebeveynler biyolojik olabilir, ancak biyolojik olmayan (eşcinsel veya evlat edinen) ebeveynler de olabilir. Bu durumda Baba ve Anne alanlarını boş bırakın.',
 ];

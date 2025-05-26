@@ -134,4 +134,16 @@ return [
     'dob_after_yod'        => 'La date de naissance ne peut pas être postérieure à l\'année du décès (:value).',
     'not_found'            => 'Personne introuvable',
     'use_tab'              => 'Utiliser l\'onglet',
+
+    'existing_person_linked_as_father'  => 'Personne existante liée comme père.',
+    'new_person_linked_as_father'       => 'Nouvelle personne liée comme père.',
+    'existing_person_linked_as_mother'  => 'Personne existante liée comme mère.',
+    'new_person_linked_as_mother'       => 'Nouvelle personne liée comme mère.',
+    'existing_person_linked_as_child'   => 'Personne existante liée comme enfant.',
+    'new_person_linked_as_child'        => 'Nouvelle personne liée comme enfant.',
+    'existing_person_linked_as_partner' => 'Personne existante liée comme partenaire.',
+    'new_person_linked_as_parther'      => 'Nouvelle personne liée comme partenaire.',
+
+    'family_caution_1' => 'Le Père et la Mère ne doivent être utilisés que pour les parents biologiques et doivent donc être de sexe opposé.',
+    'family_caution_2' => 'Les parents peuvent être biologiques, mais aussi non biologiques (homosexuels ou adoptifs). Dans ce cas, laissez simplement Père et Mère vides.',
 ];
