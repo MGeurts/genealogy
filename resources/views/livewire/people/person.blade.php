@@ -20,11 +20,7 @@
         <x-hr.narrow />
 
         <p>
-            <x-link href="/people/{{ $person->id }}" @class([
-                'text-red-600 dark:text-red-400' => $person->isDeceased(),
-            ])>
-                {{ $person->name }}
-            </x-link>
+            <x-link href="/people/{{ $person->id }}" @class(['text-red-600 dark:text-red-400' => $person->isDeceased()])>{{ $person->name }}</x-link>
             <x-ts-icon icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
         </p>
         <p>{{ __('person.birthname') }} : {{ $person->birthname ? $person->birthname : '' }}</p>
@@ -34,22 +30,14 @@
 
         <p>{{ __('person.father') }} :
             @if ($person->father)
-                <x-link href="/people/{{ $person->father->id }}" @class([
-                    'text-red-600 dark:text-red-400' => $person->father->isDeceased(),
-                ])>
-                    {{ $person->father->name }}
-                </x-link>
+                <x-link href="/people/{{ $person->father->id }}" @class(['text-red-600 dark:text-red-400' => $person->father->isDeceased()])>{{ $person->father->name }}</x-link>
                 <x-ts-icon icon="tabler.{{ $person->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
             @endif
         </p>
 
         <p>{{ __('person.mother') }} :
             @if ($person->mother)
-                <x-link href="/people/{{ $person->mother->id }}" @class([
-                    'text-red-600 dark:text-red-400' => $person->mother->isDeceased(),
-                ])>
-                    {{ $person->mother->name }}
-                </x-link>
+                <x-link href="/people/{{ $person->mother->id }}" @class(['text-red-600 dark:text-red-400' => $person->mother->isDeceased()])>{{ $person->mother->name }}</x-link>
                 <x-ts-icon icon="tabler.{{ $person->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
             @endif
         </p>
