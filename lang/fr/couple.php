@@ -13,4 +13,5 @@ return [
     'person1_id' => 'Première personne',
     'person2_id' => 'Deuxième personne',
     'team_id'    => 'Équipe',
+    'overlap'    => 'Chevauchement de relation détecté !',
 ];

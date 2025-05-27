@@ -13,4 +13,5 @@ return [
     'person1_id' => 'primera persona',
     'person2_id' => 'Segunda persona',
     'team_id'    => 'Equipo',
+    'overlap'    => '¡Superposición de relaciones detectada!',
 ];

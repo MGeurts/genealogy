@@ -18,4 +18,6 @@ return [
     'person2_id' => 'Zweite Person',
 
     'team_id' => 'Team',
+
+    'overlap' => 'Beziehungsüberschneidung erkannt!',
 ];

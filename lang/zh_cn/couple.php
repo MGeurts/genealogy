@@ -18,4 +18,6 @@ return [
     'person2_id' => '第二任配偶',
 
     'team_id' => '家族',
+
+    'overlap' => '检测到关系重叠！',
 ];

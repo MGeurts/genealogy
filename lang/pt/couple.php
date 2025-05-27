@@ -13,4 +13,5 @@ return [
     'person1_id' => 'Primeira pessoa',
     'person2_id' => 'Segunda pessoa',
     'team_id'    => 'Equipe',
+    'overlap'    => 'Sobreposição de relacionamento detectada!',
 ];

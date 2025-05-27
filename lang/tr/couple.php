@@ -18,4 +18,6 @@ return [
     'person2_id' => 'İkinci kişi',
 
     'team_id' => 'Takım',
+
+    'overlap' => 'İlişki çakışması tespit edildi!',
 ];

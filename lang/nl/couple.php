@@ -18,4 +18,6 @@ return [
     'person2_id' => 'Tweede persoon',
 
     'team_id' => 'Team',
+
+    'overlap' => 'Relatie-overlap gedetecteerd!',
 ];

@@ -18,4 +18,6 @@ return [
     'person2_id' => 'Người thứ hai',
 
     'team_id' => 'Đội',
+
+    'overlap' => 'Phát hiện chồng chéo mối quan hệ!',
 ];

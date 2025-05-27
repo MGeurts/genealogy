@@ -18,4 +18,6 @@ return [
     'person2_id' => 'Second person',
 
     'team_id' => 'Team',
+
+    'overlap' => 'Relationship overlap detected!',
 ];

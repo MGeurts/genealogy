@@ -107,7 +107,7 @@ final class Partner extends Component
 
         if (isset($validated['form']['person_id'])) {
             if ($this->hasOverlap($validated['date_start'], $validated['date_end'])) {
-                $this->toast()->error(__('app.create'), 'RELATIONSHIP OVERLAP !!')->send();
+                $this->toast()->error(__('app.create'), __('couple.overlap'))->send();
             } else {
                 $couple = Couple::create([
                     'person1_id' => $this->person->id,
@@ -120,10 +120,12 @@ final class Partner extends Component
                 ]);
 
                 $this->toast()->success(__('app.create'), $couple->name . ' ' . __('app.created'))->flash()->send();
+
+                $this->redirect(route('people.show', $this->person->id));
             }
         } else {
             if ($this->hasOverlap($validated['date_start'], $validated['date_end'])) {
-                $this->toast()->error(__('app.create'), 'RELATIONSHIP OVERLAP !!')->send();
+                $this->toast()->error(__('app.create'), __('couple.overlap'))->send();
             } else {
                 $newPartner = Person::create([
                     'firstname' => $validated['form']['firstname'],
@@ -156,10 +158,10 @@ final class Partner extends Component
                 ]);
 
                 $this->toast()->success(__('app.create'), $couple->name . ' ' . __('app.created') . '.')->flash()->send();
+
+                $this->redirect(route('people.show', $this->person->id));
             }
         }
-
-        $this->redirect(route('people.show', $this->person->id));
     }
 
     // ------------------------------------------------------------------------------
@@ -188,7 +190,7 @@ final class Partner extends Component
                 'max:' . config('app.upload_max_size'),
             ],
 
-            'form.person_id' => ['nullable', 'integer', 'required_without_all:form.surname, sex', 'exists:people,id'],
+            'form.person_id' => ['nullable', 'integer', 'required_without_all:form.surname, form.sex', 'exists:people,id'],
 
             // -----------------------------------------------------------------------
             'date_start' => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', 'before:date_end'],
