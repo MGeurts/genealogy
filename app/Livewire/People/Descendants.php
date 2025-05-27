@@ -97,7 +97,7 @@ final class Descendants extends Component
                 SELECT
                     id, firstname, surname, sex, father_id, mother_id, dod, yod, team_id, photo, dob, yob,
                     0 AS degree,
-                    CAST(id AS CHAR(1024)) AS sequence
+                    CAST(id AS CHAR) AS sequence
                 FROM people
                 WHERE deleted_at IS NULL AND id = $personId
 
@@ -106,14 +106,23 @@ final class Descendants extends Component
                 SELECT
                     p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo, p.dob, p.yob,
                     d.degree + 1 AS degree,
-                    CAST(CONCAT(d.sequence, ',', p.id) AS CHAR(1024)) AS sequence
+                    CONCAT_WS(',', d.sequence, p.id) AS sequence
                 FROM people p
-                JOIN descendants d ON d.id = p.father_id OR d.id = p.mother_id
-                WHERE p.deleted_at IS NULL
-                AND d.degree < $countMax
-            )
+                JOIN descendants d ON p.father_id = d.id
+                WHERE p.deleted_at IS NULL AND d.degree < $countMax
 
-            SELECT * FROM descendants ORDER BY degree, dob, yob;
+                UNION ALL
+
+                SELECT
+                    p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo, p.dob, p.yob,
+                    d.degree + 1 AS degree,
+                    CONCAT_WS(',', d.sequence, p.id) AS sequence
+                FROM people p
+                JOIN descendants d ON p.mother_id = d.id
+                WHERE p.deleted_at IS NULL AND d.degree < $countMax
+            )
+            SELECT * FROM descendants
+            ORDER BY degree, dob IS NULL, dob, yob IS NULL, yob;
         ";
     }
 }

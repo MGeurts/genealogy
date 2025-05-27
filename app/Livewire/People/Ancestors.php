@@ -106,14 +106,24 @@ final class Ancestors extends Component
                 SELECT
                     p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo,
                     a.degree + 1 AS degree,
-                    CAST(CONCAT(a.sequence, ',', p.id) AS CHAR(1024)) AS sequence
+                    CAST(CONCAT_WS(',', a.sequence, p.id) AS CHAR(1024)) AS sequence
                 FROM people p
-                JOIN ancestors a ON p.id = a.father_id OR p.id = a.mother_id
-                WHERE p.deleted_at IS NULL
-                AND a.degree < $countMax
+                JOIN ancestors a ON a.father_id = p.id
+                WHERE p.deleted_at IS NULL AND a.degree < $countMax
+
+                UNION ALL
+
+                SELECT
+                    p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo,
+                    a.degree + 1 AS degree,
+                    CAST(CONCAT_WS(',', a.sequence, p.id) AS CHAR(1024)) AS sequence
+                FROM people p
+                JOIN ancestors a ON a.mother_id = p.id
+                WHERE p.deleted_at IS NULL AND a.degree < $countMax
             )
 
-            SELECT * FROM ancestors ORDER BY degree, sex DESC;
+            SELECT * FROM ancestors
+            ORDER BY degree, sex DESC;
         ";
     }
 }
