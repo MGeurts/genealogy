@@ -57,6 +57,8 @@ return new class extends Migration
 
         // Add index on deleted_at
         DB::statement('ALTER TABLE `people` ADD INDEX `people_deleted_at_index` (`deleted_at`)');
+        DB::statement('ALTER TABLE `people` ADD INDEX `people_deleted_father_index` (`deleted_at`, `father_id`)');
+        DB::statement('ALTER TABLE `people` ADD INDEX `people_deleted_mother_index` (`deleted_at`, `mother_id`)');
     }
 
     /**
