@@ -36,21 +36,23 @@ final class DodValid implements DataAwareRule, ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if ($this->data['yod']) {
+        if (! empty($this->data['yod'])) {
             // dod->year must match yod
             if ((int) $this->data['yod'] !== (int) date('Y', strtotime((string) $value))) {
                 $fail(__('person.dod_not_matching_yod', ['value' => $this->data['yod']]));
             }
-        } elseif (isset($this->data['person'])) {
-            if ($this->data['person']['dob']) {
-                // dod can not be before dob
-                if ((int) $value < (int) $this->data['person']['dob']) {
-                    $fail(__('person.dod_before_dob', ['value' => $this->data['person']['dob']]));
+        } elseif (! empty($this->data['person'])) {
+            $person = $this->data['person'];
+
+            if (! empty($person['dob'])) {
+                // dod cannot be before dob
+                if (strtotime((string) $value) < strtotime((string) $person['dob'])) {
+                    $fail(__('person.dod_before_dob', ['value' => $person['dob']]));
                 }
-            } elseif ($this->data['person']['yob']) {
-                // dod can not be before yob
-                if ((int) date('Y', strtotime((string) $value)) < (int) $this->data['person']['yob']) {
-                    $fail(__('person.dod_before_yob', ['value' => $this->data['person']['yob']]));
+            } elseif (! empty($person['yob'])) {
+                // dod->year cannot be before yob
+                if ((int) date('Y', strtotime((string) $value)) < (int) $person['yob']) {
+                    $fail(__('person.dod_before_yob', ['value' => $person['yob']]));
                 }
             }
         }
