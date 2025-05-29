@@ -240,10 +240,9 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 </ul>
 
 Translations can be added by submitting a <b>Pull Request</b> to the project.
-Translation integrity can be checked by issuing the command<br/>
-`php artisan translations:check --excludedDirectories=vendor`
+Translation integrity can be checked by issuing the command `php artisan translations:check --excludedDirectories=vendor`
 
-Instructions on how to add a language to your own project clone can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-LANGUAGES.md" target="_blank">README-LANGUAGES.md</a>.
+Instructions on how to add a language can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-LANGUAGES.md" target="_blank">README-LANGUAGES.md</a>.
 
 ## Uploads
 
