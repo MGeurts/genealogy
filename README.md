@@ -303,10 +303,6 @@ If you like this project, please consider giving it a star and spread the word. 
 
 ## Impressum
 
-### Basic idea (2017)
-
-This application is based on an original idea by <a href="https://github.com/nafiesl/silsilah" target="_blank">Nafies Luthfi</a>. Thanks for your excellent work.
-
 ### Design & Development (2024)
 
 This Laravel application is designed and developed by <a href="https://www.kreaweb.be" target="_blank">kreaweb.be</a>.
