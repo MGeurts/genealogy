@@ -62,3 +62,11 @@ private const array LOCALE_TO_COUNTRY = [
     'xx'    => 'xx', // Replace with appropriate country code
 ];
 ```
+
+---
+
+### 5. Translate Markdown files
+
+Copy all files from `/resources/markdown/en/` to `/resources/markdown/xx/` and translate them.
+Copy the file `/resources/markdown/policy.en.md` to `/resources/markdown/policy.xx.md` and translate it.
+Copy the file `/resources/markdown/terms.en.md` to `/resources/markdown/terms.xx.md` and translate it.

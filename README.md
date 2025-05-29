@@ -227,6 +227,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 ## Languages
 
 <ul>
+    <li>Bahasa Indonesia</li>
     <li>German (DE)</li>
     <li>English (EN)</li>
     <li>Spanish (ES)</li>
