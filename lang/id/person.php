@@ -1,0 +1,166 @@
+<?php
+
+declare(strict_types=1);
+
+return [
+    // Labels
+    'biological'      => 'biologis',
+    'contact'         => 'Kontak',
+    'person'          => 'Orang',
+    'person_metadata' => 'Metadata Orang',
+    'people'          => 'Orang-orang',
+
+    'family'  => 'Keluarga',
+    'profile' => 'Profil',
+
+    'partner'  => 'Pasangan',
+    'partners' => 'Pasangan',
+
+    'children'      => 'Anak-anak',
+    'parents'       => 'Orang Tua',
+    'grandchildren' => 'Cucu',
+    'siblings'      => 'Saudara Kandung',
+    'ancestors'     => 'Leluhur',
+    'descendants'   => 'Keturunan',
+    'birth'         => 'Kelahiran',
+    'dead'          => 'Meninggal',
+    'death'         => 'Kematian',
+    'deceased'      => 'Telah meninggal',
+
+    'grandmother'   => 'Nenek',
+    'grandfather'   => 'Kakek',
+    'nieces'        => 'Kemenakan perempuan',
+    'nephews'       => 'Kemenakan laki-laki',
+    'cousins'       => 'Sepupu',
+    'uncles'        => 'Paman',
+    'aunts'         => 'Bibi',
+    'relationships' => 'Hubungan',
+    'age'           => 'Usia',
+    'years'         => '[0,1] Tahun|[2,*] Tahun',
+
+    'source'           => 'Sumber',
+    'source_hint'      => 'Sebutkan sumber dari file yang akan Anda unggah',
+    'source_date'      => 'Tanggal',
+    'source_date_hint' => 'Sebutkan tanggal sumber dari file yang akan Anda unggah',
+
+    // Actions
+    'add_father'                     => 'Tambah ayah',
+    'add_new_person_as_father'       => 'Tambah ORANG BARU sebagai ayah',
+    'add_existing_person_as_father'  => 'Tambah ORANG YANG ADA sebagai ayah',
+    'add_mother'                     => 'Tambah ibu',
+    'add_new_person_as_mother'       => 'Tambah ORANG BARU sebagai ibu',
+    'add_existing_person_as_mother'  => 'Tambah ORANG YANG ADA sebagai ibu',
+    'add_child'                      => 'Tambah anak',
+    'add_new_person_as_child'        => 'Tambah ORANG BARU sebagai anak',
+    'add_existing_person_as_child'   => 'Tambah ORANG YANG ADA sebagai anak',
+    'add_person'                     => 'Tambah orang',
+    'add_new_person_as_partner'      => 'Tambah ORANG BARU sebagai pasangan',
+    'add_existing_person_as_partner' => 'Tambah ORANG YANG ADA sebagai pasangan',
+    'add_person_in_team'             => 'Tambah orang di tim : :team',
+    'add_photo'                      => 'Tambah foto',
+    'add_relationship'               => 'Tambah hubungan',
+
+    'edit'              => 'Ubah',
+    'edit_children'     => 'Ubah anak-anak',
+    'edit_contact'      => 'Ubah kontak',
+    'edit_death'        => 'Ubah kematian',
+    'edit_family'       => 'Ubah keluarga',
+    'edit_files'        => 'Ubah file',
+    'edit_person'       => 'Ubah orang',
+    'edit_profile'      => 'Ubah profil',
+    'edit_relationship' => 'Ubah hubungan',
+
+    'delete_child'        => 'Putuskan hubungan anak',
+    'delete_person'       => 'Hapus orang',
+    'delete_relationship' => 'Hapus hubungan',
+
+    // Attributes
+    'id'          => 'ID',
+    'name'        => 'Nama',
+    'names'       => 'Nama-nama',
+    'firstname'   => 'Nama depan',
+    'surname'     => 'Nama keluarga',
+    'birthname'   => 'Nama lahir',
+    'nickname'    => 'Nama panggilan',
+    'sex'         => 'Jenis kelamin',
+    'gender'      => 'Identitas gender',
+    'father'      => 'Ayah',
+    'mother'      => 'Ibu',
+    'parent'      => 'Orang Tua',
+    'dob'         => 'Tanggal lahir',
+    'yob'         => 'Tahun lahir',
+    'pob'         => 'Tempat lahir',
+    'dod'         => 'Tanggal meninggal',
+    'yod'         => 'Tahun meninggal',
+    'pod'         => 'Tempat meninggal',
+    'summary'     => 'Ringkasan',
+    'email'       => 'Email',
+    'password'    => 'Kata Sandi',
+    'address'     => 'Alamat',
+    'street'      => 'Jalan',
+    'number'      => 'Nomor',
+    'postal_code' => 'Kode pos',
+    'city'        => 'Kota',
+    'province'    => 'Provinsi',
+    'state'       => 'Negara Bagian',
+    'country'     => 'Negara',
+    'phone'       => 'Telepon',
+
+    'cemetery'          => 'Pemakaman',
+    'cemetery_location' => 'Lokasi Pemakaman',
+
+    // files
+    'files'            => 'File',
+    'files_saved'      => '[0] Tidak ada file tersimpan|[1] File tersimpan|[2,*] File tersimpan',
+    'file'             => 'File',
+    'file_deleted'     => 'File dihapus',
+    'upload_files'     => 'Unggah file',
+    'upload_files_tip' => 'Seret dan lepas file baru Anda di sini ...',
+
+    'upload_accept_types' => 'Diizinkan : :types',
+    'upload_max_size'     => 'Ukuran maksimum : :max KB',
+
+    // Photo
+    'avatar'            => 'Avatar',
+    'edit_photos'       => 'Ubah foto',
+    'photo_deleted'     => 'Foto dihapus',
+    'photo'             => 'Foto',
+    'photos'            => 'Foto-foto',
+    'photos_saved'      => '[0] Tidak ada foto tersimpan|[1] Foto tersimpan|[2,*] Foto tersimpan',
+    'photos_existing'   => 'Foto yang sudah ada',
+    'set_primary'       => 'Atur sebagai utama',
+    'upload_photos'     => 'Unggah foto',
+    'upload_photos_tip' => 'Seret dan lepas foto baru Anda di sini ...',
+
+    // Messages
+    'yod_not_matching_dod' => 'Tahun meninggal harus cocok dengan Tanggal meninggal (:value).',
+    'yod_before_dob'       => 'Tahun meninggal tidak boleh sebelum Tanggal lahir (:value).',
+    'yod_before_yob'       => 'Tahun meninggal tidak boleh sebelum Tahun lahir (:value).',
+
+    'dod_not_matching_yod' => 'Tanggal meninggal harus cocok dengan Tahun meninggal (:value).',
+    'dod_before_dob'       => 'Tanggal meninggal tidak boleh sebelum Tanggal lahir (:value).',
+    'dod_before_yob'       => 'Tanggal meninggal tidak boleh sebelum Tahun lahir (:value).',
+
+    'yob_not_matching_dob' => 'Tahun lahir harus cocok dengan Tanggal lahir (:value).',
+    'yob_after_dod'        => 'Tahun lahir tidak boleh setelah Tanggal meninggal (:value).',
+    'yob_after_yod'        => 'Tahun lahir tidak boleh setelah Tahun meninggal (:value).',
+
+    'dob_not_matching_yob' => 'Tanggal lahir harus cocok dengan Tahun lahir (:value).',
+    'dob_after_dod'        => 'Tanggal lahir tidak boleh setelah Tanggal meninggal (:value).',
+    'dob_after_yod'        => 'Tanggal lahir tidak boleh setelah Tahun meninggal (:value).',
+
+    'not_found' => 'Orang tidak ditemukan',
+    'use_tab'   => 'Gunakan tab',
+
+    'existing_person_linked_as_father'  => 'Orang yang ada ditautkan sebagai ayah.',
+    'new_person_linked_as_father'       => 'Orang baru ditautkan sebagai ayah.',
+    'existing_person_linked_as_mother'  => 'Orang yang ada ditautkan sebagai ibu.',
+    'new_person_linked_as_mother'       => 'Orang baru ditautkan sebagai ibu.',
+    'existing_person_linked_as_child'   => 'Orang yang ada ditautkan sebagai anak.',
+    'new_person_linked_as_child'        => 'Orang baru ditautkan sebagai anak.',
+    'existing_person_linked_as_partner' => 'Orang yang ada ditautkan sebagai pasangan.',
+    'new_person_linked_as_parther'      => 'Orang baru ditautkan sebagai pasangan.',
+
+    'family_caution_1' => 'Ayah dan Ibu hanya boleh digunakan untuk orang tua biologis dan oleh karena itu harus berlainan jenis kelamin.',
+    'family_caution_2' => 'Orang Tua bisa merupakan orang tua biologis, tetapi juga dapat digunakan untuk orang tua non-biologis (pasangan sesama jenis atau adopsi). Dalam kasus terakhir, biarkan Ayah dan Ibu kosong.',
+];

@@ -18,6 +18,7 @@ final class Countries
         'pt'    => 'pt',
         'tr'    => 'tr',
         'zh_cn' => 'zh',
+        'id'    => 'id',
     ];
 
     public Collection $countries;
