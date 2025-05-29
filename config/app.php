@@ -84,16 +84,16 @@ return [
 
     // add all available translations here, after providing the needed translation files in /lang/XX/
     'available_locales' => [
-        'Deutsch'    => 'de',               // German
-        'English'    => 'en',               // English
-        'Español'    => 'es',               // Spanish
-        'Français'   => 'fr',               // French
-        'Nederlands' => 'nl',               // Dutch
-        'Português'  => 'pt',               // Portuguese
-        'Türkçe'     => 'tr',               // Turkish
-        'Việt Nam'   => 'vi',               // Vietnamese
-        '中文简体'   => 'zh_cn',            // Chinees
-        'Bahasa Indonesia'   => 'id',       // Indonesian
+        'Bahasa Indonesia' => 'id',         // Indonesian
+        'Deutsch'          => 'de',         // German
+        'English'          => 'en',         // English
+        'Español'          => 'es',         // Spanish
+        'Français'         => 'fr',         // French
+        'Nederlands'       => 'nl',         // Dutch
+        'Português'        => 'pt',         // Portuguese
+        'Türkçe'           => 'tr',         // Turkish
+        'Việt Nam'         => 'vi',         // Vietnamese
+        '中文简体'         => 'zh_cn',      // Chinees
     ],
 
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
