@@ -84,11 +84,11 @@ return [
 
     // add all available translations here, after providing the needed translation files in /lang/XX/
     'available_locales' => [
-        'Bahasa Indonesia' => 'id',         // Indonesian
         'Deutsch'          => 'de',         // German
         'English'          => 'en',         // English
         'Español'          => 'es',         // Spanish
         'Français'         => 'fr',         // French
+        'Bahasa Indonesia' => 'id',         // Indonesian
         'Nederlands'       => 'nl',         // Dutch
         'Português'        => 'pt',         // Portuguese
         'Türkçe'           => 'tr',         // Turkish

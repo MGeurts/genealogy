@@ -14,11 +14,11 @@ final class Countries
         'en'    => 'en',
         'es'    => 'es',
         'fr'    => 'fr',
+        'id'    => 'id',
         'nl'    => 'nl',
         'pt'    => 'pt',
         'tr'    => 'tr',
         'zh_cn' => 'zh',
-        'id'    => 'id',
     ];
 
     public Collection $countries;

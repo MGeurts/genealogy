@@ -24,16 +24,17 @@ Add the new language to the `available_locales` array:
 
 ```php
 'available_locales' => [
-    'Deutsch'    => 'de',       // German
-    'English'    => 'en',       // English
-    'Español'    => 'es',       // Spanish
-    'Français'   => 'fr',       // French
-    'Nederlands' => 'nl',       // Dutch
-    'Português'  => 'pt',       // Portuguese
-    'Türkçe'     => 'tr',       // Turkish
-    'Việt Nam'   => 'vi',       // Vietnamese
-    '中文简体'   => 'zh_cn',     // Chinese (Simplified)
-    'NewLanguage' => 'xx',      // Replace with actual name
+    'Deutsch'           => 'de',       // German
+    'English'           => 'en',       // English
+    'Español'           => 'es',       // Spanish
+    'Français'          => 'fr',       // French
+    'Bahasa Indonesian' => 'id',       // Indonesian
+    'Nederlands'        => 'nl',       // Dutch
+    'Português'         => 'pt',       // Portuguese
+    'Türkçe'            => 'tr',       // Turkish
+    'Việt Nam'          => 'vi',       // Vietnamese
+    '中文简体'           => 'zh_cn',    // Chinese (Simplified)
+    'NewLanguage'       => 'xx',       // Replace with actual name
 ],
 ```
 
@@ -55,6 +56,7 @@ private const array LOCALE_TO_COUNTRY = [
     'en'    => 'en',
     'es'    => 'es',
     'fr'    => 'fr',
+    'id'    => 'id',
     'nl'    => 'nl',
     'pt'    => 'pt',
     'tr'    => 'tr',
