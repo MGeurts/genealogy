@@ -297,7 +297,7 @@ Feel free to submit <b>Issues</b> or <b>Pull Requests</b>, for bugs, suggestions
 The documentation is included in the applications help.
 Visit the <a href="https://genealogy.kreaweb.be/help" target="_blank">demo project</a> to read the documentation.
 
-### Sponsoring
+## Sponsoring
 
 If you like this project, please consider giving it a star and spread the word. Thank you.
 
