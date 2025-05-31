@@ -70,23 +70,23 @@ final class Couple extends Model
     // Local Scopes
     /* -------------------------------------------------------------------------------------------- */
     #[Scope]
-    public function scopeOlderThan(Builder $query, ?string $birth_year = null): void
+    public function scopeYoungerThan(Builder $query, ?string $year = null): void
     {
-        if ($birth_year) {
-            $query->where(function ($q) use ($birth_year): void {
+        if ($year) {
+            $query->where(function ($q) use ($year): void {
                 $q->whereNull('date_start')
-                    ->orWhereYear('date_start', '<=', $birth_year);
+                    ->orWhereYear('date_start', '>=', $year);
             });
         }
     }
 
     #[Scope]
-    public function scopeYoungerThan(Builder $query, ?string $birth_year = null): void
+    public function scopeOlderThan(Builder $query, ?string $year = null): void
     {
-        if ($birth_year) {
-            $query->where(function ($q) use ($birth_year): void {
+        if ($year) {
+            $query->where(function ($q) use ($year): void {
                 $q->whereNull('date_start')
-                    ->orWhereYear('date_start', '>=', $birth_year);
+                    ->orWhereYear('date_start', '<=', $year);
             });
         }
     }
