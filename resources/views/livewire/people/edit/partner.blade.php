@@ -21,27 +21,27 @@
                 <div class="grid grid-cols-6 gap-5">
                     {{-- person2_id --}}
                     <div class="col-span-6">
-                        <x-ts-select.styled wire:model="form.person2_id" id="person2_id" label="{{ __('person.partner') }} : *" :options="$persons" select="label:name|value:id" placeholder="{{ __('app.select') }} ..." searchable />
+                        <x-ts-select.styled wire:model="person2_id" id="person2_id" label="{{ __('person.partner') }} : *" :options="$persons" select="label:name|value:id" placeholder="{{ __('app.select') }} ..." searchable />
                     </div>
 
                     {{-- date_start --}}
                     <div class="col-span-3">
-                        <x-ts-date wire:model="form.date_start" id="date_start" label="{{ __('couple.date_start') }} :" format="YYYY-MM-DD" :max-date="now()" placeholder="{{ __('app.select') }} ..." />
+                        <x-ts-date wire:model="date_start" id="date_start" label="{{ __('couple.date_start') }} :" format="YYYY-MM-DD" :max-date="now()" placeholder="{{ __('app.select') }} ..." />
                     </div>
 
                     {{-- date_end --}}
                     <div class="col-span-3">
-                        <x-ts-date wire:model="form.date_end" id="date_end" label="{{ __('couple.date_end') }} :" format="YYYY-MM-DD" :max-date="now()" placeholder="{{ __('app.select') }} ..." />
+                        <x-ts-date wire:model="date_end" id="date_end" label="{{ __('couple.date_end') }} :" format="YYYY-MM-DD" :max-date="now()" placeholder="{{ __('app.select') }} ..." />
                     </div>
 
                     {{-- is_married --}}
                     <div class="col-span-3">
-                        <x-ts-toggle wire:model="form.is_married" name="is_married" id="is_married" label="{{ __('couple.is_married') }} ?" position="left" />
+                        <x-ts-toggle wire:model="is_married" name="is_married" id="is_married" label="{{ __('couple.is_married') }} ?" position="left" />
                     </div>
 
                     {{-- has_ended --}}
                     <div class="col-span-3">
-                        <x-ts-toggle wire:model="form.has_ended" name="has_ended" id="has_ended" label="{{ __('couple.has_ended') }} ?" position="left" />
+                        <x-ts-toggle wire:model="has_ended" name="has_ended" id="has_ended" label="{{ __('couple.has_ended') }} ?" position="left" />
                     </div>
                 </div>
             </div>
@@ -55,6 +55,6 @@
     </form>
 
     @if (Auth()->user()->currentTeam->personal_team)
-        @include('livewire.people.add.partials.caution-personal-team')
+        @include('livewire.people.partials.caution-personal-team')
     @endif
 </div>

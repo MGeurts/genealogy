@@ -129,33 +129,33 @@ final class Person extends Model implements HasMedia
     }
 
     #[Scope]
-    public function scopeOlderThan(Builder $query, ?string $birth_year): void
+    public function scopeYoungerThan(Builder $query, ?string $year): void
     {
-        if ($birth_year !== null) {
-            $birth_year = (int) $birth_year;
+        if ($year !== null) {
+            $year = (int) $year;
 
             $query
-                ->where(function ($q) use ($birth_year): void {
-                    $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '<=', $birth_year);
+                ->where(function ($q) use ($year): void {
+                    $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '>=', $year);
                 })
-                ->where(function ($q) use ($birth_year): void {
-                    $q->whereNull('yob')->orWhere('yob', '<=', $birth_year);
+                ->where(function ($q) use ($year): void {
+                    $q->whereNull('yob')->orWhere('yob', '>=', $year);
                 });
         }
     }
 
     #[Scope]
-    public function scopeYoungerThan(Builder $query, ?string $birth_year): void
+    public function scopeOlderThan(Builder $query, ?string $year): void
     {
-        if ($birth_year !== null) {
-            $birth_year = (int) $birth_year;
+        if ($year !== null) {
+            $year = (int) $year;
 
             $query
-                ->where(function ($q) use ($birth_year): void {
-                    $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '>=', $birth_year);
+                ->where(function ($q) use ($year): void {
+                    $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '<=', $year);
                 })
-                ->where(function ($q) use ($birth_year): void {
-                    $q->whereNull('yob')->orWhere('yob', '>=', $birth_year);
+                ->where(function ($q) use ($year): void {
+                    $q->whereNull('yob')->orWhere('yob', '<=', $year);
                 });
         }
     }
@@ -537,6 +537,19 @@ final class Person extends Model implements HasMedia
             $year = Carbon::parse($this->dob)->format('Y');
         } elseif ($this->yob) {
             $year = $this->yob;
+        } else {
+            $year = null;
+        }
+
+        return (string) $year;
+    }
+
+    protected function getDeathYearAttribute(): ?string
+    {
+        if ($this->dod) {
+            $year = Carbon::parse($this->dod)->format('Y');
+        } elseif ($this->yod) {
+            $year = $this->yod;
         } else {
             $year = null;
         }

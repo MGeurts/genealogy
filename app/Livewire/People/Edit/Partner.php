@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Livewire\People\Edit;
 
-use App\Livewire\Forms\People\PartnerForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
 use Illuminate\Support\Collection;
@@ -20,9 +19,18 @@ final class Partner extends Component
     // -----------------------------------------------------------------------
     public Person $person;
 
-    public $couple;
+    // -----------------------------------------------------------------------
+    public $person2_id = null;
 
-    public PartnerForm $form;
+    public $date_start = null;
+
+    public $date_end = null;
+
+    public $is_married = false;
+
+    public $has_ended = false;
+
+    public $couple;
 
     public Collection $persons;
 
@@ -43,7 +51,7 @@ final class Partner extends Component
 
     public function savePartner(): void
     {
-        $validated = $this->form->validate();
+        $validated = $this->validate();
 
         if ($this->hasOverlap($validated['date_start'], $validated['date_end'])) {
             $this->toast()->error(__('app.create'), __('couple.overlap'))->send();
@@ -68,14 +76,42 @@ final class Partner extends Component
         return view('livewire.people.edit.partner');
     }
 
+    // -----------------------------------------------------------------------
+    public function rules(): array
+    {
+        return $rules = [
+            'person2_id' => ['required', 'integer', 'exists:people,id'],
+            'date_start' => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', 'before:date_end'],
+            'date_end'   => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', 'after:date_start'],
+            'is_married' => ['nullable', 'boolean'],
+            'has_ended'  => ['nullable', 'boolean'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [];
+    }
+
+    public function validationAttributes(): array
+    {
+        return [
+            'person2_id' => __('couple.partner'),
+            'date_start' => __('couple.date_start'),
+            'date_end'   => __('couple.date_end'),
+            'is_married' => __('couple.is_married'),
+            'has_ended'  => __('couple.has_ended'),
+        ];
+    }
+
     // ------------------------------------------------------------------------------
     private function loadData(): void
     {
-        $this->form->person2_id = ($this->couple->person1_id === $this->person->id) ? $this->couple->person2_id : $this->couple->person1_id;
-        $this->form->date_start = $this->couple->date_start?->format('Y-m-d');
-        $this->form->date_end   = $this->couple->date_end?->format('Y-m-d');
-        $this->form->is_married = $this->couple->is_married;
-        $this->form->has_ended  = $this->couple->has_ended;
+        $this->person2_id = ($this->couple->person1_id === $this->person->id) ? $this->couple->person2_id : $this->couple->person1_id;
+        $this->date_start = $this->couple->date_start?->format('Y-m-d');
+        $this->date_end   = $this->couple->date_end?->format('Y-m-d');
+        $this->is_married = $this->couple->is_married;
+        $this->has_ended  = $this->couple->has_ended;
     }
 
     private function hasOverlap($start, $end): bool

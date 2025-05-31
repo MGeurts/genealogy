@@ -24,16 +24,20 @@ final class Person extends Component
     // -----------------------------------------------------------------------
     public PersonForm $form;
 
-    public ?string $selectedTab = null;
-
     // -----------------------------------------------------------------------
     public function mount(): void {}
 
+    /**
+     * Handle updates to the uploads property.
+     */
     public function updatingUploads(): void
     {
         $this->form->backup = $this->form->uploads;
     }
 
+    /**
+     * Process uploaded files and remove duplicates.
+     */
     public function updatedUploads(): void
     {
         if (empty($this->form->uploads)) {
@@ -45,6 +49,9 @@ final class Person extends Component
             ->toArray();
     }
 
+    /**
+     * Handle file deletion from uploads.
+     */
     public function deleteUpload(array $content): void
     {
         /* the $content contains:
@@ -78,8 +85,16 @@ final class Person extends Component
         $validated = $this->validate($this->rules());
 
         $newPerson = \App\Models\Person::create([
-            ...$validated['form'],
-            'team_id' => Auth()->user()->currentTeam->id,
+            'firstname' => $validated['form']['firstname'],
+            'surname'   => $validated['form']['surname'],
+            'birthname' => $validated['form']['birthname'],
+            'nickname'  => $validated['form']['nickname'],
+            'sex'       => $validated['form']['sex'],
+            'gender_id' => $validated['form']['gender_id'] ?? null,
+            'yob'       => $validated['form']['yob'],
+            'dob'       => $validated['form']['dob'],
+            'pob'       => $validated['form']['pob'],
+            'team_id'   => auth()->user()->currentTeam->id,
         ]);
 
         if ($this->form->uploads) {
@@ -111,6 +126,7 @@ final class Person extends Component
             'form.yob'       => ['nullable', 'integer', 'min:1', 'max:' . date('Y'), new YobValid],
             'form.dob'       => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', new DobValid],
             'form.pob'       => ['nullable', 'string', 'max:255'],
+
             'form.uploads.*' => [
                 'file',
                 'mimetypes:' . implode(',', array_keys(config('app.upload_photo_accept'))),
@@ -122,13 +138,13 @@ final class Person extends Component
     protected function messages(): array
     {
         return [
-            'form.uploads.*.file'      => __('validation.file', ['attribute' => __('person.photo')]),
+            'form.uploads.*.file'      => __('validation.file', ['attribute' => __('person.photos')]),
             'form.uploads.*.mimetypes' => __('validation.mimetypes', [
-                'attribute' => __('person.photo'),
+                'attribute' => __('person.photos'),
                 'values'    => implode(', ', array_values(config('app.upload_photo_accept'))),
             ]),
             'form.uploads.*.max' => __('validation.max.file', [
-                'attribute' => __('person.photo'),
+                'attribute' => __('person.photos'),
                 'max'       => config('app.upload_max_size'),
             ]),
         ];
@@ -146,7 +162,8 @@ final class Person extends Component
             'form.yob'       => __('person.yob'),
             'form.dob'       => __('person.dob'),
             'form.pob'       => __('person.pob'),
-            'form.uploads'   => __('person.photos'),
+
+            'form.uploads' => __('person.photos'),
         ];
     }
 }

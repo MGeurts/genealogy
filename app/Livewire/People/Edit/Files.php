@@ -193,14 +193,14 @@ final class Files extends Component
     protected function messages(): array
     {
         return [
-            'uploads.*.required'  => __('validation.required', ['attribute' => __('person.file')]),
-            'uploads.*.file'      => __('validation.file', ['attribute' => __('person.file')]),
+            'uploads.*.required'  => __('validation.required', ['attribute' => __('person.files')]),
+            'uploads.*.file'      => __('validation.file', ['attribute' => __('person.files')]),
             'uploads.*.mimetypes' => __('validation.mimetypes', [
-                'attribute' => __('person.file'),
+                'attribute' => __('person.files'),
                 'values'    => implode(', ', array_values(config('app.upload_file_accept'))),
             ]),
             'uploads.*.max' => __('validation.max.file', [
-                'attribute' => __('person.file'),
+                'attribute' => __('person.files'),
                 'max'       => config('app.upload_max_size'),
             ]),
         ];

@@ -20,38 +20,38 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- street --}}
                 <div class="col-span-4">
-                    <x-ts-input wire:model="form.street" id="street" label="{{ __('person.street') }} :" autocomplete="street" autofocus />
+                    <x-ts-input wire:model="street" id="street" label="{{ __('person.street') }} :" autocomplete="street" autofocus />
                 </div>
 
                 {{-- number --}}
                 <div class="col-span-2">
-                    <x-ts-input wire:model="form.number" id="number" label="{{ __('person.number') }} :" autocomplete="number" />
+                    <x-ts-input wire:model="number" id="number" label="{{ __('person.number') }} :" autocomplete="number" />
                 </div>
 
                 {{-- postal_code --}}
                 <div class="col-span-2">
-                    <x-ts-input wire:model="form.postal_code" id="postal_code" label="{{ __('person.postal_code') }} :" autocomplete="postal_code"
+                    <x-ts-input wire:model="postal_code" id="postal_code" label="{{ __('person.postal_code') }} :" autocomplete="postal_code"
                         />
                 </div>
 
                 {{-- city --}}
                 <div class="col-span-4">
-                    <x-ts-input wire:model="form.city" id="postal_code" label="{{ __('person.city') }} :" autocomplete="city" />
+                    <x-ts-input wire:model="city" id="postal_code" label="{{ __('person.city') }} :" autocomplete="city" />
                 </div>
 
                 {{-- province --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="form.province" id="province" label="{{ __('person.province') }} :" autocomplete="province" />
+                    <x-ts-input wire:model="province" id="province" label="{{ __('person.province') }} :" autocomplete="province" />
                 </div>
 
                 {{-- state --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="form.state" id="province" label="{{ __('person.state') }} :" autocomplete="state" />
+                    <x-ts-input wire:model="state" id="province" label="{{ __('person.state') }} :" autocomplete="state" />
                 </div>
 
                 {{-- country --}}
                 <div class="col-span-5">
-                    <x-ts-select.styled wire:model="form.country" id="country" label="{{ __('person.country') }} :" :options="$form->countries()" select="label:name|value:id"
+                    <x-ts-select.styled wire:model="country" id="country" label="{{ __('person.country') }} :" :options="$this->countries()" select="label:name|value:id"
                         placeholder="{{ __('app.select') }} ..." searchable />
                 </div>
 
@@ -67,7 +67,7 @@
 
                 {{-- phone --}}
                 <div class="col-span-6">
-                    <x-ts-input wire:model="form.phone" id="phone" label="{{ __('person.phone') }} :" autocomplete="phone" />
+                    <x-ts-input wire:model="phone" id="phone" label="{{ __('person.phone') }} :" autocomplete="phone" />
                 </div>
             </div>
         </div>

@@ -7,20 +7,20 @@ namespace App\Rules;
 use Closure;
 use Illuminate\Contracts\Validation\DataAwareRule;
 use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Support\Carbon;
+use Throwable;
 
 final class DobValid implements DataAwareRule, ValidationRule
 {
     /**
-     * All of the data under validation.
+     * The full validation data.
      *
      * @var array<string, mixed>
      */
     private array $data = [];
 
     /**
-     * Set the data under validation.
-     *
-     * @param  array<string, mixed>  $data
+     * Set the validation data.
      */
     public function setData(array $data): static
     {
@@ -30,32 +30,50 @@ final class DobValid implements DataAwareRule, ValidationRule
     }
 
     /**
-     * Run the validation rule.
-     *
-     * @param  Closure(string): \Illuminate\Translation\PotentiallyTranslatedString  $fail
+     * Validate the date of birth (dob) against other fields.
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $dobTimestamp = strtotime((string) $value);
+        if (empty($value)) {
+            return; // No value to validate
+        }
 
-        if (isset($this->data['yob'])) {
-            // dob->year must match yob
-            if ((int) $this->data['yob'] !== (int) date('Y', $dobTimestamp)) {
-                $fail(__('person.dob_not_matching_yob', ['value' => $this->data['yob']]));
+        try {
+            $dob     = Carbon::parse($value);
+            $dobYear = $dob->year;
+        } catch (Throwable) {
+            return; // Ignore parse error (assume handled elsewhere)
+        }
+
+        // Check if 'yob' is provided and matches dob year
+        if (! empty($this->data['yob'])) {
+            $yob = (int) $this->data['yob'];
+
+            if ($dobYear !== $yob) {
+                $fail(__('person.dob_not_matching_yob', ['value' => $yob]));
             }
-        } elseif (isset($this->data['person'])) {
-            $person = $this->data['person'];
+        }
 
-            if (! empty($person['dod'])) {
-                // dob must not be after dod
-                $dodTimestamp = strtotime((string) $person['dod']);
-                if ($dobTimestamp > $dodTimestamp) {
-                    $fail(__('person.dob_after_dod', ['value' => $person['dod']]));
+        if (! empty($this->data['person'])) {
+            // Check if dob is before dod
+            if (! empty($this->data['person']['dod'])) {
+                try {
+                    $dod = Carbon::parse($this->data['person']['dod']);
+
+                    if ($dob->gt($dod)) {
+                        $fail(__('person.dob_after_dod', ['value' => $this->data['person']['dod']]));
+                    }
+                } catch (Throwable) {
+                    return; // Ignore parse error (assume handled elsewhere)
                 }
-            } elseif (! empty($person['yod'])) {
-                // dob->year must not be after yod
-                if ((int) date('Y', $dobTimestamp) > (int) $person['yod']) {
-                    $fail(__('person.dob_after_yod', ['value' => $person['yod']]));
+            }
+
+            // Check if dob year is before yod
+            if (! empty($this->data['person']['yod'])) {
+                $yod = (int) $this->data['person']['yod'];
+
+                if ($dobYear > $yod) {
+                    $fail(__('person.dob_after_yod', ['value' => $this->data['person']['yod']]));
                 }
             }
         }

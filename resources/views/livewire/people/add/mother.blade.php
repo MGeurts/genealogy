@@ -9,7 +9,7 @@
                 </x-slot:left>
 
                 {{-- Add New Person UI --}}
-                @include('livewire.people.add.partials.mother-new')
+                @include('livewire.people.partials.mother-new')
             </x-ts-tab.items>
 
             <x-ts-tab.items tab="{{ __('person.add_existing_person_as_mother') }}">
@@ -18,12 +18,12 @@
                 </x-slot:left>
 
                 {{-- Select Existing Person UI --}}
-                @include('livewire.people.add.partials.person-existing')
+                @include('livewire.people.partials.person-existing')
             </x-ts-tab.items>
         </x-ts-tab>
     </form>
 
     @if (Auth()->user()->currentTeam->personal_team)
-        @include('livewire.people.add.partials.caution-personal-team')
+        @include('livewire.people.partials.caution-personal-team')
     @endif
 </div>

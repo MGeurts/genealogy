@@ -48,11 +48,17 @@ final class Father extends Component
         $this->selectedTab = $this->persons->isEmpty() ? __('person.add_new_person_as_father') : __('person.add_existing_person_as_father');
     }
 
+    /**
+     * Handle updates to the uploads property.
+     */
     public function updatingUploads(): void
     {
         $this->form->backup = $this->form->uploads;
     }
 
+    /**
+     * Process uploaded files and remove duplicates.
+     */
     public function updatedUploads(): void
     {
         if (empty($this->form->uploads)) {
@@ -64,6 +70,9 @@ final class Father extends Component
             ->toArray();
     }
 
+    /**
+     * Handle file deletion from uploads.
+     */
     public function deleteUpload(array $content): void
     {
         /* the $content contains:
@@ -160,13 +169,13 @@ final class Father extends Component
             'form.surname.required_without'   => __('validation.surname.required_without'),
             'form.person_id.required_without' => __('validation.person_id.required_without'),
 
-            'form.uploads.*.file'      => __('validation.file', ['attribute' => __('person.photo')]),
+            'form.uploads.*.file'      => __('validation.file', ['attribute' => __('person.photos')]),
             'form.uploads.*.mimetypes' => __('validation.mimetypes', [
-                'attribute' => __('person.photo'),
+                'attribute' => __('person.photos'),
                 'values'    => implode(', ', array_values(config('app.upload_photo_accept'))),
             ]),
             'form.uploads.*.max' => __('validation.max.file', [
-                'attribute' => __('person.photo'),
+                'attribute' => __('person.photos'),
                 'max'       => config('app.upload_max_size'),
             ]),
         ];

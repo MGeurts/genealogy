@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Livewire\People\Edit;
 
-use App\Livewire\Forms\People\FamilyForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
 use App\Models\Person;
@@ -21,7 +20,12 @@ final class Family extends Component
     // -----------------------------------------------------------------------
     public Person $person;
 
-    public FamilyForm $form;
+    // -----------------------------------------------------------------------
+    public $father_id = null;
+
+    public $mother_id = null;
+
+    public $parents_id = null;
 
     public Collection $fathers;
 
@@ -61,7 +65,7 @@ final class Family extends Component
 
     public function saveFamily(): void
     {
-        $validated = $this->form->validate();
+        $validated = $this->validate();
 
         $this->person->update($validated);
 
@@ -76,11 +80,35 @@ final class Family extends Component
         return view('livewire.people.edit.family');
     }
 
+    // -----------------------------------------------------------------------
+    public function rules(): array
+    {
+        return $rules = [
+            'father_id'  => ['nullable', 'integer'],
+            'mother_id'  => ['nullable', 'integer'],
+            'parents_id' => ['nullable', 'integer'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [];
+    }
+
+    public function validationAttributes(): array
+    {
+        return [
+            'father_id'  => __('person.father'),
+            'mother_id'  => __('person.mother'),
+            'parents_id' => __('parents.father'),
+        ];
+    }
+
     // ------------------------------------------------------------------------------
     private function loadData(): void
     {
-        $this->form->father_id  = $this->person->father_id;
-        $this->form->mother_id  = $this->person->mother_id;
-        $this->form->parents_id = $this->person->parents_id;
+        $this->father_id  = $this->person->father_id;
+        $this->mother_id  = $this->person->mother_id;
+        $this->parents_id = $this->person->parents_id;
     }
 }

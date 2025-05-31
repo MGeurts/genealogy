@@ -38,6 +38,30 @@ final class Photos extends Component
     }
 
     /**
+     * Handle updates to the uploads property.
+     */
+    public function updatingUploads(): void
+    {
+        $this->backup = $this->uploads;
+    }
+
+    /**
+     * Process uploaded files and remove duplicates.
+     */
+    public function updatedUploads(): void
+    {
+        $this->validate();
+
+        if (empty($this->uploads)) {
+            return;
+        }
+
+        $this->uploads = collect(array_merge($this->backup, (array) $this->uploads))
+            ->unique(fn (UploadedFile $file): string => $file->getClientOriginalName())
+            ->toArray();
+    }
+
+    /**
      * Handle file deletion from uploads.
      */
     public function deleteUpload(array $content): void
@@ -68,33 +92,6 @@ final class Photos extends Component
         );
     }
 
-    /**
-     * Handle updates to the uploads property.
-     */
-    public function updatingUploads(): void
-    {
-        $this->backup = $this->uploads;
-    }
-
-    /**
-     * Process uploaded files and remove duplicates.
-     */
-    public function updatedUploads(): void
-    {
-        $this->validate();
-
-        if (empty($this->uploads)) {
-            return;
-        }
-
-        $this->uploads = collect(array_merge($this->backup, (array) $this->uploads))
-            ->unique(fn (UploadedFile $file): string => $file->getClientOriginalName())
-            ->toArray();
-    }
-
-    /**
-     * Save uploaded photos.
-     */
     public function save(): void
     {
         $this->validate();
@@ -145,9 +142,6 @@ final class Photos extends Component
         $this->dispatch('photos_updated');
     }
 
-    /**
-     * Render the component view.
-     */
     public function render(): View
     {
         return view('livewire.people.edit.photos');
@@ -168,13 +162,13 @@ final class Photos extends Component
     protected function messages(): array
     {
         return [
-            'uploads.*.file'      => __('validation.file', ['attribute' => __('person.photo')]),
+            'uploads.*.file'      => __('validation.file', ['attribute' => __('person.photos')]),
             'uploads.*.mimetypes' => __('validation.mimetypes', [
-                'attribute' => __('person.photo'),
+                'attribute' => __('person.photos'),
                 'values'    => implode(', ', array_values(config('app.upload_photo_accept'))),
             ]),
             'uploads.*.max' => __('validation.max.file', [
-                'attribute' => __('person.photo'),
+                'attribute' => __('person.photos'),
                 'max'       => config('app.upload_max_size'),
             ]),
         ];

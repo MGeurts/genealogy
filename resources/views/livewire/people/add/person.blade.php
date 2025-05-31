@@ -17,12 +17,12 @@
 
             <div>
                 {{-- Add New Person UI --}}
-                @include('livewire.people.add.partials.person-new')
+                @include('livewire.people.partials.person-new')
             </div>
         </div>
     </form>
 
     @if (Auth()->user()->currentTeam->personal_team)
-        @include('livewire.people.add.partials.caution-personal-team')
+        @include('livewire.people.partials.caution-personal-team')
     @endif
 </div>

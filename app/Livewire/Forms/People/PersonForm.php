@@ -83,13 +83,13 @@ final class PersonForm extends Form
             'sex.required_without'       => __('validation.sex.required_without'),
             'person_id.required_without' => __('validation.person_id.required_without'),
 
-            'uploads.*.file'      => __('validation.file', ['attribute' => __('person.photo')]),
+            'uploads.*.file'      => __('validation.file', ['attribute' => __('person.photos')]),
             'uploads.*.mimetypes' => __('validation.mimetypes', [
-                'attribute' => __('person.photo'),
+                'attribute' => __('person.photos'),
                 'values'    => implode(', ', array_values(config('app.upload_photo_accept'))),
             ]),
             'uploads.*.max' => __('validation.max.file', [
-                'attribute' => __('person.photo'),
+                'attribute' => __('person.photos'),
                 'max'       => config('app.upload_max_size'),
             ]),
         ];

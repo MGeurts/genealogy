@@ -20,22 +20,22 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- firstname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="form.firstname" id="firstname" label="{{ __('person.firstname') }} :" required autofocus />
+                    <x-ts-input wire:model="firstname" id="firstname" label="{{ __('person.firstname') }} :" required autofocus />
                 </div>
 
                 {{-- surname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="form.surname" id="surname" label="{{ __('person.surname') }} : *" required />
+                    <x-ts-input wire:model="surname" id="surname" label="{{ __('person.surname') }} : *" required />
                 </div>
 
                 {{-- birthname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="form.birthname" id="birthname" label="{{ __('person.birthname') }} :" />
+                    <x-ts-input wire:model="birthname" id="birthname" label="{{ __('person.birthname') }} :" />
                 </div>
 
                 {{-- nickname --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="form.nickname" id="nickname" label="{{ __('person.nickname') }} :" />
+                    <x-ts-input wire:model="nickname" id="nickname" label="{{ __('person.nickname') }} :" />
                 </div>
                 <x-hr.narrow class="col-span-6 my-0!" />
 
@@ -44,41 +44,41 @@
                     <x-label for="sex" class="mr-5" value="{{ __('person.sex') }} ({{ __('person.biological') }}) : *" />
                     <div class="flex">
                         <div class="mt-3 mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
-                            <x-ts-radio color="primary" wire:model="form.sex" name="sex" id="sexM" value="m" label="{{ __('app.male') }}" />
+                            <x-ts-radio color="primary" wire:model="sex" name="sex" id="sexM" value="m" label="{{ __('app.male') }}" />
                         </div>
                         <div class="mt-3 mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
-                            <x-ts-radio color="primary" wire:model="form.sex" name="sex" id="sexF" value="f" label="{{ __('app.female') }}" />
+                            <x-ts-radio color="primary" wire:model="sex" name="sex" id="sexF" value="f" label="{{ __('app.female') }}" />
                         </div>
                     </div>
                 </div>
 
                 {{-- gender_id --}}
                 <div class="col-span-3">
-                    <x-ts-select.styled wire:model="form.gender_id" id="gender_id" label="{{ __('person.gender') }} :" :options="$form->genders()" select="label:name|value:id"
+                    <x-ts-select.styled wire:model="gender_id" id="gender_id" label="{{ __('person.gender') }} :" :options="$this->genders()" select="label:name|value:id"
                         placeholder="{{ __('app.select') }} ..." searchable />
                 </div>
                 <x-hr.narrow class="col-span-6 my-0!" />
 
                 {{-- yob --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-input wire:model="form.yob" id="yob" label="{{ __('person.yob') }} :" autocomplete="yob" type="number" max="{{ date('Y') }}" />
+                    <x-ts-input wire:model="yob" id="yob" label="{{ __('person.yob') }} :" autocomplete="yob" type="number" max="{{ date('Y') }}" />
                 </div>
 
                 {{-- dob --}}
                 <div class="col-span-6 md:col-span-3">
-                    <x-ts-date wire:model="form.dob" id="dob" name="dob" label="{{ __('person.dob') }} :" format="YYYY-MM-DD"
+                    <x-ts-date wire:model="dob" id="dob" name="dob" label="{{ __('person.dob') }} :" format="YYYY-MM-DD"
                         :max-date="now()" placeholder="{{ __('app.select') }} ..." />
                 </div>
 
                 {{-- pob --}}
                 <div class="col-span-6">
-                    <x-ts-input wire:model="form.pob" id="pob" label="{{ __('person.pob') }} :" autocomplete="pob" />
+                    <x-ts-input wire:model="pob" id="pob" label="{{ __('person.pob') }} :" autocomplete="pob" />
                 </div>
                 <x-hr.narrow class="col-span-6 my-0!" />
 
                 {{-- summary --}}
                 <div class="col-span-6">
-                    <x-ts-textarea wire:model="form.summary" id="summary" label="{{ __('person.summary') }} :" autocomplete="summary"
+                    <x-ts-textarea wire:model="summary" id="summary" label="{{ __('person.summary') }} :" autocomplete="summary"
                         maxlength="65535" count />
                 </div>
             </div>

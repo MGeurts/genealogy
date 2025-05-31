@@ -34,6 +34,7 @@ class Child extends Component
         $this->persons = Person::where('id', '!=', $this->person->id)
             ->whereNull($this->person->sex === 'm' ? 'father_id' : 'mother_id')
             ->YoungerThan($this->person->birth_year)
+            ->OlderThan($this->person->death_year ? $this->person->death_year + 1 : null)
             ->orderBy('firstname')
             ->orderBy('surname')
             ->get()
@@ -45,11 +46,17 @@ class Child extends Component
         $this->selectedTab = $this->persons->isEmpty() ? __('person.add_new_person_as_child') : __('person.add_existing_person_as_child');
     }
 
+    /**
+     * Handle updates to the uploads property.
+     */
     public function updatingUploads(): void
     {
         $this->form->backup = $this->form->uploads;
     }
 
+    /**
+     * Process uploaded files and remove duplicates.
+     */
     public function updatedUploads(): void
     {
         if (empty($this->form->uploads)) {
@@ -61,6 +68,9 @@ class Child extends Component
             ->toArray();
     }
 
+    /**
+     * Handle file deletion from uploads.
+     */
     public function deleteUpload(array $content): void
     {
         /* the $content contains:

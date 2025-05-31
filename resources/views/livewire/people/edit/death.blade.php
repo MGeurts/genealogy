@@ -20,18 +20,18 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- yod --}}
                 <div class="col-span-3">
-                    <x-ts-input wire:model="form.yod" id="yod" label="{{ __('person.yod') }} :" autofocus type="number" max="{{ date('Y') }}"/>
+                    <x-ts-input wire:model="yod" id="yod" label="{{ __('person.yod') }} :" autofocus type="number" max="{{ date('Y') }}"/>
                 </div>
 
                 {{-- dod --}}
                 <div class="col-span-3">
-                    <x-ts-date wire:model="form.dod" id="dod" label="{{ __('person.dod') }} :" format="YYYY-MM-DD" :max-date="now()"
+                    <x-ts-date wire:model="dod" id="dod" label="{{ __('person.dod') }} :" format="YYYY-MM-DD" :max-date="now()"
                         placeholder="{{ __('app.select') }} ..." />
                 </div>
 
                 {{-- pod --}}
                 <div class="col-span-6">
-                    <x-ts-input wire:model="form.pod" id="pod" label="{{ __('person.pod') }} :" />
+                    <x-ts-input wire:model="pod" id="pod" label="{{ __('person.pod') }} :" />
                 </div>
                 <x-hr.narrow class="col-span-6 my-0!" />
 
@@ -52,25 +52,25 @@
 
                 {{-- cemetery_location_name --}}
                 <div class="col-span-6">
-                    <x-ts-input wire:model="form.cemetery_location_name" id="cemetery_location_name" label="{{ __('metadata.location_name') }} :"
+                    <x-ts-input wire:model="cemetery_location_name" id="cemetery_location_name" label="{{ __('metadata.location_name') }} :"
                         />
                 </div>
 
                 {{-- cemetery_location_address --}}
                 <div class="col-span-6">
-                    <x-ts-textarea wire:model="form.cemetery_location_address" id="cemetery_location_address" label="{{ __('metadata.address') }} :"
+                    <x-ts-textarea wire:model="cemetery_location_address" id="cemetery_location_address" label="{{ __('metadata.address') }} :"
                         resize-auto />
                 </div>
 
                 {{-- cemetery_location_latitude --}}
                 <div class="col-span-3">
-                    <x-ts-input wire:model="form.cemetery_location_latitude" id="cemetery_location_latitude" label="{{ __('metadata.latitude') }} :"
+                    <x-ts-input wire:model="cemetery_location_latitude" id="cemetery_location_latitude" label="{{ __('metadata.latitude') }} :"
                         />
                 </div>
 
                 {{-- cemetery_location_longitude --}}
                 <div class="col-span-3">
-                    <x-ts-input wire:model="form.cemetery_location_longitude" id="cemetery_location_longitude" label="{{ __('metadata.longitude') }} :"
+                    <x-ts-input wire:model="cemetery_location_longitude" id="cemetery_location_longitude" label="{{ __('metadata.longitude') }} :"
                         />
                 </div>
             </div>

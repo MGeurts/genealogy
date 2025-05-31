@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Livewire\People\Edit;
 
-use App\Livewire\Forms\People\ContactForm;
+use App\Countries;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
+use Illuminate\Support\Collection;
 use Illuminate\View\View;
+use Livewire\Attributes\Computed;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -19,7 +21,29 @@ final class Contact extends Component
     // -----------------------------------------------------------------------
     public Person $person;
 
-    public ContactForm $form;
+    // -----------------------------------------------------------------------
+    public $street = null;
+
+    public $number = null;
+
+    public $postal_code = null;
+
+    public $city = null;
+
+    public $province = null;
+
+    public $state = null;
+
+    public $country = null;
+
+    public $phone = null;
+
+    // -----------------------------------------------------------------------
+    #[Computed(persist: true, seconds: 3600, cache: true)]
+    public function countries(): Collection
+    {
+        return (new Countries(app()->getLocale()))->getAllCountries();
+    }
 
     // -----------------------------------------------------------------------
     public function mount(): void
@@ -29,7 +53,7 @@ final class Contact extends Component
 
     public function saveContact(): void
     {
-        $validated = $this->form->validate();
+        $validated = $this->validate();
 
         $this->person->update($validated);
 
@@ -44,16 +68,50 @@ final class Contact extends Component
         return view('livewire.people.edit.contact');
     }
 
+    // -----------------------------------------------------------------------
+    public function rules(): array
+    {
+        return [
+            'street'      => ['nullable', 'string', 'max:100'],
+            'number'      => ['nullable', 'string', 'max:20'],
+            'postal_code' => ['nullable', 'string', 'max:20'],
+            'city'        => ['nullable', 'string', 'max:100'],
+            'province'    => ['nullable', 'string', 'max:100'],
+            'state'       => ['nullable', 'string', 'max:100'],
+            'country'     => ['nullable', 'string', 'max:2'],
+            'phone'       => ['nullable', 'string', 'max:50'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [];
+    }
+
+    public function validationAttributes(): array
+    {
+        return [
+            'street'      => __('person.street'),
+            'number'      => __('person.number'),
+            'postal_code' => __('person.postal_code'),
+            'city'        => __('person.city'),
+            'province'    => __('person.province'),
+            'state'       => __('person.state'),
+            'country'     => __('person.country'),
+            'phone'       => __('person.phone'),
+        ];
+    }
+
     // ------------------------------------------------------------------------------
     private function loadData(): void
     {
-        $this->form->street      = $this->person->street;
-        $this->form->number      = $this->person->number;
-        $this->form->postal_code = $this->person->postal_code;
-        $this->form->city        = $this->person->city;
-        $this->form->province    = $this->person->province;
-        $this->form->state       = $this->person->state;
-        $this->form->country     = $this->person->country;
-        $this->form->phone       = $this->person->phone;
+        $this->street      = $this->person->street;
+        $this->number      = $this->person->number;
+        $this->postal_code = $this->person->postal_code;
+        $this->city        = $this->person->city;
+        $this->province    = $this->person->province;
+        $this->state       = $this->person->state;
+        $this->country     = $this->person->country;
+        $this->phone       = $this->person->phone;
     }
 }
