@@ -14,11 +14,24 @@ final class Userlog extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'user_id',
         'country_name',
         'country_code',
     ];
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Relationships
+    /* -------------------------------------------------------------------------------------------- */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
@@ -35,13 +48,5 @@ final class Userlog extends Model
         return new Attribute(
             get: fn (mixed $value, array $attributes): string => Carbon::parse($attributes['created_at'])->timezone(session('timezone') ?? 'UTC')->format('H:i:s'),
         );
-    }
-
-    /* -------------------------------------------------------------------------------------------- */
-    // Relationships
-    /* -------------------------------------------------------------------------------------------- */
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
     }
 }

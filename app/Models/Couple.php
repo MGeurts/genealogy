@@ -19,6 +19,11 @@ final class Couple extends Model
 {
     use LogsActivity;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'person1_id',
         'person2_id',
@@ -29,7 +34,11 @@ final class Couple extends Model
         'team_id',
     ];
 
-    // Use the built-in $casts property for automatic casting
+    /**
+     * Use the built-in $casts property for automatic casting.
+     *
+     * @var array<int, string>
+     */
     protected $casts = [
         'date_start' => 'date:Y-m-d',
         'date_end'   => 'date:Y-m-d',
@@ -37,8 +46,14 @@ final class Couple extends Model
         'has_ended'  => 'boolean',
     ];
 
-    // Appending custom attributes
-    protected $appends = ['name'];
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array<int, string>
+     */
+    protected $appends = [
+        'name',
+    ];
 
     /* -------------------------------------------------------------------------------------------- */
     // Log activities

@@ -22,6 +22,11 @@ final class PersonMetadata extends Model
         'cemetery_location_longitude',
     ];
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'person.name',
         'key',
@@ -51,6 +56,15 @@ final class PersonMetadata extends Model
     }
 
     /* -------------------------------------------------------------------------------------------- */
+    // Relations
+    /* -------------------------------------------------------------------------------------------- */
+    /* returns PERSON (1 Person) */
+    public function person(): BelongsTo
+    {
+        return $this->belongsTo(Person::class);
+    }
+
+    /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
     public function key(): Attribute
@@ -58,14 +72,5 @@ final class PersonMetadata extends Model
         return new Attribute(
             set: fn ($value) => $value ? mb_strtolower((string) $value) : null,
         );
-    }
-
-    /* -------------------------------------------------------------------------------------------- */
-    // Relations
-    /* -------------------------------------------------------------------------------------------- */
-    /* returns PERSON (1 Person) */
-    public function person(): BelongsTo
-    {
-        return $this->belongsTo(Person::class);
     }
 }

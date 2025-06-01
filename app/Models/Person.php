@@ -33,6 +33,11 @@ final class Person extends Model implements HasMedia
     use LogsActivity;
     use SoftDeletes;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
         'firstname',
         'surname',
@@ -62,6 +67,21 @@ final class Person extends Model implements HasMedia
         'team_id',
     ];
 
+    /**
+     * Use the built-in $casts property for automatic casting.
+     *
+     * @var array<int, string>
+     */
+    protected $casts = [
+        'dob' => 'date:Y-m-d',
+        'dod' => 'date:Y-m-d',
+    ];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array<int, string>
+     */
     protected $appends = [
         'name',
     ];
@@ -420,14 +440,6 @@ final class Person extends Model implements HasMedia
 
             $builder->where('people.team_id', Auth()->user()->currentTeam->id);
         });
-    }
-
-    protected function casts(): array
-    {
-        return [
-            'dob' => 'date:Y-m-d',
-            'dod' => 'date:Y-m-d',
-        ];
     }
 
     /* -------------------------------------------------------------------------------------------- */

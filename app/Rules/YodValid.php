@@ -29,6 +29,9 @@ final class YodValid implements DataAwareRule, ValidationRule
         return $this;
     }
 
+    /**
+     * Validate the date of birth (yod) against other fields.
+     */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         if (empty($value)) {

@@ -64,6 +64,18 @@ final class User extends Authenticatable
     ];
 
     /**
+     * Use the built-in $casts property for automatic casting.
+     *
+     * @var array<int, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password'          => 'hashed',
+        'is_developer'      => 'boolean',
+        'seen_at'           => 'datetime',
+    ];
+
+    /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
@@ -113,6 +125,7 @@ final class User extends Authenticatable
         $activity->team_id = Auth()->user()?->currentTeam?->id ?? null;
     }
 
+    /* -------------------------------------------------------------------------------------------- */
     public function hasPermission(string $permission): bool
     {
         return $this->hasTeamPermission($this->currentTeam, $permission);
@@ -142,21 +155,6 @@ final class User extends Authenticatable
     public function userlogs(): HasMany
     {
         return $this->hasMany(Userlog::class);
-    }
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password'          => 'hashed',
-            'is_developer'      => 'boolean',
-            'seen_at'           => 'datetime',
-        ];
     }
 
     /* -------------------------------------------------------------------------------------------- */
