@@ -30,7 +30,11 @@ return new class extends Migration
         });
 
         // Add index on updated_at
-        DB::statement('ALTER TABLE `' . config('activitylog.table_name') . '` ADD INDEX `updated_at_index` (`updated_at`)');
+        if (Schema::getConnection()->getDriverName() === 'sqlite') {
+            DB::statement('CREATE INDEX updated_at_index ON ' . config('activitylog.table_name') . '(updated_at)');
+        } else {
+            DB::statement('ALTER TABLE `' . config('activitylog.table_name') . '` ADD INDEX `updated_at_index` (`updated_at`)');
+        }
     }
 
     /**

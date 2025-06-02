@@ -26,7 +26,11 @@ return new class extends Migration
         });
 
         // Add index on country_name
-        DB::statement('ALTER TABLE `userlogs` ADD INDEX `userlogs_country_name_index` (`country_name`)');
+        if (Schema::getConnection()->getDriverName() === 'sqlite') {
+            DB::statement('CREATE INDEX userlogs_country_name_index ON userlogs(country_name)');
+        } else {
+            DB::statement('ALTER TABLE `userlogs` ADD INDEX `userlogs_country_name_index` (`country_name`)');
+        }
     }
 
     /**

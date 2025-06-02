@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -33,11 +32,8 @@ return new class extends Migration
 
             $table->timestamp('seen_at')->nullable();
             $table->timestamps();
-            $table->softDeletes();
+            $table->softDeletes()->index();
         });
-
-        // Add index on deleted_at
-        DB::statement('ALTER TABLE `users` ADD INDEX `users_deleted_at_index` (`deleted_at`)');
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();

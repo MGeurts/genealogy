@@ -51,14 +51,17 @@ return new class extends Migration
 
             $table->unsignedBigInteger('team_id')->nullable()->index();
             // ---------------------------------------------------------------------
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes()->index();
         });
 
-        // Add index on deleted_at
-        DB::statement('ALTER TABLE `people` ADD INDEX `people_deleted_at_index` (`deleted_at`)');
-        DB::statement('ALTER TABLE `people` ADD INDEX `people_deleted_father_index` (`deleted_at`, `father_id`)');
-        DB::statement('ALTER TABLE `people` ADD INDEX `people_deleted_mother_index` (`deleted_at`, `mother_id`)');
+        if (Schema::getConnection()->getDriverName() === 'sqlite') {
+            DB::statement('CREATE INDEX people_deleted_father_index ON people(deleted_at, father_id)');
+            DB::statement('CREATE INDEX people_deleted_mother_index ON people(deleted_at, mother_id)');
+        } else {
+            DB::statement('ALTER TABLE `people` ADD INDEX `people_deleted_father_index` (`deleted_at`, `father_id`)');
+            DB::statement('ALTER TABLE `people` ADD INDEX `people_deleted_mother_index` (`deleted_at`, `mother_id`)');
+        }
     }
 
     /**
