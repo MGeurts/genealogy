@@ -239,7 +239,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <li>Simplified Chinese (ZH_CN)</li>
 </ul>
 
-Translations can be added by submitting a <b>Pull Request</b> to the project.
+Translations can be added by submitting a <b>Pull Request</b> to the project.<br />
 Translation integrity can be checked by issuing the command `php artisan translations:check --excludedDirectories=vendor`
 
 Instructions on how to add a language can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-LANGUAGES.md" target="_blank">README-LANGUAGES.md</a>.
@@ -286,8 +286,8 @@ Update instructions can be found in <a href="https://github.com/MGeurts/genealog
 
 ## Testing
 
-Production data should be stored in a MySQL database configured in `.env`.
-Testing data is stored in a SQLite database named `database/genealogy-test.sqlite` and should therefore not interfere with the production database.
+Production data should be stored in a MySQL database configured in `.env`.<br />
+Testing data is stored in a SQLite database named `database/genealogy-test.sqlite` and should therefore not interfere with the production database.<br />
 But, <b>to be fully safe</b>, always backup your production database befor testing.
 
 `php artisan test`
