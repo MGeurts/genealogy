@@ -53,8 +53,6 @@
         {{-- team name --}}
         <div class="col-span-6">
             <x-ts-input id="name" name="name" type="text" class="block w-full mt-1" wire:model="name" label="{{ __('team.name') }} : *" required autofocus />
-
-            <x-input-error for="name" class="mt-2" />
         </div>
 
         {{-- team description --}}
@@ -62,20 +60,16 @@
             <div class="relative block w-full mt-1 mb-3">
                 <x-ts-textarea id="description" name="description" wire:model="description" label="{{ __('team.description') }} :" />
             </div>
-
-            <x-input-error for="description" class="mt-2" />
         </div>
 
         {{-- upload --}}
         <div class="col-span-6">
             <x-ts-upload id="file" wire:model="file" label="{{ __('gedcom.gedcom_file') }} : *" hint="{{ __('gedcom.team_gedcom_hint') }}" tip="{{ __('gedcom.team_gedcom_tip') }}" placeholder="{{ __('gedcom.gedcom_import_placeholder') }}"
-                accept=".ged" :preview="false" close-after-upload required>
+                accept=".ged" :preview="false" close-after-upload>
                 <x-slot:footer>
                     <x-ts-alert text="{{ __('gedcom.team_gedcom_version') }}" color="cyan" />
                 </x-slot:footer>
             </x-ts-upload>
-
-            <x-input-error for="file" class="mt-2" />
         </div>
     </x-slot>
 
@@ -85,3 +79,4 @@
         </x-ts-button>
     </x-slot>
 </x-form-section>
+

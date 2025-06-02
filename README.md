@@ -286,8 +286,8 @@ Update instructions can be found in <a href="https://github.com/MGeurts/genealog
 
 ## Testing
 
-Production data should be stored in a MySQL database configured in `.env`.<br />
-Testing data is stored in a SQLite database named `database/genealogy-test.sqlite` and should therefore not interfere with the production database.<br />
+Production data should be stored in a MySQL database configured in `.env`.<br /><br />
+Testing data is stored in a SQLite database named `database/genealogy-test.sqlite` and should therefore not interfere with the production database.
 But, <b>to be fully safe</b>, always backup your production database befor testing.
 
 `php artisan test`

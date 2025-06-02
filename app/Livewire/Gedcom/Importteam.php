@@ -7,7 +7,6 @@ namespace App\Livewire\Gedcom;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Php\Gedcom\Import;
 // use Laravel\Jetstream\Events\AddingTeam;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
@@ -23,7 +22,7 @@ final class Importteam extends Component
     // -----------------------------------------------------------------------
     public $user;
 
-    public string $name;
+    public ?string $name = null;
 
     public ?string $description = null;
 
@@ -41,7 +40,10 @@ final class Importteam extends Component
 
     public function messages(): array
     {
-        return [];
+        return [
+            'file.required' => __('validation.required'),
+            'file.file'     => __('validation.required'),
+        ];
     }
 
     public function validationAttributes(): array
@@ -56,11 +58,13 @@ final class Importteam extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->user = Auth::user();
+        $this->user = Auth()->user();
     }
 
     public function importteam(): void
     {
+        $this->validate();
+
         $import = new Import(
             $this->name,
             $this->description,

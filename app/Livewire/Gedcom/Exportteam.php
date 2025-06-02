@@ -6,7 +6,6 @@ namespace App\Livewire\Gedcom;
 
 use App\Php\Gedcom\Export;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -37,7 +36,7 @@ final class Exportteam extends Component
 
     public function mount(): void
     {
-        $this->user = Auth::user();
+        $this->user = Auth()->user();
 
         $this->teamPersons = $this->user->currentTeam->persons->sortBy('name')->values();
         $this->teamCouples = $this->user->currentTeam->couples->sortBy('name')->values();
@@ -63,6 +62,8 @@ final class Exportteam extends Component
 
     public function exportteam(): StreamedResponse
     {
+        $this->validate();
+
         $export = new Export(
             $this->filename,
             $this->format,
