@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Feature;
+namespace Tests\Feature\People;
 
 use App\Models\Person;
 use App\Models\User;
