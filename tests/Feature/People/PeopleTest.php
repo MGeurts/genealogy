@@ -1,57 +1,42 @@
 <?php
 
 declare(strict_types=1);
-
-namespace Tests\Feature\People;
-
 use App\Models\Person;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
 
-class PeopleTest extends TestCase
-{
-    use RefreshDatabase;
+uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-    public function test_a_person_can_be_created(): void
-    {
-        $person = Person::factory()->create();
+test('a person can be created', function () {
+    $person = Person::factory()->create();
 
-        $this->assertDatabaseHas('people', [
-            'id' => $person->id,
-        ]);
-    }
+    $this->assertDatabaseHas('people', [
+        'id' => $person->id,
+    ]);
+});
+test('a person can be updated', function () {
+    $person = Person::factory()->create();
 
-    public function test_a_person_can_be_updated(): void
-    {
-        $person = Person::factory()->create();
+    $person->update([
+        'firstname' => 'Updated',
+    ]);
 
-        $person->update([
-            'firstname' => 'Updated',
-        ]);
+    $this->assertDatabaseHas('people', [
+        'id'        => $person->id,
+        'firstname' => 'Updated',
+    ]);
+});
+test('a person can be soft deleted', function () {
+    $person = Person::factory()->create();
 
-        $this->assertDatabaseHas('people', [
-            'id'        => $person->id,
-            'firstname' => 'Updated',
-        ]);
-    }
+    $person->delete();
 
-    public function test_a_person_can_be_soft_deleted(): void
-    {
-        $person = Person::factory()->create();
+    $this->assertSoftDeleted($person);
+});
+test('a person can be hard deleted', function () {
+    $person = Person::factory()->create();
 
-        $person->delete();
+    $person->forceDelete();
 
-        $this->assertSoftDeleted($person);
-    }
-
-    public function test_a_person_can_be_hard_deleted(): void
-    {
-        $person = Person::factory()->create();
-
-        $person->forceDelete();
-
-        $this->assertDatabaseMissing('people', [
-            'id' => $person->id,
-        ]);
-    }
-}
+    $this->assertDatabaseMissing('people', [
+        'id' => $person->id,
+    ]);
+});
