@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Feature;
+namespace Tests\Feature\Jetstream;
 
 use App\Models\User;
 use Illuminate\Auth\Events\Verified;
