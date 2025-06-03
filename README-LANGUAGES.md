@@ -28,6 +28,7 @@ Add the new language to the `available_locales` array:
     'English'           => 'en',       // English
     'Español'           => 'es',       // Spanish
     'Français'          => 'fr',       // French
+    'हिन्दी'              => 'hi',       // Hindi
     'Bahasa Indonesian' => 'id',       // Indonesian
     'Nederlands'        => 'nl',       // Dutch
     'Português'         => 'pt',       // Portuguese
@@ -56,6 +57,7 @@ private const array LOCALE_TO_COUNTRY = [
     'en'    => 'en',
     'es'    => 'es',
     'fr'    => 'fr',
+    'hi'    => 'hi',
     'id'    => 'id',
     'nl'    => 'nl',
     'pt'    => 'pt',

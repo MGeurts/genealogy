@@ -88,6 +88,7 @@ return [
         'English'          => 'en',         // English
         'Español'          => 'es',         // Spanish
         'Français'         => 'fr',         // French
+        'हिन्दी'           => 'hi',         // Hindi
         'Bahasa Indonesia' => 'id',         // Indonesian
         'Nederlands'       => 'nl',         // Dutch
         'Português'        => 'pt',         // Portuguese

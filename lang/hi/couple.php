@@ -1,0 +1,13 @@
+<?php return array (
+  'couple' => 'युगल',
+  'couples' => 'युगल',
+  'date_end' => 'अंतिम तिथि',
+  'date_start' => 'आरंभ करने की तिथि',
+  'has_ended' => 'समाप्त',
+  'is_married' => 'शादी',
+  'partner' => 'साथी',
+  'person1_id' => 'पहले व्यक्ति',
+  'person2_id' => 'द्वितीय व्यक्ति',
+  'team_id' => 'टीम',
+  'overlap' => 'संबंध ओवरलैप का पता चला!',
+);

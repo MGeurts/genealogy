@@ -14,6 +14,7 @@ final class Countries
         'en'    => 'en',
         'es'    => 'es',
         'fr'    => 'fr',
+        'hi'    => 'hi',
         'id'    => 'id',
         'nl'    => 'nl',
         'pt'    => 'pt',

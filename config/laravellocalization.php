@@ -259,7 +259,7 @@ return [
         // 'mai'         => ['name' => 'Maithili',               'script' => 'Tirh', 'native' => 'मैथिली', 'regional' => 'mai_IN'],
         // 'raj'         => ['name' => 'Rajasthani',             'script' => 'Deva', 'native' => 'राजस्थानी', 'regional' => ''],
         // 'sa'          => ['name' => 'Sanskrit',               'script' => 'Deva', 'native' => 'संस्कृतम्', 'regional' => 'sa_IN'],
-        // 'hi'          => ['name' => 'Hindi',                  'script' => 'Deva', 'native' => 'हिन्दी', 'regional' => 'hi_IN'],
+        'hi' => ['name' => 'Hindi',                  'script' => 'Deva', 'native' => 'हिन्दी', 'regional' => 'hi_IN'],
         // 'as'          => ['name' => 'Assamese',               'script' => 'Beng', 'native' => 'অসমীয়া', 'regional' => 'as_IN'],
         // 'bn'          => ['name' => 'Bengali',                'script' => 'Beng', 'native' => 'বাংলা', 'regional' => 'bn_BD'],
         // 'mni'         => ['name' => 'Manipuri',               'script' => 'Beng', 'native' => 'মৈতৈ', 'regional' => 'mni_IN'],
