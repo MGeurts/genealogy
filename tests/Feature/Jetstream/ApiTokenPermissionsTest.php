@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Tests\Jetstream;
+namespace Tests\Feature\Jetstream;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
 use Laravel\Jetstream\Http\Livewire\ApiTokenManager;
+use Laravel\Jetstream\Jetstream;
 use Livewire\Livewire;
 use Tests\TestCase;
 
@@ -28,6 +29,13 @@ final class ApiTokenPermissionsTest extends TestCase
             'name'      => 'Test Token',
             'token'     => Str::random(40),
             'abilities' => ['create', 'read'],
+        ]);
+
+        Jetstream::permissions([
+            'create',
+            'read',
+            'update',
+            'delete',
         ]);
 
         Livewire::test(ApiTokenManager::class)

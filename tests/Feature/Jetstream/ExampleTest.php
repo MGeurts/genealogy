@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Jetstream;
+namespace Tests\Feature\Jetstream;
 
 // use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;

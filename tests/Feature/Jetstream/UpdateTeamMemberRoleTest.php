@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Jetstream;
+namespace Tests\Feature\Jetstream;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -10,11 +10,11 @@ use Laravel\Jetstream\Http\Livewire\TeamMemberManager;
 use Livewire\Livewire;
 use Tests\TestCase;
 
-final class RemoveTeamMemberTest extends TestCase
+final class UpdateTeamMemberRoleTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_team_members_can_be_removed_from_teams(): void
+    public function test_team_member_roles_can_be_updated(): void
     {
         $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
@@ -23,13 +23,16 @@ final class RemoveTeamMemberTest extends TestCase
         );
 
         $component = Livewire::test(TeamMemberManager::class, ['team' => $user->currentTeam])
-            ->set('teamMemberIdBeingRemoved', $otherUser->id)
-            ->call('removeTeamMember');
+            ->set('managingRoleFor', $otherUser)
+            ->set('currentRole', 'editor')
+            ->call('updateRole');
 
-        $this->assertCount(0, $user->currentTeam->fresh()->users);
+        $this->assertTrue($otherUser->fresh()->hasTeamRole(
+            $user->currentTeam->fresh(), 'editor'
+        ));
     }
 
-    public function test_only_team_owner_can_remove_team_members(): void
+    public function test_only_team_owner_can_update_team_member_roles(): void
     {
         $user = User::factory()->withPersonalTeam()->create();
 
@@ -37,11 +40,18 @@ final class RemoveTeamMemberTest extends TestCase
             $otherUser = User::factory()->create(), ['role' => 'administrator']
         );
 
+        $otherUser->switchTeam($user->currentTeam);
+
         $this->actingAs($otherUser);
 
         $component = Livewire::test(TeamMemberManager::class, ['team' => $user->currentTeam])
-            ->set('teamMemberIdBeingRemoved', $user->id)
-            ->call('removeTeamMember')
+            ->set('managingRoleFor', $otherUser)
+            ->set('currentRole', 'editor')
+            ->call('updateRole')
             ->assertStatus(403);
+
+        $this->assertTrue($otherUser->fresh()->hasTeamRole(
+            $user->currentTeam->fresh(), 'administrator'
+        ));
     }
 }

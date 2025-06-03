@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Jetstream;
+namespace Tests\Feature\Jetstream;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -29,7 +29,12 @@ final class ProfileInformationTest extends TestCase
         $this->actingAs($user = User::factory()->create());
 
         Livewire::test(UpdateProfileInformationForm::class)
-            ->set('state', ['surname' => 'Test Name', 'email' => 'test@example.com'])
+            ->set('state', [
+                'surname'  => 'Test Name',
+                'email'    => 'test@example.com',
+                'language' => 'en',
+                'timezone' => 'UTC',
+            ])
             ->call('updateProfileInformation');
 
         $this->assertEquals('Test Name', $user->fresh()->surname);

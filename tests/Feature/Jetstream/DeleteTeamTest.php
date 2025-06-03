@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Jetstream;
+namespace Tests\Feature\Jetstream;
 
 use App\Models\Team;
 use App\Models\User;
