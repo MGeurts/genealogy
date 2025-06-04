@@ -6,12 +6,20 @@ Assume the new language has the language code `xx`.
 
 ---
 
-### 1. Add Translation Files : Automated
+### 1. Add Translation Files
 
-To create new language, use the command : `php artisan translate:lang {from} {to}`<br/>
-Example for Persian (fa) : `php artisan translate:lang en fa`
+#### a. Automated
 
-### 1. Add Translation Files : Manualy
+-   To create new language, use the command : `php artisan translate:lang {from} {to}`<br/>
+    Example for Persian (fa) : `php artisan translate:lang en fa
+-   Save the file `/lang/locales/xx/json.json` from the package [Laravel-Lang/lang](https://github.com/Laravel-Lang/lang/tree/main/locales) as `/lang/xx.json`.
+-   Run the following command to check for missing translations:
+
+    ```bash
+    php artisan translations:check --excludedDirectories=vendor
+    ```
+
+#### b. Manualy
 
 -   Copy all files from `/lang/en/` to `/lang/xx/` and translate them.
 -   Save the file `/lang/locales/xx/json.json` from the package [Laravel-Lang/lang](https://github.com/Laravel-Lang/lang/tree/main/locales) as `/lang/xx.json`.
