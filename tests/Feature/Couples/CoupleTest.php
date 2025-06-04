@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+
 use App\Models\Couple;
 use App\Models\Person;
 
