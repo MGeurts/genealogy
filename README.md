@@ -231,7 +231,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <li>English (EN)</li>
     <li>Spanish (ES)</li>
     <li>French (FR)</li>
-    <li>Hindi</li>
+    <li>Hindi (HI)</li>
     <li>Indonesian (ID)</li>
     <li>Dutch (NL)</li>
     <li>Portuguese (PT)</li>
