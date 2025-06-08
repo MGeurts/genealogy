@@ -7,7 +7,7 @@ use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('team names can be updated', function () {
+test('team names can be updated', function (): void {
     $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
     Livewire::test(UpdateTeamNameForm::class, ['team' => $user->currentTeam])

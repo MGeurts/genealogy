@@ -6,7 +6,7 @@ use App\Models\User;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-it('creates a person assigned to the users current team', function () {
+it('creates a person assigned to the users current team', function (): void {
     $user = User::factory()->withPersonalTeam()->create();
 
     $this->actingAs($user);

@@ -9,7 +9,7 @@ use Laravel\Fortify\Features;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('email verification screen can be rendered', function () {
+test('email verification screen can be rendered', function (): void {
     if (! Features::enabled(Features::emailVerification())) {
         $this->markTestSkipped('Email verification not enabled.');
     }
@@ -20,7 +20,8 @@ test('email verification screen can be rendered', function () {
 
     $response->assertStatus(200);
 });
-test('email can be verified', function () {
+
+test('email can be verified', function (): void {
     if (! Features::enabled(Features::emailVerification())) {
         $this->markTestSkipped('Email verification not enabled.');
     }
@@ -42,7 +43,8 @@ test('email can be verified', function () {
     expect($user->fresh()->hasVerifiedEmail())->toBeTrue();
     $response->assertRedirect(route('people.search', absolute: false) . '?verified=1');
 });
-test('email can not verified with invalid hash', function () {
+
+test('email can not verified with invalid hash', function (): void {
     if (! Features::enabled(Features::emailVerification())) {
         $this->markTestSkipped('Email verification not enabled.');
     }

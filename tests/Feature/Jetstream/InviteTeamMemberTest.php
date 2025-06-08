@@ -10,7 +10,7 @@ use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('team members can be invited to team', function () {
+test('team members can be invited to team', function (): void {
     if (! Features::sendsTeamInvitations()) {
         $this->markTestSkipped('Team invitations not enabled.');
     }
@@ -29,7 +29,8 @@ test('team members can be invited to team', function () {
 
     expect($user->currentTeam->fresh()->teamInvitations)->toHaveCount(1);
 });
-test('team member invitations can be cancelled', function () {
+
+test('team member invitations can be cancelled', function (): void {
     if (! Features::sendsTeamInvitations()) {
         $this->markTestSkipped('Team invitations not enabled.');
     }

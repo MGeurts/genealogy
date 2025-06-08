@@ -8,7 +8,7 @@ use Laravel\Fortify\Features;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('reset password link screen can be rendered', function () {
+test('reset password link screen can be rendered', function (): void {
     if (! Features::enabled(Features::resetPasswords())) {
         $this->markTestSkipped('Password updates are not enabled.');
     }
@@ -17,7 +17,8 @@ test('reset password link screen can be rendered', function () {
 
     $response->assertStatus(200);
 });
-test('reset password link can be requested', function () {
+
+test('reset password link can be requested', function (): void {
     if (! Features::enabled(Features::resetPasswords())) {
         $this->markTestSkipped('Password updates are not enabled.');
     }
@@ -32,7 +33,8 @@ test('reset password link can be requested', function () {
 
     Notification::assertSentTo($user, ResetPassword::class);
 });
-test('reset password screen can be rendered', function () {
+
+test('reset password screen can be rendered', function (): void {
     if (! Features::enabled(Features::resetPasswords())) {
         $this->markTestSkipped('Password updates are not enabled.');
     }
@@ -45,7 +47,7 @@ test('reset password screen can be rendered', function () {
         'email' => $user->email,
     ]);
 
-    Notification::assertSentTo($user, ResetPassword::class, function (object $notification) {
+    Notification::assertSentTo($user, ResetPassword::class, function (object $notification): bool {
         $response = $this->get('/reset-password/' . $notification->token);
 
         $response->assertStatus(200);
@@ -53,7 +55,8 @@ test('reset password screen can be rendered', function () {
         return true;
     });
 });
-test('password can be reset with valid token', function () {
+
+test('password can be reset with valid token', function (): void {
     if (! Features::enabled(Features::resetPasswords())) {
         $this->markTestSkipped('Password updates are not enabled.');
     }
@@ -66,7 +69,7 @@ test('password can be reset with valid token', function () {
         'email' => $user->email,
     ]);
 
-    Notification::assertSentTo($user, ResetPassword::class, function (object $notification) use ($user) {
+    Notification::assertSentTo($user, ResetPassword::class, function (object $notification) use ($user): bool {
         $response = $this->post('/reset-password', [
             'token'                 => $notification->token,
             'email'                 => $user->email,

@@ -7,7 +7,7 @@ use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('other browser sessions can be logged out', function () {
+test('other browser sessions can be logged out', function (): void {
     $this->actingAs($user = User::factory()->create());
 
     Livewire::test(LogoutOtherBrowserSessionsForm::class)

@@ -11,7 +11,7 @@ use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('api token permissions can be updated', function () {
+test('api token permissions can be updated', function (): void {
     if (! Features::hasApiFeatures()) {
         $this->markTestSkipped('API support is not enabled.');
     }

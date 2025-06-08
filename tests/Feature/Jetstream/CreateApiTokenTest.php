@@ -8,7 +8,7 @@ use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('api tokens can be created', function () {
+test('api tokens can be created', function (): void {
     if (! Features::hasApiFeatures()) {
         $this->markTestSkipped('API support is not enabled.');
     }

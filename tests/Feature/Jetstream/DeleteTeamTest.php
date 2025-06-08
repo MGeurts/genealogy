@@ -8,7 +8,7 @@ use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('teams can be deleted', function () {
+test('teams can be deleted', function (): void {
     $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
     $user->ownedTeams()->save($team = Team::factory()->make([
@@ -25,7 +25,8 @@ test('teams can be deleted', function () {
     expect($team->fresh())->toBeNull();
     expect($otherUser->fresh()->teams)->toHaveCount(0);
 });
-test('personal teams cant be deleted', function () {
+
+test('personal teams cant be deleted', function (): void {
     $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
     $component = Livewire::test(DeleteTeamForm::class, ['team' => $user->currentTeam])

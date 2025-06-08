@@ -7,7 +7,7 @@ use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('team member roles can be updated', function () {
+test('team member roles can be updated', function (): void {
     $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
     $user->currentTeam->users()->attach(
@@ -23,7 +23,8 @@ test('team member roles can be updated', function () {
         $user->currentTeam->fresh(), 'editor'
     ))->toBeTrue();
 });
-test('only team owner can update team member roles', function () {
+
+test('only team owner can update team member roles', function (): void {
     $user = User::factory()->withPersonalTeam()->create();
 
     $user->currentTeam->users()->attach(

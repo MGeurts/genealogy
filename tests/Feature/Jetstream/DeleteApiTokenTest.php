@@ -9,7 +9,7 @@ use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('api tokens can be deleted', function () {
+test('api tokens can be deleted', function (): void {
     if (! Features::hasApiFeatures()) {
         $this->markTestSkipped('API support is not enabled.');
     }

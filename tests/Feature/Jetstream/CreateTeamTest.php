@@ -7,7 +7,7 @@ use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('teams can be created', function () {
+test('teams can be created', function (): void {
     $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
     Livewire::test(CreateTeamForm::class)

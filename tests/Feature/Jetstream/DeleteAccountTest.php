@@ -8,7 +8,7 @@ use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('user accounts can be deleted', function () {
+test('user accounts can be deleted', function (): void {
     if (! Features::hasAccountDeletionFeatures()) {
         $this->markTestSkipped('Account deletion is not enabled.');
     }
@@ -23,7 +23,8 @@ test('user accounts can be deleted', function () {
 
     expect($user->deleted_at)->not->toBeNull();
 });
-test('correct password must be provided before account can be deleted', function () {
+
+test('correct password must be provided before account can be deleted', function (): void {
     if (! Features::hasAccountDeletionFeatures()) {
         $this->markTestSkipped('Account deletion is not enabled.');
     }

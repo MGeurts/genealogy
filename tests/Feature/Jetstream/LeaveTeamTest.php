@@ -7,7 +7,7 @@ use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('users can leave teams', function () {
+test('users can leave teams', function (): void {
     $user = User::factory()->withPersonalTeam()->create();
 
     $user->currentTeam->users()->attach(
@@ -21,7 +21,8 @@ test('users can leave teams', function () {
 
     expect($user->currentTeam->fresh()->users)->toHaveCount(0);
 });
-test('team owners cant leave their own team', function () {
+
+test('team owners cant leave their own team', function (): void {
     $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
     $component = Livewire::test(TeamMemberManager::class, ['team' => $user->currentTeam])

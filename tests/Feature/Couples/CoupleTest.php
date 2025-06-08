@@ -7,7 +7,7 @@ use App\Models\Person;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('a couple can be created with two people', function () {
+test('a couple can be created with two people', function (): void {
     $husband = Person::factory()->create();
     $wife    = Person::factory()->create();
 
@@ -22,7 +22,8 @@ test('a couple can be created with two people', function () {
         'person2_id' => $wife->id,
     ]);
 });
-test('a couple can be updated', function () {
+
+test('a couple can be updated', function (): void {
     $husband = Person::factory()->create();
     $wife    = Person::factory()->create();
 
@@ -41,7 +42,8 @@ test('a couple can be updated', function () {
         'is_married' => true,
     ]);
 });
-test('a couple can be deleted', function () {
+
+test('a couple can be deleted', function (): void {
     $husband = Person::factory()->create();
     $wife    = Person::factory()->create();
 

@@ -5,14 +5,15 @@ use App\Models\Person;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-test('a person can be created', function () {
+test('a person can be created', function (): void {
     $person = Person::factory()->create();
 
     $this->assertDatabaseHas('people', [
         'id' => $person->id,
     ]);
 });
-test('a person can be updated', function () {
+
+test('a person can be updated', function (): void {
     $person = Person::factory()->create();
 
     $person->update([
@@ -24,14 +25,16 @@ test('a person can be updated', function () {
         'firstname' => 'Updated',
     ]);
 });
-test('a person can be soft deleted', function () {
+
+test('a person can be soft deleted', function (): void {
     $person = Person::factory()->create();
 
     $person->delete();
 
     $this->assertSoftDeleted($person);
 });
-test('a person can be hard deleted', function () {
+
+test('a person can be hard deleted', function (): void {
     $person = Person::factory()->create();
 
     $person->forceDelete();
