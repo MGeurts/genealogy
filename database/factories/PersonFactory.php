@@ -23,8 +23,8 @@ class PersonFactory extends Factory
             'birthname'   => $this->faker->lastName,
             'nickname'    => $this->faker->userName,
             'sex'         => $this->faker->randomElement(['m', 'f']),
-            'gender_id'   => null, // Set if you have a genders table with seeded data
-            'father_id'   => null, // Set in seeders or tests for relations
+            'gender_id'   => null,
+            'father_id'   => null,
             'mother_id'   => null,
             'parents_id'  => null,
             'dob'         => $this->faker->optional()->date(),
@@ -42,14 +42,14 @@ class PersonFactory extends Factory
             'state'       => $this->faker->optional()->state(),
             'country'     => $this->faker->optional()->countryCode(),
             'phone'       => $this->faker->optional()->phoneNumber(),
-            'photo'       => null, // Can set to a fake image path
-            'team_id'     => null, // Set if you use teams
+            'photo'       => null,
+            'team_id'     => null,
         ];
     }
 
     public function withUser(User $user): static
     {
-        return $this->state(fn (array $attributes) => [
+        return $this->state(fn (array $attributes): array => [
             'team_id' => $user->currentTeam?->id,
         ]);
     }

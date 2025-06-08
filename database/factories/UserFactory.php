@@ -50,7 +50,7 @@ final class UserFactory extends Factory
      */
     public function unverified(): static
     {
-        return $this->state(fn (array $attributes) => [
+        return $this->state(fn (array $attributes): array => [
             'email_verified_at' => null,
         ]);
     }
@@ -66,7 +66,7 @@ final class UserFactory extends Factory
 
         return $this->has(
             Team::factory()
-                ->state(fn (array $attributes, User $user) => [
+                ->state(fn (array $attributes, User $user): array => [
                     'name'          => 'Team ' . $user->name,
                     'description'   => 'Personal Team',
                     'user_id'       => $user->id,

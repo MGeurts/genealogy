@@ -40,6 +40,7 @@ final class TreeSeeder extends Seeder
         $level++;
 
         if ($level <= $this->level_max) {
+            // Recursively create a child for this person
             $this->createPerson($person, $level);
         }
     }
