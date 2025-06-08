@@ -136,4 +136,12 @@ return [
 
     'under_construction' => 'In opbouw',
     'demonstration'      => 'Demonstratie',
+
+    'password_generator'  => 'Wachtwoordgenerator',
+    'password_length'     => 'Wachtwoordlengte',
+    'use_numbers'         => 'Gebruik cijfers',
+    'use_symbols'         => 'Gebruik symbolen',
+    'generate'            => 'Genereren',
+    'copy_to_clipboard'   => 'Kopiëren naar klembord',
+    'copied_to_clipboard' => 'Gekopieerd naar klembord!',
 ];

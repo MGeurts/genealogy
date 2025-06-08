@@ -136,4 +136,12 @@ return [
 
     'under_construction' => 'Under construction',
     'demonstration'      => 'Demonstration',
+
+    'password_generator'  => 'Password Generator',
+    'password_length'     => 'Password length',
+    'use_numbers'         => 'Use numbers',
+    'use_symbols'         => 'Use symbols',
+    'generate'            => 'Generate',
+    'copy_to_clipboard'   => 'Copy to clipboard',
+    'copied_to_clipboard' => 'Copied to clipboard!',
 ];

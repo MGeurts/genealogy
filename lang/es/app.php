@@ -111,4 +111,12 @@ return [
 
     'under_construction' => 'Bajo construcción',
     'demonstration'      => 'Demonstratión',
+
+    'password_generator'  => 'Generador de Contraseñas',
+    'password_length'     => 'Longitud de la contraseña',
+    'use_numbers'         => 'Usar números',
+    'use_symbols'         => 'Usar símbolos',
+    'generate'            => 'Generar',
+    'copy_to_clipboard'   => 'Copiar al portapapeles',
+    'copied_to_clipboard' => '¡Copiado al portapapeles!',
 ];

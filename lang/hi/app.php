@@ -107,4 +107,12 @@ return [
     'team_logbook'              => 'टीम लॉगबुक',
     'under_construction'        => 'निर्माणाधीन',
     'demonstration'             => 'प्रदर्शन',
+
+    'password_generator'  => 'पासवर्ड जनरेटर',
+    'password_length'     => 'पासवर्ड की लंबाई',
+    'use_numbers'         => 'संख्याएँ उपयोग करें',
+    'use_symbols'         => 'प्रतीकों का उपयोग करें',
+    'generate'            => 'जनरेट करें',
+    'copy_to_clipboard'   => 'क्लिपबोर्ड पर कॉपी करें',
+    'copied_to_clipboard' => 'क्लिपबोर्ड पर कॉपी किया गया!',
 ];

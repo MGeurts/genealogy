@@ -136,4 +136,12 @@ return [
 
     'under_construction' => '建设中',
     'demonstration'      => '示范',
+
+    'password_generator'  => '密码生成器',
+    'password_length'     => '密码长度',
+    'use_numbers'         => '使用数字',
+    'use_symbols'         => '使用符号',
+    'generate'            => '生成',
+    'copy_to_clipboard'   => '复制到剪贴板',
+    'copied_to_clipboard' => '已复制到剪贴板！',
 ];

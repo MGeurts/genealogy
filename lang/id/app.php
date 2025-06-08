@@ -89,7 +89,7 @@ return [
     // Messages
     'image_not_saved' => 'Tidak dapat menyimpan gambar',
 
-    'show_on_Maps' => 'Tampilkan di Google Maps',
+    'show_on_google_maps' => 'Tampilkan di Google Maps',
 
     'unsaved_changes' => 'Perubahan belum disimpan',
 
@@ -136,4 +136,12 @@ return [
 
     'under_construction' => 'Dalam Pengembangan',
     'demonstration'      => 'Demonstrasi',
+
+    'password_generator'  => 'Pembuat Kata Sandi',
+    'password_length'     => 'Panjang kata sandi',
+    'use_numbers'         => 'Gunakan angka',
+    'use_symbols'         => 'Gunakan simbol',
+    'generate'            => 'Hasilkan',
+    'copy_to_clipboard'   => 'Salin ke papan klip',
+    'copied_to_clipboard' => 'Disalin ke papan klip!',
 ];

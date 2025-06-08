@@ -136,4 +136,12 @@ return [
 
     'under_construction' => 'Yapım aşamasında',
     'demonstration'      => 'Demonstrasyon',
+
+    'password_generator'  => 'Şifre Oluşturucu',
+    'password_length'     => 'Şifre uzunluğu',
+    'use_numbers'         => 'Rakamları kullan',
+    'use_symbols'         => 'Sembolleri kullan',
+    'generate'            => 'Oluştur',
+    'copy_to_clipboard'   => 'Panoya kopyala',
+    'copied_to_clipboard' => 'Panoya kopyalandı!',
 ];
