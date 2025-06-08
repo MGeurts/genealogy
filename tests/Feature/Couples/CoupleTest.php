@@ -4,12 +4,17 @@ declare(strict_types=1);
 
 use App\Models\Couple;
 use App\Models\Person;
+use App\Models\User;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
 test('a couple can be created with two people', function (): void {
-    $husband = Person::factory()->create();
-    $wife    = Person::factory()->create();
+    $user = User::factory()->withPersonalTeam()->create();
+
+    $this->actingAs($user);
+
+    $husband = Person::factory()->withUser($user)->create();
+    $wife    = Person::factory()->withUser($user)->create();
 
     $couple = Couple::create([
         'person1_id' => $husband->id,
@@ -24,8 +29,12 @@ test('a couple can be created with two people', function (): void {
 });
 
 test('a couple can be updated', function (): void {
-    $husband = Person::factory()->create();
-    $wife    = Person::factory()->create();
+    $user = User::factory()->withPersonalTeam()->create();
+
+    $this->actingAs($user);
+
+    $husband = Person::factory()->withUser($user)->create();
+    $wife    = Person::factory()->withUser($user)->create();
 
     $couple = Couple::create([
         'person1_id' => $husband->id,
@@ -44,8 +53,12 @@ test('a couple can be updated', function (): void {
 });
 
 test('a couple can be deleted', function (): void {
-    $husband = Person::factory()->create();
-    $wife    = Person::factory()->create();
+    $user = User::factory()->withPersonalTeam()->create();
+
+    $this->actingAs($user);
+
+    $husband = Person::factory()->withUser($user)->create();
+    $wife    = Person::factory()->withUser($user)->create();
 
     $couple = Couple::create([
         'person1_id' => $husband->id,
