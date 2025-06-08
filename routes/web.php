@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 // -----------------------------------------------------------------------------------
 Route::controller(App\Http\Controllers\Front\PageController::class)->group(function (): void {
     Route::get('/', 'home')->name('home');
+    Route::get('password-generator', 'passwordGenerator')->name('password.generator');
     Route::get('about', 'about')->name('about');
     Route::get('help', 'help')->name('help');
 });

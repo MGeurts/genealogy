@@ -21,6 +21,11 @@ final class PageController extends Controller
         ]);
     }
 
+    public function passwordGenerator(): View
+    {
+        return view('front.password-generator');
+    }
+
     public function about(): View
     {
         $aboutFile = Jetstream::localizedMarkdownPath(app()->getLocale() . '/' . 'about.md');

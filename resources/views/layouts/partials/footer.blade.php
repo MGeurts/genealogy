@@ -53,6 +53,11 @@
                         {{ __('app.help') }}
                     </x-nav-link-footer>
                 </p>
+                <p class="mb-4">
+                    <x-nav-link-footer href="{{ route('password.generator') }}" :active="request()->routeIs('password.generator')">
+                        {{ __('app.password_generator') }}
+                    </x-nav-link-footer>
+                </p>
             </div>
 
             <!-- Impressum Section -->

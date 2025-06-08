@@ -224,6 +224,8 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     </ul>
 </p>
 
+<p>This application has a built-in <b>Password Generator</b> to help users build secure passwords.</p>
+
 ## Languages
 
 <ul>
