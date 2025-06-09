@@ -33,17 +33,25 @@
                         <div class="flex justify-between items-center">
                             <div class="font-mono break-all text-xl text-black">{{ $generatedPassword }}</div>
 
-                            <x-ts-button @click="
-                                        navigator.clipboard.writeText('{{ $generatedPassword }}');
-                                        copied = true;
-                                        setTimeout(() => copied = false, 1500);
-                                    " type="button" class="ml-8" title="{{ __('app.copy_to_clipboard') }}">
-                                <x-ts-icon icon="tabler.clipboard-copy" class="inline-block" />
+                            <x-ts-button @click="navigator.clipboard.writeText('{{ $generatedPassword }}'); copied = true; setTimeout(() => copied = false, 1500);" type="button" class="ml-8" title="{{ __('app.copy_to_clipboard') }}">
+                                <x-ts-icon icon="tabler.clipboard-copy" class="inline-block size-5" />
                             </x-ts-button>
                         </div>
+
+                        <x-slot:footer>
+                            <x-hr.normal class="my-2" />
+
+                            <div class="flex justify-between">
+                                {{-- Entropy badge --}}
+                                <x-ts-badge :text="$passwordEntropy" md class="ml-4" :color="$passwordColor"/>
+
+                                {{-- Password Strength badge --}}
+                                <x-ts-badge :text="__($passwordStrength)" md :color="$passwordColor"/>
+                            </div>
+                        </x-slot:footer>
                     </x-ts-alert>
 
-                    <div x-show="copied" x-transition class="absolute top-4 right-4 bg-green-600 text-white text-xs p-4 rounded">
+                    <div x-show="copied" x-transition class="absolute top-4 right-4 bg-green-600 text-white p-2 rounded">
                         {{ __('app.copied_to_clipboard') }}
                     </div>
                 </div>
