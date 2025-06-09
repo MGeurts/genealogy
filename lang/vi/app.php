@@ -144,9 +144,9 @@ return [
     'generate'             => 'Tạo',
     'copy_to_clipboard'    => 'Sao chép vào bảng tạm',
     'copied_to_clipboard'  => 'Đã sao chép vào bảng tạm!',
-    'password_very_weak'   => 'Rất Yếu',
+    'password_very_weak'   => 'Rất yếu',
     'password_weak'        => 'Yếu',
-    'password_moderate'    => 'Trung Bình',
+    'password_moderate'    => 'Trung bình',
     'password_strong'      => 'Mạnh',
-    'password_very_strong' => 'Rất Mạnh',
+    'password_very_strong' => 'Rất mạnh',
 ];

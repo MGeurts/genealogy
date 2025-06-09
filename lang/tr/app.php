@@ -144,9 +144,9 @@ return [
     'generate'             => 'Oluştur',
     'copy_to_clipboard'    => 'Panoya kopyala',
     'copied_to_clipboard'  => 'Panoya kopyalandı!',
-    'password_very_weak'   => 'Çok Zayıf',
+    'password_very_weak'   => 'Çok zayıf',
     'password_weak'        => 'Zayıf',
     'password_moderate'    => 'Orta',
     'password_strong'      => 'Güçlü',
-    'password_very_strong' => 'Çok Güçlü',
+    'password_very_strong' => 'Çok güçlü',
 ];

@@ -115,9 +115,9 @@ return [
     'generate'             => 'जनरेट करें',
     'copy_to_clipboard'    => 'क्लिपबोर्ड पर कॉपी करें',
     'copied_to_clipboard'  => 'क्लिपबोर्ड पर कॉपी किया गया!',
-    'password_very_weak'   => 'बहुत कमजोर',
+    'password_very_weak'   => 'बहुत कमजोर', ,
     'password_weak'        => 'कमजोर',
     'password_moderate'    => 'मध्यम',
     'password_strong'      => 'मजबूत',
-    'password_very_strong' => 'बहुत मजबूत',
+    'password_very_strong' => 'बहुत मज़बूत',
 ];

@@ -119,9 +119,9 @@ return [
     'generate'             => 'Générer',
     'copy_to_clipboard'    => 'Copier dans le presse-papiers',
     'copied_to_clipboard'  => 'Copié dans le presse-papiers !',
-    'password_very_weak'   => 'Très Faible',
+    'password_very_weak'   => 'Très faible',
     'password_weak'        => 'Faible',
     'password_moderate'    => 'Moyenne',
     'password_strong'      => 'Forte',
-    'password_very_strong' => 'Très Forte',
+    'password_very_strong' => 'Très forte',
 ];

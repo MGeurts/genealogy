@@ -144,9 +144,9 @@ return [
     'generate'             => 'Generieren',
     'copy_to_clipboard'    => 'In Zwischenablage kopieren',
     'copied_to_clipboard'  => 'In Zwischenablage kopiert!',
-    'password_very_weak'   => 'Sehr Schwach',
+    'password_very_weak'   => 'Sehr schwach',
     'password_weak'        => 'Schwach',
     'password_moderate'    => 'Mittel',
     'password_strong'      => 'Stark',
-    'password_very_strong' => 'Sehr Stark',
+    'password_very_strong' => 'Sehr stark',
 ];

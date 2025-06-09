@@ -144,9 +144,9 @@ return [
     'generate'             => 'Generate',
     'copy_to_clipboard'    => 'Copy to clipboard',
     'copied_to_clipboard'  => 'Copied to clipboard!',
-    'password_very_weak'   => 'Very Weak',
+    'password_very_weak'   => 'Very weak',
     'password_weak'        => 'Weak',
     'password_moderate'    => 'Moderate',
     'password_strong'      => 'Strong',
-    'password_very_strong' => 'Very Strong',
+    'password_very_strong' => 'Very strong',
 ];

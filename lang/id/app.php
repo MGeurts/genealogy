@@ -144,9 +144,9 @@ return [
     'generate'             => 'Hasilkan',
     'copy_to_clipboard'    => 'Salin ke papan klip',
     'copied_to_clipboard'  => 'Disalin ke papan klip!',
-    'password_very_weak'   => 'Sangat Lemah',
+    'password_very_weak'   => 'Sangat lemah',
     'password_weak'        => 'Lemah',
     'password_moderate'    => 'Sedang',
     'password_strong'      => 'Kuat',
-    'password_very_strong' => 'Sangat Kuat',
+    'password_very_strong' => 'Sangat kuat',
 ];
