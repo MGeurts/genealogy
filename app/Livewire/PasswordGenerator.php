@@ -12,7 +12,7 @@ use Livewire\Component;
 class PasswordGenerator extends Component
 {
     #[Validate('required|integer|min:6|max:128')]
-    public int $length = 22;
+    public int $length = 20;
 
     public bool $useNumbers = true;
 
