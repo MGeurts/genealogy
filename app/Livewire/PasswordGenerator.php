@@ -22,23 +22,28 @@ class PasswordGenerator extends Component
 
     public string $passwordStrength = '';
 
-    public float $passwordEntropy = 0;
+    public float $passwordEntropy = 0.00;
+
+    public float $estimatedEntropy = 0.00;
+
+    public float $shannonEntropy = 0.00;
 
     public string $passwordColor = 'red';
 
-    public float $estimatedEntropy = 0;
-
-    public float $shannonEntropy = 0;
-
-    // -----------------------------------------------------------------------
+    // ----------------------------------------------------------------------------------------------------------
+    // In this livewire component, there is no password input. We always generate passwords in a random way.
+    // Therefore the Estimated Entropy is always greater than the Shannon Entropy and the more accurate value.
+    // We leave the Shannon Entropy calculation here for educational purposes.
+    // In case we use a password input in the future, we can use this function to calculate the accurate entropy.
+    // ----------------------------------------------------------------------------------------------------------
     public function generate(): void
     {
         $this->validateOnly('length');
 
-        // -----------------------------------------------------------------------
+        // ----------------------------------------------------------------------------------------
         // You could instead use str::password() if you want to use the built-in Laravel function,
         // but this function allows for more customization, such as specifiing the allowed symbols.
-        // -----------------------------------------------------------------------
+        // ----------------------------------------------------------------------------------------
         $this->generatedPassword = $this->password(
             length: $this->length,
             letters: true,
@@ -51,7 +56,6 @@ class PasswordGenerator extends Component
 
         $this->passwordStrength = $entropyData['strength'];
         $this->passwordEntropy  = $entropyData['entropy'];
-
         $this->estimatedEntropy = $entropyData['estimated_entropy'];
         $this->shannonEntropy   = $entropyData['shannon_entropy'];
 
@@ -78,6 +82,7 @@ class PasswordGenerator extends Component
         ];
     }
 
+    // -----------------------------------------------------------------------
     private function password($length = 32, $letters = true, $numbers = true, $symbols = true, $spaces = false): string
     {
         $password = new Collection();
@@ -110,13 +115,6 @@ class PasswordGenerator extends Component
             $options->pipe(fn ($chars) => Collection::times($length, fn () => $chars[random_int(0, $chars->count() - 1)]))
         )->shuffle()->implode('');
     }
-
-    // -----------------------------------------------------------------------
-    // In this livewire component, there is no password input. We always generate passwords in a random way.
-    // Therefore the estimated entropy is always (greater) than the shannon entropy and the more accurate value.
-    // We leave the shannon entropy calculation here for educational purposes, but it is not used in the UI.
-    // In case we use a password input in the future, we can use this function to calculate the entropy.
-    // -----------------------------------------------------------------------
 
     private function evaluatePasswordStrength(string $password): array
     {
@@ -177,7 +175,7 @@ class PasswordGenerator extends Component
             $charCounts[$char] = ($charCounts[$char] ?? 0) + 1;
         }
 
-        $entropy   = 0.0;
+        $entropy   = 0.00;
         $invLength = 1 / $length;
 
         foreach ($charCounts as $count) {

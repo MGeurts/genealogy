@@ -33,7 +33,7 @@
                         <div class="flex justify-between items-center">
                             <div class="font-mono break-all text-xl text-black">{{ $generatedPassword }}</div>
 
-                            <x-ts-button @click="navigator.clipboard.writeText('{{ $generatedPassword }}'); copied = true; setTimeout(() => copied = false, 1500);" type="button" class="ml-8" title="{{ __('app.copy_to_clipboard') }}">
+                            <x-ts-button color="secondary" @click="navigator.clipboard.writeText('{{ $generatedPassword }}'); copied = true; setTimeout(() => copied = false, 1500);" type="button" class="ml-8" title="{{ __('app.copy_to_clipboard') }}">
                                 <x-ts-icon icon="tabler.clipboard-copy" class="inline-block" />
                             </x-ts-button>
                         </div>
@@ -43,8 +43,10 @@
 
                             <div class="flex justify-between">
                                 {{-- Entropy badges --}}
-                                <x-ts-badge :text="$estimatedEntropy" md :color="$passwordColor" />
-                                <x-ts-badge :text="$shannonEntropy" md :color="$passwordColor" />
+                                <div>
+                                    <x-ts-badge :text="$estimatedEntropy" md :color="$passwordColor" />
+                                    <x-ts-badge :text="$shannonEntropy" md :color="$passwordColor" />
+                                </div>
 
                                 {{-- Password Strength badge --}}
                                 <x-ts-badge :text="__($passwordStrength)" md :color="$passwordColor"/>
@@ -52,14 +54,14 @@
                         </x-slot:footer>
                     </x-ts-alert>
 
-                    <div x-show="copied" x-transition class="absolute top-4 right-4 bg-green-600 text-white p-2 rounded">
+                    <div x-show="copied" x-transition class="absolute top-4 right-4 bg-cyan-600 text-white p-2 rounded">
                         {{ __('app.copied_to_clipboard') }}
                     </div>
                 </div>
             @endif
 
             <div class="flex items-center justify-end p-4 rounded-b">
-                <x-ts-button type="submit" color="primary">
+                <x-ts-button type="submit">
                     {{ __('app.generate') }}
                 </x-ts-button>
             </div>
