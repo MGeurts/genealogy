@@ -26,9 +26,9 @@ class PasswordGenerator extends Component
 
     public string $passwordColor = 'red';
 
-    // Optional: expose these if needed in the Blade view
-    // public float $estimatedEntropy = 0;
-    // public float $shannonEntropy = 0;
+    public float $estimatedEntropy = 0;
+
+    public float $shannonEntropy = 0;
 
     // -----------------------------------------------------------------------
     public function generate(): void
@@ -47,14 +47,13 @@ class PasswordGenerator extends Component
             spaces: false // Spaces are not included by default, but you can add an option for it if needed.
         );
 
-        $entropyData = $this->calculateCombinedEntropy($this->generatedPassword);
+        $entropyData = $this->evaluatePasswordStrength($this->generatedPassword);
 
         $this->passwordStrength = $entropyData['strength'];
         $this->passwordEntropy  = $entropyData['entropy'];
 
-        // Optional: expose these if needed
-        // $this->estimatedEntropy = $entropyData['estimated_entropy'];
-        // $this->shannonEntropy   = $entropyData['shannon_entropy'];
+        $this->estimatedEntropy = $entropyData['estimated_entropy'];
+        $this->shannonEntropy   = $entropyData['shannon_entropy'];
 
         $this->passwordColor = match ($this->passwordStrength) {
             'app.password_very_strong' => 'green',
@@ -79,19 +78,6 @@ class PasswordGenerator extends Component
         ];
     }
 
-    // -----------------------------------------------------------------------
-    // Generates a random password based on the specified criteria.
-    //
-    // @param int $length The desired length of the password.
-    // @param bool $letters Whether to include letters in the password.
-    // @param bool $numbers Whether to include numbers in the password.
-    // @param bool $symbols Whether to include symbols in the password.
-    // @param bool $spaces Whether to include spaces in the password.
-    //
-    // @return string The generated password.
-    // @throws \InvalidArgumentException If the length is less than 6 or greater than 128.
-    // @throws \Exception If an error occurs during random number generation.
-    // -----------------------------------------------------------------------
     private function password($length = 32, $letters = true, $numbers = true, $symbols = true, $spaces = false): string
     {
         $password = new Collection();
@@ -125,22 +111,39 @@ class PasswordGenerator extends Component
         )->shuffle()->implode('');
     }
 
-    private function calculateCombinedEntropy(string $password): array
+    // -----------------------------------------------------------------------
+    // In this livewire component, there is no password input. We always generate passwords in a random way.
+    // Therefore the estimated entropy is always (greater) than the shannon entropy and the more accurate value.
+    // We leave the shannon entropy calculation here for educational purposes, but it is not used in the UI.
+    // In case we use a password input in the future, we can use this function to calculate the entropy.
+    // -----------------------------------------------------------------------
+
+    private function evaluatePasswordStrength(string $password): array
     {
-        $length = mb_strlen($password, 'UTF-8');
+        $estimated = $this->calculateEstimatedEntropy($password);
+        $shannon   = $this->calculateShannonEntropy($password);
+        $final     = max($estimated, $shannon);
 
-        // Prevents division by zero.
-        if ($length === 0) {
-            return [
-                'strength'          => 'app.password_very_weak',
-                'entropy'           => 0.00,
-                'estimated_entropy' => 0.00,
-                'shannon_entropy'   => 0.00,
-            ];
-        }
+        $strength = match (true) {
+            $final >= 128 => 'app.password_very_strong',
+            $final >= 80  => 'app.password_strong',
+            $final >= 60  => 'app.password_moderate',
+            $final >= 36  => 'app.password_weak',
+            default       => 'app.password_very_weak',
+        };
 
-        // --- Estimated Entropy by Character Pool ---
+        return [
+            'strength'          => $strength,
+            'entropy'           => $final,
+            'estimated_entropy' => $estimated,
+            'shannon_entropy'   => $shannon,
+        ];
+    }
+
+    private function calculateEstimatedEntropy(string $password): float
+    {
         $poolSize = 0;
+
         if (preg_match('/[a-z]/', $password)) {
             $poolSize += 26;
         }
@@ -151,44 +154,37 @@ class PasswordGenerator extends Component
             $poolSize += 10;
         }
         if (preg_match('/[^a-zA-Z0-9]/', $password)) {
-            $poolSize += 26; // Assuming symbols are from a set of 26 common symbols as in the password function above
+            $poolSize += 26; // Adjust if your symbol set is different
         }
 
-        $estimatedEntropy = ($poolSize > 0)
+        $length = mb_strlen($password, 'UTF-8');
+
+        return ($poolSize > 0)
             ? round($length * log($poolSize, 2), 2)
             : 0.00;
+    }
 
-        // --- Shannon Entropy ---
+    private function calculateShannonEntropy(string $password): float
+    {
+        $length = mb_strlen($password, 'UTF-8');
+        if ($length === 0) {
+            return 0.00;
+        }
+
         $charCounts = [];
         for ($i = 0; $i < $length; $i++) {
-            $char                                                                 = mb_substr($password, $i, 1, 'UTF-8');
-            isset($charCounts[$char]) ? ++$charCounts[$char] : $charCounts[$char] = 1;
+            $char              = mb_substr($password, $i, 1, 'UTF-8');
+            $charCounts[$char] = ($charCounts[$char] ?? 0) + 1;
         }
 
-        $shannonEntropy = 0.00;
-        $invLength      = 1 / $length;
+        $entropy   = 0.0;
+        $invLength = 1 / $length;
+
         foreach ($charCounts as $count) {
             $p = $count * $invLength;
-            $shannonEntropy -= $p * log($p, 2);
+            $entropy -= $p * log($p, 2);
         }
-        $shannonEntropy = round($shannonEntropy * $length, 2);
 
-        // --- Final Entropy: Take the maximum ---
-        $finalEntropy = max($estimatedEntropy, $shannonEntropy);
-
-        $strength = match (true) {
-            $finalEntropy >= 128 => 'app.password_very_strong',
-            $finalEntropy >= 80  => 'app.password_strong',
-            $finalEntropy >= 60  => 'app.password_moderate',
-            $finalEntropy >= 36  => 'app.password_weak',
-            default              => 'app.password_very_weak',
-        };
-
-        return [
-            'strength'          => $strength,
-            'entropy'           => $finalEntropy,
-            'estimated_entropy' => $estimatedEntropy,
-            'shannon_entropy'   => $shannonEntropy,
-        ];
+        return round($entropy * $length, 2);
     }
 }

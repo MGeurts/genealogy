@@ -14,7 +14,7 @@
 
                 <div class="grid grid-cols-6 gap-5">
                     <div class="col-span-6">
-                        <x-ts-input label="{{ __('app.password_length') }} *" type="number" wire:model="length" min="6" max="128" />
+                        <x-ts-input label="{{ __('app.password_length') }} : *" type="number" wire:model="length" min="6" max="128" />
                     </div>
 
                     <div class="col-span-3">
@@ -34,7 +34,7 @@
                             <div class="font-mono break-all text-xl text-black">{{ $generatedPassword }}</div>
 
                             <x-ts-button @click="navigator.clipboard.writeText('{{ $generatedPassword }}'); copied = true; setTimeout(() => copied = false, 1500);" type="button" class="ml-8" title="{{ __('app.copy_to_clipboard') }}">
-                                <x-ts-icon icon="tabler.clipboard-copy" class="inline-block size-5" />
+                                <x-ts-icon icon="tabler.clipboard-copy" class="inline-block" />
                             </x-ts-button>
                         </div>
 
@@ -42,8 +42,9 @@
                             <x-hr.normal class="my-2" />
 
                             <div class="flex justify-between">
-                                {{-- Entropy badge --}}
-                                <x-ts-badge :text="$passwordEntropy" md class="ml-4" :color="$passwordColor"/>
+                                {{-- Entropy badges --}}
+                                <x-ts-badge :text="$estimatedEntropy" md :color="$passwordColor" />
+                                <x-ts-badge :text="$shannonEntropy" md :color="$passwordColor" />
 
                                 {{-- Password Strength badge --}}
                                 <x-ts-badge :text="__($passwordStrength)" md :color="$passwordColor"/>

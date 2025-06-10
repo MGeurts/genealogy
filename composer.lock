@@ -5886,16 +5886,16 @@
         },
         {
             "name": "secondnetwork/blade-tabler-icons",
-            "version": "v3.33.0",
+            "version": "v3.34.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/secondnetwork/blade-tabler-icons.git",
-                "reference": "523b3ede493ce9f8cbe3a5bdce21769976a80b28"
+                "reference": "e48c0a5a53798d42c7beff760de8cbc7dbbccff4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/secondnetwork/blade-tabler-icons/zipball/523b3ede493ce9f8cbe3a5bdce21769976a80b28",
-                "reference": "523b3ede493ce9f8cbe3a5bdce21769976a80b28",
+                "url": "https://api.github.com/repos/secondnetwork/blade-tabler-icons/zipball/e48c0a5a53798d42c7beff760de8cbc7dbbccff4",
+                "reference": "e48c0a5a53798d42c7beff760de8cbc7dbbccff4",
                 "shasum": ""
             },
             "require": {
@@ -5938,9 +5938,9 @@
             ],
             "support": {
                 "issues": "https://github.com/secondnetwork/blade-tabler-icons/issues",
-                "source": "https://github.com/secondnetwork/blade-tabler-icons/tree/v3.33.0"
+                "source": "https://github.com/secondnetwork/blade-tabler-icons/tree/v3.34.0"
             },
-            "time": "2025-05-17T06:28:48+00:00"
+            "time": "2025-06-09T08:41:55+00:00"
         },
         {
             "name": "spatie/color",
@@ -9248,16 +9248,16 @@
         },
         {
             "name": "tallstackui/tallstackui",
-            "version": "v2.8.2",
+            "version": "v2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tallstackui/tallstackui.git",
-                "reference": "f5aa18fc301974674771063514902e54ef83b7a7"
+                "reference": "e74681f69c7d825d799323518c2c6819fcbab7f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/f5aa18fc301974674771063514902e54ef83b7a7",
-                "reference": "f5aa18fc301974674771063514902e54ef83b7a7",
+                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/e74681f69c7d825d799323518c2c6819fcbab7f6",
+                "reference": "e74681f69c7d825d799323518c2c6819fcbab7f6",
                 "shasum": ""
             },
             "require": {
@@ -9312,7 +9312,7 @@
             "description": "TallStackUI is a powerful suite of Blade components that elevate your workflow of Livewire applications.",
             "support": {
                 "issues": "https://github.com/tallstackui/tallstackui/issues",
-                "source": "https://github.com/tallstackui/tallstackui/tree/v2.8.2"
+                "source": "https://github.com/tallstackui/tallstackui/tree/v2.9.0"
             },
             "funding": [
                 {
@@ -9320,7 +9320,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-05-27T15:08:58+00:00"
+            "time": "2025-06-09T16:53:22+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

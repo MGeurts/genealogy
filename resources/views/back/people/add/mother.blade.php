@@ -5,7 +5,7 @@
 <x-app-layout>
     <x-slot name="heading">
         {{ $person->name }}
-        <x-ts-icon icon="tabler.arrow-right-circle" class="inline-block size-5" alt="Arrow Icon" />
+        <x-ts-icon icon="tabler.arrow-right-circle" class="inline-block" alt="Arrow Icon" />
         {{ __('person.add_mother') }}
     </x-slot>
 

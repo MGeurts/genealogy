@@ -63,27 +63,27 @@
                             {{ $couple->person_1->name }}
                         </x-link>
 
-                        <x-ts-icon icon="tabler.{{ $couple->person_1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="tabler.{{ $couple->person_1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
                     @else
                         <x-link href="/people/{{ $couple->person_2->id }}" @class(['text-red-600 dark:text-red-400' => $couple->person_2->isDeceased()])>
                             {{ $couple->person_2->name }}
                         </x-link>
 
-                        <x-ts-icon icon="tabler.{{ $couple->person_2->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="tabler.{{ $couple->person_2->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
                     @endif
 
                     @if ($couple->is_married)
-                        <x-ts-icon icon="tabler.circles-relation" class="inline-block text-yellow-500 size-5" />
+                        <x-ts-icon icon="tabler.circles-relation" class="inline-block text-yellow-500" />
                     @endif
                     <br />
 
                     <p>
-                        <x-ts-icon icon="tabler.hearts" class="inline-block size-5 text-emerald-600" />
+                        <x-ts-icon icon="tabler.hearts" class="inline-block text-emerald-600" />
                         {{ $couple->date_start ? $couple->date_start->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '??' }}
 
                         @if ($couple->date_end or $couple->has_ended)
                             <br />
-                            <x-ts-icon icon="tabler.hearts-off" class="inline-block size-5 text-red-600 dark:text-red-400" />
+                            <x-ts-icon icon="tabler.hearts-off" class="inline-block text-red-600 dark:text-red-400" />
                             {{ $couple->date_end ? $couple->date_end->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '??' }}
                         @endif
                     </p>

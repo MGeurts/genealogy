@@ -94,7 +94,7 @@
                     <td class="pr-2 border-r-2">{{ __('person.sex') }} ({{ __('person.biological') }})</td>
                     <td class="pl-2">
                         {{ $person->sex === 'm' ? __('app.male') : __('app.female') }}
-                        <x-ts-icon icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
                     </td>
                 </tr>
                 <tr class="align-top border-b-2">
@@ -107,7 +107,7 @@
                     <td class="pl-2">
                         {{ $person->birth_formatted }}
                         @if ($person->isBirthdayToday())
-                            <x-ts-icon icon="tabler.cake" class="inline-block size-5 text-red-600 dark:text-red-400" />
+                            <x-ts-icon icon="tabler.cake" class="inline-block text-red-600 dark:text-red-400" />
                         @endif
                     </td>
                 </tr>
@@ -122,7 +122,7 @@
                         <td class="pl-2">
                             {{ $person->death_formatted }}
                             @if ($person->isDeathdayToday())
-                                <x-ts-icon icon="tabler.cake" class="inline-block size-5 text-red-600 dark:text-red-400" />
+                                <x-ts-icon icon="tabler.cake" class="inline-block text-red-600 dark:text-red-400" />
                             @endif
                         </td>
                     </tr>
