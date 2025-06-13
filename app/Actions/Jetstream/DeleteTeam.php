@@ -24,7 +24,7 @@ final class DeleteTeam implements DeletesTeams
             }
         }
 
-        $user = Auth()->user();
+        $user = auth()->user();
 
         // If the user is currently on this team, switch to another team if available
         if ($user && $user->current_team_id === $team->id) {

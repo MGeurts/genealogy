@@ -58,7 +58,7 @@ final class Importteam extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->user = Auth()->user();
+        $this->user = auth()->user();
     }
 
     public function importteam(): void

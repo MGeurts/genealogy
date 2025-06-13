@@ -5,19 +5,19 @@
             {{-- header --}}
             <div class="flex flex-wrap mb-2 text-lg">
                 <div class="flex-1 grow max-w-full">
-                    @if (Auth()->user()->is_developer)
+                    @if (auth()->user()->is_developer)
                         {!! __('app.people_search', [
                             'scope' => strtoupper(__('team.all_teams')),
                         ]) !!}
                     @else
                         {!! __('app.people_search', [
-                            'scope' => Auth()->user()->currentTeam->name,
+                            'scope' => auth()->user()->currentTeam->name,
                         ]) !!}
                     @endif
                 </div>
 
                 <div class="flex-1 grow max-w-full text-center">
-                    @if (Auth()->user()->hasPermission('person:create'))
+                    @if (auth()->user()->hasPermission('person:create'))
                         {{-- add button --}}
                         <x-ts-button href="/people/add" color="emerald" class="text-sm">
                             <x-ts-icon icon="tabler.user-plus" class="size-5" />
@@ -31,13 +31,13 @@
                         {!! __('app.people_found', [
                             'found' => $people->total(),
                             'total' => $people_db,
-                            'scope' => Auth()->user()->is_developer ? strtoupper(__('team.all_teams')) : Auth()->user()->currentTeam->name,
+                            'scope' => auth()->user()->is_developer ? strtoupper(__('team.all_teams')) : auth()->user()->currentTeam->name,
                             'keyword' => $search,
                         ]) !!}
                     @else
                         {!! __('app.people_available', [
                             'total' => $people_db,
-                            'scope' => Auth()->user()->is_developer ? strtoupper(__('team.all_teams')) : Auth()->user()->currentTeam->name,
+                            'scope' => auth()->user()->is_developer ? strtoupper(__('team.all_teams')) : auth()->user()->currentTeam->name,
                         ]) !!}
                     @endif
                 </div>

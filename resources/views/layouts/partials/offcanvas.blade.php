@@ -1,6 +1,6 @@
 <x-ts-slide id="offcanvas" size="sm" blur>
     @php
-        $user = Auth()->user();
+        $user = auth()->user();
         $currentTeam = $user?->currentTeam;
         $role = $user?->teamRole($currentTeam);
         $permissions = $user?->teamPermissions($currentTeam);

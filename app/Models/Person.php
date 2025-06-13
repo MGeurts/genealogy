@@ -130,7 +130,7 @@ final class Person extends Model implements HasMedia
 
     public function tapActivity(Activity $activity, string $eventName): void
     {
-        $activity->team_id = Auth()->user()?->currentTeam?->id ?? null;
+        $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -210,7 +210,7 @@ final class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     public function countFiles(): int
     {
-        return $this->getMedia('files') ? $this->getMedia('files')->count() : 0;
+        return $this->getMedia('files')?->count() ?? 0;
     }
 
     public function countPhotos(): int
@@ -436,11 +436,11 @@ final class Person extends Model implements HasMedia
     protected static function booted(): void
     {
         self::addGlobalScope('team', function (Builder $builder): void {
-            if (Auth::guest() || Auth()->user()->is_developer) {
+            if (Auth::guest() || auth()->user()->is_developer) {
                 return;
             }
 
-            $builder->where('people.team_id', Auth()->user()->currentTeam->id);
+            $builder->where('people.team_id', auth()->user()->currentTeam->id);
         });
     }
 

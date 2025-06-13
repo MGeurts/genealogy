@@ -8,7 +8,7 @@
                 @endif
             </div>
 
-            @if (Auth()->user()->hasPermission('couple:create'))
+            @if (auth()->user()->hasPermission('couple:create'))
                 <div class="flex-1 grow min-w-max max-w-min text-end">
                     <x-ts-dropdown icon="tabler.menu-2" position="bottom-end">
                         <a href="/people/{{ $person->id }}/add-partner">
@@ -18,7 +18,7 @@
                             </x-ts-dropdown.items>
                         </a>
 
-                        @if (Auth()->user()->hasPermission('couple:update') and $person->couples->count() > 0)
+                        @if (auth()->user()->hasPermission('couple:update') and $person->couples->count() > 0)
                             <hr />
 
                             @foreach ($person->couples->sortBy('date_start') as $couple)
@@ -34,7 +34,7 @@
                             @endforeach
                         @endif
 
-                        @if (Auth()->user()->hasPermission('couple:delete') and $person->couples->count() > 0)
+                        @if (auth()->user()->hasPermission('couple:delete') and $person->couples->count() > 0)
                             <hr />
 
                             @foreach ($person->couples->sortBy('date_start') as $couple)

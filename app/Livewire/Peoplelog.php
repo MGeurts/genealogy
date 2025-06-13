@@ -17,7 +17,7 @@ final class Peoplelog extends Component
     {
         $this->logs = Activity::with('causer')
             ->where('log_name', 'person_couple')
-            ->where('team_id', Auth()->user()->currentTeam->id)
+            ->where('team_id', auth()->user()->currentTeam->id)
             ->where('updated_at', '>=', today()->startOfMonth()->subMonths(1))
             ->get()
             ->sortByDesc('updated_at')

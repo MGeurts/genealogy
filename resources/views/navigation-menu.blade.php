@@ -1,4 +1,6 @@
 <nav x-data="{ open: false }" class="border-b border-gray-100 bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-200">
+    @php $user = auth()->user(); @endphp
+
     {{-- primary navigation menu --}}
     <div class="flex gap-5 px-2 min-h-16">
         <div class="flex grow gap-5">
@@ -45,13 +47,13 @@
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <button class="flex text-sm transition border-2 border-transparent rounded-full focus:outline-hidden focus:border-gray-300">
-                                    <img class="object-cover w-8 h-8 rounded-full" src="{{ Auth()->user()->profile_photo_url }}" alt="{{ Auth()->user()->name }}" title="{{ Auth()->user()->name }}" />
+                                    <img class="object-cover w-8 h-8 rounded-full" src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}" title="{{ $user->name }}" />
                                 </button>
                             @else
                                 <span class="inline-flex rounded-sm">
-                                    <button type="button" title="{{ Auth()->user()->name }}"
+                                    <button type="button" title="{{ $user->name }}"
                                         class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-sm hover:text-gray-700 focus:outline-hidden focus:bg-gray-50 active:bg-gray-50">
-                                        {{ Auth()->user()->name }}
+                                        {{ $user->name }}
 
                                         <svg class="ml-2 -mr-0.5 size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -102,7 +104,7 @@
                                 <span class="inline-flex rounded-sm">
                                     <button type="button"
                                         class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-sm hover:text-gray-700 focus:outline-hidden focus:bg-gray-50 active:bg-gray-50">
-                                        {{ Auth()->user()->currentTeam->name }}
+                                        {{ $user->currentTeam->name }}
 
                                         <svg class="ml-2 -mr-0.5 size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
@@ -114,12 +116,12 @@
                             <x-slot name="content">
                                 <div class="w-80">
                                     {{-- teams switcher --}}
-                                    @if (Auth()->user()->allTeams()->count() > 1)
+                                    @if ($user->allTeams()->count() > 1)
                                         <div class="block px-4 py-2 text-xs text-gray-400">
                                             {{ __('team.switch') }}
                                         </div>
 
-                                        @foreach (Auth()->user()->allTeams() as $team)
+                                        @foreach ($user->allTeams() as $team)
                                             <x-switchable-team :team="$team" />
                                         @endforeach
 
@@ -132,7 +134,7 @@
                                     </div>
 
                                     {{-- teams settings --}}
-                                    <x-dropdown-link href="{{ route('teams.show', Auth()->user()->currentTeam->id) }}">
+                                    <x-dropdown-link href="{{ route('teams.show', $user->currentTeam->id) }}">
                                         <x-ts-icon icon="tabler.droplet-cog" class="inline-block mr-1" />
                                         {{ __('team.settings') }}
                                     </x-dropdown-link>
@@ -253,13 +255,13 @@
                 <div class="flex items-center px-4">
                     @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                         <div class="mr-3 shrink-0">
-                            <img class="object-cover w-10 h-10 rounded-full" src="{{ Auth()->user()->profile_photo_url }}" alt="{{ Auth()->user()->name }}" />
+                            <img class="object-cover w-10 h-10 rounded-full" src="{{ $user->profile_photo_url }}" alt="{{ $user->name }}" />
                         </div>
                     @endif
 
                     <div>
-                        <div class="text-base font-medium text-gray-800 dark:text-gray-400">{{ Auth()->user()->name }}</div>
-                        <div class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ Auth()->user()->email }}</div>
+                        <div class="text-base font-medium text-gray-800 dark:text-gray-400">{{ $user->name }}</div>
+                        <div class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ $user->email }}</div>
                     </div>
                 </div>
 
@@ -288,14 +290,14 @@
                     </form>
 
                     {{-- team switcher --}}
-                    @if (Auth()->user()->allTeams()->count() > 1)
+                    @if ($user->allTeams()->count() > 1)
                         <div class="border-t border-gray-200"></div>
 
                         <div class="block px-4 py-2 text-xs text-gray-400">
                             {{ __('team.switch') }}
                         </div>
 
-                        @foreach (Auth()->user()->allTeams() as $team)
+                        @foreach ($user->allTeams() as $team)
                             <x-switchable-team :team="$team" component="nav-link-responsive" />
                         @endforeach
                     @endif
@@ -309,7 +311,7 @@
                         </div>
 
                         {{-- team settings --}}
-                        <x-nav-link-responsive href="{{ route('teams.show', Auth()->user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
+                        <x-nav-link-responsive href="{{ route('teams.show', $user->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
                             <x-ts-icon icon="tabler.droplet-cog" class="inline-block mr-1" />
                             {{ __('team.settings') }}
                         </x-nav-link-responsive>

@@ -36,7 +36,7 @@ final class Exportteam extends Component
 
     public function mount(): void
     {
-        $this->user = Auth()->user();
+        $this->user = auth()->user();
 
         $this->teamPersons = $this->user->currentTeam->persons->sortBy('name')->values();
         $this->teamCouples = $this->user->currentTeam->couples->sortBy('name')->values();

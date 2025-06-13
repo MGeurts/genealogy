@@ -122,7 +122,7 @@ final class User extends Authenticatable
 
     public function tapActivity(Activity $activity, string $eventName): void
     {
-        $activity->team_id = Auth()->user()?->currentTeam?->id ?? null;
+        $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
     }
 
     /* -------------------------------------------------------------------------------------------- */

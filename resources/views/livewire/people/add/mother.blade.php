@@ -23,7 +23,7 @@
         </x-ts-tab>
     </form>
 
-    @if (Auth()->user()->currentTeam->personal_team)
+    @if (auth()->user()->currentTeam->personal_team)
         @include('livewire.people.partials.caution-personal-team')
     @endif
 </div>

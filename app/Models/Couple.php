@@ -78,7 +78,7 @@ final class Couple extends Model
 
     public function tapActivity(Activity $activity, string $eventName): void
     {
-        $activity->team_id = Auth()->user()?->currentTeam?->id ?? null;
+        $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -141,16 +141,16 @@ final class Couple extends Model
     {
         self::addGlobalScope('team', function (Builder $builder): void {
             // Skip if the user is a guest
-            if (Auth()->guest()) {
+            if (auth()->guest()) {
                 return;
             }
 
             // Apply team scope if the user is not a developer
-            if (Auth()->user()->is_developer) {
+            if (auth()->user()->is_developer) {
                 return;
             }
 
-            $builder->where('couples.team_id', Auth()->user()->currentTeam->id);
+            $builder->where('couples.team_id', auth()->user()->currentTeam->id);
         });
     }
 
