@@ -45,19 +45,12 @@ final class Children extends Component
     {
         $child = Person::findOrFail($child_id);
 
-        if ($this->person->sex === 'm') {
-            $child->update([
-                'father_id' => null,
-            ]);
-        } else {
-            $child->update([
-                'mother_id' => null,
-            ]);
-        }
+        $key = $this->person->sex === 'm' ? 'father_id' : 'mother_id';
+        $child->update([$key => null]);
 
         $this->toast()->success(__('app.disconnect'), $child->name . ' ' . __('app.disconnected') . '.')->flash()->send();
 
-        $this->redirect('/people/' . $this->person->id);
+        $this->redirect(route('people.show', $this->person->id));
     }
 
     // ------------------------------------------------------------------------------
