@@ -81,7 +81,7 @@ final class Family extends Component
     }
 
     // -----------------------------------------------------------------------
-    public function rules(): array
+    protected function rules(): array
     {
         return $rules = [
             'father_id'  => ['nullable', 'integer'],
@@ -90,12 +90,12 @@ final class Family extends Component
         ];
     }
 
-    public function messages(): array
+    protected function messages(): array
     {
         return [];
     }
 
-    public function validationAttributes(): array
+    protected function validationAttributes(): array
     {
         return [
             'father_id'  => __('person.father'),

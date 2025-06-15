@@ -69,7 +69,7 @@ final class Contact extends Component
     }
 
     // -----------------------------------------------------------------------
-    public function rules(): array
+    protected function rules(): array
     {
         return [
             'street'      => ['nullable', 'string', 'max:100'],
@@ -83,12 +83,12 @@ final class Contact extends Component
         ];
     }
 
-    public function messages(): array
+    protected function messages(): array
     {
         return [];
     }
 
-    public function validationAttributes(): array
+    protected function validationAttributes(): array
     {
         return [
             'street'      => __('person.street'),

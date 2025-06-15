@@ -29,33 +29,6 @@ final class Importteam extends Component
     public ?TemporaryUploadedFile $file = null;
 
     // -----------------------------------------------------------------------
-    public function rules(): array
-    {
-        return $rules = [
-            'name'        => ['required', 'string', 'max:255'],
-            'description' => ['nullable', 'string', 'max:255'],
-            'file'        => ['required', 'file'],
-        ];
-    }
-
-    public function messages(): array
-    {
-        return [
-            'file.required' => __('validation.required'),
-            'file.file'     => __('validation.required'),
-        ];
-    }
-
-    public function validationAttributes(): array
-    {
-        return [
-            'name'        => __('team.name'),
-            'description' => __('team.description'),
-            'file'        => __('gedcom.gedcom_file'),
-        ];
-    }
-
-    // -----------------------------------------------------------------------
     public function mount(): void
     {
         $this->user = auth()->user();
@@ -79,5 +52,32 @@ final class Importteam extends Component
     public function render(): View
     {
         return view('livewire.gedcom.importteam');
+    }
+
+    // -----------------------------------------------------------------------
+    protected function rules(): array
+    {
+        return $rules = [
+            'name'        => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string', 'max:255'],
+            'file'        => ['required', 'file'],
+        ];
+    }
+
+    protected function messages(): array
+    {
+        return [
+            'file.required' => __('validation.required'),
+            'file.file'     => __('validation.required'),
+        ];
+    }
+
+    protected function validationAttributes(): array
+    {
+        return [
+            'name'        => __('team.name'),
+            'description' => __('team.description'),
+            'file'        => __('gedcom.gedcom_file'),
+        ];
     }
 }

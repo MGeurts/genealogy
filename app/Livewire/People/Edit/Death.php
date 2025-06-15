@@ -77,7 +77,7 @@ final class Death extends Component
     }
 
     // ------------------------------------------------------------------------------
-    public function rules(): array
+    protected function rules(): array
     {
         return [
             'yod'                         => ['nullable', 'integer', 'min:1', 'max:' . date('Y'), new YodValid],
@@ -90,12 +90,12 @@ final class Death extends Component
         ];
     }
 
-    public function messages(): array
+    protected function messages(): array
     {
         return [];
     }
 
-    public function validationAttributes(): array
+    protected function validationAttributes(): array
     {
         return [
             'yod'                         => __('person.yod'),

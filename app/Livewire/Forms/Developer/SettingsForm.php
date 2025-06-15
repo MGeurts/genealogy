@@ -18,7 +18,7 @@ final class SettingsForm extends Form
     public bool $logAllQueriesNPlusOne = false;
 
     // -----------------------------------------------------------------------
-    public function rules(): array
+    protected function rules(): array
     {
         return $rules = [
             'log_all_queries'                => ['boolean'],
@@ -28,12 +28,12 @@ final class SettingsForm extends Form
         ];
     }
 
-    public function messages(): array
+    protected function messages(): array
     {
         return [];
     }
 
-    public function validationAttributes(): array
+    protected function validationAttributes(): array
     {
         return [
             'log_all_queries'                => __('settings.log_all_queries'),

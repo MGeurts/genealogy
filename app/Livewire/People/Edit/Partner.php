@@ -77,7 +77,7 @@ final class Partner extends Component
     }
 
     // -----------------------------------------------------------------------
-    public function rules(): array
+    protected function rules(): array
     {
         return $rules = [
             'person2_id' => ['required', 'integer', 'exists:people,id'],
@@ -88,12 +88,12 @@ final class Partner extends Component
         ];
     }
 
-    public function messages(): array
+    protected function messages(): array
     {
         return [];
     }
 
-    public function validationAttributes(): array
+    protected function validationAttributes(): array
     {
         return [
             'person2_id' => __('couple.partner'),
