@@ -16,11 +16,22 @@ final class Exportteam extends Component
 {
     use Interactions;
 
+    public const FORMATS = [
+        ['value' => 'gedcom', 'label' => 'GEDCOM'],
+        ['value' => 'zip', 'label' => 'ZIP'],
+        ['value' => 'zipmedia', 'label' => 'ZIP Includes Media'],
+        ['value' => 'gedzip', 'label' => 'GEDZIP Includes Media'],
+    ];
+
+    public const ENCODINGS = [
+        ['value' => 'utf8', 'label' => 'UTF-8'],
+        ['value' => 'unicode', 'label' => 'UNICODE (UTF16-BE)'],
+        ['value' => 'ansel', 'label' => 'ANSEL'],
+        ['value' => 'ascii', 'label' => 'ASCII'],
+        ['value' => 'ansi', 'label' => 'ANSI (CP1252)'],
+    ];
+
     public $user;
-
-    public array $formats = [];
-
-    public array $encodings = [];
 
     public string $filename;
 
@@ -41,26 +52,10 @@ final class Exportteam extends Component
         $this->teamPersons = $this->user->currentTeam->persons->sortBy('name')->values();
         $this->teamCouples = $this->user->currentTeam->couples->sortBy('name')->values();
 
-        $this->formats = [
-            ['value' => 'gedcom', 'label' => 'GEDCOM'],
-            ['value' => 'zip', 'label' => 'ZIP'],
-            ['value' => 'zipmedia', 'label' => 'ZIP ' . __('gedcom.includes_media')],
-            ['value' => 'gedzip', 'label' => 'GEDZIP ' . __('gedcom.includes_media')],
-        ];
-
-        $this->encodings = [
-            ['value' => 'utf8', 'label' => 'UTF-8'],
-            ['value' => 'unicode', 'label' => 'UNICODE (UTF16-BE)'],
-            ['value' => 'ansel', 'label' => 'ANSEL'],
-            ['value' => 'ascii', 'label' => 'ASCII'],
-            ['value' => 'ansi', 'label' => 'ANSI (CP1252)'],
-
-        ];
-
         $this->filename = Str::slug(($this->user->currentTeam->name) . '-' . now()->format('Y-m-d-H-i-s'));
     }
 
-    public function exportteam(): StreamedResponse
+    public function exportTeam(): StreamedResponse
     {
         $this->validate();
 
@@ -88,6 +83,35 @@ final class Exportteam extends Component
     // -----------------------------------------------------------------------
     public function render(): View
     {
-        return view('livewire.gedcom.exportteam');
+        return view('livewire.gedcom.exportteam', [
+            'formats'   => self::FORMATS,
+            'encodings' => self::ENCODINGS,
+        ]);
+    }
+
+    // ------------------------------------------------------------------------------
+    protected function rules(): array
+    {
+        return [
+            'filename'     => ['required', 'string', 'max:255', 'regex:/^[a-z0-9\-]+$/i'],
+            'format'       => ['required', 'string', 'in:' . collect(self::FORMATS)->pluck('value')->implode(',')],
+            'encoding'     => ['required', 'string', 'in:' . collect(self::ENCODINGS)->pluck('value')->implode(',')],
+            'line_endings' => ['required', 'string', 'in:windows,unix,mac'],
+        ];
+    }
+
+    protected function messages(): array
+    {
+        return [];
+    }
+
+    protected function validationAttributes(): array
+    {
+        return [
+            'filename'     => __('gedcom.filename'),
+            'format'       => __('gedcom.format'),
+            'encoding'     => __('gedcom.character_encoding'),
+            'line_endings' => __('gedcom.line_endings'),
+        ];
     }
 }

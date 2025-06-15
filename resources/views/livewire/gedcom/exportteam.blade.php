@@ -1,4 +1,4 @@
-<x-form-section submit="exportteam">
+<x-form-section submit="exportTeam">
     <x-slot name="title">
         <div class="dark:text-gray-400">
             {{ __('gedcom.export') }}
