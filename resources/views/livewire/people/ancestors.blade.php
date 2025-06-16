@@ -9,11 +9,11 @@
                     <div class="inline-flex ml-2 border rounded-sm" role="group">
                         @if ($count === $count_min)
                             <x-ts-button square xs color="red" class="border-0 rounded-l" wire:click="decrement" disabled>
-                                <x-ts-icon icon="tabler.minus" class="size-5" />
+                                <x-ts-icon icon="tabler.minus" class="inline-block size-5" />
                             </x-ts-button>
                         @else
                             <x-ts-button square xs color="secondary" class="border-0 rounded-l" wire:click="decrement">
-                                <x-ts-icon icon="tabler.minus" class="size-5" />
+                                <x-ts-icon icon="tabler.minus" class="inline-block size-5" />
                             </x-ts-button>
                         @endif
 
@@ -21,18 +21,18 @@
 
                         @if ($count === $count_max)
                             <x-ts-button square xs color="red" class="border-0 rounded-r" wire:click="increment" disabled>
-                                <x-ts-icon icon="tabler.plus" class="size-5" />
+                                <x-ts-icon icon="tabler.plus" class="inline-block size-5" />
                             </x-ts-button>
                         @else
                             <x-ts-button square xs color="secondary" class="border-0 rounded-r" wire:click="increment">
-                                <x-ts-icon icon="tabler.plus" class="size-5" />
+                                <x-ts-icon icon="tabler.plus" class="inline-block size-5" />
                             </x-ts-button>
                         @endif
                     </div>
                 </div>
 
                 <div class="flex-1 grow max-w-full min-w-max text-end">
-                    <x-ts-icon icon="tabler.binary-tree" class="inline-block rotate-180" />
+                    <x-ts-icon icon="tabler.binary-tree" class="inline-block size-5 rotate-180" />
                 </div>
             </div>
         </div>

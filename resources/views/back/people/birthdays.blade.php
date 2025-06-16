@@ -17,7 +17,7 @@
                         </div>
 
                         <div class="flex-1 grow min-w-max max-w-min text-end">
-                            <x-ts-icon icon="tabler.cake" />
+                            <x-ts-icon icon="tabler.cake" class="inline-block size-5" />
                         </div>
                     </div>
                 </div>
@@ -41,12 +41,10 @@
                                 <tr class="align-top transition duration-300 ease-in-out border-b hover:bg-neutral-100 dark:border-neutral-500 dark:hover:bg-neutral-600">
                                     <td class="p-2 whitespace-nowrap text-end">{{ $key + 1 }}.</td>
                                     <td class="p-2 whitespace-nowrap">
-                                        <x-link href="/people/{{ $person->id }}" @class([
-                                            'text-red-600 dark:text-red-400' => $person->isDeceased(),
-                                        ])>
+                                        <x-link href="/people/{{ $person->id }}" @class(['text-red-600 dark:text-red-400' => $person->isDeceased()])>
                                             {{ $person->name }}
                                         </x-link>
-                                        <x-ts-icon icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
+                                        <x-ts-icon icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                                     </td>
                                     <td class="p-2 whitespace-nowrap text-end">
                                         {{ $person->dob ? $person->dob->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '' }}
@@ -63,7 +61,7 @@
                                         @if ($person->isDeceased())
                                             <br />
                                             <span class="text-red-600 dark:text-red-400">
-                                                <x-ts-icon icon="tabler.coffin" class="inline-block mr-1" /> {{ $person->age }}
+                                                <x-ts-icon icon="tabler.coffin" class="inline-block size-5 mr-1" /> {{ $person->age }}
                                             </span>
                                         @endif
                                     </td>

@@ -81,7 +81,7 @@
 
     <x-slot name="actions">
         <x-ts-button type="submit" color="primary">
-            <x-ts-icon icon="tabler.download" class="inline-block" />
+            <x-ts-icon icon="tabler.download" class="inline-block size-5" />
             {{ __('app.download') }}
         </x-ts-button>
     </x-slot>

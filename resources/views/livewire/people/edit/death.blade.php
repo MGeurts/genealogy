@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="flex-1 grow max-w-full min-w-max text-end">
-                    <x-ts-icon icon="tabler.grave-2" class="inline-block" />
+                    <x-ts-icon icon="tabler.grave-2" class="inline-block size-5" />
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                     @if ($person->cemetery_google)
                         <a target="_blank" href="{{ $person->cemetery_google }}">
                             <x-ts-button color="cyan" class="p-2! mb-2 text-white" title="{{ __('app.show_on_google_maps') }}">
-                                <x-ts-icon icon="tabler.brand-google-maps" class="size-5" />
+                                <x-ts-icon icon="tabler.brand-google-maps" class="inline-block size-5" />
                             </x-ts-button>
                         </a>
                     @endif

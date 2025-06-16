@@ -15,7 +15,7 @@
                     <div class="grow min-w-max max-w-full flex-1">{{ __('app.session') }} object</div>
 
                     <div class="grow min-w-max max-w-full flex-1 text-end">
-                        <x-ts-icon icon="tabler.code" class="inline-block" />
+                        <x-ts-icon icon="tabler.code" class="inline-block size-5" />
                     </div>
                 </div>
             </div>

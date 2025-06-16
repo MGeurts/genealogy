@@ -10,7 +10,7 @@
             </div>
 
             <div class="flex-1 grow max-w-full min-w-max text-end">
-                <x-ts-icon icon="tabler.history" class="inline-block" />
+                <x-ts-icon icon="tabler.history" class="inline-block size-5" />
             </div>
         </div>
     </div>
@@ -29,48 +29,48 @@
                             @if ($log['event'] === 'updated' or $log['event'] === 'deleted')
                                 {{-- old values --}}
                                 @php
-                                    $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.old')]];
+            $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.old')]];
 
-                                    $rows = collect($log['properties_old'])
-                                        ->map(function ($value, $key) {
-                                            return [
-                                                'key' => $key,
-                                                'value' => $value,
-                                            ];
-                                        })
-                                        ->toArray();
+            $rows = collect($log['properties_old'])
+                ->map(function ($value, $key) {
+                    return [
+                        'key' => $key,
+                        'value' => $value,
+                    ];
+                })
+                ->toArray();
                                 @endphp
 
                                 <x-ts-table :$headers :$rows striped />
 
                                 {{-- new values --}}
                                 @php
-                                    $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.new')]];
+            $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.new')]];
 
-                                    $rows = collect($log['properties_new'])
-                                        ->map(function ($value, $key) {
-                                            return [
-                                                'key' => $key,
-                                                'value' => $value,
-                                            ];
-                                        })
-                                        ->toArray();
+            $rows = collect($log['properties_new'])
+                ->map(function ($value, $key) {
+                    return [
+                        'key' => $key,
+                        'value' => $value,
+                    ];
+                })
+                ->toArray();
                                 @endphp
 
                                 <x-ts-table :$headers :$rows striped />
                             @else
                                 {{-- values --}}
                                 @php
-                                    $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.value')]];
+            $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.value')]];
 
-                                    $rows = collect($log['properties'])
-                                        ->map(function ($value, $key) {
-                                            return [
-                                                'key' => $key,
-                                                'value' => $value,
-                                            ];
-                                        })
-                                        ->toArray();
+            $rows = collect($log['properties'])
+                ->map(function ($value, $key) {
+                    return [
+                        'key' => $key,
+                        'value' => $value,
+                    ];
+                })
+                ->toArray();
                                 @endphp
 
                                 <x-ts-table :$headers :$rows />

@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="flex-1 grow max-w-full min-w-max text-end">
-                        <x-ts-icon icon="tabler.settings" class="inline-block" />
+                        <x-ts-icon icon="tabler.settings" class="inline-block size-5" />
                     </div>
                 </div>
             </div>

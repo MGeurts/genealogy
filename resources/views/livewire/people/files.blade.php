@@ -14,7 +14,7 @@
                         @if (auth()->user()->hasPermission('person:update'))
                             <a href="/people/{{ $person->id }}/edit-files">
                                 <x-ts-dropdown.items>
-                                    <x-ts-icon icon="tabler.files" class="mr-2" />
+                                    <x-ts-icon icon="tabler.files" class="inline-block size-5 mr-2" />
                                     {{ __('person.edit_files') }}
                                 </x-ts-dropdown.items>
                             </a>
@@ -29,7 +29,7 @@
         <div class="flex flex-col w-full">
             @foreach ($files as $file)
                 @php
-                    $file_type = substr($file['file_name'], strpos($file['file_name'], '.') + 1);
+        $file_type = substr($file['file_name'], strpos($file['file_name'], '.') + 1);
                 @endphp
 
                 <div class="flex-1 grow p-2">

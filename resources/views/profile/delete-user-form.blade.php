@@ -37,7 +37,7 @@
         <x-ts-table :$headers :$rows striped>
             @interact('column_personal', $row)
                 @if ($row['personal'])
-                    <x-ts-icon icon="tabler.circle-check" class="size-5 text-emerald-600" />
+                    <x-ts-icon icon="tabler.circle-check" class="inline-block size-5 text-emerald-600" />
                 @endif
             @endinteract
         </x-ts-table>

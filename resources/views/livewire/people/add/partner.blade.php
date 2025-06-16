@@ -5,7 +5,7 @@
         <x-ts-tab selected="{{ $selectedTab }}" class="dark:bg-red-100">
             <x-ts-tab.items tab="{{ __('person.add_new_person_as_partner') }}">
                 <x-slot:left>
-                    <x-ts-icon name="tabler.user-plus" />
+                    <x-ts-icon name="tabler.user-plus" class="inline-block size-5"/>
                 </x-slot:left>
 
                 {{-- Add New Person UI --}}
@@ -14,7 +14,7 @@
 
             <x-ts-tab.items tab="{{ __('person.add_existing_person_as_partner') }}">
                 <x-slot:left>
-                    <x-ts-icon name="tabler.search" />
+                    <x-ts-icon name="tabler.search" class="inline-block size-5"/>
                 </x-slot:left>
 
                 {{-- Select Existing Person UI --}}

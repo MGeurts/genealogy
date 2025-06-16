@@ -21,13 +21,13 @@
 
                     <div class="flex-1 grow max-w-full text-center min-w-max">
                         <x-ts-button color="emerald" wire:click="create()" class="text-sm text-white">
-                            <x-ts-icon icon="tabler.circle-plus" class="size-5" />
+                            <x-ts-icon icon="tabler.circle-plus" class="inline-block size-5" />
                             {{ __('backup.create') }}
                         </x-ts-button>
                     </div>
 
                     <div class="flex-1 grow max-w-full min-w-max text-end">
-                        <x-ts-icon icon="tabler.archive" class="inline-block" />
+                        <x-ts-icon icon="tabler.archive" class="inline-block size-5" />
                     </div>
                 </div>
             </div>
@@ -47,12 +47,12 @@
                         </p>
 
                         <x-ts-button color="primary" class="mr-2 text-sm text-white" wire:click="download('{{ $backup['file_name'] }}')">
-                            <x-ts-icon icon="tabler.download" class="size-5" />
+                            <x-ts-icon icon="tabler.download" class="inline-block size-5" />
                             {{ __('backup.download') }}
                         </x-ts-button>
 
                         <x-ts-button color="red" class="text-sm text-white" wire:click="confirm('{{ $backup['file_name'] }}')">
-                            <x-ts-icon icon="tabler.trash" class="size-5" />
+                            <x-ts-icon icon="tabler.trash" class="inline-block size-5" />
                             {{ __('backup.delete') }}
                         </x-ts-button>
                     </div>

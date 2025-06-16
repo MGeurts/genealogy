@@ -10,7 +10,7 @@
             </div>
 
             <div class="flex-1 grow max-w-full min-w-max text-end">
-                <x-ts-icon icon="tabler.files" class="inline-block" />
+                <x-ts-icon icon="tabler.files" class="inline-block size-5" />
             </div>
         </div>
     </div>
@@ -76,13 +76,13 @@
                             <div class="w-full">
                                 @if ($file->order_column < count($files))
                                     <x-ts-button color="secondary" class="p-2!" title="{{ __('app.move_down') }}" wire:click="moveFile({{ $file->order_column }}, 'down')">
-                                        <x-ts-icon icon="tabler.arrow-move-down" class="size-5" />
+                                        <x-ts-icon icon="tabler.arrow-move-down" class="inline-block size-5" />
                                     </x-ts-button>
                                 @endif
 
                                 @if ($file->order_column > 1)
                                     <x-ts-button color="secondary" class="p-2!" title="{{ __('app.move_up') }}" wire:click="moveFile({{ $file->order_column }}, 'up')">
-                                        <x-ts-icon icon="tabler.arrow-move-up" class="size-5" />
+                                        <x-ts-icon icon="tabler.arrow-move-up" class="inline-block size-5" />
                                     </x-ts-button>
                                 @endif
                             </div>
@@ -90,13 +90,13 @@
                             {{ strtoupper($file_type) }}
 
                             <x-ts-button href="{{ $file->getUrl() }}" color="secondary" class="p-2!" title="{{ __('app.download') }}" download="{{ $file['name'] }}">
-                                <x-ts-icon icon="tabler.download" class="size-5" />
+                                <x-ts-icon icon="tabler.download" class="inline-block size-5" />
                             </x-ts-button>
 
                             <div class="text-end">{{ Number::fileSize($file['size'], 2) }}</div>
 
                             <x-ts-button color="red" class="p-2! text-white" title="{{ __('app.delete') }}" wire:click="deleteFile({{ $file->id }})">
-                                <x-ts-icon icon="tabler.trash" class="size-5" />
+                                <x-ts-icon icon="tabler.trash" class="inline-block size-5" />
                             </x-ts-button>
                         </x-slot:footer>
                     </x-ts-card>

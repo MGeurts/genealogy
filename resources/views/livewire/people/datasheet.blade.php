@@ -41,7 +41,7 @@
                 <td>{{ __('person.sex') }} :</td>
                 <td>
                     {{ $person->sex === 'm' ? __('app.male') : __('app.female') }}
-                    <x-ts-icon icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
+                    <x-ts-icon icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                 </td>
             </tr>
             <tr class="align-top">
@@ -94,7 +94,7 @@
                     <td>{{ __('person.cemetery') }} :</td>
                     <td class="break-words max-w-96">
                         @php
-                            $cemetery = array_filter([$person->getMetadataValue('cemetery_location_name'), $person->getMetadataValue('cemetery_location_address')]);
+    $cemetery = array_filter([$person->getMetadataValue('cemetery_location_name'), $person->getMetadataValue('cemetery_location_address')]);
                         @endphp
 
                         @foreach ($cemetery as $line)
@@ -155,7 +155,7 @@
                 <td>
                     @if ($person->father)
                         {{ $person->father->name }}
-                        <x-ts-icon icon="tabler.{{ $person->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
+                        <x-ts-icon icon="tabler.{{ $person->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                         {{ $person->father->birth_year }}
                     @endif
                 </td>
@@ -166,7 +166,7 @@
                 <td>
                     @if ($person->mother)
                         {{ $person->mother->name }}
-                        <x-ts-icon icon="tabler.{{ $person->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
+                        <x-ts-icon icon="tabler.{{ $person->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                         {{ $person->mother->birth_year }}
                     @endif
                 </td>
@@ -176,9 +176,9 @@
                 <td>{{ __('person.parents') }} :</td>
                 <td>
                     @if ($person->parents)
-                        {{ $person->parents->person_1->name }} <x-ts-icon icon="tabler.{{ $person->parents->person_1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
+                        {{ $person->parents->person_1->name }} <x-ts-icon icon="tabler.{{ $person->parents->person_1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                         {{ $person->parents->person_1->birth_year }}<br />
-                        {{ $person->parents->person_2->name }} <x-ts-icon icon="tabler.{{ $person->parents->person_2->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
+                        {{ $person->parents->person_2->name }} <x-ts-icon icon="tabler.{{ $person->parents->person_2->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                         {{ $person->parents->person_2->birth_year }}
                     @endif
                 </td>
@@ -189,7 +189,7 @@
                 <td>
                     @if ($person->currentPartner())
                         {{ $person->currentPartner()->name }}
-                        <x-ts-icon icon="tabler.{{ $person->currentPartner()->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
+                        <x-ts-icon icon="tabler.{{ $person->currentPartner()->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                         {{ $person->currentPartner()->birth_year }}
                     @endif
                 </td>
@@ -216,24 +216,24 @@
                         @if ($couple->person2_id === $person->id)
                             {{ $couple->person_1->name }}
 
-                            <x-ts-icon icon="tabler.{{ $couple->person_1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
+                            <x-ts-icon icon="tabler.{{ $couple->person_1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                         @else
                             {{ $couple->person_2->name }}
 
-                            <x-ts-icon icon="tabler.{{ $couple->person_2->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
+                            <x-ts-icon icon="tabler.{{ $couple->person_2->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                         @endif
 
                         @if ($couple->is_married)
-                            <x-ts-icon icon="tabler.circles-relation" class="inline-block text-yellow-500" />
+                            <x-ts-icon icon="tabler.circles-relation" class="inline-block size-5 text-yellow-500" />
                         @endif
                         <br />
 
-                        <x-ts-icon icon="tabler.hearts" class="inline-block text-emerald-600" />
+                        <x-ts-icon icon="tabler.hearts" class="inline-block size-5 text-emerald-600" />
                         {{ $couple->date_start ? $couple->date_start->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '??' }}
 
                         @if ($couple->date_end or $couple->has_ended)
                             <br />
-                            <x-ts-icon icon="tabler.hearts-off" class="inline-block text-red-600 dark:text-red-400" />
+                            <x-ts-icon icon="tabler.hearts-off" class="inline-block size-5 text-red-600 dark:text-red-400" />
                             {{ $couple->date_end ? $couple->date_end->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '??' }}
                         @endif
                     </td>
@@ -259,7 +259,7 @@
                     <td colspan="3">&nbsp;</td>
                     <td>
                         {{ $child->name }}
-                        <x-ts-icon icon="tabler.{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
+                        <x-ts-icon icon="tabler.{{ $child->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                         {{ $child->birth_year }}
                     </td>
                 </tr>
@@ -284,7 +284,7 @@
                     <td colspan="3">&nbsp;</td>
                     <td>
                         {{ $sibling->name }}
-                        <x-ts-icon icon="tabler.{{ $sibling->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
+                        <x-ts-icon icon="tabler.{{ $sibling->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                         {{ $sibling->birth_year }}
                         <span class="text-yellow-500">{{ $sibling->type }}</span>
                     </td>

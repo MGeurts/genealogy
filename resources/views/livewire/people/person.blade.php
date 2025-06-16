@@ -21,7 +21,7 @@
 
         <p>
             <x-link href="/people/{{ $person->id }}" @class(['text-red-600 dark:text-red-400' => $person->isDeceased()])>{{ $person->name }}</x-link>
-            <x-ts-icon icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
+            <x-ts-icon icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
         </p>
         <p>{{ __('person.birthname') }} : {{ $person->birthname ? $person->birthname : '' }}</p>
         <p>{{ __('person.nickname') }} : {{ $person->nickname ? $person->nickname : '' }}</p>
@@ -31,14 +31,14 @@
         <p>{{ __('person.father') }} :
             @if ($person->father)
                 <x-link href="/people/{{ $person->father->id }}" @class(['text-red-600 dark:text-red-400' => $person->father->isDeceased()])>{{ $person->father->name }}</x-link>
-                <x-ts-icon icon="tabler.{{ $person->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
+                <x-ts-icon icon="tabler.{{ $person->father->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
             @endif
         </p>
 
         <p>{{ __('person.mother') }} :
             @if ($person->mother)
                 <x-link href="/people/{{ $person->mother->id }}" @class(['text-red-600 dark:text-red-400' => $person->mother->isDeceased()])>{{ $person->mother->name }}</x-link>
-                <x-ts-icon icon="tabler.{{ $person->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block" />
+                <x-ts-icon icon="tabler.{{ $person->mother->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
             @endif
         </p>
 
@@ -50,7 +50,7 @@
         <div class="flex-1 grow max-w-full min-w-max">
             <a href="/people/{{ $person->id }}" title="{{ __('app.show_profile') }}">
                 <x-ts-button color="primary" class="text-sm">
-                    <x-ts-icon icon="tabler.id" class="size-5" />
+                    <x-ts-icon icon="tabler.id" class="inline-block size-5" />
                     {{ __('person.profile') }}
                 </x-ts-button>
             </a>
@@ -59,7 +59,7 @@
         <div class="flex-1 grow max-w-full min-w-max text-end">
             <a href="/people/{{ $person->id }}/chart">
                 <x-ts-button color="secondary" class="text-sm">
-                    <x-ts-icon icon="tabler.social" class="size-5" />
+                    <x-ts-icon icon="tabler.social" class="inline-block size-5" />
                     {{ __('app.family_chart') }}
                 </x-ts-button>
             </a>

@@ -6,7 +6,7 @@
             <div class="flex items-center justify-between p-2 text-lg font-medium border-b-2 border-neutral-100 dark:border-neutral-600">
                 <span>{{ __('app.password_generator') }}</span>
 
-                <x-ts-icon icon="tabler.key" class="inline-block" />
+                <x-ts-icon icon="tabler.key" class="inline-block size-5" />
             </div>
 
             <div class="p-4 bg-neutral-200">
@@ -34,7 +34,7 @@
                             <div class="font-mono break-all text-xl text-black">{{ $generatedPassword }}</div>
 
                             <x-ts-button color="secondary" @click="navigator.clipboard.writeText('{{ $generatedPassword }}'); copied = true; setTimeout(() => copied = false, 1500);" type="button" class="ml-8" title="{{ __('app.copy_to_clipboard') }}">
-                                <x-ts-icon icon="tabler.clipboard-copy" class="inline-block" />
+                                <x-ts-icon icon="tabler.clipboard-copy" class="inline-block size-5" />
                             </x-ts-button>
                         </div>
 

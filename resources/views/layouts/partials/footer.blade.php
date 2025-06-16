@@ -81,15 +81,15 @@
                 <h6 class="flex justify-center mb-4 font-semibold uppercase md:justify-start">{{ __('app.contact') }}</h6>
                 <x-hr.narrow class="w-48 h-1 my-4 bg-gray-100 border-0 rounded-sm max-md:mx-auto dark:bg-gray-700" />
                 <p class="flex items-center justify-center mb-4 md:justify-start">
-                    <x-ts-icon icon="tabler.home" class="mr-3 inline-block size-5" />
+                    <x-ts-icon icon="tabler.home" class="inline-block size-5 mr-3" />
                     New York, NY 10012, US
                 </p>
                 <p class="flex items-center justify-center mb-4 md:justify-start">
-                    <x-ts-icon icon="tabler.mail" class="mr-3 inline-block size-5" />
+                    <x-ts-icon icon="tabler.mail" class="inline-block size-5 mr-3" />
                     info@example.com
                 </p>
                 <p class="flex items-center justify-center mb-4 md:justify-start">
-                    <x-ts-icon icon="tabler.phone" class="mr-3 inline-block size-5" />
+                    <x-ts-icon icon="tabler.phone" class="inline-block size-5 mr-3" />
                     + 01 234 567 88
                 </p>
             </div>
