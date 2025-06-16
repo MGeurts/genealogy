@@ -5,19 +5,23 @@ declare(strict_types=1);
 namespace App\Livewire\Developer;
 
 use App\Models\Team;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
-use Filament\Tables;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
+use Filament\Schemas\Concerns\InteractsWithSchemas;
+use Filament\Schemas\Contracts\HasSchemas;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Filters\TernaryFilter;
 use Filament\Tables\Table;
-use Illuminate\View\View;
+use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
-final class Teams extends Component implements HasForms, HasTable
+class Teams extends Component implements HasActions, HasSchemas, HasTable
 {
-    use InteractsWithForms;
+    use InteractsWithActions;
+    use InteractsWithSchemas;
     use InteractsWithTable;
 
     // -----------------------------------------------------------------------
@@ -26,45 +30,45 @@ final class Teams extends Component implements HasForms, HasTable
         return $table
             ->query(Team::query()->with('owner')->withCount(['users', 'couples', 'persons']))
             ->columns([
-                Tables\Columns\TextColumn::make('id')
+                TextColumn::make('id')
                     ->label(__('team.id'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->label(__('team.name'))
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('description')
+                TextColumn::make('description')
                     ->label(__('team.description'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('users_count')
+                TextColumn::make('users_count')
                     ->label(__('team.users'))
                     ->badge()
                     ->color(static fn ($state): string => $state > 0 ? 'primary' : 'gray')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('persons_count')
+                TextColumn::make('persons_count')
                     ->label(__('team.persons'))
                     ->badge()
                     ->color(static fn ($state): string => $state > 0 ? 'primary' : 'gray')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('couples_count')
+                TextColumn::make('couples_count')
                     ->label(__('team.couples'))
                     ->badge()
                     ->color(static fn ($state): string => $state > 0 ? 'primary' : 'gray')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('owner.name')
+                TextColumn::make('owner.name')
                     ->label(__('team.owner'))
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\IconColumn::make('personal_team')
+                IconColumn::make('personal_team')
                     ->label(__('team.team_personal') . '?')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('app.created_at'))
                     ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('app.updated_at'))
                     ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
                     ->sortable()
@@ -76,7 +80,8 @@ final class Teams extends Component implements HasForms, HasTable
                     ->default(false),
             ])
             ->defaultSort('name')
-            ->striped();
+            ->striped()
+            ->extremePaginationLinks();
     }
 
     // -----------------------------------------------------------------------

@@ -5,22 +5,30 @@ declare(strict_types=1);
 namespace App\Livewire\Developer;
 
 use App\Models\Person;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Forms\Contracts\HasForms;
-use Filament\Tables;
+use Filament\Actions\Concerns\InteractsWithActions;
+use Filament\Actions\Contracts\HasActions;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\ForceDeleteAction;
+use Filament\Actions\RestoreAction;
+use Filament\Schemas\Concerns\InteractsWithSchemas;
+use Filament\Schemas\Contracts\HasSchemas;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Grouping\Group;
 use Filament\Tables\Table;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Illuminate\View\View;
 use Livewire\Component;
 
-final class People extends Component implements HasForms, HasTable
+final class People extends Component implements HasActions, HasSchemas, HasTable
 {
-    use InteractsWithForms;
+    use InteractsWithActions;
+    use InteractsWithSchemas;
     use InteractsWithTable;
 
     public static function getEloquentQuery(): Builder
@@ -34,84 +42,84 @@ final class People extends Component implements HasForms, HasTable
         return $table
             ->query(Person::query()->with(['children', 'couples']))
             ->columns([
-                Tables\Columns\TextColumn::make('id')
+                TextColumn::make('id')
                     ->label(__('person.id'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\ImageColumn::make('photo')
+                ImageColumn::make('photo')
                     ->label(__('person.avatar'))
                     ->getStateUsing(fn (Person $record) => $record->photo ? url('storage/photos-096/' . $record->team_id . '/' . $record->photo) : url('/img/avatar.png'))
                     ->toggleable(isToggledHiddenByDefault: false),
-                Tables\Columns\TextColumn::make('name')
+                TextColumn::make('name')
                     ->label(__('person.name'))
                     ->verticallyAlignStart()
                     ->url(fn (Person $record): string => '../people/' . $record->id)
                     ->color('info')
                     ->sortable(['surname', 'firstname'])
                     ->searchable(['surname', 'firstname']),
-                Tables\Columns\TextColumn::make('birthname')
+                TextColumn::make('birthname')
                     ->label(__('person.birthname'))
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('nickname')
+                TextColumn::make('nickname')
                     ->label(__('person.nickname'))
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('sex')
+                TextColumn::make('sex')
                     ->label(__('person.sex'))
                     ->getStateUsing(fn (Person $record) => mb_strtoupper($record->sex))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('father.name')
+                TextColumn::make('father.name')
                     ->label(__('person.father'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('mother.name')
+                TextColumn::make('mother.name')
                     ->label(__('person.mother'))
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('dob')
+                TextColumn::make('dob')
                     ->label(__('person.dob'))
                     ->dateTime('Y-m-d')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('yob')
+                TextColumn::make('yob')
                     ->label(__('person.yob'))
                     ->sortable(),
-                Tables\Columns\TextColumn::make('pob')
+                TextColumn::make('pob')
                     ->label(__('person.pob'))
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('dod')
+                TextColumn::make('dod')
                     ->label(__('person.dod'))
                     ->dateTime('Y-m-d')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('yod')
+                TextColumn::make('yod')
                     ->label(__('person.yod'))
                     ->sortable(),
-                Tables\Columns\TextColumn::make('pod')
+                TextColumn::make('pod')
                     ->label(__('person.pod'))
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('team.name')
+                TextColumn::make('team.name')
                     ->label(__('user.team'))
                     ->sortable(),
-                Tables\Columns\TextColumn::make('created_at')
+                TextColumn::make('created_at')
                     ->label(__('app.created_at'))
                     ->dateTime('Y-m-d H:i')->timezone(session('timezone') ?? 'UTC')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
+                TextColumn::make('updated_at')
                     ->label(__('app.updated_at'))
                     ->dateTime('Y-m-d H:i')->timezone(session('timezone') ?? 'UTC')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('deleted_at')
+                TextColumn::make('deleted_at')
                     ->label(__('app.deleted_at'))
                     ->dateTime('Y-m-d H:i')->timezone(session('timezone') ?? 'UTC')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                Tables\Filters\TrashedFilter::make(),
+                TrashedFilter::make(),
                 SelectFilter::make('sex')
                     ->options([
                         'm' => __('app.male'),
@@ -120,11 +128,16 @@ final class People extends Component implements HasForms, HasTable
                     ->label(__('person.sex')),
             ])
             ->actions([
-                Tables\Actions\DeleteAction::make()
+                DeleteAction::make()
                     ->iconButton()
+                    ->requiresConfirmation()
                     ->visible(fn (Person $record): bool => $record->isDeletable()),
-                Tables\Actions\ForceDeleteAction::make()->iconButton(),
-                Tables\Actions\RestoreAction::make()->iconButton(),
+                ForceDeleteAction::make()
+                    ->requiresConfirmation()
+                    ->iconButton(),
+                RestoreAction::make()
+                    ->requiresConfirmation()
+                    ->iconButton(),
             ])
             ->groups([
                 Group::make('team.name')
@@ -136,7 +149,8 @@ final class People extends Component implements HasForms, HasTable
             ])
             ->defaultGroup('team.name')
             ->defaultSort('name')
-            ->striped();
+            ->striped()
+            ->extremePaginationLinks();
     }
 
     // -----------------------------------------------------------------------

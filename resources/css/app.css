@@ -12,7 +12,15 @@
 
 @source '../../vendor/laravel/jetstream/**/*.blade.php';
 
-@custom-variant dark (&:where(.dark, .dark *));
+/* Filement 4 (Tables only) */
+@import '../../vendor/filament/support/resources/css/index.css';
+@import '../../vendor/filament/actions/resources/css/index.css';
+@import '../../vendor/filament/forms/resources/css/index.css';
+@import '../../vendor/filament/schemas/resources/css/index.css';
+@import '../../vendor/filament/tables/resources/css/index.css';
+
+@variant dark (&:where(.dark, .dark *));
+
 
 @theme {
   /* TallStackUI START ------------------------------------------------------------------ */

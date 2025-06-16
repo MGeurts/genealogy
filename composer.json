@@ -2,31 +2,28 @@
     "name": "laravel/laravel",
     "type": "project",
     "description": "The skeleton application for the Laravel framework.",
-    "keywords": [
-        "laravel",
-        "framework"
-    ],
+    "keywords": ["laravel", "framework"],
     "license": "MIT",
     "require": {
         "php": "^8.3",
         "alisalehi/laravel-lang-files-translator": "^1.0",
-        "filament/tables": "^3.3",
+        "filament/tables": "~4.0",
         "intervention/image": "^3.11",
         "korridor/laravel-has-many-merged": "^1.2",
-        "laravel/framework": "^12.17",
+        "laravel/framework": "^12.18",
         "laravel/jetstream": "^5.3",
         "laravel/sanctum": "^4.1",
         "laravel/tinker": "^2.10",
         "larswiegers/laravel-translations-checker": "^0.9",
         "livewire/livewire": "^3.6",
         "opcodesio/log-viewer": "^3.17",
-        "secondnetwork/blade-tabler-icons": "^3.33",
+        "secondnetwork/blade-tabler-icons": "^3.34",
         "spatie/laravel-activitylog": "^4.10",
         "spatie/laravel-backup": "^9.3",
         "spatie/laravel-medialibrary": "^11.13",
         "stefangabos/world_countries": "^2.10",
         "stevebauman/location": "^7.5",
-        "tallstackui/tallstackui": "^2.8"
+        "tallstackui/tallstackui": "^2.10"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.15",
@@ -57,9 +54,9 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi",
-            "@php artisan filament:upgrade",
             "@php artisan optimize:clear",
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan filament:upgrade"
         ],
         "post-update-cmd": [
             "@php artisan ide-helper:generate"
@@ -87,6 +84,6 @@
             "php-http/discovery": true
         }
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "beta",
     "prefer-stable": true
 }
