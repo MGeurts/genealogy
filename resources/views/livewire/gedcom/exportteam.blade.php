@@ -50,7 +50,7 @@
 
         {{-- filename --}}
         <div class="col-span-6">
-            <x-ts-input id="filename" type="text" class="block w-full mt-1" wire:model="filename" label="{{ __('gedcom.filename') }} :" required />
+            <x-ts-input id="filename" type="text" class="block w-full mt-1" wire:model="filename" label="{{ __('gedcom.filename') }} : *" required />
         </div>
 
         {{-- format --}}
