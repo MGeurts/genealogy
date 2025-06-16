@@ -86,7 +86,7 @@
                 ['src' => url('img/carousel/genealogy-research-002.webp'), 'alt' => '2'],
                 ['src' => url('img/carousel/genealogy-research-003.webp'), 'alt' => '3'],
                 ['src' => url('img/carousel/genealogy-research-004.webp'), 'alt' => '4'],
-            ]" autoplay stop-on-hover interval="10" />
+            ]" autoplay shuffle stop-on-hover interval="10" />
         </div>
     @endif
 
