@@ -8,7 +8,6 @@
 <sex>F</sex>
 <father_id>32</father_id>
 <mother_id>31</mother_id>
-<parents_id>13</parents_id>
 <dob>1926-04-21</dob>
 <yob>1926</yob>
 <birth_place>London (UK)</birth_place>
@@ -39,7 +38,6 @@
 <sex>M</sex>
 <father_id>2</father_id>
 <mother_id>1</mother_id>
-<parents_id>1</parents_id>
 <dob>1948-11-14</dob>
 <yob>1948</yob>
 <birth_place>London (UK)</birth_place>
@@ -53,7 +51,6 @@
 <sex>F</sex>
 <father_id>2</father_id>
 <mother_id>1</mother_id>
-<parents_id>1</parents_id>
 <dob>1950-08-15</dob>
 <yob>1950</yob>
 <birth_place>London (UK)</birth_place>
@@ -67,7 +64,6 @@
 <sex>M</sex>
 <father_id>2</father_id>
 <mother_id>1</mother_id>
-<parents_id>1</parents_id>
 <dob>1960-02-16</dob>
 <yob>1960</yob>
 <birth_place>London (UK)</birth_place>
@@ -81,7 +77,6 @@
 <sex>M</sex>
 <father_id>2</father_id>
 <mother_id>1</mother_id>
-<parents_id>1</parents_id>
 <dob>1964-03-10</dob>
 <yob>1964</yob>
 <birth_place>London (UK)</birth_place>
@@ -97,7 +92,6 @@
 <sex>F</sex>
 <father_id>27</father_id>
 <mother_id>28</mother_id>
-<parents_id>11</parents_id>
 <dob>1961-07-01</dob>
 <yob>1961</yob>
 <birth_place>Sandringham (UK)</birth_place>
@@ -114,7 +108,6 @@
 <sex>M</sex>
 <father_id>3</father_id>
 <mother_id>7</mother_id>
-<parents_id>2</parents_id>
 <dob>1982-06-21</dob>
 <yob>1982</yob>
 <birth_place>London (UK)</birth_place>
@@ -129,7 +122,6 @@
 <sex>M</sex>
 <father_id>3</father_id>
 <mother_id>7</mother_id>
-<parents_id>2</parents_id>
 <dob>1984-09-15</dob>
 <yob>1984</yob>
 <birth_place>London (UK)</birth_place>
@@ -144,7 +136,6 @@
 <sex>F</sex>
 <father_id>39</father_id>
 <mother_id>40</mother_id>
-<parents_id>16</parents_id>
 <dob>1947-07-17</dob>
 <yob>1947</yob>
 <birth_place>London</birth_place>
@@ -160,7 +151,6 @@
 <sex>F</sex>
 <father_id>30</father_id>
 <mother_id>29</mother_id>
-<parents_id>12</parents_id>
 <dob>1982-01-09</dob>
 <yob>1982</yob>
 <birth_place>Reading (UK)</birth_place>
@@ -185,7 +175,6 @@
 <sex>M</sex>
 <father_id>12</father_id>
 <mother_id>4</mother_id>
-<parents_id>4</parents_id>
 <dob>1977-11-15</dob>
 <yob>1977</yob>
 <birth_place>London (UK)</birth_place>
@@ -211,7 +200,6 @@
 <sex>F</sex>
 <father_id>13</father_id>
 <mother_id>14</mother_id>
-<parents_id>5</parents_id>
 <dob>2010-12-29</dob>
 <yob>2010</yob>
 <birth_place>Gloucester (UK)</birth_place>
@@ -225,7 +213,6 @@
 <sex>F</sex>
 <father_id>13</father_id>
 <mother_id>14</mother_id>
-<parents_id>5</parents_id>
 <dob>2012-03-31</dob>
 <yob>2012</yob>
 <birth_place>Gloucester (UK)</birth_place>
@@ -252,7 +239,6 @@
 <sex>F</sex>
 <father_id>44</father_id>
 <mother_id>45</mother_id>
-<parents_id>18</parents_id>
 <dob>1959-10-15</dob>
 <yob>1959</yob>
 <birth_place>London (UK)</birth_place>
@@ -266,7 +252,6 @@
 <sex>F</sex>
 <father_id>5</father_id>
 <mother_id>18</mother_id>
-<parents_id>7</parents_id>
 <dob>1988-08-08</dob>
 <yob>1988</yob>
 <birth_place>London (UK)</birth_place>
@@ -280,7 +265,6 @@
 <sex>F</sex>
 <father_id>5</father_id>
 <mother_id>18</mother_id>
-<parents_id>7</parents_id>
 <dob>1990-03-23</dob>
 <yob>1990</yob>
 <birth_place>London (UK)</birth_place>
@@ -295,7 +279,6 @@
 <sex>F</sex>
 <father_id>12</father_id>
 <mother_id>4</mother_id>
-<parents_id>4</parents_id>
 <dob>1981-05-15</dob>
 <yob>1981</yob>
 <birth_place>London (UK)</birth_place>
@@ -332,7 +315,6 @@
 <sex>F</sex>
 <father_id>6</father_id>
 <mother_id>23</mother_id>
-<parents_id>9</parents_id>
 <dob>2003-11-08</dob>
 <yob>2003</yob>
 <birth_place>Frimley (UK)</birth_place>
@@ -346,7 +328,6 @@
 <sex>M</sex>
 <father_id>6</father_id>
 <mother_id>23</mother_id>
-<parents_id>9</parents_id>
 <dob>2007-12-17</dob>
 <yob>2007</yob>
 <birth_place>Frimley (UK)</birth_place>
@@ -360,7 +341,6 @@
 <sex>M</sex>
 <father_id>8</father_id>
 <mother_id>11</mother_id>
-<parents_id>10</parents_id>
 <dob>2013-07-22</dob>
 <yob>2013</yob>
 <birth_place>London (UK)</birth_place>
@@ -426,7 +406,6 @@
 <sex>F</sex>
 <father_id>35</father_id>
 <mother_id>34</mother_id>
-<parents_id>14</parents_id>
 <dob>1900-08-04</dob>
 <yob>1900</yob>
 <birth_place>London (UK)</birth_place>
@@ -443,7 +422,6 @@
 <sex>M</sex>
 <father_id>37</father_id>
 <mother_id>36</mother_id>
-<parents_id>15</parents_id>
 <dob>1895-12-14</dob>
 <yob>1895</yob>
 <birth_place>York Cottage (UK)</birth_place>
@@ -460,7 +438,6 @@
 <sex>F</sex>
 <father_id>32</father_id>
 <mother_id>31</mother_id>
-<parents_id>13</parents_id>
 <dob>1930-08-21</dob>
 <yob>1930</yob>
 <birth_place>Glamis Castle (UK)</birth_place>
@@ -535,7 +512,6 @@
 <sex>F</sex>
 <father_id>8</father_id>
 <mother_id>11</mother_id>
-<parents_id>10</parents_id>
 <dob>2015-05-04</dob>
 <yob>2015</yob>
 <birth_place>London (UK)</birth_place>
@@ -589,7 +565,6 @@
 <sex>M</sex>
 <father_id>41</father_id>
 <mother_id>10</mother_id>
-<parents_id>17</parents_id>
 <dob>1974-12-18</dob>
 <yob>1974</yob>
 <photo>Y</photo>
@@ -603,7 +578,6 @@
 <sex>F</sex>
 <father_id>41</father_id>
 <mother_id>10</mother_id>
-<parents_id>17</parents_id>
 <dob>1978-01-01</dob>
 <yob>1978</yob>
 <photo>Y</photo>
@@ -645,7 +619,6 @@
 <sex>M</sex>
 <father_id>8</father_id>
 <mother_id>11</mother_id>
-<parents_id>10</parents_id>
 <dob>2018-04-23</dob>
 <yob>2018</yob>
 <birth_place>London (UK)</birth_place>
@@ -660,7 +633,6 @@
 <sex>F</sex>
 <father_id>50</father_id>
 <mother_id>49</mother_id>
-<parents_id>21</parents_id>
 <dob>1981-08-04</dob>
 <yob>1981</yob>
 <birth_place>Los Angeles (US)</birth_place>
@@ -714,7 +686,6 @@
 <sex>M</sex>
 <father_id>50</father_id>
 <mother_id>51</mother_id>
-<parents_id>22</parents_id>
 <dob>1944-07-18</dob>
 <yob>1944</yob>
 <birth_place>Newport PA (USA)</birth_place>
@@ -729,7 +700,6 @@
 <sex>F</sex>
 <father_id>50</father_id>
 <mother_id>51</mother_id>
-<parents_id>22</parents_id>
 <yob>1966</yob>
 <photo>Y</photo>
 </people>
@@ -741,7 +711,6 @@
 <sex>M</sex>
 <father_id>9</father_id>
 <mother_id>47</mother_id>
-<parents_id>19</parents_id>
 <dob>2019-05-06</dob>
 <yob>2019</yob>
 <birth_place>London (UK)</birth_place>
@@ -755,7 +724,6 @@
 <sex>F</sex>
 <father_id>22</father_id>
 <mother_id>21</mother_id>
-<parents_id>8</parents_id>
 <dob>2014-01-17</dob>
 <yob>2014</yob>
 <photo>Y</photo>
@@ -768,7 +736,6 @@
 <sex>F</sex>
 <father_id>22</father_id>
 <mother_id>21</mother_id>
-<parents_id>8</parents_id>
 <dob>2018-06-18</dob>
 <yob>2018</yob>
 <photo>Y</photo>
@@ -791,7 +758,6 @@
 <sex>F</sex>
 <father_id>27</father_id>
 <mother_id>28</mother_id>
-<parents_id>11</parents_id>
 <dob>1955-03-19</dob>
 <yob>1955</yob>
 <photo>Y</photo>
@@ -805,7 +771,6 @@
 <sex>F</sex>
 <father_id>27</father_id>
 <mother_id>28</mother_id>
-<parents_id>11</parents_id>
 <dob>1957-02-11</dob>
 <yob>1957</yob>
 <photo>Y</photo>
@@ -818,7 +783,6 @@
 <sex>M</sex>
 <father_id>27</father_id>
 <mother_id>28</mother_id>
-<parents_id>11</parents_id>
 <dob>1964-05-20</dob>
 <yob>1964</yob>
 <photo>Y</photo>
@@ -831,7 +795,6 @@
 <sex>M</sex>
 <father_id>27</father_id>
 <mother_id>28</mother_id>
-<parents_id>11</parents_id>
 <dob>1960-01-12</dob>
 <yob>1960</yob>
 <dod>1960-01-12</dod>
