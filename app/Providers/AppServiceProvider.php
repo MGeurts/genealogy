@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use App\Models\Setting;
 use Carbon\CarbonImmutable;
+use Carbon\CarbonInterval;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Console\AboutCommand;
@@ -245,9 +246,10 @@ final class AppServiceProvider extends ServiceProvider
             DB::listen(function ($query): void {
                 if ($query->time > (int) settings('log_all_queries_slow_threshold')) {
                     Log::warning('An individual database query exceeded ' . settings('log_all_queries_slow_threshold') . ' ms.', [
-                        'sql'  => $query->sql,
-                        'raw'  => $query->toRawSQL(),
-                        'time' => $query->time,
+                        'sql'       => $query->sql,
+                        'raw'       => $query->toRawSQL(),
+                        'time'      => $query->time,
+                        'formatted' => CarbonInterval::milliseconds($query->time)->cascade()->forHumans(['short' => true, 'parts' => 3, 'join' => true]),
                     ]);
                 }
             });
