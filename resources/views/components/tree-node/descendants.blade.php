@@ -26,10 +26,7 @@
                     @endif
                 </div>
 
-                <figcaption @class([
-                    'text-red-600 dark:text-red-400' => $person->dod or $person->yod,
-                    'text-primary-500 dark:text-primary-300' => !($person->dod or $person->yod),
-                ])>
+                <figcaption @class(['text-red-600 dark:text-red-400' => $person->dod or $person->yod, 'text-primary-500 dark:text-primary-300' => !($person->dod or $person->yod)])>
                     {{ implode(' ', array_filter([$person->firstname, $person->surname])) }}
                 </figcaption>
             </figure>
