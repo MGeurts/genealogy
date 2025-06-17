@@ -146,4 +146,6 @@ return [
 
     'family_caution_1' => 'Le Père et la Mère ne doivent être utilisés que pour les parents biologiques et doivent donc être de sexe opposé.',
     'family_caution_2' => 'Les parents peuvent être biologiques, mais aussi non biologiques (homosexuels ou adoptifs). Dans ce cas, laissez simplement Père et Mère vides.',
+
+    'parents_id_exclusive' => 'Parents est exclusif. Si vous définissez Parents, vous ne pouvez pas définir Père ou Mère.',
 ];

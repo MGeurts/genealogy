@@ -163,4 +163,6 @@ return [
 
     'family_caution_1' => 'Ayah dan Ibu hanya boleh digunakan untuk orang tua biologis dan oleh karena itu harus berlainan jenis kelamin.',
     'family_caution_2' => 'Orang Tua bisa merupakan orang tua biologis, tetapi juga dapat digunakan untuk orang tua non-biologis (pasangan sesama jenis atau adopsi). Dalam kasus terakhir, biarkan Ayah dan Ibu kosong.',
+
+    'parents_id_exclusive' => 'Orang tua bersifat eksklusif. Jika Anda mengatur Orang Tua, Anda tidak dapat mengatur Ayah atau Ibu.',
 ];

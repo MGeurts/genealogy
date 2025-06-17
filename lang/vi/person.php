@@ -163,4 +163,6 @@ return [
 
     'family_caution_1' => 'Cha và Mẹ chỉ nên dùng cho cha mẹ ruột và do đó phải khác giới.',
     'family_caution_2' => 'Cha mẹ có thể là cha mẹ ruột, nhưng cũng có thể là cha mẹ không ruột thịt (đồng giới hoặc nhận nuôi). Trong trường hợp đó, chỉ cần để trống Cha và Mẹ.',
+
+    'parents_id_exclusive' => 'Cha mẹ là duy nhất. Nếu bạn đặt Cha mẹ, bạn không thể đặt Cha hoặc Mẹ.',
 ];

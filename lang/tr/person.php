@@ -163,4 +163,6 @@ return [
 
     'family_caution_1' => 'Baba ve Anne yalnızca biyolojik ebeveynler için kullanılmalı ve bu nedenle zıt cinsiyetlerde olmalıdır.',
     'family_caution_2' => 'Ebeveynler biyolojik olabilir, ancak biyolojik olmayan (eşcinsel veya evlat edinen) ebeveynler de olabilir. Bu durumda Baba ve Anne alanlarını boş bırakın.',
+
+    'parents_id_exclusive' => 'Ebeveynler özel. Ebeveynleri ayarlarsanız, Baba veya Anneyi ayarlayamazsınız.',
 ];

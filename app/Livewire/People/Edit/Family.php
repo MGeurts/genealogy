@@ -7,6 +7,7 @@ namespace App\Livewire\People\Edit;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
 use App\Models\Person;
+use App\Rules\ParentsIdExclusive;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -86,7 +87,11 @@ final class Family extends Component
         return $rules = [
             'father_id'  => ['nullable', 'integer'],
             'mother_id'  => ['nullable', 'integer'],
-            'parents_id' => ['nullable', 'integer'],
+            'parents_id' => [
+                'nullable',
+                'integer',
+                new ParentsIdExclusive($this->father_id, $this->mother_id),
+            ],
         ];
     }
 
@@ -100,7 +105,7 @@ final class Family extends Component
         return [
             'father_id'  => __('person.father'),
             'mother_id'  => __('person.mother'),
-            'parents_id' => __('parents.father'),
+            'parents_id' => __('person.parents'),
         ];
     }
 

@@ -163,4 +163,6 @@ return [
 
     'family_caution_1' => 'Vader en Moeder mogen alleen worden gebruikt voor de biologische ouders en moeten daarom van verschillend geslacht zijn.',
     'family_caution_2' => 'Ouders kunnen de biologische ouders zijn, maar ook niet-biologische (homoseksuele of adoptieve) ouders. Laat in dat geval Vader en Moeder gewoon leeg.',
+
+    'parents_id_exclusive' => 'Ouders is exclusief. Als je Ouders instelt, kun je Vader of Moeder niet instellen.',
 ];

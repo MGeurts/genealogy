@@ -163,4 +163,6 @@ return [
 
     'family_caution_1' => 'Vater und Mutter dürfen nur für die biologischen Eltern verwendet werden und müssen daher unterschiedlichen Geschlechts sein.',
     'family_caution_2' => 'Eltern können die biologischen Eltern sein, aber auch nicht-biologische (gleichgeschlechtliche oder Adoptiveltern). In diesem Fall lassen Sie Vater und Mutter einfach leer.',
+
+    'parents_id_exclusive' => 'Eltern sind exklusiv. Wenn Sie Eltern setzen, können Sie Vater oder Mutter nicht setzen.',
 ];

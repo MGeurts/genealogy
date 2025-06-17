@@ -145,4 +145,6 @@ return [
 
     'family_caution_1' => 'Padre y Madre solo deben usarse para los padres biológicos y, por lo tanto, deben ser de sexo opuesto.',
     'family_caution_2' => 'Los padres pueden ser biológicos, pero también pueden ser no biológicos (homosexuales o adoptivos). En este último caso, simplemente deje Padre y Madre en blanco.',
+
+    'parents_id_exclusive' => 'Padres es exclusivo. Si estableces Padres, no puedes establecer Padre o Madre.',
 ];

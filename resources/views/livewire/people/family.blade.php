@@ -8,7 +8,7 @@
             @if (auth()->user()->hasPermission('person:update'))
                 <div class="flex-1 grow min-w-max max-w-min text-end">
                     <x-ts-dropdown icon="tabler.menu-2" position="bottom-end">
-                        @if (!isset($person->father_id) or !isset($person->mother_id))
+                        @if ((!isset($person->father_id) or !isset($person->mother_id)) and !isset($person->parents_id))
                             @if (!isset($person->father_id))
                                 <a href="/people/{{ $person->id }}/add-father">
                                     <x-ts-dropdown.items>

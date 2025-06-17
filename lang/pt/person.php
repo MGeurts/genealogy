@@ -146,4 +146,6 @@ return [
 
     'family_caution_1' => 'Pai e Mãe devem ser usados apenas para os pais biológicos e, portanto, devem ser de sexos opostos.',
     'family_caution_2' => 'Os pais podem ser biológicos, mas também podem ser não biológicos (homossexuais ou adotivos). Nesse caso, deixe Pai e Mãe em branco.',
+
+    'parents_id_exclusive' => 'Pais é exclusivo. Se você definir Pais, não pode definir Pai ou Mãe.',
 ];
