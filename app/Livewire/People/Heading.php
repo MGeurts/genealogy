@@ -14,11 +14,6 @@ final class Heading extends Component
     public Person $person;
 
     // ------------------------------------------------------------------------------
-    protected $listeners = [
-        'files_updated' => 'render',
-    ];
-
-    // ------------------------------------------------------------------------------
     public function render(): View
     {
         return view('livewire.people.heading');
