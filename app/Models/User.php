@@ -69,10 +69,11 @@ final class User extends Authenticatable
      * @var array<int, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password'          => 'hashed',
-        'is_developer'      => 'boolean',
-        'seen_at'           => 'datetime',
+        'email_verified_at'       => 'datetime',
+        'password'                => 'hashed',
+        'is_developer'            => 'boolean',
+        'seen_at'                 => 'datetime',
+        'two_factor_confirmed_at' => 'datetime',
     ];
 
     /**
