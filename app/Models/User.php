@@ -97,6 +97,7 @@ class User extends Authenticatable
             'password'          => 'hashed',
             'is_developer'      => 'boolean',
             'seen_at'           => 'datetime',
+            'two_factor_confirmed_at' => 'datetime',
         ];
     }
 

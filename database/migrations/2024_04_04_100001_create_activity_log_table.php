@@ -28,7 +28,9 @@ return new class extends Migration
         });
 
         // Add index on updated_at
-        DB::statement('ALTER TABLE `' . config('activitylog.table_name') . '` ADD INDEX `updated_at_index` (`updated_at`)');
+        Schema::connection(config('activitylog.database_connection'))->table(config('activitylog.table_name'), function (Blueprint $table) {
+            $table->index('updated_at', 'updated_at_index');
+        });
     }
 
     /**

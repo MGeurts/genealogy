@@ -34,9 +34,6 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        // Add index on deleted_at
-        DB::statement('ALTER TABLE `users` ADD INDEX `users_deleted_at_index` (`deleted_at`)');
-
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
