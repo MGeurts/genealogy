@@ -52,7 +52,7 @@ final class Profile extends Component
     #[Computed(persist: true, seconds: 3600, cache: true)]
     public function genders(): Collection
     {
-        return Gender::select('id', 'name')->orderBy('name')->get();
+        return Gender::select(['id', 'name'])->orderBy('name')->get();
     }
 
     // -----------------------------------------------------------------------
