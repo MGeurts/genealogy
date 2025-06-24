@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Back;
 use App\Countries;
 use App\Http\Controllers\Controller;
 use App\Models\Userlog;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 final class DeveloperController extends Controller
@@ -45,7 +46,7 @@ final class DeveloperController extends Controller
     {
         $months = 2;
 
-        $userlogs_by_date = Userlog::select('userlogs.country_name', 'userlogs.country_code', 'userlogs.created_at', 'users.surname', 'users.firstname')
+        $userlogs_by_date = Userlog::select(['userlogs.country_name', 'userlogs.country_code', 'userlogs.created_at', 'users.surname', 'users.firstname'])
             ->leftjoin('users', 'userlogs.user_id', '=', 'users.id')
             ->where('userlogs.created_at', '>=', today()->startOfMonth()->subMonths($months))
             ->orderByDesc('userlogs.created_at')
@@ -107,31 +108,73 @@ final class DeveloperController extends Controller
     {
         $title = __('userlog.visitors');
 
-        $statistics_year = Userlog::selectRaw('YEAR(created_at) AS period')
-            ->selectRaw('COUNT(*) AS visitors')
-            ->groupBy('period')
-            ->orderBy('period')
-            ->get();
+        if (DB::getDriverName() === 'sqlite') {
+            $statistics_year = Userlog::selectRaw("strftime('%Y', created_at) AS period")
+                ->selectRaw('COUNT(*) AS visitors')
+                ->groupBy('period')
+                ->orderBy('period')
+                ->get();
+        } else {
+            $statistics_year = Userlog::selectRaw('YEAR(created_at) AS period')
+                ->selectRaw('COUNT(*) AS visitors')
+                ->groupBy('period')
+                ->orderBy('period')
+                ->get();
+        }
 
         $statistics_year_labels = $statistics_year->pluck('period')->toArray();
         $statistics_year_values = $statistics_year->pluck('visitors')->toArray();
 
-        $statistics_month = Userlog::selectRaw('LPAD(MONTH(created_at), 2, 0) AS period')
-            ->selectRaw('COUNT(*) AS visitors')
-            ->whereYear('created_at', date('Y'))
-            ->groupBy('period')
-            ->orderBy('period')
-            ->get();
+        if (DB::getDriverName() === 'sqlite') {
+            $statistics_month = Userlog::selectRaw("strftime('%m', created_at) AS period")
+                ->selectRaw('COUNT(*) AS visitors')
+                ->whereYear('created_at', date('Y'))
+                ->groupBy('period')
+                ->orderBy('period')
+                ->get();
+        } else {
+            $statistics_month = Userlog::selectRaw('MONTH(created_at) AS period')
+                ->selectRaw('COUNT(*) AS visitors')
+                ->whereYear('created_at', date('Y'))
+                ->groupBy('period')
+                ->orderBy('period')
+                ->get();
+        }
+
+        if (DB::getDriverName() === 'sqlite') {
+            $statistics_month = Userlog::selectRaw("strftime('%m', created_at) AS period")
+                ->selectRaw('COUNT(*) AS visitors')
+                ->whereRaw("strftime('%Y', created_at) = ?", [date('Y')])
+                ->groupBy('period')
+                ->orderBy('period')
+                ->get();
+        } else {
+            $statistics_month = Userlog::selectRaw('LPAD(MONTH(created_at), 2, 0) AS period')
+                ->selectRaw('COUNT(*) AS visitors')
+                ->whereYear('created_at', date('Y'))
+                ->groupBy('period')
+                ->orderBy('period')
+                ->get();
+        }
 
         $statistics_month_labels = $statistics_month->pluck('period')->toArray();
         $statistics_month_values = $statistics_month->pluck('visitors')->toArray();
 
-        $statistics_week = Userlog::selectRaw('LPAD(WEEK(created_at, 3), 2, 0) AS period')
-            ->selectRaw('COUNT(*) AS visitors')
-            ->whereYear('created_at', date('Y'))
-            ->groupBy('period')
-            ->orderBy('period')
-            ->get();
+        if (DB::getDriverName() === 'sqlite') {
+            $statistics_week = Userlog::selectRaw("strftime('%W', created_at) AS period")
+                ->selectRaw('COUNT(*) AS visitors')
+                ->whereRaw("strftime('%Y', created_at) = ?", [date('Y')])
+                ->groupBy('period')
+                ->orderBy('period')
+                ->get();
+        } else {
+            $statistics_week = Userlog::selectRaw('LPAD(WEEK(created_at, 3), 2, 0) AS period')
+                ->selectRaw('COUNT(*) AS visitors')
+                ->whereYear('created_at', date('Y'))
+                ->groupBy('period')
+                ->orderBy('period')
+                ->get();
+        }
 
         $statistics_week_labels = $statistics_week->pluck('period')->toArray();
         $statistics_week_values = $statistics_week->pluck('visitors')->toArray();
