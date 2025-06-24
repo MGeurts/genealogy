@@ -1151,16 +1151,16 @@
         },
         {
             "name": "filament/actions",
-            "version": "v4.0.0-beta8",
+            "version": "v4.0.0-beta9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/actions.git",
-                "reference": "cf41e545d9c6e56e49bc0144bf26b71fc99caf60"
+                "reference": "eec966fe3d2420aeb48c2465d35116445888a5b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/actions/zipball/cf41e545d9c6e56e49bc0144bf26b71fc99caf60",
-                "reference": "cf41e545d9c6e56e49bc0144bf26b71fc99caf60",
+                "url": "https://api.github.com/repos/filamentphp/actions/zipball/eec966fe3d2420aeb48c2465d35116445888a5b8",
+                "reference": "eec966fe3d2420aeb48c2465d35116445888a5b8",
                 "shasum": ""
             },
             "require": {
@@ -1196,20 +1196,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-06-23T11:39:52+00:00"
+            "time": "2025-06-24T09:14:32+00:00"
         },
         {
             "name": "filament/forms",
-            "version": "v4.0.0-beta8",
+            "version": "v4.0.0-beta9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/forms.git",
-                "reference": "05560cc7e149d19acd950794401012d814ffaf42"
+                "reference": "de58c79d8513a6ec459e2c051b0b81afd44489e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/forms/zipball/05560cc7e149d19acd950794401012d814ffaf42",
-                "reference": "05560cc7e149d19acd950794401012d814ffaf42",
+                "url": "https://api.github.com/repos/filamentphp/forms/zipball/de58c79d8513a6ec459e2c051b0b81afd44489e4",
+                "reference": "de58c79d8513a6ec459e2c051b0b81afd44489e4",
                 "shasum": ""
             },
             "require": {
@@ -1246,11 +1246,11 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-06-23T11:39:50+00:00"
+            "time": "2025-06-24T09:14:36+00:00"
         },
         {
             "name": "filament/infolists",
-            "version": "v4.0.0-beta8",
+            "version": "v4.0.0-beta9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/infolists.git",
@@ -1296,7 +1296,7 @@
         },
         {
             "name": "filament/notifications",
-            "version": "v4.0.0-beta8",
+            "version": "v4.0.0-beta9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/notifications.git",
@@ -1343,7 +1343,7 @@
         },
         {
             "name": "filament/schemas",
-            "version": "v4.0.0-beta8",
+            "version": "v4.0.0-beta9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/schemas.git",
@@ -1388,7 +1388,7 @@
         },
         {
             "name": "filament/support",
-            "version": "v4.0.0-beta8",
+            "version": "v4.0.0-beta9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/support.git",
@@ -1446,16 +1446,16 @@
         },
         {
             "name": "filament/tables",
-            "version": "v4.0.0-beta8",
+            "version": "v4.0.0-beta9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/tables.git",
-                "reference": "eb265e3ee4000f55a628126d2c7174360ae85066"
+                "reference": "fd8966cab642b1b81b2fb620bfa9fd7ba6bd7b12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/tables/zipball/eb265e3ee4000f55a628126d2c7174360ae85066",
-                "reference": "eb265e3ee4000f55a628126d2c7174360ae85066",
+                "url": "https://api.github.com/repos/filamentphp/tables/zipball/fd8966cab642b1b81b2fb620bfa9fd7ba6bd7b12",
+                "reference": "fd8966cab642b1b81b2fb620bfa9fd7ba6bd7b12",
                 "shasum": ""
             },
             "require": {
@@ -1487,7 +1487,7 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-06-23T11:40:05+00:00"
+            "time": "2025-06-24T09:14:47+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -4708,16 +4708,16 @@
         },
         {
             "name": "opcodesio/log-viewer",
-            "version": "v3.17.1",
+            "version": "v3.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/opcodesio/log-viewer.git",
-                "reference": "871b7ac2adf8e623b3145e438fb2a2fdc0f8476c"
+                "reference": "9e46dd5b1fa0ff5119fac75cc2048b263cd60893"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/opcodesio/log-viewer/zipball/871b7ac2adf8e623b3145e438fb2a2fdc0f8476c",
-                "reference": "871b7ac2adf8e623b3145e438fb2a2fdc0f8476c",
+                "url": "https://api.github.com/repos/opcodesio/log-viewer/zipball/9e46dd5b1fa0ff5119fac75cc2048b263cd60893",
+                "reference": "9e46dd5b1fa0ff5119fac75cc2048b263cd60893",
                 "shasum": ""
             },
             "require": {
@@ -4780,7 +4780,7 @@
             ],
             "support": {
                 "issues": "https://github.com/opcodesio/log-viewer/issues",
-                "source": "https://github.com/opcodesio/log-viewer/tree/v3.17.1"
+                "source": "https://github.com/opcodesio/log-viewer/tree/v3.18.0"
             },
             "funding": [
                 {
@@ -4792,7 +4792,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-05-19T09:20:51+00:00"
+            "time": "2025-06-24T03:35:57+00:00"
         },
         {
             "name": "opcodesio/mail-parser",
