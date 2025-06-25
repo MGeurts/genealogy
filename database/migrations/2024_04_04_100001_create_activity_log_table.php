@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -30,11 +31,7 @@ return new class extends Migration
         });
 
         // Add index on updated_at
-        if (Schema::getConnection()->getDriverName() === 'sqlite') {
-            DB::statement('CREATE INDEX updated_at_index ON ' . config('activitylog.table_name') . '(updated_at)');
-        } else {
-            DB::statement('ALTER TABLE `' . config('activitylog.table_name') . '` ADD INDEX `updated_at_index` (`updated_at`)');
-        }
+        DB::statement('ALTER TABLE `' . config('activitylog.table_name') . '` ADD INDEX `updated_at_index` (`updated_at`)');
     }
 
     /**
