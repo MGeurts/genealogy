@@ -205,22 +205,22 @@
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden md:hidden">
         <div class="space-y-1 border-t border-gray-200">
             <x-nav-link-responsive href="{{ route('home') }}" :active="request()->routeIs('home')">
-                <x-ts-icon icon="tabler.home" class="inline-block size-5 mr-1" /> />
+                <x-ts-icon icon="tabler.home" class="inline-block size-5 mr-1" />
                 {{ __('app.home') }}
             </x-nav-link-responsive>
 
             <x-nav-link-responsive href="{{ route('people.search') }}" :active="request()->routeIs('people.search')">
-                <x-ts-icon icon="tabler.search" class="inline-block size-5 mr-1" /> />
+                <x-ts-icon icon="tabler.search" class="inline-block size-5 mr-1" />
                 {{ __('app.search') }}
             </x-nav-link-responsive>
 
             <x-nav-link-responsive href="{{ route('people.birthdays') }}" :active="request()->routeIs('people.birthdays')">
-                <x-ts-icon icon="tabler.cake" class="inline-block size-5 mr-1" /> />
+                <x-ts-icon icon="tabler.cake" class="inline-block size-5 mr-1" />
                 {{ __('birthday.birthdays') }}
             </x-nav-link-responsive>
 
             <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
-                <x-ts-icon icon="tabler.help" class="inline-block size-5 mr-1" /> />
+                <x-ts-icon icon="tabler.help" class="inline-block size-5 mr-1" />
                 {{ __('app.help') }}
             </x-nav-link-responsive>
         </div>
@@ -228,12 +228,12 @@
         @guest
             <div class="space-y-1 border-t border-gray-200">
                 <x-nav-link-responsive href="{{ route('login') }}" :active="request()->routeIs('login')">
-                    <x-ts-icon icon="tabler.login-2" class="inline-block size-5 mr-1" /> />
+                    <x-ts-icon icon="tabler.login-2" class="inline-block size-5 mr-1" />
                     {{ __('auth.login') }}
                 </x-nav-link-responsive>
 
                 <x-nav-link-responsive href="{{ route('register') }}" :active="request()->routeIs('register')">
-                    <x-ts-icon icon="tabler.user-plus" class="inline-block size-5 mr-1" /> />
+                    <x-ts-icon icon="tabler.user-plus" class="inline-block size-5 mr-1" />
                     {{ __('auth.register') }}
                 </x-nav-link-responsive>
             </div>
@@ -268,13 +268,13 @@
                 <div class="space-y-1">
                     {{-- account management --}}
                     <x-nav-link-responsive href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                        <x-ts-icon icon="tabler.id" class="inline-block size-5 mr-1" /> />
+                        <x-ts-icon icon="tabler.id" class="inline-block size-5 mr-1" />
                         {{ __('app.my_profile') }}
                     </x-nav-link-responsive>
 
                     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                         <x-nav-link-responsive href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
-                            <x-ts-icon icon="tabler.api" class="inline-block size-5 mr-1" /> />
+                            <x-ts-icon icon="tabler.api" class="inline-block size-5 mr-1" />
                             {{ __('app.api_tokens') }}
                         </x-nav-link-responsive>
                     @endif
@@ -284,7 +284,7 @@
                         @csrf
 
                         <x-nav-link-responsive href="{{ route('logout') }}" @click.prevent="$root.submit();">
-                            <x-ts-icon icon="tabler.logout" class="inline-block size-5 mr-1" /> />
+                            <x-ts-icon icon="tabler.logout" class="inline-block size-5 mr-1" />
                             {{ __('auth.logout') }}
                         </x-nav-link-responsive>
                     </form>
@@ -312,24 +312,24 @@
 
                         {{-- team settings --}}
                         <x-nav-link-responsive href="{{ route('teams.show', $user->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
-                            <x-ts-icon icon="tabler.droplet-cog" class="inline-block size-5 mr-1" /> />
+                            <x-ts-icon icon="tabler.droplet-cog" class="inline-block size-5 mr-1" />
                             {{ __('team.settings') }}
                         </x-nav-link-responsive>
 
                         @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                             <x-nav-link-responsive href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">
-                                <x-ts-icon icon="tabler.droplet-plus" class="inline-block size-5 mr-1" /> />
+                                <x-ts-icon icon="tabler.droplet-plus" class="inline-block size-5 mr-1" />
                                 {{ __('team.create') }}
                             </x-nav-link-responsive>
 
                             {{-- gedcom --}}
                             <x-nav-link-responsive href="{{ route('gedcom.importteam') }}" :active="request()->routeIs('gedcom.importteam')">
-                                <x-ts-icon icon="tabler.droplet-up" class="inline-block size-5 mr-1" /> />
+                                <x-ts-icon icon="tabler.droplet-up" class="inline-block size-5 mr-1" />
                                 {{ __('gedcom.gedcom_import') }}
                             </x-nav-link-responsive>
 
                             <x-nav-link-responsive href="{{ route('gedcom.exportteam') }}" :active="request()->routeIs('gedcom.exportteam')">
-                                <x-ts-icon icon="tabler.droplet-down" class="inline-block size-5 mr-1" /> />
+                                <x-ts-icon icon="tabler.droplet-down" class="inline-block size-5 mr-1" />
                                 {{ __('gedcom.gedcom_export') }}
                             </x-nav-link-responsive>
                         @endcan
