@@ -19,5 +19,6 @@ return [
 
     'team_id' => 'Tim',
 
-    'overlap' => 'Terdeteksi tumpang tindih hubungan!',
+    'overlap'              => 'Terdeteksi tumpang tindih hubungan!',
+    'required_if_date_end' => 'Hubungan harus ditandai sebagai berakhir ketika tanggal akhir ditetapkan',
 ];

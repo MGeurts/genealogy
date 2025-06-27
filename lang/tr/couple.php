@@ -19,5 +19,6 @@ return [
 
     'team_id' => 'Takım',
 
-    'overlap' => 'İlişki çakışması tespit edildi!',
+    'overlap'              => 'İlişki çakışması tespit edildi!',
+    'required_if_date_end' => 'Bir bitiş tarihi ayarlandığında ilişki bitmiş olarak işaretlenmelidir.',
 ];

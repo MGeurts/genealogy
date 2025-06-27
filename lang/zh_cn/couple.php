@@ -19,5 +19,6 @@ return [
 
     'team_id' => '家族',
 
-    'overlap' => '检测到关系重叠！',
+    'overlap'              => '检测到关系重叠！',
+    'required_if_date_end' => '当设置结束日期时，关系必须标记为已结束。',
 ];

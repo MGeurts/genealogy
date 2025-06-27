@@ -19,5 +19,6 @@ return [
 
     'team_id' => 'Đội',
 
-    'overlap' => 'Phát hiện chồng chéo mối quan hệ!',
+    'overlap'              => 'Phát hiện chồng chéo mối quan hệ!',
+    'required_if_date_end' => 'Mối quan hệ phải được đánh dấu là đã kết thúc khi ngày kết thúc được đặt.',
 ];

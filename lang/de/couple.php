@@ -19,5 +19,6 @@ return [
 
     'team_id' => 'Team',
 
-    'overlap' => 'Beziehungsüberschneidung erkannt!',
+    'overlap'              => 'Beziehungsüberschneidung erkannt!',
+    'required_if_date_end' => 'Die Beziehung muss als beendet markiert sein, wenn ein Enddatum festgelegt ist.',
 ];

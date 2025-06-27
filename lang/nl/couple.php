@@ -19,5 +19,6 @@ return [
 
     'team_id' => 'Team',
 
-    'overlap' => 'Relatie-overlap gedetecteerd!',
+    'overlap'              => 'Relatie-overlap gedetecteerd!',
+    'required_if_date_end' => 'De relatie moet als beëindigd worden gemarkeerd wanneer een einddatum is ingesteld.',
 ];

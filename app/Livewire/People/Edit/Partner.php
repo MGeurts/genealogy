@@ -53,6 +53,13 @@ final class Partner extends Component
     {
         $validated = $this->validate();
 
+        // Custom rule: If date_end is set, has_ended must be true
+        if ($validated['date_end'] && ! $validated['has_ended']) {
+            $this->addError('has_ended', __('couple.required_if_date_end'));
+
+            return;
+        }
+
         if ($this->hasOverlap($validated['date_start'], $validated['date_end'])) {
             $this->toast()->error(__('app.create'), __('couple.overlap'))->send();
         } else {
@@ -90,7 +97,9 @@ final class Partner extends Component
 
     protected function messages(): array
     {
-        return [];
+        return [
+            'has_ended.required_if' => __('couple.required_if_date_end'),
+        ];
     }
 
     protected function validationAttributes(): array
@@ -116,20 +125,27 @@ final class Partner extends Component
 
     private function hasOverlap($start, $end): bool
     {
-        $is_overlap = false;
+        if (empty($start) && empty($end)) {
+            return false;
+        }
 
-        if (! empty($start) or ! empty($end)) {
-            foreach ($this->person->couples as $couple) {
-                if (! empty($couple->date_start) and ! empty($couple->date_end)) {
-                    if (! empty($start) and $start >= $couple->date_start and $start <= $couple->date_end) {
-                        $is_overlap = true;
-                    } elseif (! empty($end) and $end >= $couple->date_start and $end <= $couple->date_end) {
-                        $is_overlap = true;
-                    }
+        foreach ($this->person->couples as $couple) {
+            // Skip the current couple being edited
+            if ($this->couple && $couple->id === $this->couple->id) {
+                continue;
+            }
+
+            if (! empty($couple->date_start) && ! empty($couple->date_end)) {
+                if (! empty($start) && $start >= $couple->date_start && $start <= $couple->date_end) {
+                    return true;
+                }
+
+                if (! empty($end) && $end >= $couple->date_start && $end <= $couple->date_end) {
+                    return true;
                 }
             }
         }
 
-        return $is_overlap;
+        return false;
     }
 }
