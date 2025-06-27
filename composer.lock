@@ -1151,16 +1151,16 @@
         },
         {
             "name": "filament/actions",
-            "version": "v4.0.0-beta9",
+            "version": "v4.0.0-beta10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/actions.git",
-                "reference": "eec966fe3d2420aeb48c2465d35116445888a5b8"
+                "reference": "86df5ab0eb3fa880917f10a887e13e0f5a75e1dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/actions/zipball/eec966fe3d2420aeb48c2465d35116445888a5b8",
-                "reference": "eec966fe3d2420aeb48c2465d35116445888a5b8",
+                "url": "https://api.github.com/repos/filamentphp/actions/zipball/86df5ab0eb3fa880917f10a887e13e0f5a75e1dd",
+                "reference": "86df5ab0eb3fa880917f10a887e13e0f5a75e1dd",
                 "shasum": ""
             },
             "require": {
@@ -1196,20 +1196,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-06-24T09:14:32+00:00"
+            "time": "2025-06-26T12:59:00+00:00"
         },
         {
             "name": "filament/forms",
-            "version": "v4.0.0-beta9",
+            "version": "v4.0.0-beta10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/forms.git",
-                "reference": "de58c79d8513a6ec459e2c051b0b81afd44489e4"
+                "reference": "a66bf0d7bf03e0bc662c61c72ef2f383e031de1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/forms/zipball/de58c79d8513a6ec459e2c051b0b81afd44489e4",
-                "reference": "de58c79d8513a6ec459e2c051b0b81afd44489e4",
+                "url": "https://api.github.com/repos/filamentphp/forms/zipball/a66bf0d7bf03e0bc662c61c72ef2f383e031de1a",
+                "reference": "a66bf0d7bf03e0bc662c61c72ef2f383e031de1a",
                 "shasum": ""
             },
             "require": {
@@ -1246,11 +1246,11 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-06-24T09:14:36+00:00"
+            "time": "2025-06-26T12:59:19+00:00"
         },
         {
             "name": "filament/infolists",
-            "version": "v4.0.0-beta9",
+            "version": "v4.0.0-beta10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/infolists.git",
@@ -1296,7 +1296,7 @@
         },
         {
             "name": "filament/notifications",
-            "version": "v4.0.0-beta9",
+            "version": "v4.0.0-beta10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/notifications.git",
@@ -1343,16 +1343,16 @@
         },
         {
             "name": "filament/schemas",
-            "version": "v4.0.0-beta9",
+            "version": "v4.0.0-beta10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/schemas.git",
-                "reference": "2296226fe8eae5e08d9c22f6facf3c4b1d589689"
+                "reference": "494b221fc2e93a07af691a5d90ee3f0ad1ff46ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/schemas/zipball/2296226fe8eae5e08d9c22f6facf3c4b1d589689",
-                "reference": "2296226fe8eae5e08d9c22f6facf3c4b1d589689",
+                "url": "https://api.github.com/repos/filamentphp/schemas/zipball/494b221fc2e93a07af691a5d90ee3f0ad1ff46ff",
+                "reference": "494b221fc2e93a07af691a5d90ee3f0ad1ff46ff",
                 "shasum": ""
             },
             "require": {
@@ -1384,20 +1384,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-06-23T11:39:51+00:00"
+            "time": "2025-06-26T12:58:59+00:00"
         },
         {
             "name": "filament/support",
-            "version": "v4.0.0-beta9",
+            "version": "v4.0.0-beta10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/support.git",
-                "reference": "adcfa3e8d7b9afc5475d4a645b9c1ccf6262de88"
+                "reference": "f1fcf9ccfbd64bebc04099097259582e9f8f8e58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/support/zipball/adcfa3e8d7b9afc5475d4a645b9c1ccf6262de88",
-                "reference": "adcfa3e8d7b9afc5475d4a645b9c1ccf6262de88",
+                "url": "https://api.github.com/repos/filamentphp/support/zipball/f1fcf9ccfbd64bebc04099097259582e9f8f8e58",
+                "reference": "f1fcf9ccfbd64bebc04099097259582e9f8f8e58",
                 "shasum": ""
             },
             "require": {
@@ -1442,20 +1442,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-06-18T22:12:56+00:00"
+            "time": "2025-06-26T12:58:59+00:00"
         },
         {
             "name": "filament/tables",
-            "version": "v4.0.0-beta9",
+            "version": "v4.0.0-beta10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/tables.git",
-                "reference": "fd8966cab642b1b81b2fb620bfa9fd7ba6bd7b12"
+                "reference": "36644311f8ef5b867e910c3e02a5f1ae69bba2eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/tables/zipball/fd8966cab642b1b81b2fb620bfa9fd7ba6bd7b12",
-                "reference": "fd8966cab642b1b81b2fb620bfa9fd7ba6bd7b12",
+                "url": "https://api.github.com/repos/filamentphp/tables/zipball/36644311f8ef5b867e910c3e02a5f1ae69bba2eb",
+                "reference": "36644311f8ef5b867e910c3e02a5f1ae69bba2eb",
                 "shasum": ""
             },
             "require": {
@@ -1487,7 +1487,7 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-06-24T09:14:47+00:00"
+            "time": "2025-06-26T12:59:28+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -5850,21 +5850,20 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.8.1",
+            "version": "4.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "fdf4dd4e2ff1813111bd0ad58d7a1ddbb5b56c28"
+                "reference": "4e0e23cc785f0724a0e838279a9eb03f28b092a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/fdf4dd4e2ff1813111bd0ad58d7a1ddbb5b56c28",
-                "reference": "fdf4dd4e2ff1813111bd0ad58d7a1ddbb5b56c28",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/4e0e23cc785f0724a0e838279a9eb03f28b092a0",
+                "reference": "4e0e23cc785f0724a0e838279a9eb03f28b092a0",
                 "shasum": ""
             },
             "require": {
                 "brick/math": "^0.8.8 || ^0.9 || ^0.10 || ^0.11 || ^0.12 || ^0.13",
-                "ext-json": "*",
                 "php": "^8.0",
                 "ramsey/collection": "^1.2 || ^2.0"
             },
@@ -5923,9 +5922,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/uuid/issues",
-                "source": "https://github.com/ramsey/uuid/tree/4.8.1"
+                "source": "https://github.com/ramsey/uuid/tree/4.9.0"
             },
-            "time": "2025-06-01T06:28:46+00:00"
+            "time": "2025-06-25T14:20:11+00:00"
         },
         {
             "name": "ryangjchandler/blade-capture-directive",
