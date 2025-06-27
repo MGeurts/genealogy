@@ -291,11 +291,10 @@ Update instructions can be found in <a href="https://github.com/MGeurts/genealog
 
 Testing is done using <a href="https://pestphp.com/">Pest</a>.<br/>
 
-Production data should be stored in a MySQL or MariaDB database configured in `.env`.<br /><br />
-Testing data is stored in <b>memory</b> and should therefore not interfere with the production database.
-But, <b>to be fully safe</b>, always backup your production database before testing.
+Command: `php artisan test` or `./vendor/bin/pest`<br/></br>
 
-`php artisan test`
+<b>Production (or local development) data</b> should be stored in a MySQL or MariaDB database configured in `.env`.<br /><br />
+<b>Testing data</b> should be stored in a separate MySQL or MariaDB database configured in `.env.testing` to avoid interfering with the production or development data.
 
 ## Contributing
 
