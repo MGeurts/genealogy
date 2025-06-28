@@ -10,6 +10,9 @@
 
 ![Latest Stable Version](https://img.shields.io/github/release/MGeurts/genealogy)
 
+[![Sponsor](https://img.shields.io/badge/Sponsor-GitHub-%23ea4aaa)](https://github.com/sponsors/MGeurts)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue)](https://www.paypal.me/MGeurtsKREAWEB)
+
 ## About this project
 
 <b>Genealogy</b> is a free and open-source family tree PHP application to record family members and their relationships, build with Laravel 12.
@@ -305,9 +308,14 @@ Feel free to submit <b>Issues</b> or <b>Pull Requests</b>, for bugs, suggestions
 The documentation is included in the applications help.
 Visit the <a href="https://genealogy.kreaweb.be/help" target="_blank">demo project</a> to read the documentation.
 
-## Sponsoring
+## 💖 Support This Project
 
-If you like this project, please consider giving it a star and spread the word. Thank you.
+Maintaining this project takes time and effort. If you find it useful, consider supporting me:
+
+-   [GitHub Sponsors](https://github.com/sponsors/MGeurts)
+-   [Donate via PayPal](https://www.paypal.me/MGeurtsKREAWEB)
+
+Every contribution helps. Thank you! 🙏
 
 ## Impressum
 
