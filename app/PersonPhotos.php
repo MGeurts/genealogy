@@ -45,8 +45,10 @@ final class PersonPhotos
         $teamId = (string) $this->person->team_id;
 
         foreach (config('app.photo_folders') as $folder) {
-            if (! Storage::disk($folder)->exists($teamId)) {
-                Storage::disk($folder)->makeDirectory($teamId);
+            $disk = Storage::disk($folder);
+
+            if (! $disk->exists($teamId)) {
+                $disk->makeDirectory($teamId);
             }
         }
     }
@@ -58,7 +60,11 @@ final class PersonPhotos
         if ($files) {
             $lastFile = last($files);
 
-            return (int) mb_substr((string) $lastFile, mb_strpos((string) $lastFile, '_') + 1, mb_strrpos((string) $lastFile, '_') - mb_strpos((string) $lastFile, '_') - 1);
+            return (int) mb_substr(
+                (string) $lastFile,
+                mb_strpos((string) $lastFile, '_') + 1,
+                mb_strrpos((string) $lastFile, '_') - mb_strpos((string) $lastFile, '_') - 1
+            );
         }
 
         return 0;
@@ -66,8 +72,13 @@ final class PersonPhotos
 
     private function savePhoto($photo, int $index): void
     {
-        $timestamp = now()->format('YmdHis');
-        $imageName = "{$this->person->id}_" . mb_str_pad((string) $index, 3, '0', STR_PAD_LEFT) . "_{$timestamp}.{$this->config['type']}";
+        $imageName = sprintf(
+            '%s_%03d_%s.%s',
+            $this->person->id,
+            $index,
+            now()->format('YmdHis'),
+            $this->config['type']
+        );
 
         $this->processAndSaveImage(
             photo: $photo,

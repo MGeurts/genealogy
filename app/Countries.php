@@ -30,14 +30,11 @@ final class Countries
     public function __construct(string $locale = 'en')
     {
         // Determine the country folder from the locale
+        $basePath    = base_path('vendor/stefangabos/world_countries/data/countries/');
         $countryCode = self::LOCALE_TO_COUNTRY[$locale] ?? 'en'; // Default to 'en' if locale is not found
 
-        // Set the base path for the countries data
-        $path       = base_path('vendor/stefangabos/world_countries/data/countries/');
-        $localePath = $path . $countryCode;
-
         // Load the country data for the specified locale or fallback to English
-        $this->countries = $this->loadCountriesData($localePath) ?? $this->loadCountriesData($path . 'en');
+        $this->countries = $this->loadCountriesData("{$basePath}{$countryCode}") ?? $this->loadCountriesData("{$basePath}en");
     }
 
     /**
@@ -64,7 +61,9 @@ final class Countries
      */
     public function getCountryNamesForSvgMap(): Collection
     {
-        return $this->countries->mapWithKeys(fn ($item) => [mb_strtoupper((string) $item['alpha2']) => $item['name']]);
+        return $this->countries->mapWithKeys(fn ($item) => [
+            mb_strtoupper((string) $item['alpha2']) => $item['name'],
+        ]);
     }
 
     /**
@@ -72,12 +71,8 @@ final class Countries
      */
     private function loadCountriesData(string $path): ?Collection
     {
-        $filePath = $path . '/countries.php';
+        $file = "{$path}/countries.php";
 
-        if (file_exists($filePath)) {
-            return collect(require $filePath);
-        }
-
-        return null;
+        return file_exists($file) ? collect(require $file) : null;
     }
 }
