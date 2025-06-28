@@ -149,4 +149,5 @@ return [
     'password_moderate'    => 'Sedang',
     'password_strong'      => 'Kuat',
     'password_very_strong' => 'Sangat kuat',
+    'check_breach'         => 'Periksa apakah alamat email Anda ada dalam pelanggaran data',
 ];

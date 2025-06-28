@@ -149,4 +149,5 @@ return [
     'password_moderate'    => 'Mittel',
     'password_strong'      => 'Stark',
     'password_very_strong' => 'Sehr stark',
+    'check_breach'         => 'Prüfen Sie, ob Ihre E-Mail-Adresse in einem Datenleck enthalten ist',
 ];

@@ -60,7 +60,11 @@
                 </div>
             @endif
 
-            <div class="flex items-center justify-end p-4 rounded-b">
+            <div class="flex items-center justify-between p-4 rounded-b">
+                    <x-ts-link href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+                        {{ __('app.check_breach') }}
+                    </x-ts-link>
+
                 <x-ts-button type="submit">
                     {{ __('app.generate') }}
                 </x-ts-button>

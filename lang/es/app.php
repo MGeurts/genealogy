@@ -124,4 +124,5 @@ return [
     'password_moderate'    => 'Moderada',
     'password_strong'      => 'Fuerte',
     'password_very_strong' => 'Muy fuerte',
+    'check_breach'         => 'Comprueba si tu dirección de correo electrónico está en una filtración de datos',
 ];

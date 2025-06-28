@@ -149,4 +149,5 @@ return [
     'password_moderate'    => 'Matig',
     'password_strong'      => 'Sterk',
     'password_very_strong' => 'Zeer sterk',
+    'check_breach'         => 'Controleer of je e-mailadres in een datalek voorkomt',
 ];

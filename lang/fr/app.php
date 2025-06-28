@@ -124,4 +124,5 @@ return [
     'password_moderate'    => 'Moyenne',
     'password_strong'      => 'Forte',
     'password_very_strong' => 'Très forte',
+    'check_breach'         => 'Vérifiez si votre adresse e-mail figure dans une violation de données',
 ];

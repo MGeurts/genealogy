@@ -149,4 +149,5 @@ return [
     'password_moderate'    => 'Orta',
     'password_strong'      => 'Güçlü',
     'password_very_strong' => 'Çok güçlü',
+    'check_breach'         => 'E-posta adresinizin bir veri ihlalinde yer alıp almadığını kontrol edin',
 ];

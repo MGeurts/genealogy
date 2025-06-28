@@ -120,4 +120,5 @@ return [
     'password_moderate'    => 'मध्यम',
     'password_strong'      => 'मजबूत',
     'password_very_strong' => 'बहुत मज़बूत',
+    'check_breach'         => 'जांचें कि आपका ईमेल पता किसी डेटा उल्लंघन में है या नहीं',
 ];

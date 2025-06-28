@@ -149,4 +149,5 @@ return [
     'password_moderate'    => 'Moderate',
     'password_strong'      => 'Strong',
     'password_very_strong' => 'Very strong',
+    'check_breach'         => 'Check if your email address is in a data breach',
 ];

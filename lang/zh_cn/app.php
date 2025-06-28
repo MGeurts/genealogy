@@ -149,4 +149,5 @@ return [
     'password_moderate'    => '中等',
     'password_strong'      => '强',
     'password_very_strong' => '非常强',
+    'check_breach'         => '检查您的电子邮件地址是否出现在数据泄露中',
 ];
