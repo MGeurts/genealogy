@@ -10,8 +10,8 @@
 
 ![Latest Stable Version](https://img.shields.io/github/release/MGeurts/genealogy)
 
-[![Sponsor](https://img.shields.io/badge/Sponsor-GitHub-%23ea4aaa)](https://github.com/sponsors/MGeurts)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-blue)](https://www.paypal.me/MGeurtsKREAWEB)
+[![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?logo=paypal)](https://www.paypal.me/MGeurtsKREAWEB)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-orange.svg?logo=buy-me-a-coffee&logoColor=white)](https://buymeacoffee.com/MGeurts)
 
 ## About this project
 
@@ -312,10 +312,10 @@ Visit the <a href="https://genealogy.kreaweb.be/help" target="_blank">demo proje
 
 Maintaining this project takes time and effort. If you find it useful, consider supporting me:
 
--   [GitHub Sponsors](https://github.com/sponsors/MGeurts)
--   [Donate via PayPal](https://www.paypal.me/MGeurtsKREAWEB)
+-   [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/MGeurtsKREAWEB)
+-   [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-orange?logo=buy-me-a-coffee)](https://buymeacoffee.com/MGeurts)
 
-Every contribution helps. Thank you! 🙏
+> Your support helps me improve and maintain [Genealogy](https://github.com/MGeurts/genealogy) and other open-source tools. Every bit is appreciated. Thank you! 🙏
 
 ## Impressum
 
