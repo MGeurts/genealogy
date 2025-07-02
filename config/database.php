@@ -58,9 +58,11 @@ return [
             'prefix'         => '',
             'prefix_indexes' => true,
             'strict'         => true,
-            'engine'         => null,
+            'engine'         => 'InnoDB',
             'options'        => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                PDO::ATTR_EMULATE_PREPARES         => false,                            // Use native prepared statements
+                PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,                             // Useful for large SELECTs
+                PDO::MYSQL_ATTR_SSL_CA             => env('MYSQL_ATTR_SSL_CA'),    // Optional SSL
             ]) : [],
             'dump' => [
                 'dump_binary_path' => env('BACKUP_DUMP_PATH', null), // only the path, so without `mysqldump` or `pg_dump`
