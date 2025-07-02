@@ -32,6 +32,7 @@ return [
     'search'                    => 'Procurar',
     'yes'                       => 'Sim',
     'no'                        => 'Não',
+    'error'                     => 'Erro',
     'created_at'                => 'Criado em',
     'updated_at'                => 'Atualizado em',
     'deleted_at'                => 'Excluído em',

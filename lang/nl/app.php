@@ -35,6 +35,7 @@ return [
     'search'            => 'Zoek',
     'yes'               => 'Ja',
     'no'                => 'Neen',
+    'error'             => 'Fout',
 
     'created_at' => 'Aangemaakt op',
     'updated_at' => 'Gewijzigd op',

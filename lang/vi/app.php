@@ -35,6 +35,7 @@ return [
     'search'            => 'Tìm kiếm',
     'yes'               => 'Có',
     'no'                => 'Không',
+    'error'             => 'Lỗi',
 
     'created_at' => 'Được tạo vào',
     'updated_at' => 'Được cập nhật vào',

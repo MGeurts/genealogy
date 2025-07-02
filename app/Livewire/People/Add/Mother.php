@@ -110,7 +110,7 @@ final class Mother extends Component
                 'mother_id' => $validated['form']['person_id'],
             ]);
 
-            $this->toast()->success(__('app.save'), __('person.existing_person_linked_as_mother'))->flash()->send();
+            $this->toast()->success(__('app.save'), __('person.existing_person_linked_as_mother'))->send();
         } else {
             $newMother = Person::create(array_merge(
                 collect($validated['form'])->only(['firstname', 'surname', 'birthname', 'nickname', 'gender_id', 'yob', 'dob', 'pob'])->toArray(),
@@ -121,8 +121,10 @@ final class Mother extends Component
             ));
 
             if ($this->form->uploads) {
-                $photos = new PersonPhotos($newMother);
-                $photos->save($this->form->uploads);
+                $photos     = new PersonPhotos($newMother);
+                $savedCount = $photos->save($this->form->uploads);
+
+                $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
             }
 
             $this->person->update([

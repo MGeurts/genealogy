@@ -35,6 +35,7 @@ return [
     'search'            => 'Search',
     'yes'               => 'Yes',
     'no'                => 'No',
+    'error'             => 'Error',
 
     'created_at' => 'Created at',
     'updated_at' => 'Updated at',

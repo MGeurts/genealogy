@@ -35,6 +35,7 @@ return [
     'search'            => 'Suche',
     'yes'               => 'Ja',
     'no'                => 'Nein',
+    'error'             => 'Fehler',
 
     'created_at' => 'Erstellt am',
     'updated_at' => 'Aktualisiert am',

@@ -110,7 +110,7 @@ class Child extends Component
                 $this->person->sex === 'm' ? 'father_id' : 'mother_id' => $this->person->id,
             ]);
 
-            $this->toast()->success(__('app.save'), __('person.existing_person_linked_as_child'))->flash()->send();
+            $this->toast()->success(__('app.save'), __('person.existing_person_linked_as_child'))->send();
         } else {
             $newChild = Person::create(array_merge(
                 collect($validated)->only(['firstname', 'surname', 'birthname', 'nickname', 'sex', 'gender_id', 'yob', 'dob', 'pob'])->toArray(),
@@ -121,8 +121,10 @@ class Child extends Component
             ));
 
             if ($this->form->uploads) {
-                $photos = new PersonPhotos($newChild);
-                $photos->save($this->form->uploads);
+                $photos     = new PersonPhotos($newChild);
+                $savedCount = $photos->save($this->form->uploads);
+
+                $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
             }
 
             $this->toast()->success(__('app.create'), __('person.new_person_linked_as_child'))->flash()->send();

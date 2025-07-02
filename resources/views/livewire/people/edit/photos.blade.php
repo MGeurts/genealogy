@@ -38,9 +38,9 @@
                     @foreach ($photos as $photo)
                         <x-ts-card class="p-2!">
                             <x-slot:header>
-                                <div class="text-sm {{ $photo['name'] === $person->photo ? ' text-yellow-500 dark:text-yellow-200' : '' }}">
-                                    <x-ts-link href="{{ url($photo['url_original']) }}" target="_blank">{{ $photo['name'] }}</x-ts-link>
-                                </div>
+                                <x-ts-link href="{{ url($photo['url_original']) }}" target="_blank" class="text-sm {{ $photo['name'] === $person->photo ? ' text-yellow-500 dark:text-yellow-200' : '' }}">
+                                    {{ $photo['name'] }}
+                                </x-ts-link>
                             </x-slot:header>
 
                             <x-ts-link href="{{ $photo['url_original'] }}" target="_blank" title="{{ __('app.show') }}">
@@ -53,6 +53,8 @@
                                         <x-ts-button color="secondary" class="p-2!" title="{{ __('person.set_primary') }}" wire:click="setPrimary('{{ $photo['name'] }}')">
                                             <x-ts-icon icon="tabler.star" class="inline-block size-5" />
                                         </x-ts-button>
+                                    @else
+                                        <x-ts-icon icon="tabler.star-filled" class="inline-block size-5 text-yellow-500 dark:text-yellow-200" />
                                     @endif
                                 </div>
 
@@ -62,7 +64,7 @@
 
                                 <div class="text-sm text-end">{{ $photo['size'] }}</div>
 
-                                <x-ts-button color="red" class="p-2! text-white" title="{{ __('app.delete') }}" wire:click="deletePhoto('{{ $photo['name'] }}')">
+                                <x-ts-button color="red" class="p-2! text-white" title="{{ __('app.delete') }}" wire:click="delete('{{ $photo['name'] }}')">
                                     <x-ts-icon icon="tabler.trash" class="inline-block size-5" />
                                 </x-ts-button>
                             </x-slot:footer>

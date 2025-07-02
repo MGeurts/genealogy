@@ -35,6 +35,7 @@ return [
     'search'            => 'Cari',
     'yes'               => 'Ya',
     'no'                => 'Tidak',
+    'error'             => 'Kesalahan',
 
     'created_at' => 'Dibuat pada',
     'updated_at' => 'Diperbarui pada',

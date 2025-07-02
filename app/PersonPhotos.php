@@ -23,10 +23,10 @@ final class PersonPhotos
         $this->config = config('app.upload_photo');
     }
 
-    public function save(array $photos): void
+    public function save(array $photos): ?int
     {
         if (empty($photos)) {
-            return;
+            return null;
         }
 
         $this->ensureDirectoriesExist();
@@ -38,6 +38,8 @@ final class PersonPhotos
         }
 
         $this->cleanupTemporaryFiles();
+
+        return count($photos);
     }
 
     private function ensureDirectoriesExist(): void
@@ -82,8 +84,7 @@ final class PersonPhotos
 
         $this->processAndSaveImage(
             photo: $photo,
-            imageName: $imageName,
-            addWatermark: $this->config['add_watermark']
+            imageName: $imageName
         );
 
         if (empty($this->person->photo)) {
@@ -91,7 +92,7 @@ final class PersonPhotos
         }
     }
 
-    private function processAndSaveImage($photo, string $imageName, bool $addWatermark = false): void
+    private function processAndSaveImage($photo, string $imageName): void
     {
         $paths = [
             'photos' => [
@@ -116,7 +117,7 @@ final class PersonPhotos
                     height: $dimensions['height']
                 );
 
-            if ($addWatermark) {
+            if ($this->config['add_watermark']) {
                 $image->place(public_path('img/watermark.png'), 'bottom-left', 5, 5);
             }
 

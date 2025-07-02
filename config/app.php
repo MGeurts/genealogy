@@ -161,11 +161,11 @@ return [
 
     // default values for resizing, watermarking and saving photo uploads
     'upload_photo' => [
-        'max_width'     => 600,
-        'max_height'    => 800,
-        'quality'       => 80,
         'type'          => 'webp',
-        'add_watermark' => true,
+        'max_width'     => 1920,
+        'max_height'    => 1080,
+        'quality'       => 85,
+        'add_watermark' => env('PHOTOS_ADD_WATERMARK', false),
     ],
 
     // accepted file types for photo uploads

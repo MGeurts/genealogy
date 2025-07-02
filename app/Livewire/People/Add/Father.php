@@ -110,7 +110,7 @@ final class Father extends Component
                 'father_id' => $validated['form']['person_id'],
             ]);
 
-            $this->toast()->success(__('app.save'), __('person.existing_person_linked_as_father'))->flash()->send();
+            $this->toast()->success(__('app.save'), __('person.existing_person_linked_as_father'))->send();
         } else {
             $newFather = Person::create(array_merge(
                 collect($validated['form'])->only(['firstname', 'surname', 'birthname', 'nickname', 'gender_id', 'yob', 'dob', 'pob'])->toArray(),
@@ -121,8 +121,10 @@ final class Father extends Component
             ));
 
             if ($this->form->uploads) {
-                $photos = new PersonPhotos($newFather);
-                $photos->save($this->form->uploads);
+                $photos     = new PersonPhotos($newFather);
+                $savedCount = $photos->save($this->form->uploads);
+
+                $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
             }
 
             $this->person->update([

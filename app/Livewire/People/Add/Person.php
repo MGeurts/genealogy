@@ -98,8 +98,10 @@ final class Person extends Component
         ]);
 
         if ($this->form->uploads) {
-            $photos = new PersonPhotos($newPerson);
-            $photos->save($this->form->uploads);
+            $photos     = new PersonPhotos($newPerson);
+            $savedCount = $photos->save($this->form->uploads);
+
+            $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
         }
 
         $this->toast()->success(__('app.save'), $newPerson->name . ' ' . __('app.created'))->flash()->send();

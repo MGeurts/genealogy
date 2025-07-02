@@ -35,6 +35,7 @@ return [
     'search'            => 'Ara',
     'yes'               => 'Evet',
     'no'                => 'Hayır',
+    'error'             => 'Hata',
 
     'created_at' => 'Oluşturulma Tarihi',
     'updated_at' => 'Güncellenme Tarihi',

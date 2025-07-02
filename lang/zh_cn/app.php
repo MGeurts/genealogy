@@ -35,6 +35,7 @@ return [
     'search'            => '搜索',
     'yes'               => '同意',
     'no'                => '拒绝',
+    'error'             => '错误',
 
     'created_at' => '添加',
     'updated_at' => '更新',
