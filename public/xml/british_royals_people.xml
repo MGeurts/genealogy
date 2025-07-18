@@ -681,14 +681,15 @@
 
 <people>
 <id>52</id>
-<firstname>Thomas Jr.</firstname>
+<firstname>Thomas Wayne Jr.</firstname>
 <surname>Markle</surname>
+<nickname>Tom</nickname>
 <sex>M</sex>
 <father_id>50</father_id>
 <mother_id>51</mother_id>
-<dob>1944-07-18</dob>
-<yob>1944</yob>
-<birth_place>Newport PA (USA)</birth_place>
+<dob>1966-09-17</dob>
+<yob>1966</yob>
+<birth_place>Los Angeles (USA)</birth_place>
 <photo>Y</photo>
 </people>
 
