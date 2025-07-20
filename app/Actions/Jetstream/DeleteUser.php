@@ -15,7 +15,7 @@ final class DeleteUser implements DeletesUsers
     /**
      * Create a new action instance.
      */
-    public function __construct(protected DeletesTeams $deletesTeams) {}
+    public function __construct(private DeletesTeams $deletesTeams) {}
 
     /**
      * Delete the given user.
