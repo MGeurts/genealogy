@@ -15,21 +15,6 @@
                 </div>
 
                 <div class="w-full p-6 mt-6 overflow-hidden prose bg-white rounded-sm shadow-md sm:max-w-5xl">
-                    {!! \Illuminate\Support\Str::markdown(<<<'MD'
-                    ## 💖 Support This Project
-
-                    Maintaining this project takes time and effort. If you find it useful, consider supporting me:
-
-                    -   [![Star on GitHub](https://img.shields.io/github/stars/MGeurts/genealogy?style=social)](https://github.com/MGeurts/genealogy)
-                    -   [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/MGeurtsKREAWEB)
-                    -   [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-orange?logo=buy-me-a-coffee)](https://buymeacoffee.com/MGeurts)
-
-                    > Your support helps me improve and maintain [Genealogy](https://github.com/MGeurts/genealogy) and other open-source tools. Every bit is appreciated. Thank you! 🙏
-                    MD
-                    ) !!}
-                </div>
-
-                <div class="w-full p-6 mt-6 overflow-hidden prose bg-white rounded-sm shadow-md sm:max-w-5xl">
                     {!! $home !!}
                 </div>
             </div>
