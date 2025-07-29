@@ -165,7 +165,7 @@ Above the search box, the number of people available to / found in the <b>curren
 Begin the search string with <b>%</b> if you want to search parts of names, for instance : <b>%Jr</b>.<br/> Be aware this kinds of searches are slower.
 </li>
 <li>
-If a surname, firstname, birthname or nickname containes any spaces, enclose the name in double quoutes, for instance : <b>"John Jr."</b> Kennedy.<br/>
+If a surname, firstname, birthname or nickname containes any spaces, enclose the name in double quoutes, for instance : <b>"John Fitzgerald Jr." Kennedy</b> Kennedy.<br/>
 </li>
 </ol>
 </span>
