@@ -85,10 +85,6 @@ final class Manage extends Component
 
     public function create(): void
     {
-        if (! defined('STDIN')) {
-            define('STDIN', fopen('php://stdin', 'r'));
-        }
-
         $exitCode = Artisan::call('backup:run --only-db');
         $output   = Artisan::output();
 
