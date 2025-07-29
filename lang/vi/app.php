@@ -116,7 +116,7 @@ return [
 
     'people_search_help_1' => 'Hệ thống sẽ tìm kiếm <b class="text-emerald-600">từng từ một</b> trong hộp tìm kiếm trong các thuộc tính <b class="text-emerald-600">họ</b>, <b class="text-emerald-600">tên</b>, <b class="text-emerald-600">tên khai sinh</b> và <b class="text-emerald-600">biệt danh</b>.',
     'people_search_help_2' => 'Bắt đầu chuỗi tìm kiếm với <b class="text-emerald-600">%</b> nếu bạn muốn tìm kiếm các phần của tên, ví dụ: <b class="text-emerald-600">%Jr</b>.<br/>Lưu ý rằng các loại tìm kiếm này sẽ chậm hơn.',
-    'people_search_help_3' => 'Nếu một họ, tên, tên khai sinh hoặc biệt danh có bất kỳ <b class="text-emerald-600">khoảng trắng</b>, hãy đặt tên trong dấu ngoặc kép,<br/>ví dụ: <b class="text-emerald-600">"John Jr." Kennedy</b>.',
+    'people_search_help_3' => 'Nếu một họ, tên, tên khai sinh hoặc biệt danh có bất kỳ <b class="text-emerald-600">khoảng trắng</b>, hãy đặt tên trong dấu ngoặc kép,<br/>ví dụ: <b class="text-emerald-600">"John Fitzgerald Jr." Kennedy</b>.',
 
     'unauthorized_access' => 'Truy cập không được phép.',
 

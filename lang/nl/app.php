@@ -116,7 +116,7 @@ return [
 
     'people_search_help_1' => 'Het systeem zoekt <b class="text-emerald-600">elk woord</b> in het zoekvak op in de attributen <b class="text-emerald-600">achternaam</b>, <b class="text-emerald-600">voornaam</b>, <b class="text-emerald-600">geboortenaam</b> en <b class="text-emerald-600">bijnaam</b>.',
     'people_search_help_2' => 'Begin de zoekreeks met <b class="text-emerald-600">%</b> als je delen van namen wilt doorzoeken, bijvoorbeeld : <b class="text-emerald-600">%Jr</b>.<br/>Houd er rekening mee dat dit soort zoekopdrachten langzamer zijn.',
-    'people_search_help_3' => 'Als een achternaam, voornaam, geboortenaam of bijnaam <b class="text-emerald-600">spaties</b> bevat, plaats de naam dan tussen dubbele aanhalingstekens,<br/>bijvoorbeeld : <b class="text-emerald-600">"John Jr." Kennedy</b>.',
+    'people_search_help_3' => 'Als een achternaam, voornaam, geboortenaam of bijnaam <b class="text-emerald-600">spaties</b> bevat, plaats de naam dan tussen dubbele aanhalingstekens,<br/>bijvoorbeeld : <b class="text-emerald-600">"John Fitzgerald Jr." Kennedy</b>.',
 
     'unauthorized_access' => 'Onbevoegde toegang.',
 

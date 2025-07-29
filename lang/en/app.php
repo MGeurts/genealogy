@@ -116,7 +116,7 @@ return [
 
     'people_search_help_1' => 'The system wil look up <b class="text-emerald-600">every single word</b> in the search box in the attributes <b class="text-emerald-600">surname</b>, <b class="text-emerald-600">firstname</b>, <b class="text-emerald-600">birthname</b> and <b class="text-emerald-600">nickname</b>.',
     'people_search_help_2' => 'Begin the search string with <b class="text-emerald-600">%</b> if you want to search parts of names, for instance : <b class="text-emerald-600">%Jr</b>.<br/>Be aware this kinds of searches are slower.',
-    'people_search_help_3' => 'If a surname, firstname, birthname or nickname containes any <b class="text-emerald-600">spaces</b>, enclose the name in double quoutes,<br/>for instance : <b class="text-emerald-600">"John Jr." Kennedy</b>.',
+    'people_search_help_3' => 'If a surname, firstname, birthname or nickname containes any <b class="text-emerald-600">spaces</b>, enclose the name in double quoutes,<br/>for instance : <b class="text-emerald-600">"John Fitzgerald Jr." Kennedy</b>.',
 
     'unauthorized_access' => 'Unauthorized access.',
 

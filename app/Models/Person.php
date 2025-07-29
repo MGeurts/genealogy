@@ -143,7 +143,7 @@ final class Person extends Model implements HasMedia
         // The system wil look up every word in the search value in the attributes surname, firstname, birthname and nickname
         // Begin the search string with % if you want to search parts of names, for instance %Jr.
         // Be aware that this kinds of searches are slower.
-        // If a name containes any spaces, enclose the name in double quoutes, for instance "John Jr." Kennedy.
+        // If a name containes any spaces, enclose the name in double quoutes, for instance "John Fitzgerald Jr." Kennedy.
         /* -------------------------------------------------------------------------------------------- */
         if ($searchString !== '%') {
             collect(str_getcsv($searchString, ' ', '"'))->filter()->each(function (string $searchTerm) use ($query): void {

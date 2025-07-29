@@ -116,7 +116,7 @@ return [
 
     'people_search_help_1' => 'Sistem akan mencari <b class="text-emerald-600">setiap kata</b> di kotak pencarian dalam atribut <b class="text-emerald-600">nama keluarga</b>, <b class="text-emerald-600">nama depan</b>, <b class="text-emerald-600">nama lahir</b>, dan <b class="text-emerald-600">nama panggilan</b>.',
     'people_search_help_2' => 'Awali string pencarian dengan <b class="text-emerald-600">%</b> jika Anda ingin mencari bagian dari nama, misalnya: <b class="text-emerald-600">%Jr</b>.<br/>Perlu diketahui bahwa jenis pencarian ini lebih lambat.',
-    'people_search_help_3' => 'Jika nama keluarga, nama depan, nama lahir, atau nama panggilan mengandung <b class="text-emerald-600">spasi</b>, apit nama tersebut dengan tanda kutip ganda,<br/>misalnya: <b class="text-emerald-600">"John Jr." Kennedy</b>.',
+    'people_search_help_3' => 'Jika nama keluarga, nama depan, nama lahir, atau nama panggilan mengandung <b class="text-emerald-600">spasi</b>, apit nama tersebut dengan tanda kutip ganda,<br/>misalnya: <b class="text-emerald-600">"John Fitzgerald Jr." Kennedy</b>.',
 
     'unauthorized_access' => 'Akses tidak sah.',
 

@@ -116,7 +116,7 @@ return [
 
     'people_search_help_1' => 'Sistem, arama kutusundaki <b class="text-emerald-600">her bir kelimeyi</b> <b class="text-emerald-600">soyadı</b>, <b class="text-emerald-600">adı</b>, <b class="text-emerald-600">doğum adı</b> ve <b class="text-emerald-600">takma ad</b> özelliklerinde arayacaktır.',
     'people_search_help_2' => 'Arama dizesine <b class="text-emerald-600">%</b> ile başlayarak isim parçalarını arayabilirsiniz, örneğin: <b class="text-emerald-600">%Jr</b>.<br/>Bu tür aramaların daha yavaş olduğunu unutmayın.',
-    'people_search_help_3' => 'Eğer bir soyadı, adı, doğum adı veya takma ad <b class="text-emerald-600">boşluk</b> içeriyorsa, adı çift tırnak içine alın,<br/>örneğin: <b class="text-emerald-600">"John Jr." Kennedy</b>.',
+    'people_search_help_3' => 'Eğer bir soyadı, adı, doğum adı veya takma ad <b class="text-emerald-600">boşluk</b> içeriyorsa, adı çift tırnak içine alın,<br/>örneğin: <b class="text-emerald-600">"John Fitzgerald Jr." Kennedy</b>.',
 
     'unauthorized_access' => 'Yetkisiz erişim.',
 

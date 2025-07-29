@@ -116,7 +116,7 @@ return [
 
     'people_search_help_1' => '系统将在搜索框中查找 <b class="text-emerald-600">每一个词</b>，在属性 <b class="text-emerald-600">姓</b>、<b class="text-emerald-600">名</b>、<b class="text-emerald-600">出生名</b> 和 <b class="text-emerald-600">昵称</b> 中进行匹配。',
     'people_search_help_2' => '如果您想搜索名称的一部分，请以 <b class="text-emerald-600">%</b> 开头，例如：<b class="text-emerald-600">%Jr</b>。<br/>请注意，这种搜索速度较慢。',
-    'people_search_help_3' => '如果姓、名、出生名或昵称中包含任何 <b class="text-emerald-600">空格</b>，请将名称用双引号括起来，<br/>例如：<b class="text-emerald-600">"John Jr." Kennedy</b>。',
+    'people_search_help_3' => '如果姓、名、出生名或昵称中包含任何 <b class="text-emerald-600">空格</b>，请将名称用双引号括起来，<br/>例如：<b class="text-emerald-600">"John Fitzgerald Jr." Kennedy</b>。',
 
     'unauthorized_access' => '未授权访问。',
 

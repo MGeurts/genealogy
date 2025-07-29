@@ -6,13 +6,9 @@
             <div class="flex flex-wrap mb-2 text-lg">
                 <div class="flex-1 grow max-w-full">
                     @if (auth()->user()->is_developer)
-                        {!! __('app.people_search', [
-        'scope' => strtoupper(__('team.all_teams')),
-    ]) !!}
+                        {!! __('app.people_search', ['scope' => strtoupper(__('team.all_teams'))]) !!}
                     @else
-                        {!! __('app.people_search', [
-        'scope' => auth()->user()->currentTeam->name,
-    ]) !!}
+                        {!! __('app.people_search', ['scope' => auth()->user()->currentTeam->name]) !!}
                     @endif
                 </div>
 
@@ -29,16 +25,16 @@
                 <div class="flex-1 grow max-w-full text-end">
                     @if ($search)
                         {!! __('app.people_found', [
-        'found' => $people->total(),
-        'total' => $people_db,
-        'scope' => auth()->user()->is_developer ? strtoupper(__('team.all_teams')) : auth()->user()->currentTeam->name,
-        'keyword' => $search,
-    ]) !!}
+                            'found' => $people->total(),
+                            'total' => $people_db,
+                            'scope' => auth()->user()->is_developer ? strtoupper(__('team.all_teams')) : auth()->user()->currentTeam->name,
+                            'keyword' => $search,
+                        ]) !!}
                     @else
                         {!! __('app.people_available', [
-        'total' => $people_db,
-        'scope' => auth()->user()->is_developer ? strtoupper(__('team.all_teams')) : auth()->user()->currentTeam->name,
-    ]) !!}
+                            'total' => $people_db,
+                            'scope' => auth()->user()->is_developer ? strtoupper(__('team.all_teams')) : auth()->user()->currentTeam->name,
+                        ]) !!}
                     @endif
                 </div>
             </div>

@@ -93,7 +93,7 @@ return [
     'people_available'          => '<span class="text-emerald-600">strong:total</strong></span> disponível em <span class="text-emerald-600">strong:scope</ forte></span></span>',
     'people_search_help_1'      => 'O sistema procurará <b class="text-emerald-600">cada palavra</b> na caixa de pesquisa nos atributos <b class="text-emerald-600">sobrenome</b>, < b class="text-emerald-600">nome</b>, <b class="text-emerald-600">nome de nascimento</b> e <b class="text-emerald-600">apelido</ b>.',
     'people_search_help_2'      => 'Comece a string de pesquisa com <b class="text-emerald-600">%</b> se desejar pesquisar partes de nomes, por exemplo : <b class="text-emerald-600">%Jr </b>.<br/>Este tipo de pesquisa é mais lenta.',
-    'people_search_help_3'      => 'Se um sobrenome, nome, nome de nascimento ou apelido contiver <b class="text-emerald-600">espaços</b>, coloque o nome entre aspas duplas,<br/>por exemplo : <b class=" text-emerald-600">"John Jr." Kennedy</b>.',
+    'people_search_help_3'      => 'Se um sobrenome, nome, nome de nascimento ou apelido contiver <b class="text-emerald-600">espaços</b>, coloque o nome entre aspas duplas,<br/>por exemplo : <b class=" text-emerald-600">"John Fitzgerald Jr." Kennedy</b>.',
     'unauthorized_access'       => 'Acesso não autorizado.',
     'terminal'                  => 'terminal',
 

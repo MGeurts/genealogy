@@ -116,7 +116,7 @@ return [
 
     'people_search_help_1' => 'Das System sucht <b class="text-emerald-600">jedes einzelne Wort</b> im Suchfeld in den Attributen <b class="text-emerald-600">Nachname</b>, <b class="text-emerald-600">Vorname</b>, <b class="text-emerald-600">Geburtsname</b> und <b class="text-emerald-600">Spitzname</b>.',
     'people_search_help_2' => 'Beginnen Sie die Suchzeichenfolge mit <b class="text-emerald-600">%</b>, wenn Sie nach Teilen von Namen suchen möchten, zum Beispiel : <b class="text-emerald-600">%Jr</b>.<br/>Beachten Sie, dass diese Art von Suche langsamer ist.',
-    'people_search_help_3' => 'Wenn ein Nachname, Vorname, Geburtsname oder Spitzname <b class="text-emerald-600">Leerzeichen</b> enthält, schließen Sie den Namen in doppelte Anführungszeichen ein,<br/>zum Beispiel: <b class="text-emerald-600">"John Jr." Kennedy</b>.',
+    'people_search_help_3' => 'Wenn ein Nachname, Vorname, Geburtsname oder Spitzname <b class="text-emerald-600">Leerzeichen</b> enthält, schließen Sie den Namen in doppelte Anführungszeichen ein,<br/>zum Beispiel: <b class="text-emerald-600">"John Fitzgerald Jr." Kennedy</b>.',
 
     'unauthorized_access' => 'Unautorisierter Zugriff',
 
