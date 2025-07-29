@@ -71,10 +71,14 @@ final class People extends Component implements HasActions, HasSchemas, HasTable
                     ->searchable(),
                 TextColumn::make('father.name')
                     ->label(__('person.father'))
+                    ->url(fn (Person $record): string => '../people/' . $record->father_id)
+                    ->color('info')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('mother.name')
                     ->label(__('person.mother'))
+                    ->url(fn (Person $record): string => '../people/' . $record->mother_id)
+                    ->color('info')
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('dob')
@@ -127,7 +131,7 @@ final class People extends Component implements HasActions, HasSchemas, HasTable
                     ])
                     ->label(__('person.sex')),
             ])
-            ->actions([
+            ->recordActions([
                 DeleteAction::make()
                     ->iconButton()
                     ->requiresConfirmation()

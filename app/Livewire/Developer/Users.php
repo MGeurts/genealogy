@@ -127,7 +127,7 @@ final class Users extends Component implements HasActions, HasSchemas, HasTable
                 TernaryFilter::make('is_developer')
                     ->label(__('user.developer') . '?'),
             ])
-            ->actions([
+            ->recordActions([
                 DeleteAction::make()
                     ->iconButton()
                     ->visible(fn (User $record): bool => $record->isDeletable()),
