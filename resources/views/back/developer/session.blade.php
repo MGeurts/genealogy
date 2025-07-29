@@ -22,7 +22,20 @@
 
             {{-- card body --}}
             <div class="p-5 overflow-x-auto">
-                <pre>{{ print_r(session()->all(), true) }}</pre>
+                <pre>
+                    @php
+                        $safeSession = collect(session()->all())
+                            ->reject(
+                                fn($value, $key) =>
+                                $key === '_token' ||
+                                $key === 'password_hash_sanctum' ||
+                                str_starts_with($key, 'login_web_')
+                            )
+                            ->toArray();
+
+                        print_r($safeSession);
+                    @endphp
+                </pre>
             </div>
         </div>
     </div>
