@@ -23,9 +23,9 @@
 This <b>TallStack</b> application is build using :
 
 <ul>
-    <li><a href="https://laravel.com/" target="_blank">Laravel</a> 11</li>
+    <li><a href="https://laravel.com/" target="_blank">Laravel</a> 12</li>
     <li><a href="https://jetstream.laravel.com/" target="_blank">Laravel Jetstream</a> 5 (featuring <a href="https://jetstream.laravel.com/features/teams.html" target="_blank">Teams</a>)</li>
-    <li><a href="https://livewire.laravel.com/" target="_blank">Livewire</a> 3</li>
+    <li><a href="https://livewire.laravel.com/" target="_blank">Livewire</a> 4</li>
     <li><a href="https://alpinejs.dev/" target="_blank">Alpine.js</a> 3</li>
     <li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a> 4</li>
     <li><a href="https://tallstackui.com//" target="_blank">TallStackUI</a> 2 (featuring <a href="https://tabler.io/icons" target="_blank">Tabler Icons</a>)</li>
