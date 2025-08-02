@@ -37,18 +37,6 @@ final class Couple extends Model
     ];
 
     /**
-     * Use the built-in $casts property for automatic casting.
-     *
-     * @var array<int, string>
-     */
-    protected $casts = [
-        'date_start' => 'date:Y-m-d',
-        'date_end'   => 'date:Y-m-d',
-        'is_married' => 'boolean',
-        'has_ended'  => 'boolean',
-    ];
-
-    /**
      * The accessors to append to the model's array form.
      *
      * @var array<int, string>
@@ -172,5 +160,15 @@ final class Couple extends Model
     protected function getDateStartFormattedAttribute(): ?string
     {
         return $this->date_start ? Carbon::parse($this->date_start)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : null;
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'date_start' => 'date:Y-m-d',
+            'date_end'   => 'date:Y-m-d',
+            'is_married' => 'boolean',
+            'has_ended'  => 'boolean',
+        ];
     }
 }
