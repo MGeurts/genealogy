@@ -10,14 +10,10 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Number;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Finder\SplFileInfo;
 use TallStackUi\Traits\Interactions;
 
 final class Photos extends Component
@@ -183,103 +179,5 @@ final class Photos extends Component
     private function loadPhotosOptimized(): void
     {
         $this->photos = $this->person->getMedia();
-    }
-
-    /**
-     * Retrieve person photos with error handling.
-     */
-    private function getPersonPhotosFinder(): Finder
-    {
-        $teamId     = $this->person->team_id;
-        $photosPath = public_path("storage/photos/{$teamId}");
-
-        if (! File::exists($photosPath)) {
-            File::makeDirectory($photosPath, 0755, true);
-        }
-
-        return Finder::create()
-            ->in($photosPath)
-            ->name("{$this->person->id}_*.webp")
-            ->files();
-    }
-
-    /**
-     * Map photo data with error handling.
-     */
-    private function mapPhotoData(SplFileInfo $file): array
-    {
-        $teamId   = $this->person->team_id;
-        $filename = $file->getFilename();
-
-        return [
-            'name'          => $filename,
-            'name_download' => "{$this->person->name} - {$filename}",
-            'extension'     => $file->getExtension(),
-            'size'          => Number::fileSize($file->getSize(), 2),
-            'path'          => $file->getPath(),
-            'url'           => Storage::url("photos-384/{$teamId}/{$filename}"),
-            'url_original'  => Storage::url("photos/{$teamId}/{$filename}"),
-            'is_primary'    => $filename === $this->person->photo,
-        ];
-    }
-
-    /**
-     * Delete photo files from all storage locations in batch.
-     */
-    private function deletePhotoFilesBatch(string $photo, int $teamId): void
-    {
-        $folders          = config('app.photo_folders', ['public']);
-        $deleteOperations = [];
-
-        foreach ($folders as $folder) {
-            $deleteOperations[] = fn (): bool => Storage::disk($folder)->delete("{$teamId}/{$photo}");
-        }
-
-        // Execute all deletions
-        foreach ($deleteOperations as $operation) {
-            try {
-                $operation();
-            } catch (Exception $e) {
-                Log::warning('Failed to delete photo from storage', [
-                    'photo'   => $photo,
-                    'team_id' => $teamId,
-                    'error'   => $e->getMessage(),
-                ]);
-            }
-        }
-    }
-
-    /**
-     * Set a new primary photo with better performance.
-     */
-    private function setNewPrimaryPhotoOptimized(): void
-    {
-        try {
-            // Use existing photos collection if available to avoid file system call
-            if ($this->photos && $this->photos->isNotEmpty()) {
-                $firstPhoto = $this->photos->first()['name'] ?? null;
-            } else {
-                // Fallback to file system check
-                $files      = File::glob(public_path("storage/photos/{$this->person->team_id}/{$this->person->id}_*.webp"));
-                $firstPhoto = $files ? basename((string) $files[0]) : null;
-            }
-
-            $this->person->update(['photo' => $firstPhoto]);
-        } catch (Exception $e) {
-            Log::error('Failed to set new primary photo', [
-                'person_id' => $this->person->id,
-                'error'     => $e->getMessage(),
-            ]);
-        }
-    }
-
-    /**
-     * Check if a photo exists.
-     */
-    private function photoExists(string $photo): bool
-    {
-        $path = public_path("storage/photos/{$this->person->team_id}/{$photo}");
-
-        return File::exists($path);
     }
 }
