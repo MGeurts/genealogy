@@ -57,7 +57,7 @@
                 <div class="md:w-2/3">
                     <select id="language" class="block w-full rounded-sm" name="language" required>
                         @foreach (config('app.available_locales') as $locale_name => $available_locale)
-                            <option value="{{ $available_locale }}" @selected($available_locale === app()->getLocale())>{{ $locale_name }}</option>
+                            <option value="{{ $available_locale }}" @selected($available_locale === old('language', app()->getLocale()))>{{ $locale_name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -70,7 +70,7 @@
                 <div class="md:w-2/3">
                     <select id="timezone" class="block w-full rounded-sm" name="timezone" required>
                         @foreach (timezone_identifiers_list() as $timezone)
-                            <option value="{{ $timezone }}">{{ $timezone }}</option>
+                            <option value="{{ $timezone }}" @selected(old('timezone') == $timezone)>{{ $timezone }}</option>
                         @endforeach
                     </select>
                 </div>
