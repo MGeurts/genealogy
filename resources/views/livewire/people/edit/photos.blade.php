@@ -33,23 +33,26 @@
 
     {{-- card body --}}
     <div class="p-2 text-sm border-t-2 rounded-b border-neutral-100 dark:border-neutral-600 bg-neutral-200">
-            @if (count($photos) > 0)
+            @if ($mediaCollection = $person->getMedia())
                 <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                    @foreach ($photos as $photo)
+                    @foreach ($mediaCollection as $photo)
+                        @php
+                            $tempUrl = $photo->getTemporaryUrl(now()->addDay());
+                        @endphp
                         <x-ts-card class="p-2!">
                             <x-slot:header>
-                                <x-ts-link href="{{ url($photo['url_original']) }}" target="_blank" class="text-sm {{ $photo['name'] === $person->photo ? ' text-yellow-500 dark:text-yellow-200' : '' }}">
+                                <x-ts-link href="{{ $tempUrl }}" target="_blank" class="text-sm {{ $photo['name'] === $person->photo ? ' text-yellow-500 dark:text-yellow-200' : '' }}">
                                     {{ $photo['name'] }}
                                 </x-ts-link>
                             </x-slot:header>
 
-                            <x-ts-link href="{{ $photo['url_original'] }}" target="_blank" title="{{ __('app.show') }}">
-                                <img src="{{ $photo['url'] }}" alt="{{ $photo['name'] }}" class="rounded-sm" />
+                            <x-ts-link href="{{ $tempUrl }}" target="_blank" title="{{ __('app.show') }}">
+                                <img src="{{ $tempUrl }}" alt="{{ $photo['name'] }}" class="rounded-sm" />
                             </x-ts-link>
 
                             <x-slot:footer>
                                 <div class="w-full">
-                                    @if ($photo['name'] != $person->photo)
+                                    @if ($loop->first)
                                         <x-ts-button color="secondary" class="p-2!" title="{{ __('person.set_primary') }}" wire:click="setPrimary('{{ $photo['name'] }}')">
                                             <x-ts-icon icon="tabler.star" class="inline-block size-5" />
                                         </x-ts-button>
@@ -58,13 +61,13 @@
                                     @endif
                                 </div>
 
-                                <x-ts-button href="{{ $photo['url'] }}" color="secondary" class="p-2!" title="{{ __('app.download') }}" download="{{ $photo['name_download'] }}">
+                                <x-ts-button href="{{ $tempUrl }}" color="secondary" class="p-2!" title="{{ __('app.download') }}" download="{{ $photo->file_name }}">
                                     <x-ts-icon icon="tabler.download" class="inline-block size-5" />
                                 </x-ts-button>
 
-                                <div class="text-sm text-end">{{ $photo['size'] }}</div>
+                                <div class="text-sm text-end">{{ $photo->size }}</div>
 
-                                <x-ts-button color="red" class="p-2! text-white" title="{{ __('app.delete') }}" wire:click="delete('{{ $photo['name'] }}')">
+                                <x-ts-button color="red" class="p-2! text-white" title="{{ __('app.delete') }}" wire:click="delete('{{ $photo->id }}')">
                                     <x-ts-icon icon="tabler.trash" class="inline-block size-5" />
                                 </x-ts-button>
                             </x-slot:footer>
