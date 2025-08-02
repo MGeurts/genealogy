@@ -54,7 +54,7 @@ return [
     'user_already_invited' => '此用户已经被邀请加入家族。',
     'user_not_leave'       => '您不能离开您创建的家族。',
 
-    'delete_team_meassage' => '永久删除此家族。',
+    'delete_team_message' => '永久删除此家族。',
     'delete_team_text'     => '一旦家族被删除，所有资源和数据将被永久删除。在删除此家族之前，请下载您希望保留的任何数据或信息。',
     'delete_team_sure'     => '您确定要删除此家族吗？一旦家族被删除，所有资源和数据将被永久删除。',
     'can_not_delete'       => '无法删除该团队，因为它包含有效数据',
