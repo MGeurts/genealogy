@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use FilesystemIterator;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -437,216 +438,242 @@ final class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
-    protected function getNameAttribute(): ?string
+    protected function name(): Attribute
     {
-        $name = mb_trim("{$this->firstname} {$this->surname}");
+        return Attribute::make(get: function (): ?string {
+            $name = mb_trim("{$this->firstname} {$this->surname}");
 
-        return $name ?: null;
+            return $name ?: null;
+        });
     }
 
-    protected function getAgeAttribute(): ?int
+    protected function age(): Attribute
     {
-        if ($this->dob) {
-            if ($this->dod) {
-                // deceased based on dob & dod
-                $age = (int) Carbon::parse($this->dob)->diffInYears($this->dod);
-            } elseif ($this->yod) {
-                // deceased based on dob & yod
-                $age = $this->yod - Carbon::parse($this->dob)->format('Y');
+        return Attribute::make(get: function () {
+            if ($this->dob) {
+                if ($this->dod) {
+                    // deceased based on dob & dod
+                    $age = (int) Carbon::parse($this->dob)->diffInYears($this->dod);
+                } elseif ($this->yod) {
+                    // deceased based on dob & yod
+                    $age = $this->yod - Carbon::parse($this->dob)->format('Y');
+                } else {
+                    // living
+                    $age = (int) Carbon::parse($this->dob)->diffInYears();
+                }
+            } elseif ($this->yob) {
+                if ($this->dod) {
+                    // deceased based on yob & dod
+                    $age = Carbon::parse($this->dod)->format('Y') - $this->yod;
+                } elseif ($this->yod) {
+                    // deceased based on yob & yod
+                    $age = $this->yod - $this->yob;
+                } else {
+                    // living
+                    $age = Carbon::today()->format('Y') - $this->yob;
+                }
             } else {
-                // living
-                $age = (int) Carbon::parse($this->dob)->diffInYears();
+                $age = null;
             }
-        } elseif ($this->yob) {
-            if ($this->dod) {
-                // deceased based on yob & dod
-                $age = Carbon::parse($this->dod)->format('Y') - $this->yod;
-            } elseif ($this->yod) {
-                // deceased based on yob & yod
-                $age = $this->yod - $this->yob;
-            } else {
-                // living
-                $age = Carbon::today()->format('Y') - $this->yob;
+
+            return $age >= 0 ? $age : null;
+        });
+    }
+
+    protected function nextBirthday(): Attribute
+    {
+        return Attribute::make(get: function (): ?Carbon {
+            if ($this->dob) {
+                $today               = Carbon::today();
+                $this_years_birthday = Carbon::parse(date('Y') . mb_substr((string) ($this->dob), 4));
+
+                return $today->gt($this_years_birthday) ? $this_years_birthday->copy()->addYear() : $this_years_birthday;
             }
-        } else {
-            $age = null;
-        }
 
-        return $age >= 0 ? $age : null;
-    }
-
-    protected function getNextBirthdayAttribute(): ?Carbon
-    {
-        if ($this->dob) {
-            $today               = Carbon::today();
-            $this_years_birthday = Carbon::parse(date('Y') . mb_substr((string) ($this->dob), 4));
-
-            return $today->gt($this_years_birthday) ? $this_years_birthday->copy()->addYear() : $this_years_birthday;
-        }
-
-        return null;
-    }
-
-    protected function getNextBirthdayAgeAttribute(): ?int
-    {
-        return $this->dob ? Carbon::parse($this->dob)->age + 1 : null;
-    }
-
-    protected function getNextBirthdayRemainingDaysAttribute(): ?int
-    {
-        if (! $this->dob) {
             return null;
-        }
-
-        $today            = Carbon::today();
-        $birthdayThisYear = Carbon::parse($this->dob)->year($today->year);
-
-        // If the birthday is today, return 0 days remaining
-        if ($birthdayThisYear->isToday()) {
-            return 0;
-        }
-
-        // Determine if the next birthday is this year or next year
-        $nextBirthday = $birthdayThisYear->isPast() ? $birthdayThisYear->addYear() : $birthdayThisYear;
-
-        return (int) $today->diffInDays($nextBirthday, false);
+        });
     }
 
-    protected function getLifetimeAttribute(): ?string
+    protected function nextBirthdayAge(): Attribute
     {
-        if ($this->dob) {
-            if ($this->dod) {
-                // deceased based on dob & dod
-                $lifetime = Carbon::parse($this->dob)->format('Y') . ' - ' . Carbon::parse($this->dod)->format('Y');
-            } elseif ($this->yod) {
-                // deceased based on dob & yod
-                $lifetime = Carbon::parse($this->dob)->format('Y') . ' - ' . $this->yod;
-            } else {
-                // living
-                $lifetime = Carbon::parse($this->dob)->format('Y');
+        return Attribute::make(get: function (): ?int {
+            return $this->dob ? Carbon::parse($this->dob)->age + 1 : null;
+        });
+    }
+
+    protected function nextBirthdayRemainingDays(): Attribute
+    {
+        return Attribute::make(get: function (): ?int {
+            if (! $this->dob) {
+                return null;
             }
-        } elseif ($this->yob) {
-            if ($this->dod) {
-                // deceased based on yob & dod
-                $lifetime = $this->yod . ' - ' . Carbon::parse($this->dod)->format('Y');
-            } elseif ($this->yod) {
-                // deceased based on yob & yod
-                $lifetime = $this->yob . ' - ' . $this->yod;
-            } else {
-                // living
-                $lifetime = (string) ($this->yob);
+
+            $today            = Carbon::today();
+            $birthdayThisYear = Carbon::parse($this->dob)->year($today->year);
+
+            // If the birthday is today, return 0 days remaining
+            if ($birthdayThisYear->isToday()) {
+                return 0;
             }
-        } else {
-            $lifetime = null;
-        }
 
-        return $lifetime ? $lifetime : null; // returns YEAR(dob) - YEAR(dod) or null
+            // Determine if the next birthday is this year or next year
+            $nextBirthday = $birthdayThisYear->isPast() ? $birthdayThisYear->addYear() : $birthdayThisYear;
+
+            return (int) $today->diffInDays($nextBirthday, false);
+        });
     }
 
-    protected function getBirthYearAttribute(): ?string
+    protected function lifetime(): Attribute
     {
-        if ($this->dob) {
-            $year = Carbon::parse($this->dob)->format('Y');
-        } elseif ($this->yob) {
-            $year = $this->yob;
-        } else {
-            $year = null;
-        }
+        return Attribute::make(get: function (): ?string {
+            if ($this->dob) {
+                if ($this->dod) {
+                    // deceased based on dob & dod
+                    $lifetime = Carbon::parse($this->dob)->format('Y') . ' - ' . Carbon::parse($this->dod)->format('Y');
+                } elseif ($this->yod) {
+                    // deceased based on dob & yod
+                    $lifetime = Carbon::parse($this->dob)->format('Y') . ' - ' . $this->yod;
+                } else {
+                    // living
+                    $lifetime = Carbon::parse($this->dob)->format('Y');
+                }
+            } elseif ($this->yob) {
+                if ($this->dod) {
+                    // deceased based on yob & dod
+                    $lifetime = $this->yod . ' - ' . Carbon::parse($this->dod)->format('Y');
+                } elseif ($this->yod) {
+                    // deceased based on yob & yod
+                    $lifetime = $this->yob . ' - ' . $this->yod;
+                } else {
+                    // living
+                    $lifetime = (string) ($this->yob);
+                }
+            } else {
+                $lifetime = null;
+            }
 
-        return (string) $year;
+            return $lifetime ? $lifetime : null; // returns YEAR(dob) - YEAR(dod) or null
+        });
     }
 
-    protected function getDeathYearAttribute(): ?string
+    protected function birthYear(): Attribute
     {
-        if ($this->dod) {
-            $year = Carbon::parse($this->dod)->format('Y');
-        } elseif ($this->yod) {
-            $year = $this->yod;
-        } else {
-            $year = null;
-        }
+        return Attribute::make(get: function (): ?string {
+            if ($this->dob) {
+                $year = Carbon::parse($this->dob)->format('Y');
+            } elseif ($this->yob) {
+                $year = $this->yob;
+            } else {
+                $year = null;
+            }
 
-        return (string) $year;
+            return (string) $year;
+        });
     }
 
-    protected function getBirthFormattedAttribute(): ?string
+    protected function deathYear(): Attribute
     {
-        if ($this->dob) {
-            $birth = Carbon::parse($this->dob)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL');
-        } elseif ($this->yob) {
-            $birth = $this->yob;
-        } else {
-            $birth = null;
-        }
+        return Attribute::make(get: function (): ?string {
+            if ($this->dod) {
+                $year = Carbon::parse($this->dod)->format('Y');
+            } elseif ($this->yod) {
+                $year = $this->yod;
+            } else {
+                $year = null;
+            }
 
-        return (string) $birth;
+            return (string) $year;
+        });
     }
 
-    protected function getDeathFormattedAttribute(): ?string
+    protected function birthFormatted(): Attribute
     {
-        if ($this->dod) {
-            $dead = Carbon::parse($this->dod)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL');
-        } elseif ($this->yod) {
-            $dead = $this->yod;
-        } else {
-            $dead = null;
-        }
+        return Attribute::make(get: function (): ?string {
+            if ($this->dob) {
+                $birth = Carbon::parse($this->dob)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL');
+            } elseif ($this->yob) {
+                $birth = $this->yob;
+            } else {
+                $birth = null;
+            }
 
-        return (string) $dead;
+            return (string) $birth;
+        });
     }
 
-    protected function getAddressAttribute(): ?string
+    protected function deathFormatted(): Attribute
     {
-        $countries = new Countries(app()->getLocale());
+        return Attribute::make(get: function (): ?string {
+            if ($this->dod) {
+                $dead = Carbon::parse($this->dod)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL');
+            } elseif ($this->yod) {
+                $dead = $this->yod;
+            } else {
+                $dead = null;
+            }
 
-        $components = [
-            mb_trim("{$this->street} {$this->number}"),
-            mb_trim("{$this->postal_code} {$this->city}"),
-            mb_trim("{$this->province} {$this->state}"),
-            $this->country ? $countries->getCountryName($this->country) : null,
-        ];
-
-        // Filter empty components and implode with newline characters.
-        $address = implode("\n", array_filter($components));
-
-        return $address ?: null;
+            return (string) $dead;
+        });
     }
 
-    protected function getAddressGoogleAttribute(): ?string
+    protected function address(): Attribute
     {
-        $countries         = new Countries(app()->getLocale());
-        $hrefGoogleAddress = 'https://www.google.com/maps/search/';
+        return Attribute::make(get: function (): ?string {
+            $countries = new Countries(app()->getLocale());
 
-        $components = [
-            mb_trim("{$this->street} {$this->number}"),
-            mb_trim("{$this->postal_code} {$this->city}"),
-            mb_trim("{$this->province} {$this->state}"),
-            $this->country ? $countries->getCountryName($this->country) : null,
-        ];
+            $components = [
+                mb_trim("{$this->street} {$this->number}"),
+                mb_trim("{$this->postal_code} {$this->city}"),
+                mb_trim("{$this->province} {$this->state}"),
+                $this->country ? $countries->getCountryName($this->country) : null,
+            ];
 
-        // Filter empty components, implode with commas, and URL-encode the address.
-        $address = implode(',', array: array_filter(array : $components));
+            // Filter empty components and implode with newline characters.
+            $address = implode("\n", array_filter($components));
 
-        return $address !== '' ? $hrefGoogleAddress . urlencode($address) : null;
+            return $address ?: null;
+        });
     }
 
-    protected function getCemeteryGoogleAttribute(): ?string
+    protected function addressGoogle(): Attribute
     {
-        $hrefGoogleGeo     = 'https://www.google.com/maps/search/?api=1&query=';
-        $hrefGoogleAddress = 'https://www.google.com/maps/search/';
+        return Attribute::make(get: function (): ?string {
+            $countries         = new Countries(app()->getLocale());
+            $hrefGoogleAddress = 'https://www.google.com/maps/search/';
 
-        $latitude  = $this->getMetadataValue('cemetery_location_latitude');
-        $longitude = $this->getMetadataValue('cemetery_location_longitude');
-        $address   = $this->getMetadataValue('cemetery_location_address');
+            $components = [
+                mb_trim("{$this->street} {$this->number}"),
+                mb_trim("{$this->postal_code} {$this->city}"),
+                mb_trim("{$this->province} {$this->state}"),
+                $this->country ? $countries->getCountryName($this->country) : null,
+            ];
 
-        if ($latitude && $longitude) {
-            return $hrefGoogleGeo . urlencode("{$latitude},{$longitude}");
-        }
-        if ($address) {
-            return $hrefGoogleAddress . urlencode(str_replace("\n", ',', $address));
-        }
+            // Filter empty components, implode with commas, and URL-encode the address.
+            $address = implode(',', array: array_filter(array : $components));
 
-        return null;
+            return $address !== '' ? $hrefGoogleAddress . urlencode($address) : null;
+        });
+    }
+
+    protected function cemeteryGoogle(): Attribute
+    {
+        return Attribute::make(get: function (): ?string {
+            $hrefGoogleGeo     = 'https://www.google.com/maps/search/?api=1&query=';
+            $hrefGoogleAddress = 'https://www.google.com/maps/search/';
+
+            $latitude  = $this->getMetadataValue('cemetery_location_latitude');
+            $longitude = $this->getMetadataValue('cemetery_location_longitude');
+            $address   = $this->getMetadataValue('cemetery_location_address');
+
+            if ($latitude && $longitude) {
+                return $hrefGoogleGeo . urlencode("{$latitude},{$longitude}");
+            }
+            if ($address) {
+                return $hrefGoogleAddress . urlencode(str_replace("\n", ',', $address));
+            }
+
+            return null;
+        });
     }
 
     protected function casts(): array

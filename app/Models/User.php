@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -148,9 +149,11 @@ final class User extends Authenticatable
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
-    protected function getNameAttribute(): ?string
+    protected function name(): Attribute
     {
-        return implode(' ', array_filter([$this->firstname, $this->surname]));
+        return Attribute::make(get: function (): ?string {
+            return implode(' ', array_filter([$this->firstname, $this->surname]));
+        });
     }
 
     protected function casts(): array
