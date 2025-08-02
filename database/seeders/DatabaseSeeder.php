@@ -19,6 +19,10 @@ final class DatabaseSeeder extends Seeder
             GenderSeeder::class,
         ]);
 
+        if (app()->isProduction()) {
+            return;
+        }
+
         // DEMO DATA
         $this->call([
             UserAndTeamSeeder::class,
@@ -29,11 +33,6 @@ final class DatabaseSeeder extends Seeder
 
         // -----------------------------------------------------------------------
         // if you want to use the application in production, please remove :
-        //
-        // - the DEMO DATA seeder call above
-        // - the database seeder /database/seeders/DemoSeeder.php
-        // - the database seeder /database/seeders/TreeSeeder.php
-        // - the database seeder /database/seeders/UserAndTeamSeeder.php
         //
         // - the folder /public/xml
         // - the content of folder /storage/app/public/photos
