@@ -116,32 +116,13 @@ final class Photos extends Component
     /**
      * Delete a photo with batch operations and better error handling.
      */
-    public function delete(string $photo): void
+    public function delete(int $mediaId): void
     {
-        try {
-            $wasPrimary = ($photo === $this->person->photo);
+        $this->person->media->firstWhere('id', $mediaId)->delete();
 
-            // Batch delete operations
-            $this->deletePhotoFilesBatch($photo, $this->person->team_id);
+        $this->toast()->success(__('app.delete'), __('person.photo_deleted'))->send();
 
-            if ($wasPrimary) {
-                $this->setNewPrimaryPhotoOptimized();
-            }
-
-            $this->toast()->success(__('app.delete'), __('person.photo_deleted'))->send();
-
-            $this->dispatch('photos_updated');
-
-            $this->loadPhotosOptimized();
-        } catch (Exception $e) {
-            Log::error('Failed to delete person photo', [
-                'person_id' => $this->person->id,
-                'photo'     => $photo,
-                'error'     => $e->getMessage(),
-            ]);
-
-            $this->toast()->error(__('app.error'), __('person.photo_delete_failed'))->send();
-        }
+        $this->redirectRoute('people.edit-photos', $this->person->id);
     }
 
     /**
