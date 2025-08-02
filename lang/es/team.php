@@ -47,7 +47,7 @@ return [
     'user_already_in_team'       => 'Este usuario ya pertenece al equipo.',
     'user_already_invited'       => 'Este usuario ya ha sido invitado al equipo.',
     'user_not_leave'             => 'No puedes abandonar un equipo que hayas creado.',
-    'delete_team_meassage'       => 'Eliminar permanentemente este equipo.',
+    'delete_team_message'        => 'Eliminar permanentemente este equipo.',
     'delete_team_text'           => 'Una vez que se elimina un equipo, todos sus recursos y datos se eliminarán permanentemente. Antes de eliminar este equipo, descargue cualquier dato o información sobre este equipo que desee conservar.',
     'delete_team_sure'           => '¿Estás seguro de que deseas eliminar este equipo? Una vez que se elimina un equipo, todos sus recursos y datos se eliminarán permanentemente.',
     'can_not_delete'             => 'Este equipo no se puede eliminar porque contiene datos válidos.',

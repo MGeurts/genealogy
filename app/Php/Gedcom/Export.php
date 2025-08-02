@@ -55,7 +55,7 @@ final class Export
     {
         $tempDir = storage_path('app/temp');
         if (! file_exists($tempDir)) {
-            mkdir($tempDir, 0777, true);
+            mkdir($tempDir, 0755, true);
         }
 
         $gedcomFile = $this->basename . '.ged';

@@ -7,7 +7,7 @@
 
     <x-slot name="description">
         <div class="dark:text-gray-100">
-            {{ __('team.delete_team_meassage') }}
+            {{ __('team.delete_team_message') }}
         </div>
     </x-slot>
 
