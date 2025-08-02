@@ -31,15 +31,6 @@ final class Team extends JetstreamTeam
     ];
 
     /**
-     * Use the built-in $casts property for automatic casting.
-     *
-     * @var array<int, string>
-     */
-    protected $casts = [
-        'personal_team' => 'boolean',
-    ];
-
-    /**
      * The event map for the model.
      *
      * @var array<string, class-string>
@@ -91,5 +82,12 @@ final class Team extends JetstreamTeam
     public function couples(): HasMany
     {
         return $this->hasMany(Couple::class);
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'personal_team' => 'boolean',
+        ];
     }
 }

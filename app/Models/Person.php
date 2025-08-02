@@ -70,16 +70,6 @@ final class Person extends Model implements HasMedia
     ];
 
     /**
-     * Use the built-in $casts property for automatic casting.
-     *
-     * @var array<int, string>
-     */
-    protected $casts = [
-        'dob' => 'date:Y-m-d',
-        'dod' => 'date:Y-m-d',
-    ];
-
-    /**
      * The accessors to append to the model's array form.
      *
      * @var array<int, string>
@@ -657,5 +647,13 @@ final class Person extends Model implements HasMedia
         }
 
         return null;
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'dob' => 'date:Y-m-d',
+            'dod' => 'date:Y-m-d',
+        ];
     }
 }

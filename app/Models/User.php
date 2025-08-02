@@ -64,19 +64,6 @@ final class User extends Authenticatable
     ];
 
     /**
-     * Use the built-in $casts property for automatic casting.
-     *
-     * @var array<int, string>
-     */
-    protected $casts = [
-        'email_verified_at'       => 'datetime',
-        'password'                => 'hashed',
-        'is_developer'            => 'boolean',
-        'seen_at'                 => 'datetime',
-        'two_factor_confirmed_at' => 'datetime',
-    ];
-
-    /**
      * The attributes that should be hidden for serialization.
      *
      * @var array<int, string>
@@ -164,5 +151,16 @@ final class User extends Authenticatable
     protected function getNameAttribute(): ?string
     {
         return implode(' ', array_filter([$this->firstname, $this->surname]));
+    }
+
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at'       => 'datetime',
+            'password'                => 'hashed',
+            'is_developer'            => 'boolean',
+            'seen_at'                 => 'datetime',
+            'two_factor_confirmed_at' => 'datetime',
+        ];
     }
 }
