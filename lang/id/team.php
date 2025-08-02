@@ -54,7 +54,7 @@ return [
     'user_already_invited' => 'Pengguna ini sudah diundang ke tim.',
     'user_not_leave'       => 'Anda tidak boleh keluar dari tim yang Anda buat.',
 
-    'delete_team_meassage' => 'Hapus tim ini secara permanen.',
+    'delete_team_message' => 'Hapus tim ini secara permanen.',
     'delete_team_text'     => 'Setelah tim dihapus, semua sumber daya dan datanya akan dihapus secara permanen. Sebelum menghapus tim ini, harap unduh data atau informasi apa pun mengenai tim ini yang ingin Anda simpan.',
     'delete_team_sure'     => 'Apakah Anda yakin ingin menghapus tim ini? Setelah tim dihapus, semua sumber daya dan datanya akan dihapus secara permanen.',
     'can_not_delete'       => 'Tim ini tidak dapat dihapus karena berisi data yang valid.',

@@ -54,7 +54,7 @@ return [
     'user_already_invited' => 'Deze gebruiker is al uitgenodigd voor het team.',
     'user_not_leave'       => 'Je mag een team dat je hebt aangemaakt niet verlaten.',
 
-    'delete_team_meassage' => 'Verwijder dit team definitief.',
+    'delete_team_message' => 'Verwijder dit team definitief.',
     'delete_team_text'     => 'Zodra een team is verwijderd, worden alle bronnen en gegevens permanent verwijderd. Voordat u dit team verwijdert, downloadt u alle gegevens of informatie over dit team die u wilt behouden.',
     'delete_team_sure'     => 'Weet u zeker dat u dit team wilt verwijderen? Zodra een team is verwijderd, worden alle bronnen en gegevens permanent verwijderd.',
     'can_not_delete'       => 'Dit team kan niet worden verwijderd omdat het geldige gegevens bevat.',
