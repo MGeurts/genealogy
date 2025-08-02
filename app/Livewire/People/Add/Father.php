@@ -7,7 +7,6 @@ namespace App\Livewire\People\Add;
 use App\Livewire\Forms\People\PersonForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
-use App\PersonPhotos;
 use App\Rules\DobValid;
 use App\Rules\YobValid;
 use Illuminate\Http\UploadedFile;
