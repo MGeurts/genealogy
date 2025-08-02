@@ -57,7 +57,7 @@
                 <div class="md:w-2/3">
                     <select id="language" class="block w-full rounded-sm" name="language" required>
                         @foreach (config('app.available_locales') as $locale_name => $available_locale)
-                            <option value="{{ $available_locale }}" @selected($available_locale === app()->getLocale())>{{ $locale_name }}</option>
+                            <option value="{{ $available_locale }}" @selected($available_locale === old('language', app()->getLocale()))>{{ $locale_name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -70,7 +70,7 @@
                 <div class="md:w-2/3">
                     <select id="timezone" class="block w-full rounded-sm" name="timezone" required>
                         @foreach (timezone_identifiers_list() as $timezone)
-                            <option value="{{ $timezone }}" @selected(old('timezone', config('app.timezone')) == $timezone)>{{ $timezone }}</option>
+                            <option value="{{ $timezone }}" @selected($timezone === old('timezone', config('app.timezone')))>{{ $timezone }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -106,19 +106,19 @@
 
                             <div class="ml-2">
                                 {!! __('auth.agree', [
-                                    'terms_of_service' =>
-                                        '<a target="_blank" href="' .
-                                        route('terms.show') .
-                                        '" class="text-sm text-gray-600 underline rounded-sm hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
-                                        __('app.terms_of_service') .
-                                        '</a>',
-                                    'privacy_policy' =>
-                                        '<a target="_blank" href="' .
-                                        route('policy.show') .
-                                        '" class="text-sm text-gray-600 underline rounded-sm hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
-                                        __('app.privacy_policy') .
-                                        '</a>',
-                                ]) !!}
+        'terms_of_service' =>
+            '<a target="_blank" href="' .
+            route('terms.show') .
+            '" class="text-sm text-gray-600 underline rounded-sm hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
+            __('app.terms_of_service') .
+            '</a>',
+        'privacy_policy' =>
+            '<a target="_blank" href="' .
+            route('policy.show') .
+            '" class="text-sm text-gray-600 underline rounded-sm hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
+            __('app.privacy_policy') .
+            '</a>',
+    ]) !!}
                             </div>
                         </div>
                     </x-label>
