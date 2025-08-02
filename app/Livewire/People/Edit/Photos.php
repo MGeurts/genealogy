@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Number;
 use Illuminate\View\View;
-use InvalidArgumentException;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
 use TallStackUi\Traits\Interactions;
@@ -147,28 +147,19 @@ final class Photos extends Component
     /**
      * Set the primary photo with validation.
      */
-    public function setPrimary(string $photo): void
+    public function setPrimary(int $id): void
     {
-        try {
-            // Verify photo exists before setting as primary
-            if (! $this->photoExists($photo)) {
-                throw new InvalidArgumentException('Photo does not exist');
-            }
+        $newOrder = $this->photos
+            ->pluck('id')
+            ->prepend($id)
+            ->unique()
+            ->toArray();
 
-            $this->person->update(['photo' => $photo]);
+        Media::setNewOrder($newOrder);
 
-            $this->toast()->success(__('app.saved'), __('person.photo_is_set_primary'))->send();
+        $this->toast()->success(__('app.saved'), __('person.photo_is_set_primary'))->send();
 
-            $this->dispatch('photos_updated');
-        } catch (Exception $e) {
-            Log::error('Failed to set primary photo', [
-                'person_id' => $this->person->id,
-                'photo'     => $photo,
-                'error'     => $e->getMessage(),
-            ]);
-
-            $this->toast()->error(__('app.error'), __('person.photo_set_primary_failed'))->send();
-        }
+        $this->redirectRoute('people.edit-photos', $this->person->id);
     }
 
     public function render(): View
@@ -210,26 +201,7 @@ final class Photos extends Component
      */
     private function loadPhotosOptimized(): void
     {
-        $this->photos = collect();
-
-        try {
-            $finder = $this->getPersonPhotosFinder();
-
-            if (! $finder->hasResults()) {
-                return;
-            }
-
-            foreach ($finder as $file) {
-                $this->photos->push($this->mapPhotoData($file));
-            }
-
-            $this->photos = $this->photos->sortBy('name');
-        } catch (Exception $e) {
-            Log::error('Failed to load person photos', [
-                'person_id' => $this->person->id,
-                'error'     => $e->getMessage(),
-            ]);
-        }
+        $this->photos = $this->person->getMedia();
     }
 
     /**

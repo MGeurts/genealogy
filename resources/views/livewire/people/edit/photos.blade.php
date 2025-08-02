@@ -4,8 +4,8 @@
         <div class="flex flex-wrap items-start justify-center gap-2">
             <div class="flex-1 grow max-w-full min-w-max">
                 {{ __('person.photos') }}
-                @if (count($photos) > 0)
-                    <x-ts-badge color="emerald" text="{{ count($photos) }}" />
+                @if ($photosCount = $photos->count())
+                    <x-ts-badge color="emerald" text="{{ $photosCount }}" />
                 @endif
             </div>
 
@@ -33,9 +33,9 @@
 
     {{-- card body --}}
     <div class="p-2 text-sm border-t-2 rounded-b border-neutral-100 dark:border-neutral-600 bg-neutral-200">
-            @if ($mediaCollection = $person->getMedia())
+            @if ($photos->count())
                 <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                    @foreach ($mediaCollection as $photo)
+                    @foreach ($photos as $photo)
                         @php
                             $tempUrl = $photo->getTemporaryUrl(now()->addDay());
                         @endphp
@@ -52,8 +52,8 @@
 
                             <x-slot:footer>
                                 <div class="w-full">
-                                    @if ($loop->first)
-                                        <x-ts-button color="secondary" class="p-2!" title="{{ __('person.set_primary') }}" wire:click="setPrimary('{{ $photo['name'] }}')">
+                                    @if ($photo->order_column !== 1)
+                                        <x-ts-button color="secondary" class="p-2!" title="{{ __('person.set_primary') }}" wire:click="setPrimary('{{ $photo->id }}')">
                                             <x-ts-icon icon="tabler.star" class="inline-block size-5" />
                                         </x-ts-button>
                                     @else

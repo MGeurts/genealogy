@@ -31,7 +31,7 @@ final class Gallery extends Component
     public function render(): View
     {
         return view('livewire.people.gallery', [
-            'photos' => $this->person->media()->paginate(1),
+            'photos' => $this->person->media()->oldest('order_column')->paginate(1),
         ]);
     }
 }
