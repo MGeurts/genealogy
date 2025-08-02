@@ -54,7 +54,7 @@ return [
     'user_already_invited' => 'Dieser Benutzer wurde bereits zum Team eingeladen.',
     'user_not_leave'       => 'Sie dürfen ein von Ihnen erstelltes Team nicht verlassen.',
 
-    'delete_team_meassage' => 'Dieses Team dauerhaft löschen.',
+    'delete_team_message' => 'Dieses Team dauerhaft löschen.',
     'delete_team_text'     => 'Sobald ein Team gelöscht wird, werden alle seine Ressourcen und Daten dauerhaft gelöscht. Bevor Sie dieses Team löschen, laden Sie bitte alle Daten oder Informationen zu diesem Team herunter, die Sie behalten möchten.',
     'delete_team_sure'     => 'Sind Sie sicher, dass Sie dieses Team löschen möchten? Sobald ein Team gelöscht wird, werden alle seine Ressourcen und Daten dauerhaft gelöscht.',
     'can_not_delete'       => 'Dieses Team kann nicht gelöscht werden, da es gültige Daten enthält.',

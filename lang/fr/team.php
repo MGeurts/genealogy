@@ -47,7 +47,7 @@ return [
     'user_already_in_team'       => 'Cet utilisateur appartient déjà à l\'équipe.',
     'user_already_invited'       => 'Cet utilisateur a déjà été invité dans l\'équipe.',
     'user_not_leave'             => 'Vous ne pouvez pas quitter une équipe que vous avez créée.',
-    'delete_team_meassage'       => 'Supprimez définitivement cette équipe.',
+    'delete_team_message'       => 'Supprimez définitivement cette équipe.',
     'delete_team_text'           => 'Une fois une équipe supprimée, toutes ses ressources et données seront définitivement supprimées. Avant de supprimer cette équipe, veuillez télécharger toutes les données ou informations concernant cette équipe que vous souhaitez conserver.',
     'delete_team_sure'           => 'Êtes-vous sûr de vouloir supprimer cette équipe ? Une fois une équipe supprimée, toutes ses ressources et données seront définitivement supprimées.',
     'can_not_delete'             => 'Cette équipe ne peut pas être supprimée car elle contient des données valides.',
