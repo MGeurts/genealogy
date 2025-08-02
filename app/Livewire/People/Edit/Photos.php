@@ -32,7 +32,7 @@ final class Photos extends Component
     // ------------------------------------------------------------------------------
     public function mount(): void
     {
-        $this->loadPhotosOptimized();
+        $this->photos = $this->person->getMedia();
     }
 
     /**
@@ -169,15 +169,5 @@ final class Photos extends Component
                 'max'       => config('app.upload_max_size'),
             ]),
         ];
-    }
-
-    // -----------------------------------------------------------------------
-
-    /**
-     * Load photos with optimized file operations.
-     */
-    private function loadPhotosOptimized(): void
-    {
-        $this->photos = $this->person->getMedia();
     }
 }
