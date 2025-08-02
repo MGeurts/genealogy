@@ -1,7 +1,7 @@
 @props(['person' => null])
 
 <div class="user-image">
-    @if ($tempUrl = $person->getFirstTemporaryUrl(now()->addHour()))
+    @if ($tempUrl = $person->media()->where('order_column', 1)->first()?->getTemporaryUrl(now()->addHour()))
         <img {{ $attributes->merge(['class' => 'w-full rounded-sm shadow-lg dark:shadow-black/30']) }} src="{{ $tempUrl }}"
             alt="{{ $person->name }}" title="{{ $person->name }}" />
     @else
