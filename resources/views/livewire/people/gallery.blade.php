@@ -1,6 +1,12 @@
 <div>
     {{-- pagination --}}
-    @if (count($images) > 1)
+
+    @php
+        $photos = $person->getMedia()->keyBy('id');
+        $selected = $photos->keys()->shuffle()->first();
+    @endphp
+
+    @if ($photos->isNotEmpty())
         <div class="flex items-center justify-center mb-2 print:hidden">
             {{-- previous page link --}}
             @if ($selected === 0)
@@ -101,9 +107,9 @@
 
     {{-- image --}}
     <div class="user-image">
-        @if (count($images) > 0)
-            <x-ts-link href="{{ asset('storage/photos/' . $person->team_id . '/' . $images[$selected]) }}" target="_blank">
-                <img class="rounded-sm shadow-lg w-96 dark:shadow-black/30" src="{{ asset('storage/photos-384/' . $person->team_id . '/' . $images[$selected]) }}" alt="{{ $person->name }}"
+        @if ($tempUrl = $photos->get($selected)->getTemporaryUrl(now()->addDay()))
+            <x-ts-link href="{{ $tempUrl  }}" target="_blank">
+                <img class="rounded-sm shadow-lg w-96 dark:shadow-black/30" src="{{ $tempUrl }}" alt="{{ $person->name }}"
                     title="{{ $person->name }}" />
             </x-ts-link>
         @else
