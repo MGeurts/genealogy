@@ -120,10 +120,13 @@ final class Father extends Component
                 ]
             ));
 
-            if ($this->form->uploads) {
-                $photos     = new PersonPhotos($newFather);
-                $savedCount = $photos->save($this->form->uploads);
+            foreach ($this->form->uploads as $upload) {
+                $newFather
+                    ->addMediaFromDisk($upload->getClientOriginalPath())
+                    ->toMediaCollection();
+            }
 
+            if ($savedCount = count($this->form->uploads)) {
                 $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
             }
 
