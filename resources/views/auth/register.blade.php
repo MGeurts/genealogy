@@ -70,7 +70,7 @@
                 <div class="md:w-2/3">
                     <select id="timezone" class="block w-full rounded-sm" name="timezone" required>
                         @foreach (timezone_identifiers_list() as $timezone)
-                            <option value="{{ $timezone }}">{{ $timezone }}</option>
+                            <option value="{{ $timezone }}" @selected(old('timezone', config('app.timezone')) == $timezone)>{{ $timezone }}</option>
                         @endforeach
                     </select>
                 </div>
