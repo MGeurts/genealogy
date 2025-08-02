@@ -55,9 +55,9 @@ return [
     'user_not_leave'       => 'You may not leave a team that you created.',
 
     'delete_team_message' => 'Permanently delete this team.',
-    'delete_team_text'     => 'Once a team is deleted, all of its resources and data will be permanently deleted. Before deleting this team, please download any data or information regarding this team that you wish to retain.',
-    'delete_team_sure'     => 'Are you sure you want to delete this team? Once a team is deleted, all of its resources and data will be permanently deleted.',
-    'can_not_delete'       => 'This team can not be deleted because it contains valid data.',
+    'delete_team_text'    => 'Once a team is deleted, all of its resources and data will be permanently deleted. Before deleting this team, please download any data or information regarding this team that you wish to retain.',
+    'delete_team_sure'    => 'Are you sure you want to delete this team? Once a team is deleted, all of its resources and data will be permanently deleted.',
+    'can_not_delete'      => 'This team can not be deleted because it contains valid data.',
 
     'been_invited'               => 'You have been invited to join the :team team!',
     'no_account'                 => 'If you do not have an account, you may create one by clicking the button below. After creating an account, you may click the invitation acceptance button in this email to accept the team invitation:',

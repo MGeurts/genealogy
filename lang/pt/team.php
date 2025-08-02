@@ -47,7 +47,7 @@ return [
     'user_already_in_team'       => 'Este usuário já pertence à equipe.',
     'user_already_invited'       => 'Este usuário já foi convidado para a equipe.',
     'user_not_leave'             => 'Você não pode sair de uma equipe que criou.',
-    'delete_team_message'       => 'Exclua permanentemente esta equipe.',
+    'delete_team_message'        => 'Exclua permanentemente esta equipe.',
     'delete_team_text'           => 'Depois que uma equipe for excluída, todos os seus recursos e dados serão excluídos permanentemente. Antes de excluir esta equipe, baixe quaisquer dados ou informações sobre ela que você deseja manter.',
     'delete_team_sure'           => 'Tem certeza de que deseja excluir esta equipe? Depois que uma equipe for excluída, todos os seus recursos e dados serão excluídos permanentemente.',
     'can_not_delete'             => 'Esta equipa não pode ser eliminada porque contém dados válidos.',

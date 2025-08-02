@@ -55,9 +55,9 @@ return [
     'user_not_leave'       => 'Sie dürfen ein von Ihnen erstelltes Team nicht verlassen.',
 
     'delete_team_message' => 'Dieses Team dauerhaft löschen.',
-    'delete_team_text'     => 'Sobald ein Team gelöscht wird, werden alle seine Ressourcen und Daten dauerhaft gelöscht. Bevor Sie dieses Team löschen, laden Sie bitte alle Daten oder Informationen zu diesem Team herunter, die Sie behalten möchten.',
-    'delete_team_sure'     => 'Sind Sie sicher, dass Sie dieses Team löschen möchten? Sobald ein Team gelöscht wird, werden alle seine Ressourcen und Daten dauerhaft gelöscht.',
-    'can_not_delete'       => 'Dieses Team kann nicht gelöscht werden, da es gültige Daten enthält.',
+    'delete_team_text'    => 'Sobald ein Team gelöscht wird, werden alle seine Ressourcen und Daten dauerhaft gelöscht. Bevor Sie dieses Team löschen, laden Sie bitte alle Daten oder Informationen zu diesem Team herunter, die Sie behalten möchten.',
+    'delete_team_sure'    => 'Sind Sie sicher, dass Sie dieses Team löschen möchten? Sobald ein Team gelöscht wird, werden alle seine Ressourcen und Daten dauerhaft gelöscht.',
+    'can_not_delete'      => 'Dieses Team kann nicht gelöscht werden, da es gültige Daten enthält.',
 
     'been_invited'               => 'Sie wurden eingeladen, dem :team-Team beizutreten!',
     'no_account'                 => 'Wenn Sie noch kein Konto haben, können Sie eines erstellen, indem Sie auf die Schaltfläche unten klicken. Nachdem Sie ein Konto erstellt haben, können Sie in dieser E-Mail auf die Schaltfläche „Einladung annehmen“ klicken, um die Teameinladung anzunehmen:',

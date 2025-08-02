@@ -55,9 +55,9 @@ return [
     'user_not_leave'       => 'Oluşturduğunuz bir takımdan ayrılamazsınız.',
 
     'delete_team_message' => 'Bu takımı kalıcı olarak silin.',
-    'delete_team_text'     => 'Bir takım silindiğinde, tüm kaynakları ve verileri kalıcı olarak silinir. Bu takımı silmeden önce, bu takımla ilgili saklamak istediğiniz tüm verileri veya bilgileri indiriniz.',
-    'delete_team_sure'     => 'Bu takımı silmek istediğinizden emin misiniz? Bir takım silindiğinde, tüm kaynakları ve verileri kalıcı olarak silinir.',
-    'can_not_delete'       => 'Bu takım geçerli veriler içerdiği için silinemez.',
+    'delete_team_text'    => 'Bir takım silindiğinde, tüm kaynakları ve verileri kalıcı olarak silinir. Bu takımı silmeden önce, bu takımla ilgili saklamak istediğiniz tüm verileri veya bilgileri indiriniz.',
+    'delete_team_sure'    => 'Bu takımı silmek istediğinizden emin misiniz? Bir takım silindiğinde, tüm kaynakları ve verileri kalıcı olarak silinir.',
+    'can_not_delete'      => 'Bu takım geçerli veriler içerdiği için silinemez.',
 
     'been_invited'               => ':team takımına katılmak için davet edildiniz!',
     'no_account'                 => 'Bir hesabınız yoksa, aşağıdaki düğmeye tıklayarak bir hesap oluşturabilirsiniz. Hesap oluşturduktan sonra, bu e-postadaki davet kabul düğmesine tıklayarak takım davetini kabul edebilirsiniz:',

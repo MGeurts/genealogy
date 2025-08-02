@@ -55,9 +55,9 @@ return [
     'user_not_leave'       => 'Anda tidak boleh keluar dari tim yang Anda buat.',
 
     'delete_team_message' => 'Hapus tim ini secara permanen.',
-    'delete_team_text'     => 'Setelah tim dihapus, semua sumber daya dan datanya akan dihapus secara permanen. Sebelum menghapus tim ini, harap unduh data atau informasi apa pun mengenai tim ini yang ingin Anda simpan.',
-    'delete_team_sure'     => 'Apakah Anda yakin ingin menghapus tim ini? Setelah tim dihapus, semua sumber daya dan datanya akan dihapus secara permanen.',
-    'can_not_delete'       => 'Tim ini tidak dapat dihapus karena berisi data yang valid.',
+    'delete_team_text'    => 'Setelah tim dihapus, semua sumber daya dan datanya akan dihapus secara permanen. Sebelum menghapus tim ini, harap unduh data atau informasi apa pun mengenai tim ini yang ingin Anda simpan.',
+    'delete_team_sure'    => 'Apakah Anda yakin ingin menghapus tim ini? Setelah tim dihapus, semua sumber daya dan datanya akan dihapus secara permanen.',
+    'can_not_delete'      => 'Tim ini tidak dapat dihapus karena berisi data yang valid.',
 
     'been_invited'               => 'Anda telah diundang untuk bergabung dengan tim :team!',
     'no_account'                 => 'Jika Anda tidak memiliki akun, Anda dapat membuatnya dengan mengeklik tombol di bawah. Setelah membuat akun, Anda dapat mengeklik tombol penerimaan undangan di email ini untuk menerima undangan tim:',
