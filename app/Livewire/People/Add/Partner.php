@@ -10,6 +10,7 @@ use App\Models\Couple;
 use App\Models\Person;
 use App\Rules\DobValid;
 use App\Rules\YobValid;
+use App\Services\MediaLibraryService;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
@@ -155,13 +156,7 @@ final class Partner extends Component
                     'team_id'   => $this->person->team_id,
                 ]);
 
-                foreach ($this->form->uploads as $upload) {
-                    $newPartner
-                        ->addMediaFromDisk($upload->getClientOriginalPath())
-                        ->toMediaCollection();
-                }
-
-                if ($savedCount = count($this->form->uploads)) {
+                if ($savedCount = MediaLibraryService::savePhotosToPerson($newPartner, $this->form->uploads)) {
                     $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
                 }
 

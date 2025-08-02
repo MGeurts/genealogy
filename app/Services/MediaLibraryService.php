@@ -1,0 +1,28 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Services;
+
+use App\Models\Person;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
+
+class MediaLibraryService
+{
+    /**
+     * Save photos to a person.
+     *
+     * @param  array<TemporaryUploadedFile>  $uploads
+     */
+    public static function savePhotosToPerson(Person $person, array $uploads): int
+    {
+        foreach ($uploads as $upload) {
+            $person
+                ->addMediaFromDisk($upload->getClientOriginalPath())
+                ->setFileName($upload->getClientOriginalName())
+                ->toMediaCollection();
+        }
+
+        return count($uploads);
+    }
+}

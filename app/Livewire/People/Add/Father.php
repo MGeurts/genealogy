@@ -9,6 +9,7 @@ use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
 use App\Rules\DobValid;
 use App\Rules\YobValid;
+use App\Services\MediaLibraryService;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
@@ -119,13 +120,7 @@ final class Father extends Component
                 ]
             ));
 
-            foreach ($this->form->uploads as $upload) {
-                $newFather
-                    ->addMediaFromDisk($upload->getClientOriginalPath())
-                    ->toMediaCollection();
-            }
-
-            if ($savedCount = count($this->form->uploads)) {
+            if ($savedCount = MediaLibraryService::savePhotosToPerson($newFather, $this->form->uploads)) {
                 $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
             }
 
