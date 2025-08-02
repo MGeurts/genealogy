@@ -7,7 +7,6 @@ namespace App\Livewire\People\Add;
 use App\Livewire\Forms\People\PersonForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
-use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
@@ -120,10 +119,13 @@ class Child extends Component
                 ]
             ));
 
-            if ($this->form->uploads) {
-                $photos     = new PersonPhotos($newChild);
-                $savedCount = $photos->save($this->form->uploads);
+            foreach ($this->form->uploads as $upload) {
+                $newChild
+                    ->addMediaFromDisk($upload->getClientOriginalPath())
+                    ->toMediaCollection();
+            }
 
+            if ($savedCount = count($this->form->uploads)) {
                 $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
             }
 
