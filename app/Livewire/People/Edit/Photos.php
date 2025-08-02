@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Livewire\People\Edit;
 
 use App\Models\Person;
-use App\PersonPhotos;
 use Exception;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
@@ -103,28 +102,14 @@ final class Photos extends Component
     {
         $this->validate();
 
-        if (empty($this->uploads)) {
-            return;
+        foreach ($this->uploads as $upload) {
+            $this->person
+                ->addMediaFromDisk($upload->getClientOriginalPath())
+                ->toMediaCollection();
         }
 
-        try {
-            $personPhotos = new PersonPhotos($this->person);
-            $savedCount   = $personPhotos->save($this->uploads);
-
+        if ($savedCount = count($this->uploads)) {
             $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
-
-            $this->dispatch('photos_updated');
-
-            $this->loadPhotosOptimized();
-
-            $this->uploads = [];
-        } catch (Exception $e) {
-            Log::error('Failed to save person photos', [
-                'person_id' => $this->person->id,
-                'error'     => $e->getMessage(),
-            ]);
-
-            $this->toast()->error(__('app.error'), __('person.photos_save_failed'))->send();
         }
     }
 
