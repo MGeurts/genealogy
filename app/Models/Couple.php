@@ -7,6 +7,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -144,22 +145,23 @@ final class Couple extends Model
         });
     }
 
-    /* -------------------------------------------------------------------------------------------- */
-    // Accessors & Mutators
-    /* -------------------------------------------------------------------------------------------- */
-    protected function getNameAttribute(): ?string
+    protected function name(): Attribute
     {
-        $names = array_filter([
-            optional($this->person_1)->name,
-            optional($this->person_2)->name,
-        ]);
+        return Attribute::make(get: function () {
+            $names = array_filter([
+                optional($this->person_1)->name,
+                optional($this->person_2)->name,
+            ]);
 
-        return $names !== [] ? implode(' - ', $names) : null;
+            return $names !== [] ? implode(' - ', $names) : null;
+        });
     }
 
-    protected function getDateStartFormattedAttribute(): ?string
+    protected function dateStartFormatted(): Attribute
     {
-        return $this->date_start ? Carbon::parse($this->date_start)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : null;
+        return Attribute::make(get: function () {
+            return $this->date_start ? Carbon::parse($this->date_start)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : null;
+        });
     }
 
     protected function casts(): array
