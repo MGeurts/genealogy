@@ -1,4 +1,6 @@
-@use(App\Enums\MediaCollection;use App\Models\Person;use Spatie\MediaLibrary\MediaCollections\Models\Media)
+@use(App\Enums\MediaCollection)
+@use(App\Models\Person)
+@use(Spatie\MediaLibrary\MediaCollections\Models\Media)
 @props(['person', 'ancestors', 'level_current' => 0, 'level_max'])
 
 @php
