@@ -18,8 +18,9 @@
         <x-link href="/people/{{ $person->id }}" title="{{ $person->sex === 'm' ? __('app.male') : __('app.female') }}">
             <figure class="w-24">
                 <div class="user-image">
-                    @if ($src = Media::where('model_id', $person->id)->where('model_type', Person::class)->where('collection_name', MediaCollection::PHOTO->value)->first()?->getTemporaryUrl(now()->addHour()))
-                        <img src="{{ $src }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30"
+                    @if ($person->photo_url)
+                        {{-- Use the first media item as the image source --}}
+                        <img src="{{ $person->photo_url }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30"
                              alt="{{ $person->id }}"/>
                     @else
                         <x-svg.person-no-image class="w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400"

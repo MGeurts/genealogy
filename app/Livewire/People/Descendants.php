@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\People;
 
+use App\Facades\MediaLibrary;
 use App\Models\Person;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -75,6 +76,8 @@ final class Descendants extends Component
     private function loadDescendants(): void
     {
         $this->descendants = collect(DB::select($this->getRecursiveQuery()));
+
+        $this->descendants = MediaLibrary::loadTreePeopleImageUrl($this->descendants);
 
         $maxDegree       = $this->descendants->max('degree');
         $this->count_max = min($maxDegree + 1, $this->count_max);
