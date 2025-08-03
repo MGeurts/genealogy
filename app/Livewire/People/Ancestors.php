@@ -7,6 +7,7 @@ namespace App\Livewire\People;
 use App\Models\Person;
 use App\Queries\AncestorQuery;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Livewire\Component;
 
@@ -74,8 +75,7 @@ final class Ancestors extends Component
      */
     private function loadAncestors(): void
     {
-        AncestorQuery::get($this->person->id, $this->count_max);
-        $this->ancestors = collect();
+        $this->ancestors = collect(DB::select(AncestorQuery::get($this->person->id, $this->count_max)));
 
         $maxDegree       = $this->ancestors->max('degree');
         $this->count_max = min($maxDegree + 1, $this->count_max);
