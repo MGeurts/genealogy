@@ -23,7 +23,7 @@ jobs:
           tools: composer:v2
 
       - name: Install Dependencies
-        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts
 
       - name: Run Pint (Code Style Check)
         run: ./vendor/bin/pint --test
