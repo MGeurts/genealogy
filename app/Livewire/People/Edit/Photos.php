@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\People\Edit;
 
+use App\Enums\MediaCollection;
 use App\Facades\MediaLibrary;
 use App\Models\Person;
 use Exception;
@@ -33,7 +34,7 @@ final class Photos extends Component
     // ------------------------------------------------------------------------------
     public function mount(): void
     {
-        $this->photos = $this->person->getMedia();
+        $this->photos = $this->person->getMedia(MediaCollection::PHOTO->value);
     }
 
     /**
