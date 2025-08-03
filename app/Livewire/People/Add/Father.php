@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Livewire\People\Add;
 
+use App\Facades\MediaLibrary;
 use App\Livewire\Forms\People\PersonForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
 use App\Rules\DobValid;
 use App\Rules\YobValid;
-use App\Services\MediaLibraryService;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
@@ -120,7 +120,7 @@ final class Father extends Component
                 ]
             ));
 
-            if ($savedCount = MediaLibraryService::savePhotosToPerson($newFather, $this->form->uploads)) {
+            if ($savedCount = MediaLibrary::savePhotosToPerson($newFather, $this->form->uploads)) {
                 $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
             }
 

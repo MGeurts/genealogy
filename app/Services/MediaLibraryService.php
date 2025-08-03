@@ -14,7 +14,7 @@ class MediaLibraryService
      *
      * @param  array<TemporaryUploadedFile>  $uploads
      */
-    public static function savePhotosToPerson(Person $person, array $uploads): int
+    public function savePhotosToPerson(Person $person, array $uploads): int
     {
         foreach ($uploads as $upload) {
             $person
