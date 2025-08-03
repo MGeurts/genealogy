@@ -18,7 +18,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
@@ -152,7 +151,7 @@ final class Person extends Model implements HasMedia
 
             $query
                 ->where(function ($q) use ($year): void {
-                    $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '>=', $year);
+                    $q->whereNull('dob')->orWhereYear('dob', '>=', $year);
                 })
                 ->where(function ($q) use ($year): void {
                     $q->whereNull('yob')->orWhere('yob', '>=', $year);
@@ -167,9 +166,7 @@ final class Person extends Model implements HasMedia
             $year = (int) $year;
 
             $query
-                ->where(function ($q) use ($year): void {
-                    $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '<=', $year);
-                })
+                ->where(fn (Builder $q) => $q->whereNull('dob')->orWhereYear('dob', '<=', $year))
                 ->where(function ($q) use ($year): void {
                     $q->whereNull('yob')->orWhere('yob', '<=', $year);
                 });
@@ -189,7 +186,10 @@ final class Person extends Model implements HasMedia
 
             $query
                 ->where(function ($q) use ($min_year, $max_year): void {
-                    $q->whereNull('dob')->orWhereBetween(DB::raw('YEAR(dob)'), [$min_year, $max_year]);
+                    $q->whereNull('dob')
+                        ->orWhere(fn (Builder $q) => $q->whereYear('dob', '>=', $min_year)
+                            ->whereYear('dob', '<=', $max_year)
+                        );
                 })
                 ->where(function ($q) use ($min_year, $max_year): void {
                     $q->whereNull('yob')->orWhereBetween('yob', [$min_year, $max_year]);
