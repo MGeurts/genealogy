@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\Developer;
 
+use App\Facades\UserService;
 use App\Models\User;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
@@ -130,7 +131,7 @@ final class Users extends Component implements HasActions, HasSchemas, HasTable
             ->recordActions([
                 DeleteAction::make()
                     ->iconButton()
-                    ->visible(fn (User $record): bool => $record->isDeletable()),
+                    ->visible(fn (User $record): bool => UserService::isUserDeletable($record)),
                 ForceDeleteAction::make()
                     ->iconButton(),
                 RestoreAction::make()
