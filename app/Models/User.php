@@ -13,6 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
@@ -151,9 +152,9 @@ final class User extends Authenticatable
     /* -------------------------------------------------------------------------------------------- */
     protected function name(): Attribute
     {
-        return Attribute::make(get: function (): ?string {
-            return implode(' ', array_filter([$this->firstname, $this->surname]));
-        });
+        return Attribute::get(
+            fn () => ($name = Str::of("{$this->firstname} {$this->surname}")->trim()->value()) === '' ? null : $name
+        );
     }
 
     protected function casts(): array

@@ -69,3 +69,21 @@ test('a person can be hard deleted', function (): void {
         'id' => $person->id,
     ]);
 });
+
+test('returns full name', function (): void {
+    $person = Person::factory()->create([
+        'firstname' => ' John',
+        'surname'   => 'Doe ',
+    ]);
+
+    expect($person->name)->toBe('John Doe');
+});
+
+test('returns full name even when firstname is missing', function (): void {
+    $person = Person::factory()->create([
+        'firstname' => null,
+        'surname'   => '  Doe ',
+    ]);
+
+    expect($person->name)->toBe('Doe');
+});

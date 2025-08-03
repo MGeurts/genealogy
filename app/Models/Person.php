@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
 use Override;
@@ -440,11 +441,9 @@ final class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     protected function name(): Attribute
     {
-        return Attribute::make(get: function (): ?string {
-            $name = mb_trim("{$this->firstname} {$this->surname}");
-
-            return $name ?: null;
-        });
+        return Attribute::get(
+            fn () => ($name = Str::of("{$this->firstname} {$this->surname}")->trim()->value()) === '' ? null : $name
+        );
     }
 
     protected function age(): Attribute
