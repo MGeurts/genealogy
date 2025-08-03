@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\People;
 
+use App\Enums\MediaCollection;
 use App\Models\Person;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -31,7 +32,9 @@ final class Gallery extends Component
     public function render(): View
     {
         return view('livewire.people.gallery', [
-            'photos' => $this->person->media()->oldest('order_column')->paginate(1),
+            'photos' => $this->person->media()
+                ->where('collection_name', MediaCollection::PHOTO->value)
+                ->oldest('order_column')->paginate(1),
         ]);
     }
 }
