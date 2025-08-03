@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire\People\Edit;
 
+use App\Facades\MediaLibrary;
 use App\Models\Person;
 use Exception;
 use Illuminate\Http\UploadedFile;
@@ -98,15 +99,11 @@ final class Photos extends Component
     {
         $this->validate();
 
-        foreach ($this->uploads as $upload) {
-            $this->person
-                ->addMediaFromDisk($upload->getClientOriginalPath())
-                ->toMediaCollection();
-        }
-
-        if ($savedCount = count($this->uploads)) {
+        if ($savedCount = MediaLibrary::savePhotosToPerson($this->person, $this->uploads)) {
             $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
         }
+
+        $this->redirectRoute('people.edit-photos', $this->person->id);
     }
 
     /**
