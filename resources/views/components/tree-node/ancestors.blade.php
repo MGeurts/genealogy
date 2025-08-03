@@ -1,4 +1,4 @@
-@use(App\Enums\MediaCollection)
+@use(App\Enums\MediaCollection;use App\Models\Person;use Spatie\MediaLibrary\MediaCollections\Models\Media)
 @props(['person', 'ancestors', 'level_current' => 0, 'level_max'])
 
 @php
@@ -16,11 +16,13 @@
         <x-link href="/people/{{ $person->id }}" title="{{ $person->sex === 'm' ? __('app.male') : __('app.female') }}">
             <figure class="w-24">
                 <div class="user-image">
-                    @if ($src = $person->getMedia(MediaCollection::PHOTO->value)->first()?->getTemporaryUrl(now()->addHour()))
+                    @if ($src = Media::where('model_id', $person->id)->where('model_type', Person::class)->where('collection_name', MediaCollection::PHOTO->value)->first()?->getTemporaryUrl(now()->addHour()))
                         {{-- Use the first media item as the image source --}}
-                        <img src="{{ $src }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
+                        <img src="{{ $src }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30"
+                             alt="{{ $person->id }}"/>
                     @else
-                        <x-svg.person-no-image class="w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
+                        <x-svg.person-no-image class="w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400"
+                                               alt="no-image-found"/>
                     @endif
 
                     @if ($person->dod or $person->yod)
@@ -39,7 +41,8 @@
             @if (count($ancestors_next) > 0)
                 <ul>
                     @foreach ($ancestors_next as $ancestor)
-                        <x-tree-node.ancestors :person="$ancestor" :ancestors="$ancestors" :level_current="$level_current" :level_max="$level_max" />
+                        <x-tree-node.ancestors :person="$ancestor" :ancestors="$ancestors"
+                                               :level_current="$level_current" :level_max="$level_max"/>
                     @endforeach
                 </ul>
             @endif

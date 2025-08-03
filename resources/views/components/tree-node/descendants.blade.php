@@ -1,4 +1,4 @@
-@use(App\Enums\MediaCollection)
+@use(App\Enums\MediaCollection;use App\Models\Person)
 @props(['person', 'descendants', 'level_current' => 0, 'level_max'])
 
 @php
@@ -16,10 +16,12 @@
         <x-link href="/people/{{ $person->id }}" title="{{ $person->sex === 'm' ? __('app.male') : __('app.female') }}">
             <figure class="w-24">
                 <div class="user-image">
-                    @if ($src = $person->getMedia(MediaCollection::PHOTO->value)->first()?->getTemporaryUrl(now()->addHour()))
-                        <img src="{{ $src }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
+                    @if ($src = Media::where('model_id', $person->id)->where('model_type', Person::class)->where('collection_name', MediaCollection::PHOTO->value)->first()?->getTemporaryUrl(now()->addHour()))
+                        <img src="{{ $src }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30"
+                             alt="{{ $person->id }}"/>
                     @else
-                        <x-svg.person-no-image class="w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
+                        <x-svg.person-no-image class="w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400"
+                                               alt="no-image-found"/>
                     @endif
 
                     @if ($person->dod or $person->yod)
@@ -38,7 +40,8 @@
             @if (count($descendants_next) > 0)
                 <ul>
                     @foreach ($descendants_next as $descendant)
-                        <x-tree-node.descendants :person="$descendant" :descendants="$descendants" :level_current="$level_current" :level_max="$level_max" />
+                        <x-tree-node.descendants :person="$descendant" :descendants="$descendants"
+                                                 :level_current="$level_current" :level_max="$level_max"/>
                     @endforeach
                 </ul>
             @endif
