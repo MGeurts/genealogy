@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Enums\MediaCollection;
 use App\Models\Person;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
@@ -20,7 +21,7 @@ class MediaLibraryService
             $person
                 ->addMediaFromDisk($upload->getClientOriginalPath())
                 ->setFileName($upload->getClientOriginalName())
-                ->toMediaCollection();
+                ->toMediaCollection(MediaCollection::PHOTO->value);
         }
 
         return count($uploads);
