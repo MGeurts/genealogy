@@ -250,13 +250,13 @@ final class Person extends Model implements HasMedia
     /* returns TEAM (1 Team) based on team_id */
     public function team(): BelongsTo
     {
-        return $this->BelongsTo(Team::class);
+        return $this->belongsTo(Team::class);
     }
 
     /* lookup table */
     public function gender(): BelongsTo
     {
-        return $this->BelongsTo(Gender::class);
+        return $this->belongsTo(Gender::class);
     }
 
     /* returns FATHER (1 Person) based on father_id */
@@ -280,12 +280,12 @@ final class Person extends Model implements HasMedia
     /* returns OWN NATURAL CHILDREN (n Person) based on father_id OR mother_id, ordered by dob */
     public function children(): HasManyMerged
     {
-        return $this->HasManyMerged(self::class, ['father_id', 'mother_id'])->orderBy('dob');
+        return $this->hasManyMerged(self::class, ['father_id', 'mother_id'])->orderBy('dob');
     }
 
     public function children_with_children(): HasManyMerged // only used in family chart
     {
-        return $this->HasManyMerged(self::class, ['father_id', 'mother_id'])->with('children')->orderBy('dob');
+        return $this->hasManyMerged(self::class, ['father_id', 'mother_id'])->with('children')->orderBy('dob');
     }
 
     /* returns ALL NATURAL CHILDREN (n Person) (OWN + CURRENT PARTNER), ordered by type, birthyear */
@@ -333,7 +333,7 @@ final class Person extends Model implements HasMedia
     /* returns ALL PARTNERSHIPS (n Couple) related to the person, ordered by date_start */
     public function couples(): HasManyMerged
     {
-        return $this->HasManyMerged(Couple::class, ['person1_id', 'person2_id'])->with(['person_1', 'person_2']);
+        return $this->hasManyMerged(Couple::class, ['person1_id', 'person2_id'])->with(['person_1', 'person_2']);
     }
 
     /* returns ALL METADATA (n PersonMetadata) related to the person */
