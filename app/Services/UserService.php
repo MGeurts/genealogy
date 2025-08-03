@@ -18,4 +18,10 @@ class UserService
             ->orderBy('name')
             ->get();
     }
+
+    public function isUserDeletable(User $user): bool
+    {
+        return $this->getTeamStatistics($user)
+            ->sum(fn (Team $team) => $team->users_count + $team->persons_count + $team->couples_count) === 0;
+    }
 }

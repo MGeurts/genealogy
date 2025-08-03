@@ -35,3 +35,17 @@ it('returns team statistics', function () {
         ->and($teams->sum('persons_count'))->toBe(6)
         ->and($teams->sum('users_count'))->toBe(5);
 });
+
+it('returns true for isUserDeletable when team stats zero', function (array $teams, bool $expected) {
+    $user = User::factory()->create();
+    UserService::partialMock()
+        ->shouldReceive('getTeamStatistics')
+        ->andReturn(collect([
+            new Team()->forceFill($teams),
+        ]));
+
+    expect(UserService::isUserDeletable($user))->toBe($expected);
+})->with([
+    'user with teams count' => [['users_count' => 0, 'persons_count' => 0, 'couples_count' => 0], true],
+    'user with empty team'  => [['users_count' => 1, 'persons_count' => 1, 'couples_count' => 1], false],
+]);
