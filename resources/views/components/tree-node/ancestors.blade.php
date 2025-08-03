@@ -1,3 +1,4 @@
+@use(App\Enums\MediaCollection)
 @props(['person', 'ancestors', 'level_current' => 0, 'level_max'])
 
 @php
@@ -15,8 +16,9 @@
         <x-link href="/people/{{ $person->id }}" title="{{ $person->sex === 'm' ? __('app.male') : __('app.female') }}">
             <figure class="w-24">
                 <div class="user-image">
-                    @if ($person->photo and Storage::exists('public/photos/' . $person->team_id . '/' . $person->photo))
-                        <img src="{{ asset('storage/photos-096/' . $person->team_id . '/' . $person->photo) }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
+                    @if ($src = $person->getMedia(MediaCollection::PHOTO->value)->first()?->getTemporaryUrl(now()->addHour()))
+                        {{-- Use the first media item as the image source --}}
+                        <img src="{{ $src }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
                     @else
                         <x-svg.person-no-image class="w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
                     @endif
