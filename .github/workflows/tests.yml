@@ -32,12 +32,13 @@ jobs:
     runs-on: ubuntu-latest
     services:
       mysql:
-        image: mysql:8.4
+        image: mysql:8
         env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: false
           MYSQL_ROOT_PASSWORD: password
           MYSQL_DATABASE: genealogy_test
         ports:
-          - 3306:3306
+          - 3306/tcp
         options: >-
           --health-cmd="mysqladmin ping --silent"
           --health-interval=10s
