@@ -6,6 +6,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Countries;
+use App\Enums\MediaCollection;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
@@ -653,6 +654,11 @@ final class Person extends Model implements HasMedia
 
             return null;
         });
+    }
+
+    protected function photoUrl(): Attribute
+    {
+        return Attribute::get(get: fn () => $this->getFirstTemporaryUrl(now()->addHour(), MediaCollection::PHOTO->value) ?: null);
     }
 
     protected function casts(): array
