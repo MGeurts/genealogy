@@ -1,7 +1,8 @@
+@use(App\Enums\MediaCollection)
 @props(['person' => null])
 
 <div class="user-image">
-    @if ($tempUrl = $person->getFirstTemporaryUrl(now()->addMinutes(5)))
+    @if ($tempUrl = $person->getFirstTemporaryUrl(now()->addMinutes(5), MediaCollection::PHOTO->value))
         <img {{ $attributes->merge(['class' => 'w-full rounded-sm shadow-lg dark:shadow-black/30']) }} src="{{ $tempUrl }}"
             alt="{{ $person->name }}" title="{{ $person->name }}" />
     @else
