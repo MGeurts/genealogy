@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\People;
 
 use App\Models\Person;
+use App\Queries\AncestorQuery;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -74,7 +75,7 @@ final class Ancestors extends Component
      */
     private function loadAncestors(): void
     {
-        $this->ancestors = collect(DB::select($this->getRecursiveQuery()));
+        $this->ancestors = collect(DB::select(AncestorQuery::get($this->person->id, $this->count_max)));
 
         $maxDegree       = $this->ancestors->max('degree');
         $this->count_max = min($maxDegree + 1, $this->count_max);
@@ -82,48 +83,5 @@ final class Ancestors extends Component
         if ($this->count > $this->count_max) {
             $this->count = $this->count_max;
         }
-    }
-
-    /**
-     * Build the recursive query for ancestors.
-     */
-    private function getRecursiveQuery(): string
-    {
-        $personId = $this->person->id;
-        $countMax = $this->count_max;
-
-        return "
-            WITH RECURSIVE ancestors AS (
-                SELECT
-                    id, firstname, surname, sex, father_id, mother_id, dod, yod, team_id, photo,
-                    0 AS degree,
-                    CAST(id AS CHAR(1024)) AS sequence
-                FROM people
-                WHERE deleted_at IS NULL AND id = $personId
-
-                UNION ALL
-
-                SELECT
-                    p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo,
-                    a.degree + 1 AS degree,
-                    CAST(CONCAT_WS(',', a.sequence, p.id) AS CHAR(1024)) AS sequence
-                FROM people p
-                JOIN ancestors a ON a.father_id = p.id
-                WHERE p.deleted_at IS NULL AND a.degree < $countMax
-
-                UNION ALL
-
-                SELECT
-                    p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo,
-                    a.degree + 1 AS degree,
-                    CAST(CONCAT_WS(',', a.sequence, p.id) AS CHAR(1024)) AS sequence
-                FROM people p
-                JOIN ancestors a ON a.mother_id = p.id
-                WHERE p.deleted_at IS NULL AND a.degree < $countMax
-            )
-
-            SELECT * FROM ancestors
-            ORDER BY degree, sex DESC;
-        ";
     }
 }
