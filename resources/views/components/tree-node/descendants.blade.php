@@ -1,3 +1,6 @@
+@use(App\Enums\MediaCollection)
+@use(App\Models\Person)
+@use(Spatie\MediaLibrary\MediaCollections\Models\Media)
 @props(['person', 'descendants', 'level_current' => 0, 'level_max'])
 
 @php
@@ -15,10 +18,13 @@
         <x-link href="/people/{{ $person->id }}" title="{{ $person->sex === 'm' ? __('app.male') : __('app.female') }}">
             <figure class="w-24">
                 <div class="user-image">
-                    @if ($person->photo and Storage::exists('public/photos/' . $person->team_id . '/' . $person->photo))
-                        <img src="{{ asset('storage/photos-096/' . $person->team_id . '/' . $person->photo) }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
+                    @if ($person->photo_url)
+                        {{-- Use the first media item as the image source --}}
+                        <img src="{{ $person->photo_url }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30"
+                             alt="{{ $person->id }}"/>
                     @else
-                        <x-svg.person-no-image class="w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
+                        <x-svg.person-no-image class="w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400"
+                                               alt="no-image-found"/>
                     @endif
 
                     @if ($person->dod or $person->yod)
@@ -37,7 +43,8 @@
             @if (count($descendants_next) > 0)
                 <ul>
                     @foreach ($descendants_next as $descendant)
-                        <x-tree-node.descendants :person="$descendant" :descendants="$descendants" :level_current="$level_current" :level_max="$level_max" />
+                        <x-tree-node.descendants :person="$descendant" :descendants="$descendants"
+                                                 :level_current="$level_current" :level_max="$level_max"/>
                     @endforeach
                 </ul>
             @endif
