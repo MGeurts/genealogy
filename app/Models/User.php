@@ -134,7 +134,7 @@ final class User extends Authenticatable
     protected function name(): Attribute
     {
         return Attribute::get(
-            fn () => ($name = Str::of("{$this->firstname} {$this->surname}")->trim()->value()) === '' ? null : $name
+            fn () => Str::of("{$this->firstname} {$this->surname}")->trim()->value()
         );
     }
 
