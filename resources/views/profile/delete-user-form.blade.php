@@ -1,3 +1,4 @@
+@use(App\Facades\UserService)
 <x-action-section>
     <x-slot name="title">
         <div class="dark:text-gray-400">
@@ -21,13 +22,17 @@
                 ['index' => 'personal', 'label' => __('team.team_personal') . '?'],
             ];
 
-            $rows = collect(auth()->user()->teamsStatistics())
+            $teams = UserService::getTeamStatistics(auth()->user());
+
+            $canDeleteUser = $teams->sum(fn($team) => $team->users_count + $team->persons_count + $team->couples_count) === 0;
+
+            $rows = $teams
                 ->map(function ($team) {
                     return [
                         'team' => $team->name,
-                        'users' => $team->users_count > 0 ? $team->users_count : '',
-                        'persons' => $team->persons_count > 0 ? $team->persons_count : '',
-                        'couples' => $team->couples_count > 0 ? $team->couples_count : '',
+                        'users' => $team->users_count ?: '',
+                        'persons' => $team->persons_count ?: '',
+                        'couples' => $team->couples_count ?: '',
                         'personal' => $team->personal_team,
                     ];
                 })
@@ -36,15 +41,15 @@
 
         <x-ts-table :$headers :$rows striped>
             @interact('column_personal', $row)
-                @if ($row['personal'])
-                    <x-ts-icon icon="tabler.circle-check" class="inline-block size-5 text-emerald-600" />
-                @endif
+            @if ($row['personal'])
+                <x-ts-icon icon="tabler.circle-check" class="inline-block size-5 text-emerald-600"/>
+            @endif
             @endinteract
         </x-ts-table>
 
-        <x-hr.normal />
+        <x-hr.normal/>
 
-        @if (auth()->user()->isDeletable())
+        @if ($canDeleteUser)
             <div class="max-w-xl text-sm text-gray-600 dark:text-gray-400">
                 {{ __('user.once_deleted') }}
             </div>
@@ -64,16 +69,19 @@
                 <x-slot name="content">
                     {{ __('user.sure') }}
 
-                    <div class="mt-4" x-data="{}" x-on:confirming-delete-user.window="setTimeout(() => $refs.password.focus(), 250)">
-                        <x-input type="password" class="block w-3/4 mt-1" autocomplete="current-password" placeholder="{{ __('user.password') }}" x-ref="password" wire:model="password"
-                            wire:keydown.enter="deleteUser" />
+                    <div class="mt-4" x-data="{}"
+                         x-on:confirming-delete-user.window="setTimeout(() => $refs.password.focus(), 250)">
+                        <x-input type="password" class="block w-3/4 mt-1" autocomplete="current-password"
+                                 placeholder="{{ __('user.password') }}" x-ref="password" wire:model="password"
+                                 wire:keydown.enter="deleteUser"/>
 
-                        <x-input-error for="password" class="mt-2" />
+                        <x-input-error for="password" class="mt-2"/>
                     </div>
                 </x-slot>
 
                 <x-slot name="footer">
-                    <x-ts-button color="secondary" wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
+                    <x-ts-button color="secondary" wire:click="$toggle('confirmingUserDeletion')"
+                                 wire:loading.attr="disabled">
                         {{ __('user.cancel') }}
                     </x-ts-button>
 
@@ -83,7 +91,7 @@
                 </x-slot>
             </x-dialog-modal>
         @else
-            <x-ts-alert title="{{ __('user.delete_account') }}" text="{{ __('user.can_not_delete') }}" color="cyan" />
+            <x-ts-alert title="{{ __('user.delete_account') }}" text="{{ __('user.can_not_delete') }}" color="cyan"/>
         @endif
     </x-slot>
 </x-action-section>
