@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
@@ -125,19 +124,7 @@ final class User extends Authenticatable
 
     public function teamsStatistics(): Collection
     {
-        return $this->ownedTeams()
-            ->withCount([
-                'users as users_count' => function ($query): void {
-                    $query->whereNull('users.deleted_at');
-                },
-                'persons as persons_count' => function ($query): void {
-                    $query->whereNull('people.deleted_at');
-                },
-                'couples as couples_count',
-            ])
-            ->get([
-                'id', 'name', 'personal_team',
-            ]);
+        return $this->ownedTeams()->withCount(['users as users_count', 'persons as persons_count', 'couples as couples_count'])->get(['id', 'name', 'personal_team']);
     }
 
     public function isDeletable(): bool
