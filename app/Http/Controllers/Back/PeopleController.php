@@ -18,10 +18,7 @@ final class PeopleController extends Controller
 
     public function birthdays(int $months = 2): View
     {
-        $people = Person::whereNotNull('dob')
-            ->whereRaw('CASE WHEN MONTH(NOW()) +' . $months . " > 12 THEN date_format(dob, '%m-%d') >= date_format(NOW(), '%m-%d') OR date_format(dob, '%m-%d') <= date_format(NOW() + INTERVAL " . $months . " MONTH, '%m-%d') ELSE date_format(dob, '%m-%d') >= date_format(NOW(), '%m-%d') AND date_format(dob, '%m-%d') <= date_format(NOW() + INTERVAL " . $months . " MONTH, '%m-%d') END")
-            ->orderByRaw("(case when date_format(dob, '%m-%d') >= date_format(now(), '%m-%d') then 0 else 1 end), date_format(dob, '%m-%d')")
-            ->get();
+        $people = \App\Facades\Person::upcomingBirthdayPeople($months);
 
         return view('back.people.birthdays', ['months' => $months, 'people' => $people]);
     }
