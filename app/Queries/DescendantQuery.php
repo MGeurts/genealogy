@@ -12,6 +12,7 @@ class DescendantQuery
     {
         return match (DB::getDriverName()) {
             'mysql' => self::getForMySQL($personId, $countMax),
+            'pgsql' => self::getForPostgres($personId, $countMax),
         };
     }
 
@@ -46,6 +47,57 @@ class DescendantQuery
         JOIN descendants d ON p.mother_id = d.id
         WHERE p.deleted_at IS NULL AND d.degree < $countMax
         )
+        SELECT * FROM descendants
+        ORDER BY degree, dob IS NULL, dob, yob IS NULL, yob;
+        ";
+    }
+
+    private static function getForPostgres(int $personId, int $countMax): string
+    {
+        return "
+        WITH RECURSIVE descendants AS (
+        -- Base case (starting person)
+        SELECT
+            id,
+            firstname,
+            surname,
+            sex,
+            father_id,
+            mother_id,
+            dod,
+            yod,
+            team_id,
+            photo,
+            dob,
+            yob,
+            0 AS degree,
+            id::TEXT AS sequence
+        FROM people
+        WHERE deleted_at IS NULL AND id = $personId
+    
+        UNION ALL
+    
+        -- Recursive case (children of the current descendant)
+        SELECT
+            p.id,
+            p.firstname,
+            p.surname,
+            p.sex,
+            p.father_id,
+            p.mother_id,
+            p.dod,
+            p.yod,
+            p.team_id,
+            p.photo,
+            p.dob,
+            p.yob,
+            d.degree + 1 AS degree,
+            d.sequence || ',' || p.id::TEXT AS sequence
+        FROM people p
+        JOIN descendants d ON p.father_id = d.id OR p.mother_id = d.id
+        WHERE p.deleted_at IS NULL AND d.degree < $countMax
+        )
+        
         SELECT * FROM descendants
         ORDER BY degree, dob IS NULL, dob, yob IS NULL, yob;
         ";
