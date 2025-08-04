@@ -54,6 +54,9 @@ This <b>TallStack</b> application is build using :
 
 <ul>
     <li>
+        The application must be served in HTTPS mode, not in HTTP.<br/>
+    </li>
+    <li>
         At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.4, supporting Laravel 12.<br/>
     </li>
     <li>
