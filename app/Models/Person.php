@@ -18,7 +18,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
@@ -145,56 +144,107 @@ final class Person extends Model implements HasMedia
     }
 
     #[Scope]
-    public function scopeYoungerThan(Builder $query, ?string $year): void
+    public function scopeYoungerThan(Builder $query, ?string $dob, ?int $yob): void
     {
-        if ($year !== null) {
-            $year = (int) $year;
-
-            $query
-                ->where(function ($q) use ($year): void {
-                    $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '>=', $year);
-                })
-                ->where(function ($q) use ($year): void {
-                    $q->whereNull('yob')->orWhere('yob', '>=', $year);
-                });
+        if (empty($dob) && empty($yob)) {
+            return; // No input → return all
         }
+
+        $query->where(function ($q) use ($dob, $yob): void {
+            // Case: dob is given (most accurate)
+            if (! empty($dob)) {
+                $dobYear = (int) mb_substr($dob, 0, 4);
+
+                $q->where(function ($sub) use ($dob, $dobYear): void {
+                    $sub->whereNull('dob')->whereNull('yob') // no data, assume younger
+                        ->orWhere('dob', '>', $dob)
+                        ->orWhere(function ($inner) use ($dobYear): void {
+                            $inner->whereNull('dob')->where('yob', '>', $dobYear);
+                        });
+                });
+            } elseif (! empty($yob)) {
+                // Case: only yob is given
+                $q->where(function ($sub) use ($yob): void {
+                    $sub->whereNull('dob')->whereNull('yob') // no data, assume younger
+                        ->orWhere('dob', '>', "{$yob}-12-31")
+                        ->orWhere(function ($inner) use ($yob): void {
+                            $inner->whereNull('dob')->where('yob', '>', $yob);
+                        });
+                });
+            }
+        });
     }
 
     #[Scope]
-    public function scopeOlderThan(Builder $query, ?string $year): void
+    public function scopeOlderThan(Builder $query, ?string $dob, ?int $yob): void
     {
-        if ($year !== null) {
-            $year = (int) $year;
-
-            $query
-                ->where(function ($q) use ($year): void {
-                    $q->whereNull('dob')->orWhere(DB::raw('YEAR(dob)'), '<=', $year);
-                })
-                ->where(function ($q) use ($year): void {
-                    $q->whereNull('yob')->orWhere('yob', '<=', $year);
-                });
+        if (empty($dob) && empty($yob)) {
+            return; // No input → return all
         }
+
+        $query->where(function ($q) use ($dob, $yob): void {
+            // Case: Input dob is given (most accurate)
+            if (! empty($dob)) {
+                $dobYear = (int) mb_substr($dob, 0, 4);
+
+                $q->where(function ($sub) use ($dob, $dobYear): void {
+                    $sub->whereNull('dob')->whereNull('yob') // no data, assume older
+                        ->orWhere('dob', '<', $dob)
+                        ->orWhere(function ($inner) use ($dobYear): void {
+                            $inner->whereNull('dob')->where('yob', '<', $dobYear);
+                        });
+                });
+            } elseif (! empty($yob)) {
+                // Case: Only yob is given
+                $q->where(function ($sub) use ($yob): void {
+                    $sub->whereNull('dob')->whereNull('yob') // no data, assume older
+                        ->orWhere('dob', '<', "{$yob}-01-01")
+                        ->orWhere(function ($inner) use ($yob): void {
+                            $inner->whereNull('dob')->where('yob', '<', $yob);
+                        });
+                });
+            }
+        });
     }
 
     #[Scope]
-    public function scopePartnerOffset(Builder $query, ?string $year, int $offset = 40): void
+    public function scopePartnerOffset(Builder $query, ?string $dob, ?int $yob, int $offset = 40): void
     {
-        // ------------------------------------------------------------------------
-        // offset : possible partners can be +/- n ($offset) years older or younger
-        // ------------------------------------------------------------------------
-        if ($year !== null) {
-            $year     = (int) $year;
-            $min_year = $year - $offset;
-            $max_year = $year + $offset;
-
-            $query
-                ->where(function ($q) use ($min_year, $max_year): void {
-                    $q->whereNull('dob')->orWhereBetween(DB::raw('YEAR(dob)'), [$min_year, $max_year]);
-                })
-                ->where(function ($q) use ($min_year, $max_year): void {
-                    $q->whereNull('yob')->orWhereBetween('yob', [$min_year, $max_year]);
-                });
+        if (empty($dob) && empty($yob)) {
+            return; // No input → return all
         }
+
+        $query->where(function ($q) use ($dob, $yob, $offset): void {
+            if (! empty($dob)) {
+                $refDate = Carbon::parse($dob);
+                $minDate = $refDate->copy()->subYears($offset)->toDateString();
+                $maxDate = $refDate->copy()->addYears($offset)->toDateString();
+                $refYear = (int) $refDate->format('Y');
+                $minYear = $refYear - $offset;
+                $maxYear = $refYear + $offset;
+
+                $q->where(function ($sub) use ($minDate, $maxDate, $minYear, $maxYear): void {
+                    $sub->whereNull('dob')->whereNull('yob') // no data, include by default
+                        ->orWhereBetween('dob', [$minDate, $maxDate])
+                        ->orWhere(function ($inner) use ($minYear, $maxYear): void {
+                            $inner->whereNull('dob')->whereBetween('yob', [$minYear, $maxYear]);
+                        });
+                });
+            } elseif (! empty($yob)) {
+                $minYear = $yob - $offset;
+                $maxYear = $yob + $offset;
+                $minDate = "{$minYear}-01-01";
+                $maxDate = "{$maxYear}-12-31";
+
+                $q->where(function ($sub) use ($minDate, $maxDate, $minYear, $maxYear): void {
+                    $sub->whereNull('dob')->whereNull('yob') // no data, include by default
+                        ->orWhereBetween('dob', [$minDate, $maxDate])
+                        ->orWhere(function ($inner) use ($minYear, $maxYear): void {
+                            $inner->whereNull('dob')->whereBetween('yob', [$minYear, $maxYear]);
+                        });
+                });
+            }
+        });
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -561,12 +611,12 @@ final class Person extends Model implements HasMedia
             if ($this->dob) {
                 $year = Carbon::parse($this->dob)->format('Y');
             } elseif ($this->yob) {
-                $year = $this->yob;
+                $year = (string) $this->yob;
             } else {
                 $year = null;
             }
 
-            return (string) $year;
+            return $year;
         });
     }
 
@@ -576,12 +626,12 @@ final class Person extends Model implements HasMedia
             if ($this->dod) {
                 $year = Carbon::parse($this->dod)->format('Y');
             } elseif ($this->yod) {
-                $year = $this->yod;
+                $year = (string) $this->yod;
             } else {
                 $year = null;
             }
 
-            return (string) $year;
+            return $year;
         });
     }
 

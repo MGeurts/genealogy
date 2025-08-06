@@ -40,7 +40,7 @@ final class Family extends Component
         $this->loadData();
 
         $persons = Person::where('id', '!=', $this->person->id)
-            ->OlderThan($this->person->birth_year)
+            ->OlderThan($this->person->dob, $this->person->yob)
             ->orderBy('firstname')->orderBy('surname')
             ->get();
 

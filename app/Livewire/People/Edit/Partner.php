@@ -39,7 +39,7 @@ final class Partner extends Component
     {
         $this->loadData();
 
-        $this->persons = Person::PartnerOffset($this->person->birth_year)
+        $this->persons = Person::PartnerOffset($this->person->dob, $this->person->yob)
             ->where('id', '!=', $this->person->id)
             ->orderBy('firstname')->orderBy('surname')
             ->get()

@@ -33,8 +33,8 @@ class Child extends Component
     {
         $this->persons = Person::where('id', '!=', $this->person->id)
             ->whereNull($this->person->sex === 'm' ? 'father_id' : 'mother_id')
-            ->YoungerThan($this->person->birth_year)
-            ->OlderThan($this->person->death_year ? $this->person->death_year + 1 : null)
+            ->YoungerThan($this->person->dob, $this->person->yob)
+            ->OlderThan($this->person->dod, $this->person->yod)
             ->orderBy('firstname')
             ->orderBy('surname')
             ->get()
