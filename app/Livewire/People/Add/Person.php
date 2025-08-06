@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Livewire\People\Add;
 
+use App\Facades\MediaLibrary;
 use App\Livewire\Forms\People\PersonForm;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
-use App\PersonPhotos;
 use App\Rules\DobValid;
 use App\Rules\YobValid;
 use Illuminate\Http\UploadedFile;
@@ -97,10 +97,7 @@ final class Person extends Component
             'team_id'   => auth()->user()->currentTeam->id,
         ]);
 
-        if ($this->form->uploads) {
-            $photos     = new PersonPhotos($newPerson);
-            $savedCount = $photos->save($this->form->uploads);
-
+        if ($savedCount = MediaLibrary::savePhotosToPerson($newPerson, $this->form->uploads)) {
             $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
         }
 

@@ -6,8 +6,8 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Countries;
+use App\Enums\MediaCollection;
 use Carbon\Carbon;
-use FilesystemIterator;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -253,26 +253,6 @@ final class Person extends Model implements HasMedia
     public function countFiles(): int
     {
         return $this->getMedia('files')?->count() ?? 0;
-    }
-
-    public function countPhotos(): int
-    {
-        // Define the path
-        $directory = public_path('storage/photos/' . $this->team_id);
-
-        // Check if the directory exists
-        if (! is_dir($directory)) {
-            return 0;
-        }
-
-        $count = 0;
-        foreach (new FilesystemIterator($directory, FilesystemIterator::SKIP_DOTS) as $file) {
-            if ($file->isFile() && str_starts_with($file->getFilename(), "{$this->id}_") && str_ends_with($file->getFilename(), '.webp')) {
-                $count++;
-            }
-        }
-
-        return $count;
     }
 
     public function isDeceased(): bool
@@ -723,6 +703,11 @@ final class Person extends Model implements HasMedia
 
             return null;
         });
+    }
+
+    protected function photoUrl(): Attribute
+    {
+        return Attribute::get(get: fn () => $this->getFirstTemporaryUrl(now()->addHour(), MediaCollection::PHOTO->value) ?: null);
     }
 
     protected function casts(): array

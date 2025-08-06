@@ -2,8 +2,11 @@
 
 declare(strict_types=1);
 
+use App\Facades\MediaLibrary;
+use App\Livewire\People\Add\Person;
 use App\Livewire\People\Add\Person as AddPerson;
 use App\Models\User;
+use Illuminate\Http\UploadedFile;
 use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
@@ -40,4 +43,24 @@ test('validation errors when required fields are missing', function (): void {
         ->set('form.sex', '')
         ->call('savePerson')
         ->assertHasErrors(['form.surname' => 'required', 'form.sex' => 'required']);
+});
+
+it('adds photos to person', function (): void {
+    $user   = User::factory()->withPersonalTeam()->create();
+    $photo1 = UploadedFile::fake()->image('photo1.jpg');
+    $photo2 = UploadedFile::fake()->image('photo2.jpg');
+
+    $this->actingAs($user);
+
+    MediaLibrary::shouldReceive('savePhotosToPerson')
+        ->once()
+        ->andReturn(2);
+
+    \Pest\Livewire\livewire(Person::class)
+        ->set('form.firstname', 'Jane')
+        ->set('form.surname', 'Doe')
+        ->set('form.sex', 'f')
+        ->set('form.uploads', [$photo1, $photo2])
+        ->call('savePerson')
+        ->assertHasNoErrors();
 });
