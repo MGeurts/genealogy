@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\People;
 
 use App\Models\Person;
+use App\Queries\DescendantQuery;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -74,7 +75,7 @@ final class Descendants extends Component
      */
     private function loadDescendants(): void
     {
-        $this->descendants = collect(DB::select($this->getRecursiveQuery()));
+        $this->descendants = collect(DB::select(DescendantQuery::get($this->person->id, $this->count_max)));
 
         $maxDegree       = $this->descendants->max('degree');
         $this->count_max = min($maxDegree + 1, $this->count_max);
@@ -82,47 +83,5 @@ final class Descendants extends Component
         if ($this->count > $this->count_max) {
             $this->count = $this->count_max;
         }
-    }
-
-    /**
-     * Build the recursive query for descendants.
-     */
-    private function getRecursiveQuery(): string
-    {
-        $personId = $this->person->id;
-        $countMax = $this->count_max;
-
-        return "
-            WITH RECURSIVE descendants AS (
-                SELECT
-                    id, firstname, surname, sex, father_id, mother_id, dod, yod, team_id, photo, dob, yob,
-                    0 AS degree,
-                    CAST(id AS CHAR(1024)) AS sequence
-                FROM people
-                WHERE deleted_at IS NULL AND id = $personId
-
-                UNION ALL
-
-                SELECT
-                    p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo, p.dob, p.yob,
-                    d.degree + 1 AS degree,
-                    CONCAT_WS(',', d.sequence, p.id) AS sequence
-                FROM people p
-                JOIN descendants d ON p.father_id = d.id
-                WHERE p.deleted_at IS NULL AND d.degree < $countMax
-
-                UNION ALL
-
-                SELECT
-                    p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo, p.dob, p.yob,
-                    d.degree + 1 AS degree,
-                    CONCAT_WS(',', d.sequence, p.id) AS sequence
-                FROM people p
-                JOIN descendants d ON p.mother_id = d.id
-                WHERE p.deleted_at IS NULL AND d.degree < $countMax
-            )
-            SELECT * FROM descendants
-            ORDER BY degree, dob IS NULL, dob, yob IS NULL, yob;
-        ";
     }
 }
