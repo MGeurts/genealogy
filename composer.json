@@ -10,7 +10,7 @@
         "filament/tables": "~4.0",
         "intervention/image": "^3.11",
         "korridor/laravel-has-many-merged": "^1.2",
-        "laravel/framework": "^12.21",
+        "laravel/framework": "^12.22",
         "laravel/jetstream": "^5.3",
         "laravel/sanctum": "^4.2",
         "laravel/tinker": "^2.10",
@@ -22,8 +22,8 @@
         "spatie/laravel-backup": "^9.3",
         "spatie/laravel-medialibrary": "^11.13",
         "stefangabos/world_countries": "^3.2",
-        "stevebauman/location": "^7.5",
-        "tallstackui/tallstackui": "^2.12"
+        "stevebauman/location": "^7.6",
+        "tallstackui/tallstackui": "^2.13"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.16",

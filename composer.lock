@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "76b6c75af4763e1086a00d5e4feb7b44",
+    "content-hash": "7886e0cf41950fa22f7e4cdd629e9279",
     "packages": [
         {
             "name": "alisalehi/laravel-lang-files-translator",
