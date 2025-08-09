@@ -29,7 +29,7 @@
         <div class="flex flex-col w-full">
             @foreach ($files as $file)
                 @php
-        $file_type = substr($file['file_name'], strpos($file['file_name'], '.') + 1);
+                    $file_type = substr($file['file_name'], strpos($file['file_name'], '.') + 1);
                 @endphp
 
                 <div class="flex-1 grow p-2">

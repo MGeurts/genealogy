@@ -293,6 +293,10 @@ make the needed changes regarding name, url, database connection & mail server
 
 Update instructions can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-UPDATE.md" target="_blank">README-UPDATE.md</a>.
 
+## Reporting security issues
+
+Instructions on how to report security issues can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-SECURITY.md" target="_blank">README-SECURITY.md</a>.
+
 ## Testing
 
 Testing is done using <a href="https://pestphp.com/">Pest</a>.<br/>
