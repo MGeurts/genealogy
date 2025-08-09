@@ -30,10 +30,6 @@
             <div class="flex flex-col grow gap-5 overflow-x-auto min-w-100 md:max-w-max">
                 <livewire:people.edit.files :person="$person" />
             </div>
-
-                        <div class="flex flex-col flex-grow gap-5 overflow-x-auto min-w-100 md:max-w-max">
-                            <livewire:people.edit.files :person="$person" />
-                        </div>
         </div>
     </div>
 </x-app-layout>

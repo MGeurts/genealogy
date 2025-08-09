@@ -36,11 +36,13 @@
         @if (count($photos) > 0)
             <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
                 @foreach ($photos as $photo)
-                    <x-ts-card class="p-2!">
+                    <x-ts-card>
                         <x-slot:header>
-                            <x-ts-link href="{{ url($photo['url_original']) }}" target="_blank" class="text-sm {{ $photo['name'] === $person->photo ? ' text-yellow-500 dark:text-yellow-200' : '' }}">
-                                {{ $photo['name'] }}
-                            </x-ts-link>
+                            <p>
+                                <x-ts-link href="{{ url($photo['url_original']) }}" target="_blank" class="text-sm {{ $photo['name'] === $person->photo ? ' text-yellow-500 dark:text-yellow-200' : '' }}">
+                                    {{ $photo['name'] }}
+                                </x-ts-link>
+                            </p>
                         </x-slot:header>
 
                         <x-ts-link href="{{ $photo['url_original'] }}" target="_blank" title="{{ __('app.show') }}">
@@ -48,25 +50,31 @@
                         </x-ts-link>
 
                         <x-slot:footer>
-                            <div class="w-full">
-                                @if ($photo['name'] != $person->photo)
-                                    <x-ts-button color="secondary" class="p-2!" title="{{ __('person.set_primary') }}" wire:click="setPrimary('{{ $photo['name'] }}')">
-                                        <x-ts-icon icon="tabler.star" class="inline-block size-5" />
+                            <div class="flex w-full items-center justify-between">
+                                {{-- Left side --}}
+                                <div class="flex items-center gap-2">
+                                    @if ($photo['name'] != $person->photo)
+                                        <x-ts-button color="secondary" class="p-2!" title="{{ __('person.set_primary') }}" wire:click="setPrimary('{{ $photo['name'] }}')">
+                                            <x-ts-icon icon="tabler.star" class="inline-block size-5" />
+                                        </x-ts-button>
+                                    @else
+                                        <x-ts-icon icon="tabler.star-filled" class="inline-block size-5 text-yellow-500 dark:text-yellow-200" />
+                                    @endif
+                                </div>
+
+                                {{-- Right side --}}
+                                <div class="flex items-center gap-2">
+                                    <x-ts-button href="{{ $photo['url'] }}" color="secondary" class="p-2!" title="{{ __('app.download') }}" download="{{ $photo['name_download'] }}">
+                                        <x-ts-icon icon="tabler.download" class="inline-block size-5" />
                                     </x-ts-button>
-                                @else
-                                    <x-ts-icon icon="tabler.star-filled" class="inline-block size-5 text-yellow-500 dark:text-yellow-200" />
-                                @endif
+
+                                    <span class="text-sm leading-none min-w-[50px] text-center">{{ $photo['size'] }}</span>
+
+                                    <x-ts-button color="red" class="p-2! text-white" title="{{ __('app.delete') }}" wire:click="delete('{{ $photo['name'] }}')">
+                                        <x-ts-icon icon="tabler.trash" class="inline-block size-5" />
+                                    </x-ts-button>
+                                </div>
                             </div>
-
-                            <x-ts-button href="{{ $photo['url'] }}" color="secondary" class="p-2!" title="{{ __('app.download') }}" download="{{ $photo['name_download'] }}">
-                                <x-ts-icon icon="tabler.download" class="inline-block size-5" />
-                            </x-ts-button>
-
-                            <div class="text-sm text-end">{{ $photo['size'] }}</div>
-
-                            <x-ts-button color="red" class="p-2! text-white" title="{{ __('app.delete') }}" wire:click="delete('{{ $photo['name'] }}')">
-                                <x-ts-icon icon="tabler.trash" class="inline-block size-5" />
-                            </x-ts-button>
                         </x-slot:footer>
                     </x-ts-card>
                 @endforeach

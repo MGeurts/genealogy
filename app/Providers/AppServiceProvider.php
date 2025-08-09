@@ -142,10 +142,7 @@ final class AppServiceProvider extends ServiceProvider
                 'dark:bg-dark-700' => 'dark:bg-neutral-700',
                 'rounded-lg'       => 'rounded-sm',
             ])
-            ->block('header.wrapper.base')->replace([
-                'dark:border-b-dark-600' => 'dark:border-b-neutral-600',
-                'p-4'                    => 'p-2',
-            ])
+            ->block('header.wrapper.border')->replace('dark:border-b-dark-600', 'dark:border-b-neutral-600')
             ->block('footer.wrapper')->replace([
                 'dark:border-t-dark-600' => 'dark:border-t-neutral-600',
                 'rounded-lg'             => 'rounded-sm',
