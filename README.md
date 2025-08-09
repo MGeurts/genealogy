@@ -295,7 +295,7 @@ Update instructions can be found in <a href="https://github.com/MGeurts/genealog
 
 ## Reporting security issues
 
-Instructions on how to report security issues can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-SECURITY.md" target="_blank">README-SECURITY.md</a>.
+Instructions on how to report security issues can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/SECURITY.md" target="_blank">SECURITY.md</a>.
 
 ## Testing
 
