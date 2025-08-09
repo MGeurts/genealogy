@@ -45,7 +45,7 @@ For those unable to upgrade immediately:
 
 ## Credit
 
-These vulnerabilities were discovered and responsibly disclosed by **Adrian** (eternalvalhalla), whose contribution significantly improved the application’s security.
+These vulnerabilities were discovered and responsibly disclosed by **Adrian** (@eternalvalhalla), whose contribution significantly improved the application’s security.
 
 ---
 
@@ -72,10 +72,10 @@ The unauthenticated file disclosure issue is not included in this CVE request as
 Authenticated attackers could run arbitrary JavaScript in another user’s session, leading to session hijacking, data theft, and UI manipulation.
 
 **Affected Versions:**  
-All versions prior to `vX.Y.Z` (replace with patched version).
+All versions prior to `v4.4.0`.
 
 **Patched Versions:**  
-Fixed in `vX.Y.Z`.
+Fixed in `v4.4.0`.
 
 **Mitigation:**  
 Upgrade to the patched version.  
@@ -85,7 +85,7 @@ If upgrading is not possible:
 -   Secure file storage to prevent unauthenticated access.
 
 **Credit:**  
-Reported and responsibly disclosed by **Adrian** (eternalvalhalla).
+Reported and responsibly disclosed by **Adrian** (@eternalvalhalla).
 
 **References:**
 
