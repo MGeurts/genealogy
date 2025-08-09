@@ -104,7 +104,7 @@ final class Person extends Component
             $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
         }
 
-        $this->toast()->success(__('app.save'), $newPerson->name . ' ' . __('app.created'))->flash()->send();
+        $this->toast()->success(__('app.save'), e(e($newPerson->name)) . ' ' . __('app.created'))->flash()->send();
 
         $this->redirect('/people/' . $newPerson->id);
     }

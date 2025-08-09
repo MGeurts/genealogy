@@ -45,7 +45,7 @@ final class Profile extends Component
 
             $this->person->delete();
 
-            $this->toast()->success(__('app.delete'), $this->person->name . ' ' . __('app.deleted') . '.')->flash()->send();
+            $this->toast()->success(__('app.delete'), e($this->person->name) . ' ' . __('app.deleted') . '.')->flash()->send();
 
             $this->redirect('/search');
         }

@@ -136,11 +136,30 @@ final class Person extends Model implements HasMedia
         // Be aware that this kinds of searches are slower.
         // If a name containes any spaces, enclose the name in double quoutes, for instance "John Fitzgerald Jr." Kennedy.
         /* -------------------------------------------------------------------------------------------- */
-        if ($searchString !== '%') {
-            collect(str_getcsv($searchString, ' ', '"'))->filter()->each(function (string $searchTerm) use ($query): void {
-                $query->whereAny(['firstname', 'surname', 'birthname', 'nickname'], 'like', $searchTerm . '%');
-            });
+        if (mb_trim($searchString) === '%') {
+            return;
         }
+
+        // Sanitize: strip HTML tags and trim spaces
+        $searchString = strip_tags($searchString);
+        $searchString = mb_trim($searchString);
+
+        // Escape SQL wildcard characters in search terms
+        $escapeLike = function (string $value): string {
+            return str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $value);
+        };
+
+        collect(str_getcsv($searchString, ' ', '"'))
+            ->filter()
+            ->each(function (string $searchTerm) use ($query, $escapeLike): void {
+                $term = $escapeLike($searchTerm) . '%';
+
+                $query->whereAny(
+                    ['firstname', 'surname', 'birthname', 'nickname'],
+                    'like',
+                    $term
+                );
+            });
     }
 
     #[Scope]

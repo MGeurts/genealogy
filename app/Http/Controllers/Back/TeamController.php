@@ -85,7 +85,7 @@ final class TeamController extends Controller
                 // Notify the new owner synchronously
                 $newOwner->notify(new OwnershipTransferred($team));
 
-                $this->toast()->success(__('team.transfer'), __('team.transferred_to') . $newOwner->name . '.')->flash()->send();
+                $this->toast()->success(__('team.transfer'), __('team.transferred_to') . e($newOwner->name) . '.')->flash()->send();
             });
         } catch (Exception) {
             $this->toast()->error(__('team.transfer'), __('team.transfer_failed'))->flash()->send();

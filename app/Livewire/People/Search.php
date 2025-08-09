@@ -41,12 +41,24 @@ final class Search extends Component
     // ------------------------------------------------------------------------------
     public function updatedSearch(): void
     {
+        // Sanitize input to prevent XSS
+        $this->search = $this->sanitizeSearch($this->search);
+
+        // Validate input length/type
+        $this->validate([
+            'search' => 'nullable|string|max:255',
+        ]);
+
         // Reset page on search change
         $this->resetPage();
     }
 
     public function updatedPerpage(): void
     {
+        $this->validate([
+            'perpage' => 'integer|in:5,10,25,50,100',
+        ]);
+
         // Reset page when perpage changes
         $this->resetPage();
     }
@@ -70,5 +82,16 @@ final class Search extends Component
         $people = $query->paginate($this->perpage);
 
         return view('livewire.people.search', ['people' => $people]);
+    }
+
+    // --------------------------------------------------------------------------
+    private function sanitizeSearch(?string $value): ?string
+    {
+        if ($value === null) {
+            return null;
+        }
+
+        // Remove HTML tags and trim spaces
+        return mb_trim(strip_tags($value));
     }
 }

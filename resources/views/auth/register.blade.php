@@ -106,19 +106,19 @@
 
                             <div class="ml-2">
                                 {!! __('auth.agree', [
-        'terms_of_service' =>
-            '<a target="_blank" href="' .
-            route('terms.show') .
-            '" class="text-sm text-gray-600 underline rounded-sm hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
-            __('app.terms_of_service') .
-            '</a>',
-        'privacy_policy' =>
-            '<a target="_blank" href="' .
-            route('policy.show') .
-            '" class="text-sm text-gray-600 underline rounded-sm hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
-            __('app.privacy_policy') .
-            '</a>',
-    ]) !!}
+                                    'terms_of_service' =>
+                                        '<a target="_blank" href="' .
+                                        route('terms.show') .
+                                        '" class="text-sm text-gray-600 underline rounded-sm hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
+                                        __('app.terms_of_service') .
+                                        '</a>',
+                                    'privacy_policy' =>
+                                        '<a target="_blank" href="' .
+                                        route('policy.show') .
+                                        '" class="text-sm text-gray-600 underline rounded-sm hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
+                                        __('app.privacy_policy') .
+                                        '</a>',
+                                ]) !!}
                             </div>
                         </div>
                     </x-label>

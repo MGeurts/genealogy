@@ -135,7 +135,7 @@ final class Partner extends Component
                     'team_id'    => $this->person->team_id,
                 ]);
 
-                $this->toast()->success(__('app.create'), $couple->name . ' ' . __('app.created'))->send();
+                $this->toast()->success(__('app.create'), e($couple->name) . ' ' . __('app.created'))->send();
 
                 $this->redirect(route('people.show', $this->person->id));
             }
@@ -163,7 +163,7 @@ final class Partner extends Component
                     $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
                 }
 
-                $this->toast()->success(__('app.create'), $newPartner->name . ' ' . __('app.created') . '.')->send();
+                $this->toast()->success(__('app.create'), e($newPartner->name) . ' ' . __('app.created') . '.')->send();
 
                 $couple = Couple::create([
                     'person1_id' => $this->person->id,
@@ -175,7 +175,7 @@ final class Partner extends Component
                     'team_id'    => $this->person->team_id,
                 ]);
 
-                $this->toast()->success(__('app.create'), $couple->name . ' ' . __('app.created') . '.')->flash()->send();
+                $this->toast()->success(__('app.create'), e($couple->name) . ' ' . __('app.created') . '.')->flash()->send();
 
                 $this->redirect(route('people.show', $this->person->id));
             }
