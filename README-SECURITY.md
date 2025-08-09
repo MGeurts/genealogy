@@ -6,7 +6,7 @@ Thank you for taking the time to responsibly disclose security issues. This docu
 
 ## Reporting a Security Vulnerability
 
-**Preferred contact:** `bin@kraweb.be`.
+**Preferred contact:** `bin@kreaweb.be`.
 
 **Do not** open a public GitHub issue for security reports.
 
