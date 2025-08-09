@@ -1,0 +1,20 @@
+SECURITY: [Short summary of the vulnerability fixed]
+
+Detailed description:
+- What vulnerability was fixed (e.g., Reflected XSS, Stored XSS, etc.)
+- Impact of the vulnerability
+- Affected versions (if applicable)
+- How the issue was fixed or mitigated
+- Reference to any related advisory or CVE number (if available)
+- Credit to the reporter (e.g., Thanks to Adrian (@GitHubUsername))
+
+Example:
+
+SECURITY: Fix Reflected and Stored XSS vulnerabilities
+
+Detailed description:
+- Fixed two authenticated XSS issues that allowed malicious scripts to be executed via query parameters and stored user inputs.
+- Affected all versions prior to v1.2.3.
+- Sanitized inputs and escaped outputs to prevent injection.
+- See GitHub Security Advisory GHSA-XXXX-YYYY-ZZZZ and CVE-2025-XXXX.
+- Thanks to Adrian (@adrianGitHub) for responsible disclosure.
