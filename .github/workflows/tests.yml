@@ -35,7 +35,7 @@ jobs:
         image: mysql:8.4
         env:
           MYSQL_DATABASE: genealogy_test
-          MYSQL_ROOT_PASSWORD: password
+          MYSQL_EMPTY_ROOT_PASSWORD: 1
         ports:
           - 3306:3306
         options: >-
@@ -68,4 +68,3 @@ jobs:
           DB_PORT: 3306
           DB_DATABASE: genealogy_test
           DB_USERNAME: root
-          DB_PASSWORD: password
