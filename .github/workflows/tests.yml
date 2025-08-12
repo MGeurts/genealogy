@@ -23,7 +23,7 @@ jobs:
           tools: composer:v2
 
       - name: Install Dependencies
-        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader --no-scripts
 
       - name: Run Pint (Code Style Check)
         run: ./vendor/bin/pint --test
@@ -58,7 +58,7 @@ jobs:
         run: composer install --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Setup environment
-        run: cp .env.example .env && php artisan key:generate
+        run: cp .env.testing .env
 
       - name: Run Tests
         run: php artisan test --coverage-clover coverage.xml
