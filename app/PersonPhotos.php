@@ -5,24 +5,32 @@ declare(strict_types=1);
 namespace App;
 
 use App\Models\Person;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
+use Throwable;
 
 final class PersonPhotos
 {
-    private readonly ImageManager $imageManager;
-
-    private array $config;
-
-    public function __construct(private readonly Person $person)
-    {
-        $this->imageManager = new ImageManager(new Driver);
-
-        $this->config = config('app.upload_photo');
+    public function __construct(
+        private readonly Person $person,
+        private readonly ImageManager $imageManager = new ImageManager(new Driver()),
+        private ?array $uploadConfig = null,
+        private ?array $photoFolders = null
+    ) {
+        $this->uploadConfig = $this->uploadConfig ?? config('app.upload_photo');
+        $this->photoFolders = $this->photoFolders ?? config('app.photo_folders', []);
     }
 
+    /**
+     * Save multiple photos for the person.
+     *
+     * @param  array<int, UploadedFile|string>  $photos
+     * @return int|null Number of photos saved, or null if none
+     */
     public function save(array $photos): ?int
     {
         if (empty($photos)) {
@@ -34,7 +42,8 @@ final class PersonPhotos
         $lastIndex = $this->getLastImageIndex();
 
         foreach ($photos as $photo) {
-            $this->savePhoto($photo, ++$lastIndex);
+            $lastIndex++;
+            $this->savePhoto($photo, $lastIndex);
         }
 
         $this->cleanupTemporaryFiles();
@@ -42,11 +51,14 @@ final class PersonPhotos
         return count($photos);
     }
 
+    /**
+     * Ensure all configured photo folders exist for the team.
+     */
     private function ensureDirectoriesExist(): void
     {
         $teamId = (string) $this->person->team_id;
 
-        foreach (config('app.photo_folders') as $folder) {
+        foreach ($this->photoFolders as $folder) {
             $disk = Storage::disk($folder);
 
             if (! $disk->exists($teamId)) {
@@ -55,49 +67,59 @@ final class PersonPhotos
         }
     }
 
+    /**
+     * Get the highest index number used for this person's images.
+     */
     private function getLastImageIndex(): int
     {
         $files = File::glob(public_path() . '/storage/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp');
 
         if ($files) {
-            $lastFile = last($files);
+            $lastFile = basename(last($files));
 
-            return (int) mb_substr(
-                (string) $lastFile,
-                mb_strpos((string) $lastFile, '_') + 1,
-                mb_strrpos((string) $lastFile, '_') - mb_strpos((string) $lastFile, '_') - 1
-            );
+            if (preg_match('/^' . $this->person->id . '_(\d+)_/', $lastFile, $matches)) {
+                return (int) $matches[1];
+            }
         }
 
         return 0;
     }
 
-    private function savePhoto($photo, int $index): void
+    /**
+     * Save a single photo for the person.
+     */
+    private function savePhoto(UploadedFile|string $photo, int $index): void
     {
         $imageName = sprintf(
             '%s_%03d_%s.%s',
             $this->person->id,
             $index,
             now()->format('YmdHis'),
-            $this->config['type']
+            $this->uploadConfig['type']
         );
 
-        $this->processAndSaveImage(
-            photo: $photo,
-            imageName: $imageName
-        );
+        try {
+            $this->processAndSaveImage($photo, $imageName);
 
-        if (empty($this->person->photo)) {
-            $this->person->update(['photo' => $imageName]);
+            if (empty($this->person->photo)) {
+                $this->person->update(['photo' => $imageName]);
+            }
+        } catch (Throwable $e) {
+            Log::error("Failed to save photo for person {$this->person->id}: {$e->getMessage()}", [
+                'exception' => $e,
+            ]);
         }
     }
 
-    private function processAndSaveImage($photo, string $imageName): void
+    /**
+     * Process and save an image in multiple sizes.
+     */
+    private function processAndSaveImage(UploadedFile|string $photo, string $imageName): void
     {
         $paths = [
             'photos' => [
-                'width'  => $this->config['max_width'],
-                'height' => $this->config['max_height'],
+                'width'  => $this->uploadConfig['max_width'],
+                'height' => $this->uploadConfig['max_height'],
             ],
             'photos-096' => [
                 'width'  => 96,
@@ -109,34 +131,58 @@ final class PersonPhotos
             ],
         ];
 
-        foreach ($paths as $disk => $dimensions) {
-            $image = $this->imageManager
-                ->read($photo)
-                ->scaleDown(
-                    width: $dimensions['width'],
-                    height: $dimensions['height']
-                );
+        $original = $this->imageManager->read($photo);
 
-            if ($this->config['add_watermark']) {
-                $image->place(public_path('img/watermark.png'), 'bottom-left', 5, 5);
-            }
+        foreach ($paths as $disk => $dimensions) {
+            $image = clone $original;
+
+            $image->scaleDown(
+                width: $dimensions['width'],
+                height: $dimensions['height']
+            );
+
+            $this->applyWatermark($image);
 
             $image
-                ->toWebp(quality: $this->config['quality'])
-                ->save(storage_path("app/public/{$disk}/{$this->person->team_id}/{$imageName}"));
+                ->toWebp(quality: $this->uploadConfig['quality'])
+                ->save(Storage::disk($disk)->path("{$this->person->team_id}/{$imageName}"));
         }
     }
 
+    /**
+     * Apply watermark if enabled in config.
+     */
+    private function applyWatermark($image): void
+    {
+        if (! $this->uploadConfig['add_watermark']) {
+            return;
+        }
+
+        $path = public_path('img/watermark.png');
+
+        if (! file_exists($path)) {
+            Log::warning("Watermark file missing: {$path}");
+
+            return;
+        }
+
+        $image->place($path, 'bottom-left', 5, 5);
+    }
+
+    /**
+     * Cleanup old Livewire temporary files.
+     */
     private function cleanupTemporaryFiles(): void
     {
-        $oneDayAgo = now()->subDay()->timestamp;
+        $cutoff = now()->subDay()->timestamp;
 
-        defer(function () use ($oneDayAgo): void {
-            foreach (Storage::files('livewire-tmp') as $file) {
-                if (Storage::lastModified($file) < $oneDayAgo) {
-                    Storage::delete($file);
-                }
-            }
-        });
+        $files = array_filter(
+            Storage::disk('local')->files('livewire-tmp'),
+            fn ($file) => Storage::disk('local')->lastModified($file) < $cutoff
+        );
+
+        if ($files) {
+            Storage::disk('local')->delete($files);
+        }
     }
 }
