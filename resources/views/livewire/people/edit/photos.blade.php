@@ -38,11 +38,11 @@
                 @foreach ($photos as $photo)
                     <x-ts-card>
                         <x-slot:header>
-                            <p>
+                            <div class="p-4">
                                 <x-ts-link href="{{ url($photo['url_original']) }}" target="_blank" class="text-sm {{ $photo['name'] === $person->photo ? ' text-yellow-500 dark:text-yellow-200' : '' }}">
                                     {{ $photo['name'] }}
                                 </x-ts-link>
-                            </p>
+                            </div>
                         </x-slot:header>
 
                         <x-ts-link href="{{ $photo['url_original'] }}" target="_blank" title="{{ __('app.show') }}">

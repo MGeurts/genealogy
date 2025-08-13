@@ -22,7 +22,7 @@
                 @foreach ($logs as $log)
                     <x-ts-card>
                         <x-slot:header>
-                            <p>
+                            <div class="p-4">
                                 @if (($log['subject_type'] === 'Person' or $log['subject_type'] === 'PersonMetadata') and $log['event'] != 'DELETED')
 
                                 {{ $log['description'] }} :
@@ -32,7 +32,7 @@
                                 @else
                                     {{ $log['description'] }}
                                 @endif
-                            </p>
+                                </div>
                         </x-slot:header>
 
                         <div class="grid grid-cols-2 gap-2">
@@ -70,12 +70,10 @@
                         </div>
 
                         <x-slot:footer>
-                            <p>
-                                {{ $log['event'] }} {{ $log['updated_at'] }}
-                                @if ($log['causer'])
-                                    by {{ $log['causer'] }}
-                                @endif
-                            </p>
+                            {{ $log['event'] }} {{ $log['updated_at'] }}
+                            @if ($log['causer'])
+                                by {{ $log['causer'] }}
+                            @endif
                         </x-slot:footer>
                     </x-ts-card>
                 @endforeach

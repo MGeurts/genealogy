@@ -50,11 +50,11 @@
                 @foreach ($files as $file)
                     <x-ts-card>
                         <x-slot:header>
-                            <p>
+                            <div class="p-4">
                                 <x-ts-link href="{{ $file->getUrl() }}" target="_blank" title="{{ __('app.show') }}">
                                     {{ $file['file_name'] }}
                                 </x-ts-link>
-                            </p>
+                            </div>
                         </x-slot:header>
 
                         @php

@@ -22,9 +22,9 @@
                 @foreach ($logs as $log)
                     <x-ts-card>
                         <x-slot:header>
-                            <p>
+                            <div class="p-4">
                                 {{ $log['description'] }}
-                            </p>
+                            </div>
                         </x-slot:header>
 
                         <div class="grid grid-cols-2 gap-2">
@@ -80,12 +80,10 @@
                         </div>
 
                         <x-slot:footer>
-                            <p>
-                                {{ $log['event'] }} {{ $log['updated_at'] }}
-                                @if ($log['causer'])
-                                    by {{ $log['causer'] }}
-                                @endif
-                            </p>
+                            {{ $log['event'] }} {{ $log['updated_at'] }}
+                            @if ($log['causer'])
+                                by {{ $log['causer'] }}
+                            @endif
                         </x-slot:footer>
                     </x-ts-card>
                 @endforeach
