@@ -45,7 +45,7 @@ final class Partner extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->persons = Person::PartnerOffset($this->person->dob, $this->person->yob)
+        $this->persons = Person::partnerOffset($this->person->dob, $this->person->yob)
             ->where('id', '!=', $this->person->id)
             ->orderBy('firstname')->orderBy('surname')
             ->get()
