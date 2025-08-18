@@ -18,10 +18,8 @@ final class DeleteTeam implements DeletesTeams
         $teamId = (string) $team->id;
 
         // Delete the photo folders
-        foreach (config('app.photo_folders') as $folder) {
-            if (Storage::disk($folder)->exists($teamId)) {
-                Storage::disk($folder)->deleteDirectory($teamId);
-            }
+        if (Storage::disk('photos')->exists($teamId)) {
+            Storage::disk('photos')->deleteDirectory($teamId);
         }
 
         $user = auth()->user();

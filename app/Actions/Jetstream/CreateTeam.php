@@ -38,12 +38,10 @@ final class CreateTeam implements CreatesTeams
         ]));
 
         // -----------------------------------------------------------------------
-        // create team photo folders
+        // create team photo folder
         // -----------------------------------------------------------------------
-        foreach (config('app.photo_folders') as $folder) {
-            if (! Storage::disk($folder)->exists($team->id)) {
-                Storage::disk($folder)->makeDirectory($team->id);
-            }
+        if (! Storage::disk('photos')->exists($team->id)) {
+            Storage::disk('photos')->makeDirectory($team->id);
         }
         // -----------------------------------------------------------------------
 

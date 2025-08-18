@@ -7,7 +7,6 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Countries;
 use Carbon\Carbon;
-use FilesystemIterator;
 use Illuminate\Database\Eloquent\Attributes\Scope;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -18,6 +17,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
@@ -276,22 +276,19 @@ final class Person extends Model implements HasMedia
 
     public function countPhotos(): int
     {
-        // Define the path
-        $directory = public_path('storage/photos/' . $this->team_id);
+        $disk      = Storage::disk('photos');
+        $directory = "{$this->team_id}/{$this->id}";
 
-        // Check if the directory exists
-        if (! is_dir($directory)) {
+        if (! $disk->exists($directory)) {
             return 0;
         }
 
-        $count = 0;
-        foreach (new FilesystemIterator($directory, FilesystemIterator::SKIP_DOTS) as $file) {
-            if ($file->isFile() && str_starts_with($file->getFilename(), "{$this->id}_") && str_ends_with($file->getFilename(), '.webp')) {
-                $count++;
-            }
-        }
+        // Most efficient: since each photo has exactly 3 files (original, small, medium)
+        // and we know only this person's photos are in this directory,
+        // total files ÷ 3 gives us the photo count
+        $totalFiles = count($disk->files($directory));
 
-        return $count;
+        return (int) ($totalFiles / 3);
     }
 
     public function isDeceased(): bool

@@ -46,7 +46,7 @@
                         </x-slot:header>
 
                         <x-ts-link href="{{ $photo['url_original'] }}" target="_blank" title="{{ __('app.show') }}">
-                            <img src="{{ $photo['url'] }}" alt="{{ $photo['name'] }}" class="rounded-sm" />
+                            <img src="{{ $photo['url_medium'] }}" alt="{{ $photo['name'] }}" class="rounded-sm" />
                         </x-ts-link>
 
                         <x-slot:footer>
@@ -54,7 +54,7 @@
                                 {{-- Left side --}}
                                 <div class="flex items-center gap-2">
                                     @if ($photo['name'] != $person->photo)
-                                        <x-ts-button color="secondary" class="p-2!" title="{{ __('person.set_primary') }}" wire:click="setPrimary('{{ $photo['name'] }}')">
+                                        <x-ts-button color="secondary" class="p-2!" title="{{ __('person.photo_set_primary') }}" wire:click="setPrimary('{{ $photo['name'] }}')">
                                             <x-ts-icon icon="tabler.star" class="inline-block size-5" />
                                         </x-ts-button>
                                     @else
@@ -64,7 +64,7 @@
 
                                 {{-- Right side --}}
                                 <div class="flex items-center gap-2">
-                                    <x-ts-button href="{{ $photo['url'] }}" color="secondary" class="p-2!" title="{{ __('app.download') }}" download="{{ $photo['name_download'] }}">
+                                    <x-ts-button href="{{ $photo['url_original'] }}" color="secondary" class="p-2!" title="{{ __('app.download') }}" download="{{ $photo['name_download'] }}">
                                         <x-ts-icon icon="tabler.download" class="inline-block size-5" />
                                     </x-ts-button>
 

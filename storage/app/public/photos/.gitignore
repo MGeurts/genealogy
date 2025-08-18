@@ -1,5 +1,11 @@
-*
-!1/
-!3/
-!4/
-!.gitignore
+# Ignore everything recursively
+**
+
+# But do not ignore directories (so Git can track them if needed)
+!*/
+
+# Allow specific file patterns
+!*_demo.webp
+!*_demo_medium.webp
+!*_demo_small.webp
+

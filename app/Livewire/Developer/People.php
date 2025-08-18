@@ -48,7 +48,7 @@ final class People extends Component implements HasActions, HasSchemas, HasTable
                     ->toggleable(isToggledHiddenByDefault: true),
                 ImageColumn::make('photo')
                     ->label(__('person.avatar'))
-                    ->getStateUsing(fn (Person $record) => $record->photo ? url('storage/photos-096/' . $record->team_id . '/' . $record->photo) : url('/img/avatar.png'))
+                    ->getStateUsing(fn (Person $record) => $record->photo ? url('storage/photos/' . $record->team_id . '/' . $record->photo . '_small.webp') : url('/img/avatar.png'))
                     ->toggleable(isToggledHiddenByDefault: false),
                 TextColumn::make('name')
                     ->label(__('person.name'))

@@ -9,7 +9,6 @@ use App\PersonPhotos;
 use Exception;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Number;
@@ -17,8 +16,6 @@ use Illuminate\View\View;
 use InvalidArgumentException;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Symfony\Component\Finder\Finder;
-use Symfony\Component\Finder\SplFileInfo;
 use TallStackUi\Traits\Interactions;
 
 final class Photos extends Component
@@ -37,7 +34,7 @@ final class Photos extends Component
     // ------------------------------------------------------------------------------
     public function mount(): void
     {
-        $this->loadPhotosOptimized();
+        $this->loadPhotos();
     }
 
     /**
@@ -61,9 +58,9 @@ final class Photos extends Component
 
         // Use more efficient duplicate detection
         $existingNames = collect($this->backup)->pluck('name')->flip();
-        $newUploads    = collect($this->uploads)->reject(function (UploadedFile $file) use ($existingNames) {
-            return $existingNames->has($file->getClientOriginalName());
-        });
+        $newUploads    = collect($this->uploads)->reject(
+            fn (UploadedFile $file) => $existingNames->has($file->getClientOriginalName())
+        );
 
         $this->uploads = collect($this->backup)->merge($newUploads)->toArray();
     }
@@ -77,20 +74,25 @@ final class Photos extends Component
             return;
         }
 
+        $temporaryName = $content['temporary_name'] ?? null;
+        if (! $temporaryName) {
+            return;
+        }
+
         $this->uploads = collect($this->uploads)
             ->reject(fn (UploadedFile $file): bool => $file->getFilename() === $content['temporary_name'])
             ->values()
             ->toArray();
 
-        // Better error handling for file deletion
+        // Clean up temporary file
         try {
-            $tempPath = storage_path('app/livewire-tmp/' . $content['temporary_name']);
-            if (File::exists($tempPath)) {
-                File::delete($tempPath);
+            $tempPath = storage_path('app/livewire-tmp/' . ($content['temporary_name'] ?? ''));
+            if ($tempPath && file_exists($tempPath)) {
+                unlink($tempPath);
             }
         } catch (Exception $e) {
             Log::warning('Failed to delete temporary upload file', [
-                'file'  => $content['temporary_name'],
+                'file'  => $content['temporary_name'] ?? null,
                 'error' => $e->getMessage(),
             ]);
         }
@@ -115,7 +117,7 @@ final class Photos extends Component
 
             $this->dispatch('photos_updated');
 
-            $this->loadPhotosOptimized();
+            $this->loadPhotos();
 
             $this->uploads = [];
         } catch (Exception $e) {
@@ -136,18 +138,18 @@ final class Photos extends Component
         try {
             $wasPrimary = ($photo === $this->person->photo);
 
-            // Batch delete operations
-            $this->deletePhotoFilesBatch($photo, $this->person->team_id);
+            // delete the photo variants
+            $this->deletePhotoVariants($photo, $this->person->team_id, $this->person->id);
 
             if ($wasPrimary) {
-                $this->setNewPrimaryPhotoOptimized();
+                $this->setNewPrimaryPhoto();
             }
 
             $this->toast()->success(__('app.delete'), __('person.photo_deleted'))->send();
 
             $this->dispatch('photos_updated');
 
-            $this->loadPhotosOptimized();
+            $this->loadPhotos();
         } catch (Exception $e) {
             Log::error('Failed to delete person photo', [
                 'person_id' => $this->person->id,
@@ -221,26 +223,35 @@ final class Photos extends Component
     // -----------------------------------------------------------------------
 
     /**
-     * Load photos with optimized file operations.
+     * Load photos.
+     * Only processes original photos, provides URLs for medium and original versions.
      */
-    private function loadPhotosOptimized(): void
+    private function loadPhotos(): void
     {
         $this->photos = collect();
 
         try {
-            $finder = $this->getPersonPhotosFinder();
+            $disk       = Storage::disk('photos');
+            $personPath = "{$this->person->team_id}/{$this->person->id}";
 
-            if (! $finder->hasResults()) {
+            if (! $disk->exists($personPath)) {
                 return;
             }
 
-            foreach ($finder as $file) {
-                $this->photos->push($this->mapPhotoData($file));
+            $files = $disk->files($personPath);
+
+            foreach ($files as $file) {
+                if (! $this->isOriginalPhoto(basename($file))) {
+                    continue;
+                }
+
+                $this->photos->push($this->mapPhotoData($file, $disk));
             }
 
             $this->photos = $this->photos->sortBy('name');
         } catch (Exception $e) {
             Log::error('Failed to load person photos', [
+                'team_id'   => $this->person->team_id,
                 'person_id' => $this->person->id,
                 'error'     => $e->getMessage(),
             ]);
@@ -248,91 +259,114 @@ final class Photos extends Component
     }
 
     /**
-     * Retrieve person photos with error handling.
+     * Map photo data
+     * Returns URLs for medium (display) and original (full view) versions.
      */
-    private function getPersonPhotosFinder(): Finder
+    private function mapPhotoData(string $filePath, $disk): array
     {
-        $teamId     = $this->person->team_id;
-        $photosPath = public_path("storage/photos/{$teamId}");
+        $basename = basename($filePath);
+        $filename = pathinfo($basename, PATHINFO_FILENAME);
+        $basePath = "{$this->person->team_id}/{$this->person->id}";
 
-        if (! File::exists($photosPath)) {
-            File::makeDirectory($photosPath, 0755, true);
+        // Get file size efficiently with fallback
+        $fileSize = 0;
+        try {
+            $fileSize = $disk->size($filePath);
+        } catch (Exception) {
+            // Silently continue with 0 size if file size cannot be determined
         }
-
-        return Finder::create()
-            ->in($photosPath)
-            ->name("{$this->person->id}_*.webp")
-            ->files();
-    }
-
-    /**
-     * Map photo data with error handling.
-     */
-    private function mapPhotoData(SplFileInfo $file): array
-    {
-        $teamId   = $this->person->team_id;
-        $filename = $file->getFilename();
 
         return [
             'name'          => $filename,
-            'name_download' => "{$this->person->name} - {$filename}",
-            'extension'     => $file->getExtension(),
-            'size'          => Number::fileSize($file->getSize(), 2),
-            'path'          => $file->getPath(),
-            'url'           => Storage::url("photos-384/{$teamId}/{$filename}"),
-            'url_original'  => Storage::url("photos/{$teamId}/{$filename}"),
+            'name_download' => "{$this->person->name} - {$basename}",
+            'extension'     => pathinfo($basename, PATHINFO_EXTENSION),
+            'size'          => Number::fileSize($fileSize, 2),
+            'path'          => $disk->path("{$basePath}"),
+            'url_original'  => $disk->url("{$basePath}/{$basename}"),
+            'url_medium'    => $disk->url("{$basePath}/{$filename}_medium.webp"),
             'is_primary'    => $filename === $this->person->photo,
         ];
     }
 
     /**
-     * Delete photo files from all storage locations in batch.
+     * Delete photo files.
+     * Removes original, medium, and small versions.
      */
-    private function deletePhotoFilesBatch(string $photo, int $teamId): void
+    private function deletePhotoVariants(string $photo, int $teamId, int $personId): void
     {
-        $folders          = config('app.photo_folders', ['public']);
-        $deleteOperations = [];
+        $disk  = Storage::disk('photos');
+        $sizes = ['', '_medium', '_small']; // Original has no suffix, medium and small have suffixes
 
-        foreach ($folders as $folder) {
-            $deleteOperations[] = fn (): bool => Storage::disk($folder)->delete("{$teamId}/{$photo}");
-        }
-
-        // Execute all deletions
-        foreach ($deleteOperations as $operation) {
+        foreach ($sizes as $suffix) {
             try {
-                $operation();
+                $filename  = $photo . $suffix . '.webp';
+                $photoPath = "{$teamId}/{$personId}/{$filename}";
+
+                if ($disk->exists($photoPath)) {
+                    $disk->delete($photoPath);
+                }
             } catch (Exception $e) {
                 Log::warning('Failed to delete photo from storage', [
-                    'photo'   => $photo,
-                    'team_id' => $teamId,
-                    'error'   => $e->getMessage(),
+                    'photo'     => $photo,
+                    'team_id'   => $teamId,
+                    'person_id' => $personId,
+                    'suffix'    => $suffix,
+                    'path'      => $photoPath ?? null,
+                    'error'     => $e->getMessage(),
                 ]);
             }
         }
     }
 
     /**
-     * Set a new primary photo with better performance.
+     * Set a new primary photo.
      */
-    private function setNewPrimaryPhotoOptimized(): void
+    private function setNewPrimaryPhoto(): void
     {
         try {
-            // Use existing photos collection if available to avoid file system call
-            if ($this->photos && $this->photos->isNotEmpty()) {
+            $firstPhoto = null;
+
+            // Use existing photos collection if available (most efficient)
+            if ($this->photos?->isNotEmpty()) {
                 $firstPhoto = $this->photos->first()['name'] ?? null;
             } else {
-                // Fallback to file system check
-                $files      = File::glob(public_path("storage/photos/{$this->person->team_id}/{$this->person->id}_*.webp"));
-                $firstPhoto = $files ? basename((string) $files[0]) : null;
+                // Fallback to file system check - find first original photo
+                $disk       = Storage::disk('photos');
+                $personPath = "{$this->person->team_id}/{$this->person->id}";
+
+                if ($disk->exists($personPath)) {
+                    $files = $disk->files($personPath);
+
+                    foreach ($files as $file) {
+                        $basename = basename($file);
+
+                        if (! $this->isOriginalPhoto($basename)) {
+                            continue;
+                        }
+
+                        // Found first original photo
+                        $firstPhoto = pathinfo($basename, PATHINFO_FILENAME);
+                        break;
+                    }
+                }
             }
 
             $this->person->update(['photo' => $firstPhoto]);
         } catch (Exception $e) {
             Log::error('Failed to set new primary photo', [
+                'team_id'   => $this->person->team_id,
                 'person_id' => $this->person->id,
                 'error'     => $e->getMessage(),
             ]);
         }
+    }
+
+    /**
+     * Check if a filename represents an original photo (not a sized version).
+     */
+    private function isOriginalPhoto(string $basename): bool
+    {
+        return str_ends_with($basename, '.webp') && ! str_contains($basename, '_medium.webp') && ! str_contains($basename, '_small.webp');
     }
 
     /**
@@ -340,8 +374,9 @@ final class Photos extends Component
      */
     private function photoExists(string $photo): bool
     {
-        $path = public_path("storage/photos/{$this->person->team_id}/{$photo}");
+        $disk      = Storage::disk('photos');
+        $photoPath = "{$this->person->team_id}/{$this->person->id}/{$photo}.webp";
 
-        return File::exists($path);
+        return $disk->exists($photoPath);
     }
 }

@@ -94,7 +94,7 @@
                     <td>{{ __('person.cemetery') }} :</td>
                     <td class="break-words max-w-96">
                         @php
-    $cemetery = array_filter([$person->getMetadataValue('cemetery_location_name'), $person->getMetadataValue('cemetery_location_address')]);
+                            $cemetery = array_filter([$person->getMetadataValue('cemetery_location_name'), $person->getMetadataValue('cemetery_location_address')]);
                         @endphp
 
                         @foreach ($cemetery as $line)
@@ -335,7 +335,7 @@
     <div class="grid grid-cols-3 gap-2 mt-2">
         @foreach ($images as $image)
             <div>
-                <img class="rounded-sm max-w-48" src="{{ asset('storage/photos-384/' . $person->team_id . '/' . $image) }}" alt="{{ $person->name }}" />
+                <img class="rounded-sm max-w-48" src="{{ asset('storage/photos/' . $person->team_id . '/' . $person->id . '/'  . $image) }}" alt="{{ $person->name }}" />
             </div>
         @endforeach
     </div>

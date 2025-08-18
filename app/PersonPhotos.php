@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace App;
 
 use App\Models\Person;
+use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
@@ -15,21 +15,39 @@ use Throwable;
 
 final class PersonPhotos
 {
+    private readonly Filesystem $photosDisk;
+
+    private readonly Filesystem $tempDisk;
+
+    private readonly string $personPath;
+
+    private readonly string $personId;
+
+    private readonly string $personIdPrefix;
+
+    private ?array $cachedFiles = null;
+
     public function __construct(
         private readonly Person $person,
         private readonly ImageManager $imageManager = new ImageManager(new Driver()),
         private ?array $uploadConfig = null,
-        private ?array $photoFolders = null
+        ?string $photosDiskName = null,
+        ?string $tempDiskName = null
     ) {
-        $this->uploadConfig = $this->uploadConfig ?? config('app.upload_photo');
-        $this->photoFolders = $this->photoFolders ?? config('app.photo_folders', []);
+        $this->uploadConfig   = $this->uploadConfig ?? config('app.upload_photo');
+        $this->photosDisk     = Storage::disk($photosDiskName ?? 'photos');
+        $this->tempDisk       = Storage::disk($tempDiskName ?? 'local');
+        $this->personPath     = "{$this->person->team_id}/{$this->person->id}";
+        $this->personId       = (string) $this->person->id;
+        $this->personIdPrefix = $this->personId . '_';
     }
 
     /**
      * Save multiple photos for the person.
+     * Automatically handles directory creation and cache invalidation.
      *
      * @param  array<int, UploadedFile|string>  $photos
-     * @return int|null Number of photos saved, or null if none
+     * @return int|null Number of successfully saved photos, null if none provided
      */
     public function save(array $photos): ?int
     {
@@ -37,152 +55,440 @@ final class PersonPhotos
             return null;
         }
 
-        $this->ensureDirectoriesExist();
+        $this->ensurePhotoDirectoryExist();
 
-        $lastIndex = $this->getLastImageIndex();
+        $lastIndex  = $this->getLastImageIndex();
+        $savedCount = 0;
 
         foreach ($photos as $photo) {
             $lastIndex++;
-            $this->savePhoto($photo, $lastIndex);
-        }
-
-        $this->cleanupTemporaryFiles();
-
-        return count($photos);
-    }
-
-    /**
-     * Ensure all configured photo folders exist for the team.
-     */
-    private function ensureDirectoriesExist(): void
-    {
-        $teamId = (string) $this->person->team_id;
-
-        foreach ($this->photoFolders as $folder) {
-            $disk = Storage::disk($folder);
-
-            if (! $disk->exists($teamId)) {
-                $disk->makeDirectory($teamId);
+            if ($this->savePhoto($photo, $lastIndex)) {
+                $savedCount++;
             }
         }
+
+        $this->invalidateCache();
+        $this->cleanupTemporaryFiles();
+
+        return $savedCount > 0 ? $savedCount : null;
     }
 
     /**
-     * Get the highest index number used for this person's images.
+     * Get the photo URL for a specific size.
+     * Uses cached file operations for better performance.
+     *
+     * @param  int  $index  The photo index (1-based)
+     * @param  string  $sizeKey  Size variant: 'original', 'small', 'medium'
+     * @return string|null The photo URL or null if not found
+     */
+    public function getPhotoUrl(int $index, string $sizeKey = 'original'): ?string
+    {
+        $filename = $this->findPhotoFile($index, $sizeKey);
+
+        if (! $filename) {
+            return null;
+        }
+
+        $path = $this->personPath . '/' . $filename;
+
+        // Handle different disk types
+        if (method_exists($this->photosDisk, 'url')) {
+            return $this->photosDisk->url($path);
+        }
+
+        // Fallback for disks that don't support URLs
+        return Storage::url($path);
+    }
+
+    /**
+     * Delete all photos for this person.
+     * Removes the entire person directory and invalidates cache.
+     *
+     * @return bool True if deletion succeeded or directory didn't exist
+     */
+    public function deleteAll(): bool
+    {
+        try {
+            if ($this->photosDisk->exists($this->personPath)) {
+                $result = $this->photosDisk->deleteDirectory($this->personPath);
+                $this->invalidateCache();
+
+                return $result;
+            }
+
+            return true;
+        } catch (Throwable $e) {
+            Log::error('Failed to delete all photos', [
+                'person_id' => $this->person->id,
+                'team_id'   => $this->person->team_id,
+                'error'     => $e->getMessage(),
+                'exception' => $e,
+            ]);
+
+            return false;
+        }
+    }
+
+    /**
+     * Delete a specific photo by index.
+     * Removes all size variants (original, small, medium) and invalidates cache.
+     *
+     * @param  int  $index  The photo index to delete
+     * @return bool True if at least one file was deleted
+     */
+    public function delete(int $index): bool
+    {
+        try {
+            $files         = $this->getPersonFiles();
+            $indexPattern  = sprintf('_%03d_', $index);
+            $filesToDelete = [];
+
+            foreach ($files as $file) {
+                $basename = basename($file);
+                if (str_contains($basename, $indexPattern)) {
+                    $filesToDelete[] = $file;
+                }
+            }
+
+            if (empty($filesToDelete)) {
+                return false;
+            }
+
+            foreach ($filesToDelete as $file) {
+                $this->photosDisk->delete($file);
+            }
+
+            $this->invalidateCache();
+
+            return true;
+        } catch (Throwable $e) {
+            Log::error('Failed to delete specific photo', [
+                'person_id'   => $this->person->id,
+                'team_id'     => $this->person->team_id,
+                'photo_index' => $index,
+                'error'       => $e->getMessage(),
+                'exception'   => $e,
+            ]);
+
+            return false;
+        }
+    }
+
+    /**
+     * Count total photos for this person.
+     * Efficiently calculates count by dividing total files by 3
+     * (each photo has original, small, and medium variants).
+     *
+     * @return int Number of photos
+     */
+    public function countPhotos(): int
+    {
+        $files = $this->getPersonFiles();
+
+        // Since each photo generates 3 files (original, small, medium)
+        // and directory contains only this person's photos
+        return (int) (count($files) / 3);
+    }
+
+    /**
+     * Get files from cache or filesystem.
+     * Caches file list to reduce filesystem operations.
+     *
+     * @param  bool  $forceRefresh  Force reload from filesystem
+     * @return array<string> Array of file paths
+     */
+    private function getPersonFiles(bool $forceRefresh = false): array
+    {
+        if ($this->cachedFiles === null || $forceRefresh) {
+            if (! $this->photosDisk->exists($this->personPath)) {
+                $this->cachedFiles = [];
+            } else {
+                $this->cachedFiles = $this->photosDisk->files($this->personPath);
+            }
+        }
+
+        return $this->cachedFiles;
+    }
+
+    /**
+     * Invalidate file cache.
+     * Call this after any file system modifications (save/delete operations).
+     */
+    private function invalidateCache(): void
+    {
+        $this->cachedFiles = null;
+    }
+
+    /**
+     * Ensure person's photo directory exists.
+     * Creates the full directory path recursively if needed.
+     */
+    private function ensurePhotoDirectoryExist(): void
+    {
+        // Create the full path at once (recursive)
+        if (! $this->photosDisk->exists($this->personPath)) {
+            $this->photosDisk->makeDirectory($this->personPath, 0755, true);
+        }
+    }
+
+    /**
+     * Get the highest index number for existing photos.
+     * Optimized to work with person-specific directories where all files belong to this person.
+     *
+     * @return int The highest photo index (0 if no photos exist)
      */
     private function getLastImageIndex(): int
     {
-        $files = File::glob(public_path() . '/storage/photos/' . $this->person->team_id . '/' . $this->person->id . '_*.webp');
+        $files = $this->getPersonFiles();
 
-        if ($files) {
-            $lastFile = basename(last($files));
+        if (empty($files)) {
+            return 0;
+        }
 
-            if (preg_match('/^' . $this->person->id . '_(\d+)_/', $lastFile, $matches)) {
-                return (int) $matches[1];
+        $maxIndex = 0;
+
+        foreach ($files as $file) {
+            $basename = basename($file);
+
+            // Skip sized versions - only check original files
+            if (str_contains($basename, '_medium.webp') || str_contains($basename, '_small.webp')) {
+                continue;
+            }
+
+            // Extract index from filename: personId_index_timestamp.webp
+            $parts = explode('_', $basename);
+
+            // We expect at least 3 parts: {personId}_{index}_{timestamp}.webp
+            if (count($parts) >= 3 && is_numeric($parts[1])) {
+                $maxIndex = max($maxIndex, (int) $parts[1]);
             }
         }
 
-        return 0;
+        return $maxIndex;
     }
 
     /**
-     * Save a single photo for the person.
+     * Find a photo file for a specific index and size variant.
+     * Uses cached file list and optimized pattern matching.
+     *
+     * @param  int  $index  The photo index to find
+     * @param  string  $sizeKey  Size variant: 'original', 'small', 'medium'
+     * @return string|null The filename or null if not found
      */
-    private function savePhoto(UploadedFile|string $photo, int $index): void
+    private function findPhotoFile(int $index, string $sizeKey): ?string
     {
-        $imageName = sprintf(
-            '%s_%03d_%s.%s',
-            $this->person->id,
-            $index,
-            now()->format('YmdHis'),
-            $this->uploadConfig['type']
-        );
+        $files        = $this->getPersonFiles();
+        $indexPattern = sprintf('_%03d_', $index);
+
+        foreach ($files as $file) {
+            $basename = basename($file);
+
+            if (! str_contains($basename, $indexPattern)) {
+                continue;
+            }
+
+            // Check size match
+            if ($sizeKey === 'original') {
+                if (! str_contains($basename, '_medium.webp') && ! str_contains($basename, '_small.webp')) {
+                    return $basename;
+                }
+            } elseif (str_contains($basename, "_{$sizeKey}.webp")) {
+                return $basename;
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Save a single photo in all configured sizes.
+     * Processes the photo and updates person record if it's the first photo.
+     *
+     * @param  UploadedFile|string  $photo  The photo to save
+     * @param  int  $index  The index number for this photo
+     * @return bool True if photo was saved successfully
+     */
+    private function savePhoto(UploadedFile|string $photo, int $index): bool
+    {
+        $timestamp = now()->format('YmdHis');
 
         try {
-            $this->processAndSaveImage($photo, $imageName);
+            $success = $this->processAndSaveImage($photo, $index, $timestamp);
 
-            if (empty($this->person->photo)) {
-                $this->person->update(['photo' => $imageName]);
+            if ($success && empty($this->person->photo)) {
+                // Save the original filename for reference
+                $this->person->update([
+                    'photo' => $this->makeFilename($index, $timestamp, 'original', false),
+                ]);
             }
+
+            return $success;
         } catch (Throwable $e) {
-            Log::error("Failed to save photo for person {$this->person->id}: {$e->getMessage()}", [
-                'exception' => $e,
+            Log::error('Failed to save photo', [
+                'person_id'   => $this->person->id,
+                'team_id'     => $this->person->team_id,
+                'photo_index' => $index,
+                'error'       => $e->getMessage(),
+                'exception'   => $e,
             ]);
+
+            return false;
         }
     }
 
     /**
-     * Process and save an image in multiple sizes.
+     * Process image in each configured size and save to the photos disk.
+     * Creates all size variants (original, small, medium) with watermark if enabled.
+     *
+     * @param  UploadedFile|string  $photo  The source photo
+     * @param  int  $index  The photo index
+     * @param  string  $timestamp  The timestamp for filename generation
+     * @return bool True if at least one size variant was saved successfully
      */
-    private function processAndSaveImage(UploadedFile|string $photo, string $imageName): void
+    private function processAndSaveImage(UploadedFile|string $photo, int $index, string $timestamp): bool
     {
-        $paths = [
-            'photos' => [
-                'width'  => $this->uploadConfig['max_width'],
-                'height' => $this->uploadConfig['max_height'],
-            ],
-            'photos-096' => [
-                'width'  => 96,
-                'height' => null,
-            ],
-            'photos-384' => [
-                'width'  => 384,
-                'height' => null,
-            ],
-        ];
+        $sizes    = $this->uploadConfig['sizes'] ?? [];
+        $savedAny = false;
 
-        $original = $this->imageManager->read($photo);
+        try {
+            $original = $this->imageManager->read($photo);
+        } catch (Throwable $e) {
+            Log::error('Failed to read image file', [
+                'person_id'   => $this->person->id,
+                'team_id'     => $this->person->team_id,
+                'photo_index' => $index,
+                'error'       => $e->getMessage(),
+                'exception'   => $e,
+            ]);
 
-        foreach ($paths as $disk => $dimensions) {
-            $image = clone $original;
-
-            $image->scaleDown(
-                width: $dimensions['width'],
-                height: $dimensions['height']
-            );
-
-            $this->applyWatermark($image);
-
-            $image
-                ->toWebp(quality: $this->uploadConfig['quality'])
-                ->save(Storage::disk($disk)->path("{$this->person->team_id}/{$imageName}"));
+            return false;
         }
+
+        foreach ($sizes as $sizeKey => $dimensions) {
+            try {
+                $image = clone $original;
+
+                $image->scaleDown(
+                    width: $dimensions['width'],
+                    height: $dimensions['height']
+                );
+
+                $this->applyWatermark($image);
+
+                $filename = $this->makeFilename($index, $timestamp, $sizeKey);
+                $path     = $this->personPath . '/' . $filename;
+
+                $this->photosDisk->put(
+                    $path,
+                    $image->toWebp(quality: $this->uploadConfig['quality'] ?? 80)
+                );
+
+                $savedAny = true;
+            } catch (Throwable $e) {
+                Log::error('Failed to process photo size variant', [
+                    'person_id'   => $this->person->id,
+                    'team_id'     => $this->person->team_id,
+                    'photo_index' => $index,
+                    'size_key'    => $sizeKey,
+                    'dimensions'  => $dimensions,
+                    'error'       => $e->getMessage(),
+                    'exception'   => $e,
+                ]);
+            }
+        }
+
+        return $savedAny;
     }
 
     /**
-     * Apply watermark if enabled in config.
+     * Build filename using the naming convention: personId_index_timestamp[_size].webp
+     *
+     * @param  int  $index  The photo index (zero-padded to 3 digits)
+     * @param  string  $timestamp  The timestamp string
+     * @param  string  $sizeKey  Size variant: 'original', 'small', 'medium'
+     * @param  bool  $includeExtension  Whether to include .webp extension
+     * @return string The generated filename
+     */
+    private function makeFilename(int $index, string $timestamp, string $sizeKey, bool $includeExtension = true): string
+    {
+        $suffix = $sizeKey !== 'original' ? "_{$sizeKey}" : '';
+
+        $filename = sprintf(
+            '%s_%03d_%s%s',
+            $this->personId,
+            $index,
+            $timestamp,
+            $suffix
+        );
+
+        if ($includeExtension) {
+            $filename .= '.webp';
+        }
+
+        return $filename;
+    }
+
+    /**
+     * Apply watermark to image if enabled in configuration.
+     * Watermark is placed at bottom-left with 5px margins.
+     *
+     * @param  mixed  $image  The Intervention Image instance
      */
     private function applyWatermark($image): void
     {
-        if (! $this->uploadConfig['add_watermark']) {
+        if (! ($this->uploadConfig['add_watermark'] ?? false)) {
             return;
         }
 
         $path = public_path('img/watermark.png');
 
         if (! file_exists($path)) {
-            Log::warning("Watermark file missing: {$path}");
+            Log::warning('Watermark file missing', [
+                'watermark_path' => $path,
+                'person_id'      => $this->person->id,
+            ]);
 
             return;
         }
 
-        $image->place($path, 'bottom-left', 5, 5);
+        try {
+            $image->place($path, 'bottom-left', 5, 5);
+        } catch (Throwable $e) {
+            Log::warning('Failed to apply watermark', [
+                'person_id'      => $this->person->id,
+                'watermark_path' => $path,
+                'error'          => $e->getMessage(),
+            ]);
+        }
     }
 
     /**
-     * Cleanup old Livewire temporary files.
+     * Cleanup old temporary files from Livewire uploads.
+     * Removes files older than 24 hours from the livewire-tmp directory.
      */
     private function cleanupTemporaryFiles(): void
     {
-        $cutoff = now()->subDay()->timestamp;
+        try {
+            $cutoff = now()->subDay()->timestamp;
 
-        $files = array_filter(
-            Storage::disk('local')->files('livewire-tmp'),
-            fn ($file) => Storage::disk('local')->lastModified($file) < $cutoff
-        );
+            if (! $this->tempDisk->exists('livewire-tmp')) {
+                return;
+            }
 
-        if ($files) {
-            Storage::disk('local')->delete($files);
+            $files = array_filter(
+                $this->tempDisk->files('livewire-tmp'),
+                fn ($file) => $this->tempDisk->lastModified($file) <= $cutoff
+            );
+
+            if ($files) {
+                $this->tempDisk->delete($files);
+            }
+        } catch (Throwable $e) {
+            Log::warning('Failed to cleanup temporary files', [
+                'temp_disk'        => get_class($this->tempDisk),
+                'cutoff_timestamp' => $cutoff,
+                'error'            => $e->getMessage(),
+            ]);
         }
     }
 }

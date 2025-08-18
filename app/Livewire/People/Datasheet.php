@@ -6,7 +6,7 @@ namespace App\Livewire\People;
 
 use App\Models\Person;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
@@ -41,18 +41,21 @@ final class Datasheet extends Component
 
     protected function loadImages(): void
     {
-        $directory = storage_path("app/public/photos/{$this->person->team_id}");
+        $disk       = Storage::disk('photos');
+        $personPath = "{$this->person->team_id}/{$this->person->id}";
 
-        if (! File::exists($directory)) {
+        if (! $disk->exists($personPath)) {
             $this->images = collect();
 
             return;
         }
 
-        $pattern = "{$directory}/{$this->person->id}_*.webp";
+        // List all files in the person's folder
+        $allFiles = collect($disk->files($personPath));
 
-        // Load image files for the person (webp format), returning only filenames with extensions
-        $this->images = collect(File::glob($pattern))
-            ->map(fn ($path) => basename($path)); // Extract filename with extension
+        // Filter only medium images that belong to this person
+        $this->images = $allFiles
+            ->filter(fn ($file) => str_starts_with(basename($file), "{$this->person->id}_") && str_ends_with($file, '_medium.webp'))
+            ->map(fn ($file) => basename($file));
     }
 }

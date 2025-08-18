@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Livewire\People;
 
 use App\Models\Person;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
@@ -60,8 +60,57 @@ final class Profile extends Component
     private function deletePersonPhotos(): void
     {
         defer(function (): void {
-            foreach (config('app.photo_folders') as $folder) {
-                File::delete(File::glob(storage_path("app/public/{$folder}/" . $this->person->team_id . '/' . $this->person->id . '_*.webp')));
+            $disk       = Storage::disk('photos');
+            $personPath = $this->person->team_id . '/' . $this->person->id;
+
+            // Check if the person's directory exists
+            if (! $disk->exists($personPath)) {
+                return;
+            }
+
+            // Get all files in the person's directory
+            $files = $disk->files($personPath);
+
+            // Filter to only image files belonging to this person
+            $personFiles = collect($files)->filter(function ($file): bool {
+                $filename = basename($file);
+                $personId = $this->person->id;
+
+                // Check if filename starts with personId_ and has valid image extension
+                if (! str_starts_with($filename, $personId . '_')) {
+                    return false;
+                }
+
+                // Get valid extensions from config
+                $acceptedFormats = config('app.upload_photo_accept', []);
+                $validExtensions = collect($acceptedFormats)->map(function ($label, $mimeType) {
+                    // Convert MIME types to file extensions
+                    return match ($mimeType) {
+                        'image/bmp'     => 'bmp',
+                        'image/gif'     => 'gif',
+                        'image/jpeg'    => ['jpg', 'jpeg'],
+                        'image/png'     => 'png',
+                        'image/svg+xml' => 'svg',
+                        'image/tiff'    => ['tiff', 'tif'],
+                        'image/webp'    => 'webp',
+                        default         => null,
+                    };
+                })->filter()->flatten()->toArray();
+
+                $extension = mb_strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+                return in_array($extension, $validExtensions);
+            });
+
+            // Delete the files
+            if ($personFiles->isNotEmpty()) {
+                $disk->delete($personFiles->toArray());
+            }
+
+            // Remove the person's directory if it's now empty
+            $remainingFiles = $disk->files($personPath);
+            if (empty($remainingFiles)) {
+                $disk->deleteDirectory($personPath);
             }
         });
     }

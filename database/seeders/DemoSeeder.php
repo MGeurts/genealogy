@@ -90,7 +90,7 @@ final class DemoSeeder extends Seeder
                 'yod' => ! empty($person['yod']) ? $person['yod'] : null,
                 'pod' => ! empty($person['death_place']) ? $person['death_place'] : null,
 
-                'photo' => ! empty($person['photo']) ? $person['id'] . '_001_demo.webp' : null,
+                'photo' => ! empty($person['photo']) ? $person['id'] . '_001_demo' : null,
 
                 'team_id' => $this->british_royals_team,
             ]);
@@ -388,7 +388,7 @@ final class DemoSeeder extends Seeder
                 'yod' => ! empty($person['yod']) ? $person['yod'] : null,
                 'pod' => ! empty($person['death_place']) ? $person['death_place'] : null,
 
-                'photo' => ! empty($person['photo']) ? $person['id'] . '_001_demo.webp' : null,
+                'photo' => ! empty($person['photo']) ? $person['id'] . '_001_demo' : null,
 
                 'team_id' => $this->kennedy_team,
             ]);
@@ -433,7 +433,7 @@ final class DemoSeeder extends Seeder
             'sex'       => 'm',
             'dob'       => '1963-01-01',
             'yob'       => '1963',
-            'photo'     => '209_001_demo.webp',
+            'photo'     => '209_001_demo',
 
             'team_id' => $this->developer_team,
         ]);
@@ -445,7 +445,7 @@ final class DemoSeeder extends Seeder
             'sex'       => 'm',
             'dob'       => '1963-01-01',
             'yob'       => '1963',
-            'photo'     => '210_001_demo.webp',
+            'photo'     => '210_001_demo',
 
             'team_id' => $this->developer_team,
         ]);

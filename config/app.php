@@ -152,28 +152,36 @@ return [
         'mail_address'  => env('BACKUP_MAIL_ADDRESS', 'webmaster@yourdomain.com'),
     ],
 
-    // folders where the photos are stored
-    'photo_folders' => [
-        'photos',
-        'photos-096',
-        'photos-384',
-    ],
-
     // default values for resizing, watermarking and saving photo uploads
     'upload_photo' => [
-        'type'          => 'webp',
         'max_width'     => 1920,
         'max_height'    => 1080,
         'quality'       => 85,
         'add_watermark' => env('PHOTOS_ADD_WATERMARK', false),
+        'sizes'         => [
+            'original' => [
+                'width'  => 1920,
+                'height' => 1080,
+            ],
+            'medium' => [
+                'width'  => 384,
+                'height' => null,
+            ],
+            'small' => [
+                'width'  => 96,
+                'height' => null,
+            ],
+        ],
     ],
 
     // accepted file types for photo uploads
     'upload_photo_accept' => [
+        'image/bmp'     => 'BMP',
         'image/gif'     => 'GIF',
         'image/jpeg'    => 'JPEG',
         'image/png'     => 'PNG',
         'image/svg+xml' => 'SVG',
+        'image/tiff'    => 'TIFF',
         'image/webp'    => 'WEBP',
     ],
 

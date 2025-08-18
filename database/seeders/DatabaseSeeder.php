@@ -37,8 +37,6 @@ final class DatabaseSeeder extends Seeder
         //
         // - the folder /public/xml
         // - the CONTENT of folder /storage/app/public/photos
-        // - the CONTENT of folder /storage/app/public/photos-096
-        // - the CONTENT of folder /storage/app/public/photos-384
         // - the CONTENT of folder /storage/app/public/profile-photos
         // - the CONTENT of folder /storage/app/backups/genealogy
         // -----------------------------------------------------------------------
