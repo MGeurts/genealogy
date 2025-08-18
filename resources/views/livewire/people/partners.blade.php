@@ -26,7 +26,7 @@
                                     <x-ts-dropdown.items title="{{ __('person.edit_relationship') }}">
                                         <x-ts-icon icon="tabler.user-edit" class="inline-block size-5 mr-2" />
                                         <div>
-                                            {{ $couple->person2_id === $person->id ? $couple->person_1->name : $couple->person_2->name }}<br />
+                                            {{ $couple->person2_id === $person->id ? $couple->person1->name : $couple->person2->name }}<br />
                                             {{ $couple->date_start ? $couple->date_start->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '??' }}
                                         </div>
                                     </x-ts-dropdown.items>
@@ -42,7 +42,7 @@
                                     title="{{ __('person.delete_relationship') }}">
                                     <x-ts-icon icon="tabler.trash" class="inline-block size-5 mr-2" />
                                     <div>
-                                        {{ $couple->person2_id === $person->id ? $couple->person_1->name : $couple->person_2->name }}<br />
+                                        {{ $couple->person2_id === $person->id ? $couple->person1->name : $couple->person2->name }}<br />
                                         {{ $couple->date_start ? $couple->date_start->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') : '??' }}
                                     </div>
                                 </x-ts-dropdown.items>
@@ -59,17 +59,17 @@
             <div class="p-2 flex flex-wrap gap-2 justify-center items-start @if (!$loop->last) border-b @endif">
                 <div class="flex-1 grow max-w-full min-w-max">
                     @if ($couple->person2_id === $person->id)
-                        <x-link href="/people/{{ $couple->person_1->id }}" @class(['text-red-600 dark:text-red-400' => $couple->person_1->isDeceased()])>
-                            {{ $couple->person_1->name }}
+                        <x-link href="/people/{{ $couple->person1->id }}" @class(['text-red-600 dark:text-red-400' => $couple->person1->isDeceased()])>
+                            {{ $couple->person1->name }}
                         </x-link>
 
-                        <x-ts-icon icon="tabler.{{ $couple->person_1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="tabler.{{ $couple->person1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @else
-                        <x-link href="/people/{{ $couple->person_2->id }}" @class(['text-red-600 dark:text-red-400' => $couple->person_2->isDeceased()])>
-                            {{ $couple->person_2->name }}
+                        <x-link href="/people/{{ $couple->person2->id }}" @class(['text-red-600 dark:text-red-400' => $couple->person2->isDeceased()])>
+                            {{ $couple->person2->name }}
                         </x-link>
 
-                        <x-ts-icon icon="tabler.{{ $couple->person_2->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-icon icon="tabler.{{ $couple->person2->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                     @endif
 
                     @if ($couple->is_married)

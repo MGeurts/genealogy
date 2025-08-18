@@ -55,8 +55,8 @@ final class Couple extends Model
             ->useLogName('person_couple')
             ->setDescriptionForEvent(fn (string $eventName): string => __('couple.couple') . ' ' . __('app.event_' . $eventName))
             ->logOnly([
-                'person_1.name',
-                'person_2.name',
+                'person1.name',
+                'person2.name',
                 'date_start',
                 'date_end',
                 'is_married',
@@ -101,13 +101,13 @@ final class Couple extends Model
     // Relations
     /* -------------------------------------------------------------------------------------------- */
     /* returns PARTNER 1 (1 Person) based on person1_id in Couple model */
-    public function person_1(): BelongsTo
+    public function person1(): BelongsTo
     {
         return $this->belongsTo(Person::class, 'person1_id');
     }
 
     /* returns PARTNER 2 (1 Person) based on person2_id in Couple model */
-    public function person_2(): BelongsTo
+    public function person2(): BelongsTo
     {
         return $this->belongsTo(Person::class, 'person2_id');
     }
@@ -141,7 +141,7 @@ final class Couple extends Model
                 return;
             }
 
-            $builder->where('couples.team_id', auth()->user()->currentTeam->id);
+            $builder->where('couples.team_id', auth()->user()->currentTeam?->id);
         });
     }
 
@@ -152,11 +152,11 @@ final class Couple extends Model
     {
         return Attribute::make(get: function (): ?string {
             $names = array_filter([
-                optional($this->person_1)->name,
-                optional($this->person_2)->name,
+                $this->person1?->name,
+                $this->person2?->name,
             ]);
 
-            return $names !== [] ? implode(' - ', $names) : null;
+            return $names !== [] ? implode(' & ', $names) : null;
         });
     }
 

@@ -54,7 +54,7 @@ final class Family extends Component
             'name' => $p->name . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
         ])->values();
 
-        $this->parents = Couple::with(['person_1', 'person_2'])
+        $this->parents = Couple::with(['person1', 'person2'])
             ->olderThan($this->person->birth_year)
             ->get()
             ->sortBy('name')

@@ -88,17 +88,11 @@ final class Person extends Model implements HasMedia
             ->useLogName('person_couple')
             ->setDescriptionForEvent(fn (string $eventName): string => __('person.person') . ' ' . __('app.event_' . $eventName))
             ->logOnly([
-                'firstname',
-                'surname',
-                'birthname',
-                'nickname',
+                'firstname', 'surname', 'birthname', 'nickname',
 
-                'sex',
-                'gender.name',
+                'sex', 'gender.name',
 
-                'father.name',
-                'mother.name',
-                'parents.name',
+                'father.name', 'mother.name', 'parents.name',
 
                 'dob', 'yob', 'pob',
                 'dod', 'yod', 'pod',
@@ -136,29 +130,21 @@ final class Person extends Model implements HasMedia
         // Be aware that this kinds of searches are slower.
         // If a name containes any spaces, enclose the name in double quoutes, for instance "John Fitzgerald Jr." Kennedy.
         /* -------------------------------------------------------------------------------------------- */
-        if (mb_trim($searchString) === '%') {
+        if (mb_trim($searchString) === '%' || empty(mb_trim($searchString))) {
             return;
         }
 
         // Sanitize: strip HTML tags and trim spaces
-        $searchString = strip_tags($searchString);
-        $searchString = mb_trim($searchString);
+        $searchString = strip_tags(mb_trim($searchString));
 
         // Escape SQL wildcard characters in search terms
-        $escapeLike = function (string $value): string {
-            return str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $value);
-        };
+        $escapeLike = fn (string $value): string => str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $value);
 
         collect(str_getcsv($searchString, ' ', '"'))
             ->filter()
             ->each(function (string $searchTerm) use ($query, $escapeLike): void {
                 $term = $escapeLike($searchTerm) . '%';
-
-                $query->whereAny(
-                    ['firstname', 'surname', 'birthname', 'nickname'],
-                    'like',
-                    $term
-                );
+                $query->whereAny(['firstname', 'surname', 'birthname', 'nickname'], 'like', $term);
             });
     }
 
@@ -341,7 +327,7 @@ final class Person extends Model implements HasMedia
     /* returns PARENTS (1 Couple) based on parents_id */
     public function parents(): BelongsTo
     {
-        return $this->belongsTo(Couple::class)->with(['person_1', 'person_2']);
+        return $this->belongsTo(Couple::class)->with(['person1', 'person2']);
     }
 
     /* returns OWN NATURAL CHILDREN (n Person) based on father_id OR mother_id, ordered by dob */
@@ -400,7 +386,7 @@ final class Person extends Model implements HasMedia
     /* returns ALL PARTNERSHIPS (n Couple) related to the person, ordered by date_start */
     public function couples(): HasManyMerged
     {
-        return $this->hasManyMerged(Couple::class, ['person1_id', 'person2_id'])->with(['person_1', 'person_2']);
+        return $this->hasManyMerged(Couple::class, ['person1_id', 'person2_id'])->with(['person1', 'person2']);
     }
 
     /* returns ALL METADATA (n PersonMetadata) related to the person */
@@ -410,15 +396,15 @@ final class Person extends Model implements HasMedia
     }
 
     /* returns 1 METADATA (1 PersonMetadata value) related to the person */
-    public function getMetadataValue($key = null): ?string
+    public function getMetadataValue(?string $key = null): ?string
     {
-        if ($key) {
-            $metadata = $this->metadata->firstWhere('key', $key);
-
-            return $metadata ? $metadata->value : null;
+        if (! $key) {
+            return null;
         }
 
-        return null;
+        $metadata = $this->metadata->firstWhere('key', $key);
+
+        return $metadata ? $metadata->value : null;
     }
 
     /* updates, deletes if empty or creates 1 to n METADATA related to the person */
@@ -454,37 +440,40 @@ final class Person extends Model implements HasMedia
     /* returns ALL SIBLINGS (n Person) related to the person, either through father_id, mother_id or parents_id ordered by type, birthyear */
     public function siblings(bool $withChildren = false): Collection
     {
-        // Check if there are any parent identifiers to avoid unnecessary queries
+        // Early return if no parent information
         if (! $this->father_id && ! $this->mother_id && ! $this->parents_id) {
             return collect([]);
         }
 
-        // Prepare the query conditionally based on $withChildren
-        $query = (fn ($column, $id) => Person::where('id', '!=', $this->id)
-            ->where($column, $id)
-            ->when($withChildren, fn ($q) => $q->with('children'))
-            ->get());
+        $siblings = collect();
 
-        // Get siblings from each parent or both parents
-        $siblings_father  = $this->father_id ? $query('father_id', $this->father_id) : collect([]);
-        $siblings_mother  = $this->mother_id ? $query('mother_id', $this->mother_id) : collect([]);
-        $siblings_parents = $this->parents_id ? $query('parents_id', $this->parents_id) : collect([]);
+        // Use optimized relationship methods
+        if ($this->parents_id) {
+            $siblings = $siblings->merge(
+                $withChildren ? $this->fullSiblings()->with('children')->get() : $this->fullSiblings()->get()
+            );
+        }
 
-        // Merge the results and ensure no duplicate siblings are included
-        $siblings = $siblings_father->merge($siblings_mother)->merge($siblings_parents)->unique('id');
+        if ($this->father_id) {
+            $siblings = $siblings->merge(
+                $withChildren ? $this->halfSiblingsFather()->with('children')->get() : $this->halfSiblingsFather()->get()
+            );
+        }
 
-        return $siblings->map(function (Person $sibling) use ($siblings_father, $siblings_mother, $siblings_parents): Person {
-            // Determine the sibling's type based on the shared parent(s)
-            if ($siblings_father->contains('id', $sibling->id) && $siblings_mother->contains('id', $sibling->id)) {
-                $sibling['type'] = ''; // Full siblings (same mother and father)
-            } elseif ($siblings_father->contains('id', $sibling->id) || $siblings_mother->contains('id', $sibling->id)) {
-                $sibling['type'] = '[1/2]'; // Half siblings (same father or mother)
-            } elseif ($siblings_parents->contains('id', $sibling->id)) {
-                $sibling['type'] = '[+]'; // Step-siblings or other variations
-            }
+        if ($this->mother_id) {
+            $siblings = $siblings->merge(
+                $withChildren ? $this->halfSiblingsMother()->with('children')->get() : $this->halfSiblingsMother()->get()
+            );
+        }
 
-            return $sibling;
-        })->sortBy(['birthYear', 'type']);
+        // Remove duplicates and add type information
+        return $siblings->unique('id')
+            ->map(function (Person $sibling): Person {
+                $sibling['type'] = $this->determineSiblingType($sibling);
+
+                return $sibling;
+            })
+            ->sortBy(['birthYear', 'type']);
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -493,6 +482,7 @@ final class Person extends Model implements HasMedia
     #[Override]
     protected static function booted(): void
     {
+        // Team scope
         self::addGlobalScope('team', function (Builder $builder): void {
             if (Auth::guest() || auth()->user()->is_developer) {
                 return;
@@ -507,21 +497,23 @@ final class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     protected function name(): Attribute
     {
-        return Attribute::get(
-            fn () => ($name = Str::of("{$this->firstname} {$this->surname}")->trim()->value()) === '' ? null : $name
-        );
+        return Attribute::get(function (): ?string {
+            $name = Str::of("{$this->firstname} {$this->surname}")->trim()->value();
+
+            return $name === '' ? null : $name;
+        });
     }
 
     protected function age(): Attribute
     {
-        return Attribute::make(get: function () {
+        return Attribute::make(get: function (): ?int {
             if ($this->dob) {
                 if ($this->dod) {
                     // deceased based on dob & dod
                     $age = (int) Carbon::parse($this->dob)->diffInYears($this->dod);
                 } elseif ($this->yod) {
                     // deceased based on dob & yod
-                    $age = $this->yod - Carbon::parse($this->dob)->format('Y');
+                    $age = $this->yod - (int) Carbon::parse($this->dob)->format('Y');
                 } else {
                     // living
                     $age = (int) Carbon::parse($this->dob)->diffInYears();
@@ -529,7 +521,7 @@ final class Person extends Model implements HasMedia
             } elseif ($this->yob) {
                 if ($this->dod) {
                     // deceased based on yob & dod
-                    $age = Carbon::parse($this->dod)->format('Y') - $this->yod;
+                    $age = (int) Carbon::parse($this->dod)->format('Y') - $this->yod;
                 } elseif ($this->yod) {
                     // deceased based on yob & yod
                     $age = $this->yod - $this->yob;
@@ -541,21 +533,21 @@ final class Person extends Model implements HasMedia
                 $age = null;
             }
 
-            return $age >= 0 ? $age : null;
+            return $age !== null && $age >= 0 ? $age : null;
         });
     }
 
     protected function nextBirthday(): Attribute
     {
         return Attribute::make(get: function (): ?Carbon {
-            if ($this->dob) {
-                $today               = Carbon::today();
-                $this_years_birthday = Carbon::parse(date('Y') . mb_substr((string) ($this->dob), 4));
-
-                return $today->gt($this_years_birthday) ? $this_years_birthday->copy()->addYear() : $this_years_birthday;
+            if (! $this->dob) {
+                return null;
             }
 
-            return null;
+            $today             = Carbon::today();
+            $thisYearsBirthday = Carbon::parse($this->dob)->year($today->year);
+
+            return $today->gt($thisYearsBirthday) ? $thisYearsBirthday->addYear() : $thisYearsBirthday;
         });
     }
 
@@ -686,15 +678,15 @@ final class Person extends Model implements HasMedia
         return Attribute::make(get: function (): ?string {
             $countries = new Countries(app()->getLocale());
 
-            $components = [
+            $components = array_filter([
                 mb_trim("{$this->street} {$this->number}"),
                 mb_trim("{$this->postal_code} {$this->city}"),
                 mb_trim("{$this->province} {$this->state}"),
                 $this->country ? $countries->getCountryName($this->country) : null,
-            ];
+            ]);
 
-            // Filter empty components and implode with newline characters.
-            $address = implode("\n", array_filter($components));
+            // Implode with newline characters.
+            $address = implode("\n", $components);
 
             return $address ?: null;
         });
@@ -703,41 +695,37 @@ final class Person extends Model implements HasMedia
     protected function addressGoogle(): Attribute
     {
         return Attribute::make(get: function (): ?string {
-            $countries         = new Countries(app()->getLocale());
-            $hrefGoogleAddress = 'https://www.google.com/maps/search/';
+            $countries = new Countries(app()->getLocale());
 
-            $components = [
+            $components = array_filter([
                 mb_trim("{$this->street} {$this->number}"),
                 mb_trim("{$this->postal_code} {$this->city}"),
                 mb_trim("{$this->province} {$this->state}"),
                 $this->country ? $countries->getCountryName($this->country) : null,
-            ];
+            ]);
 
-            // Filter empty components, implode with commas, and URL-encode the address.
-            $address = implode(',', array: array_filter(array : $components));
+            if (empty($components)) {
+                return null;
+            }
 
-            return $address !== '' ? $hrefGoogleAddress . urlencode($address) : null;
+            $address = implode(',', $components);
+
+            return 'https://www.google.com/maps/search/' . urlencode($address);
         });
     }
 
     protected function cemeteryGoogle(): Attribute
     {
         return Attribute::make(get: function (): ?string {
-            $hrefGoogleGeo     = 'https://www.google.com/maps/search/?api=1&query=';
-            $hrefGoogleAddress = 'https://www.google.com/maps/search/';
-
             $latitude  = $this->getMetadataValue('cemetery_location_latitude');
             $longitude = $this->getMetadataValue('cemetery_location_longitude');
             $address   = $this->getMetadataValue('cemetery_location_address');
 
-            if ($latitude && $longitude) {
-                return $hrefGoogleGeo . urlencode("{$latitude},{$longitude}");
-            }
-            if ($address) {
-                return $hrefGoogleAddress . urlencode(str_replace("\n", ',', $address));
-            }
-
-            return null;
+            return match (true) {
+                $latitude && $longitude => 'https://www.google.com/maps/search/?api=1&query=' . urlencode("{$latitude},{$longitude}"),
+                $address                => 'https://www.google.com/maps/search/' . urlencode(str_replace("\n", ',', $address)),
+                default                 => null
+            };
         });
     }
 
@@ -746,6 +734,45 @@ final class Person extends Model implements HasMedia
         return [
             'dob' => 'date:Y-m-d',
             'dod' => 'date:Y-m-d',
+            'yob' => 'integer',
+            'yod' => 'integer',
         ];
+    }
+
+    /* -------------------------------------------------------------------------------------------- */
+    // Optimized relationship methods for siblings
+    /* -------------------------------------------------------------------------------------------- */
+    private function fullSiblings(): HasMany
+    {
+        return $this->hasMany(self::class, 'parents_id', 'parents_id')
+            ->where('id', '!=', $this->id);
+    }
+
+    private function halfSiblingsFather(): HasMany
+    {
+        return $this->hasMany(self::class, 'father_id', 'father_id')
+            ->where('id', '!=', $this->id)
+            ->whereNull('parents_id');
+    }
+
+    private function halfSiblingsMother(): HasMany
+    {
+        return $this->hasMany(self::class, 'mother_id', 'mother_id')
+            ->where('id', '!=', $this->id)
+            ->whereNull('parents_id');
+    }
+
+    // Determine the sibling's type based on the shared parent(s)
+    private function determineSiblingType(self $sibling): string
+    {
+        $sharedFather  = $this->father_id && $this->father_id === $sibling->father_id;
+        $sharedMother  = $this->mother_id && $this->mother_id === $sibling->mother_id;
+        $sharedParents = $this->parents_id && $this->parents_id === $sibling->parents_id;
+
+        return match (true) {
+            $sharedParents || ($sharedFather && $sharedMother) => '',       // Full siblings
+            $sharedFather || $sharedMother                     => '[1/2]',  // Half siblings
+            default                                            => '[+]'     // Step-siblings
+        };
     }
 }

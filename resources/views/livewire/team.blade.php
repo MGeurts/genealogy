@@ -23,12 +23,12 @@
         <tbody>
             <tr class="border-b dark:border-neutral-600">
                 <td class="p-2 align-top border-x dark:border-neutral-600">
-                   {{ $user->currentTeam->name }}
+                    {{ $user->currentTeam->name }}
                 </td>
 
                 <td class="p-2 align-top border-x dark:border-neutral-600">
                     @foreach ($user->currentTeam->users->sortBy('name') as $member)
-                        {{ $member->name }}<br/>
+                        {{ $member->name }}<br />
                     @endforeach
                 </td>
 
@@ -36,22 +36,21 @@
                     @foreach ($user->currentTeam->persons->sortBy('name') as $person)
                         <x-ts-link href="/people/{{ $person->id }}" title="{{ __('app.show') }}">{{ $person->name }}</x-ts-link>
                         <x-ts-icon icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
-                        <br/>
+                        <br />
                     @endforeach
                 </td>
 
                 <td class="p-2 align-top border-x dark:border-neutral-600">
                     @foreach ($user->currentTeam->couples as $couple)
-                        <x-ts-link href="/people/{{ $couple->person_1->id }}" title="{{ __('app.show') }}">{{ $couple->person_1->name }}</x-ts-link>
-                        <x-ts-icon icon="tabler.{{ $couple->person_1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <x-ts-link href="/people/{{ $couple->person1->id }}" title="{{ __('app.show') }}">{{ $couple->person1->name }}</x-ts-link>
+                        <x-ts-icon icon="tabler.{{ $couple->person1->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
                         &nbsp;-&nbsp;
-                        <x-ts-link href="/people/{{ $couple->person_2->id }}" title="{{ __('app.show') }}">{{ $couple->person_2->name }}</x-ts-link>
-                        <x-ts-icon icon="tabler.{{ $couple->person_2->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
-                        <br/>
+                        <x-ts-link href="/people/{{ $couple->person2->id }}" title="{{ __('app.show') }}">{{ $couple->person2->name }}</x-ts-link>
+                        <x-ts-icon icon="tabler.{{ $couple->person2->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                        <br />
                     @endforeach
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
-
