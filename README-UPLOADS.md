@@ -10,7 +10,7 @@ Below is a guide to help you understand how uploads are handled and what types o
 <div style="background-color: #ffebee; border: 2px solid #f44336; border-radius: 8px; padding: 16px; margin: 16px 0;">
 <h2 style="color: #c62828; margin-top: 0;">⚠️ Important Migration Notice</h2>
 
-**If you are upgrading from a version prior to 4.5.0**, the photo folder structure has been completely reorganized. Before using the application with version 4.5.0 or higher, you **MUST** run the photo migration command:
+**If you are upgrading from a version prior to 4.5.0**, the photo folder structure has been completely reorganized. Before using the application with version 4.5.0 or higher, you **MUST** run the photo migration command **ONCE**:
 
 ```bash
 # First, preview what will happen (recommended)
@@ -42,9 +42,9 @@ php artisan photos:migrate
 
 ### 📸 Image Uploads
 
-#### Storage Folders
+#### Storage Folder
 
-Uploaded photos by default are saved in the photos folder using the filename template:
+Uploaded photos are saved in the photos folder using the filename template:
 
 `personId_sequence_timestamp[_size].webp`
 
@@ -59,7 +59,7 @@ These versions allow the application to serve optimized image sizes depending on
 
 #### Upload Settings
 
-By default, uploaded images are converted to `.webp` format for optimal web performance and processed using these settings:
+Uploaded images are **ALWAYS** converted to `.webp` format for optimal web performance and processed using these settings:
 
 ```php
     'upload_photo' => [
@@ -87,16 +87,16 @@ By default, uploaded images are converted to `.webp` format for optimal web perf
 -   **max_width / max_height**: Images are resized to fit within these dimensions while maintaining aspect ratio.
 -   **quality**: Compression quality (0–100). Higher = better quality but larger file size.
 -   **add_watermark**: Adds a watermark automatically to uploaded images.
-    **sizes**: You can customize the dimensions but the size names (original, medium, small) must stay untouched as they are hardcoded in the application.
+    **sizes**: You can customize the dimensions but the size names (original, medium, small) **MUST STAY** untouched as they are hardcoded in the application.
 
-These values can be modified according to your preferences in `/config/app.php`.
+Thes values can be modified according to your preferences in `/config/app.php`.
 Only the `add_Watermark` setting is imported from your `.env`.
 
 ---
 
 #### Accepted Image Formats
 
-By default, only the following image types are allowed for upload:
+Only the following image types are allowed for upload:
 
 ```php
 'upload_photo_accept' => [
@@ -119,7 +119,7 @@ These values can be modified according to your preferences in `/config/app.php`.
 
 #### Accepted File Types
 
-By default, the following document types are accepted for upload:
+The following document types are accepted for upload:
 
 ```php
 'upload_file_accept' => [
@@ -159,4 +159,4 @@ The limit above should be changed to match the values in your `php.ini` file.
 
 -   Ensure the file format and size match the allowed settings.
 -   If watermarking fails or images look distorted, verify the source image's quality.
--   **For version upgrades from pre-4.5.0**: Make sure you've run the migration command before using the application.
+-   **For version upgrades from pre-4.5.0**: Make sure you've run the migration command **ONCE** before using the application.
