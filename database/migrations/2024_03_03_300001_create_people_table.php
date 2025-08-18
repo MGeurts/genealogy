@@ -55,6 +55,12 @@ return new class extends Migration
 
             $table->index(['deleted_at', 'father_id'], 'people_deleted_father_index');
             $table->index(['deleted_at', 'mother_id'], 'people_deleted_mother_index');
+
+            $table->index(['team_id', 'father_id']);
+            $table->index(['team_id', 'mother_id']);
+            $table->index(['team_id', 'parents_id']);
+            $table->index(['team_id', 'dob']);
+            $table->index(['firstname', 'surname']);
         });
     }
 
