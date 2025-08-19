@@ -28,6 +28,8 @@
             {{ __('gedcom.validate') }} :
             <x-ts-link class="text-white text-lg" href="https://ged-inline.org/" target="_blank" />
         </x-ts-alert>
+
+        <x-under-construction />
     </x-slot>
 
     <x-slot name="form" enctype="multipart/form-data">
