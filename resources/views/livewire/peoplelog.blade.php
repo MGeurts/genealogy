@@ -79,7 +79,7 @@
                 @endforeach
             </div>
         @else
-            <div class="w-192">
+            <div class="w-3xl">
                 <x-ts-alert title="{{ __('person.people') }}" text="{{ __('app.nothing_recorded') }}" color="cyan" />
             </div>
         @endif

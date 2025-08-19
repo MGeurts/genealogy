@@ -15,11 +15,11 @@
 
     <div class="w-full p-2 space-y-5 overflow-x-auto">
         <div class="flex flex-wrap gap-5">
-            <div class="flex flex-col grow gap-5 min-w-100 md:max-w-max">
+            <div class="flex flex-col grow gap-5 min-w-[25rem] md:max-w-max">
                 <livewire:people.profile :person="$person" />
             </div>
 
-            <div class="flex flex-col grow gap-5 min-w-100 md:max-w-max">
+            <div class="flex flex-col grow gap-5 min-w-[25rem] md:max-w-max">
                 <livewire:people.family :person="$person" />
                 <livewire:people.partners :person="$person" />
                 <livewire:people.children :person="$person" />
@@ -27,7 +27,7 @@
                 <livewire:people.files :person="$person" />
             </div>
 
-            <div class="flex flex-col grow gap-5 overflow-x-auto min-w-100 md:max-w-max">
+            <div class="flex flex-col grow gap-5 overflow-x-auto min-w-[25rem] md:max-w-max">
                 <livewire:people.add.mother :person="$person" />
             </div>
         </div>

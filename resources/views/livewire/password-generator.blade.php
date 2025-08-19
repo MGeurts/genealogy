@@ -2,7 +2,7 @@
     @csrf
 
     <div class="p-2 w-full">
-        <div class="md:w-192 flex flex-col rounded-sm bg-white shadow dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
+        <div class="md:w-3xl flex flex-col rounded-sm bg-white shadow dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
             <div class="flex items-center justify-between p-2 text-lg font-medium border-b-2 border-neutral-100 dark:border-neutral-600">
                 <span>{{ __('app.password_generator') }}</span>
 

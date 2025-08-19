@@ -114,7 +114,7 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                <div class="w-80">
+                                <div class="w-xs">
                                     {{-- teams switcher --}}
                                     @if ($user->allTeams()->count() > 1)
                                         <div class="block px-4 py-2 text-xs text-gray-400">

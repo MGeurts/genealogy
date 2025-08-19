@@ -50,7 +50,7 @@
                             </li>
                         </ul>
 
-                        <div class="grid grid-cols-4 gap-4 mt-4 ml-4 max-w-96 justify-items-center">
+                        <div class="grid grid-cols-4 gap-4 mt-4 ml-4 max-w-sm justify-items-center">
                             <div class="content-center max-w-24">
                                 <img src="{{ url('img/logo/laravel.webp') }}" class="rounded-sm" alt="laravel" title="Laravel" />
                             </div>

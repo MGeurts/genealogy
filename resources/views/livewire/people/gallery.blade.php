@@ -103,10 +103,10 @@
     <div class="user-image">
         @if (count($images) > 0)
             <x-ts-link href="{{ $images[$selected]['original'] }}" target="_blank">
-                <img class="rounded-sm shadow-lg w-96 dark:shadow-black/30" src="{{ $images[$selected]['medium'] }}" alt="{{ $person->name }}" title="{{ $person->name }}" />
+                <img class="max-w-sm rounded-sm shadow-lg dark:shadow-black/30" src="{{ $images[$selected]['medium'] }}" alt="{{ $person->name }}" title="{{ $person->name }}" />
             </x-ts-link>
         @else
-            <x-svg.person-no-image class="w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
+            <x-svg.person-no-image class="w-full max-w-sm rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
         @endif
 
         @if ($person->isDeceased())

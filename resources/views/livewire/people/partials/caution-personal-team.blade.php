@@ -1,4 +1,4 @@
-<div class="mt-4 max-w-192">
+<div class="mt-4 max-w-3xl">
     <x-ts-alert color="cyan" icon="tabler.exclamation-circle" close>
         <x-slot:title>
             {{ __('team.personal_team_caution') }}

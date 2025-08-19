@@ -1,5 +1,5 @@
 <div>
-    <div class="p-4 md:w-192 bg-neutral-200">
+    <div class="p-4 md:w-3xl bg-neutral-200">
         <x-ts-errors class="mb-2" close />
 
         <div class="grid grid-cols-6 gap-5">
@@ -70,7 +70,7 @@
         </div>
     </div>
 
-    <div class="p-4 mt-4 md:w-192 bg-neutral-200">
+    <div class="p-4 mt-4 md:w-3xl bg-neutral-200">
         <div class="grid grid-cols-6 gap-5">
             {{-- date_start --}}
             <div class="col-span-3">
