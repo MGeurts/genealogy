@@ -44,7 +44,6 @@ final class Users extends Component implements HasActions, HasSchemas, HasTable
     public function table(Table $table): Table
     {
         return $table
-            // ->query(user::query()->with(['teams', 'ownedTeams.users', 'ownedTeams.couples', 'ownedTeams.persons']))
             ->query(User::query()->with(['teams', 'ownedTeams']))
             ->columns([
                 TextColumn::make('id')
