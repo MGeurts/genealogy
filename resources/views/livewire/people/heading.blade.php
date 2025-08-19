@@ -14,34 +14,28 @@
         <!-- Buttons section -->
         <div class="print:hidden">
             <div class="flex flex-wrap gap-1">
-                <x-ts-button href="/people/{{ $person->id }}" color="{{ request()->routeIs('people.show') ? 'yellow' : 'primary' }}" class="mb-2 text-xs">
+                <x-ts-button href="/people/{{ $person->id }}" color="{{ request()->routeIs('people.show') ? 'yellow' : 'primary' }}" class="mb-2 text-xs" title="{{ __('person.profile') }}">
                     <x-ts-icon icon="tabler.id" class="inline-block size-4" />
-                    {{ __('person.profile') }}
                 </x-ts-button>
 
-                <x-ts-button href="/people/{{ $person->id }}/ancestors" color="{{ request()->routeIs('people.ancestors') ? 'yellow' : 'secondary' }}" class="mb-2 text-xs">
+                <x-ts-button href="/people/{{ $person->id }}/ancestors" color="{{ request()->routeIs('people.ancestors') ? 'yellow' : 'secondary' }}" class="mb-2 text-xs" title="{{ __('person.ancestors') }}">
                     <x-ts-icon icon="tabler.binary-tree" class="inline-block size-4 rotate-180" />
-                    {{ __('person.ancestors') }}
                 </x-ts-button>
 
-                <x-ts-button href="/people/{{ $person->id }}/descendants" color="{{ request()->routeIs('people.descendants') ? 'yellow' : 'secondary' }}" class="mb-2 text-xs">
+                <x-ts-button href="/people/{{ $person->id }}/descendants" color="{{ request()->routeIs('people.descendants') ? 'yellow' : 'secondary' }}" class="mb-2 text-xs" title="{{ __('person.descendants') }}">
                     <x-ts-icon icon="tabler.binary-tree" class="inline-block size-4" />
-                    {{ __('person.descendants') }}
                 </x-ts-button>
 
-                <x-ts-button href="/people/{{ $person->id }}/chart" color="{{ request()->routeIs('people.chart') ? 'yellow' : 'secondary' }}" class="mb-2 text-xs">
+                <x-ts-button href="/people/{{ $person->id }}/chart" color="{{ request()->routeIs('people.chart') ? 'yellow' : 'secondary' }}" class="mb-2 text-xs" title="{{ __('app.family_chart') }}">
                     <x-ts-icon icon="tabler.social" class="inline-block size-4" />
-                    {{ __('app.family_chart') }}
                 </x-ts-button>
 
-                <x-ts-button href="/people/{{ $person->id }}/history" color="{{ request()->routeIs('people.history') ? 'yellow' : 'cyan' }}" class="mb-2 text-xs">
+                <x-ts-button href="/people/{{ $person->id }}/history" color="{{ request()->routeIs('people.history') ? 'yellow' : 'cyan' }}" class="mb-2 text-xs" title="{{ __('app.history') }}">
                     <x-ts-icon icon="tabler.history" class="inline-block size-4" />
-                    {{ __('app.history') }}
                 </x-ts-button>
 
-                <x-ts-button href="/people/{{ $person->id }}/datasheet" color="{{ request()->routeIs('people.datasheet') ? 'yellow' : 'secondary' }}" class="mb-2 text-xs">
+                <x-ts-button href="/people/{{ $person->id }}/datasheet" color="{{ request()->routeIs('people.datasheet') ? 'yellow' : 'secondary' }}" class="mb-2 text-xs" title="{{ __('app.datasheet') }}">
                     <x-ts-icon icon="tabler.pdf" class="inline-block size-4" />
-                    {{ __('app.datasheet') }}
                 </x-ts-button>
             </div>
         </div>
