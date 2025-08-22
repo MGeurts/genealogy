@@ -84,7 +84,22 @@
                 <div class="p-4">
                     <ul class="w-full">
                         <li class="py-2">
+                            <x-link href="https://github.com/alisalehi1380/laravel-lang-files-translator/" target="_blank">alisalehi1380/laravel-lang-files-translator</x-link>
+                        </li>
+
+                        <li class="py-2">
+                            <x-link href="https://github.com/barryvdh/laravel-debugbar/" target="_blank">barryvdh/laravel-debugbar</x-link>
+                            <x-ts-button xs class="ms-5" color="emerald" >{{ 'DEV' }}</x-ts-button>
+                        </li>
+
+                        <li class="py-2">
                             <x-link href="https://github.com/barryvdh/laravel-ide-helper/" target="_blank">barryvdh/laravel-ide-helper</x-link>
+                            <x-ts-button xs class="ms-5" color="emerald">{{ 'DEV' }}</x-ts-button>
+                        </li>
+
+                        <li class="py-2">
+                            <x-link href="https://github.com/filamentphp/tables/" target="_blank">filamentphp/tables/</x-link>
+                            <x-ts-button xs href="https://filamentphp.com/docs/4.x/tables/overview/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
 
                         <li class="py-2">
@@ -97,8 +112,17 @@
                         </li>
 
                         <li class="py-2">
+                            <x-link href="https://github.com/LarsWiegers/laravel-translations-checker/" target="_blank">larswiegers/laravel-translations-checker</x-link>
+                            <x-ts-button xs class="ms-5" color="emerald">{{ 'DEV' }}</x-ts-button>
+                        </li>
+
+                        <li class="py-2">
                             <x-link href="https://github.com/opcodesio/log-viewer/" target="_blank">opcodesio/log-viewer</x-link>
                             <x-ts-button xs href="https://log-viewer.opcodes.io/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
+                        </li>
+
+                        <li class="py-2">
+                            <x-link href="https://github.com/secondnetwork/blade-tabler-icons/" target="_blank">secondnetwork/blade-tabler-icons</x-link>
                         </li>
 
                         <li class="py-2">
@@ -123,6 +147,12 @@
 
                         <li class="py-2">
                             <x-link href="https://github.com/stevebauman/location/" target="_blank">stevebauman/location</x-link>
+                        </li>
+
+                        <li class="py-2">
+                            <x-link href="https://github.com/tallstackui/tallstackui/" target="_blank">tallstackui/tallstackui</x-link>
+                            <x-ts-button xs href="https://tallstackui.com/docs/v2/installation/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
+                            <x-ts-button xs class="ms-5" color="emerald">{{ 'DEV' }}</x-ts-button>
                         </li>
                     </ul>
                 </div>
