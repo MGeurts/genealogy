@@ -44,8 +44,8 @@
                             <div class="flex justify-between">
                                 {{-- Entropy badges --}}
                                 <div>
-                                    <x-ts-badge :text="$estimatedEntropy" md :color="$passwordColor" />
-                                    <x-ts-badge :text="$shannonEntropy" md :color="$passwordColor" />
+                                    <x-ts-badge :color="$passwordColor" :text="$estimatedEntropy" md  />
+                                    <x-ts-badge :color="$passwordColor" :text="$shannonEntropy" md  />
                                 </div>
 
                                 {{-- Password Strength badge --}}
@@ -61,7 +61,8 @@
             @endif
 
             <div class="flex items-center justify-between p-4 rounded-b">
-                    <x-ts-link href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+                    <x-ts-link href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer" class="text-md text-blue-600 dark:text-blue-400 hover:underline">
+                        <x-ts-icon icon="tabler.key-off" class="inline-block size-5 me-2" />
                         {{ __('app.check_breach') }}
                     </x-ts-link>
 

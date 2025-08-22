@@ -204,7 +204,7 @@
                 <td colspan="4">
                     {{ __('person.partners') }}
                     @if (count($person->couples) > 0)
-                        <x-ts-badge color="emerald" text="{{ count($person->couples) }}" />
+                        <x-ts-badge color="emerald" sm text="{{ count($person->couples) }}" />
                     @endif
                 </td>
             </tr>
@@ -249,7 +249,7 @@
                 <td colspan="4">
                     {{ __('person.children') }}
                     @if (count($person->childrenNaturalAll()) > 0)
-                        <x-ts-badge color="emerald" text="{{ count($person->childrenNaturalAll()) }}" />
+                        <x-ts-badge color="emerald" sm text="{{ count($person->childrenNaturalAll()) }}" />
                     @endif
                 </td>
             </tr>
@@ -274,7 +274,7 @@
                 <td colspan="4">
                     {{ __('person.siblings') }}
                     @if (count($person->siblings()) > 0)
-                        <x-ts-badge color="emerald" text="{{ count($person->siblings()) }}" />
+                        <x-ts-badge color="emerald" sm text="{{ count($person->siblings()) }}" />
                     @endif
                 </td>
             </tr>
@@ -300,7 +300,7 @@
                 <td colspan="4">
                     {{ __('person.files') }}
                     @if (count($files) > 0)
-                        <x-ts-badge color="emerald" text="{{ count($files) }}" />
+                        <x-ts-badge color="emerald" sm text="{{ count($files) }}" />
                     @endif
                 </td>
             </tr>
@@ -325,7 +325,7 @@
                 <td colspan="4">
                     {{ __('person.photos') }}
                     @if (count($images) > 0)
-                        <x-ts-badge color="emerald" text="{{ count($images) }}" />
+                        <x-ts-badge color="emerald" sm text="{{ count($images) }}" />
                     @endif
                 </td>
             </tr>

@@ -5,7 +5,7 @@
             <div class="flex-1 grow max-w-full min-w-max">
                 {{ __('person.photos') }}
                 @if (count($photos) > 0)
-                    <x-ts-badge color="emerald" text="{{ count($photos) }}" />
+                    <x-ts-badge color="emerald" sm text="{{ count($photos) }}" />
                 @endif
             </div>
 

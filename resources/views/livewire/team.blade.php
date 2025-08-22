@@ -7,15 +7,15 @@
                 </th>
                 <th scope="col" class="p-2 border-x dark:border-neutral-600">
                     {{ __('team.users') }}
-                    <x-ts-badge color="emerald" text="{{ count($user->currentTeam->users) }}" />
+                    <x-ts-badge color="emerald" sm text="{{ count($user->currentTeam->users) }}" />
                 </th>
                 <th scope="col" class="p-2 border-x dark:border-neutral-600">
                     {{ __('team.persons') }}
-                    <x-ts-badge color="emerald" text="{{ count($user->currentTeam->persons) }}" />
+                    <x-ts-badge color="emerald" sm text="{{ count($user->currentTeam->persons) }}" />
                 </th>
                 <th scope="col" class="p-2 border-x dark:border-neutral-600">
                     {{ __('team.couples') }}
-                    <x-ts-badge color="emerald" text="{{ count($user->currentTeam->couples) }}" />
+                    <x-ts-badge color="emerald" sm text="{{ count($user->currentTeam->couples) }}" />
                 </th>
             </tr>
         </thead>

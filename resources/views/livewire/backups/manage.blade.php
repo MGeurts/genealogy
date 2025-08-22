@@ -15,7 +15,7 @@
                     <div class="flex-1 grow max-w-full min-w-max">
                         {{ __('backup.backups') }}
                         @if (count($backups) > 0)
-                            <x-ts-badge color="emerald" text="{{ count($backups) }}" />
+                            <x-ts-badge color="emerald" sm text="{{ count($backups) }}" />
                         @endif
                     </div>
 

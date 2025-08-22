@@ -7,7 +7,7 @@
                 <div class="flex-1 grow max-w-full min-w-max">
                     {{ __('app.history') }}
                     @if (count($activities) > 0)
-                        <x-ts-badge color="emerald" text="{{ count($activities) }}" />
+                        <x-ts-badge color="emerald" sm text="{{ count($activities) }}" />
                     @endif
                 </div>
 

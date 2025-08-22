@@ -5,7 +5,7 @@
             <div class="flex-1 grow max-w-full min-w-max">
                 {{ __('app.people_logbook') }}
                 @if (count($logs) > 0)
-                    <x-ts-badge color="emerald" text="{{ count($logs) }}" />
+                    <x-ts-badge color="emerald" sm text="{{ count($logs) }}" />
                 @endif
             </div>
 
