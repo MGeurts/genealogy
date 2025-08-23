@@ -28,7 +28,7 @@ final class PersonMetadata extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'person.name',
+        'person_id',
         'key',
         'value',
     ];

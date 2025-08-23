@@ -9,6 +9,7 @@ use App\Models\Team;
 use App\Models\User;
 use App\Notifications\OwnershipTransferred;
 use Exception;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -33,7 +34,7 @@ final class TeamController extends Controller
         return view('back.peoplelog');
     }
 
-    public function transferOwnership(Request $request, Team $team)
+    public function transferOwnership(Request $request, Team $team): RedirectResponse
     {
         $validated = $request->validate([
             'new_owner_id' => ['required', 'exists:users,id'],
