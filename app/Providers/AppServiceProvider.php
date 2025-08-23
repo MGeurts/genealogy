@@ -122,7 +122,17 @@ final class AppServiceProvider extends ServiceProvider
      */
     private function configureLogViewer(): void
     {
-        LogViewer::auth(fn ($request) => $request->user()->is_developer);
+        LogViewer::auth(function ($request) {
+            $user = $request->user();
+
+            // If user is not authenticated, deny access
+            if (! $user) {
+                return false;
+            }
+
+            // Check if user has is_developer property and it's true
+            return $user->is_developer ?? false;
+        });
     }
 
     /**
