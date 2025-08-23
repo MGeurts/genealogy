@@ -1,9 +1,9 @@
 <x-ts-slide id="offcanvas" size="sm" blur>
     @php
-        $user = auth()->user();
-        $currentTeam = $user?->currentTeam;
-        $role = $user?->teamRole($currentTeam);
-        $permissions = $user?->teamPermissions($currentTeam);
+$user = auth()->user();
+$currentTeam = $user?->currentTeam;
+$role = $user?->teamRole($currentTeam);
+$permissions = $user?->teamPermissions($currentTeam);
     @endphp
 
     <x-slot:title>
@@ -108,6 +108,11 @@
                 <x-nav-link-responsive href="{{ route('developer.session') }}" :active="request()->routeIs('developer.session')">
                     {{ __('app.session') }}
                 </x-nav-link-responsive>
+
+                <x-hr.narrow />
+                <x-nav-link-responsive href="{{ route('test') }}" :active="request()->routeIs('test')">
+                    Test
+                </x-nav-link-responsive>
             @else
                 {{-- other --}}
                 <div class="text-yellow-500 dark:text-yellow-200">{{ $role?->name ?? __('auth.role_unknown') }} ...</div>
@@ -128,11 +133,6 @@
             <x-hr.narrow />
             <x-nav-link-responsive href="{{ route('help') }}" :active="request()->routeIs('help')">
                 {{ __('app.help') }}
-            </x-nav-link-responsive>
-
-            <x-hr.narrow />
-            <x-nav-link-responsive href="{{ route('test') }}" :active="request()->routeIs('test')">
-                Test
             </x-nav-link-responsive>
         @else
             {{-- guest --}}
