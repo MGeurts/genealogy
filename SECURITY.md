@@ -62,6 +62,7 @@ We thank the following security researchers for their responsible disclosure and
 
 This section lists previously disclosed vulnerabilities, their impact, and who reported them.
 
-| Advisory ID / CVE     | Description                                                     | Affected Versions | Patched Version | Reported By               | Advisory Link                                         |
-| --------------------- | --------------------------------------------------------------- | ----------------- | --------------- | ------------------------- | ----------------------------------------------------- |
-| `GHSA-XXXX-YYYY-ZZZZ` | Reflected & Stored XSS vulnerabilities in Genealogy application | < `v4.4.0`        | `v4.4.0`        | Adrian (@eternalvalhalla) | [View](../../security/advisories/GHSA-XXXX-YYYY-ZZZZ) |
+| Advisory ID / CVE     | Description                                       | Affected Versions | Patched Version | Reported By               | Advisory Link                                         |
+| --------------------- | ------------------------------------------------- | ----------------- | --------------- | ------------------------- | ----------------------------------------------------- |
+| `GHSA-3h8x-g9xj-rhwg` | Reflected XSS Vulnerability                       | < `v4.4.0`        | `v4.4.0`        | Adrian (@eternalvalhalla) | [View](../../security/advisories/GHSA-3h8x-g9xj-rhwg) |
+| `GHSA-j457-9m86-6q5r` | Stored XSS vulnerability in Genealogy application | < `v4.4.0`        | `v4.4.0`        | Adrian (@eternalvalhalla) | [View](../../security/advisories/GHSA-j457-9m86-6q5r) |
