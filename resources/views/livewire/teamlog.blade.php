@@ -4,8 +4,8 @@
         <div class="flex flex-wrap items-start justify-center gap-2">
             <div class="flex-1 grow max-w-full min-w-max">
                 {{ __('app.team_logbook') }}
-                @if (count($logs) > 0)
-                    <x-ts-badge color="emerald" sm text="{{ count($logs) }}" />
+                @if ($activities->count() > 0)
+                    <x-ts-badge color="emerald" sm text="{{ $activities->total() }}" />
                 @endif
             </div>
 
@@ -17,9 +17,14 @@
 
     {{-- card body --}}
     <div class="p-2 text-sm border-t-2 rounded-b border-neutral-100 dark:border-neutral-600 bg-neutral-200">
-        @if (count($logs) > 0)
+        @if ($activities->count() > 0)
+            {{-- Pagination controls at top --}}
+            <div class="mb-4">
+                {{ $activities->links() }}
+            </div>
+
             <div class="grid grid-cols-1 gap-2">
-                @foreach ($logs as $log)
+                @foreach ($activities as $log)
                     <x-ts-card>
                         <x-slot:header>
                             <div class="p-4">
@@ -28,7 +33,7 @@
                         </x-slot:header>
 
                         <div class="grid grid-cols-2 gap-2">
-                            @if ($log['event'] === 'updated' or $log['event'] === 'deleted')
+                            @if ($log['event'] === 'UPDATED' or $log['event'] === 'DELETED')
                                 {{-- old values --}}
                                 @php
                                     $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.old')]];
@@ -87,6 +92,11 @@
                         </x-slot:footer>
                     </x-ts-card>
                 @endforeach
+            </div>
+
+            {{-- Pagination controls at bottom --}}
+            <div class="mt-4">
+                {{ $activities->links() }}
             </div>
         @else
             <div class="w-3xl">

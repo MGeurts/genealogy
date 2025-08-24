@@ -6,36 +6,52 @@ namespace App\Livewire;
 
 use Illuminate\View\View;
 use Livewire\Component;
+use Livewire\WithPagination;
 use Spatie\Activitylog\Models\Activity;
 
 final class Teamlog extends Component
 {
-    public $logs;
+    use WithPagination;
+
+    public $perPage = 50;
 
     // -----------------------------------------------------------------------
-    public function mount(): void
+    public function render(): View
     {
-        $this->logs = Activity::with('causer')
+        $timezone = session('timezone', 'UTC');
+
+        $activities = Activity::with('causer')
             ->where('log_name', 'user_team')
             ->where('team_id', auth()->user()->currentTeam->id)
             ->where('updated_at', '>=', today()->startOfMonth()->subMonths(1))
-            ->get()
-            ->sortByDesc('updated_at')
-            ->map(fn ($record): array => [
-                'event'          => mb_strtoupper((string) $record->event),
-                'subject_type'   => mb_substr((string) $record->subject_type, mb_strrpos((string) $record->subject_type, '\\') + 1),
+            ->orderBy('updated_at', 'desc')
+            ->paginate($this->perPage);
+
+        // Transform only the current page data
+        $logs = $activities->getCollection()->map(function ($record) use ($timezone) {
+            $event = $record->event;
+
+            return [
+                'event'          => mb_strtoupper($event),
+                'subject_type'   => class_basename($record->subject_type),
                 'description'    => mb_strtoupper($record->description),
-                'properties'     => ($record->event === 'invited' or $record->event === 'removed') ? $record->properties : [],
-                'properties_old' => ($record->event === 'updated' or $record->event === 'deleted') ? $record->properties['old'] : [],
-                'properties_new' => ($record->event === 'updated' or $record->event === 'created') ? $record->properties['attributes'] : [],
-                'updated_at'     => $record->updated_at->timezone(session('timezone') ?? 'UTC')->isoFormat('LLL'),
-                'causer'         => $record->causer ? $record->causer->name : '',
-            ]);
+                'properties'     => in_array($event, ['invited', 'removed']) ? ($record->properties ?? []) : [],
+                'properties_old' => in_array($event, ['updated', 'deleted']) ? ($record->properties['old'] ?? []) : [],
+                'properties_new' => in_array($event, ['updated', 'created']) ? ($record->properties['attributes'] ?? []) : [],
+                'updated_at'     => $record->updated_at->setTimezone($timezone)->isoFormat('LLL'),
+                'causer'         => $record->causer?->name ?? '',
+            ];
+        });
+
+        // Replace the collection with transformed data
+        $activities->setCollection($logs);
+
+        return view('livewire.teamlog', compact('activities'));
     }
 
-    // ------------------------------------------------------------------------------
-    public function render(): View
+    // Optional: Method to change per page
+    public function updatedPerPage()
     {
-        return view('livewire.teamlog');
+        $this->resetPage();
     }
 }
