@@ -23,7 +23,7 @@ final class UserlogFactory extends Factory
             'user_id'      => User::factory(),
             'country_name' => $this->faker->country(),
             'country_code' => $this->faker->countryCode(),
-            'created_at'   => $this->faker->dateTimeBetween('-2 year', '-1 day'),
+            'created_at'   => $this->faker->dateTimeBetween('-2 year', '-1 day', 'UTC'),
         ];
     }
 }

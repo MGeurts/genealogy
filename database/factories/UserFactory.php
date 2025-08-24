@@ -74,6 +74,12 @@ final class UserFactory extends Factory
                 ])
                 ->when(is_callable($callback), $callback),
             'ownedTeams'
-        );
+        )->afterCreating(function (User $user): void {
+            if ($user->ownedTeams()->exists()) {
+                $user->forceFill([
+                    'current_team_id' => $user->ownedTeams()->first()->id,
+                ])->save();
+            }
+        });
     }
 }

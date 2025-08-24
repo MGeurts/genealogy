@@ -11,7 +11,7 @@ use Livewire\Component;
 final class Team extends Component
 {
     // ------------------------------------------------------------------------------
-    public $user;
+    public User $user;
 
     // -----------------------------------------------------------------------
     public function mount(): void

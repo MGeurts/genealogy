@@ -7,28 +7,35 @@ namespace Database\Seeders;
 use App\Models\Couple;
 use App\Models\Person;
 use App\Models\PersonMetadata;
+use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Activitylog\Facades\CauserResolver;
 
 final class DemoSeeder extends Seeder
 {
-    protected $british_royals_team = 3;
+    protected int $british_royals_team;
 
-    protected $kennedy_team = 4;
+    protected int $kennedy_team;
 
-    protected $developer_team = 1;
+    protected int $developer_team;
+
+    public function __construct()
+    {
+        // Resolve the team IDs dynamically by name
+        $this->british_royals_team = Team::where('name', 'BRITISH ROYALS')->value('id');
+        $this->kennedy_team        = Team::where('name', 'KENNEDY')->value('id');
+        $this->developer_team      = Team::where('name', 'Team _ Developer')->value('id');
+    }
 
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $user                  = User::find(3);
-        $user->current_team_id = $this->british_royals_team;
-        $user->save();
-        auth()->login($user);
-        CauserResolver::setCauser($user);
+        $manager = User::where('surname', 'Manager')->first();
+        auth()->login($manager);
+        CauserResolver::setCauser($manager);
 
         $this->importBritishRoyalsPeople();
         $this->importBritishRoyalsCouples();
@@ -36,22 +43,18 @@ final class DemoSeeder extends Seeder
 
         auth()->logout();
 
-        $user                  = User::find(4);
-        $user->current_team_id = $this->kennedy_team;
-        $user->save();
-        auth()->login($user);
-        CauserResolver::setCauser($user);
+        $editor = User::where('surname', 'Editor')->first();
+        auth()->login($editor);
+        CauserResolver::setCauser($editor);
 
         $this->importKennedyPeople();
         $this->importKennedyCouples();
 
         auth()->logout();
 
-        $user                  = User::find(1);
-        $user->current_team_id = $this->developer_team;
-        $user->save();
-        auth()->login($user);
-        CauserResolver::setCauser($user);
+        $developer = User::where('surname', 'Developer')->first();
+        auth()->login($developer);
+        CauserResolver::setCauser($developer);
 
         $this->generatedeveloperTestData();
 
