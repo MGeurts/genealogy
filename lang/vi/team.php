@@ -21,6 +21,17 @@ return [
     'teams'         => 'Các đội',
     'users'         => 'Người dùng',
 
+    'team_overview'                   => 'Tổng quan đội',
+    'click_to_view_members'           => 'Nhấp để xem tất cả thành viên đội',
+    'click_to_view_persons'           => 'Nhấp để xem tất cả thành viên gia đình',
+    'click_to_view_couples'           => 'Nhấp để xem tất cả các mối quan hệ',
+    'no_results_found'                => 'Không tìm thấy kết quả',
+    'try_adjusting_your_search_terms' => 'Hãy thử điều chỉnh các từ khóa tìm kiếm của bạn',
+    'showing'                         => 'Hiển thị',
+    'of'                              => 'của',
+    'reset_filter'                    => 'Đặt lại bộ lọc',
+    'filtered_by'                     => 'Được lọc theo',
+
     // Messages
     'team_details'    => 'Chi tiết đội',
     'team_create_new' => 'Tạo một đội mới để hợp tác với người khác.',

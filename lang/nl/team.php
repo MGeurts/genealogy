@@ -21,6 +21,17 @@ return [
     'teams'         => 'Teams',
     'users'         => 'Gebruikers',
 
+    'team_overview'                   => 'Teamoverzicht',
+    'click_to_view_members'           => 'Klik om alle teamleden te bekijken',
+    'click_to_view_persons'           => 'Klik om alle familieleden te bekijken',
+    'click_to_view_couples'           => 'Klik om alle relaties te bekijken',
+    'no_results_found'                => 'Geen resultaten gevonden',
+    'try_adjusting_your_search_terms' => 'Probeer uw zoektermen aan te passen',
+    'showing'                         => 'Weergeven',
+    'of'                              => 'van',
+    'reset_filter'                    => 'Filter resetten',
+    'filtered_by'                     => 'Gefilterd op',
+
     // Messages
     'team_details'    => 'Teamdetails',
     'team_create_new' => 'Creëer een nieuw team om met anderen samen te werken.',

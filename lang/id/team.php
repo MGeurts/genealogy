@@ -21,6 +21,17 @@ return [
     'teams'         => 'Tim',
     'users'         => 'Pengguna',
 
+    'team_overview'                   => 'Ikhtisar tim',
+    'click_to_view_members'           => 'Klik untuk melihat semua anggota tim',
+    'click_to_view_persons'           => 'Klik untuk melihat semua anggota keluarga',
+    'click_to_view_couples'           => 'Klik untuk melihat semua hubungan',
+    'no_results_found'                => 'Tidak ada hasil ditemukan',
+    'try_adjusting_your_search_terms' => 'Coba sesuaikan kata kunci pencarian Anda',
+    'showing'                         => 'Menampilkan',
+    'of'                              => 'dari',
+    'reset_filter'                    => 'Atur ulang filter',
+    'filtered_by'                     => 'Disaring berdasarkan',
+
     // Messages
     'team_details'    => 'Detail Tim',
     'team_create_new' => 'Buat tim baru untuk berkolaborasi dengan orang lain.',

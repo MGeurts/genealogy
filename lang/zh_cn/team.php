@@ -21,6 +21,17 @@ return [
     'teams'         => '家族',
     'users'         => '用户',
 
+    'team_overview'                   => '团队概览',
+    'click_to_view_members'           => '点击查看所有团队成员',
+    'click_to_view_persons'           => '点击查看所有家庭成员',
+    'click_to_view_couples'           => '点击查看所有关系',
+    'no_results_found'                => '未找到结果',
+    'try_adjusting_your_search_terms' => '尝试调整您的搜索词',
+    'showing'                         => '显示',
+    'of'                              => '的',
+    'reset_filter'                    => '重置筛选',
+    'filtered_by'                     => '筛选条件',
+
     // Messages
     'team_details'    => '创建家族',
     'team_create_new' => '创建一个新家族。',

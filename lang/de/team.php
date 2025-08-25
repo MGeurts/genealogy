@@ -21,6 +21,17 @@ return [
     'teams'         => 'Teams',
     'users'         => 'Benutzer',
 
+    'team_overview'                   => 'Teamübersicht',
+    'click_to_view_members'           => 'Klicken, um alle Teammitglieder zu sehen',
+    'click_to_view_persons'           => 'Klicken, um alle Familienmitglieder zu sehen',
+    'click_to_view_couples'           => 'Klicken, um alle Beziehungen zu sehen',
+    'no_results_found'                => 'Keine Ergebnisse gefunden',
+    'try_adjusting_your_search_terms' => 'Versuchen Sie, Ihre Suchbegriffe anzupassen',
+    'showing'                         => 'Anzeigen',
+    'of'                              => 'von',
+    'reset_filter'                    => 'Filter zurücksetzen',
+    'filtered_by'                     => 'Gefiltert nach',
+
     // Messages
     'team_details'    => 'Teamdetails',
     'team_create_new' => 'Create a new team to collaborate with others.',

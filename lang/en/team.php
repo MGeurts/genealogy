@@ -21,6 +21,17 @@ return [
     'teams'         => 'Teams',
     'users'         => 'Users',
 
+    'team_overview'                   => 'Team overview',
+    'click_to_view_members'           => 'Click to view all team members',
+    'click_to_view_persons'           => 'Click to view all family members',
+    'click_to_view_couples'           => 'Click to view all relationships',
+    'no_results_found'                => 'No results found',
+    'try_adjusting_your_search_terms' => 'Try adjusting your search terms',
+    'showing'                         => 'Showing',
+    'of'                              => 'of',
+    'reset_filter'                    => 'Reset filter',
+    'filtered_by'                     => 'Filtered by',
+
     // Messages
     'team_details'    => 'Team Details',
     'team_create_new' => 'Create a new team to collaborate with others.',

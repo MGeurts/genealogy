@@ -21,6 +21,17 @@ return [
     'teams'         => 'Takımlar',
     'users'         => 'Kullanıcılar',
 
+    'team_overview'                   => 'Takım genel bakışı',
+    'click_to_view_members'           => 'Tüm takım üyelerini görmek için tıklayın',
+    'click_to_view_persons'           => 'Tüm aile üyelerini görmek için tıklayın',
+    'click_to_view_couples'           => 'Tüm ilişkileri görmek için tıklayın',
+    'no_results_found'                => 'Sonuç bulunamadı',
+    'try_adjusting_your_search_terms' => 'Arama terimlerinizi ayarlamayı deneyin',
+    'showing'                         => 'Gösteriliyor',
+    'of'                              => 'arasında',
+    'reset_filter'                    => 'Filtreyi sıfırla',
+    'filtered_by'                     => 'Filtrelendi',
+
     // Mesajlar
     'team_details'    => 'Takım Detayları',
     'team_create_new' => 'Başkalarıyla iş birliği yapmak için yeni bir takım oluşturun.',
