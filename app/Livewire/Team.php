@@ -19,13 +19,11 @@ final class Team extends Component
 
     public array $teamCounts = [];
 
-    public string $activeTab = 'users';
+    public string $activeTab = 'users';     // [users, persons, couples]
 
-    public int $perPage = 10;
+    public int $perPage = 10;               // [5, 10, 25, 50, 100]
 
     public string $search = '';
-
-    protected $paginationTheme = 'tailwind';
 
     // -----------------------------------------------------------------------
     public function mount(): void
@@ -92,7 +90,7 @@ final class Team extends Component
             ->select('users.id', 'users.firstname', 'users.surname');
 
         if ($this->search) {
-            $query->where(function ($q) {
+            $query->where(function ($q): void {
                 $q->where('users.firstname', 'like', "%{$this->search}%")
                     ->orWhere('users.surname', 'like', "%{$this->search}%");
             });
@@ -104,7 +102,7 @@ final class Team extends Component
             ->offset(($this->getPage() - 1) * $this->perPage)
             ->limit($this->perPage)
             ->get()
-            ->map(fn ($user) => [
+            ->map(fn ($user): array => [
                 'id'   => $user->id,
                 'name' => mb_trim(($user->firstname ?? '') . ' ' . $user->surname),
             ]);
@@ -129,7 +127,7 @@ final class Team extends Component
             ->select('id', 'firstname', 'surname', 'sex');
 
         if ($this->search) {
-            $query->where(function ($q) {
+            $query->where(function ($q): void {
                 $q->where('firstname', 'like', "%{$this->search}%")
                     ->orWhere('surname', 'like', "%{$this->search}%");
             });
@@ -141,7 +139,7 @@ final class Team extends Component
             ->offset(($this->getPage() - 1) * $this->perPage)
             ->limit($this->perPage)
             ->get()
-            ->map(fn ($person) => [
+            ->map(fn ($person): array => [
                 'id'   => $person->id,
                 'name' => mb_trim(($person->firstname ?? '') . ' ' . $person->surname),
                 'sex'  => $person->sex,
@@ -180,7 +178,7 @@ final class Team extends Component
             );
 
         if ($this->search) {
-            $query->where(function ($q) {
+            $query->where(function ($q): void {
                 $q->where('p1.firstname', 'like', "%{$this->search}%")
                     ->orWhere('p1.surname', 'like', "%{$this->search}%")
                     ->orWhere('p2.firstname', 'like', "%{$this->search}%")
@@ -194,7 +192,7 @@ final class Team extends Component
             ->offset(($this->getPage() - 1) * $this->perPage)
             ->limit($this->perPage)
             ->get()
-            ->map(fn ($couple) => [
+            ->map(fn ($couple): array => [
                 'id'      => $couple->id,
                 'person1' => [
                     'id'   => $couple->person1_id,
