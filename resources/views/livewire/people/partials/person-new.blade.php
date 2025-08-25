@@ -10,7 +10,7 @@
 
             {{-- surname --}}
             <div class="col-span-6 md:col-span-3">
-                <x-ts-input wire:model="form.surname" id="surname" label="{{ __('person.surname') }} : *" autocomplete="surname" required/>
+                <x-ts-input wire:model="form.surname" id="surname" label="{{ __('person.surname') }} : *" autocomplete="surname" />
             </div>
 
             {{-- birthname --}}
