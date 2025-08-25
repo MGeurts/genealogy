@@ -19,6 +19,7 @@ return [
     'team'          => 'टीम',
     'team_personal' => 'व्यक्तिगत टीम',
     'teams'         => 'टीमें',
+    'users'         => 'उपयोगकर्ताओं',
 
     'team_overview'                   => 'टीम अवलोकन',
     'click_to_view_members'           => 'सभी टीम सदस्यों को देखने के लिए क्लिक करें',
