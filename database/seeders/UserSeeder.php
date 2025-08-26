@@ -5,9 +5,8 @@ declare(strict_types=1);
 namespace Database\Seeders;
 
 use App\Models\User;
-use Faker\Factory as Faker;
+use App\Models\Userlog;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\Facades\CauserResolver;
 
 final class UserSeeder extends Seeder
@@ -115,20 +114,12 @@ final class UserSeeder extends Seeder
     // -----------------------------------------------------------------------------------
     protected function createUserlogs(User $user): void
     {
-        $faker = Faker::create();
-        $count = random_int(20, 200);
+        $count = random_int(10, 100);
 
-        $logs = [];
-
-        for ($i = 0; $i < $count; $i++) {
-            $logs[] = [
-                'user_id'      => $user->id,
-                'country_name' => $faker->country(),
-                'country_code' => $faker->countryCode(),
-                'created_at'   => $faker->dateTimeBetween('-2 year', '-1 day'),
-            ];
-        }
-
-        DB::table('userlogs')->insert($logs);
+        // Use the DST-safe factory
+        Userlog::factory()
+            ->count($count)
+            ->for($user) // sets user_id automatically
+            ->create();
     }
 }
