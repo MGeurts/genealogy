@@ -69,23 +69,13 @@
 
     <!-- Search Bar -->
     <div class="bg-white dark:bg-neutral-700 rounded-lg p-4">
-        <div class="flex items-center justify-between space-x-4">
-            <div class="flex items-center space-x-2">
-                <span class="text-sm text-gray-600 dark:text-gray-400">{{ __('app.show') }} :</span>
+        <div class="flex items-center justify-between space-x-2">
+            <!-- Left: PerPage Select -->
+            <div class="flex-1 grow items-center space-x-2 min-w-max max-w-24">
                 <x-ts-select.styled :options="[5, 10, 25, 50, 100]" wire:model.live="perPage" required button-class="!w-24" />
-
-                {{-- <select wire:model.live="perPage" class="border rounded-md text-sm px-2 py-1
-                        bg-white dark:bg-gray-800 dark:border-gray-700
-                        text-gray-700 dark:text-gray-300
-                        focus:ring focus:ring-indigo-500/50
-                        w-20">
-                    @foreach ([5, 10, 25, 50, 100] as $size)
-                        <option value="{{ $size }}">{{ $size }}</option>
-                    @endforeach
-                </select> --}}
             </div>
 
-            <!-- Left: Search Input -->
+            <!-- Center: Search Input -->
             <div class="flex-1 max-w-md">
                 <x-ts-input wire:model.live.debounce.300ms="search" placeholder="{{ __('app.search') }} {{ strtolower(__('team.' . $activeTab)) }} ..." class="w-full" />
             </div>
@@ -99,7 +89,7 @@
 
         @if($search)
             <div class="mt-3 flex items-center space-x-2 text-sm text-gray-600 dark:text-gray-400">
-                <x-ts-icon icon="tabler.filter" class="size-4" />
+                <x-ts-icon icon="tabler.filter" class="size-5" />
                 <span>{{ __('team.filtered_by') }} : "{{ $search }}"</span>
                 <button wire:click="$set('search', '')"
                     class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200">
@@ -133,6 +123,7 @@
                                 </th>
                             </tr>
                         </thead>
+
                         <tbody class="bg-white dark:bg-neutral-700 divide-y divide-gray-200 dark:divide-neutral-600">
                             @foreach($paginatedData->items() as $user)
                                 <tr>
@@ -159,6 +150,7 @@
                                 </th>
                             </tr>
                         </thead>
+
                         <tbody class="bg-white dark:bg-neutral-700 divide-y divide-gray-200 dark:divide-neutral-600">
                             @foreach($paginatedData->items() as $person)
                                 <tr>
@@ -192,6 +184,7 @@
                                 </th>
                             </tr>
                         </thead>
+
                         <tbody class="bg-white dark:bg-neutral-700 divide-y divide-gray-200 dark:divide-neutral-600">
                             @foreach($paginatedData->items() as $couple)
                                 <tr>
@@ -227,13 +220,15 @@
         @else
             <div class="px-6 py-12 text-center">
                 <x-ts-icon icon="tabler.search" class="mx-auto size-12 text-gray-400" />
-                <h3 class="mt-4 text-sm font-medium text-gray-900 dark:text-gray-100">
+                <h3 class="mt-4 font-medium text-gray-900 dark:text-gray-100">
                     {{ __('team.no_results_found') }}
                 </h3>
+
                 @if($search)
                     <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
                         {{ __('team.try_adjusting_your_search_terms') }}
                     </p>
+
                     <div class="mt-4">
                         <button wire:click="$set('search', '')"
                             class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200">

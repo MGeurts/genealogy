@@ -40,7 +40,7 @@
                             </div>
                         </x-slot:header>
 
-                        <div class="grid grid-cols-2 gap-2">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
                             {{-- old values --}}
                             @php
                                 $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.old')]];
@@ -53,11 +53,11 @@
                                         ];
                                     })
                                     ->toArray();
-                            @endphp
+                                        @endphp
 
-                            <x-ts-table :$headers :$rows striped />
+                                        <x-ts-table :$headers :$rows striped />
 
-                            {{-- new values --}}
+                                        {{-- new values --}}
                             @php
                                 $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.new')]];
 

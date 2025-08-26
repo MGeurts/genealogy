@@ -15,10 +15,18 @@
                 <div class="flex-1 grow max-w-full text-center">
                     @if (auth()->user()->hasPermission('person:create'))
                         {{-- add button --}}
-                        <x-ts-button href="/people/add" color="emerald" class="text-sm">
-                            <x-ts-icon icon="tabler.user-plus" class="inline-block size-5" />
-                            {{ __('person.add_person') }}
-                        </x-ts-button>
+                        <div class="md:hidden">
+                            <x-ts-button href="/people/add" color="emerald" class="text-sm">
+                                <x-ts-icon icon="tabler.user-plus" class="inline-block size-5" />
+                            </x-ts-button>
+                        </div>
+
+                        <div class="md:block hidden">
+                            <x-ts-button href="/people/add" color="emerald" class="text-sm">
+                                <x-ts-icon icon="tabler.user-plus" class="inline-block size-5" />
+                                {{ __('person.add_person') }}
+                            </x-ts-button>
+                        </div>
                     @endif
                 </div>
 
@@ -78,11 +86,11 @@
         {{-- carousel --}}
         <div class="p-5 mx-auto text-center max-w-6xl">
             <x-ts-carousel :images="[
-                ['src' => url('img/carousel/genealogy-research-001.webp'), 'alt' => '1'],
-                ['src' => url('img/carousel/genealogy-research-002.webp'), 'alt' => '2'],
-                ['src' => url('img/carousel/genealogy-research-003.webp'), 'alt' => '3'],
-                ['src' => url('img/carousel/genealogy-research-004.webp'), 'alt' => '4'],
-            ]" autoplay shuffle stop-on-hover interval="10" />
+            ['src' => url('img/carousel/genealogy-research-001.webp'), 'alt' => '1'],
+            ['src' => url('img/carousel/genealogy-research-002.webp'), 'alt' => '2'],
+            ['src' => url('img/carousel/genealogy-research-003.webp'), 'alt' => '3'],
+            ['src' => url('img/carousel/genealogy-research-004.webp'), 'alt' => '4'],
+        ]" autoplay shuffle stop-on-hover interval="10" />
         </div>
     @endif
 
