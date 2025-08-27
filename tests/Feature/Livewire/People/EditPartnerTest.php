@@ -44,7 +44,7 @@ it('does not detect self-overlap when editing a couple', function (): void {
         'couple' => $couple,
     ])
         // Set same values as original
-        ->set('person2_id', $partner->id)
+        ->set('partner_id', $partner->id)
         ->set('date_start', '2005-01-01')
         ->set('date_end', '2015-01-01')
         ->set('is_married', true)
