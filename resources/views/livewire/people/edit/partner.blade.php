@@ -19,9 +19,9 @@
                 <x-ts-errors class="mb-2" close />
 
                 <div class="grid grid-cols-6 gap-5">
-                    {{-- person2_id --}}
+                    {{-- partner_id --}}
                     <div class="col-span-6">
-                        <x-ts-select.styled wire:model="person2_id" id="person2_id" label="{{ __('person.partner') }} : *" :options="$persons" select="label:name|value:id" placeholder="{{ __('app.select') }} ..." searchable />
+                        <x-ts-select.styled wire:model="partner_id" id="partner_id" label="{{ __('person.partner') }} : *" :options="$persons" select="label:name|value:id" placeholder="{{ __('app.select') }} ..." searchable />
                     </div>
 
                     {{-- date_start --}}

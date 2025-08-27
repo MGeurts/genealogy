@@ -447,13 +447,6 @@ final class Person extends Model implements HasMedia
 
         $siblings = collect();
 
-        // Use optimized relationship methods
-        if ($this->parents_id) {
-            $siblings = $siblings->merge(
-                $withChildren ? $this->fullSiblings()->with('children')->get() : $this->fullSiblings()->get()
-            );
-        }
-
         if ($this->father_id) {
             $siblings = $siblings->merge(
                 $withChildren ? $this->halfSiblingsFather()->with('children')->get() : $this->halfSiblingsFather()->get()
@@ -463,6 +456,12 @@ final class Person extends Model implements HasMedia
         if ($this->mother_id) {
             $siblings = $siblings->merge(
                 $withChildren ? $this->halfSiblingsMother()->with('children')->get() : $this->halfSiblingsMother()->get()
+            );
+        }
+
+        if ($this->parents_id) {
+            $siblings = $siblings->merge(
+                $withChildren ? $this->fullSiblings()->with('children')->get() : $this->fullSiblings()->get()
             );
         }
 

@@ -20,7 +20,7 @@ final class Partner extends Component
     public Person $person;
 
     // -----------------------------------------------------------------------
-    public $person2_id = null;
+    public $partner_id = null;
 
     public $date_start = null;
 
@@ -63,13 +63,23 @@ final class Partner extends Component
         if ($this->hasOverlap($validated['date_start'], $validated['date_end'])) {
             $this->toast()->error(__('app.create'), __('couple.overlap'))->send();
         } else {
-            $this->couple->update([
-                'person2_id' => $validated['person2_id'],
-                'date_start' => $validated['date_start'] ?? null,
-                'date_end'   => $validated['date_end'] ?? null,
-                'is_married' => $validated['is_married'],
-                'has_ended'  => $validated['date_end'] or $validated['has_ended'],
-            ]);
+            if ($this->person->id === $this->couple->person1_id) {
+                $this->couple->update([
+                    'person2_id' => $validated['partner_id'],
+                    'date_start' => $validated['date_start'] ?? null,
+                    'date_end'   => $validated['date_end'] ?? null,
+                    'is_married' => $validated['is_married'],
+                    'has_ended'  => $validated['date_end'] or $validated['has_ended'],
+                ]);
+            } elseif ($this->person->id === $this->couple->person2_id) {
+                $this->couple->update([
+                    'person1_id' => $validated['partner_id'],
+                    'date_start' => $validated['date_start'] ?? null,
+                    'date_end'   => $validated['date_end'] ?? null,
+                    'is_married' => $validated['is_married'],
+                    'has_ended'  => $validated['date_end'] or $validated['has_ended'],
+                ]);
+            }
 
             $this->toast()->success(__('app.save'), __('app.saved'))->flash()->send();
 
@@ -87,7 +97,7 @@ final class Partner extends Component
     protected function rules(): array
     {
         return $rules = [
-            'person2_id' => ['required', 'integer', 'exists:people,id'],
+            'partner_id' => ['required', 'integer', 'exists:people,id'],
             'date_start' => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', 'before:date_end'],
             'date_end'   => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', 'after:date_start'],
             'is_married' => ['nullable', 'boolean'],
@@ -105,7 +115,7 @@ final class Partner extends Component
     protected function validationAttributes(): array
     {
         return [
-            'person2_id' => __('couple.partner'),
+            'partner_id' => __('couple.partner'),
             'date_start' => __('couple.date_start'),
             'date_end'   => __('couple.date_end'),
             'is_married' => __('couple.is_married'),
@@ -116,7 +126,7 @@ final class Partner extends Component
     // ------------------------------------------------------------------------------
     private function loadData(): void
     {
-        $this->person2_id = ($this->couple->person1_id === $this->person->id) ? $this->couple->person2_id : $this->couple->person1_id;
+        $this->partner_id = ($this->couple->person1_id === $this->person->id) ? $this->couple->person2_id : $this->couple->person1_id;
         $this->date_start = $this->couple->date_start?->format('Y-m-d');
         $this->date_end   = $this->couple->date_end?->format('Y-m-d');
         $this->is_married = $this->couple->is_married;
