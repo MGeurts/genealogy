@@ -95,6 +95,8 @@ final class DemoSeeder extends Seeder
 
                 'photo' => ! empty($person['photo']) ? $person['id'] . '_001_demo' : null,
 
+                'summary' => ! empty($person['note']) ? $person['note'] : null,
+
                 'team_id' => $this->british_royals_team,
             ]);
         }
