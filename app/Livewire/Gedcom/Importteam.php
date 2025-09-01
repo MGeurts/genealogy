@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace App\Livewire\Gedcom;
 
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
+use App\Models\User;
 use App\Php\Gedcom\Import;
-// use Laravel\Jetstream\Events\AddingTeam;
+use Exception;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
@@ -20,7 +21,7 @@ final class Importteam extends Component
     use WithFileUploads;
 
     // -----------------------------------------------------------------------
-    public $user;
+    public User $user;
 
     public ?string $name = null;
 
@@ -38,13 +39,40 @@ final class Importteam extends Component
     {
         $this->validate();
 
-        $import = new Import(
-            $this->name,
-            $this->description,
-            $this->file ? $this->file->getClientOriginalName() : '',
-        );
+        try {
+            $content = $this->file->get();
 
-        $this->toast()->success(__('app.saved'), mb_strtoupper(__('app.under_construction')))->send();
+            // Scan for potentially malicious content
+            if ($this->containsMaliciousContent($content)) {
+                throw new Exception('File contains potentially dangerous content.');
+            }
+
+            $importer = new Import(
+                $this->name,
+                $this->description,
+            );
+
+            $result = $importer->import($content);
+
+            if ($result['success']) {
+                $this->toast()->success('Success', "Imported {$result['individuals_imported']} individuals and {$result['families_imported']} families into {$result['team']}.")->send();
+
+                $this->redirect('/search');
+            } else {
+                $this->toast()->error('Error', $result['error'])->send();
+            }
+        } catch (Exception $e) {
+            $this->toast()->error('Import Error', $e->getMessage())->send();
+
+            // Log detailed error for debugging
+            logger()->error('GEDCOM Import failed', [
+                'user_id'  => $this->user->id,
+                'filename' => $this->file?->getClientOriginalName(),
+                'filesize' => $this->file?->getSize(),
+                'error'    => $e->getMessage(),
+                'trace'    => $e->getTraceAsString(),
+            ]);
+        }
     }
 
     // -----------------------------------------------------------------------
@@ -67,8 +95,8 @@ final class Importteam extends Component
     protected function messages(): array
     {
         return [
-            'file.required' => __('validation.required'),
-            'file.file'     => __('validation.required'),
+            'file.required' => ('validation.required'),
+            'file.file'     => ('validation.required'),
         ];
     }
 
@@ -79,5 +107,41 @@ final class Importteam extends Component
             'description' => __('team.description'),
             'file'        => __('gedcom.gedcom_file'),
         ];
+    }
+
+    /**
+     * Scan for potentially malicious content
+     */
+    private function containsMaliciousContent(string $content): bool
+    {
+        // Check for common script injection patterns
+        $maliciousPatterns = [
+            '/<\?php/i',
+            '/<script/i',
+            '/javascript:/i',
+            '/data:text\/html/i',
+            '/vbscript:/i',
+            '/onload\s*=/i',
+            '/onerror\s*=/i',
+            '/eval\s*\(/i',
+            '/exec\s*\(/i',
+            '/system\s*\(/i',
+        ];
+
+        foreach ($maliciousPatterns as $pattern) {
+            if (preg_match($pattern, $content)) {
+                return true;
+            }
+        }
+
+        // Check for suspiciously long lines (potential buffer overflow attempts)
+        $lines = explode("\n", $content);
+        foreach ($lines as $line) {
+            if (mb_strlen($line) > 10000) { // 10KB per line is excessive for GEDCOM
+                return true;
+            }
+        }
+
+        return false;
     }
 }

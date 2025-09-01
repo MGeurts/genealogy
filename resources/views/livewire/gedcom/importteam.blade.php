@@ -33,6 +33,9 @@
     </x-slot>
 
     <x-slot name="form" enctype="multipart/form-data">
+        {{-- TallStackUI Loading component --}}
+        <x-ts-loading wire:loading wire:target="importteam" text="{{ __('gedcom.importing_please_wait') }}" description="{{ __('gedcom.import_in_progress') }}" />
+
         <div class="col-span-6">
             <x-label value="{{ __('team.owner') }} :" />
 
@@ -64,8 +67,8 @@
 
         {{-- upload --}}
         <div class="col-span-6">
-            <x-ts-upload id="file" wire:model="file" label="{{ __('gedcom.gedcom_file') }} : *" hint="{{ __('gedcom.team_gedcom_hint') }}" tip="{{ __('gedcom.team_gedcom_tip') }}" placeholder="{{ __('gedcom.gedcom_import_placeholder') }}"
-                accept=".ged" :preview="false" close-after-upload>
+            <x-ts-upload id="file" wire:model="file" label="{{ __('gedcom.gedcom_file') }} : *" hint="{{ __('gedcom.team_gedcom_hint') }}" tip="{{ __('gedcom.team_gedcom_tip') }}"
+                placeholder="{{ __('gedcom.gedcom_import_placeholder') }}" accept=".ged" :preview="false" close-after-upload>
                 <x-slot:footer>
                     <x-ts-alert text="{{ __('gedcom.team_gedcom_version') }}" color="cyan" />
                 </x-slot:footer>
@@ -74,9 +77,8 @@
     </x-slot>
 
     <x-slot name="actions">
-        <x-ts-button type="submit" color="primary">
+        <x-ts-button type="submit" color="primary" wire:loading.attr="disabled" wire:target="importteam" loading="importteam">
             {{ __('gedcom.import') }}
         </x-ts-button>
     </x-slot>
 </x-form-section>
-

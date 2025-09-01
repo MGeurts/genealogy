@@ -232,6 +232,14 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 
 <p>This application has a built-in <b>Password Generator</b> to help users build secure passwords.</p>
 
+### GEDCOM Import and Export
+
+At present, <a href="https://gedcom.io/" target="_blank">GEDCOM</a> Import and Export functionality is under active development.<br/>
+While still incomplete, initial Import and Export capabilities are already available.<br/>
+The implementation of full GEDCOM (v7.x.x) Import and Export support represents a significantly larger effort than the development of the application itself.<br/>
+To date, version 7 has not been fully implemented in any open-source project.<br/>
+It is strongly recommended to create a backup of your database before testing any Import or Export features.
+
 ## Languages
 
 <ul>
@@ -256,12 +264,6 @@ Instructions on how to add a language can be found in <a href="https://github.co
 ## Uploads
 
 Instructions on how to configure file and image uploads can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-UPLOADS.md" target="_blank">README-UPLOADS.md</a>.
-
-## To Do ...
-
-<ul>
-    <li>At the moment, basic <a href="https://www.gedcom.org/" target="_blank">GEDCOM</a> import and export is under development.</li>
-</ul>
 
 ## Techniques
 

@@ -57,27 +57,7 @@
 
         {{-- format --}}
         <div class="col-span-6">
-            <x-ts-select.styled wire:model.live="format" id="format" :options="$formats" select="label:label|value:value" label="{{ __('gedcom.format') }} :" required />
-        </div>
-
-        {{-- encoding --}}
-        <div class="col-span-6">
-            <x-ts-select.styled wire:model.live="encoding" id="encoding" :options="$encodings" select="label:label|value:value" label="{{ __('gedcom.character_encoding') }} :" required />
-        </div>
-
-        {{-- line endings --}}
-        <div class="col-span-6">
-            <x-label for="line_endings" class="mr-5" value="{{ __('gedcom.line_endings') }} :" />
-
-            <div class="flex">
-                <div class="mt-3 mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
-                    <x-ts-radio color="primary" wire:model="line_endings" name="line_endings" id="line_ending_windows" value="windows" label="{{ __('gedcom.line_endings_windows') }}" />
-                </div>
-
-                <div class="mt-3 mb-[0.125rem] mr-4 inline-block min-h-[1.5rem] pl-[1.5rem]">
-                    <x-ts-radio color="primary" wire:model="line_endings" name="line_endings" id="line_ending_unix" value="unix" label="{{ __('gedcom.line_endings_unix') }}" />
-                </div>
-            </div>
+            <x-ts-select.styled wire:model.live="format" id="format" :options="$formats" select="label:label|value:value" label="{{ __('gedcom.format') }} : *" required />
         </div>
     </x-slot>
 

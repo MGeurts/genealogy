@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace App\Livewire\Gedcom;
 
+use App\Models\User;
 use App\Php\Gedcom\Export;
+use Exception;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -16,87 +19,109 @@ final class Exportteam extends Component
 {
     use Interactions;
 
-    public const FORMATS = [
-        ['value' => 'gedcom', 'label' => 'GEDCOM'],
-        ['value' => 'zip', 'label' => 'ZIP'],
-        ['value' => 'zipmedia', 'label' => 'ZIP Includes Media'],
-        ['value' => 'gedzip', 'label' => 'GEDZIP Includes Media'],
-    ];
+    private const MAX_FILENAME_LENGTH = 100;
 
-    public const ENCODINGS = [
-        ['value' => 'utf8', 'label' => 'UTF-8'],
-        ['value' => 'unicode', 'label' => 'UNICODE (UTF16-BE)'],
-        ['value' => 'ansel', 'label' => 'ANSEL'],
-        ['value' => 'ascii', 'label' => 'ASCII'],
-        ['value' => 'ansi', 'label' => 'ANSI (CP1252)'],
-    ];
-
-    public $user;
+    public User $user;
 
     public string $filename;
 
     public string $format = 'gedcom';
 
-    public string $encoding = 'utf8';
-
-    public string $line_endings = 'windows';
+    public string $teamname;
 
     public Collection $teamPersons;
 
     public Collection $teamCouples;
 
+    public static function formats(): array
+    {
+        return [
+            ['value' => 'gedcom',   'label' => 'GEDCOM',                'zip' => false, 'description' => __('gedcom.export_description_gedcom')],
+            ['value' => 'zip',      'label' => 'ZIP',                   'zip' => true,  'description' => __('gedcom.export_description_zip')],
+            ['value' => 'zipmedia', 'label' => 'ZIP Includes Media',    'zip' => true,  'description' => __('gedcom.export_description_zipmedia')],
+            ['value' => 'gedzip',   'label' => 'GEDZIP Includes Media', 'zip' => true,  'description' => __('gedcom.export_description_gedzip')],
+        ];
+    }
+
     public function mount(): void
     {
         $this->user = auth()->user();
 
-        $this->teamPersons = $this->user->currentTeam->persons->sortBy('name')->values();
-        $this->teamCouples = $this->user->currentTeam->couples->sortBy('name')->values();
+        $this->teamname = $this->user->currentTeam->name;
 
-        $this->filename = Str::slug(($this->user->currentTeam->name) . '-' . now()->format('Y-m-d-H-i-s'));
+        // Load team data with relationships for better performance
+        $this->teamPersons = $this->user->currentTeam
+            ->persons()
+            ->with(['metadata'])
+            ->orderBy('surname')
+            ->orderBy('firstname')
+            ->get();
+
+        $this->teamCouples = $this->user->currentTeam
+            ->couples()
+            ->with(['person1', 'person2'])
+            ->get();
+
+        $this->filename = $this->generateFilename();
     }
 
-    public function exportTeam(): StreamedResponse
+    public function exportTeam(): ?StreamedResponse
     {
         $this->validate();
 
-        $export = new Export(
-            $this->filename,
-            $this->format,
-            $this->encoding,
-            $this->line_endings
-        );
+        try {
+            $export = new Export($this->filename, $this->format, $this->teamname);
 
-        $gedcom = $export->Export(
-            individuals: $this->teamPersons,
-            families: $this->teamCouples,
-        );
+            $gedcom = $export->export(
+                individuals: $this->teamPersons,
+                couples: $this->teamCouples,
+            );
 
-        $this->toast()->success(__('app.download'), __('app.downloading'))->send();
+            $this->toast()->success(__('app.download'), __('gedcom.export_succeeded') . ': ' . __('app.downloading'))->send();
 
-        if (in_array($this->format, ['zip', 'zipmedia', 'gedzip'])) {
-            return $export->downloadZip($gedcom);
+            // Use FORMATS zip flag to decide download type
+            $formatConfig = collect(self::formats())->firstWhere('value', $this->format);
+
+            if ($formatConfig['zip'] ?? false) {
+                return $export->downloadZip($gedcom);
+            }
+
+            return $export->downloadGedcom($gedcom);
+        } catch (Exception $e) {
+            logger()->error(__('gedcom.export_failed'), [
+                'user_id'           => $this->user->id,
+                'team_id'           => $this->user->currentTeam->id,
+                'format'            => $this->format,
+                'filename'          => $this->filename,
+                'error'             => $e->getMessage(),
+                'individuals_count' => $this->teamPersons->count(),
+                'couples_count'     => $this->teamCouples->count(),
+            ]);
+
+            $this->toast()->error(__('app.error'), __('gedcom.export_failed') . ': ' . $e->getMessage())->send();
+
+            return null;
         }
+    }
 
-        return $export->downloadGedcom($gedcom);
+    public function updatedFilename(): void
+    {
+        // Regenerate filename when manually changed
+        $this->filename = $this->sanitizeFilename($this->filename);
     }
 
     // -----------------------------------------------------------------------
     public function render(): View
     {
-        return view('livewire.gedcom.exportteam', [
-            'formats'   => self::FORMATS,
-            'encodings' => self::ENCODINGS,
-        ]);
+        return view('livewire.gedcom.exportteam', ['formats' => self::formats()]);
     }
 
     // ------------------------------------------------------------------------------
     protected function rules(): array
     {
         return [
-            'filename'     => ['required', 'string', 'max:255', 'regex:/^[a-z0-9\-]+$/i'],
-            'format'       => ['required', 'string', 'in:' . collect(self::FORMATS)->pluck('value')->implode(',')],
-            'encoding'     => ['required', 'string', 'in:' . collect(self::ENCODINGS)->pluck('value')->implode(',')],
-            'line_endings' => ['required', 'string', 'in:windows,unix,mac'],
+            'filename' => ['required', 'string'],
+            'format'   => ['required', 'string'],
         ];
     }
 
@@ -108,10 +133,69 @@ final class Exportteam extends Component
     protected function validationAttributes(): array
     {
         return [
-            'filename'     => __('gedcom.filename'),
-            'format'       => __('gedcom.format'),
-            'encoding'     => __('gedcom.character_encoding'),
-            'line_endings' => __('gedcom.line_endings'),
+            'filename' => __('gedcom.filename'),
+            'format'   => __('gedcom.format'),
         ];
+    }
+
+    // ----------------------------------------------------------------------
+    /**
+     * Generate a clean, timezone-aware, UTC-safe filename.
+     * Always keeps the timestamp + UTC offset intact,
+     * truncating only the team name part if needed.
+     */
+    private function generateFilename(?string $teamName = null, ?Carbon $dateTime = null): string
+    {
+        $tz  = $this->user->timezone ?? config('app.timezone', 'UTC');
+        $now = $dateTime ?? now($tz);
+
+        $teamName = $teamName ?? $this->user->currentTeam->name;
+
+        // Slugify only the team name, if needed
+        $safeTeam = $this->sanitizeTeamName($teamName);
+
+        // Fixed suffix (always preserved)
+        $suffix = '-' . $now->format('Y-m-d-H-i-s') . '-utc' . $now->format('O');
+
+        // Ensure suffix always fits in max length
+        $available = max(self::MAX_FILENAME_LENGTH - mb_strlen($suffix), 1);
+
+        if (mb_strlen($safeTeam) > $available) {
+            $safeTeam = mb_substr($safeTeam, 0, $available);
+        }
+
+        return $safeTeam . $suffix;
+    }
+
+    /**
+     * Sanitize team name for filename use
+     */
+    private function sanitizeTeamName(string $teamName): string
+    {
+        // Remove or replace problematic characters
+        $safe = preg_replace('/[^\p{L}\p{N}\-\+\s]/u', '', $teamName);
+
+        // Use slug if original contains non-ASCII characters
+        if (preg_match('/[^\x00-\x7F]/', $safe)) {
+            return Str::slug($safe);
+        }
+
+        // Lower case, replace spaces with hyphens and clean up
+        return mb_strtolower(preg_replace('/\s+/', '-', mb_trim($safe)));
+    }
+
+    /**
+     * Sanitize user-provided filename
+     */
+    private function sanitizeFilename(string $filename): string
+    {
+        // Remove any file extensions
+        $filename = preg_replace('/\.(ged|gedcom|zip|gdz)$/i', '', $filename);
+
+        // Keep only allowed characters
+        $sanitized = preg_replace('/[^a-z0-9\-\+\_\.]/i', '', mb_trim($filename));
+
+        // Truncate if too long
+        return mb_substr($sanitized, 0, self::MAX_FILENAME_LENGTH);
     }
 }
