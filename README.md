@@ -237,8 +237,8 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 At present, <a href="https://gedcom.io/" target="_blank">GEDCOM</a> Import and Export functionality is under active development.<br/>
 While still incomplete, initial Import and Export capabilities are already available.<br/>
 The implementation of full GEDCOM (v7.x.x) Import and Export support represents a significantly larger effort than the development of the application itself.<br/>
-To date, version 7 has not been fully implemented in any open-source project.<br/>
-It is strongly recommended to create a backup of your database before testing any Import or Export features.
+To date, version 7 has not been fully implemented in any open-source php based project.<br/>
+**It is strongly recommended to create a backup of your database before testing any Import or Export features on production data.**
 
 ## Languages
 
