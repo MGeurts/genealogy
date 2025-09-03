@@ -72,41 +72,39 @@ final class UserSeeder extends Seeder
         // -----------------------------------------------------------------------------------
         // create normal users (members)
         // -----------------------------------------------------------------------------------
-        if (true) {
-            for ($i = 1; $i <= 3; $i++) {
-                $user = User::factory([
-                    'firstname' => '__',
-                    'surname'   => 'Member ' . $i,
-                    'email'     => 'member_' . $i . '@genealogy.test',
-                ])->withPersonalTeam()->create();
+        for ($i = 1; $i <= 3; $i++) {
+            $user = User::factory([
+                'firstname' => '__',
+                'surname'   => 'Member ' . $i,
+                'email'     => 'member_' . $i . '@genealogy.test',
+            ])->withPersonalTeam()->create();
 
-                if (app()->isLocal()) {
-                    $this->createUserlogs($user);
-                }
+            if (app()->isLocal()) {
+                $this->createUserlogs($user);
             }
+        }
 
-            for ($i = 4; $i <= 6; $i++) {
-                $user = User::factory([
-                    'firstname' => '__',
-                    'surname'   => 'Member ' . $i,
-                    'email'     => 'member_' . $i . '@genealogy.test',
-                ])->withPersonalTeam()->create();
+        for ($i = 4; $i <= 6; $i++) {
+            $user = User::factory([
+                'firstname' => '__',
+                'surname'   => 'Member ' . $i,
+                'email'     => 'member_' . $i . '@genealogy.test',
+            ])->withPersonalTeam()->create();
 
-                if (app()->isLocal()) {
-                    $this->createUserlogs($user);
-                }
+            if (app()->isLocal()) {
+                $this->createUserlogs($user);
             }
+        }
 
-            for ($i = 7; $i <= 10; $i++) {
-                $user = User::factory([
-                    'firstname' => '___',
-                    'surname'   => 'Member ' . $i,
-                    'email'     => 'member_' . $i . '@genealogy.test',
-                ])->withPersonalTeam()->create();
+        for ($i = 7; $i <= 10; $i++) {
+            $user = User::factory([
+                'firstname' => '___',
+                'surname'   => 'Member ' . $i,
+                'email'     => 'member_' . $i . '@genealogy.test',
+            ])->withPersonalTeam()->create();
 
-                if (app()->isLocal()) {
-                    $this->createUserlogs($user);
-                }
+            if (app()->isLocal()) {
+                $this->createUserlogs($user);
             }
         }
     }

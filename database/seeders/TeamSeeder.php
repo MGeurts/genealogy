@@ -63,14 +63,12 @@ final class TeamSeeder extends Seeder
         // -----------------------------------------------------------------------------------
         // members 1–3 in British Royals
         // -----------------------------------------------------------------------------------
-        collect([1, 2, 3])->each(fn ($i) => $this->assignUserToTeam($users['Member ' . $i], $teamBritishRoyals, 'member')
-        );
+        collect([1, 2, 3])->each(fn ($i) => $this->assignUserToTeam($users['Member ' . $i], $teamBritishRoyals, 'member'));
 
         // -----------------------------------------------------------------------------------
         // members 4–6 in Kennedy
         // -----------------------------------------------------------------------------------
-        collect([4, 5, 6])->each(fn ($i) => $this->assignUserToTeam($users['Member ' . $i], $teamKennedy, 'member')
-        );
+        collect([4, 5, 6])->each(fn ($i) => $this->assignUserToTeam($users['Member ' . $i], $teamKennedy, 'member'));
     }
 
     // -----------------------------------------------------------------------------------
