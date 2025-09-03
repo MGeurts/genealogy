@@ -1,3733 +1,6078 @@
-﻿0 HEAD
+0 HEAD
+1 SOUR PAF
+2 NAME Personal Ancestral File
+2 VERS 5.1.12.0
+2 CORP The Church of Jesus Christ of Latter-day Saints
+3 ADDR 50 East North Temple Street
+4 CONT Salt Lake City, UT 84150
+4 CONT USA
+1 DEST Other
+1 DATE 30 Aug 2003
+2 TIME 10:33:45
+1 FILE tudors.ged
 1 GEDC
-2 VERS 5.5.1
+2 VERS 5.5
 2 FORM LINEAGE-LINKED
-1 CHAR UTF-8
-1 DEST MyFamilyTree
-1 SOUR MyFamilyTree
-2 VERS 14.0.0.0
-2 NAME My Family Tree
-2 CORP Chronoplex Software
-1 SUBM @U0@
-1 DATE 28 OCT 2023
-2 TIME 12:23:29.980
+1 CHAR ANSI
 1 LANG English
-1 FILE The English and British Kings and Queens.ged
-1 COPR © 2010-2022 Chronoplex Software
-1 NOTE Monarchs of England and Great Britain since the Norman Conquest in 1066.
-1 _TITL The English and British Kings and Queens
-0 @U0@ SUBM
-1 _UID 9BAE88A3BE7E4AC58C1CCAF92A768780D111
-1 NAME Chronoplex Software
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I0@ INDI
-1 NAME Charles III Philip Arthur George /Windsor/
-2 TYPE birth
-2 GIVN Charles III Philip Arthur George
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 14 NOV 1948
-2 PLAC Buckingham Palace, London, England
-1 FAMC @F0@
-1 FAMS @F6@
-1 FAMS @F7@
-1 NOTE Prince Charles, born in 1948, Prince of Wales and heir apparent to the throne of the United Kingdom of Great Britain and Northern Ireland. He is the son of Queen Elizabeth II and her husband, Philip Mountbatten, duke of Edinburgh. Charles's ful
-2 CONC l name is Charles Philip Arthur George. His titles, in addition to Prince of Wales, are duke of Cornwall; duke of Rothesay; earl of Carrick; and Baron Renfrew, lord of the Isles and great steward of Scotland.
-2 CONT 
-2 CONT Breaking with the tradition of educating royal children at home, his parents enrolled Prince Charles in private schools in England and Scotland. He attended the Cheam School in Berkshire as a boarder from the age of 9 to 14 and the school his fa
-2 CONC ther attended, Gordonstoun, in Scotland from age 14 to 18. He has described his school years as unhappy and seems to have been especially ill-suited for the rugged and spartan conditions at Gordonstoun, the school chosen by the Duke of Edinburg
-2 CONC h to toughen up his son. After Gordonstoun, Charles entered Trinity College at the University of Cambridge, where he studied archaeology, anthropology, and history. Charles became the first heir to the British crown to earn a university degree w
-2 CONC hen he graduated with honours from Cambridge University in June 1970. That year he also assumed his seat in the House of Lords, the upper chamber of the British Parliament. At the age of 20, in 1969, he was formally invested as the Prince of Wal
-2 CONC es, a title he had been given in 1958. Charles served in the Royal Air Force and the Royal Navy from 1971 to 1977.
-2 CONT 
-2 CONT Although he has travelled widely as a representative of the crown, Charles has been viewed as a man with little to do while waiting to succeed to the throne. As one solution he founded the Princes Trust, an organization established to provide op
-2 CONC portunities for young people through training, education, and financial support. As its president he has remained closely involved with the trust. Charles is also involved with some 200 other charitable organizations that reflect his wide rang
-2 CONC e of interests, from architecture to alternative medicine and conservation.
-2 _NSTY Y
-1 CHAN
-2 DATE 10 SEP 2022
-3 TIME 11:20:16.678
+1 SUBM @SUB1@
+0 @SUB1@ SUBM
+1 NAME Chris Phillips
+1 ADDR Address withheld
+2 CONT Address withheld
 0 @I1@ INDI
-1 NAME Elizabeth II Alexandra Mary /Windsor/
-2 TYPE birth
-2 GIVN Elizabeth II Alexandra Mary
-2 SURN Windsor
-1 SEX F
-1 BIRT
-2 DATE 21 APR 1926
-2 PLAC 17 Bruton St., London
-1 EVEN
-2 TYPE Event
-2 DATE 2 JUN 1953
-2 PLAC Westminster Abbey
-1 DEAT
-2 DATE 8 SEP 2022
-2 PLAC Balmoral Castle
-1 FAMC @F5@
-1 FAMS @F0@
-1 NOTE Elizabeth II, born in 1926, queen of the United Kingdom of Great Britain and Northern Ireland. Elizabeth Alexandra Mary was born in London, the first child of the duke and duchess of York, later King George VI and Queen Elizabeth. Her sister, Pr
-2 CONC incess Margaret, was born in 1930. The two princesses were educated at home by a Scottish governess.
-2 CONT 
-2 CONT After her father succeeded to the throne in 1936, Princess Elizabeth, as heiress presumptive, began studies in constitutional history and law to prepare for her future position as queen. As she became older, Elizabeth began to take part in publi
-2 CONC c life. She was 14 years old when she made her first radio broadcast, a speech to the children of the Commonwealth of Nations in October 1940. When she was 16 she carried out her first public engagement, an inspection of the Grenadier Guards i
-2 CONC n April 1942.
-2 CONT 
-2 CONT During World War II (1939-1945) Elizabeth and her younger sister were sent for safety from Buckingham Palace in London to live first at Balmoral, Scotland, and later at the royal lodge at Windsor, England. Although her father did not want Elizab
-2 CONC eth to be called up for national service during the war, she herself was most eager to join the Auxiliary Territorial Service, the women's branch of the British Army. She was finally allowed to join in March 1945.
-2 CONT 
-2 CONT On November 20, 1947, Elizabeth married Philip Mountbatten, the former Prince Philip of Greece, at Westminster Abbey in London. He had become a British subject nine months earlier and was married under the title of Prince Philip, duke of Edinbur
-2 CONC gh. A year later Elizabeth gave birth to a son, Charles. In 1950 she gave birth to a daughter, Anne. A second son, Andrew, was born to Elizabeth in 1960, and a third, Edward, in 1964.
-2 _NSTY Y
-1 CHAN
-2 DATE 10 SEP 2022
-3 TIME 11:14:07.375
-0 @I2@ INDI
-1 NAME Edward VII /Wettin/
-2 TYPE birth
-2 GIVN Edward VII
-2 SURN Wettin
-1 SEX M
-1 BIRT
-2 DATE 9 NOV 1841
-2 PLAC Buckingham Palace, London, England
-1 DEAT
-2 DATE 6 MAY 1910
-1 FAMC @F36@
-1 FAMS @F1@
-1 NOTE Edward VII (1841-1910), king of the United Kingdom of Great Britain and Ireland and emperor of India (1901-1910). The Edwardian period is named after him. Edward was born on November 9, 1841, in Buckingham Palace, London, the eldest son of Quee
-2 CONC n Victoria and Prince Albert, and was christened Albert Edward. He studied at the universities of Edinburgh, Oxford, and Cambridge.
-2 CONT 
-2 CONT In 1860 he visited Canada, inaugurating the custom of goodwill visits by members of the British royal family, particularly the Prince of Wales, to British dominions and foreign countries. In 1863 Edward married Alexandra, eldest daughter of Kin
-2 CONC g Christian IX of Denmark. The prince and princess then assumed much of the burden of court ceremonials and public functions, which Queen Victoria had laid aside on going into virtual retirement after the death of the prince consort in 1861. Edw
-2 CONC ard travelled extensively. In Russia and France, particularly, he made valuable personal contacts in political and social circles.
-2 CONT 
-2 CONT At home, his popularity was increased both as Prince of Wales and as king by his interest in sports, notably yachting and horse racing; his horses won the Derby in 1896, 1900, and 1909 and the Grand National at Liverpool in 1900. Edward succeede
-2 CONC d to the throne in 1901. From the beginning of his reign he adopted a policy of promoting international amity in Europe, where political tension had been mounting. His visits to various European capitals from 1901 to 1904 and return visits to hi
-2 CONC m by European rulers helped promote the signing of arbitration treaties in 1903-1904 between Britain and France, Spain, Italy, Germany, and Portugal. He was also an important force behind two agreements that strengthened the position of Britai
-2 CONC n on the Continent, the Entente Cordiale of 1904 between France and Britain, and a pact between Russia and Britain in 1907.  In 1909 the king and queen paid a diplomatic visit to Emperor William II of Germany (Edwards's nephew) that temporaril
-2 CONC y dispelled German suspicion that the increasingly friendly relations between Britain and France and Russia were aimed at weakening Germany. Because of his efforts to increase international amity the king became known as Edward the Peacemaker.
-2 CONT 
-2 CONT Edward died at Buckingham Palace on May 6, 1910, having reigned for only nine years. Three daughters and two sons were born of the marriage between Edward and Alexandra. The sons were Prince Albert Victor, duke of Clarence, and George, duke of Y
-2 CONC ork, who succeeded Edward as George V. In 1896 Edwards youngest daughter, Princess Maude Charlotte Mary Victoria, married her cousin, Prince Charles of Denmark, who later became King Hkon VII of Norway.
-2 _NSTY Y
-1 CHAN
-2 DATE 11 JAN 2019
-3 TIME 19:48:39.218
-0 @I3@ INDI
-1 NAME Alexandra of Denmark "Alix" //
-2 TYPE birth
-2 GIVN Alexandra of Denmark
-2 NICK Alix
-1 SEX F
-1 BIRT
-2 DATE 1 DEC 1844
-2 PLAC Yellow Palace, Copenhagen, Denmark
-1 DEAT
-2 DATE 20 NOV 1925
-2 PLAC Sandringham, Norfolk, England
-1 FAMS @F1@
-1 CHAN
-2 DATE 27 MAY 2020
-3 TIME 14:44:05.653
-0 @I4@ INDI
-1 NAME George V /Windsor/
-2 TYPE birth
-2 GIVN George V
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 3 JUN 1865
-2 PLAC Marlborough House, London, England
-1 DEAT
-2 DATE 20 JAN 1936
-2 PLAC Sandringham, Norfolk, England
-1 FAMC @F1@
-1 FAMS @F2@
-1 NOTE George V (1865-1936), king of the United Kingdom of Great Britain and Northern Ireland, and emperor of India (1910-1936), of the house of Saxe-Coburg-Gotha (later changed to Windsor).  George was born in London on June 3, 1865, the second son o
-2 CONC f Edward VII. Known as the Sailor Prince, he entered the Royal Navy in 1877 and during an active career rose to the rank of vice admiral in 1903.
-2 CONT 
-2 CONT The death in 1892 of his elder brother, Albert Victor, duke of Clarence, made George second in line to the succession. He married his brother's fiancé, Princess Victoria Mary of Teck, later Mary, queen consort of England, and was created duke o
-2 CONC f York in 1892. After his father succeeded Queen Victoria in 1901, George became Prince of Wales and succeeded to the throne upon his father's death in 1910.
-2 CONT 
-2 CONT Six children were born to George and Mary: Edward Albert, later Edward VIII; Albert Frederick George, later George VI; Victoria Alexandra Alice Mary; Henry William Frederick Albert, duke of Gloucester; George Edward Alexander Edmund, duke of Ken
-2 CONC t; and John Charles Francis. The most notable event of the reign of George V was World War I. Following England's declaration of war on Germany, the king renounced all the German titles belonging to him and his family and changed the name of th
-2 CONC e royal house to Windsor.
-2 CONT 
-2 CONT He died at Sandringham House, Norfolk, on January 20, 1936. He was succeeded by Edward VIII.
-2 _NSTY Y
-1 CHAN
-2 DATE 11 JAN 2019
-3 TIME 19:48:39.218
-0 @I5@ INDI
-1 NAME Mary of Teck //
-2 TYPE birth
-2 GIVN Mary of Teck
-1 SEX F
-1 BIRT
-2 DATE 26 MAY 1867
-2 PLAC Kensington Palace, London, England
-1 DEAT
-2 DATE 24 MAR 1953
-2 PLAC Marlborough House, London, England
-1 FAMS @F2@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I6@ INDI
-1 NAME Edward VIII /Windsor/
-2 TYPE birth
-2 GIVN Edward VIII
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 23 JUN 1894
-2 PLAC White Lodge, Richmond Park, Surrey, England
-1 DEAT
-2 DATE 28 MAY 1972
-2 PLAC Paris, France
-1 FAMC @F2@
-1 FAMS @F3@
-1 NOTE Edward VIII (1894-1972), king of the United Kingdom of Great Britain and Northern Ireland, and emperor of India (January 20-December 11, 1936), later known as the duke of Windsor. Edward was born Jun e 23, 1894, in White Lodge, Richmond Park, an
-2 CONC d was educated at the naval preparatory college at Osborne; the Royal Naval College, Dartmouth; and Magdalen College, University of Oxford.
-2 CONT 
-2 CONT During World War I he served with the Grenadier Guards in France, Italy, Flanders, and Egypt. In 1919 he undertook the first of many official goodwill tours to Canada and other countries. In the 1920s and 1930s he supported slum-clearance projec
-2 CONC ts, aid to the unemployed, and improvement of the working conditions of British miners.
-2 CONT 
-2 CONT On the death of his father, King George V, in January 1936, Edward was proclaimed King Edward VIII. Before long, rumours circulated about his alleged romance with an American, Mrs. Wallis Warfield Simpson, then married to her second husband, a L
-2 CONC ondon shipping broker. On October 20, 1936, Prime Minister Stanley Baldwin counselled Edward, as king and head of the Church of England, to remove all cause for the rumours. A week later Mrs. Simpson was granted a divorce, to become final in si
-2 CONC x months. In November the king confided to Baldwin that he intended to marry Mrs. Simpson even if it meant his abdication. A morganatic marriage was proposed, but the cabinet was unwilling to accept this compromise. On December 11, 1936, therefo
-2 CONC re, the king abdicated in favour of his brother, the duke of York, who became King George VI. Edward received the title duke of Windsor and married Mrs. Simpson in June 1937. Because his wife was not accorded the privileges of a royal duchess i
-2 CONC n England, the duke of Windsor resided abroad.
-2 CONT 
-2 CONT In 1937 he observed social and housing conditions in Germany and visited Adolf Hitler. During World War II he served as a major general in the British Expeditionary Force, and he was governor of the Bahamas from 1940 to 1945. After the war he li
-2 CONC ved as a private British citizen, chiefly in the United States and France. At the funeral of George VI in February 1952, he took part in a British royal ceremony for the first time since his abdication. The duke wrote A King's Story (1951) whic
-2 CONC h was made into a film in 1967, and Windsor Revisited (1960). He died May 28, 1972, in Paris.
-2 _NSTY Y
-1 CHAN
-2 DATE 11 JAN 2019
-3 TIME 19:48:39.218
-0 @I7@ INDI
-1 NAME Bessie Wallis /Warfield/
-2 TYPE birth
-2 GIVN Bessie Wallis
-2 SURN Warfield
-1 SEX F
-1 BIRT
-2 PLAC U.S.A.
-1 DEAT
-2 DATE 24 APR 1986
-2 PLAC Paris, France
-1 FAMS @F3@
-1 FAMS @F4@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I8@ INDI
-1 NAME George VI /Windsor/
-2 TYPE birth
-2 GIVN George VI
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 14 DEC 1895
-2 PLAC York Cottage, Sandringham, Norfolk, England
-1 DEAT
-2 DATE 6 FEB 1952
-2 PLAC Sandringham, Norfolk, England
-1 FAMC @F2@
-1 FAMS @F5@
-1 NOTE George VI (1895-1952), king of the United Kingdom of Great Britain and Northern Ireland (1936-1952), and emperor of India (1936-1947), of the house of Windsor. George was born at Sandringham House, Norfolk, on December 14, 1895, the second son o
-2 CONC f King George V, and he was educated at Trinity College, University of Cambridge, and the Royal Naval College on the Isle of Wight. In 1923 he married Lady Elizabeth Bowes-Lyon, and they had two daughters: Elizabeth Alexandra Mary, later Queen E
-2 CONC lizabeth II, and Margaret Rose.
-2 CONT 
-2 CONT George succeeded to the throne after the abdication of his older brother, Edward VIII. Following his coronation in 1937, King George, accompanied by the queen consort, began a series of state goodwill visits, travelling to France in 1937 and t
-2 CONC o Canada and the United States in 1939. These visits were interrupted by World War II, during which the king visited many fronts in Europe, but were resumed in 1947, when the royal family spent several months in South Africa.
-2 CONT 
-2 CONT In the last three years of his life, illness prevented any further trips. The reign of George VI was marked by the relinquishment of the title of emperor of India, following the partition of India in 1947 into Pakistan and India. He died at Sand
-2 CONC ringham on February 6, 1952, and was succeeded by Elizabeth II.
-2 _NSTY Y
-1 CHAN
-2 DATE 2 AUG 2019
-3 TIME 17:42:38.203
-0 @I9@ INDI
-1 NAME Elizabeth Angela Marguerite /Bowes-Lyon/
-2 TYPE birth
-2 GIVN Elizabeth Angela Marguerite
-2 SURN Bowes-Lyon
-1 SEX F
-1 BIRT
-2 DATE 4 AUG 1900
-2 PLAC London, England
-1 DEAT
-2 DATE 30 MAR 2002
-1 FAMS @F5@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I10@ INDI
-1 NAME Philip /Mountbatten/
-2 TYPE birth
-2 GIVN Philip
-2 SURN Mountbatten
-1 SEX M
-1 BIRT
-2 DATE 10 JUN 1921
-2 PLAC Isle of Kerkira, Mon Repos, Corfu, Greece
-1 DEAT
-2 DATE 9 APR 2021
-2 PLAC Windsor Castle
-1 FAMC @F38@
-1 FAMS @F0@
-1 CHAN
-2 DATE 9 APR 2021
-3 TIME 12:34:29.445
-0 @I11@ INDI
-1 NAME Diana Frances /Spencer/
-2 TYPE birth
-2 GIVN Diana Frances
-2 SURN Spencer
-1 SEX F
-1 BIRT
-2 DATE 1 JUL 1961
-2 PLAC Sandringham, Norfolk, England
-1 DEAT
-2 DATE 31 AUG 1997
-2 PLAC Paris, France
-1 FAMS @F6@
-1 NOTE Princess Diana (1961-1997), Princess of Wales from 1981 to 1997. Diana was born Diana Frances Spencer in Sandringham, Norfolk, England. Her father, Edward Spencer, was heir to an earldom, and her mother was the daughter of the 4th Baron Fermoy
-2 CONC . Diana was educated at Riddlesworth Hall, a preparatory school in Norfolk, and later at the West Heath School in Kent. She attended finishing school in Switzerland at Chateaux d'Oex at Montreux. From 1979 until 1981 Diana worked as a kindergart
-2 CONC en teacher at the exclusive Young England School in Pimlico, London.
-2 CONT 
-2 CONT On February 24, 1981, her engagement to Prince Charles, son of Queen Elizabeth II and the heir to the British throne were announced. They were married in Saint Paul’s Cathedral in an internationally televised ceremony on July 29, 1981, with an a
-2 CONC udience numbering in the hundreds of millions. Diana was the first Englishwoman to marry an heir to the British throne in more than 300 years. The couple had two sons: Prince William Arthur Philip Lou is (born June 21, 1982) and Prince Henry Cha
-2 CONC rles Albert David (popularly called Harry, born September 15, 1984).
-2 CONT 
-2 CONT By the late 1980s, strains in the royal couple's marriage had been widely publicized, and in December 1992 a separation was announced. By that time Diana had adopted charity work as her royal duty. In 1993 she briefly withdrew from public activi
-2 CONC ties in an effort to avoid the negative publicity focused on her separation from Prince Charles. Formal divorce proceedings began in early 1996, and in August 1996 Diana and Charles were legally divorced. After the divorce it was agreed that Dia
-2 CONC na would be known as Lady Diana, Princess of Wales, and would no longer be permitted to use the title Her Royal Highness. The couple had joint custody of their children.
-2 CONT 
-2 CONT Diana actively supported many charities related to homeless and deprived children, drug abuse, breast cancer, and victims of acquired immunodeficiency syndrome (AIDS). In 1987 Diana sat with a man dying from AIDS and shook his hand, a gesture cr
-2 CONC edited with promoting acceptance and compassion for people with the disease. She was the vice president of the British Red Cross and served as a member of the International Red Cross advisory board. In 1997 Diana visited Angola and Bosnia and He
-2 CONC rzegovina in support of a Red Cross campaign to ban landmines.
-2 _NSTY Y
-1 CHAN
-2 DATE 11 JAN 2019
-3 TIME 19:48:39.218
-0 @I12@ INDI
-1 NAME William Arthur Philip Louis /Windsor/
-2 TYPE birth
-2 GIVN William Arthur Philip Louis
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 21 JUN 1982
-2 PLAC St. Mary's Hosp., Paddington, London, England
-1 FAMC @F6@
-1 FAMS @F8@
-1 CHAN
-2 DATE 10 SEP 2022
-3 TIME 11:16:43.236
-0 @I13@ INDI
-1 NAME Henry Charles Albert David "Harry" /Windsor/
-2 TYPE birth
-2 GIVN Henry Charles Albert David
-2 NICK Harry
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 15 SEP 1984
-2 PLAC St. Mary's Hosp., Paddington, London, England
-1 FAMC @F6@
-1 FAMS @F9@
-1 CHAN
-2 DATE 10 SEP 2022
-3 TIME 11:16:43.236
-0 @I14@ INDI
-1 NAME Anne Elizabeth Alice /Windsor/
-2 TYPE birth
-2 GIVN Anne Elizabeth Alice
-2 SURN Windsor
-1 SEX F
-1 BIRT
-2 DATE 15 AUG 1950
-2 PLAC Clarence House, St. James, England
-1 FAMC @F0@
-1 FAMS @F10@
-1 CHAN
-2 DATE 2 AUG 2019
-3 TIME 17:18:28.004
-0 @I15@ INDI
-1 NAME Mark Anthony Peter /Phillips/
-2 TYPE birth
-2 GIVN Mark Anthony Peter
-2 SURN Phillips
-1 SEX M
-1 BIRT
-2 DATE 22 SEP 1948
-1 FAMS @F10@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I16@ INDI
-1 NAME Peter Mark Andrew /Phillips/
-2 TYPE birth
-2 GIVN Peter Mark Andrew
-2 SURN Phillips
-1 SEX M
-1 BIRT
-2 DATE 15 NOV 1977
-2 PLAC St. Mary's Hosp., Paddington, London, England
-1 FAMC @F10@
-1 FAMS @F11@
-1 CHAN
-2 DATE 27 MAY 2020
-3 TIME 14:55:39.757
-0 @I17@ INDI
-1 NAME Zara Anne Elizabeth /Phillips/
-2 TYPE birth
-2 GIVN Zara Anne Elizabeth
-2 SURN Phillips
-1 SEX F
-1 BIRT
-2 DATE 15 MAY 1981
-2 PLAC St. Mary's Hosp., Paddington, London, England
-1 FAMC @F10@
-1 FAMS @F12@
-1 CHAN
-2 DATE 20 DEC 2021
-3 TIME 10:19:18.055
-0 @I18@ INDI
-1 NAME Andrew Albert Christian /Windsor/
-2 TYPE birth
-2 GIVN Andrew Albert Christian
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 19 FEB 1960
-2 PLAC Buckingham Palace, London, England
-1 FAMC @F0@
-1 FAMS @F13@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I19@ INDI
-1 NAME Sarah Margaret /Ferguson/
-2 TYPE birth
-2 GIVN Sarah Margaret
-2 SURN Ferguson
-1 SEX F
-1 BIRT
-2 DATE 15 OCT 1959
-2 PLAC 27 Welbech St., Marylebone, London, England
-1 FAMS @F13@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I20@ INDI
-1 NAME Beatrice Elizabeth Mary /Windsor/
-2 TYPE birth
-2 GIVN Beatrice Elizabeth Mary
-2 SURN Windsor
-1 SEX F
-1 BIRT
-2 DATE 8 AUG 1988
-2 PLAC Portland Hospital, England
-1 FAMC @F13@
-1 FAMS @F64@
-1 CHAN
-2 DATE 20 DEC 2021
-3 TIME 10:16:43.278
-0 @I21@ INDI
-1 NAME Eugenie Victoria Helena /Windsor/
-2 TYPE birth
-2 GIVN Eugenie Victoria Helena
-2 SURN Windsor
-1 SEX F
-1 BIRT
-2 DATE 23 MAR 1990
-2 PLAC London, England
-1 FAMC @F13@
-1 FAMS @F63@
-1 CHAN
-2 DATE 20 DEC 2021
-3 TIME 10:13:52.366
-0 @I22@ INDI
-1 NAME Edward Anthony Richard /Windsor/
-2 TYPE birth
-2 GIVN Edward Anthony Richard
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 10 MAR 1964
-2 PLAC Buckingham Palace, London, England
-1 FAMC @F0@
-1 FAMS @F14@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I23@ INDI
-1 NAME Margaret Rose /Windsor/
-2 TYPE birth
-2 GIVN Margaret Rose
-2 SURN Windsor
-1 SEX F
-1 BIRT
-2 DATE 21 AUG 1930
-2 PLAC Glamis Castle, Angus, Scotland
-1 DEAT
-2 DATE 9 FEB 2002
-2 PLAC London, England
-1 FAMC @F5@
-1 FAMS @F15@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I24@ INDI
-1 NAME Anthony Charles Robert /Armstrong-Jones/
-2 TYPE birth
-2 GIVN Anthony Charles Robert
-2 SURN Armstrong-Jones
-1 SEX M
-1 BIRT
-2 DATE 7 MAR 1930
-1 FAMS @F15@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I25@ INDI
-1 NAME David Albert Charles /Armstrong-Jones/
-2 TYPE birth
-2 GIVN David Albert Charles
-2 SURN Armstrong-Jones
-1 SEX M
-1 BIRT
-2 DATE 3 NOV 1961
-1 FAMC @F15@
-1 FAMS @F16@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I26@ INDI
-1 NAME Sarah Frances Elizabeth /Armstrong-Jones/
-2 TYPE birth
-2 GIVN Sarah Frances Elizabeth
-2 SURN Armstrong-Jones
-1 SEX F
-1 BIRT
-2 DATE 1 MAY 1964
-1 FAMC @F15@
-1 FAMS @F17@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I27@ INDI
-1 NAME Mary /Windsor/
-2 TYPE birth
-2 GIVN Mary
-2 SURN Windsor
-1 SEX F
-1 BIRT
-2 DATE 25 APR 1897
-2 PLAC York Cottage, Sandringham, Norfolk, England
-1 DEAT
-2 DATE 28 MAR 1965
-2 PLAC Harewood House, Yorkshire, England
-1 FAMC @F2@
-1 FAMS @F18@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I28@ INDI
-1 NAME Henry George Charles /Lascelles/
-2 TYPE birth
-2 GIVN Henry George Charles
-2 SURN Lascelles
-1 SEX M
-1 DEAT Y
-1 FAMS @F18@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I29@ INDI
-1 NAME George Earl of Harewood /Lascelles/
-2 TYPE birth
-2 GIVN George Earl of Harewood
-2 SURN Lascelles
-1 SEX M
-1 FAMC @F18@
-1 FAMS @F19@
-1 FAMS @F20@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I30@ INDI
-1 NAME Marion Donata "Maria" /Stein/
-2 TYPE birth
-2 GIVN Marion Donata
-2 NICK Maria
-2 SURN Stein
-1 SEX F
-1 FAMS @F19@
-1 CHAN
-2 DATE 27 MAY 2020
-3 TIME 14:44:05.653
-0 @I31@ INDI
-1 NAME David /Lascelles/
-2 TYPE birth
-2 GIVN David
-2 SURN Lascelles
-1 SEX M
-1 FAMC @F19@
-1 FAMS @F21@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I32@ INDI
-1 NAME Margaret /Messenger/
-2 TYPE birth
-2 GIVN Margaret
-2 SURN Messenger
-1 SEX F
-1 FAMS @F21@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I33@ INDI
-1 NAME Emily //
-2 TYPE birth
-2 GIVN Emily
-1 SEX F
-1 FAMC @F21@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I34@ INDI
-1 NAME Benjamin //
-2 TYPE birth
-2 GIVN Benjamin
-1 SEX M
-1 FAMC @F21@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I35@ INDI
-1 NAME Alexander /Lascelles/
-2 TYPE birth
-2 GIVN Alexander
-2 SURN Lascelles
-1 SEX M
-1 FAMC @F21@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I36@ INDI
-1 NAME Edward /Lascelles/
-2 TYPE birth
-2 GIVN Edward
-2 SURN Lascelles
-1 SEX M
-1 FAMC @F21@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I37@ INDI
-1 NAME James /Lascelles/
-2 TYPE birth
-2 GIVN James
-2 SURN Lascelles
-1 SEX M
-1 FAMC @F19@
-1 FAMS @F22@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I38@ INDI
-1 NAME Fredericka Ann /Duhrrson/
-2 TYPE birth
-2 GIVN Fredericka Ann
-2 SURN Duhrrson
-1 SEX F
-1 FAMS @F22@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I39@ INDI
-1 NAME Sophie /Lascelles/
-2 TYPE birth
-2 GIVN Sophie
-2 SURN Lascelles
-1 SEX F
-1 FAMC @F22@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I40@ INDI
-1 NAME Rowan /Lascelles/
-2 TYPE birth
-2 GIVN Rowan
-2 SURN Lascelles
-1 SEX M
-1 FAMC @F22@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I41@ INDI
-1 NAME Jeremy /Lascelles/
-2 TYPE birth
-2 GIVN Jeremy
-2 SURN Lascelles
-1 SEX M
-1 FAMC @F19@
-1 FAMS @F23@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I42@ INDI
-1 NAME Julie /Bayliss/
-2 TYPE birth
-2 GIVN Julie
-2 SURN Bayliss
-1 SEX F
-1 FAMS @F23@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I43@ INDI
-1 NAME Thomas /Lascelles/
-2 TYPE birth
-2 GIVN Thomas
-2 SURN Lascelles
-1 SEX M
-1 FAMC @F23@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I44@ INDI
-1 NAME Ellen /Lascelles/
-2 TYPE birth
-2 GIVN Ellen
-2 SURN Lascelles
-1 SEX F
-1 FAMC @F23@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I45@ INDI
-1 NAME Patricia /Tuckwell/
-2 TYPE birth
-2 GIVN Patricia
-2 SURN Tuckwell
-1 SEX F
-1 FAMS @F20@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I46@ INDI
-1 NAME Gerald /Lascelles/
-2 TYPE birth
-2 GIVN Gerald
-2 SURN Lascelles
-1 SEX M
-1 FAMC @F18@
-1 FAMS @F24@
-1 FAMS @F25@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I47@ INDI
-1 NAME Angela /Dowding/
-2 TYPE birth
-2 GIVN Angela
-2 SURN Dowding
-1 SEX F
-1 FAMS @F24@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I48@ INDI
-1 NAME Henry /Lascelles/
-2 TYPE birth
-2 GIVN Henry
-2 SURN Lascelles
-1 SEX M
-1 FAMC @F24@
-1 FAMS @F26@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I49@ INDI
-1 NAME Alexandra /Morton/
-2 TYPE birth
-2 GIVN Alexandra
-2 SURN Morton
-1 SEX F
-1 FAMS @F26@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I50@ INDI
-1 NAME Elizabeth Collingwood /Colvin/
-2 TYPE birth
-2 GIVN Elizabeth Collingwood
-2 SURN Colvin
-1 SEX F
-1 FAMS @F25@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I51@ INDI
-1 NAME Henry William Frederick /Windsor/
-2 TYPE birth
-2 GIVN Henry William Frederick
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 31 MAR 1900
-2 PLAC York Cottage, Sandringham, Norfolk, England
-1 DEAT
-2 DATE 10 JUN 1974
-1 FAMC @F2@
-1 FAMS @F27@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I52@ INDI
-1 NAME Alice Christabel /Montagu-Douglas/
-2 TYPE birth
-2 GIVN Alice Christabel
-2 SURN Montagu-Douglas
-1 SEX F
-1 BIRT
-2 DATE 25 DEC 1901
-2 PLAC London, England
-1 DEAT
-2 DATE 29 OCT 2004
-1 FAMS @F27@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I53@ INDI
-1 NAME William Henry Andrew /Windsor/
-2 TYPE birth
-2 GIVN William Henry Andrew
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 18 DEC 1941
-2 PLAC Hadley Common, Hertfordshire, England
-1 DEAT
-2 DATE 28 AUG 1972
-2 PLAC Near Wolverhampton, England
-1 FAMC @F27@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I54@ INDI
-1 NAME Richard Alexander Walter /Windsor/
-2 TYPE birth
-2 GIVN Richard Alexander Walter
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 26 AUG 1944
-2 PLAC Hadley Common, Hertfordshire, England
-1 FAMC @F27@
-1 FAMS @F28@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I55@ INDI
-1 NAME Birgitte of Denmark /von Deurs/
-2 TYPE birth
-2 GIVN Birgitte of Denmark
-2 SURN von Deurs
-1 SEX F
-1 FAMS @F28@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I56@ INDI
-1 NAME Alexander Patrick Gregers //
-2 TYPE birth
-2 GIVN Alexander Patrick Gregers
-1 SEX M
-1 BIRT
-2 DATE 24 OCT 1974
-2 PLAC St. Mary's Hosp., Paddington, London, England
-1 FAMC @F28@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I57@ INDI
-1 NAME Davina Elizabeth Alice /Windsor/
-2 TYPE birth
-2 GIVN Davina Elizabeth Alice
-2 SURN Windsor
-1 SEX F
-1 BIRT
-2 DATE 19 NOV 1977
-1 FAMC @F28@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I58@ INDI
-1 NAME Rose Victoria Birgitte /Windsor/
-2 TYPE birth
-2 GIVN Rose Victoria Birgitte
-2 SURN Windsor
-1 SEX F
-1 BIRT
-2 DATE 1 MAR 1980
-2 PLAC St. Mary's Hosp., Paddington, London, England
-1 FAMC @F28@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I59@ INDI
-1 NAME George Edward Alexander /Windsor/
-2 TYPE birth
-2 GIVN George Edward Alexander
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 20 DEC 1902
-2 PLAC York Cottage, Sandringham, Norfolk, England
-1 DEAT
-2 DATE 25 AUG 1942
-2 PLAC Morven, Scotland
-1 FAMC @F2@
-1 FAMS @F29@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I60@ INDI
-1 NAME Marina of Greece //
-2 TYPE birth
-2 GIVN Marina of Greece
-1 SEX F
-1 BIRT
-2 DATE 30 NOV 1906
-2 PLAC Athens, Greece
-1 DEAT
-2 DATE 27 AUG 1968
-2 PLAC Kensington Palace, London, England
-1 FAMS @F29@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I61@ INDI
-1 NAME Edward George Nicholas /Windsor/
-2 TYPE birth
-2 GIVN Edward George Nicholas
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 9 SEP 1935
-2 PLAC 3 Belgrave Sq., England
-1 FAMC @F29@
-1 FAMS @F30@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I62@ INDI
-1 NAME Katharine /Worsley/
-2 TYPE birth
-2 GIVN Katharine
-2 SURN Worsley
-1 SEX F
-1 FAMS @F30@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I63@ INDI
-1 NAME George Philip of St. Andrews /Windsor/
-2 TYPE birth
-2 GIVN George Philip of St. Andrews
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 26 JUN 1962
-1 FAMC @F30@
-1 FAMS @F31@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I64@ INDI
-1 NAME Sylvana /Tomaselli/
-2 TYPE birth
-2 GIVN Sylvana
-2 SURN Tomaselli
-1 SEX F
-1 BIRT
-2 PLAC Canada
-1 FAMS @F31@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I65@ INDI
-1 NAME Helen Marina Lucy /Windsor/
-2 TYPE birth
-2 GIVN Helen Marina Lucy
-2 SURN Windsor
-1 SEX F
-1 BIRT
-2 DATE 28 APR 1964
-1 FAMC @F30@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I66@ INDI
-1 NAME Nicholas Charles Edward /Windsor/
-2 TYPE birth
-2 GIVN Nicholas Charles Edward
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 25 JUL 1970
-2 PLAC Kings College, Hospital, Denmark Hill
-1 FAMC @F30@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I67@ INDI
-1 NAME Alexandra /Windsor/
-2 TYPE birth
-2 GIVN Alexandra
-2 SURN Windsor
-1 SEX F
-1 BIRT
-2 DATE 25 DEC 1936
-1 FAMC @F29@
-1 FAMS @F32@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I68@ INDI
-1 NAME Angus /Ogilvy/
-2 TYPE birth
-2 GIVN Angus
-2 SURN Ogilvy
-1 SEX M
-1 FAMS @F32@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I69@ INDI
-1 NAME James Robert Bruce /Ogilvy/
-2 TYPE birth
-2 GIVN James Robert Bruce
-2 SURN Ogilvy
-1 SEX M
-1 BIRT
-2 DATE 29 FEB 1964
-2 PLAC Thatched House, Lodge, Richmond Park, England
-1 FAMC @F32@
-1 FAMS @F33@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I70@ INDI
-1 NAME Julia /Rawlinson/
-2 TYPE birth
-2 GIVN Julia
-2 SURN Rawlinson
-1 SEX F
-1 FAMS @F33@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I71@ INDI
-1 NAME Marina Victoria Alexandra /Ogilvy/
-2 TYPE birth
-2 GIVN Marina Victoria Alexandra
-2 SURN Ogilvy
-1 SEX F
-1 BIRT
-2 DATE 31 JUL 1966
-2 PLAC Thatched House, Lodge, Richmond Park, England
-1 FAMC @F32@
-1 FAMS @F34@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I72@ INDI
-1 NAME Paul /Mowatt/
-2 TYPE birth
-2 GIVN Paul
-2 SURN Mowatt
-1 SEX M
-1 FAMS @F34@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I73@ INDI
-1 NAME Michael /Windsor/
-2 TYPE birth
-2 GIVN Michael
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 4 JUL 1942
-2 PLAC Coppins, England
-1 FAMC @F29@
-1 FAMS @F35@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I74@ INDI
-1 NAME Marie-Christine /von Reibnitz/
-2 TYPE birth
-2 GIVN Marie-Christine
-2 SURN von Reibnitz
-1 SEX F
-1 BIRT
-2 DATE 15 JAN 1945
-2 PLAC Czechoslovakia
-1 FAMS @F35@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I75@ INDI
-1 NAME Frederick /Windsor/
-2 TYPE birth
-2 GIVN Frederick
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 6 APR 1979
-2 PLAC St. Mary's Hosp., Paddington, London, England
-1 FAMC @F35@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I76@ INDI
-1 NAME Gabriella Marina Alexandra /Windsor/
-2 TYPE birth
-2 GIVN Gabriella Marina Alexandra
-2 SURN Windsor
-1 SEX F
-1 BIRT
-2 DATE 23 APR 1981
-2 PLAC England
-1 FAMC @F35@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I77@ INDI
-1 NAME John Charles Francis /Windsor/
-2 TYPE birth
-2 GIVN John Charles Francis
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 12 JUL 1905
-2 PLAC York Cottage, Sandringham, Norfolk, England
-1 DEAT
-2 DATE 18 JAN 1919
-2 PLAC Wood Farm, Wolferton, Norfolk, England
-1 FAMC @F2@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I78@ INDI
-1 NAME Camilla Rosemary /Shand/
-2 TYPE birth
-2 GIVN Camilla Rosemary
-2 SURN Shand
-1 SEX F
-1 BIRT
-2 DATE 17 JUL 1947
-2 PLAC London, England
-1 FAMS @F7@
-1 CHAN
-2 DATE 2 AUG 2019
-3 TIME 17:24:50.794
-0 @I79@ INDI
-1 NAME Alexandrina Victoria //
-2 TYPE birth
-2 GIVN Alexandrina Victoria
-1 SEX F
-1 BIRT
-2 DATE 24 MAY 1819
-2 PLAC Kensington Palace, London, England
-1 DEAT
-2 DATE 22 JAN 1901
-2 PLAC Osborne House, Isle of Wight
-1 FAMC @F66@
-1 FAMS @F36@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I80@ INDI
-1 NAME Albert of Saxe-Coburg and Gotha //
-2 TYPE birth
-2 GIVN Albert of Saxe-Coburg and Gotha
-1 SEX M
-1 BIRT
-2 DATE 10 FEB 1819
-2 PLAC Schloss Rosenau, Coburg, Saxe-Coburg-Saalfeld
-1 DEAT
-2 DATE 14 DEC 1861
-2 PLAC Windsor Castle, Berkshire, England
-1 FAMS @F36@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I81@ INDI
-1 NAME Alice Maud Mary //
-2 TYPE birth
-2 GIVN Alice Maud Mary
-1 SEX F
-1 BIRT
-2 DATE 25 APR 1843
-2 PLAC Buckingham Palace, London, England
-1 DEAT
-2 DATE 14 DEC 1878
-2 PLAC New Palace, Darmstadt, Hesse (Germany)
-1 FAMC @F36@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I82@ INDI
-1 NAME Victoria of Hesse and by Rhine //
-2 TYPE birth
-2 GIVN Victoria of Hesse and by Rhine
-1 SEX F
-1 BIRT
-2 DATE 1 JAN 1863
-1 DEAT
-2 DATE 1 JAN 1950
-1 FAMC @F65@
-1 FAMS @F37@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I83@ INDI
-1 NAME Marquess of Milford Haven //
-2 TYPE birth
-2 GIVN Marquess of Milford Haven
-1 SEX M
-1 DEAT Y
-1 FAMS @F37@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I84@ INDI
-1 NAME Alice of Battenberg //
-2 TYPE birth
-2 GIVN Alice of Battenberg
-1 SEX F
-1 BIRT
-2 DATE 1 JAN 1885
-1 DEAT
-2 DATE 1 JAN 1969
-1 FAMC @F37@
-1 FAMS @F38@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I85@ INDI
-1 NAME Prince Andrew of Greece //
-2 TYPE birth
-2 GIVN Prince Andrew of Greece
-1 SEX M
-1 BIRT
-2 DATE 2 FEB 1882
-2 PLAC Athens, Greece
-1 DEAT
-2 DATE 3 DEC 1944
-2 PLAC Monte Carlo, Monaco
-1 FAMS @F38@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I86@ INDI
-1 NAME Edward IV of York //
-2 TYPE birth
-2 GIVN Edward IV of York
-1 SEX M
-1 BIRT
-2 DATE 28 APR 1442
-2 PLAC Rouen, Normandy
-1 DEAT
-2 DATE 9 APR 1483
-2 PLAC Westminster, London
-1 FAMC @F54@
-1 FAMS @F39@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I87@ INDI
-1 NAME Elizabeth /Woodville/
-2 TYPE birth
-2 GIVN Elizabeth
-2 SURN Woodville
-1 SEX F
-1 BIRT
-2 DATE ABT 1 JAN 1437
-1 DEAT
-2 DATE 8 JUN 1492
-2 PLAC Bermondsey, London
-1 FAMS @F39@
-1 CHAN
-2 DATE 27 MAY 2020
-3 TIME 14:45:01.437
-0 @I88@ INDI
-1 NAME Elizabeth of York //
-2 TYPE birth
-2 GIVN Elizabeth of York
-1 SEX F
-1 BIRT
-2 DATE 11 FEB 1466
-2 PLAC Palace of Westminster, London, England
-1 DEAT
-2 DATE 11 FEB 1503
-2 PLAC Richmond Palace
-1 FAMC @F39@
-1 FAMS @F40@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I89@ INDI
-1 NAME Henry VII /Tudor/
-2 TYPE birth
-2 GIVN Henry VII
+1 NAME Henry /Tudor/
 2 SURN Tudor
+2 GIVN Henry
 1 SEX M
 1 BIRT
-2 DATE 28 JAN 1457
+2 DATE 28 Jan 1456/1457
 2 PLAC Pembroke Castle
+2 SOUR @S1@
+3 PAGE Volume 10, page 827
 1 DEAT
-2 DATE 21 APR 1509
+2 DATE 21 Apr 1509
 2 PLAC Richmond Palace
-1 FAMS @F40@
+2 SOUR @S4@
+3 PAGE 228
+1 TITL King Henry VII
+2 DATE FROM 22 Aug 1485
+2 NOTE after defeating Richard III at the battle of Bosworth
+2 SOUR @S1@
+3 PAGE Volume 10, page 828
+1 EVEN
+2 TYPE Death mask
+2 FILE http://www.marileecody.com/h7death.jpg
+2 NOTE Link to Marilee Cody's "Tudor England" website
+1 _UID A2220CEE05D7D711BA228E18B8357A36A187
+1 FAMS @F1@
+1 FAMC @F2@
 1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I90@ INDI
-1 NAME Henry VIII /Tudor/
-2 TYPE birth
-2 GIVN Henry VIII
+2 DATE 29 Aug 2003
+3 TIME 16:45:54
+0 @I2@ INDI
+1 NAME Elizabeth /Plantagenet/
+2 SURN York
+2 GIVN Elizabeth of
+1 SEX F
+1 BIRT
+2 DATE 11 Feb 1465
+2 PLAC Westminster Palace
+2 SOUR @S5@
+3 PAGE Volume 17, page 200
+1 DEAT
+2 DATE 11 Feb 1503
+2 SOUR @S5@
+3 PAGE Volume 17, page 203
+1 EVEN
+2 TYPE Coronation
+2 DATE 25 Nov 1487
+2 PLAC Westminster Abbey
+2 SOUR @S4@
+3 PAGE 78
+1 _UID A6220CEE05D7D711BA228E18B8357A36A5C7
+1 FAMS @F1@
+1 FAMC @F3@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I3@ INDI
+1 NAME Edmund /Tudor/
 2 SURN Tudor
+2 GIVN Edmund
 1 SEX M
 1 BIRT
-2 DATE 28 JUN 1491
-2 PLAC Greenwich Palace
+2 DATE ABT 1430
+2 PLAC Hadham, Hertfordshire
+2 SOUR @S1@
+3 PAGE Volume 10, page 825
 1 DEAT
-2 DATE 28 JAN 1547
-2 PLAC Whitehall Palace
-1 FAMC @F40@
-1 FAMS @F41@
-1 FAMS @F42@
-1 FAMS @F43@
-1 FAMS @F44@
-1 FAMS @F45@
-1 FAMS @F46@
+2 DATE 3 Nov 1456
+2 PLAC Probably in Carmarthen Castle
+2 SOUR @S1@
+3 PAGE Volume 10, page 826
+1 BURI
+2 PLAC Greyfriars, Carmarthen
+2 NOTE His body was removed in 1536 to St David's Cathedral
+2 SOUR @S1@
+3 PAGE Volume 10, page 826
+1 TITL Knight
+2 DATE FROM 15 Dec 1449
+2 NOTE Knighted by his half-brother, Henry VI
+2 SOUR @S1@
+3 PAGE Volume 10, page 826
+1 TITL Earl of Richmond
+2 DATE FROM 23 Nov 1452
+2 SOUR @S1@
+3 PAGE Volume 10, page 826
+1 _UID 2300C4FC09D7D711BA22444553540000B753
+1 FAMS @F2@
 1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I91@ INDI
-1 NAME Catherine of Aragon //
-2 TYPE birth
-2 GIVN Catherine of Aragon
-1 SEX F
-1 BIRT
-2 DATE 16 DEC 1485
-2 PLAC Archbishop's Palace, Alcalá de Henares, Madrid
-1 DEAT
-2 DATE 7 JAN 1536
-2 PLAC Kimbolton Castle, Cambridgeshire
-1 FAMS @F41@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I92@ INDI
-1 NAME Anne /Boleyn/
-2 TYPE birth
-2 GIVN Anne
-2 SURN Boleyn
-1 SEX F
-1 BIRT
-2 DATE 1 JAN 1501
-2 PLAC Blickling Hall/Hever Castle, England
-1 DEAT
-2 DATE 19 MAY 1536
-2 PLAC Tower of London
-1 FAMS @F42@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I93@ INDI
-1 NAME Mary I /Tudor/
-2 TYPE birth
-2 GIVN Mary I
-2 SURN Tudor
-1 SEX F
-1 BIRT
-2 DATE 18 FEB 1516
-2 PLAC Greenwich Palace
-1 DEAT
-2 DATE 17 NOV 1558
-2 PLAC St. James's Palace
-1 FAMC @F41@
-1 FAMS @F47@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I94@ INDI
-1 NAME Elizabeth I /Tudor/
-2 TYPE birth
-2 GIVN Elizabeth I
-2 SURN Tudor
-1 SEX F
-1 BIRT
-2 DATE 7 SEP 1533
-2 PLAC Greenwich Palace
-1 DEAT
-2 DATE 24 MAR 1603
-2 PLAC Richmond Palace
-1 FAMC @F42@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I95@ INDI
-1 NAME Jane /Seymour/
-2 TYPE birth
-2 GIVN Jane
-2 SURN Seymour
-1 SEX F
-1 BIRT
-2 DATE ABT 1 JAN 1508
-2 PLAC Wulfhall, Savernake Forest, Wiltshire
-1 DEAT
-2 DATE 24 OCT 1537
-2 PLAC Hampton Court Palace, Kingston upon Thames
-1 FAMS @F43@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I96@ INDI
-1 NAME Edward VI /Tudor/
-2 TYPE birth
-2 GIVN Edward VI
-2 SURN Tudor
-1 SEX M
-1 BIRT
-2 DATE 12 OCT 1537
-2 PLAC Hampton Court Palace, Kingston upon Thames
-1 DEAT
-2 DATE 6 JUL 1553
-2 PLAC Greenwich Palace
-1 FAMC @F43@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I97@ INDI
-1 NAME Catherine /Howard/
-2 TYPE birth
-2 GIVN Catherine
-2 SURN Howard
-1 SEX F
-1 BIRT
-2 DATE 1 JAN 1518
-2 PLAC Wingate, County Durham
-1 DEAT
-2 DATE 13 FEB 1542
-2 PLAC Tower of London
-1 FAMS @F44@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I98@ INDI
-1 NAME Anne of Cleves //
-2 TYPE birth
-2 GIVN Anne of Cleves
-1 SEX F
-1 BIRT
-2 DATE 22 SEP 1515
-2 PLAC Düsseldorf, Duchy of Berg, Holy Roman Empire
-1 DEAT
-2 DATE 16 JUL 1557
-2 PLAC Chelsea Manor, England
-1 FAMS @F45@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I99@ INDI
-1 NAME Catherine /Parr/
-2 TYPE birth
-2 GIVN Catherine
-2 SURN Parr
-1 SEX F
-1 BIRT
-2 DATE ABT 1 JAN 1512
-2 PLAC Blackfriars, London, England
-1 DEAT
-2 DATE 5 SEP 1548
-2 PLAC Sudeley Castle, Gloucestershire, England
-1 FAMS @F46@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I100@ INDI
-1 NAME Margaret /Tudor/
-2 TYPE birth
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I4@ INDI
+1 NAME Margaret /Beaufort/
+2 SURN Beaufort
 2 GIVN Margaret
-2 SURN Tudor
 1 SEX F
 1 BIRT
-2 DATE 28 NOV 1489
-2 PLAC Richmond Palace
+2 DATE 31 May 1443
+2 PLAC Bletsoe
+2 SOUR @S1@
+3 PAGE Volume 4, page 207; volume 10, page 827
 1 DEAT
-2 DATE 18 NOV 1541
-2 PLAC Methven Castle, Perthshire
-1 FAMC @F40@
-1 FAMS @F48@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I101@ INDI
-1 NAME James IV King of Scotland /Stuart/
-2 TYPE birth
-2 GIVN James IV King of Scotland
-2 SURN Stuart
-1 SEX M
-1 BIRT
-2 DATE 17 MAR 1473
-2 PLAC Stirling Castle, Scotland
-1 DEAT
-2 DATE 9 SEP 1513
-2 PLAC Battle of Flodden Field, Northumberland
-1 FAMC @F60@
-1 FAMS @F48@
-1 CHAN
-2 DATE 13 AUG 2019
-3 TIME 11:20:21.048
-0 @I102@ INDI
-1 NAME James V King of Scotland /Stuart/
-2 TYPE birth
-2 GIVN James V King of Scotland
-2 SURN Stuart
-1 SEX M
-1 BIRT
-2 DATE 10 APR 1512
-2 PLAC Linlithgow Palace, Linlithgowshire
-1 DEAT
-2 DATE 14 DEC 1542
-2 PLAC Falkland Palace, Fife
-1 FAMC @F48@
-1 FAMS @F49@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I103@ INDI
-1 NAME Mary of Guise //
-2 TYPE birth
-2 GIVN Mary of Guise
-1 SEX F
-1 BIRT
-2 DATE 22 NOV 1515
-2 PLAC Bar-le-Duc, Lorraine, France
-1 DEAT
-2 DATE 11 JUN 1560
-2 PLAC Edinburgh Castle, Scotland
-1 FAMS @F49@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I104@ INDI
-1 NAME Mary Queen of Scotland /Stuart/
-2 TYPE birth
-2 GIVN Mary Queen of Scotland
-2 SURN Stuart
-1 SEX F
-1 BIRT
-2 DATE 8 DEC 1542
-2 PLAC Linlithgow Palace, Linlithgowshire
-1 DEAT
-2 DATE 8 FEB 1587
-2 PLAC Fotheringhay Castle, Northamptonshire
-1 FAMC @F49@
-1 FAMS @F50@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I105@ INDI
-1 NAME Henry /Stuart/
-2 TYPE birth
-2 GIVN Henry
-2 SURN Stuart
-1 SEX M
-1 BIRT
-2 DATE 7 DEC 1545
-2 PLAC Temple Newsam, Leeds, West Yorkshire, England
-1 DEAT
-2 DATE 10 FEB 1567
-2 PLAC Kirk o' Field, Edinburgh, Scotland
-1 FAMS @F50@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I106@ INDI
-1 NAME James I of England /Stuart/
-2 TYPE birth
-2 GIVN James I of England
-2 SURN Stuart
-1 NAME James VI of Scotland //
-2 TYPE birth
-2 GIVN James VI of Scotland
-1 SEX M
-1 BIRT
-2 DATE 19 JUN 1566
-2 PLAC Edinburgh Castle, Scotland
-1 DEAT
-2 DATE 27 MAR 1625
-2 PLAC Theobalds House
-1 FAMC @F50@
-1 FAMS @F51@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I107@ INDI
-1 NAME Anne of Denmark //
-2 TYPE birth
-2 GIVN Anne of Denmark
-1 SEX F
-1 BIRT
-2 DATE 1 JAN 1574
-1 DEAT
-2 DATE 1 JAN 1619
-1 FAMS @F51@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I108@ INDI
-1 NAME Kate /Middleton/
-2 TYPE birth
-2 GIVN Kate
-2 SURN Middleton
-1 SEX F
-1 BIRT
-2 DATE 9 JAN 1982
-2 PLAC Royal Berkshire Hospital, Reading, Berkshire, England
-1 FAMS @F8@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I109@ INDI
-1 NAME Ernest Aldrich /Simpson/
-2 TYPE birth
-2 GIVN Ernest Aldrich
-2 SURN Simpson
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 6 MAY 1895
-2 PLAC New York City
-1 DEAT
-2 DATE 30 NOV 1958
-2 PLAC London, England
+2 DATE 29 Jun 1509
+2 SOUR @S1@
+3 PAGE Volume 4, page 207; volume 10, page 827
+1 BURI
+2 PLAC Westminster Abbey
+2 SOUR @S1@
+3 PAGE Volume 4, page 207; volume 10, page 827
+1 _UID 2600C4FC09D7D711BA22444553540000BA83
 1 FAMS @F4@
+1 FAMS @F2@
+1 FAMS @F5@
+1 FAMS @F6@
+1 FAMC @F7@
+1 ASSO @I6@
+2 RELA Margaret was John's only daughter and heir
+2 SOUR @S1@
+3 PAGE Volume 10, page 826
+1 EVEN
+2 TYPE Portrait
+2 FILE http://www.marileecody.com/beaufort.jpg
+2 NOTE Link to Marilee Cody's "Tudor England" website
 1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I110@ INDI
-1 NAME William IV //
-2 TYPE birth
-2 GIVN William IV
-1 NAME //
-2 TYPE birth
+2 DATE 28 Aug 2003
+3 TIME 14:56:26
+0 @I5@ INDI
+1 NAME John de la /Pole/
+2 SURN Pole
+2 GIVN John de la
 1 SEX M
-1 BIRT
-2 DATE 21 AUG 1765
-2 PLAC Buckingham House
-1 DEAT
-2 DATE 20 JUN 1837
-1 FAMC @F67@
+1 _UID 2A00C4FC09D7D711BA22444553540000BEC3
+1 FAMS @F4@
+1 TITL 2nd Duke of Suffolk
+2 SOUR @S1@
+3 PAGE Volume 10, page 826
 1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I111@ INDI
-1 NAME George IV //
-2 TYPE birth
-2 GIVN George IV
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 12 AUG 1762
-2 PLAC St. James's Palace
-1 DEAT
-2 DATE 26 JUN 1830
-2 PLAC Windsor
-1 FAMC @F68@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I112@ INDI
-1 NAME George III //
-2 TYPE birth
-2 GIVN George III
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 4 JUN 1738
-2 PLAC Norfolk House
-1 DEAT
-2 DATE 29 JAN 1820
-2 PLAC Windsor Castle, Berkshire, England
-1 FAMC @F69@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I113@ INDI
-1 NAME George II //
-2 TYPE birth
-2 GIVN George II
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 30 OCT 1683
-2 PLAC Herrenhausen
-1 DEAT
-2 DATE 25 OCT 1760
-2 PLAC Kensington Palace, London, England
-1 FAMC @F70@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I114@ INDI
-1 NAME George I //
-2 TYPE birth
-2 GIVN George I
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 28 MAY 1660
-2 PLAC Leineschloss
-1 DEAT
-2 DATE 11 JUN 1727
-2 PLAC Osnabrück
-1 FAMC @F73@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I115@ INDI
-1 NAME Philip //
-2 TYPE birth
-2 GIVN Philip
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 21 MAY 1527
-2 PLAC Valladolid
-1 DEAT
-2 DATE 13 SEP 1598
-2 PLAC El Escorial
-1 FAMS @F47@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I116@ INDI
-1 NAME Charles I /Stuart/
-2 TYPE birth
-2 GIVN Charles I
-2 SURN Stuart
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 19 NOV 1600
-2 PLAC Dunfermline Palace
-1 DEAT
-2 DATE 30 JAN 1649
-2 PLAC Whitehall Palace
-1 FAMC @F51@
-1 FAMS @F52@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I117@ INDI
-1 NAME Henrietta Maria of France //
-2 TYPE birth
-2 GIVN Henrietta Maria of France
-1 NAME //
-2 TYPE birth
-1 SEX F
-1 BIRT
-2 DATE 25 NOV 1609
-2 PLAC Palais du Louvre, Paris, France
-1 DEAT
-2 DATE 10 SEP 1669
-2 PLAC Château de Colombes, Colombes, France
-1 FAMS @F52@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I118@ INDI
-1 NAME Charles II /Stuart/
-2 TYPE birth
-2 GIVN Charles II
-2 SURN Stuart
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 29 MAY 1630
-2 PLAC St. James's Palace
-1 DEAT
-2 DATE 6 FEB 1685
-2 PLAC Whitehall Palace
-1 FAMC @F52@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I119@ INDI
-1 NAME James II /Stuart/
-2 TYPE birth
-2 GIVN James II
-2 SURN Stuart
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 14 OCT 1633
-2 PLAC St. James's Palace
-1 DEAT
-2 DATE 16 SEP 1701
-2 PLAC Château de Saint-Germain-en-Laye
-1 FAMC @F52@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I120@ INDI
-1 NAME Mary II /Stuart/
-2 TYPE birth
-2 GIVN Mary II
-2 SURN Stuart
-1 NAME //
-2 TYPE birth
-1 SEX F
-1 BIRT
-2 DATE 30 APR 1662
-2 PLAC St. James's Palace
-1 DEAT
-2 DATE 28 DEC 1694
-2 PLAC Kensington Palace, London, England
-1 FAMC @F71@
-1 FAMS @F53@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I121@ INDI
-1 NAME Anne /Stuart/
-2 TYPE birth
-2 GIVN Anne
-2 SURN Stuart
-1 NAME //
-2 TYPE birth
-1 SEX F
-1 BIRT
-2 DATE 6 FEB 1665
-2 PLAC St. James's Palace
-1 DEAT
-2 DATE 1 AUG 1714
-2 PLAC Kensington Palace, London, England
-1 FAMC @F71@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I122@ INDI
-1 NAME William III //
-2 TYPE birth
-2 GIVN William III
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 4 NOV 1650
-2 PLAC The Hague, Netherlands
-1 DEAT
-2 DATE 8 MAR 1702
-2 PLAC Kensington Palace, London, England
-1 FAMS @F53@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I123@ INDI
-1 NAME Elizabeth of Bohemia /Stuart/
-2 TYPE birth
-2 GIVN Elizabeth of Bohemia
-2 SURN Stuart
-1 NAME //
-2 TYPE birth
-1 SEX F
-1 BIRT
-2 DATE 19 AUG 1596
-2 PLAC Falkland Palace, Fife
-1 DEAT
-2 DATE 13 FEB 1662
-2 PLAC England
-1 FAMC @F51@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I124@ INDI
-1 NAME Sophia of Hanover //
-2 TYPE birth
-2 GIVN Sophia of Hanover
-1 NAME //
-2 TYPE birth
-1 SEX F
-1 BIRT
-2 DATE 14 OCT 1630
-2 PLAC The Hague, Netherlands
-1 DEAT
-2 DATE 9 JUN 1714
-2 PLAC Leine Castle, Hanover
-1 FAMC @F72@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I125@ INDI
-1 NAME Edward V //
-2 TYPE birth
-2 GIVN Edward V
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 2 NOV 1470
-2 PLAC Westminster, London
-1 DEAT
-2 DATE ABT 1 JAN 1483
-2 PLAC London, England
-1 FAMC @F39@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I126@ INDI
-1 NAME Richard III //
-2 TYPE birth
-2 GIVN Richard III
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 2 OCT 1452
-2 PLAC Fotheringhay Castle
-1 DEAT
-2 DATE 22 AUG 1485
-2 PLAC Bosworth Field
-1 FAMC @F54@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I127@ INDI
-1 NAME Henry IV //
-2 TYPE birth
-2 GIVN Henry IV
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 3 APR 1366
-2 PLAC Bolingbroke Castle, Lincolnshire
-1 DEAT
-2 DATE 20 MAR 1413
-2 PLAC Westminster, London
-1 FAMC @F76@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I128@ INDI
-1 NAME Henry V //
-2 TYPE birth
-2 GIVN Henry V
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 16 SEP 1386
-2 PLAC Monmouth Castle
-1 DEAT
-2 DATE 31 AUG 1422
-2 PLAC Château de Vincennes
-1 FAMC @F74@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I129@ INDI
-1 NAME Henry VI //
-2 TYPE birth
-2 GIVN Henry VI
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 6 DEC 1421
-2 PLAC Windsor Castle, Berkshire, England
-1 DEAT
-2 DATE 21 MAY 1471
-2 PLAC Tower of London
-1 FAMC @F75@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I130@ INDI
-1 NAME John of Gaunt //
-2 TYPE birth
-2 GIVN John of Gaunt
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 6 MAR 1340
-2 PLAC Ghent, Belgium
-1 DEAT
-2 DATE 3 FEB 1399
-2 PLAC Leicester Castle, Leicestershire
-1 FAMC @F77@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I131@ INDI
-1 NAME Edward III //
-2 TYPE birth
-2 GIVN Edward III
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 13 NOV 1312
-2 PLAC Windsor Castle, Berkshire, England
-1 DEAT
-2 DATE 21 JUN 1377
-2 PLAC Sheen Palace, Richmond
-1 FAMC @F80@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I132@ INDI
-1 NAME Edmund of Langley //
-2 TYPE birth
-2 GIVN Edmund of Langley
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 5 JUN 1341
-2 PLAC Kings Langley, Hertfordshire
-1 DEAT
-2 DATE 1 AUG 1402
-2 PLAC Kings Langley, Hertfordshire
-1 FAMC @F77@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I133@ INDI
-1 NAME Richard of Conisburgh //
-2 TYPE birth
-2 GIVN Richard of Conisburgh
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE ABT 1 JAN 1375
-2 PLAC Conisburgh Castle, Yorkshire
-1 DEAT
-2 DATE 5 AUG 1415
-2 PLAC Southampton, Hampshire
-1 FAMC @F78@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I134@ INDI
-1 NAME Richard of York /Plantagenêt/
-2 TYPE birth
-2 GIVN Richard of York
-2 SURN Plantagenêt
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 21 SEP 1411
-1 DEAT
-2 DATE 30 DEC 1460
-2 PLAC Wakefield, Yorkshire
-1 FAMC @F79@
-1 FAMS @F54@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I135@ INDI
-1 NAME Autumn Patricia /Kelly/
-2 TYPE birth
-2 GIVN Autumn Patricia
-2 SURN Kelly
-1 NAME //
-2 TYPE birth
-1 SEX F
-1 BIRT
-2 DATE 3 MAY 1978
-2 PLAC Montreal, Quebec, Canada
-1 FAMS @F11@
-1 CHAN
-2 DATE 27 MAY 2020
-3 TIME 14:55:39.757
-0 @I136@ INDI
-1 NAME Savannah Anne Kathleen /Phillips/
-2 TYPE birth
-2 GIVN Savannah Anne Kathleen
-2 SURN Phillips
-1 NAME //
-2 TYPE birth
-1 SEX F
-1 BIRT
-2 DATE 29 DEC 2010
-2 PLAC Gloucestershire Royal Hospital
-1 FAMC @F11@
-1 CHAN
-2 DATE 27 MAY 2020
-3 TIME 14:55:39.757
-0 @I137@ INDI
-1 NAME Michael /Tindall/
-2 TYPE birth
-2 GIVN Michael
-2 SURN Tindall
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 18 OCT 1978
-2 PLAC Otley, England
-1 FAMS @F12@
-1 CHAN
-2 DATE 20 DEC 2021
-3 TIME 10:19:18.055
-0 @I138@ INDI
-1 NAME Sophie Helen /Rhys-Jones/
-2 TYPE birth
-2 GIVN Sophie Helen
-2 SURN Rhys-Jones
-1 NAME //
-2 TYPE birth
-1 SEX F
-1 BIRT
-2 DATE 20 JAN 1965
-2 PLAC Radcliffe Infirmary, Oxford
-1 FAMS @F14@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I139@ INDI
-1 NAME Louise Alice Elizabeth Mary /Mountbatten-Windsor/
-2 TYPE birth
-2 GIVN Louise Alice Elizabeth Mary
-2 SURN Mountbatten-Windsor
-1 NAME //
-2 TYPE birth
-1 SEX F
-1 BIRT
-2 DATE 8 NOV 2003
-2 PLAC Frimley Park Hospital, Surrey, England
-1 FAMC @F14@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I140@ INDI
-1 NAME James Alexander Philip Theo /Mountbatten-Windsor/
-2 TYPE birth
-2 GIVN James Alexander Philip Theo
-2 SURN Mountbatten-Windsor
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 17 DEC 2007
-2 PLAC Frimley Park Hospital, Surrey, England
-1 FAMC @F14@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I141@ INDI
-1 NAME Daniel /Chatto/
-2 TYPE birth
-2 GIVN Daniel
-2 SURN Chatto
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 22 APR 1957
-1 FAMS @F17@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I142@ INDI
-1 NAME Samuel David Benedict /Chatto/
-2 TYPE birth
-2 GIVN Samuel David Benedict
-2 SURN Chatto
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 28 JUL 1996
-2 PLAC London, England
-1 FAMC @F17@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I143@ INDI
-1 NAME Arthur Robert Nathaniel /Chatto/
-2 TYPE birth
-2 GIVN Arthur Robert Nathaniel
-2 SURN Chatto
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 5 FEB 1999
-2 PLAC London, England
-1 FAMC @F17@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I144@ INDI
-1 NAME Serena Alleyne /Stanhope/
-2 TYPE birth
-2 GIVN Serena Alleyne
-2 SURN Stanhope
-1 NAME //
-2 TYPE birth
-1 SEX F
-1 BIRT
-2 DATE 1 MAR 1970
-2 PLAC Limerick, Ireland
-1 FAMS @F16@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I145@ INDI
-1 NAME Charles Patrick Inigo /Armstrong-Jones/
-2 TYPE birth
-2 GIVN Charles Patrick Inigo
-2 SURN Armstrong-Jones
-1 NAME //
-2 TYPE birth
-1 SEX M
-1 BIRT
-2 DATE 1 JUL 1999
-2 PLAC London, England
-1 FAMC @F16@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I146@ INDI
-1 NAME Margarita Elizabeth Rose Alleyne /Armstrong-Jones/
-2 TYPE birth
-2 GIVN Margarita Elizabeth Rose Alleyne
-2 SURN Armstrong-Jones
-1 NAME //
-2 TYPE birth
-1 SEX F
-1 BIRT
-2 DATE 14 MAY 2002
-2 PLAC London, England
-1 FAMC @F16@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I147@ INDI
-1 NAME Edward II //
-2 TYPE birth
-2 GIVN Edward II
-1 SEX M
-1 BIRT
-2 DATE 25 APR 1284
-2 PLAC Caernarfon Castle, Gwynedd
-1 DEAT
-2 DATE 21 SEP 1327
-2 PLAC Berkeley Castle, Gloucestershire
-1 FAMC @F55@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I148@ INDI
-1 NAME Edward I //
-2 TYPE birth
-2 GIVN Edward I
-1 SEX M
-1 BIRT
-2 DATE 17 JUN 1239
-2 PLAC Palace of Westminster, London, England
-1 DEAT
-2 DATE 7 JUL 1307
-2 PLAC Burgh by Sands, Cumberland, England
-1 FAMC @F81@
-1 FAMS @F55@
-1 FAMS @F56@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I149@ INDI
-1 NAME Eleanor of Castile //
-2 TYPE birth
-2 GIVN Eleanor of Castile
-1 SEX F
-1 BIRT
-2 DATE 1 JAN 1241
-2 PLAC Castile, Spain
-1 DEAT
-2 DATE 28 NOV 1290
-2 PLAC Harby, Nottinghamshire
-1 FAMS @F55@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I150@ INDI
-1 NAME Margaret of France //
-2 TYPE birth
-2 GIVN Margaret of France
-1 SEX F
-1 BIRT
-2 DATE ABT 1 JAN 1279
-2 PLAC Paris, France
-1 DEAT
-2 DATE 14 FEB 1318
-2 PLAC Marlborough Castle, Wiltshire
-1 FAMS @F56@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I151@ INDI
-1 NAME Henry III //
-2 TYPE birth
-2 GIVN Henry III
-1 SEX M
-1 BIRT
-2 DATE 1 OCT 1207
-2 PLAC Winchester Castle, Hampshire
-1 DEAT
-2 DATE 16 NOV 1272
-2 PLAC Westminster, London
-1 FAMC @F82@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I152@ INDI
-1 NAME John //
-2 TYPE birth
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I6@ INDI
+1 NAME John /Beaufort/
+2 SURN Beaufort
 2 GIVN John
 1 SEX M
-1 BIRT
-2 DATE 24 DEC 1166
-2 PLAC Beaumont Palace, Oxford, England
-1 DEAT
-2 DATE 19 OCT 1216
-2 PLAC Newark Castle, Newark-on-Trent, Nottinghamshire
-1 FAMC @F57@
+1 _UID 2E00C4FC09D7D711BA22444553540000C203
+1 FAMS @F7@
+1 TITL Duke of Somerset
+2 SOUR @S1@
+3 PAGE Volume 10, page 826
 1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I153@ INDI
-1 NAME Richard I //
-2 TYPE birth
-2 GIVN Richard I
-1 SEX M
-1 BIRT
-2 DATE 8 SEP 1157
-2 PLAC Beaumont Palace, Oxford, England
-1 DEAT
-2 DATE 6 APR 1199
-2 PLAC Châlus, Duchy of Aquitaine
-1 FAMC @F57@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I154@ INDI
-1 NAME George Alexander Louis /Windsor/
-2 TYPE birth
-2 GIVN George Alexander Louis
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 22 JUL 2013
-2 PLAC St. Mary's Hosp., Paddington, London, England
-1 FAMC @F8@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I155@ INDI
-1 NAME Charlotte Elizabeth Diana /Windsor/
-2 TYPE birth
-2 GIVN Charlotte Elizabeth Diana
-2 SURN Windsor
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I7@ INDI
+1 NAME Margaret /Beauchamp/
+2 SURN Beauchamp
+2 GIVN Margaret
 1 SEX F
-1 BIRT
-2 DATE 2 MAY 2015
-2 PLAC St Mary's Hospital, London, England
-1 FAMC @F8@
+1 _UID 3100C4FC09D7D711BA22444553540000C533
+1 FAMS @F8@
+1 FAMS @F7@
+1 FAMC @F9@
 1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I156@ INDI
-1 NAME Cecily /Neville/
-2 TYPE birth
-2 GIVN Cecily
-2 SURN Neville
-1 SEX F
-1 BIRT
-2 DATE 3 MAY 1415
-2 PLAC Raby Castle, Durham, England
-1 DEAT
-2 DATE 31 MAY 1495
-2 PLAC Berkhamsted Castle, Hertfordshire, England
-1 FAMS @F54@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I157@ INDI
-1 NAME Henry II //
-2 TYPE birth
-2 GIVN Henry II
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I8@ INDI
+1 NAME Oliver /St John/
+2 SURN St John
+2 GIVN Oliver
 1 SEX M
-1 BIRT
-2 DATE 5 MAR 1133
-2 PLAC Le Mans, France
-1 DEAT
-2 DATE 6 JUL 1189
-2 PLAC Chinon Castle, France
-1 FAMC @F83@
-1 FAMS @F57@
+1 _UID 3300C4FC09D7D711BA22444553540000C753
+1 FAMS @F8@
 1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I158@ INDI
-1 NAME Eleanor of Aquitaine //
-2 TYPE birth
-2 GIVN Eleanor of Aquitaine
-1 SEX F
-1 BIRT
-2 DATE 1122
-2 PLAC Poitiers
-1 DEAT
-2 DATE 1 APR 1204
-2 PLAC Poitiers, Angevin Empire
-1 FAMS @F57@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I159@ INDI
-1 NAME Edward, the Black Prince //
-2 TYPE birth
-2 GIVN Edward, the Black Prince
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I9@ INDI
+1 NAME John /Beauchamp/
+2 SURN Beauchamp
+2 GIVN John
 1 SEX M
-1 BIRT
-2 DATE 15 JUN 1330
-2 PLAC Woodstock Palace, Oxfordshire
-1 DEAT
-2 DATE 8 JUN 1376
-2 PLAC Palace of Westminster
-1 FAMC @F77@
-1 FAMS @F58@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I160@ INDI
-1 NAME Joan of Kent //
-2 TYPE birth
-2 GIVN Joan of Kent
-1 SEX F
-1 BIRT
-2 DATE 29 SEP 1328
-2 PLAC Woodstock Palace, Oxfordshire, England
-1 DEAT
-2 DATE 7 AUG 1385
-2 PLAC Wallingford Castle, Wallingford, Berkshire, England
-1 FAMS @F58@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I161@ INDI
-1 NAME Richard II //
-2 TYPE birth
-2 GIVN Richard II
-1 SEX M
-1 BIRT
-2 DATE 6 JUN 1367
-2 PLAC Bordeaux, Duchy of Aquitaine
-1 DEAT
-2 DATE ABT 14 FEB 1400
-2 PLAC Pontefract Castle, Yorkshire
-1 FAMC @F58@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I162@ INDI
-1 NAME Matilda //
-2 TYPE birth
-2 GIVN Matilda
-1 SEX F
-1 BIRT
-2 DATE ABT 7 FEB 1102
-1 DEAT
-2 DATE 10 SEP 1167
-2 PLAC Rouen
-1 FAMC @F84@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I163@ INDI
-1 NAME Henry I //
-2 TYPE birth
-2 GIVN Henry I
-1 SEX M
-1 BIRT
-2 DATE ABT 1068
-1 DEAT
-2 DATE 1 DEC 1135
-2 PLAC Saint-Denis-en-Lyons, Normandy
-1 FAMC @F85@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I164@ INDI
-1 NAME William I "William the Conqueror" //
-2 TYPE birth
-2 GIVN William I
-2 NICK William the Conqueror
-1 SEX M
-1 BIRT
-2 DATE ABT 1028
-1 DEAT
-2 DATE 9 SEP 1087
-2 PLAC Priory of Saint Gervase, Rouen, Normandy
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I165@ INDI
-1 NAME William II //
-2 TYPE birth
-2 GIVN William II
-1 SEX M
-1 BIRT
-2 DATE ABT 1056
-2 PLAC Normandy, France
-1 DEAT
-2 DATE 2 AUG 1100
-2 PLAC The New Forest, England
-1 FAMC @F85@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I166@ INDI
-1 NAME Adela of Normandy //
-2 TYPE birth
-2 GIVN Adela of Normandy
-1 SEX F
-1 BIRT
-2 DATE ABT 1067
-2 PLAC Normandy, France
-1 DEAT
-2 DATE 8 MAR 1137
-2 PLAC Marcigny-sur-Loire, France
-1 FAMC @F85@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I167@ INDI
-1 NAME Stephen //
-2 TYPE birth
-2 GIVN Stephen
-1 SEX M
-1 BIRT
-2 DATE ABT 1092
-2 PLAC Blois, France
-1 DEAT
-2 DATE 25 OCT 1154
-2 PLAC Dover, Kent
-1 FAMC @F86@
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @I168@ INDI
-1 NAME Rachel Meghan "Meghan" /Markle/
-2 TYPE birth
-2 GIVN Rachel Meghan
-2 NICK Meghan
-2 SURN Markle
-1 SEX F
-1 BIRT
-2 DATE 4 AUG 1981
-2 PLAC Los Angeles, California, United States
+1 _UID 3600C4FC09D7D711BA22444553540000CA83
 1 FAMS @F9@
-1 FAMS @F59@
+1 TITL Lord Beauchamp (of Bletsoe)
+2 SOUR @S1@
+3 PAGE Volume 4, page 207
+1 RESI Bletsoe
+2 SOUR @S1@
+3 PAGE Volume 10, page 826
 1 CHAN
-2 DATE 10 SEP 2022
-3 TIME 11:16:43.236
-0 @I169@ INDI
-1 NAME Louis Arthur Charles /Windsor/
-2 TYPE birth
-2 GIVN Louis Arthur Charles
-2 SURN Windsor
-1 SEX M
-1 BIRT
-2 DATE 23 APR 2018
-2 PLAC St. Mary's Hosp., Paddington, London, England
-1 FAMC @F8@
-1 CHAN
-2 DATE 22 MAY 2018
-3 TIME 18:54:17.923
-0 @I170@ INDI
-1 NAME Archie Harrison /Mountbatten-Windsor/
-2 TYPE birth
-2 GIVN Archie Harrison
-2 SURN Mountbatten-Windsor
-1 SEX M
-1 BIRT
-2 DATE 6 MAY 2019
-1 FAMC @F9@
-1 CHAN
-2 DATE 9 MAY 2019
-3 TIME 20:33:35.151
-0 @I171@ INDI
-1 NAME Trevor /Engelson/
-2 TYPE birth
-2 GIVN Trevor
-2 SURN Engelson
-1 SEX M
-1 BIRT
-2 DATE 23 OCT 1976
-1 FAMS @F59@
-1 CHAN
-2 DATE 2 AUG 2019
-3 TIME 17:28:36.432
-0 @I172@ INDI
-1 NAME James III /Stewart/
-2 TYPE birth
-2 GIVN James III
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I10@ INDI
+1 NAME James /Stewart/
 2 SURN Stewart
+2 GIVN James
 1 SEX M
 1 BIRT
-2 DATE INT MAY 1452 (MAY 1452)
+2 DATE 21 Feb 1506/1507
+2 PLAC Holyrood House
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
 1 DEAT
-2 DATE 11 JUN 1488
-2 PLAC Sauchie Burn, Scotland
-1 FAMC @F61@
-1 FAMS @F60@
+2 DATE 27 Feb 1507/1508
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
+1 _UID E62E9C1D51DAD711BA22444553540000EC33
+1 FAMC @F145@
 1 CHAN
-2 DATE 13 AUG 2019
-3 TIME 11:20:21.048
-0 @I173@ INDI
-1 NAME James II /Stewart/
-2 TYPE birth
-2 GIVN James II
-2 SURN Stewart
+2 DATE 29 Aug 2003
+3 TIME 18:59:38
+0 @I11@ INDI
+1 NAME Henry /Stafford/
+2 SURN Stafford
+2 GIVN Henry
+1 SEX M
+1 DEAT
+2 DATE 4 Oct 1471
+2 SOUR @S1@
+3 PAGE Volume 10, page 827
+1 _UID 3B00C4FC09D7D711BA22444553540000CFD3
+1 FAMS @F5@
+1 FAMC @F10@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I12@ INDI
+1 NAME Humphrey /Stafford/
+2 SURN Stafford
+2 GIVN Humphrey
+1 SEX M
+1 _UID 3E00C4FC09D7D711BA22444553540000D203
+1 FAMS @F10@
+1 TITL 1st Duke of Buckingham
+2 SOUR @S1@
+3 PAGE Volume 10, page 827
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I13@ INDI
+1 NAME Thomas /Stanley/
+2 SURN Stanley
+2 GIVN Thomas
 1 SEX M
 1 BIRT
-2 DATE 16 OCT 1430
+2 DATE ABT 1435
+2 SOUR @S1@
+3 PAGE Volume 4, page 205
 1 DEAT
-2 DATE 3 AUG 1460
-1 FAMC @F62@
-1 FAMS @F61@
+2 DATE 29 Jul 1504
+2 PLAC Lathom
+2 SOUR @S1@
+3 PAGE Volume 4, page 207
+1 BURI
+2 PLAC Burscough Priory, Lancashire
+2 SOUR @S1@
+3 PAGE Volume 4, page 207
+1 _UID 4100C4FC09D7D711BA22444553540000D533
+1 FAMS @F11@
+1 FAMS @F6@
+1 TITL 2nd Lord Stanley
+2 SOUR @S1@
+3 PAGE Volume 10, page 827
+1 TITL Earl of Derby
+2 DATE FROM 27 Oct 1485
+2 SOUR @S1@
+3 PAGE Volume 4, page 206
 1 CHAN
-2 DATE 13 AUG 2019
-3 TIME 11:20:21.048
-0 @I174@ INDI
-1 NAME James I /Stewart/
-2 TYPE birth
-2 GIVN James I
-2 SURN Stewart
+2 DATE 28 Aug 2003
+3 TIME 14:55:32
+0 @I14@ INDI
+1 NAME Henry /Tudor/
+2 SURN Tudor
+2 GIVN Henry
 1 SEX M
 1 BIRT
-2 DATE JUL 1394
+2 DATE 28 Jun 1491
+2 PLAC Greenwich
+2 SOUR @S1@
+3 PAGE Volume 3, page 443
+1 CHR
+2 PLAC Greenwich
+2 SOUR @S1@
+3 PAGE Volume 3, page 443
 1 DEAT
-2 DATE 21 FEB 1437
-1 FAMS @F62@
+2 DATE 28 Jan 1546/1547
+2 SOUR @S1@
+3 PAGE Volume 3, page 444
+1 _UID 4400C4FC09D7D711BA22444553540000D863
+1 FAMS @F12@
+1 FAMS @F13@
+1 FAMS @F14@
+1 FAMS @F15@
+1 FAMS @F16@
+1 FAMS @F17@
+1 FAMS @F18@
+1 FAMS @F174@
+1 FAMC @F1@
+1 TITL Duke of Cornwall
+2 DATE FROM 2 Apr 1502
+2 NOTE Held to have succeeded to this title on the death of his brother Arthur
+2 SOUR @S1@
+3 PAGE Volume 3, page 442
+1 TITL King Henry VIII
+2 DATE FROM 22 Apr 509
+2 SOUR @S1@
+3 PAGE Volume 3, page 443
 1 CHAN
-2 DATE 13 AUG 2019
-3 TIME 10:24:51.036
-0 @I175@ INDI
-1 NAME Joan /Beaufort/
-2 TYPE birth
-2 GIVN Joan
-2 SURN Beaufort
-1 SEX F
-1 DEAT
-2 DATE 15 JUL 1445
-1 FAMS @F62@
-1 CHAN
-2 DATE 13 AUG 2019
-3 TIME 10:24:51.036
-0 @I176@ INDI
-1 NAME Alexander /Stewart/
-2 TYPE birth
-2 GIVN Alexander
-2 SURN Stewart
-1 SEX M
-1 BIRT
-2 DATE 16 OCT 1430
-1 DEAT
-2 DATE 1430
-1 FAMC @F62@
-1 CHAN
-2 DATE 27 MAY 2020
-3 TIME 14:44:05.653
-0 @I177@ INDI
-1 NAME Mary of Guelders //
-2 TYPE birth
-2 GIVN Mary of Guelders
-1 SEX F
-1 BIRT
-2 DATE 1434
-1 DEAT
-2 DATE 1 DEC 1463
-1 FAMS @F61@
-1 CHAN
-2 DATE 13 AUG 2019
-3 TIME 11:20:21.048
-0 @I178@ INDI
-1 NAME Margaret of Denmark //
-2 TYPE birth
-2 GIVN Margaret of Denmark
-1 SEX F
-1 BIRT
-2 DATE 23 JUN 1456
-2 PLAC Denmark
-1 DEAT
-2 DATE 14 JUL 1486
-2 PLAC Stirling Castle, Stirlingshire
-1 FAMS @F60@
-1 CHAN
-2 DATE 13 AUG 2019
-3 TIME 11:20:21.048
-0 @I179@ INDI
-1 NAME Mia Grace /Tindall/
-2 TYPE birth
-2 GIVN Mia Grace
-2 SURN Tindall
+2 DATE 28 Aug 2003
+3 TIME 19:05:25
+0 @I15@ INDI
+1 NAME Catherine of /Aragon/
+2 SURN Aragon
+2 GIVN Catherine of
 1 SEX F
 1 BIRT
-2 DATE 17 JAN 2014
-2 PLAC Gloucestershire Royal Hospital
+2 DATE 5 Dec 1485
+2 PLAC Alcala de Henares, near Madrid
+2 SOUR @S1@
+3 PAGE Volume 3, page 442
+1 DEAT
+2 DATE 6 Jan 1535/1536
+2 PLAC Kimbolton Castle
+2 SOUR @S1@
+3 PAGE Volume 3, page 442
+1 BURI
+2 PLAC Peterborough Abbey
+2 SOUR @S1@
+3 PAGE Volume 3, page 442
+1 _UID 4600C4FC09D7D711BA22444553540000DA83
+1 FAMS @F19@
+1 FAMS @F12@
+1 FAMC @F20@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 12:06:24
+0 @I16@ INDI
+1 NAME Anne /Boleyn/
+2 SURN Boleyn
+2 GIVN Anne
+1 SEX F
+1 DEAT
+2 DATE 19 May 1536
+2 PLAC Tower Green, London
+2 SOUR @S1@
+3 PAGE Volume 10, page 404
+1 BURI
+2 PLAC St Peter's in the Tower
+2 SOUR @S1@
+3 PAGE Volume 10, pages 404, 405
+1 _UID 4900C4FC09D7D711BA22444553540000DDB3
+1 FAMS @F13@
+1 FAMC @F21@
+1 TITL Marchioness of Pembroke
+2 DATE FROM 1 Sep 1532
+2 SOUR @S1@
+3 PAGE Volume 10, page 404
+1 TITL Queen Consort
+2 DATE FROM 1 Jun 1533
+3 NOTE (crowned)
+2 SOUR @S1@
+3 PAGE Volume 10, page 404
+1 EVEN
+2 TYPE Sent to the Tower of London
+2 DATE 2 May 1536
+2 SOUR @S1@
+3 PAGE Volume 10, page 404
+1 EVEN
+2 TYPE Tried
+2 DATE 15 May 1536
+2 PLAC Tower of London
+2 SOUR @S1@
+3 PAGE Volume 10, page 404
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 12:16:30
+0 @I17@ INDI
+1 NAME Anne of /Cleves/
+2 SURN Cleves
+2 GIVN Anne of
+1 SEX F
+1 BIRT
+2 DATE 22 Sep 1515
+2 SOUR @S5@
+3 PAGE Volume 1, page 429
+1 DEAT
+2 DATE 16 Jul 1557
+2 SOUR @S5@
+3 PAGE Volume 1, page 431
+1 BURI
+2 DATE 3 Aug 1557
+2 PLAC Westminster Abbey
+2 SOUR @S5@
+3 PAGE Volume 1, page 431
+1 EVEN
+2 TYPE Portrait
+2 FILE http://www.marileecody.com/cleves-portraits.html
+2 NOTE Link to Marilee Cody's "Tudor England" website
+1 _UID 4C00C4FC09D7D711BA22444553540000E0E3
+1 FAMS @F15@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I18@ INDI
+1 NAME Jane /Seymour/
+2 SURN Seymour
+2 GIVN Jane
+1 SEX F
+1 DEAT
+2 DATE 15 Oct 1537
+2 SOUR @S1@
+3 PAGE Volume 3, page 444
+1 _UID 4F00C4FC09D7D711BA22444553540000E313
+1 FAMS @F14@
+1 FAMC @F22@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 19:06:31
+0 @I19@ INDI
+1 NAME Catherine /Howard/
+2 SURN Howard
+2 GIVN Catherine
+1 SEX F
+1 DEAT
+2 DATE 13 Feb 1541/2
+2 PLAC Tower of London
+2 CAUS beheading
+2 SOUR @S4@
+3 PAGE 419
+1 _UID 5200C4FC09D7D711BA22444553540000E643
+1 FAMS @F16@
+1 FAMC @F23@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I20@ INDI
+1 NAME Catherine /Parr/
+2 SURN Parr
+2 GIVN Catherine
+1 SEX F
+1 DEAT
+2 DATE 5 Sep 1548
+2 PLAC Sudeley Castle
+2 CAUS Puerperal fever
+2 NOTE without male issue
+2 SOUR @S1@
+3 PAGE Volume 11, page 639
+1 BURI
+2 PLAC Sudeley Castle
+2 SOUR @S1@
+3 PAGE Volume 11, page 639
+1 _UID 5500C4FC09D7D711BA22444553540000E973
+1 FAMS @F24@
+1 FAMS @F25@
+1 FAMS @F17@
+1 FAMS @F26@
+1 FAMC @F27@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:32:31
+0 @I21@ INDI
+1 NAME Elizabeth /Blount/
+2 SURN Blount
+2 GIVN Elizabeth
+1 SEX F
+1 _UID 5800C4FC09D7D711BA22444553540000ECA3
+1 FAMS @F18@
+1 OCCU Maid of Honour to Queen Catherine
+2 DATE BET 1512 AND 1514
+2 SOUR @S1@
+3 PAGE Volume 10, page 829
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I22@ INDI
+1 NAME Henry /Fitzroy/
+2 SURN Fitzroy
+2 GIVN Henry
+1 SEX M
+1 NOTE Illegitimate
+1 BIRT
+2 DATE 1519
+2 PLAC ?Blackmore, Essex
+2 SOUR @S1@
+3 PAGE Volume 10, page 829
+1 DEAT
+2 DATE 22 Jul 1536
+2 CAUS consumption
+2 NOTE without issue
+2 SOUR @S1@
+3 PAGE Volume 10, page 830
+1 BURI
+2 PLAC Thetford
+2 SOUR @S1@
+3 PAGE Volume 10, page 830
+1 _UID 5B00C4FC09D7D711BA22444553540000EFD3
+1 FAMS @F28@
+1 FAMC @F18@
+1 TITL Knight of the Garter
+2 DATE FROM 7 Jun 1525
+3 NOTE (nominated)
+2 DATE 25 Jun 1525
+3 NOTE (instituted)
+2 SOUR @S1@
+3 PAGE Volume 10, page 829
+1 TITL Earl of Nottingham and Duke of Richmond and Somerset
+2 DATE FROM 18 Jun 1525
+2 PLAC Bridewell
+2 SOUR @S1@
+3 PAGE Volume 10, page 829
+1 EVEN
+2 TYPE Portrait
+2 FILE http://www.marileecody.com/fitzroy.jpg
+2 NOTE Link to Marilee Cody's "Tudor England" website
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 11:13:18
+0 @I23@ INDI
+1 NAME Mary /Howard/
+2 SURN Howard
+2 GIVN Mary
+1 SEX F
+1 DEAT
+2 DATE 9 Dec 1557
+2 NOTE without issue
+2 SOUR @S1@
+3 PAGE Volume 10, page 830
+1 _UID 5D00C4FC09D7D711BA22444553540000F1F3
+1 FAMS @F28@
+1 FAMC @F29@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 11:14:20
+0 @I24@ INDI
+1 NAME Thomas /Howard/
+2 SURN Howard
+2 GIVN Thomas
+1 SEX M
+1 BIRT
+2 DATE 1473
+2 SOUR @S1@
+3 PAGE Volume 9, page 615
+1 DEAT
+2 DATE 25 Aug 1554
+2 PLAC Kenninghall, Norfolk
+2 SOUR @S1@
+3 PAGE Volume 9, page 619
+1 BURI
+2 DATE 2 Oct 1554
+2 PLAC Framlingham
+2 SOUR @S1@
+3 PAGE Volume 9, page 619
+1 _UID 6000C4FC09D7D711BA22444553540000F423
+1 FAMS @F30@
+1 FAMS @F29@
+1 FAMC @F31@
+1 TITL Lord Howard
+2 DATE FROM 1483 TO 1514
+2 SOUR @S1@
+3 PAGE Volume 9, page 615
+1 TITL Earl of Surrey
+2 DATE FROM 1 Feb 1513/4
+2 NOTE Created for his life
+2 SOUR @S1@
+3 PAGE Volume 9, page 616
+1 TITL Earl Marshal of England
+2 DATE FROM 28 May 1533
+2 SOUR @S1@
+3 PAGE Volume 9, page 617
+1 TITL Duke of Norfolk
+2 SOUR @S1@
+3 PAGE Volume 9, page 614
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:07:15
+0 @I25@ INDI
+1 NAME Elizabeth /Stafford/
+2 SURN Stafford
+2 GIVN Elizabeth
+1 SEX F
+1 BIRT
+2 DATE ABT 1497
+2 SOUR @S1@
+3 PAGE Volume 9, page 620
+1 DEAT
+2 DATE 30 Nov 1558
+2 PLAC Lambeth
+2 SOUR @S1@
+3 PAGE Volume 9, page 620
+1 BURI
+2 DATE 7 Dec 1558
+2 PLAC Howard Chapel, Lambeth
+2 SOUR @S1@
+3 PAGE Volume 9, page 620
+1 _UID 6300C4FC09D7D711BA22444553540000F753
+1 FAMS @F29@
+1 FAMC @F32@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:07:43
+0 @I26@ INDI
+1 NAME Edward /Stafford/
+2 SURN Stafford
+2 GIVN Edward
+1 SEX M
+1 _UID 6500C4FC09D7D711BA22444553540000F973
+1 FAMS @F32@
+1 TITL Duke of Buckingham
+2 SOUR @S1@
+3 PAGE Volume 10, page 830
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I27@ INDI
+1 NAME Edmund /Tudor/
+2 SURN Tudor
+2 GIVN Edmund
+1 SEX M
+1 BIRT
+2 DATE Feb 1498/1499
+3 NOTE 21 or 22 February
+2 PLAC Greenwich
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 58
+1 CHR
+2 DATE 24 Feb 1498/1499
+2 PLAC Greyfriars, Greenwich
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 58
+1 DEAT
+2 DATE 19 Jun 1500
+2 PLAC Bishop's Hatfield, Hertfordshire
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 59
+1 BURI
+2 DATE 23 Jun 1500
+2 PLAC Westminster Abbey
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 59
+1 _UID 6800C4FC09D7D711BA22444553540000FCA3
+1 FAMC @F1@
+1 TITL Duke of Somerset
+2 NOTE Said to have been so created, but no enrolment of a patent of such creation is to be found
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, pages 58, 59
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 12:03:33
+0 @I28@ INDI
+1 NAME Arthur /Tudor/
+2 SURN Tudor
+2 GIVN Arthur
+1 SEX M
+1 BIRT
+2 DATE 20 Sep 1486
+2 PLAC St Swithin's Priory, Winchester
+2 SOUR @S1@
+3 PAGE Volume 3, page 441
+1 CHR
+2 DATE 24 Sep 1486
+2 PLAC Winchester Cathedral
+2 SOUR @S1@
+3 PAGE Volume 3, page 441
+1 DEAT
+2 DATE 2 Apr 1502
+2 PLAC Ludlow Castle, Shropshire
+2 NOTE in his father's lifetime, without issue
+2 SOUR @S1@
+3 PAGE Volume 3, page 442
+1 BURI
+2 PLAC Worcester Cathedral
+2 SOUR @S1@
+3 PAGE Volume 3, page 442
+1 _UID 6A00C4FC09D7D711BA22444553540000FEC3
+1 FAMS @F19@
+1 FAMC @F1@
+1 TITL Duke of Cornwall
+2 SOUR @S1@
+3 PAGE Volume 3, page 441
+1 TITL Knight of the Bath, Prince of Wales and Earl of Chester
+2 DATE FROM 29 Nov 1489
+2 SOUR @S1@
+3 PAGE Volume 3, pages 441, 442
+1 TITL Knight of the Garter
+2 NOTE (instituted)
+2 DATE 8 May 1491
+2 SOUR @S1@
+3 PAGE Volume 3, page 442
+1 EVEN
+2 TYPE Portrait
+2 FILE http://www.marileecody.com/arthur2.jpg
+2 NOTE Link to Marilee Cody's "Tudor England" website
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 12:05:12
+0 @I29@ INDI
+1 NAME Ferdinand of /Aragon/
+2 SURN Aragon
+2 GIVN Ferdinand of
+1 SEX M
+1 _UID 6D00C4FC09D7D711BA2244455354000001F3
+1 FAMS @F20@
+1 TITL King Ferdinand V of Castile and Aragon
+2 SOUR @S1@
+3 PAGE Volume 3, page 442
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I30@ INDI
+1 NAME Isabella of /Castile/
+2 SURN Castile
+2 GIVN Isabella of
+1 SEX F
+1 _UID 7000C4FC09D7D711BA224445535400000423
+1 FAMS @F20@
+1 FAMC @F33@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I31@ INDI
+1 NAME John of /Castile/
+2 SURN Castile
+2 GIVN John of
+1 SEX M
+1 TITL King John II of Castile and Leon
+1 _UID 7200C4FC09D7D711BA224445535400000643
+1 FAMS @F33@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I32@ INDI
+1 NAME Henry /Tudor/
+2 SURN Tudor
+2 GIVN Henry
+1 SEX M
+1 BIRT
+2 DATE 1 Jan 1510/1511
+2 PLAC Richmond, Surrey
+2 SOUR @S1@
+3 PAGE Volume 3, page 443
+1 DEAT
+2 DATE 22 Feb 1510/1511
+2 PLAC Richmond, Surrey
+2 SOUR @S1@
+3 PAGE Volume 3, page 443
+1 BURI
+2 PLAC Westminster Abbey
+2 SOUR @S1@
+3 PAGE Volume 3, page 443
+1 _UID 7500C4FC09D7D711BA224445535400000973
 1 FAMC @F12@
+1 TITL Duke of Cornwall
+2 SOUR @S1@
+3 PAGE Volume 3, page 443
 1 CHAN
-2 DATE 27 MAY 2020
-3 TIME 14:55:39.757
-0 @I180@ INDI
-1 NAME Lena Elizabeth /Tindall/
-2 TYPE birth
-2 GIVN Lena Elizabeth
-2 SURN Tindall
-1 SEX F
+2 DATE 28 Aug 2003
+3 TIME 12:08:19
+0 @I33@ INDI
+1 NAME ... /Tudor/
+2 SURN Tudor
+2 GIVN [Henry?]
+1 SEX M
 1 BIRT
-2 DATE 18 JUN 2018
-2 PLAC Stroud Maternity Hospital
+2 DATE Nov 1514
+2 SOUR @S1@
+3 PAGE Volume 3, page 444
+1 DEAT
+2 DATE Nov 1514
+2 SOUR @S1@
+3 PAGE Volume 3, page 443
+1 _UID 7700C4FC09D7D711BA224445535400000B93
 1 FAMC @F12@
+1 TITL Duke of Cornwall
+2 SOUR @S1@
+3 PAGE Volume 3, page 444
 1 CHAN
-2 DATE 27 MAY 2020
-3 TIME 14:55:39.757
-0 @I181@ INDI
-1 NAME Isla Elizabeth /Phillips/
-2 TYPE birth
-2 GIVN Isla Elizabeth
-2 SURN Phillips
-1 SEX F
-1 BIRT
-2 DATE 29 MAR 2012
-2 PLAC Gloucestershire Royal Hospital
-1 FAMC @F11@
-1 CHAN
-2 DATE 27 MAY 2020
-3 TIME 14:55:39.757
-0 @I182@ INDI
-1 NAME Lilibet Diana /Mountbatten-Windsor/
-2 TYPE birth
-2 GIVN Lilibet Diana
-2 SURN Mountbatten-Windsor
-1 SEX F
-1 BIRT
-2 DATE 4 JUN 2021
-2 PLAC Santa Barbara Cottage Hospital, Santa Barbara, California, U.S.
-1 FAMC @F9@
-1 CHAN
-2 DATE 20 DEC 2021
-3 TIME 10:13:52.366
-0 @I183@ INDI
-1 NAME Jack Christopher Stamp /Brooksbank/
-2 TYPE birth
-2 GIVN Jack Christopher Stamp
-2 SURN Brooksbank
+2 DATE 28 Aug 2003
+3 TIME 12:08:46
+0 @I34@ INDI
+1 NAME Edward /Tudor/
+2 SURN Tudor
+2 GIVN Edward
 1 SEX M
 1 BIRT
-2 DATE 3 MAY 1986
-2 PLAC St Thomas' Hospital, Lambeth, England
-1 FAMS @F63@
+2 DATE 12 Oct 1537
+2 PLAC Hampton Court , Middlesex
+2 SOUR @S1@
+3 PAGE Volume 3, page 444
+1 CHR
+2 DATE 15 Oct 1537
+2 PLAC Hampton Court, Middlesex
+2 SOUR @S1@
+3 PAGE Volume 3, page 444
+1 DEAT 
+2 DATE 6 Jul 1553
+2 SOUR @S4@
+3 PAGE 526
+1 _UID 7900C4FC09D7D711BA224445535400000DB3
+1 FAMC @F14@
+1 TITL Duke of Cornwall
+2 SOUR @S1@
+3 PAGE Volume 3, page 444
+1 TITL King Edward VI
+2 DATE FROM 28 Jan 1546/7
+2 SOUR @S1@
+3 PAGE Volume 3, page 444
 1 CHAN
-2 DATE 20 DEC 2021
-3 TIME 10:13:52.366
-0 @I184@ INDI
-1 NAME August Philip Hawke /Brooksbank/
-2 TYPE birth
-2 GIVN August Philip Hawke
-2 SURN Brooksbank
+2 DATE 28 Aug 2003
+3 TIME 12:09:24
+0 @I35@ INDI
+1 NAME John /Seymour/
+2 SURN Seymour
+2 GIVN John
+1 SEX M
+1 DEAT
+2 DATE 21 Dec 1536
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, pages 59, 60
+1 RESI Wolf Hall, Wiltshire
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 59
+1 _UID 7B00C4FC09D7D711BA224445535400000FD3
+1 FAMS @F22@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:27:32
+0 @I36@ INDI
+1 NAME Thomas /Boleyn/
+2 SURN Boleyn
+2 GIVN Thomas
+1 SEX M
+1 _UID 7E00C4FC09D7D711BA224445535400001203
+1 FAMS @F21@
+1 TITL Earl of Wiltshire, Earl of Ormond [Ireland] and Viscount Rochford
+2 SOUR @S1@
+3 PAGE Volume 10, page 403
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I37@ INDI
+1 NAME Elizabeth /Howard/
+2 SURN Howard
+2 GIVN Elizabeth
+1 SEX F
+1 _UID 8100C4FC09D7D711BA224445535400001533
+1 FAMS @F21@
+1 FAMC @F31@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I38@ INDI
+1 NAME Thomas /Howard/
+2 SURN Howard
+2 GIVN Thomas
 1 SEX M
 1 BIRT
-2 DATE 9 FEB 2021
-2 PLAC Portland Hospital, London
+2 DATE 1443
+2 PLAC Stoke Neyland
+2 SOUR @S1@
+3 PAGE Volume 9, page 612
+1 DEAT
+2 DATE 21 May 1524
+2 PLAC Framlingham Castle
+2 SOUR @S1@
+3 PAGE Volume 9, page 615
+1 BURI
+2 DATE 26 Jun 1524
+2 PLAC Thetford Abbey
+2 SOUR @S1@
+3 PAGE Volume 9, page 615
+1 _UID 8300C4FC09D7D711BA224445535400001753
+1 FAMS @F31@
+1 FAMS @F34@
+1 TITL Earl of Surrey
+2 DATE FROM 28 Jun 1483 TO 1 Feb 1513/4
+2 SOUR @S1@
+3 PAGE Volume 9, page 613
+1 TITL Earl Marshal of England
+2 DATE FROM 10 Jul 1510
+2 NOTE Created for life
+2 SOUR @S1@
+3 PAGE Volume 9, page 614
+1 TITL Duke of Norfolk
+2 DATE FROM 1 Feb 1513/4
+2 SOUR @S1@
+3 PAGE Volume 9, page 614
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:03:34
+0 @I39@ INDI
+1 NAME Mary /Tudor/
+2 SURN Tudor
+2 GIVN Mary
+1 SEX F
+1 BIRT
+2 DATE 18 Mar 1494/1495
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 459
+1 DEAT
+2 DATE 25 Jun 1533
+2 PLAC Westhorpe Hall, Suffolk
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 459
+1 BURI
+2 DATE 22 Jul 1533
+2 PLAC Bury St Edmunds Abbey
+2 NOTE Later removed to St Mary's church, Bury St Edmunds
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 459
+1 _UID 8600C4FC09D7D711BA224445535400001A83
+1 FAMS @F35@
+1 FAMS @F36@
+1 FAMC @F1@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 12:27:04
+0 @I40@ INDI
+1 NAME Charles /Brandon/
+2 SURN Brandon
+2 GIVN Charles
+1 SEX M
+1 BIRT
+2 DATE ABT 1484
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 454
+1 DEAT
+2 DATE 22 Aug 1545
+2 PLAC Guildford Palace, Surrey
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 460
+1 BURI
+2 PLAC St George's Chapel, Windsor
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 460
+1 _UID 8800C4FC09D7D711BA224445535400001CA3
+1 FAMS @F37@
+1 FAMS @F38@
+1 FAMS @F36@
+1 FAMS @F39@
+1 FAMC @F40@
+1 TITL Viscount Lisle
+2 DATE FROM 15 May 1513
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 455
+1 TITL Duke of Suffolk
+2 DATE FROM 1 Feb 1513/4
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 455
+1 EVEN
+2 TYPE Received wardship of Elizabeth, Baroness Lisle in her own right, with whom he made a contract of marriage (never fulfilled)
+2 DATE 21 Apr 1513
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, pages 455, 459
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 12:29:37
+0 @I41@ INDI
+1 NAME William /Brandon/
+2 SURN Brandon
+2 GIVN William
+1 SEX M
+1 DEAT
+2 DATE 22 Aug 1485
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 454
+1 _UID 8B00C4FC09D7D711BA224445535400001FD3
+1 FAMS @F40@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 12:18:18
+0 @I42@ INDI
+1 NAME Elizabeth /Bruyn/
+2 SURN Bruyn
+2 GIVN Elizabeth
+1 SEX F
+1 DEAT
+2 DATE Mar 1493/1494
+3 NOTE 7 or 26 March
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 454
+1 _UID 8E00C4FC09D7D711BA224445535400002203
+1 FAMS @F40@
+1 FAMC @F41@
+1 ASSO @I43@
+2 RELA Elizabeth was Henry's daughter and coheir
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 454
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 12:18:49
+0 @I43@ INDI
+1 NAME Henry /Bruyn/
+2 SURN Bruyn
+2 GIVN Henry
+1 SEX M
+1 _UID 9000C4FC09D7D711BA224445535400002423
+1 FAMS @F41@
+1 RESI South Ockenden, Essex
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 454
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I44@ INDI
+1 NAME Anne /Browne/
+2 SURN Browne
+2 GIVN Anne
+1 SEX F
+1 DEAT
+2 DATE BET 1511 AND 1512
+2 NOTE without male issue
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 459
+1 _UID 9300C4FC09D7D711BA224445535400002753
+1 FAMS @F37@
+1 FAMC @F42@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 15:20:46
+0 @I45@ INDI
+1 NAME Margaret /Neville/
+2 SURN Neville
+2 GIVN Margaret
+1 SEX F
+1 BIRT
+2 DATE 1466
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 458
+1 _UID 9600C4FC09D7D711BA224445535400002A83
+1 FAMS @F43@
+1 FAMS @F38@
+1 FAMC @F44@
+1 ASSO @I46@
+2 RELA Margaret was John's 3d daughter and coheir
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 458
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 19:10:15
+0 @I46@ INDI
+1 NAME John /Neville/
+2 SURN Neville
+2 GIVN John
+1 SEX M
+1 _UID 9900C4FC09D7D711BA224445535400002DB3
+1 FAMS @F44@
+1 TITL Marquess of Montagu
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 458
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I47@ INDI
+1 NAME Isabella /Ingaldesthorpe/
+2 SURN Ingaldesthorpe
+2 GIVN Isabella
+1 SEX F
+1 _UID 9C00C4FC09D7D711BA2244455354000030E3
+1 FAMS @F44@
+1 FAMC @F45@
+1 ASSO @I48@
+2 RELA Isabella was Edmund's daughter and coheir
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 458
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I48@ INDI
+1 NAME Edmund /Ingaldesthorpe/
+2 SURN Ingaldesthorpe
+2 GIVN Edmund
+1 SEX M
+1 _UID 9E00C4FC09D7D711BA224445535400003203
+1 FAMS @F45@
+1 RESI Borough Green, Cambridgeshire
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 458
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I49@ INDI
+1 NAME John /Mortimer/
+2 SURN Mortimer
+2 GIVN John
+1 SEX M
+1 DEAT
+2 DATE BEF 12 Nov 1504
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 458
+1 _UID A100C4FC09D7D711BA224445535400003533
+1 FAMS @F43@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 12:22:02
+0 @I50@ INDI
+1 NAME Anthony /Browne/
+2 SURN Browne
+2 GIVN Anthony
+1 SEX M
+1 _UID A400C4FC09D7D711BA224445535400003863
+1 FAMS @F42@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I51@ INDI
+1 NAME Louis of /Valois/
+2 SURN Valois
+2 GIVN Louis of
+1 SEX M
+1 TITL King Louis XII of France
+1 DEAT
+2 DATE 1 Jan 1514/1515
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 459
+1 _UID A700C4FC09D7D711BA224445535400003B93
+1 FAMS @F35@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 12:26:19
+0 @I52@ INDI
+1 NAME Catherine /Willoughby/
+2 SURN Willoughby
+2 GIVN Catherine
+1 SEX F
+1 BIRT
+2 DATE 22 Mar 1519/1520
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 460
+1 CHR
+2 DATE 26 Mar 1519/1520
+2 PLAC Parham, Suffolk
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 460
+1 DEAT
+2 DATE 19 Sep 1580
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 460
+1 BURI
+2 PLAC Spilsby, Lincolnshire
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 460
+1 _UID AA00C4FC09D7D711BA224445535400003EC3
+1 FAMS @F39@
+1 FAMS @F46@
+1 FAMC @F47@
+1 TITL Baroness Willoughby de Eresby in her own right
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 460
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 19:11:30
+0 @I53@ INDI
+1 NAME William /Willoughby/
+2 SURN Willoughby
+2 GIVN William
+1 SEX M
+1 _UID AD00C4FC09D7D711BA2244455354000041F3
+1 FAMS @F47@
+1 TITL Lord Willoughby de Eresby
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 460
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I54@ INDI
+1 NAME Mary de /Salinas/
+2 SURN Salinas
+2 GIVN Mary de
+1 SEX F
+1 _UID B000C4FC09D7D711BA224445535400004423
+1 FAMS @F47@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I56@ INDI
+1 NAME Richard /Bertie/
+2 SURN Bertie
+2 GIVN Richard
+1 SEX M
+1 DEAT
+2 DATE 9 Apr 1582
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 460
+1 BURI
+2 PLAC Spilsby, Lincolnshire
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 460
+1 _UID B500C4FC09D7D711BA224445535400004973
+1 FAMS @F46@
+1 OCCU Sometime MP for county Lincoln
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 460
+1 ASSO @I52@
+2 RELA Richard was Catherine's gentleman usher
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 460
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 12:30:12
+0 @I57@ INDI
+1 NAME Archibald /Douglas/
+2 SURN Douglas
+2 GIVN Archibald
+1 SEX M
+1 BIRT
+2 DATE ABT 1490
+2 SOUR @S1@
+3 PAGE Volume 1, page 157
+1 DEAT
+2 DATE Jan 1556/1557
+2 PLAC Tantallon Castle
+2 CAUS Erysipelas
+2 SOUR @S1@
+3 PAGE Volume 1, page 158
+1 BURI
+2 PLAC Abernethy
+2 SOUR @S1@
+3 PAGE Volume 1, page 158
+1 _UID B800C4FC09D7D711BA224445535400004CA3
+1 FAMS @F49@
+1 FAMS @F50@
+1 FAMS @F51@
+1 FAMC @F52@
+1 TITL Earl of Angus [Scotland]
+2 SOUR @S1@
+3 PAGE Volume 1, page 157
+1 ASSO @I58@
+2 RELA Archibald was George's son and heir
+2 SOUR @S1@
+3 PAGE Volume 1, page 157
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 12:38:05
+0 @I58@ INDI
+1 NAME George /Douglas/
+2 SURN Douglas
+2 GIVN George
+1 SEX M
+1 _UID BA00C4FC09D7D711BA224445535400004EC3
+1 FAMS @F52@
+1 TITL Styled Master of Angus or Lord Douglas
+2 SOUR @S1@
+3 PAGE Volume 1, page 157
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I59@ INDI
+1 NAME Elizabeth /Drummond/
+2 SURN Drummond
+2 GIVN Elizabeth
+1 SEX F
+1 _UID BD00C4FC09D7D711BA2244455354000051F3
+1 FAMS @F53@
+1 FAMS @F52@
+1 FAMC @F54@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I60@ INDI
+1 NAME John /Drummond/
+2 SURN Drummond
+2 GIVN John
+1 SEX M
+1 _UID BF00C4FC09D7D711BA224445535400005313
+1 FAMS @F54@
+1 TITL 1st Lord Drummond
+2 SOUR @S1@
+3 PAGE Volume 1, page 157
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I61@ INDI
+1 NAME David /Fleming/
+2 SURN Fleming
+2 GIVN David
+1 SEX M
+1 _UID C200C4FC09D7D711BA224445535400005643
+1 FAMS @F53@
+1 RESI Monycabo
+2 SOUR @S1@
+3 PAGE Volume 1, page 157
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I62@ INDI
+1 NAME Margaret /Hepburn/
+2 SURN Hepburn
+2 GIVN Margaret
+1 SEX F
+1 DEAT
+2 DATE 1513
+2 NOTE without surviving issue
+2 SOUR @S1@
+3 PAGE Volume 1, page 157
+2 SOUR @S2@
+3 PAGE Volume 2, page 155
+1 _UID C500C4FC09D7D711BA224445535400005973
+1 FAMS @F49@
+1 FAMC @F55@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 12:33:59
+0 @I63@ INDI
+1 NAME Patrick /Hepburn/
+2 SURN Hepburn
+2 GIVN Patrick
+1 SEX M
+1 _UID C800C4FC09D7D711BA224445535400005CA3
+1 FAMS @F55@
+1 TITL 1st Earl of Bothwell
+2 SOUR @S1@
+3 PAGE Volume 1, page 157
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I64@ INDI
+1 NAME Janet /Douglas/
+2 SURN Douglas
+2 GIVN Janet
+1 SEX F
+1 _UID CB00C4FC09D7D711BA224445535400005FD3
+1 FAMS @F55@
+1 FAMC @F56@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I65@ INDI
+1 NAME James /Douglas/
+2 SURN Douglas
+2 GIVN James
+1 SEX M
+1 _UID CD00C4FC09D7D711BA2244455354000061F3
+1 FAMS @F56@
+1 TITL 1st Earl of Morton
+2 SOUR @S1@
+3 PAGE Volume 1, page 157
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I66@ INDI
+1 NAME Margaret /Tudor/
+2 SURN Tudor
+2 GIVN Margaret
+1 SEX F
+1 BIRT
+2 DATE 28 Nov 1489
+2 PLAC Westminster
+2 SOUR @S1@
+3 PAGE Volume 1, page 158; volume 8, page 683
+1 CHR
+2 DATE 30 Nov 1489
+2 PLAC Westminster Abbey
+2 SOUR @S1@
+3 PAGE Volume 8, page 683
+1 DEAT
+2 DATE 18 Oct 1541
+2 PLAC Methven
+2 CAUS Palsy
+2 SOUR @S1@
+3 PAGE Volume 1, page 158; volume 8, page 683
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
+1 BURI
+2 PLAC St John's Monastery, Perth
+2 SOUR @S1@
+3 PAGE Volume 1, page 158
+2 SOUR @S2@
+3 PAGE Volume 1, pages 21, 22
+1 _UID D000C4FC09D7D711BA224445535400006423
+1 FAMS @F145@
+1 FAMS @F50@
+1 FAMS @F57@
+1 FAMC @F1@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:04:01
+0 @I67@ INDI
+1 NAME Margaret /Maxwell/
+2 SURN Maxwell
+2 GIVN Margaret
+1 SEX F
+1 DEAT
+2 DATE 31 Jan 1593/1594
+2 SOUR @S1@
+3 PAGE Volume 1, page 158; volume 14, page 27
+1 _UID D300C4FC09D7D711BA224445535400006753
+1 FAMS @F51@
+1 FAMS @F58@
+1 FAMC @F59@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 12:38:59
+0 @I68@ INDI
+1 NAME Robert /Maxwell/
+2 SURN Maxwell
+2 GIVN Robert
+1 SEX M
+1 _UID D600C4FC09D7D711BA224445535400006A83
+1 FAMS @F59@
+1 TITL 4th Lord Maxwell
+2 SOUR @S1@
+3 PAGE Volume 1, page 158
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I69@ INDI
+1 NAME Janet /Douglas/
+2 SURN Douglas
+2 GIVN Janet
+1 SEX F
+1 _UID D900C4FC09D7D711BA224445535400006DB3
+1 FAMS @F59@
+1 FAMC @F60@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I70@ INDI
+1 NAME William /Douglas/
+2 SURN Douglas
+2 GIVN William
+1 SEX M
+1 _UID DB00C4FC09D7D711BA224445535400006FD3
+1 FAMS @F60@
+1 RESI Drumlanrig
+2 SOUR @S1@
+3 PAGE Volume 1, page 158
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I71@ INDI
+1 NAME William /Baillie/
+2 SURN Baillie
+2 GIVN William
+1 SEX M
+1 _UID DE00C4FC09D7D711BA224445535400007203
+1 FAMS @F58@
+1 RESI Lamington
+2 SOUR @S1@
+3 PAGE Volume 1, page 158
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I72@ INDI
+1 NAME Henry /Stewart/
+2 SURN Stewart
+2 GIVN Henry
+1 SEX M
+1 DEAT
+2 DATE (Soon after 10 October 1551)
+2 SOUR @S1@
+3 PAGE Volume 8, page 683
+1 _UID 82E9F64C29D7D711BA22AAFF03D374369A97
+1 FAMS @F61@
+1 FAMS @F57@
+1 FAMS @F62@
 1 FAMC @F63@
+1 TITL Lord Methven
+2 DATE FROM 17 Jul 1528
+2 SOUR @S1@
+3 PAGE Volume 8, page 683
+1 NOTE @N1@
 1 CHAN
-2 DATE 20 DEC 2021
-3 TIME 10:13:52.366
-0 @I185@ INDI
-1 NAME Edoardo Alessandro /Mapelli Mozzi/
-2 TYPE birth
-2 GIVN Edoardo Alessandro
-2 SURN Mapelli Mozzi
+2 DATE 29 Aug 2003
+3 TIME 15:22:06
+0 @I73@ INDI
+1 NAME Andrew /Stewart/
+2 SURN Stewart
+2 GIVN Andrew
 1 SEX M
-1 BIRT
-2 DATE 19 NOV 1983
-2 PLAC London, England
-1 FAMS @F64@
+1 _UID 85E9F64C29D7D711BA22AAFF03D374369DC7
+1 FAMS @F63@
+1 TITL Lord Avondale
+2 SOUR @S1@
+3 PAGE Volume 8, page 682
 1 CHAN
-2 DATE 20 DEC 2021
-3 TIME 10:16:43.278
-0 @I186@ INDI
-1 NAME Sienna Elizabeth /Mapelli Mozzi/
-2 TYPE birth
-2 GIVN Sienna Elizabeth
-2 SURN Mapelli Mozzi
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I74@ INDI
+1 NAME Margaret /Kennedy/
+2 SURN Kennedy
+2 GIVN Margaret
 1 SEX F
-1 BIRT
-2 DATE 18 SEP 2021
-2 PLAC Chelsea and Westminster Hospital
+1 _UID 88E9F64C29D7D711BA22AAFF03D37436A0F7
+1 FAMS @F63@
 1 FAMC @F64@
 1 CHAN
-2 DATE 20 DEC 2021
-3 TIME 10:16:43.278
-0 @I187@ INDI
-1 NAME Lucas Philip /Tindall/
-2 TYPE birth
-2 GIVN Lucas Philip
-2 SURN Tindall
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I75@ INDI
+1 NAME John /Kennedy/
+2 SURN Kennedy
+2 GIVN John
+1 SEX M
+1 _UID 8AE9F64C29D7D711BA22AAFF03D37436A217
+1 FAMS @F64@
+1 TITL 2nd Lord Kennedy
+2 SOUR @S1@
+3 PAGE Volume 8, page 682
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I76@ INDI
+1 NAME ... /Leslie/
+2 SURN Leslie
+1 SEX F
+1 _UID 8DE9F64C29D7D711BA22AAFF03D37436A547
+1 FAMS @F61@
+1 NOTE @N1@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 13:39:11
+0 @I77@ INDI
+1 NAME Janet /Stewart/
+2 SURN Stewart
+2 GIVN Janet
+1 SEX F
+1 _UID 90E9F64C29D7D711BA22AAFF03D37436A877
+1 FAMS @F65@
+1 FAMS @F66@
+1 FAMS @F62@
+1 FAMS @F67@
+1 FAMS @F68@
+1 FAMC @F69@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I78@ INDI
+1 NAME Hugh /Kennedy/
+2 SURN Kennedy
+2 GIVN Hugh
+1 SEX M
+1 _UID 93E9F64C29D7D711BA22AAFF03D37436ABA7
+1 FAMS @F66@
+1 RESI Girvanmains
+2 SOUR @S1@
+3 PAGE Volume 8, page 683
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I79@ INDI
+1 NAME Alexander /Gordon/
+2 SURN Gordon
+2 GIVN Alexander
+1 SEX M
+1 _UID 96E9F64C29D7D711BA22AAFF03D37436AED7
+1 FAMS @F65@
+1 TITL Master of Sutherland
+2 SOUR @S1@
+3 PAGE Volume 8, page 683
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I80@ INDI
+1 NAME John /Stewart/
+2 SURN Stewart
+2 GIVN John
+1 SEX M
+1 _UID 99E9F64C29D7D711BA22AAFF03D37436B107
+1 FAMS @F69@
+1 TITL 2nd Earl of Atholl
+2 SOUR @S1@
+3 PAGE Volume 8, page 683
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I81@ INDI
+1 NAME Janet /Campbell/
+2 SURN Campbell
+2 GIVN Janet
+1 SEX F
+1 _UID 9CE9F64C29D7D711BA22AAFF03D37436B437
+1 FAMS @F69@
+1 FAMC @F70@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I82@ INDI
+1 NAME Archibald /Campbell/
+2 SURN Campbell
+2 GIVN Archbald
+1 SEX M
+1 _UID 9EE9F64C29D7D711BA22AAFF03D37436B657
+1 FAMS @F70@
+1 TITL 2nd Earl of Argyll
+2 SOUR @S1@
+3 PAGE Volume 8, page 683
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I83@ INDI
+1 NAME Patrick /Ruthven/
+2 SURN Ruthven
+2 GIVN Patrick
+1 SEX M
+1 DEAT
+2 DATE 13 Jun 1566
+2 SOUR @S1@
+3 PAGE Volume 8, page 683
+1 _UID A1E9F64C29D7D711BA22AAFF03D37436B987
+1 FAMS @F67@
+1 TITL 3rd Lord Ruthven
+2 SOUR @S1@
+3 PAGE Volume 8, page 683
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 13:43:56
+0 @I84@ INDI
+1 NAME James /Gray/
+2 SURN Gray
+2 GIVN James
+1 SEX M
+1 _UID A4E9F64C29D7D711BA22AAFF03D37436BCB7
+1 FAMS @F68@
+1 FAMC @F144@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I85@ INDI
+1 NAME Edward /Plantagenet/
+2 SURN York
+2 GIVN Edward of
 1 SEX M
 1 BIRT
-2 DATE 21 MAR 2021
-2 PLAC Gatcombe Park
-1 FAMC @F12@
+2 DATE 28 Apr 1442
+2 PLAC Rouen
+2 SOUR @S1@
+3 PAGE Volume 5, page 361
+1 CHR
+2 PLAC Rouen Cathedral
+2 SOUR @S1@
+3 PAGE Volume 5, page 361
+1 DEAT
+2 DATE 9 Apr 1483
+2 PLAC Westminster
+2 SOUR @S1@
+3 PAGE Volume 5, page 361
+1 BURI
+2 DATE 18 Apr 1483
+2 PLAC St George's Chapel, Windsor
+2 SOUR @S1@
+3 PAGE Volume 5, page 361
+1 _UID A7E9F64C29D7D711BA22AAFF03D37436BFE7
+1 FAMS @F3@
+1 FAMS @F71@
+1 TITL King Edward IV
+1 EVEN
+2 TYPE Coronation
+2 DATE 28 Jun 1461
+2 PLAC Westminster
+2 SOUR @S1@
+3 PAGE Volume 5, page 361
 1 CHAN
-2 DATE 20 DEC 2021
-3 TIME 10:19:18.055
-0 @F0@ FAM
-1 HUSB @I10@
-1 WIFE @I1@
-1 MARR
-2 TYPE marriage
-2 DATE 20 NOV 1947
+2 DATE 28 Aug 2003
+3 TIME 14:11:13
+0 @I86@ INDI
+1 NAME Elizabeth /Wydvill/
+2 SURN Wydvill
+2 GIVN Elizabeth
+1 SEX F
+1 DEAT
+2 DATE Jun 1492
+3 NOTE 7 or 8 June
+2 PLAC Bermondsey Abbey
+2 SOUR @S1@
+3 PAGE Volume 5, page 362
+1 BURI
+2 DATE 12 Jun 1492
+2 PLAC St George's Chapel, Windsor
+2 SOUR @S1@
+3 PAGE Volume 5, page 362
+1 _UID AAE9F64C29D7D711BA22AAFF03D37436C217
+1 FAMS @F72@
+1 FAMS @F3@
+1 FAMC @F73@
+1 EVEN
+2 TYPE Coronation
+2 DATE 26 May 1465
+2 PLAC Westminster
+2 SOUR @S1@
+3 PAGE Volume 5, page 361
+1 ASSO @I130@
+2 RELA Elizabeth was Richard's sister and coheir
+2 SOUR @S1@
+3 PAGE Volume 5, page 361
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:12:00
+0 @I87@ INDI
+1 NAME Arthur /Plantagenet/
+2 SURN Plantagenet
+2 GIVN Arthur
+1 SEX M
+1 NOTE Illegitimate
+1 DEAT
+2 DATE 3 Mar 1541/1542
+2 PLAC Tower of London
+2 NOTE without male issue
+2 NOTE @N3@
+2 SOUR @S1@
+3 PAGE Volume 8, page 67
+1 _UID B0E9F64C29D7D711BA22AAFF03D37436C877
+1 FAMS @F74@
+1 FAMS @F75@
+1 FAMC @F71@
+1 TITL Knight
+2 SOUR @S1@
+3 PAGE Volume 8, page 64
+1 TITL Viscount Lisle
+2 DATE 25 Apr 1523
+2 NOTE In consequence of his marriage
+2 SOUR @S1@
+3 PAGE Volume 8, page 64
+1 NOTE @N2@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 13:49:50
+0 @I88@ INDI
+1 NAME James /Stewart/
+2 SURN Stewart
+2 GIVN James
+1 SEX M
+1 BIRT
+2 DATE 17 Mar 1472/1473
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
+1 DEAT
+2 DATE 9 Sep 1513
+2 PLAC Flodden
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
+1 TITL James IV of Scotland
+2 DATE FROM 11 Jun 1488
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
+1 EVEN
+2 TYPE Coronation
+2 DATE Jun 1488
+2 PLAC Scone
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
+1 _UID E32E9C1D51DAD711BA22444553540000E903
+1 FAMS @F145@
+1 FAMS @F150@
+1 FAMS @F152@
+1 FAMS @F156@
+1 FAMS @F159@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 18:54:50
+0 @I89@ INDI
+1 NAME Elizabeth /Grey/
+2 SURN Grey
+2 GIVN Elizabeth
+1 SEX F
+1 DEAT
+2 DATE ABT 1530
+2 SOUR @S1@
+3 PAGE Volume 8, page 66
+1 BURI
+2 NOTE Her body was removed in January 1538, apparently to the parish church of Titchfield, Hampshire
+2 SOUR @S1@
+3 PAGE Volume 8, pages 66, 67
+1 _UID B5E9F64C29D7D711BA22AAFF03D37436CDC7
+1 FAMS @F76@
+1 FAMS @F74@
+1 FAMC @F77@
+1 TITL Baroness Lisle in her own right
+2 SOUR @S1@
+3 PAGE Volume 8, page 63
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 13:48:12
+0 @I90@ INDI
+1 NAME Edward /Grey/
+2 SURN Grey
+2 GIVN Edward
+1 SEX M
+1 _UID B8E9F64C29D7D711BA22AAFF03D37436D0F7
+1 FAMS @F77@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I91@ INDI
+1 NAME Elizabeth /Talbot/
+2 SURN Talbot
+2 GIVN Elizabeth
+1 SEX F
+1 _UID BBE9F64C29D7D711BA22AAFF03D37436D327
+1 FAMS @F77@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I92@ INDI
+1 NAME Edmund /Dudley/
+2 SURN Dudley
+2 GIVN Edmund
+1 SEX M
+1 BIRT
+2 DATE (Probably about 1470)
+2 SOUR @S1@
+3 PAGE Volume 14, page 443
+1 DEAT
+2 DATE 18 Aug 1510
+2 PLAC Tower Hill, London
+2 CAUS Beheaded
+2 SOUR @S1@
+3 PAGE Volume 8, page 63
+1 _UID BDE9F64C29D7D711BA22AAFF03D37436D547
+1 FAMS @F76@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 15:24:06
+0 @I93@ INDI
+1 NAME Honor /Grenville/
+2 SURN Grenville
+2 GIVN Honor
+1 SEX F
+1 _UID C0E9F64C29D7D711BA22AAFF03D37436D877
+1 FAMS @F75@
+1 FAMS @F78@
+1 FAMC @F79@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I94@ INDI
+1 NAME John /Basset/
+2 SURN Basset
+2 GIVN John
+1 SEX M
+1 DEAT
+2 DATE 31 Jan 1528
+2 SOUR @S1@
+3 PAGE Volume 8, page 67
+1 _UID C3E9F64C29D7D711BA22AAFF03D37436DBA7
+1 FAMS @F78@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 19:14:42
+0 @I95@ INDI
+1 NAME Thomas /Grenville/
+2 SURN Grenville
+2 GIVN Thomas
+1 SEX M
+1 _UID C6E9F64C29D7D711BA22AAFF03D37436DED7
+1 FAMS @F79@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I96@ INDI
+1 NAME Isabella /Gilbert/
+2 SURN Gilbert
+2 GIVN Isabella
+1 SEX F
+1 _UID C9E9F64C29D7D711BA22AAFF03D37436E107
+1 FAMS @F79@
+1 FAMC @F80@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I97@ INDI
+1 NAME Otes /Gilbert/
+2 SURN Gilbert
+2 GIVN Otes
+1 SEX M
+1 _UID CBE9F64C29D7D711BA22AAFF03D37436E327
+1 FAMS @F80@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I98@ INDI
+1 NAME Cecily /Plantagenet/
+2 SURN York
+2 GIVN Cecily of
+1 SEX F
+1 BIRT
+2 DATE 20 Mar 1468/1469
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 450
+1 DEAT
+2 DATE 24 Aug 1507
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 450
+1 BURI
+2 PLAC Quarr Abbey
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 450
+1 _UID CEE9F64C29D7D711BA22AAFF03D37436E657
+1 FAMS @F81@
+1 FAMS @F82@
+1 FAMS @F83@
+1 FAMC @F3@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 13:54:46
+0 @I99@ INDI
+1 NAME John /Welles/
+2 SURN Welles
+2 GIVN John
+1 SEX M
+1 DEAT
+2 DATE 9 Feb 1498/1499
+2 PLAC "Pasmer's Place", St Sithes Lane
+2 NOTE without surviving issue
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 449
+1 BURI
 2 PLAC Westminster Abbey
-1 _MSTAT current
-1 CHIL @I0@
-1 CHIL @I14@
-1 CHIL @I18@
-1 CHIL @I22@
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 449
+1 _UID D0E9F64C29D7D711BA22AAFF03D37436E877
+1 FAMS @F82@
+1 TITL Viscount Welles
+2 DATE BET Nov 1485 AND 8 Feb 1485/6
+3 NOTE (created)
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 449
 1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
+2 DATE 28 Aug 2003
+3 TIME 13:53:23
+0 @I100@ INDI
+1 NAME Richard /Wydvill/
+2 SURN Wydvill
+2 GIVN Richard
+1 SEX M
+1 _UID D4E9F64C29D7D711BA22AAFF03D37436ECB7
+1 FAMS @F73@
+1 TITL 1st Earl Rivers
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 449
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I101@ INDI
+1 NAME Elizabeth /Welles/
+2 SURN Welles
+2 GIVN Elizabeth
+1 SEX F
+1 _UID D7E9F64C29D7D711BA22AAFF03D37436EFE7
+1 FAMC @F82@
+1 SOUR @S1@
+2 PAGE Volume 12, part 2, page 449
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 13:53:55
+0 @I102@ INDI
+1 NAME Anne /Welles/
+2 SURN Welles
+2 GIVN Anne
+1 SEX F
+1 BURI
+2 PLAC Austin Friars, London
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 449
+1 _UID D9E9F64C29D7D711BA22AAFF03D37436F107
+1 FAMC @F82@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 13:53:48
+0 @I103@ INDI
+1 NAME Thomas /Kyme/
+2 SURN Kyme
+2 GIVN Thomas
+1 SEX M
+1 _UID DBE9F64C29D7D711BA22AAFF03D37436F327
+1 FAMS @F83@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I104@ INDI
+1 NAME Edward /Plantagenet/
+2 SURN Plantagenet
+2 GIVN Edward
+1 SEX M
+1 BIRT
+2 DATE Nov 1470
+3 NOTE 2 or 3 November
+2 SOUR @S1@
+3 PAGE Volume 8, page 454
+1 _UID DEE9F64C29D7D711BA22AAFF03D37436F657
+1 FAMC @F3@
+1 TITL Prince of Wales and Earl of Chester
+2 DATE FROM 26 Jun 1471
+2 SOUR @S1@
+3 PAGE Volume 8, page 454
+1 TITL Duke of Cornwall
+2 DATE FROM 17 Jul 1471
+2 SOUR @S1@
+3 PAGE Volume 8, page 454
+1 TITL Earl of March and Earl of Pembroke
+2 DATE FROM 18 Jul 1479
+2 SOUR @S1@
+3 PAGE Volume 8, page 454
+1 TITL King Edward V
+2 DATE FROM 9 Apr 1483
+2 SOUR @S1@
+3 PAGE Volume 8, page 454
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 13:55:21
+0 @I105@ INDI
+1 NAME Richard /Plantagenet/
+2 SURN Plantagenet
+2 GIVN Richard
+1 SEX M
+1 BIRT
+2 DATE 17 Aug 1473
+2 PLAC Shrewsbury
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 910
+1 _UID E0E9F64C29D7D711BA22AAFF03D37436F877
+1 FAMS @F84@
+1 FAMC @F3@
+1 TITL Duke of York
+2 DATE FROM 28 May 1474
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 911
+1 TITL Earl of Nottingham
+2 DATE FROM 12 Jun 1476
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 911
+1 TITL Earl of Warenne and Duke of Norfolk
+2 DATE FROM 7 Feb 1476/7
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 911
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 13:56:01
+0 @I106@ INDI
+1 NAME John /Grey/
+2 SURN Grey
+2 GIVN John
+1 SEX M
+1 DEAT
+2 DATE 17 Feb 1460/1461
+2 SOUR @S1@
+3 PAGE Volume 5, page 361
+1 _UID E4E9F64C29D7D711BA22AAFF03D37436FCB7
+1 FAMS @F72@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:09:52
+0 @I107@ INDI
+1 NAME Anne /Mowbray/
+2 SURN Mowbray
+2 GIVN Anne
+1 SEX F
+1 BIRT
+2 DATE 10 Dec 1472
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 913
+1 CHR
+2 DATE 17 Dec 1472
+2 PLAC Framlingham, Suffolk
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 913
+1 DEAT
+2 DATE BEF 26 Nov 1481
+2 NOTE without issue
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 913
+1 BURI
+2 PLAC Chapel of St Erasmus, Westminster Abbey
+2 NOTE Subsequently removed to the Abbey of the Minoresses in the City of London
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 913; volume 14, page 642
+1 _UID E7E9F64C29D7D711BA22AAFF03D37436FFE7
+1 FAMS @F84@
+1 FAMC @F85@
+1 TITL Baroness Mowbray and Baroness Segrave
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 913
+1 ASSO @I108@
+2 RELA Anne was John's only daughter and heir
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 913
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 15:25:12
+0 @I108@ INDI
+1 NAME John /Mowbray/
+2 SURN Mowbray
+2 GIVN John
+1 SEX M
+1 _UID EAE9F64C29D7D711BA22AAFF03D374360217
+1 FAMS @F85@
+1 TITL 4th Duke of Norfolk
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 913
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I109@ INDI
+1 NAME Elizabeth /Talbot/
+2 SURN Talbot
+2 GIVN Elizabeth
+1 SEX F
+1 _UID EDE9F64C29D7D711BA22AAFF03D374360547
+1 FAMS @F85@
+1 FAMC @F86@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I110@ INDI
+1 NAME John /Talbot/
+2 SURN Talbot
+2 GIVN John
+1 SEX M
+1 _UID EFE9F64C29D7D711BA22AAFF03D374360767
+1 FAMS @F86@
+1 TITL 1st Earl of Shrewsbury
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 913
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I111@ INDI
+1 NAME George /Plantagenet/
+2 SURN York
+2 GIVN George of
+1 SEX M
+1 BIRT
+2 DATE Mar 1476/1477
+2 PLAC Windsor
+2 SOUR @S1@
+3 PAGE Volume 14, page 80
+1 DEAT
+2 DATE ABT Mar 1479
+2 SOUR @S1@
+3 PAGE Volume 14, page 80
+1 BURI
+2 PLAC Windsor
+2 SOUR @S1@
+3 PAGE Volume 14, page 80
+1 _UID F2E9F64C29D7D711BA22AAFF03D374360A97
+1 FAMC @F3@
+1 TITL Duke of Bedford
+2 NOTE Apparently so designated (never created)
+2 SOUR @S1@
+3 PAGE Volume 2, page 73; volume 14, page 80
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 13:58:14
+0 @I112@ INDI
+1 NAME Elizabeth /Tylney/
+2 SURN Tylney
+2 GIVN Elizabeth
+1 SEX F
+1 DEAT
+2 DATE 4 Apr 1497
+2 SOUR @S1@
+3 PAGE Volume 9, page 615
+1 _UID F4E9F64C29D7D711BA22AAFF03D374360CB7
+1 FAMS @F87@
+1 FAMS @F31@
+1 FAMC @F88@
+1 ASSO @I115@
+2 RELA Elizabeth was Frederick's daughter and heir
+2 SOUR @S1@
+3 PAGE Volume 9, page 614
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:01:50
+0 @I113@ INDI
+1 NAME Humphrey /Bourchier/
+2 SURN Bourchier
+2 GIVN Humphrey
+1 SEX M
+1 _UID F6E9F64C29D7D711BA22AAFF03D374360ED7
+1 FAMS @F87@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I114@ INDI
+1 NAME John /Bourchier/
+2 SURN Bourchier
+2 GIVN John
+1 SEX M
+1 _UID F9E9F64C29D7D711BA22AAFF03D374361107
+1 FAMC @F87@
+1 TITL Lord Berners
+2 SOUR @S1@
+3 PAGE Volume 9, page 614
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I115@ INDI
+1 NAME Frederick /Tylney/
+2 SURN Tylney
+2 GIVN Frederick
+1 SEX M
+1 _UID FBE9F64C29D7D711BA22AAFF03D374361327
+1 FAMS @F88@
+1 RESI Ashwellthorpe, Norfolk
+2 SOUR @S1@
+3 PAGE Volume 9, page 614
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I116@ INDI
+1 NAME Elizabeth /Cheney/
+2 SURN Cheney
+2 GIVN Elizabeth
+1 SEX F
+1 _UID FEE9F64C29D7D711BA22AAFF03D374361657
+1 FAMS @F88@
+1 FAMC @F89@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I117@ INDI
+1 NAME Lawrence /Cheney/
+2 SURN Cheney
+2 GIVN Lawrence
+1 SEX M
+1 _UID 00EAF64C29D7D711BA22AAFF03D374361986
+1 FAMS @F89@
+1 RESI Ditton, Cambridgeshire
+2 SOUR @S1@
+3 PAGE Volume 9, pages 614, 615
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I118@ INDI
+1 NAME Elizabeth /Cokayne/
+2 SURN Cokayne
+2 GIVN Elizabeth
+1 SEX F
+1 _UID 03EAF64C29D7D711BA22AAFF03D374361CB6
+1 FAMS @F89@
+1 FAMC @F90@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I119@ INDI
+1 NAME John /Cokayne/
+2 SURN Cokayne
+2 GIVN John
+1 SEX M
+1 _UID 05EAF64C29D7D711BA22AAFF03D374361ED6
+1 FAMS @F90@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I120@ INDI
+1 NAME Agnes /Tylney/
+2 SURN Tylney
+2 GIVN Agnes
+1 SEX F
+1 BURI
+2 DATE 31 May 1545
+2 PLAC Thetford Abbey
+2 SOUR @S1@
+3 PAGE Volume 9, page 615
+1 _UID 0AEAF64C29D7D711BA22AAFF03D374362326
+1 FAMS @F34@
+1 FAMC @F91@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:03:49
+0 @I121@ INDI
+1 NAME Hugh /Tylney/
+2 SURN Tylney
+2 GIVN Hugh
+1 SEX M
+1 _UID 0DEAF64C29D7D711BA22AAFF03D374362656
+1 FAMS @F91@
+1 RESI Skirbeck and Boston, Lincolnshire
+2 SOUR @S1@
+3 PAGE Volume 9, page 615
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I122@ INDI
+1 NAME Philip /Tylney/
+2 SURN Tylney
+2 GIVN Philip
+1 SEX M
+1 _UID 10EAF64C29D7D711BA22AAFF03D374362986
+1 FAMC @F91@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I123@ INDI
+1 NAME ... /Tailboys/
+2 SURN Tailboys
+1 SEX F
+1 _UID 12EAF64C29D7D711BA22AAFF03D374362BA6
+1 FAMS @F91@
+1 FAMC @F92@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I124@ INDI
+1 NAME Walter /Tailboys/
+2 SURN Tailboys
+2 GIVN Walter
+1 SEX M
+1 _UID 14EAF64C29D7D711BA22AAFF03D374362DC6
+1 FAMS @F92@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I125@ INDI
+1 NAME Anne /Plantagenet/
+2 SURN York
+2 GIVN Anne of
+1 SEX F
+1 BIRT
+2 DATE 2 Nov 1475
+2 PLAC Westminster
+2 SOUR @S1@
+3 PAGE Volume 9, page 619
+1 DEAT
+2 DATE AFT 22 Nov 1511
+2 SOUR @S1@
+3 PAGE Volume 9, page 619
+1 BURI
+2 PLAC Thetford
+2 NOTE Removed later to Framlingham
+2 SOUR @S1@
+3 PAGE Volume 9, page 619
+1 _UID 19EAF64C29D7D711BA22AAFF03D374363216
+1 FAMS @F30@
+1 FAMC @F3@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 15:26:00
+0 @I126@ INDI
+1 NAME Ralph /Scrope/
+2 SURN Scrope
+2 GIVN Ralph
+1 SEX M
+1 _UID 1CEAF64C29D7D711BA22AAFF03D374363546
+1 FAMS @F81@
+1 RESI Upsall
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I127@ INDI
+1 NAME ... /Howard/
+2 SURN Howard
+1 SEX M
+1 DEAT
+2 DATE 3 Aug 1508
+2 SOUR @S1@
+3 PAGE Volume 9, page 619, note e
+1 BURI
+2 PLAC Lambeth
+2 SOUR @S1@
+3 PAGE Volume 9, page 619, note e
+1 _UID 1FEAF64C29D7D711BA22AAFF03D374363876
+1 FAMC @F30@
+1 TITL Lord Howard
+2 SOUR @S1@
+3 PAGE Volume 9, page 619
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:06:09
+0 @I128@ INDI
+1 NAME Eleanor /Percy/
+2 SURN Percy
+2 GIVN Eleanor
+1 SEX F
+1 _UID 21EAF64C29D7D711BA22AAFF03D374363A96
+1 FAMS @F32@
+1 FAMC @F93@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I129@ INDI
+1 NAME Henry /Percy/
+2 SURN Percy
+2 GIVN Henry
+1 SEX M
+1 _UID 23EAF64C29D7D711BA22AAFF03D374363CB6
+1 FAMS @F93@
+1 TITL Earl of Norhumberland
+2 SOUR @S1@
+3 PAGE Volume 4, page 421
+3 PAGE Volume 9, page 619
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I130@ INDI
+1 NAME Richard /Wydvill/
+2 SURN Wydvill
+2 GIVN Richard
+1 SEX M
+1 _UID 26EAF64C29D7D711BA22AAFF03D374363FE6
+1 FAMC @F73@
+1 TITL 3rd Earl Rivers
+2 SOUR @S1@
+3 PAGE Volume 5, page 361
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I131@ INDI
+1 NAME Jacqueline de /Luxembourg/
+2 SURN Luxembourg
+2 GIVN Jacqueline de
+1 SEX F
+1 _UID 28EAF64C29D7D711BA22AAFF03D374364106
+1 FAMS @F73@
+1 FAMC @F94@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I132@ INDI
+1 NAME Peter de /Luxembourg/
+2 SURN Luxembourg
+2 GIVN Peter de
+1 SEX M
+1 _UID 2AEAF64C29D7D711BA22AAFF03D374364326
+1 FAMS @F94@
+1 TITL Count of St Pol, Conversano and Brienne
+2 SOUR @S1@
+3 PAGE Volume 5, page 361
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I133@ INDI
+1 NAME Thomas /Grey/
+2 SURN Grey
+2 GIVN Thomas
+1 SEX M
+1 DEAT
+2 DATE 30 Aug 1501
+2 SOUR @S1@
+3 PAGE Volume 5, page 362; volume 14, page 272
+1 BURI
+2 PLAC Astley, Warwickshire
+2 SOUR @S1@
+3 PAGE Volume 4, page 419
+1 _UID 2DEAF64C29D7D711BA22AAFF03D374364656
+1 FAMS @F95@
+1 FAMS @F96@
+1 FAMC @F72@
+1 TITL Lord Ferrers of Groby
+2 SOUR @S1@
+3 PAGE Volume 5, page 362
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:15:37
+0 @I134@ INDI
+1 NAME Anne /Holand/
+2 SURN Holand
+2 GIVN Anne
+1 SEX F
+1 DEAT
+2 DATE (Soon after 26 August 1467)
+2 NOTE in her father's lifetime and without issue
+2 SOUR @S1@
+3 PAGE Volume 4, page 418
+1 _UID 2FEAF64C29D7D711BA22AAFF03D374364876
+1 FAMS @F95@
+1 FAMC @F97@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 15:26:51
+0 @I135@ INDI
+1 NAME Henry /Holand/
+2 SURN Holand
+2 GIVN Henry
+1 SEX M
+1 _UID 32EAF64C29D7D711BA22AAFF03D374364BA6
+1 FAMS @F97@
+1 TITL Duke of Exeter
+2 SOUR @S1@
+3 PAGE Volume 4, page 418
+1 SOUR @S1@
+2 PAGE Volume 4, page 418; volume 14, page 272
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:13:41
+0 @I136@ INDI
+1 NAME Anne /Plantagenet/
+2 SURN Plantagenet
+2 GIVN Anne
+1 SEX F
+1 _UID 35EAF64C29D7D711BA22AAFF03D374364ED6
+1 FAMS @F97@
+1 FAMC @F98@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I137@ INDI
+1 NAME Richard /Plantagenet/
+2 SURN Plantagenet
+2 GIVN Richard
+1 SEX M
+1 _UID 37EAF64C29D7D711BA22AAFF03D3743650F6
+1 FAMS @F98@
+1 TITL Duke of York
+2 SOUR @S1@
+3 PAGE Volume 4, page 418
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I138@ INDI
+1 NAME Cecily /Bonville/
+2 SURN Bonville
+2 GIVN Cecily
+1 SEX F
+1 DEAT
+2 DATE 12 May 1529
+2 SOUR @S1@
+3 PAGE Volume 4, page 419; volume 14, page 272
+1 BURI
+2 PLAC Astley, Warwickshire
+2 SOUR @S1@
+3 PAGE Volume 4, page 419
+1 _UID 3AEAF64C29D7D711BA22AAFF03D374365326
+1 FAMS @F96@
+1 FAMS @F99@
+1 FAMC @F100@
+1 TITL Baroness Harington and Baroness Bonville in her own right
+2 SOUR @S1@
+3 PAGE Volume 4, page 418
+1 ASSO @I139@
+2 RELA Cecily was William's only daughter and heir
+2 SOUR @S1@
+3 PAGE Volume 4, page 418
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:16:26
+0 @I139@ INDI
+1 NAME William /Bonville/
+2 SURN Bonville
+2 GIVN William
+1 SEX M
+1 _UID 3DEAF64C29D7D711BA22AAFF03D374365656
+1 FAMS @F100@
+1 TITL Lord Harington
+2 SOUR @S1@
+3 PAGE Volume 4, page 418
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I140@ INDI
+1 NAME Catherine /Neville/
+2 SURN Neville
+2 GIVN Catherine
+1 SEX F
+1 _UID 40EAF64C29D7D711BA22AAFF03D374365986
+1 FAMS @F100@
+1 CHAN
+2 DATE 25 Aug 2003
+3 TIME 01:00:00
+0 @I141@ INDI
+1 NAME Henry /Stafford/
+2 SURN Stafford
+2 GIVN Henry
+1 SEX M
+1 DEAT
+2 DATE Mar 1523
+2 SOUR @S1@
+3 PAGE Volume 4, page 419; volume 14, page 272
+1 _UID 44EAF64C29D7D711BA22AAFF03D374365DC6
+1 FAMS @F99@
+1 TITL Earl of Wiltshire
+2 SOUR @S1@
+3 PAGE Volume 4, page 419
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:16:00
+0 @I142@ INDI
+1 NAME Henry /Brandon/
+2 SURN Brandon
+2 GIVN Henry
+1 SEX M
+1 BIRT
+2 DATE 11 Mar 1515/1516
+2 PLAC Bath Place, London
+2 SOUR @S1@
+3 PAGE Volume 7, page 690; volume 12, part 1, pages 460, 461
+1 DEAT
+2 DATE Mar 1534
+3 NOTE 1 or 8 March
+2 NOTE unmarried and in his father's lifetime
+2 SOUR @S1@
+3 PAGE Volume 7, page 690;  volume 12, part 1, pages 460, 461
+1 _UID A25AFAACC0D7D711BA22A293179F6D368BBC
+1 FAMC @F36@
+1 TITL Lord Henry Brandon (more rightly Lord Brandon)
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, pages 460, 461
+1 TITL Earl of Lincoln
+2 DATE FROM 18 Jun 1525
+2 NOTE in his father's lifetime
+2 SOUR @S1@
+3 PAGE Volume 7, pages 690
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:19:50
+0 @I143@ INDI
+1 NAME Frances /Brandon/
+2 SURN Brandon
+2 GIVN Frances
+1 SEX F
+1 BIRT
+2 DATE 16 Jul 1517
+2 PLAC Bishop's Hatfield
+2 SOUR @S1@
+3 PAGE Volume 4, page 421
+1 DEAT
+2 DATE 21 Nov 1559
+2 PLAC Sheen
+2 SOUR @S1@
+3 PAGE Volume 4, page 421
+1 BURI
+2 DATE 5 Dec 1559
+2 PLAC Westminster Abbey
+2 SOUR @S1@
+3 PAGE Volume 4, page 421
+1 _UID A45AFAACC0D7D711BA22A293179F6D368DDC
+1 FAMS @F101@
+1 FAMS @F102@
+1 FAMC @F36@
+1 ASSO @I39@
+2 RELA Frances was Mary's eldest daughter and coheir
+2 SOUR @S1@
+3 PAGE Volume 4, page 421
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:26:39
+0 @I144@ INDI
+1 NAME Adrian /Stokes/
+2 SURN Stokes
+2 GIVN Adrian
+1 SEX M
+1 DEAT
+2 DATE 3 Nov 1585
+2 SOUR @S1@
+3 PAGE Volume 4, page 421
+1 _UID 2AEDCE57CFD7D711BA22ACE9C2156A36B2C6
+1 FAMS @F102@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:27:00
+0 @I145@ INDI
+1 NAME Thomas /Grey/
+2 SURN Grey
+2 GIVN Thomas
+1 SEX M
+1 BIRT
+2 DATE 22 Jun 1477
+2 SOUR @S1@
+3 PAGE Volume 4, page 419
+1 DEAT
+2 DATE 10 Oct 1530
+2 SOUR @S1@
+3 PAGE Volume 4, page 420
+1 _UID A95AFAACC0D7D711BA22A293179F6D36922C
+1 FAMS @F103@
+1 FAMC @F96@
+1 TITL Marquess of Dorset and Lord Ferrers (of Groby)
+2 SOUR @S1@
+3 PAGE Volume 4, page 419
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:23:56
+0 @I146@ INDI
+1 NAME Margaret /Wotton/
+2 SURN Wotton
+2 GIVN Margaret
+1 SEX F
+1 _UID AB5AFAACC0D7D711BA22A293179F6D36944C
+1 FAMS @F104@
+1 FAMS @F103@
+1 FAMC @F105@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I147@ INDI
+1 NAME William /Medley/
+2 SURN Medley
+2 GIVN William
+1 SEX M
+1 _UID AE5AFAACC0D7D711BA22A293179F6D36977C
+1 FAMS @F104@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I148@ INDI
+1 NAME Robert /Wotton/
+2 SURN Wotton
+2 GIVN Robert
+1 SEX M
+1 _UID B15AFAACC0D7D711BA22A293179F6D369AAC
+1 FAMS @F105@
+1 RESI Boughton Malherbe, Kent
+2 SOUR @S1@
+3 PAGE Volume 4, page 420
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I149@ INDI
+1 NAME Anne /Belknap/
+2 SURN Belknap
+2 GIVN Anne
+1 SEX F
+1 _UID B45AFAACC0D7D711BA22A293179F6D369DDC
+1 FAMS @F105@
+1 FAMC @F106@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I150@ INDI
+1 NAME Henry /Belknap/
+2 SURN Belknap
+2 GIVN Henry
+1 SEX M
+1 _UID B65AFAACC0D7D711BA22A293179F6D369FFC
+1 FAMS @F106@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I151@ INDI
+1 NAME Henry /Grey/
+2 SURN Grey
+2 GIVN Henry
+1 SEX M
+1 BIRT
+2 DATE 17 Jan 1517
+2 SOUR @S1@
+3 PAGE Volume 4, page 420
+1 DEAT
+2 DATE 23 Feb 1553/1554
+2 CAUS Beheaded
+2 NOTE without male issue
+2 PLAC Tower Hill, London
+2 SOUR @S1@
+3 PAGE Volume 4, page 421; volume 12, part 1, page 462
+1 _UID B95AFAACC0D7D711BA22A293179F6D36A22C
+1 FAMS @F107@
+1 FAMS @F101@
+1 FAMC @F103@
+1 TITL Marquess of Dorset
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 462
+1 TITL Duke of Suffolk
+2 DATE FROM 11 Oct 1551
+2 SOUR @S1@
+3 PAGE Volume 4, page 421
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:24:14
+0 @I152@ INDI
+1 NAME Catherine /FitzAlan/
+2 SURN FitzAlan
+2 GIVN Catherine
+1 SEX F
+1 _UID BB5AFAACC0D7D711BA22A293179F6D36A44C
+1 FAMS @F107@
+1 FAMC @F108@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I153@ INDI
+1 NAME William /FitzAlan/
+2 SURN FitzAlan
+2 GIVN William
+1 SEX M
+1 _UID BE5AFAACC0D7D711BA22A293179F6D36A77C
+1 FAMS @F108@
+1 TITL Earl of Arundel
+2 SOUR @S1@
+3 PAGE Volume 4, page 421
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I154@ INDI
+1 NAME Anne /Percy/
+2 SURN Percy
+2 GIVN Anne
+1 SEX F
+1 _UID C15AFAACC0D7D711BA22A293179F6D36AAAC
+1 FAMS @F108@
+1 FAMC @F93@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I156@ INDI
+1 NAME Eleanor /Brandon/
+2 SURN Brandon
+2 GIVN Eleanor
+1 SEX F
+1 DEAT
+2 DATE 27 Sep 1547
+2 PLAC Brougham Castle
+2 NOTE without surviving male issue
+2 SOUR @S1@
+3 PAGE Volume 3, page 567
+1 BURI
+2 PLAC Skipton, Yorkshire
+2 SOUR @S1@
+3 PAGE Volume 3, page 567
+1 _UID 2DEDCE57CFD7D711BA22ACE9C2156A36B5F6
+1 FAMS @F110@
+1 FAMC @F36@
+1 ASSO @I40@
+2 RELA Eleanor was Charles's youngest daughter and coheir
+2 SOUR @S1@
+3 PAGE Volume 3, page 567
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:49:55
+0 @I157@ INDI
+1 NAME Henry /Clifford/
+2 SURN Clifford
+2 GIVN Henry
+1 SEX M
+1 DEAT
+2 DATE 2 Jan 1569/1570
+2 PLAC Brougham Castle
+2 SOUR @S1@
+3 PAGE Volume 3, page 568
+1 BURI
+2 PLAC Skipton, Yorkshire
+2 SOUR @S1@
+3 PAGE Volume 3, page 568
+1 _UID 2FEDCE57CFD7D711BA22ACE9C2156A36B716
+1 FAMS @F110@
+1 FAMS @F111@
+1 TITL Earl of Cumberland
+2 SOUR @S1@
+3 PAGE Volume 3, page 567
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:52:00
+0 @I158@ INDI
+1 NAME Margaret /Clifford/
+2 SURN Clifford
+2 GIVN Margaret
+1 SEX F
+1 DEAT
+2 DATE 29 Sep 1596
+2 PLAC Cleveland Row, Middlesex
+2 SOUR @S1@
+3 PAGE Volume 4, page 211
+1 BURI
+2 DATE 22 Oct 1596
+2 PLAC Westminster Abbey
+2 SOUR @S1@
+3 PAGE Volume 4, page 211
+1 _UID 32EDCE57CFD7D711BA22ACE9C2156A36BA46
+1 FAMS @F112@
+1 FAMC @F110@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:06:26
+0 @I159@ INDI
+1 NAME Jane /Grey/
+2 SURN Grey
+2 GIVN Jane
+1 SEX F
+1 BIRT
+2 DATE Oct 1537
+2 PLAC Bradgate, Leicestershire
+2 SOUR @S5@
+3 PAGE Volume 16, page 105
+1 DEAT
+2 DATE 12 Feb 1553/4
+2 PLAC Tower Hill
+2 CAUS Executed
+2 NOTE without issue
+2 SOUR @S4@
+3 PAGE 539
+1 _UID 90EDCE57CFD7D711BA22ACE9C2156A361826
+1 FAMS @F178@
+1 FAMC @F101@
+1 EVEN
+2 TYPE Proclaimed Queen of England
+2 DATE 10 Jul 1553
+2 PLAC London
+2 SOUR @S4@
+3 PAGE 526
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I160@ INDI
+1 NAME Anne /Dacre/
+2 SURN Dacre
+2 GIVN Anne
+1 SEX F
+1 DEAT
+2 PLAC Skipton Castle
+2 SOUR @S1@
+3 PAGE Volume 3, page 568
+1 BURI
+2 DATE 31 Jul 1581
+2 PLAC Skipton, Yorkshire
+2 SOUR @S1@
+3 PAGE Volume 3, page 568
+1 _UID 38EDCE57CFD7D711BA22ACE9C2156A36C0A6
+1 FAMS @F111@
+1 FAMC @F113@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 19:19:45
+0 @I161@ INDI
+1 NAME William /Dacre/
+2 SURN Dacre
+2 GIVN William
+1 SEX M
+1 _UID 3BEDCE57CFD7D711BA22ACE9C2156A36C3D6
+1 FAMS @F113@
+1 TITL Lord Dacre (of Gilsland)
+2 SOUR @S1@
+3 PAGE Volume 3, page 567
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I162@ INDI
+1 NAME Elizabeth /Talbot/
+2 SURN Talbot
+2 GIVN Elizabeth
+1 SEX F
+1 _UID 3EEDCE57CFD7D711BA22ACE9C2156A36C606
+1 FAMS @F113@
+1 FAMC @F114@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I163@ INDI
+1 NAME George /Talbot/
+2 SURN Talbot
+2 GIVN George
+1 SEX M
+1 _UID 40EDCE57CFD7D711BA22ACE9C2156A36C826
+1 FAMS @F114@
+1 TITL 4th Earl of Shrewsbury
+2 SOUR @S1@
+3 PAGE Volume 3, page 568
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I164@ INDI
+1 NAME Eleanor /Neville/
+2 SURN Neville
+2 GIVN Eleanor
+1 SEX F
+1 BURI
+2 PLAC St James's Garlickhithe, London
+2 SOUR @S1@
+3 PAGE Volume 4, page 207
+1 _UID 43EDCE57CFD7D711BA22ACE9C2156A36CB56
+1 FAMS @F11@
+1 FAMC @F115@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:54:40
+0 @I165@ INDI
+1 NAME Richard /Neville/
+2 SURN Neville
+2 GIVN Richard
+1 SEX M
+1 _UID 46EDCE57CFD7D711BA22ACE9C2156A36CE86
+1 FAMS @F115@
+1 TITL Earl of Salisbury
+2 SOUR @S1@
+3 PAGE Volume 4, page 418
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I166@ INDI
+1 NAME Alice /Montagu/
+2 SURN Montagu
+2 GIVN Alice
+1 SEX F
+1 _UID 49EDCE57CFD7D711BA22ACE9C2156A36D1B6
+1 FAMS @F115@
+1 FAMC @F116@
+1 ASSO @I167@
+2 RELA Alice was Thomas's daughter and heir
+2 SOUR @S1@
+3 PAGE Volume 4, page 207
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I167@ INDI
+1 NAME Thomas /Montagu/
+2 SURN Montagu
+2 GIVN Thomas
+1 SEX M
+1 _UID 4BEDCE57CFD7D711BA22ACE9C2156A36D3D6
+1 FAMS @F116@
+1 TITL Earl of Salisbury
+2 SOUR @S1@
+3 PAGE Volume 4, page 207
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I168@ INDI
+1 NAME Arthur /Stewart/
+2 SURN Stewart
+2 GIVN Arthur
+1 SEX M
+1 BIRT
+2 DATE 20 Oct 1509
+2 PLAC Holyrood House
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
+1 _UID EA2E9C1D51DAD711BA22444553540000F073
+1 FAMC @F145@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:00:20
+0 @I169@ INDI
+1 NAME George /Stanley/
+2 SURN Stanley
+2 GIVN George
+1 SEX M
+1 BIRT
+2 DATE ABT 1460
+2 SOUR @S1@
+3 PAGE Volume 4, page 208
+1 DEAT
+2 DATE Dec 1503
+3 NOTE 4 or 5 December
+2 PLAC Derby House, St Paul's Wharf, London
+2 NOTE in his father's lifetime
+2 SOUR @S1@
+3 PAGE Volume 4, page 208
+1 BURI
+2 PLAC St James's Garlickhithe, London
+2 SOUR @S1@
+3 PAGE Volume 4, page 208
+1 _UID 50EDCE57CFD7D711BA22ACE9C2156A36D826
+1 FAMS @F117@
+1 FAMC @F11@
+1 TITL Lord Strange
+2 DATE FROM 15 Nov 1482
+2 SOUR @S1@
+3 PAGE Volume 4, page 208
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:57:58
+0 @I170@ INDI
+1 NAME Joan le /Strange/
+2 SURN Strange
+2 GIVN Joan le
+1 SEX F
+1 DEAT
+2 DATE 20 Mar 1513/1514
+2 PLAC Colham Green, Middlesex
+2 SOUR @S1@
+3 PAGE Volume 4, page 208
+1 _UID 52EDCE57CFD7D711BA22ACE9C2156A36DA46
+1 FAMS @F117@
+1 FAMC @F118@
+1 TITL Baroness Strange (of Knokin) and Mohun (of Dunster)
+2 DATE FROM 15 Oct 1477
+2 SOUR @S1@
+3 PAGE Volume 4, page 208
+1 ASSO @I171@
+2 RELA Joan was John's only daughter and heir
+2 SOUR @S1@
+3 PAGE Volume 4, page 208
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:58:10
+0 @I171@ INDI
+1 NAME John le /Strange/
+2 SURN Strange
+2 GIVN John le
+1 SEX M
+1 _UID 55EDCE57CFD7D711BA22ACE9C2156A36DD76
+1 FAMS @F118@
+1 TITL Lord Strange (of Knokin)
+2 SOUR @S1@
+3 PAGE Volume 4, page 208
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I172@ INDI
+1 NAME Jacquette /Wydvill/
+2 SURN Wydvill
+2 GIVN Jacquette
+1 SEX F
+1 _UID 58EDCE57CFD7D711BA22ACE9C2156A36E0A6
+1 FAMS @F118@
+1 FAMC @F73@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I173@ INDI
+1 NAME Thomas /Stanley/
+2 SURN Stanley
+2 GIVN Thomas
+1 SEX M
+1 BIRT
+2 DATE BEF 1485
+2 SOUR @S1@
+3 PAGE Volume 4, page 208
+1 DEAT
+2 DATE 23 May 1521
+2 PLAC Colham Green, Middlesex
+2 SOUR @S1@
+3 PAGE Volume 4, page 209
+1 BURI
+2 PLAC Syon Monastery, Middlesex
+2 SOUR @S1@
+3 PAGE Volume 4, page 209
+1 _UID 5AEDCE57CFD7D711BA22ACE9C2156A36E2C6
+1 FAMS @F119@
+1 FAMC @F117@
+1 TITL Earl of Derby
+2 SOUR @S1@
+3 PAGE Volume 4, page 208
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:00:03
+0 @I174@ INDI
+1 NAME Anne /Hastings/
+2 SURN Hastings
+2 GIVN Anne
+1 SEX F
+1 DEAT
+2 PLAC Colham Green, Middlesex
+2 SOUR @S1@
+3 PAGE Volume 4, page 209
+1 BURI
+2 DATE 17 Nov 1550
+2 SOUR @S1@
+3 PAGE Volume 4, page 209
+1 _UID 5CEDCE57CFD7D711BA22ACE9C2156A36E4E6
+1 FAMS @F119@
+1 FAMC @F120@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:00:30
+0 @I175@ INDI
+1 NAME Edward /Hastings/
+2 SURN Hastings
+2 GIVN Edward
+1 SEX M
+1 _UID 5FEDCE57CFD7D711BA22ACE9C2156A36E716
+1 FAMS @F120@
+1 TITL Lord Hungerford and Hastings
+2 SOUR @S1@
+3 PAGE Volume 4, page 209
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I176@ INDI
+1 NAME ... /Stewart/
+2 SURN Stewart
+1 SEX F
+1 BIRT
+2 DATE 15 Jul 1508
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
+1 _UID E82E9C1D51DAD711BA22444553540000EE53
+1 FAMC @F145@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 18:59:59
+0 @I177@ INDI
+1 NAME Mary /Hungerford/
+2 SURN Hungerford
+2 GIVN Mary
+1 SEX F
+1 _UID 64EDCE57CFD7D711BA22ACE9C2156A36EC66
+1 FAMS @F120@
+1 FAMC @F121@
+1 ASSO @I178@
+2 RELA Mary was Thomas's daughter and heir
+2 SOUR @S1@
+3 PAGE Volume 4, page 209
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I178@ INDI
+1 NAME Thomas /Hungerford/
+2 SURN Hungerford
+2 GIVN Thomas
+1 SEX M
+1 _UID 66EDCE57CFD7D711BA22ACE9C2156A36EE86
+1 FAMS @F121@
+1 TITL Lord Hungerford
+2 SOUR @S1@
+3 PAGE Volume 4, page 209
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I179@ INDI
+1 NAME Edward /Stanley/
+2 SURN Stanley
+2 GIVN Edward
+1 SEX M
+1 BIRT
+2 DATE 10 May 1509
+2 SOUR @S1@
+3 PAGE Volume 4, page 209
+1 DEAT
+2 DATE 24 Oct 1572
+2 PLAC Lathom House
+2 SOUR @S1@
+3 PAGE Volume 4, page 211
+1 BURI
+2 DATE 4 Dec 1572
+2 PLAC Ormskirk
+2 SOUR @S1@
+3 PAGE Volume 4, page 211
+1 _UID 69EDCE57CFD7D711BA22ACE9C2156A36F1B6
+1 FAMS @F122@
+1 FAMS @F123@
+1 FAMS @F124@
+1 FAMC @F119@
+1 TITL Earl of Derby
+2 SOUR @S1@
+3 PAGE Volume 4, page 209
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:03:07
+0 @I180@ INDI
+1 NAME Dorothy /Howard/
+2 SURN Howard
+2 GIVN Dorothy
+1 SEX F
+1 _UID 6BEDCE57CFD7D711BA22ACE9C2156A36F3D6
+1 FAMS @F122@
+1 FAMC @F34@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I181@ INDI
+1 NAME Margaret /Barlow/
+2 SURN Barlow
+2 GIVN Margaret
+1 SEX F
+1 DEAT
+2 DATE 19 Jan 1558/1559
+2 SOUR @S1@
+3 PAGE Volume 4, page 210
+1 BURI
+2 DATE 24 Feb 1558/1559
+2 PLAC Ormskirk
+2 SOUR @S1@
+3 PAGE Volume 4, page 210
+1 _UID 70EDCE57CFD7D711BA22ACE9C2156A36F826
+1 FAMS @F123@
+1 FAMC @F125@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:02:10
+0 @I182@ INDI
+1 NAME Ellis /Barlow/
+2 SURN Barlow
+2 GIVN Ellis
+1 SEX M
+1 _UID 73EDCE57CFD7D711BA22ACE9C2156A36FB56
+1 FAMS @F125@
+1 RESI Barlow, Lancashire
+2 SOUR @S1@
+3 PAGE Volume 4, page 210
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I183@ INDI
+1 NAME Anne /Reddish/
+2 SURN Reddish
+2 GIVN Anne
+1 SEX F
+1 _UID 76EDCE57CFD7D711BA22ACE9C2156A36FE86
+1 FAMS @F125@
+1 FAMC @F126@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I184@ INDI
+1 NAME Otes /Reddish/
+2 SURN Reddish
+2 GIVN Otes
+1 SEX M
+1 _UID 78EDCE57CFD7D711BA22ACE9C2156A3600A6
+1 FAMS @F126@
+1 RESI Reddish, Lancashire
+2 SOUR @S1@
+3 PAGE Volume 4, page 210
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:04:44
+0 @I185@ INDI
+1 NAME Mary /Cotton/
+2 SURN Cotton
+2 GIVN Mary
+1 SEX F
+1 DEAT
+2 DATE 16 Nov 1580
+2 NOTE without issue
+2 SOUR @S1@
+3 PAGE Volume 4, page 211
+1 _UID 7BEDCE57CFD7D711BA22ACE9C2156A3603D6
+1 FAMS @F124@
+1 FAMS @F127@
+1 FAMC @F128@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:03:41
+0 @I186@ INDI
+1 NAME George /Cotton/
+2 SURN Cotton
+2 GIVN George
+1 SEX M
+1 _UID 7EEDCE57CFD7D711BA22ACE9C2156A360606
+1 FAMS @F128@
+1 RESI Combermere, Cheshire
+2 SOUR @S1@
+3 PAGE Volume 4, page 210
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I187@ INDI
+1 NAME Mary /Onley/
+2 SURN Onley
+2 GIVN Mary
+1 SEX F
+1 _UID 81EDCE57CFD7D711BA22ACE9C2156A360936
+1 FAMS @F128@
+1 FAMC @F129@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I188@ INDI
+1 NAME John /Onley/
+2 SURN Onley
+2 GIVN John
+1 SEX M
+1 _UID 83EDCE57CFD7D711BA22ACE9C2156A360B56
+1 FAMS @F129@
+1 RESI Catesby, Northamptonshire
+2 SOUR @S1@
+3 PAGE Volume 4, page 210
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I189@ INDI
+1 NAME Henry /Grey/
+2 SURN Grey
+2 GIVN Henry
+1 SEX M
+1 DEAT
+2 DATE 1 Jan 1614/1615
+2 SOUR @S1@
+3 PAGE Volume 4, page 211
+1 _UID 86EDCE57CFD7D711BA22ACE9C2156A360E86
+1 FAMS @F127@
+1 TITL 6th Earl of Kent
+2 SOUR @S1@
+3 PAGE Volume 4, page 211
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:03:35
+0 @I190@ INDI
+1 NAME Henry /Stanley/
+2 SURN Stanley
+2 GIVN Henry
+1 SEX M
+1 BIRT
+2 DATE Sep 1531
+2 SOUR @S1@
+3 PAGE Volume 4, page 211
+1 CHR
+2 DATE 4 Oct 1531
+2 SOUR @S1@
+3 PAGE Volume 4, page 211
+1 DEAT
+2 DATE 25 Sep 1593
+2 PLAC Lathom
+2 SOUR @S1@
+3 PAGE Volume 4, page 211
+1 BURI
+2 DATE 4 Dec 1593
+2 PLAC Ormskirk
+2 SOUR @S1@
+3 PAGE Volume 4, page 211
+1 _UID 89EDCE57CFD7D711BA22ACE9C2156A3611B6
+1 FAMS @F112@
+1 FAMC @F122@
+1 TITL Lord Strange
+2 DATE TO 1559
+2 SOUR @S1@
+3 PAGE Volume 4, page 211
+1 TITL Earl of Derby
+2 SOUR @S1@
+3 PAGE Volume 4, page 211
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:05:39
+0 @I191@ INDI
+1 NAME Catherine /Grey/
+2 SURN Grey
+2 GIVN Catherine
+1 SEX F
+1 BIRT
+2 DATE Aug 1540
+2 PLAC Probably at Dorset House, Westminster
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 DEAT
+2 DATE 27 Jan 1567/1568
+2 PLAC Cockfield Hall, Yoxford, Suffolk
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 BURI
+2 DATE 21 Feb 1567/1568
+2 PLAC Yoxford
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 _UID 92EDCE57CFD7D711BA22ACE9C2156A361A46
+1 FAMS @F130@
+1 FAMS @F131@
+1 FAMC @F101@
+1 ASSO @I151@
+2 RELA Catherine was Henry's 2nd daughter and coheir
+2 SOUR @S1@
+3 PAGE Volume 6, page 505
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:20:40
+0 @I192@ INDI
+1 NAME Mary /Grey/
+2 SURN Grey
+2 GIVN Mary
+1 SEX F
+1 DEAT
+2 DATE 20 Apr 1578
+2 NOTE without issue
+2 SOUR @S1@
+3 PAGE Volume 4, page 421, note c
+1 _UID 94EDCE57CFD7D711BA22ACE9C2156A361C66
+1 FAMS @F132@
+1 FAMC @F101@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:09:02
+0 @I193@ INDI
+1 NAME Thomas /Keyes/
+2 SURN Keyes
+2 GIVN Thomas
+3 NOTE (or Henry)
+4 SOUR @S1@
+5 PAGE Volume 14, page 383
+1 SEX M
+1 DEAT
+2 DATE ABT 3 Sep 1571
+2 SOUR @S1@
+3 PAGE Volume 4, page 421, note c; volume 14, page 272
+1 _UID 96EDCE57CFD7D711BA22ACE9C2156A361E86
+1 FAMS @F132@
+1 OCCU Serjeant Porter
+2 SOUR @S1@
+3 PAGE Volume 4, page 421
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 14:28:13
+0 @I194@ INDI
+1 NAME Edward /Seymour/
+2 SURN Seymour
+2 GIVN Edward
+1 SEX M
+1 BIRT
+2 DATE 12 Oct 1537
+2 SOUR @S1@
+3 PAGE Volume 6, page 505
+1 DEAT
+2 DATE 6 Apr 1621
+2 PLAC Netley
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 BURI
+2 PLAC Salisbury Cathedral
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 _UID 99EDCE57CFD7D711BA22ACE9C2156A3621B6
+1 FAMS @F131@
+1 FAMS @F133@
+1 FAMS @F134@
+1 FAMC @F135@
+1 TITL Earl of Hertford
+2 DATE FROM 1547 TO 1552
+2 NOTE (styled)
+2 SOUR @S1@
+3 PAGE Volume 6, page 505
+1 TITL Baron Beauchamp and Earl of Hertford
+2 DATE FROM 13 Jan 1558/9
+2 SOUR @S1@
+3 PAGE Volume 6, page 505
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:23:44
+0 @I195@ INDI
+1 NAME Edmund /Howard/
+2 SURN Howard
+2 GIVN Edmund
+1 SEX M
+1 DEAT
+2 DATE 1538
+2 SOUR @S1@
+3 PAGE Volume 9, Howard pedigree near page 620
+1 _UID 9CEDCE57CFD7D711BA22ACE9C2156A3624E6
+1 FAMS @F23@
+1 FAMC @F31@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:10:53
+0 @I196@ INDI
+1 NAME Edward /Seymour/
+2 SURN Seymour
+2 GIVN Edward
+1 SEX M
+1 BIRT
+2 DATE ABT 1500
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 60
+1 DEAT
+2 DATE 22 Jan 1551/1552
+2 CAUS Beheaded
+2 NOTE Attainted
+2 SOUR @S1@
+3 PAGE Volume 6, page 504
+1 _UID 9FEDCE57CFD7D711BA22ACE9C2156A362716
+1 FAMS @F135@
+1 FAMC @F22@
+1 TITL Viscount Beauchamp
+2 DATE 5 Jun 1536
+2 SOUR @S1@
+3 PAGE Volume 6, page 504
+1 TITL Earl of Hertford
+2 DATE 18 Oct 1537
+2 SOUR @S1@
+3 PAGE Volume 6, page 504
+1 TITL Baron Seymour
+2 DATE 15 Feb 1546/7
+2 SOUR @S1@
+3 PAGE Volume 6, page 504
+1 TITL Duke of Somerset
+2 DATE 16 Feb 1546/7
+2 SOUR @S1@
+3 PAGE Volume 6, page 504
+1 TITL Protector of the Realm
+2 DATE FROM 24 Dec 1548 TO 13 Oct 1549
+2 SOUR @S1@
+3 PAGE Volume 6, page 504
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:28:36
+0 @I197@ INDI
+1 NAME Anne /Stanhope/
+2 SURN Stanhope
+2 GIVN Anne
+1 SEX F
+1 _UID A1EDCE57CFD7D711BA22ACE9C2156A362936
+1 FAMS @F135@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I198@ INDI
+1 NAME Henry /Herbert/
+2 SURN Herbert
+2 GIVN Henry
+1 SEX M
+1 _UID A4EDCE57CFD7D711BA22ACE9C2156A362C66
+1 FAMS @F130@
+1 TITL Lord Herbert
+2 SOUR @S1@
+3 PAGE Volume 6, page 505
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I199@ INDI
+1 NAME Frances /Howard/
+2 SURN Howard
+2 GIVN Frances
+1 SEX F
+1 DEAT
+2 DATE 14 May 1598
+2 PLAC London
+2 NOTE without issue
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 BURI
+2 PLAC Westminster Abbey
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 _UID A7EDCE57CFD7D711BA22ACE9C2156A362F96
+1 FAMS @F133@
+1 FAMC @F136@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:22:28
+0 @I200@ INDI
+1 NAME William /Howard/
+2 SURN Howard
+2 GIVN William
+1 SEX M
+1 DEAT
+2 DATE 1573
+2 SOUR @S1@
+3 PAGE Volume 9, Howard pedigree near page 620
+1 _UID AAEDCE57CFD7D711BA22ACE9C2156A3632C6
+1 FAMS @F136@
+1 FAMC @F34@
+1 TITL Baron Howard of Effingham
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:25:29
+0 @I201@ INDI
+1 NAME Margaret /Gamage/
+2 SURN Gamage
+2 GIVN Margaret
+1 SEX F
+1 _UID ADEDCE57CFD7D711BA22ACE9C2156A3635F6
+1 FAMS @F136@
+1 FAMC @F137@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I202@ INDI
+1 NAME Thomas /Gamage/
+2 SURN Gamage
+2 GIVN Thomas
+1 SEX M
+1 _UID AFEDCE57CFD7D711BA22ACE9C2156A363716
+1 FAMS @F137@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I203@ INDI
+1 NAME Frances /Howard/
+2 SURN Howard
+2 GIVN Frances
+1 SEX F
+1 DEAT
+2 DATE 8 Oct 1639
+2 NOTE without issue
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 BURI
+2 DATE 12 Oct 1639
+2 PLAC Westminster Abbey
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 _UID B7EDCE57CFD7D711BA22ACE9C2156A363F96
+1 FAMS @F138@
+1 FAMS @F134@
+1 FAMS @F139@
+1 FAMC @F140@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:24:37
+0 @I204@ INDI
+1 NAME Henry /Pranell/
+2 SURN Pranell
+2 GIVN Henry
+1 SEX M
+1 DEAT
+2 DATE 20 Dec 1599
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 _UID BAEDCE57CFD7D711BA22ACE9C2156A3642C6
+1 FAMS @F138@
+1 OCCU A wealthy wine merchant
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 RESI London
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:23:01
+0 @I205@ INDI
+1 NAME Thomas /Howard/
+2 SURN Howard
+2 GIVN Thomas
+1 SEX M
+1 _UID BDEDCE57CFD7D711BA22ACE9C2156A3645F6
+1 FAMS @F140@
+1 FAMC @F29@
+1 TITL Viscount Howard of Bindon
+2 DATE FROM 1559
+2 SOUR @S1@
+3 PAGE Volume 9, Howard pedigree near page 620
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I206@ INDI
+1 NAME Mabel /Burton/
+2 SURN Burton
+2 GIVN Mabel
+1 SEX F
+1 _UID BFEDCE57CFD7D711BA22ACE9C2156A364716
+1 FAMS @F140@
+1 FAMC @F141@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I207@ INDI
+1 NAME Nicholas /Burton/
+2 SURN Burton
+2 GIVN Nicholas
+1 SEX M
+1 _UID C2EDCE57CFD7D711BA22ACE9C2156A364A46
+1 FAMS @F141@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I208@ INDI
+1 NAME Ludovic /Stuart/
+2 SURN Stuart
+2 GIVN Ludovic
+1 SEX M
+1 DEAT
+2 DATE 16 Feb 1623/1624
+2 NOTE without legitimate issue
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 BURI
+2 PLAC Westminster Abbey
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 _UID C5EDCE57CFD7D711BA22ACE9C2156A364D76
+1 FAMS @F139@
+1 TITL Duke of Richmond
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:24:23
+0 @I209@ INDI
+1 NAME Margery /Wentworth/
+2 SURN Wentworth
+2 GIVN Margery
+1 SEX F
+1 DEAT
+2 DATE Oct 1550
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 60
+1 _UID 62E872ADF4D7D711BA224445535400002860
+1 FAMS @F22@
+1 FAMC @F142@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:28:06
+0 @I210@ INDI
+1 NAME Henry /Wentworth/
+2 SURN Wentworth
+2 GIVN Henry
+1 SEX M
+1 _UID 64E872ADF4D7D711BA224445535400002A80
+1 FAMS @F142@
+1 RESI Nettlestead, Suffolk
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 60
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I211@ INDI
+1 NAME Thomas /Seymour/
+2 SURN Seymour
+2 GIVN Thomas
+1 SEX M
+1 BIRT
+2 DATE ABT 1508
+2 SOUR @S1@
+3 PAGE Volume 11, page 637
+1 DEAT
+2 DATE 20 Mar 1548/1549
+2 PLAC Tower Hill
+2 CAUS Executed
+2 NOTE without male issue
+2 SOUR @S1@
+3 PAGE Volume 11, page 639
+1 BURI
+2 PLAC Tower of London
+2 SOUR @S1@
+3 PAGE Volume 11, page 639
+1 _UID 67E872ADF4D7D711BA224445535400002DB0
+1 FAMS @F26@
+1 FAMC @F22@
+1 TITL Baron Seymour of Sudeley
+2 DATE FROM 16 Feb 1546/7
+2 SOUR @S1@
+3 PAGE Volume 11, page 638
+1 RESI Sudeley Castle, Gloucestershire
+2 SOUR @S1@
+3 PAGE Volume 11, page 637
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:32:52
+0 @I212@ INDI
+1 NAME Thomas /Parr/
+2 SURN Parr
+2 GIVN Thomas
+1 SEX M
+1 _UID 6CE872ADF4D7D711BA224445535400003200
+1 FAMS @F27@
+1 RESI Kendal, Westmorland
+2 SOUR @S1@
+3 PAGE Volume 11, page 639
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I213@ INDI
+1 NAME Maud /Green/
+2 SURN Green
+2 GIVN Maud
+1 SEX F
+1 _UID 6FE872ADF4D7D711BA224445535400003530
+1 FAMS @F27@
+1 FAMC @F143@
+1 RESI Green's Norton, Northamptonshire
+2 SOUR @S1@
+3 PAGE Volume 11, page 639
+1 ASSO @I214@
+2 RELA Maud was Thomas's daughter and coheir
+2 SOUR @S1@
+3 PAGE Volume 11, page 639
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I214@ INDI
+1 NAME Thomas /Green/
+2 SURN Green
+2 GIVN Thomas
+1 SEX M
+1 _UID 71E872ADF4D7D711BA224445535400003750
+1 FAMS @F143@
+1 CHAN
+2 DATE 26 Aug 2003
+3 TIME 01:00:00
+0 @I215@ INDI
+1 NAME Edward /Burgh/
+2 SURN Burgh
+2 GIVN Edward
+1 SEX M
+1 DEAT
+2 DATE BEF Apr 1533
+2 SOUR @S1@
+3 PAGE Volume 11, page 639
+1 _UID 74E872ADF4D7D711BA224445535400003A80
+1 FAMS @F24@
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:31:29
+0 @I216@ INDI
+1 NAME John /Neville/
+2 SURN Neville
+2 GIVN John
+1 SEX M
+1 DEAT
+2 DATE 2 Mar 1542/1543
+2 SOUR @S1@
+3 PAGE Volume 11, page 639
+1 _UID 77E872ADF4D7D711BA224445535400003DB0
+1 FAMS @F25@
+1 TITL 3rd Lord Latimer
+2 SOUR @S1@
+3 PAGE Volume 11, page 639
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 15:31:12
+0 @I217@ INDI
+1 NAME Gilbert /Gray/
+2 SURN Gray
+2 GIVN Gilbert
+1 SEX M
+1 _UID 828837EC5CD9D711BA2284A7D1D71B364A06
+1 FAMS @F144@
+1 RESI Foulis
+2 SOUR @S1@
+3 PAGE Volume 8, page 683
+1 CHAN
+2 DATE 28 Aug 2003
+3 TIME 13:44:30
+0 @I218@ INDI
+1 NAME James /Stewart/
+2 SURN Stewart
+2 GIVN James
+1 SEX M
+1 BIRT
+2 DATE 10 Apr 1512
+2 PLAC Linlithgow
+2 SOUR @S2@
+3 PAGE Volume 1, page 23
+1 DEAT
+2 DATE 14 Dec 1542
+2 SOUR @S2@
+3 PAGE Volume 1, page 23
+1 EVEN
+2 TYPE Coronation
+2 DATE Sep 1513
+2 PLAC Stirling
+2 SOUR @S2@
+3 PAGE Volume 1, page 23
+1 _UID EC2E9C1D51DAD711BA22444553540000F293
+1 FAMS @F163@
+1 FAMS @F165@
+1 FAMC @F145@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:32:54
+0 @I219@ INDI
+1 NAME ... /Stewart/
+2 SURN Stewart
+1 SEX F
+1 BIRT
+2 DATE BET 1512 AND 1513
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
+1 _UID EE2E9C1D51DAD711BA22444553540000F4B3
+1 FAMC @F145@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 18:58:51
+0 @I220@ INDI
+1 NAME Alexander /Stewart/
+2 SURN Stewart
+2 GIVN Alexander
+1 SEX M
+1 BIRT
+2 DATE AFT 9 Sep 1513
+2 PLAC Stirling Castle
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
+1 BURI
+2 PLAC Cambuskenneth
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
+1 _UID F02E9C1D51DAD711BA22444553540000F6D3
+1 FAMC @F145@
+1 TITL Duke of Ross
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 18:58:01
+0 @I221@ INDI
+1 NAME Margaret /Douglas/
+2 SURN Douglas
+2 GIVN Margaret
+1 SEX F
+1 BIRT
+2 DATE Oct 1515
+2 PLAC Harbottle
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 DEAT
+2 DATE 9 Mar 1577/1578
+2 PLAC Hackney
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 _UID F22E9C1D51DAD711BA22444553540000F8F3
+1 FAMS @F146@
+1 FAMC @F50@
+1 SOUR @S2@
+2 PAGE Volume 1, page 21
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:08:06
+0 @I222@ INDI
+1 NAME Matthew /Stuart/
+2 SURN Stuart
+2 GIVN Matthew
+1 SEX M
+1 _UID F42E9C1D51DAD711BA22444553540000FA13
+1 FAMS @F146@
+1 TITL Earl of Lennox
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:07:12
+0 @I223@ INDI
+1 NAME Henry /Stuart/
+2 SURN Stuart
+2 GIVN Henry
+1 SEX M
+1 DEAT
+2 DATE 10 Feb 1566/1567
+2 PLAC Edinburgh
+2 SOUR @S2@
+3 PAGE Volume 1, page 26
+1 _UID F72E9C1D51DAD711BA22444553540000FD43
+1 FAMS @F169@
+1 FAMC @F146@
+1 TITL Lord Darnley
+2 SOUR @S2@
+3 PAGE Volume 1, page 26
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:46:39
+0 @I224@ INDI
+1 NAME Charles /Stuart/
+2 SURN Stuart
+2 GIVN Charles
+1 SEX M
+1 _UID F92E9C1D51DAD711BA22444553540000FF63
+1 FAMS @F147@
+1 FAMC @F146@
+1 TITL Earl of Lennox
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:08:52
+0 @I225@ INDI
+1 NAME Elizabeth /Cavendish/
+2 SURN Cavendish
+2 GIVN Elizabeth
+1 SEX F
+1 _UID FB2E9C1D51DAD711BA224445535400000183
+1 FAMS @F147@
+1 FAMC @F148@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:09:15
+0 @I226@ INDI
+1 NAME William /Cavendish/
+2 SURN Cavendish
+2 GIVN William
+1 SEX M
+1 _UID FE2E9C1D51DAD711BA2244455354000004B3
+1 FAMS @F148@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:09:37
+0 @I227@ INDI
+1 NAME Arabella /Stuart/
+2 SURN Stuart
+2 GIVN Arabella
+1 SEX F
+1 DEAT
+2 DATE 27 Sep 1615
+2 PLAC Tower of London
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 _UID 012F9C1D51DAD711BA2244455354000008F2
+1 FAMS @F149@
+1 FAMC @F147@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:18:20
+0 @I228@ INDI
+1 NAME William /Seymour/
+2 SURN Seymour
+2 GIVN William
+1 SEX M
+1 _UID 032F9C1D51DAD711BA224445535400000A12
+1 FAMS @F149@
+1 TITL Marquess of Hertford
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:17:53
+0 @I229@ INDI
+1 NAME Margaret /Boyd/
+2 SURN Boyd
+2 GIVN Margaret
+1 SEX F
+1 _UID 062F9C1D51DAD711BA224445535400000D42
+1 FAMS @F150@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:19:14
+0 @I230@ INDI
+1 NAME Alexander /Stewart/
+2 SURN Stewart
+2 GIVN Alexander
+1 SEX M
+1 NOTE Illegitimate
+1 BIRT
+2 DATE ABT 1493
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 DEAT
+2 DATE 1513
+2 PLAC Flodden
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 _UID 092F9C1D51DAD711BA224445535400001072
+1 FAMC @F150@
+1 OCCU Archbishop of St Andrews
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:20:17
+0 @I231@ INDI
+1 NAME Catherine /Stewart/
+2 SURN Stewart
+2 GIVN Catherine
+1 SEX F
+1 NOTE Illegitimate
+1 _UID 0B2F9C1D51DAD711BA224445535400001292
+1 FAMS @F151@
+1 FAMC @F150@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:20:34
+0 @I232@ INDI
+1 NAME James /Douglas/
+2 SURN Douglas
+2 GIVN James
+1 SEX M
+1 _UID 0D2F9C1D51DAD711BA2244455354000014B2
+1 FAMS @F151@
+1 TITL Earl of Morton
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:20:48
+0 @I233@ INDI
+1 NAME Janet /Kennedy/
+2 SURN Kennedy
+2 GIVN Janet
+1 SEX F
+1 _UID 102F9C1D51DAD711BA2244455354000017E2
+1 FAMS @F152@
+1 FAMC @F64@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:22:18
+0 @I235@ INDI
+1 NAME James /Stewart/
+2 SURN Stewart
+2 GIVN James
+1 SEX M
+1 NOTE Illegitimate
+1 BIRT
+2 DATE ABT 1499
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 DEAT
+2 DATE 12 Jun 1544
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 _UID 162F9C1D51DAD711BA224445535400001D42
+1 FAMS @F154@
+1 FAMC @F152@
+1 TITL Earl of Moray
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:24:11
+0 @I236@ INDI
+1 NAME Elizabeth /Campbell/
+2 SURN Campbell
+2 GIVN Elizabeth
+1 SEX F
+1 _UID 182F9C1D51DAD711BA224445535400001F62
+1 FAMS @F154@
+1 FAMC @F155@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:23:28
+0 @I237@ INDI
+1 NAME Colin /Campbell/
+2 SURN Campbell
+2 GIVN Colin
+1 SEX M
+1 _UID 1B2F9C1D51DAD711BA224445535400002292
+1 FAMS @F155@
+1 TITL Earl of Argyll
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:23:46
+0 @I238@ INDI
+1 NAME Margaret /Drummond/
+2 SURN Drummond
+2 GIVN Margaret
+1 SEX F
+1 _UID 1E2F9C1D51DAD711BA2244455354000025C2
+1 FAMS @F156@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:24:33
+0 @I239@ INDI
+1 NAME Margaret /Stewart/
+2 SURN Stewart
+2 GIVN Margaret
+1 SEX F
+1 NOTE Illegitimate
+1 BIRT
+2 DATE 1497
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 _UID 212F9C1D51DAD711BA2244455354000028F2
+1 FAMS @F157@
+1 FAMS @F158@
+1 FAMC @F156@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:26:34
+0 @I240@ INDI
+1 NAME John /Gordon/
+2 SURN Gordon
+2 GIVN John
+1 SEX M
+1 _UID 232F9C1D51DAD711BA224445535400002A12
+1 FAMS @F157@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:26:49
+0 @I241@ INDI
+1 NAME John /Drummond/
+2 SURN Drummond
+2 GIVN John
+1 SEX M
+1 _UID 262F9C1D51DAD711BA224445535400002D42
+1 FAMS @F158@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:27:10
+0 @I242@ INDI
+1 NAME Isabella /Stewart/
+2 SURN Stewart
+2 GIVN Isabella
+1 SEX F
+1 _UID 292F9C1D51DAD711BA224445535400003072
+1 FAMS @F159@
+1 FAMC @F160@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:27:52
+0 @I243@ INDI
+1 NAME James /Stewart/
+2 SURN Stewart
+2 GIVN James
+1 SEX M
+1 _UID 2C2F9C1D51DAD711BA2244455354000033A2
+1 FAMS @F160@
+1 TITL Earl of Buchan
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:28:12
+0 @I244@ INDI
+1 NAME Janet /Stewart/
+2 SURN Stewart
+2 GIVN Janet
+1 SEX F
+1 NOTE Illegitimate
+1 _UID 2F2F9C1D51DAD711BA2244455354000036D2
+1 FAMS @F161@
+1 FAMS @F162@
+1 FAMC @F159@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:28:28
+0 @I245@ INDI
+1 NAME Malcolm /Fleming/
+2 SURN Fleming
+2 GIVN Malcolm
+1 SEX M
+1 _UID 312F9C1D51DAD711BA2244455354000038F2
+1 FAMS @F161@
+1 TITL Lord Fleming
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:28:48
+0 @I246@ INDI
+1 NAME Henry of /Valois/
+2 SURN Valois
+2 GIVN Henry of
+1 SEX M
+1 _UID 342F9C1D51DAD711BA224445535400003B22
+1 FAMS @F162@
+1 FAMS @F168@
+1 TITL King Henry II of France
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:30:44
+0 @I247@ INDI
+1 NAME Henry of /Valois/
+2 SURN Valois
+2 GIVN Henry of
+1 SEX M
+1 NOTE Illegitimate
+1 _UID 392F9C1D51DAD711BA224445535400004072
+1 FAMC @F162@
+1 SOUR @S2@
+2 PAGE Volume 1, page 23
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:32:14
+0 @I248@ INDI
+1 NAME Madeleine of /Valois/
+2 SURN Valois
+2 GIVN Madeleine of
+1 SEX F
+1 BIRT
+2 DATE Aug 1520
+2 SOUR @S2@
+3 PAGE Volume 1, page 23
+1 DEAT
+2 DATE 7 Jul 1537
+2 PLAC Holyrood
+2 SOUR @S2@
+3 PAGE Volume 1, page 23
+1 _UID 3B2F9C1D51DAD711BA224445535400004292
+1 FAMS @F163@
+1 FAMC @F164@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:39:21
+0 @I249@ INDI
+1 NAME Francis of /Valois/
+2 SURN Valois
+2 GIVN Francis of
+1 SEX M
+1 _UID 3E2F9C1D51DAD711BA2244455354000045C2
+1 FAMS @F164@
+1 TITL King Francis I of France
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:35:59
+0 @I250@ INDI
+1 NAME Mary of /Lorraine/
+2 SURN Lorraine
+2 GIVN Mary of
+1 SEX F
+1 DEAT
+2 DATE 10 Jun 1560
+2 PLAC Edinburgh Castle
+2 SOUR @S2@
+3 PAGE Volume 1, page 23
+1 _UID 412F9C1D51DAD711BA2244455354000048F2
+1 FAMS @F166@
+1 FAMS @F165@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:39:46
+0 @I251@ INDI
+1 NAME Louis of /Orleans/
+2 SURN Orleans
+2 GIVN Louis of
+1 SEX M
+1 _UID 442F9C1D51DAD711BA224445535400004B22
+1 FAMS @F166@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:38:47
+0 @I252@ INDI
+1 NAME James /Stewart/
+2 SURN Stewart
+2 GIVN James
+1 SEX M
+1 BIRT
+2 DATE 22 May 1540
+2 PLAC St Andrews
+2 SOUR @S2@
+3 PAGE Volume 1, page 23
+1 DEAT
+2 PLAC Stirling
+2 SOUR @S2@
+3 PAGE Volume 1, page 23
+1 BURI
+2 DATE 1541
+2 PLAC Holyrood
+2 SOUR @S2@
+3 PAGE Volume 1, page 23
+1 _UID 472F9C1D51DAD711BA224445535400004E52
+1 FAMC @F165@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:40:54
+0 @I253@ INDI
+1 NAME Arthur /Stewart/
+2 SURN Stewart
+2 GIVN Arthur
+1 SEX M
+1 BIRT
+2 DATE Apr 1541
+2 PLAC Falkland
+2 SOUR @S2@
+3 PAGE Volume 1, page 24
+1 BURI
+2 PLAC Holyrood
+2 SOUR @S2@
+3 PAGE Volume 1, page 24
+1 _UID 492F9C1D51DAD711BA224445535400005072
+1 FAMC @F165@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:41:36
+0 @I254@ INDI
+1 NAME Mary /Stewart/
+2 SURN Stewart
+2 GIVN Mary
+1 SEX F
+1 BIRT
+2 DATE Dec 1542
+3 NOTE 7 or 8 December
+2 PLAC Linlithgow
+2 SOUR @S2@
+3 PAGE Volume 1, page 25
+1 DEAT
+2 DATE 8 Feb 1586/1587
+2 PLAC Fotheringay Castle, Northamptonshire
+2 SOUR @S2@
+3 PAGE Volume 1, page 26
+1 BURI
+2 PLAC Peterborough Cathedral
+2 SOUR @S2@
+3 PAGE Volume 1, page 26
+1 EVEN
+2 TYPE Abdication
+2 DATE 24 Jul 1567
+2 SOUR @S2@
+3 PAGE Volume 1, page 26
+1 EVEN
+2 TYPE Portraits
+2 FILE http://www.marileecody.com/maryqosimages.html
+2 NOTE Link to Marilee Cody's "Tudor England" website
+1 _UID 4B2F9C1D51DAD711BA224445535400005292
+1 FAMS @F167@
+1 FAMS @F169@
+1 FAMS @F170@
+1 FAMC @F165@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:49:20
+0 @I255@ INDI
+1 NAME Francis of /Valois/
+2 SURN Valois
+2 GIVN Francis of
+1 SEX M
+1 DEAT
+2 DATE 5 Dec 1560
+2 SOUR @S2@
+3 PAGE Volume 1, page 26
+1 _UID 4D2F9C1D51DAD711BA2244455354000054B2
+1 FAMS @F167@
+1 FAMC @F168@
+1 TITL King Francis II of France
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:45:07
+0 @I256@ INDI
+1 NAME Catherine de /Medicis/
+2 SURN Medicis
+2 GIVN Catherine de
+1 SEX F
+1 EVEN
+2 TYPE Portrait
+2 FILE http://www.marileecody.com/medici.jpg
+2 NOTE Link to Marilee Cody's "Tudor England" website
+1 _UID 512F9C1D51DAD711BA2244455354000058F2
+1 FAMS @F168@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:44:14
+0 @I257@ INDI
+1 NAME James /Stuart/
+2 SURN Stuart
+2 GIVN James
+1 SEX M
+1 BIRT
+2 DATE 19 Jun 1566
+2 PLAC Edinburgh Castle
+2 SOUR @S2@
+3 PAGE Volume 1, page 26
+1 DEAT
+2 DATE 27 Mar 1625
+2 SOUR @S2@
+3 PAGE Volume 1, page 27
+1 _UID 542F9C1D51DAD711BA224445535400005B22
+1 FAMS @F171@
+1 FAMC @F169@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:50:24
+0 @I258@ INDI
+1 NAME James /Hepburn/
+2 SURN Hepburn
+2 GIVN James
+1 SEX M
+1 TITL Earl of Bothwell
+2 SOUR @S2@
+3 PAGE Volume 1, page 26
+1 _UID 582F9C1D51DAD711BA224445535400005F62
+1 FAMS @F170@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:47:31
+0 @I259@ INDI
+1 NAME Anne of /Oldenburg/
+2 SURN Oldenburg
+2 GIVN Anne of
+1 SEX F
+1 DEAT
+2 DATE 2 Mar 1618/1619
+2 SOUR @S2@
+3 PAGE Volume 1, page 27
+1 _UID 5B2F9C1D51DAD711BA224445535400006292
+1 FAMS @F171@
+1 CHAN
+2 DATE 29 Aug 2003
+3 TIME 19:51:29
+0 @I260@ INDI
+1 NAME Mary /Boleyn/
+2 SURN Boleyn
+2 GIVN Mary
+1 SEX F
+1 DEAT
+2 DATE 19 Jul 1543
+2 SOUR @S3@
+3 PAGE 346
+1 _UID 429304CACCDAD711BA22B8E68CB2433561B1
+1 FAMS @F172@
+1 FAMS @F174@
+1 FAMS @F173@
+1 FAMC @F21@
+1 CHAN
+2 DATE 30 Aug 2003
+3 TIME 09:36:56
+0 @I261@ INDI
+1 NAME William /Carey/
+2 SURN Carey
+2 GIVN William
+1 SEX M
+1 DEAT
+2 DATE 22 Jun 1528
+2 SOUR @S3@
+3 PAGE 346
+1 _UID 449304CACCDAD711BA22B8E68CB2433563D1
+1 FAMS @F172@
+1 CHAN
+2 DATE 30 Aug 2003
+3 TIME 09:35:17
+0 @I262@ INDI
+1 NAME William /Stafford/
+2 SURN Stafford
+2 GIVN William
+1 SEX M
+1 DEAT
+2 DATE 5 May 1556
+2 PLAC Geneva
+2 SOUR @S3@
+3 PAGE 346
+1 _UID 479304CACCDAD711BA22B8E68CB243356601
+1 FAMS @F173@
+1 CHAN
+2 DATE 30 Aug 2003
+3 TIME 09:36:18
+0 @I263@ INDI
+1 NAME Henry /Carey/
+2 SURN Carey
+2 GIVN Henry
+1 SEX M
+1 NOTE Parentage doubtful
+1 BIRT
+2 DATE 4 Mar 1525/1526
+2 SOUR @S3@
+3 PAGE 346
+1 DEAT
+2 DATE 23 Jul 1596
+2 PLAC Somerset House, London
+2 SOUR @S3@
+3 PAGE 350
+1 BURI
+2 DATE 12 Aug 1596
+2 PLAC Westminster Abbey
+2 SOUR @S3@
+3 PAGE 350
+1 _UID 4D9304CACCDAD711BA22B8E68CB243356C61
+1 FAMS @F176@
+1 FAMC @F174@
+1 CHAN
+2 DATE 30 Aug 2003
+3 TIME 09:56:34
+0 @I264@ INDI
+1 NAME Catherine /Carey/
+2 SURN Carey
+2 GIVN Catherine
+1 SEX F
+1 NOTE Parentage doubtful
+1 BIRT
+2 DATE ABT 1524
+2 SOUR @S3@
+3 PAGE 347
+1 _UID 4F9304CACCDAD711BA22B8E68CB243356E81
+1 FAMS @F175@
+1 FAMC @F174@
+1 CHAN
+2 DATE 30 Aug 2003
+3 TIME 09:45:15
+0 @I265@ INDI
+1 NAME Elizabeth /Tudor/
+2 SURN Tudor
+2 GIVN Elizabeth
+1 SEX F
+1 BIRT
+2 DATE 7 Sep 1533
+2 PLAC Greenwich
+2 SOUR @S5@
+3 PAGE Volume 17, page 203
+1 DEAT
+2 DATE 24 Mar 1603
+2 SOUR @S5@
+3 PAGE Volume 17, page 229
+1 BURI
+2 DATE 28 Apr 1603
+2 PLAC Westminster Abbey
+2 SOUR @S5@
+3 PAGE Volume 17, page 229
+1 TITL Queen Elizabeth I
+2 DATE FROM 17 Nov 1558
+2 SOUR @S5@
+3 PAGE Volume 17, page 208
+1 EVEN
+2 TYPE Portraits
+2 FILE http://www.marileecody.com/eliz1-images.html
+2 NOTE Link to Marilee Cody's "Tudor England" website
+1 _UID 519304CACCDAD711BA22B8E68CB2433570A1
+1 FAMC @F13@
+1 CHAN
+2 DATE 30 Aug 2003
+3 TIME 09:48:16
+0 @I266@ INDI
+1 NAME Mary /Tudor/
+2 SURN Tudor
+2 GIVN Mary
+1 SEX F
+1 BIRT
+2 DATE 18 Feb 1515/6
+2 PLAC Greenwich Palace
+2 SOUR @S5@
+3 PAGE Volume 36, page 333
+1 DEAT
+2 DATE 17 Nov 1558
+2 SOUR @S4@
+3 PAGE 560
+1 _UID 539304CACCDAD711BA22B8E68CB2433572C1
+1 FAMS @F177@
+1 FAMC @F12@
+1 TITL Queen Mary I
+2 NOTE (proclaimed in London 19 July 1553)
+2 SOUR @S4@
+3 PAGE Pages 528, 529
+1 EVEN
+2 TYPE Portraits
+2 FILE http://www.marileecody.com/mary1images.html
+2 NOTE Link to Marilee Cody's "Tudor England" website
+1 CHAN
+2 DATE 30 Aug 2003
+3 TIME 09:48:36
+0 @I267@ INDI
+1 NAME Francis /Knollys/
+2 SURN Knollys
+2 GIVN Francis
+1 SEX M
+1 DEAT
+2 DATE 19 Jul 1596
+2 SOUR @S3@
+3 PAGE 348
+1 _UID 559304CACCDAD711BA22B8E68CB2433574E1
+1 FAMS @F175@
+1 CHAN
+2 DATE 30 Aug 2003
+3 TIME 09:52:34
+0 @I268@ INDI
+1 NAME Anne /Morgan/
+2 SURN Morgan
+2 GIVN Anne
+1 SEX F
+1 _UID 589304CACCDAD711BA22B8E68CB243357711
+1 FAMS @F176@
+1 CHAN
+2 DATE 30 Aug 2003
+3 TIME 09:56:50
+0 @I269@ INDI
+1 NAME Philip of /Hapsburg/
+2 SURN Hapsburg
+2 GIVN Philip of
+1 SEX M
+1 _UID 5B9304CACCDAD711BA22B8E68CB243357A41
+1 FAMS @F177@
+1 TITL King Philip II of Spain
+1 CHAN
+2 DATE 30 Aug 2003
+3 TIME 10:33:07
+0 @I270@ INDI
+1 NAME Guilford /Dudley/
+2 GIVN Guilford
+1 SEX M
+1 FAMS @F178@
+1 DEAT
+2 DATE 12 Feb 1553/4
+2 PLAC Tower Hill
+2 CAUS Executed
+2 SOUR @S4@
+3 PAGE 539
+0 @I271@ INDI
+1 NAME Margaret /Kyme/
+2 SURN Kyme
+2 GIVN Margaret
+1 SEX F
+1 FAMC @F83@
+1 NOTE @N4@
 0 @F1@ FAM
-1 HUSB @I2@
-1 WIFE @I3@
 1 MARR
-2 TYPE marriage
-2 DATE 10 MAR 1863
-1 _MSTAT current
-1 CHIL @I4@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F2@ FAM
-1 HUSB @I4@
-1 WIFE @I5@
-1 MARR
-2 TYPE marriage
-2 DATE 6 JUL 1893
-1 _MSTAT current
-1 CHIL @I6@
-1 CHIL @I8@
+2 DATE 18 Jan 1486
+2 SOUR @S4@
+3 PAGE 65
+1 _UID A7220CEE05D7D711BA228E18B8357A36A6D7
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I28@
+1 CHIL @I66@
+1 CHIL @I14@
+1 CHIL @I39@
 1 CHIL @I27@
-1 CHIL @I51@
-1 CHIL @I59@
-1 CHIL @I77@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
+0 @F2@ FAM
+1 _UID 2400C4FC09D7D711BA22444553540000B863
+1 HUSB @I3@
+1 WIFE @I4@
+1 CHIL @I1@
+1 MARR
+2 DATE 1455
+2 SOUR @S1@
+3 PAGE Volume 10, page 826
 0 @F3@ FAM
+1 _UID A8E9F64C29D7D711BA22AAFF03D37436C0F7
+1 HUSB @I85@
+1 WIFE @I86@
+1 CHIL @I2@
+1 CHIL @I98@
+1 CHIL @I104@
+1 CHIL @I105@
+1 CHIL @I125@
+1 CHIL @I111@
+1 MARR
+2 DATE 1 May 1464
+2 PLAC Grafton Regis, Northamptonshire
+2 NOTE (secretly)
+2 SOUR @S1@
+3 PAGE Volume 5, page 361
+0 @F4@ FAM
+1 _UID 2B00C4FC09D7D711BA22444553540000BFD3
+1 HUSB @I5@
+1 WIFE @I4@
+1 SOUR @S1@
+2 PAGE Volume 10, page 826
+0 @F5@ FAM
+1 _UID 3C00C4FC09D7D711BA22444553540000D0E3
+1 HUSB @I11@
+1 WIFE @I4@
+1 MARR
+2 DATE BEF 1464
+2 SOUR @S1@
+3 PAGE Volume 10, page 827
+0 @F6@ FAM
+1 _UID 4200C4FC09D7D711BA22444553540000D643
+1 HUSB @I13@
+1 WIFE @I4@
+1 MARR
+2 DATE BEF Oct 1473
+2 SOUR @S1@
+3 PAGE Volume 10, page 827
+0 @F7@ FAM
+1 _UID 2F00C4FC09D7D711BA22444553540000C313
 1 HUSB @I6@
 1 WIFE @I7@
-1 MARR
-2 TYPE marriage
-2 DATE 3 JUN 1937
-1 _MSTAT current
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F4@ FAM
-1 HUSB @I109@
-1 WIFE @I7@
-1 MARR
-2 TYPE marriage
-1 _MSTAT divorced
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F5@ FAM
-1 HUSB @I8@
-1 WIFE @I9@
-1 MARR
-2 TYPE marriage
-2 DATE 26 APR 1923
-1 _MSTAT current
-1 CHIL @I1@
-1 CHIL @I23@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F6@ FAM
-1 HUSB @I0@
-1 WIFE @I11@
-1 MARR
-2 TYPE marriage
-2 DATE 29 JUL 1981
-1 DIV
-2 DATE 9 DEC 1992
-1 _MSTAT divorced
-1 CHIL @I12@
-1 CHIL @I13@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F7@ FAM
-1 HUSB @I0@
-1 WIFE @I78@
-1 MARR
-2 TYPE marriage
-2 DATE 9 APR 2005
-1 _MSTAT current
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
+1 CHIL @I4@
+1 SOUR @S1@
+2 PAGE Volume 10, page 826
 0 @F8@ FAM
-1 HUSB @I12@
-1 WIFE @I108@
-1 MARR
-2 TYPE marriage
-2 DATE 29 APR 2011
-1 _MSTAT current
-1 CHIL @I154@
-1 CHIL @I155@
-1 CHIL @I169@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
+1 _UID 3400C4FC09D7D711BA22444553540000C863
+1 HUSB @I8@
+1 WIFE @I7@
+1 SOUR @S1@
+2 PAGE Volume 10, page 826
 0 @F9@ FAM
-1 HUSB @I13@
-1 WIFE @I168@
-1 MARR
-2 TYPE marriage
-2 DATE 19 MAY 2018
-2 PLAC St George's Chapel, Windsor Castle
-1 _MSTAT current
-1 CHIL @I170@
-1 CHIL @I182@
-1 CHAN
-2 DATE 20 DEC 2021
-3 TIME 10:13:52.366
+1 _UID 3700C4FC09D7D711BA22444553540000CB93
+1 HUSB @I9@
+1 CHIL @I7@
 0 @F10@ FAM
-1 HUSB @I15@
-1 WIFE @I14@
-1 MARR
-2 TYPE marriage
-2 DATE 14 NOV 1973
-2 PLAC Westminster Abbey
-1 DIV
-2 DATE 23 APR 1992
-1 _MSTAT divorced
-1 CHIL @I16@
-1 CHIL @I17@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
+1 _UID 3F00C4FC09D7D711BA22444553540000D313
+1 HUSB @I12@
+1 CHIL @I11@
 0 @F11@ FAM
-1 HUSB @I16@
-1 WIFE @I135@
+1 _UID 44EDCE57CFD7D711BA22ACE9C2156A36CC66
+1 HUSB @I13@
+1 WIFE @I164@
+1 CHIL @I169@
 1 MARR
-2 TYPE marriage
-2 DATE 17 MAY 2008
-2 PLAC St. George's Chapel, Windsor Castle
-1 EVEN
-2 TYPE separation
-2 DATE 2019
-1 _MSTAT separated
-1 CHIL @I136@
-1 CHIL @I181@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
+2 DATE AFT 10 May 1457
+2 SOUR @S1@
+3 PAGE Volume 4, page 207
 0 @F12@ FAM
-1 HUSB @I137@
-1 WIFE @I17@
+1 _UID 4700C4FC09D7D711BA22444553540000DB93
+1 HUSB @I14@
+1 WIFE @I15@
+1 CHIL @I32@
+1 CHIL @I33@
+1 CHIL @I266@
 1 MARR
-2 TYPE marriage
-2 DATE 30 JUL 2011
-2 PLAC Canongate Kirk, Edinburgh, Scotland
-1 _MSTAT current
-1 CHIL @I179@
-1 CHIL @I180@
-1 CHIL @I187@
-1 CHAN
-2 DATE 20 DEC 2021
-3 TIME 10:19:18.055
+2 DATE 11 Jun 1509
+2 PLAC Greyfriars, Greenwich
+2 NOTE secretly
+2 NOTE a papal dispensation was given
+2 SOUR @S1@
+3 PAGE Volume 3, page 442
+1 EVEN
+2 TYPE Marriage pronounced null
+2 DATE 23 May 1533
+2 SOUR @S1@
+3 PAGE Volume 3, page 442
 0 @F13@ FAM
-1 HUSB @I18@
-1 WIFE @I19@
+1 _UID 4A00C4FC09D7D711BA22444553540000DEC3
+1 HUSB @I14@
+1 WIFE @I16@
+1 CHIL @I265@
 1 MARR
-2 TYPE marriage
-2 DATE 23 JUL 1986
-2 PLAC Westminster Abbey
-1 DIV
-2 DATE 30 MAY 1996
-1 _MSTAT divorced
-1 CHIL @I20@
-1 CHIL @I21@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
+2 DATE ABT 25 Jan 1532/1533
+2 PLAC Whitehall
+2 SOUR @S1@
+3 PAGE Volume 10, page 404
 0 @F14@ FAM
-1 HUSB @I22@
-1 WIFE @I138@
 1 MARR
-2 TYPE marriage
-2 DATE 19 JUN 1999
-2 PLAC St. George's Chapel, Windsor Castle
-1 _MSTAT current
-1 CHIL @I139@
-1 CHIL @I140@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
+2 DATE 30 May 1536
+2 NOTE (privately)
+2 SOUR @S4@
+3 PAGE 380
+1 _UID 5000C4FC09D7D711BA22444553540000E423
+1 HUSB @I14@
+1 WIFE @I18@
+1 CHIL @I34@
 0 @F15@ FAM
-1 HUSB @I24@
-1 WIFE @I23@
 1 MARR
-2 TYPE marriage
-1 _MSTAT divorced
-1 CHIL @I25@
-1 CHIL @I26@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
+2 DATE 6 Jan 1539/40
+2 SOUR @S4@
+3 PAGE 404
+1 EVEN
+2 TYPE Marriage declared null and void
+2 DATE 9 Jul 1540
+2 SOUR @S5@
+3 PAGE Volume 1, page 430
+1 _UID 4D00C4FC09D7D711BA22444553540000E1F3
+1 HUSB @I14@
+1 WIFE @I17@
 0 @F16@ FAM
-1 HUSB @I25@
-1 WIFE @I144@
 1 MARR
-2 TYPE marriage
-2 DATE 8 OCT 1993
-2 PLAC St. Margaret's Church, Westminster
-1 _MSTAT current
-1 CHIL @I145@
-1 CHIL @I146@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
+2 DATE 28 Jul 1540
+2 SOUR @S4@
+3 PAGE 417
+1 _UID 5300C4FC09D7D711BA22444553540000E753
+1 HUSB @I14@
+1 WIFE @I19@
 0 @F17@ FAM
-1 HUSB @I141@
-1 WIFE @I26@
 1 MARR
-2 TYPE marriage
-2 DATE 14 JUL 1994
-2 PLAC St. Stephen Walbrook, London
-1 _MSTAT current
-1 CHIL @I142@
-1 CHIL @I143@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
+2 DATE 12 Jul 1543
+2 SOUR @S4@
+3 PAGE 419
+1 _UID 5600C4FC09D7D711BA22444553540000EA83
+1 HUSB @I14@
+1 WIFE @I20@
 0 @F18@ FAM
-1 HUSB @I28@
-1 WIFE @I27@
-1 MARR
-2 TYPE marriage
-2 DATE 28 FEB 1922
-1 _MSTAT current
-1 CHIL @I29@
-1 CHIL @I46@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
+1 NOTE Not married
+1 _UID 5900C4FC09D7D711BA22444553540000EDB3
+1 HUSB @I14@
+1 WIFE @I21@
+1 CHIL @I22@
+1 SOUR @S1@
+2 PAGE Volume 10, page 829
 0 @F19@ FAM
+1 _UID 6B00C4FC09D7D711BA22444553540000FFD3
+1 HUSB @I28@
+1 WIFE @I15@
+1 MARR
+2 DATE 14 Nov 1501
+2 PLAC St Paul's Cathedral, London
+2 SOUR @S1@
+3 PAGE Volume 3, page 442
+0 @F20@ FAM
+1 _UID 6E00C4FC09D7D711BA224445535400000203
 1 HUSB @I29@
 1 WIFE @I30@
+1 CHIL @I15@
+1 SOUR @S1@
+2 PAGE Volume 3, page 442
+0 @F21@ FAM
+1 _UID 7F00C4FC09D7D711BA224445535400001313
+1 HUSB @I36@
+1 WIFE @I37@
+1 CHIL @I16@
+1 CHIL @I260@
+1 SOUR @S1@
+2 PAGE Volume 9, Howard pedigree near page 620
+0 @F22@ FAM
+1 _UID 7C00C4FC09D7D711BA2244455354000010E3
+1 HUSB @I35@
+1 WIFE @I209@
+1 CHIL @I18@
+1 CHIL @I196@
+1 CHIL @I211@
+1 SOUR @S1@
+2 PAGE Volume 12, part 1, page 60
+0 @F23@ FAM
+1 _UID 9DEDCE57CFD7D711BA22ACE9C2156A3625F6
+1 HUSB @I195@
+1 CHIL @I19@
+0 @F24@ FAM
+1 _UID 75E872ADF4D7D711BA224445535400003B90
+1 HUSB @I215@
+1 WIFE @I20@
+1 SOUR @S1@
+2 PAGE Volume 11, page 639
+0 @F25@ FAM
+1 _UID 78E872ADF4D7D711BA224445535400003EC0
+1 HUSB @I216@
+1 WIFE @I20@
+1 SOUR @S1@
+2 PAGE Volume 11, page 639
+0 @F26@ FAM
 1 MARR
-2 TYPE marriage
-1 _MSTAT divorced
-1 CHIL @I31@
+2 DATE AFT 28 Jan 1546/7
+3 NOTE Some months after the death of Henry VIII, probably before the end of May 1547
+2 NOTE (secretly)
+2 SOUR @S1@
+3 PAGE Volume 11, page 638
+1 _UID 6AE872ADF4D7D711BA2244455354000030E0
+1 HUSB @I211@
+1 WIFE @I20@
+1 SOUR @S1@
+2 PAGE Volume 11, pages 638, 639
+0 @F27@ FAM
+1 _UID 6DE872ADF4D7D711BA224445535400003310
+1 HUSB @I212@
+1 WIFE @I213@
+1 CHIL @I20@
+1 SOUR @S1@
+2 PAGE Volume 11, page 639
+0 @F28@ FAM
+1 _UID 5E00C4FC09D7D711BA22444553540000F203
+1 HUSB @I22@
+1 WIFE @I23@
+1 EVEN
+2 TYPE Marriage dispensation
+2 DATE 28 Nov 1533
+2 SOUR @S1@
+3 PAGE Volume 10, page 830
+0 @F29@ FAM
+1 _UID 6100C4FC09D7D711BA22444553540000F533
+1 HUSB @I24@
+1 WIFE @I25@
+1 CHIL @I23@
+1 CHIL @I205@
+1 MARR
+2 DATE BEF 8 Jan 1512/1513
+2 SOUR @S1@
+3 PAGE Volume 9, page 619
+0 @F30@ FAM
+1 _UID 1AEAF64C29D7D711BA22AAFF03D374363326
+1 HUSB @I24@
+1 WIFE @I125@
+1 CHIL @I127@
+1 MARR
+2 DATE 4 Feb 1494/1495
+2 PLAC Greenwich
+2 SOUR @S1@
+3 PAGE Volume 9, page 619
+1 NOTE Of her four children only one lived to be baptised
+2 SOUR @S1@
+3 PAGE Volume 9, page 619, note e
+0 @F31@ FAM
+1 _UID 8400C4FC09D7D711BA224445535400001863
+1 HUSB @I38@
+1 WIFE @I112@
 1 CHIL @I37@
-1 CHIL @I41@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F20@ FAM
-1 HUSB @I29@
+1 CHIL @I24@
+1 CHIL @I195@
+1 MARR
+2 DATE 30 Apr 1472
+2 SOUR @S1@
+3 PAGE Volume 9, page 614
+0 @F32@ FAM
+1 _UID 6600C4FC09D7D711BA22444553540000FA83
+1 HUSB @I26@
+1 WIFE @I128@
+1 CHIL @I25@
+1 SOUR @S1@
+2 PAGE Volume 9, page 619
+0 @F33@ FAM
+1 _UID 7300C4FC09D7D711BA224445535400000753
+1 HUSB @I31@
+1 CHIL @I30@
+0 @F34@ FAM
+1 _UID 0BEAF64C29D7D711BA22AAFF03D374362436
+1 HUSB @I38@
+1 WIFE @I120@
+1 CHIL @I180@
+1 CHIL @I200@
+1 SOUR @S1@
+2 PAGE Volume 9, page 615
+0 @F35@ FAM
+1 _UID A800C4FC09D7D711BA224445535400003CA3
+1 HUSB @I51@
+1 WIFE @I39@
+1 SOUR @S1@
+2 PAGE Volume 12, part 1, page 459
+0 @F36@ FAM
+1 _UID 8900C4FC09D7D711BA224445535400001DB3
+1 HUSB @I40@
+1 WIFE @I39@
+1 CHIL @I142@
+1 CHIL @I143@
+1 CHIL @I156@
+1 MARR
+2 DATE AFT 4 Feb 1514/5
+2 PLAC Probably the Hotel Cluny, Paris
+3 NOTE Privately and without the Royal consent
+2 DATE 13 May 1515
+2 PLAC Greenwich
+3 NOTE Publicly
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, pages 456, 459
+0 @F37@ FAM
+1 _UID 9400C4FC09D7D711BA224445535400002863
+1 HUSB @I40@
+1 WIFE @I44@
+1 MARR
+2 DATE (Perhaps after 25 September 1505)
+3 NOTE (first marriage)
+2 DATE ABT 1508
+3 NOTE (remarriage after second marriage declared void)
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, pages 458, 459
+0 @F38@ FAM
+1 _UID 9700C4FC09D7D711BA224445535400002B93
+1 HUSB @I40@
 1 WIFE @I45@
 1 MARR
-2 TYPE marriage
-1 _MSTAT current
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F21@ FAM
-1 HUSB @I31@
-1 WIFE @I32@
-1 MARR
-2 TYPE marriage
-1 _MSTAT current
-1 CHIL @I33@
-1 CHIL @I34@
-1 CHIL @I35@
-1 CHIL @I36@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F22@ FAM
-1 HUSB @I37@
-1 WIFE @I38@
-1 MARR
-2 TYPE marriage
-1 _MSTAT current
-1 CHIL @I39@
-1 CHIL @I40@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F23@ FAM
-1 HUSB @I41@
-1 WIFE @I42@
-1 MARR
-2 TYPE marriage
-1 _MSTAT current
-1 CHIL @I43@
-1 CHIL @I44@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F24@ FAM
-1 HUSB @I46@
-1 WIFE @I47@
-1 MARR
-2 TYPE marriage
-1 _MSTAT divorced
-1 CHIL @I48@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F25@ FAM
-1 HUSB @I46@
-1 WIFE @I50@
-1 MARR
-2 TYPE marriage
-1 _MSTAT current
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F26@ FAM
-1 HUSB @I48@
-1 WIFE @I49@
-1 MARR
-2 TYPE marriage
-1 _MSTAT current
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F27@ FAM
-1 HUSB @I51@
+2 DATE BEF 7 Feb 1506/1507
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 458
+1 EVEN
+2 TYPE Marriage declared void by Archdeaconry Court of London
+2 DATE ABT 1507
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 458
+1 EVEN
+2 TYPE Marriage declared void by Papal Bull
+2 DATE 12 May 1528
+2 PLAC Orvieto
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 458
+0 @F39@ FAM
+1 _UID AB00C4FC09D7D711BA224445535400003FD3
+1 HUSB @I40@
 1 WIFE @I52@
 1 MARR
-2 TYPE marriage
-2 DATE 6 NOV 1935
-1 _MSTAT current
-1 CHIL @I53@
-1 CHIL @I54@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F28@ FAM
-1 HUSB @I54@
-1 WIFE @I55@
+2 DATE (Perhaps 7 September 1533)
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 460
+0 @F40@ FAM
+1 _UID 8C00C4FC09D7D711BA2244455354000020E3
+1 HUSB @I41@
+1 WIFE @I42@
+1 CHIL @I40@
+1 SOUR @S1@
+2 PAGE Volume 12, part 1, page 454
+0 @F41@ FAM
+1 _UID 9100C4FC09D7D711BA224445535400002533
+1 HUSB @I43@
+1 CHIL @I42@
+0 @F42@ FAM
+1 _UID A500C4FC09D7D711BA224445535400003973
+1 HUSB @I50@
+1 CHIL @I44@
+0 @F43@ FAM
+1 _UID A200C4FC09D7D711BA224445535400003643
+1 HUSB @I49@
+1 WIFE @I45@
+1 SOUR @S1@
+2 PAGE Volume 12, part 1, page 458
+0 @F44@ FAM
+1 _UID 9A00C4FC09D7D711BA224445535400002EC3
+1 HUSB @I46@
+1 WIFE @I47@
+1 CHIL @I45@
+1 SOUR @S1@
+2 PAGE Volume 12, part 1, page 458
+0 @F45@ FAM
+1 _UID 9F00C4FC09D7D711BA224445535400003313
+1 HUSB @I48@
+1 CHIL @I47@
+0 @F46@ FAM
+1 _UID B600C4FC09D7D711BA224445535400004A83
+1 HUSB @I56@
+1 WIFE @I52@
 1 MARR
-2 TYPE marriage
-2 DATE 19 JUL 1972
-1 _MSTAT current
-1 CHIL @I56@
-1 CHIL @I57@
-1 CHIL @I58@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F29@ FAM
-1 HUSB @I59@
-1 WIFE @I60@
-1 MARR
-2 TYPE marriage
-2 DATE 29 NOV 1934
-1 _MSTAT current
-1 CHIL @I61@
-1 CHIL @I67@
-1 CHIL @I73@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F30@ FAM
-1 HUSB @I61@
+2 DATE (Early 1553)
+2 SOUR @S1@
+3 PAGE Volume 12, part 1, page 460
+0 @F47@ FAM
+1 _UID AE00C4FC09D7D711BA224445535400004203
+1 HUSB @I53@
+1 WIFE @I54@
+1 CHIL @I52@
+1 SOUR @S1@
+2 PAGE Volume 12, part 1, page 460
+0 @F49@ FAM
+1 _UID C600C4FC09D7D711BA224445535400005A83
+1 HUSB @I57@
 1 WIFE @I62@
+1 MARC 
+2 DATE 26 Jun 1509
+2 SOUR @S1@
+3 PAGE Volume 1, page 157
+0 @F50@ FAM
+1 _UID D100C4FC09D7D711BA224445535400006533
+1 HUSB @I57@
+1 WIFE @I66@
+1 CHIL @I221@
 1 MARR
-2 TYPE marriage
-1 _MSTAT current
-1 CHIL @I63@
-1 CHIL @I65@
-1 CHIL @I66@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F31@ FAM
-1 HUSB @I63@
-1 WIFE @I64@
-1 MARR
-2 TYPE marriage
-2 DATE 19 JAN 1988
-1 _MSTAT current
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F32@ FAM
-1 HUSB @I68@
+2 DATE 6 Aug 1514
+2 PLAC Kinnoull Chapel
+2 SOUR @S1@
+3 PAGE Volume 1, page 157
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
+0 @F51@ FAM
+1 _UID D400C4FC09D7D711BA224445535400006863
+1 HUSB @I57@
 1 WIFE @I67@
 1 MARR
-2 TYPE marriage
-2 DATE 19 APR 1963
-1 _MSTAT current
-1 CHIL @I69@
-1 CHIL @I71@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F33@ FAM
-1 HUSB @I69@
-1 WIFE @I70@
-1 MARR
-2 TYPE marriage
-1 _MSTAT current
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F34@ FAM
+2 DATE 9 Apr 1543
+2 SOUR @S1@
+3 PAGE Volume 1, page 158
+0 @F52@ FAM
+1 _UID BB00C4FC09D7D711BA224445535400004FD3
+1 HUSB @I58@
+1 WIFE @I59@
+1 CHIL @I57@
+1 SOUR @S1@
+2 PAGE Volume 1, page 157
+0 @F53@ FAM
+1 _UID C300C4FC09D7D711BA224445535400005753
+1 HUSB @I61@
+1 WIFE @I59@
+1 SOUR @S1@
+2 PAGE Volume 1, page 157
+0 @F54@ FAM
+1 _UID C000C4FC09D7D711BA224445535400005423
+1 HUSB @I60@
+1 CHIL @I59@
+0 @F55@ FAM
+1 _UID C900C4FC09D7D711BA224445535400005DB3
+1 HUSB @I63@
+1 WIFE @I64@
+1 CHIL @I62@
+1 SOUR @S1@
+2 PAGE Volume 1, page 157
+0 @F56@ FAM
+1 _UID CE00C4FC09D7D711BA224445535400006203
+1 HUSB @I65@
+1 CHIL @I64@
+0 @F57@ FAM
+1 _UID 83E9F64C29D7D711BA22AAFF03D374369BA7
 1 HUSB @I72@
-1 WIFE @I71@
+1 WIFE @I66@
 1 MARR
-2 TYPE marriage
-2 DATE 19 FEB 1990
-1 _MSTAT current
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F35@ FAM
+2 DATE Mar 1527/1528
+2 SOUR @S1@
+3 PAGE Volume 8, page 683
+0 @F58@ FAM
+1 _UID DF00C4FC09D7D711BA224445535400007313
+1 HUSB @I71@
+1 WIFE @I67@
+1 MARR
+2 DATE BEF Sep 1560
+2 SOUR @S1@
+3 PAGE Volume 1, page 158
+0 @F59@ FAM
+1 _UID D700C4FC09D7D711BA224445535400006B93
+1 HUSB @I68@
+1 WIFE @I69@
+1 CHIL @I67@
+1 SOUR @S1@
+2 PAGE Volume 1, page 158
+0 @F60@ FAM
+1 _UID DC00C4FC09D7D711BA2244455354000070E3
+1 HUSB @I70@
+1 CHIL @I69@
+0 @F61@ FAM
+1 _UID 8EE9F64C29D7D711BA22AAFF03D37436A657
+1 HUSB @I72@
+1 WIFE @I76@
+1 SOUR @S1@
+2 PAGE Volume 8, page 683
+1 NOTE @N1@
+0 @F62@ FAM
+1 _UID 91E9F64C29D7D711BA22AAFF03D37436A987
+1 HUSB @I72@
+1 WIFE @I77@
+1 MARR
+2 DATE BEF 4 Nov 1544
+2 SOUR @S1@
+3 PAGE Volume 8, page 683
+0 @F63@ FAM
+1 _UID 86E9F64C29D7D711BA22AAFF03D374369ED7
 1 HUSB @I73@
 1 WIFE @I74@
-1 MARR
-2 TYPE marriage
-2 DATE 30 JUN 1978
-1 _MSTAT current
-1 CHIL @I75@
-1 CHIL @I76@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F36@ FAM
-1 HUSB @I80@
-1 WIFE @I79@
-1 MARR
-2 TYPE marriage
-1 _MSTAT current
-1 CHIL @I2@
-1 CHIL @I81@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F37@ FAM
+1 CHIL @I72@
+1 SOUR @S1@
+2 PAGE Volume 8, page 682
+0 @F64@ FAM
+1 SOUR @S2@
+2 PAGE Volume 1, page 22
+1 _UID 8BE9F64C29D7D711BA22AAFF03D37436A327
+1 HUSB @I75@
+1 CHIL @I74@
+1 CHIL @I233@
+0 @F65@ FAM
+1 _UID 97E9F64C29D7D711BA22AAFF03D37436AFE7
+1 HUSB @I79@
+1 WIFE @I77@
+1 SOUR @S1@
+2 PAGE Volume 8, page 683
+0 @F66@ FAM
+1 _UID 94E9F64C29D7D711BA22AAFF03D37436ACB7
+1 HUSB @I78@
+1 WIFE @I77@
+1 SOUR @S1@
+2 PAGE Volume 8, page 683
+0 @F67@ FAM
+1 _UID A2E9F64C29D7D711BA22AAFF03D37436BA97
 1 HUSB @I83@
-1 WIFE @I82@
-1 MARR
-2 TYPE marriage
-1 _MSTAT current
-1 CHIL @I84@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F38@ FAM
+1 WIFE @I77@
+1 SOUR @S1@
+2 PAGE Volume 8, page 683
+0 @F68@ FAM
+1 _UID A5E9F64C29D7D711BA22AAFF03D37436BDC7
+1 HUSB @I84@
+1 WIFE @I77@
+1 SOUR @S1@
+2 PAGE Volume 8, page 683
+0 @F69@ FAM
+1 _UID 9AE9F64C29D7D711BA22AAFF03D37436B217
+1 HUSB @I80@
+1 WIFE @I81@
+1 CHIL @I77@
+1 SOUR @S1@
+2 PAGE Volume 8, page 683
+0 @F70@ FAM
+1 _UID 9FE9F64C29D7D711BA22AAFF03D37436B767
+1 HUSB @I82@
+1 CHIL @I81@
+0 @F71@ FAM
+1 NOTE Not married
+1 _UID B1E9F64C29D7D711BA22AAFF03D37436C987
 1 HUSB @I85@
-1 WIFE @I84@
+1 CHIL @I87@
+1 SOUR @S1@
+2 PAGE Volume 8, page 63
+1 NOTE @N2@
+0 @F72@ FAM
+1 _UID E5E9F64C29D7D711BA22AAFF03D37436FDC7
+1 HUSB @I106@
+1 WIFE @I86@
+1 CHIL @I133@
 1 MARR
-2 TYPE marriage
-1 _MSTAT current
-1 CHIL @I10@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F39@ FAM
-1 HUSB @I86@
-1 WIFE @I87@
+2 DATE ABT 1455
+2 SOUR @S1@
+3 PAGE Volume 5, page 361; volume 14, page 321
+0 @F73@ FAM
+1 _UID D5E9F64C29D7D711BA22AAFF03D37436EDC7
+1 HUSB @I100@
+1 WIFE @I131@
+1 CHIL @I86@
+1 CHIL @I130@
+1 CHIL @I172@
+1 SOUR @S1@
+2 PAGE Volume 5, page 361
+0 @F74@ FAM
+1 _UID B6E9F64C29D7D711BA22AAFF03D37436CED7
+1 HUSB @I87@
+1 WIFE @I89@
 1 MARR
-2 TYPE marriage
-2 DATE 1 MAY 1464
-2 PLAC Grafton Regis
-1 _MSTAT current
-1 CHIL @I88@
-1 CHIL @I125@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F40@ FAM
-1 HUSB @I89@
-1 WIFE @I88@
-1 MARR
-2 TYPE marriage
-2 DATE 18 JAN 1486
-2 PLAC Westminster Abbey
-1 _MSTAT current
-1 CHIL @I100@
-1 CHIL @I90@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F41@ FAM
-1 HUSB @I90@
-1 WIFE @I91@
-1 MARR
-2 TYPE marriage
-2 DATE 11 JUN 1509
-2 PLAC Greenwich
-1 DIV
-2 DATE 23 MAY 1533
-1 _MSTAT divorced
-1 CHIL @I93@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F42@ FAM
-1 HUSB @I90@
-1 WIFE @I92@
-1 MARR
-2 TYPE marriage
-2 DATE 25 JAN 1533
-2 PLAC Palace of Westminster, London, England
-1 DIV
-2 DATE 14 MAY 1536
-1 _MSTAT divorced
-1 CHIL @I94@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F43@ FAM
-1 HUSB @I90@
-1 WIFE @I95@
-1 MARR
-2 TYPE marriage
-2 DATE 30 MAY 1536
-2 PLAC Whitehall Palace
-1 DIV
-2 DATE 24 OCT 1537
-1 _MSTAT divorced
-1 CHIL @I96@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F44@ FAM
-1 HUSB @I90@
-1 WIFE @I97@
-1 MARR
-2 TYPE marriage
-2 DATE 28 JUL 1540
-2 PLAC Oatlands Palace, Surrey
-1 DIV
-2 DATE 23 NOV 1541
-1 _MSTAT divorced
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F45@ FAM
-1 HUSB @I90@
-1 WIFE @I98@
-1 MARR
-2 TYPE marriage
-2 DATE 6 JAN 1540
-2 PLAC Palace of Placentia, Greenwich, London
-1 DIV
-2 DATE 9 JUL 1540
-1 _MSTAT divorced
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F46@ FAM
-1 HUSB @I90@
-1 WIFE @I99@
-1 MARR
-2 TYPE marriage
-2 DATE 12 JUL 1543
-2 PLAC Hampton Court Palace, Kingston upon Thames
-1 DIV
-2 DATE 28 JAN 1547
-1 _MSTAT divorced
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F47@ FAM
-1 HUSB @I115@
+2 DATE 12 Nov 1511
+2 SOUR @S1@
+3 PAGE Volume 8, page 63
+0 @F75@ FAM
+1 _UID C1E9F64C29D7D711BA22AAFF03D37436D987
+1 HUSB @I87@
 1 WIFE @I93@
 1 MARR
-2 TYPE marriage
-2 DATE 25 JUL 1554
-2 PLAC Winchester Cathedral
-1 _MSTAT current
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F48@ FAM
-1 HUSB @I101@
-1 WIFE @I100@
+2 DATE BEF 20 Feb 1530/1531
+2 SOUR @S1@
+3 PAGE Volume 8, page 67
+0 @F76@ FAM
+1 _UID BEE9F64C29D7D711BA22AAFF03D37436D657
+1 HUSB @I92@
+1 WIFE @I89@
 1 MARR
-2 TYPE marriage
-2 DATE 1 JAN 1503
-1 _MSTAT current
+2 DATE ABT 1501
+2 SOUR @S1@
+3 PAGE Volume 8, page 63; volume 14, page 443
+0 @F77@ FAM
+1 _UID B9E9F64C29D7D711BA22AAFF03D37436D107
+1 HUSB @I90@
+1 WIFE @I91@
+1 CHIL @I89@
+1 SOUR @S1@
+2 PAGE Volume 8, page 63
+0 @F78@ FAM
+1 _UID C4E9F64C29D7D711BA22AAFF03D37436DCB7
+1 HUSB @I94@
+1 WIFE @I93@
+1 SOUR @S1@
+2 PAGE Volume 8, page 67
+0 @F79@ FAM
+1 _UID C7E9F64C29D7D711BA22AAFF03D37436DFE7
+1 HUSB @I95@
+1 WIFE @I96@
+1 CHIL @I93@
+1 SOUR @S1@
+2 PAGE Volume 8, page 67
+0 @F80@ FAM
+1 _UID CCE9F64C29D7D711BA22AAFF03D37436E437
+1 HUSB @I97@
+1 CHIL @I96@
+0 @F81@ FAM
+1 _UID 1DEAF64C29D7D711BA22AAFF03D374363656
+1 HUSB @I126@
+1 WIFE @I98@
+1 MARR
+2 DATE AFT Jun 1482
+2 SOUR @S1@
+3 PAGE Volume 14, page 626
+0 @F82@ FAM
+1 _UID D1E9F64C29D7D711BA22AAFF03D37436E987
+1 HUSB @I99@
+1 WIFE @I98@
+1 CHIL @I101@
 1 CHIL @I102@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F49@ FAM
-1 HUSB @I102@
-1 WIFE @I103@
 1 MARR
-2 TYPE marriage
-2 DATE 1 JAN 1538
-1 _MSTAT current
-1 CHIL @I104@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F50@ FAM
+2 DATE BET 25 Nov 1487 AND 1 Jan 1488
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 449
+1 EVEN
+2 TYPE Marriage dissolved
+2 DATE 1486
+2 SOUR @S1@
+3 PAGE Volume 14, page 626
+0 @F83@ FAM
+1 _UID DCE9F64C29D7D711BA22AAFF03D37436F437
+1 HUSB @I103@
+1 WIFE @I98@
+1 CHIL @I271@
+1 MARR
+2 DATE (Possibly 13 May 1502 - Jan/Mar 1503/4)
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 450
+0 @F84@ FAM
+1 _UID E8E9F64C29D7D711BA22AAFF03D3743600F7
 1 HUSB @I105@
-1 WIFE @I104@
-1 MARR
-2 TYPE marriage
-2 DATE 29 JUL 1565
-2 PLAC Holyrood Palace
-1 _MSTAT current
-1 CHIL @I106@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F51@ FAM
-1 HUSB @I106@
 1 WIFE @I107@
 1 MARR
-2 TYPE marriage
-2 DATE 23 NOV 1589
-2 PLAC Oslo
-1 _MSTAT current
-1 CHIL @I123@
+2 DATE 15 Jan 1477/1478
+2 PLAC St Stephen's Chapel, Westminster
+2 SOUR @S1@
+3 PAGE Volume 12, part 2, page 911
+0 @F85@ FAM
+1 _UID EBE9F64C29D7D711BA22AAFF03D374360327
+1 HUSB @I108@
+1 WIFE @I109@
+1 CHIL @I107@
+1 SOUR @S1@
+2 PAGE Volume 12, part 2, page 913
+0 @F86@ FAM
+1 _UID F0E9F64C29D7D711BA22AAFF03D374360877
+1 HUSB @I110@
+1 CHIL @I109@
+0 @F87@ FAM
+1 _UID F7E9F64C29D7D711BA22AAFF03D374360FE7
+1 HUSB @I113@
+1 WIFE @I112@
+1 CHIL @I114@
+1 SOUR @S1@
+2 PAGE Volume 9, page 614
+0 @F88@ FAM
+1 _UID FCE9F64C29D7D711BA22AAFF03D374361437
+1 HUSB @I115@
+1 WIFE @I116@
+1 CHIL @I112@
+1 SOUR @S1@
+2 PAGE Volume 9, page 614
+0 @F89@ FAM
+1 _UID 01EAF64C29D7D711BA22AAFF03D374361A96
+1 HUSB @I117@
+1 WIFE @I118@
 1 CHIL @I116@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F52@ FAM
-1 HUSB @I116@
-1 WIFE @I117@
-1 MARR
-2 TYPE marriage
-2 DATE 13 JUN 1625
-2 PLAC St. Augustine's Abbey
-1 _MSTAT current
+1 SOUR @S1@
+2 PAGE Volume 9, pages 614, 615
+0 @F90@ FAM
+1 _UID 06EAF64C29D7D711BA22AAFF03D374361FE6
+1 HUSB @I119@
 1 CHIL @I118@
-1 CHIL @I119@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F53@ FAM
-1 HUSB @I122@
-1 WIFE @I120@
+0 @F91@ FAM
+1 _UID 0EEAF64C29D7D711BA22AAFF03D374362766
+1 HUSB @I121@
+1 WIFE @I123@
+1 CHIL @I120@
+1 CHIL @I122@
+1 SOUR @S1@
+2 PAGE Volume 9, page 615
+0 @F92@ FAM
+1 _UID 15EAF64C29D7D711BA22AAFF03D374362ED6
+1 HUSB @I124@
+1 CHIL @I123@
+0 @F93@ FAM
+1 _UID 24EAF64C29D7D711BA22AAFF03D374363DC6
+1 HUSB @I129@
+1 CHIL @I128@
+1 CHIL @I154@
+0 @F94@ FAM
+1 _UID 2BEAF64C29D7D711BA22AAFF03D374364436
+1 HUSB @I132@
+1 CHIL @I131@
+0 @F95@ FAM
+1 _UID 30EAF64C29D7D711BA22AAFF03D374364986
+1 HUSB @I133@
+1 WIFE @I134@
 1 MARR
-2 TYPE marriage
-2 DATE 4 NOV 1677
-2 PLAC St. James's Palace
-1 _MSTAT current
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F54@ FAM
-1 HUSB @I134@
-1 WIFE @I156@
+2 DATE Oct 1466
+2 PLAC Greenwich
+2 SOUR @S1@
+3 PAGE Volume 4, page 418
+0 @F96@ FAM
+1 _UID 3BEAF64C29D7D711BA22AAFF03D374365436
+1 HUSB @I133@
+1 WIFE @I138@
+1 CHIL @I145@
+1 SOUR @S1@
+2 PAGE Volume 4, page 418
+0 @F97@ FAM
+1 _UID 33EAF64C29D7D711BA22AAFF03D374364CB6
+1 HUSB @I135@
+1 WIFE @I136@
+1 CHIL @I134@
+1 SOUR @S1@
+2 PAGE Volume 4, page 418
+0 @F98@ FAM
+1 _UID 38EAF64C29D7D711BA22AAFF03D374365106
+1 HUSB @I137@
+1 CHIL @I136@
+0 @F99@ FAM
+1 _UID 45EAF64C29D7D711BA22AAFF03D374365ED6
+1 HUSB @I141@
+1 WIFE @I138@
+1 SOUR @S1@
+2 PAGE Volume 4, page 419
+0 @F100@ FAM
+1 _UID 3EEAF64C29D7D711BA22AAFF03D374365766
+1 HUSB @I139@
+1 WIFE @I140@
+1 CHIL @I138@
+1 SOUR @S1@
+2 PAGE Volume 4, page 418
+0 @F101@ FAM
+1 _UID 26EDCE57CFD7D711BA22ACE9C2156A36AE86
+1 HUSB @I151@
+1 WIFE @I143@
+1 CHIL @I159@
+1 CHIL @I191@
+1 CHIL @I192@
 1 MARR
-2 TYPE marriage
-2 DATE OCT 1429
-1 _MSTAT current
-1 CHIL @I86@
-1 CHIL @I126@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F55@ FAM
+2 DATE (Early in May 1533)
+2 PLAC Probably at Southwark
+2 SOUR @S1@
+3 PAGE Volume 4, page 421
+0 @F102@ FAM
+1 _UID 2BEDCE57CFD7D711BA22ACE9C2156A36B3D6
+1 HUSB @I144@
+1 WIFE @I143@
+1 MARR
+2 DATE BEF 1557
+2 SOUR @S1@
+3 PAGE Volume 4, page 421
+0 @F103@ FAM
+1 _UID AC5AFAACC0D7D711BA22A293179F6D36955C
+1 HUSB @I145@
+1 WIFE @I146@
+1 CHIL @I151@
+1 MARR
+2 DATE 1509
+2 SOUR @S1@
+3 PAGE Volume 4, page 420
+0 @F104@ FAM
+1 _UID AF5AFAACC0D7D711BA22A293179F6D36988C
+1 HUSB @I147@
+1 WIFE @I146@
+1 SOUR @S1@
+2 PAGE Volume 4, page 420
+0 @F105@ FAM
+1 _UID B25AFAACC0D7D711BA22A293179F6D369BBC
 1 HUSB @I148@
 1 WIFE @I149@
+1 CHIL @I146@
+1 SOUR @S1@
+2 PAGE Volume 4, page 420
+0 @F106@ FAM
+1 _UID B75AFAACC0D7D711BA22A293179F6D36A00C
+1 HUSB @I150@
+1 CHIL @I149@
+0 @F107@ FAM
+1 _UID BC5AFAACC0D7D711BA22A293179F6D36A55C
+1 HUSB @I151@
+1 WIFE @I152@
 1 MARR
-2 TYPE marriage
-2 DATE 1 NOV 1254
-2 PLAC Las Huelgas, Burgos
-1 DIV
-2 DATE 28 NOV 1290
-1 _MSTAT divorced
-1 CHIL @I147@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F56@ FAM
-1 HUSB @I148@
-1 WIFE @I150@
-1 MARR
-2 TYPE marriage
-2 DATE 8 SEP 1299
-2 PLAC Canterbury
-1 _MSTAT current
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F57@ FAM
-1 HUSB @I157@
-1 WIFE @I158@
-1 MARR
-2 TYPE marriage
-2 DATE 18 MAY 1152
-2 PLAC Bordeaux Cathedral
-1 _MSTAT current
-1 CHIL @I153@
+2 DATE BEF 1530
+2 SOUR @S1@
+3 PAGE Volume 4, page 421
+1 NOTE Henry afterwards repudiated Catherine
+2 SOUR @S1@
+3 PAGE Volume 4, page 421
+0 @F108@ FAM
+1 _UID BF5AFAACC0D7D711BA22A293179F6D36A88C
+1 HUSB @I153@
+1 WIFE @I154@
 1 CHIL @I152@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F58@ FAM
-1 HUSB @I159@
+1 SOUR @S1@
+2 PAGE Volume 4, page 421
+0 @F110@ FAM
+1 _UID 30EDCE57CFD7D711BA22ACE9C2156A36B826
+1 HUSB @I157@
+1 WIFE @I156@
+1 CHIL @I158@
+1 MARR
+2 DATE (Summer 1537)
+2 PLAC Suffolk Place, London
+2 SOUR @S1@
+3 PAGE Volume 3, page 567
+0 @F111@ FAM
+1 _UID 39EDCE57CFD7D711BA22ACE9C2156A36C1B6
+1 HUSB @I157@
 1 WIFE @I160@
 1 MARR
-2 TYPE marriage
-1 _MSTAT current
-1 CHIL @I161@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F59@ FAM
-1 HUSB @I171@
-1 WIFE @I168@
+2 DATE AFT 21 Aug 1554
+2 PLAC Kirkoswald
+2 SOUR @S1@
+3 PAGE Volume 3, page 567; volume 14, page 226
+0 @F112@ FAM
+1 _UID 36EDCE57CFD7D711BA22ACE9C2156A36BE86
+1 HUSB @I190@
+1 WIFE @I158@
 1 MARR
-2 TYPE marriage
-2 DATE 10 SEP 2011
-1 DIV
-2 DATE AUG 2013
-1 _MSTAT divorced
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F60@ FAM
-1 HUSB @I172@
-1 WIFE @I178@
-1 MARR
-2 TYPE marriage
-2 DATE JUL 1496
-2 PLAC Holyrood Abbey, Edinburgh
-1 _MSTAT current
-1 CHIL @I101@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F61@ FAM
-1 HUSB @I173@
-1 WIFE @I177@
-1 MARR
-2 TYPE marriage
-2 DATE 3 JUL 1449
-2 PLAC Holyrood Abbey
-1 _MSTAT current
-1 CHIL @I172@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F62@ FAM
-1 HUSB @I174@
-1 WIFE @I175@
-1 MARR
-2 TYPE marriage
-2 DATE 12 FEB 1424
-1 _MSTAT current
-1 CHIL @I173@
-1 CHIL @I176@
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
-0 @F63@ FAM
-1 HUSB @I183@
-1 WIFE @I21@
-1 MARR
-2 TYPE marriage
-2 DATE 12 OCT 2018
-2 PLAC St George's Chapel, Windsor
-1 _MSTAT current
-1 CHIL @I184@
-1 CHAN
-2 DATE 20 DEC 2021
-3 TIME 10:13:52.366
-0 @F64@ FAM
-1 HUSB @I185@
-1 WIFE @I20@
-1 MARR
-2 TYPE marriage
-2 DATE 17 JUL 2020
-2 PLAC Royal Chapel of All Saints, Windsor Great Park
-1 _MSTAT current
-1 CHIL @I186@
-1 CHAN
-2 DATE 20 DEC 2021
-3 TIME 10:16:43.278
-0 @F65@ FAM
-1 HUSB @I81@
-1 CHIL @I82@
-0 @F66@ FAM
-1 WIFE @I110@
-1 CHIL @I79@
-0 @F67@ FAM
-1 WIFE @I111@
-1 CHIL @I110@
-0 @F68@ FAM
-1 WIFE @I112@
-1 CHIL @I111@
-0 @F69@ FAM
-1 WIFE @I113@
-1 CHIL @I112@
-0 @F70@ FAM
-1 WIFE @I114@
-1 CHIL @I113@
-0 @F71@ FAM
-1 WIFE @I119@
-1 CHIL @I120@
-1 CHIL @I121@
-0 @F72@ FAM
-1 HUSB @I123@
-1 CHIL @I124@
-0 @F73@ FAM
-1 HUSB @I124@
-1 CHIL @I114@
-0 @F74@ FAM
-1 WIFE @I127@
-1 CHIL @I128@
-0 @F75@ FAM
-1 WIFE @I128@
-1 CHIL @I129@
-0 @F76@ FAM
-1 WIFE @I130@
-1 CHIL @I127@
-0 @F77@ FAM
-1 WIFE @I131@
-1 CHIL @I130@
-1 CHIL @I132@
-1 CHIL @I159@
-0 @F78@ FAM
-1 WIFE @I132@
-1 CHIL @I133@
-0 @F79@ FAM
-1 WIFE @I133@
-1 CHIL @I134@
-0 @F80@ FAM
-1 WIFE @I147@
-1 CHIL @I131@
-0 @F81@ FAM
-1 WIFE @I151@
-1 CHIL @I148@
-0 @F82@ FAM
-1 WIFE @I152@
-1 CHIL @I151@
-0 @F83@ FAM
-1 HUSB @I162@
-1 CHIL @I157@
-0 @F84@ FAM
-1 WIFE @I163@
+2 DATE 7 Feb 1555
+2 PLAC Royal Chapel, Whitehall
+2 SOUR @S1@
+3 PAGE Volume 4, page 211
+0 @F113@ FAM
+1 _UID 3CEDCE57CFD7D711BA22ACE9C2156A36C4E6
+1 HUSB @I161@
+1 WIFE @I162@
+1 CHIL @I160@
+1 SOUR @S1@
+2 PAGE Volume 3, pages 567, 568
+0 @F114@ FAM
+1 _UID 41EDCE57CFD7D711BA22ACE9C2156A36C936
+1 HUSB @I163@
 1 CHIL @I162@
-0 @F85@ FAM
-1 WIFE @I164@
-1 CHIL @I163@
-1 CHIL @I165@
+0 @F115@ FAM
+1 _UID 47EDCE57CFD7D711BA22ACE9C2156A36CF96
+1 HUSB @I165@
+1 WIFE @I166@
+1 CHIL @I164@
+1 SOUR @S1@
+2 PAGE Volume 4, page 207
+0 @F116@ FAM
+1 _UID 4CEDCE57CFD7D711BA22ACE9C2156A36D4E6
+1 HUSB @I167@
 1 CHIL @I166@
-0 @F86@ FAM
-1 HUSB @I166@
-1 CHIL @I167@
-0 @S0@ SOUR
-1 _UID B3BA58BC346A4B6488811F139C27A7CB3EC0
-1 AUTH Various
-1 TITL List of English monarchs
-1 PUBL Wikipedia
-1 REPO @R0@
-1 NOTE http://en.wikipedia.org/wiki/List_of_English_monarchs
-1 CHAN
-2 DATE 23 OCT 2019
-3 TIME 18:04:41.282
+0 @F117@ FAM
+1 _UID 53EDCE57CFD7D711BA22ACE9C2156A36DB56
+1 HUSB @I169@
+1 WIFE @I170@
+1 CHIL @I173@
+1 MARR
+2 DATE BEF 26 Feb 1481
+2 SOUR @S1@
+3 PAGE Volume 4, page 208
+0 @F118@ FAM
+1 _UID 56EDCE57CFD7D711BA22ACE9C2156A36DE86
+1 HUSB @I171@
+1 WIFE @I172@
+1 CHIL @I170@
+1 SOUR @S1@
+2 PAGE Volume 4, page 208
+0 @F119@ FAM
+1 _UID 5DEDCE57CFD7D711BA22ACE9C2156A36E5F6
+1 HUSB @I173@
+1 WIFE @I174@
+1 CHIL @I179@
+1 MARR
+2 DATE AFT 17 Dec 1505
+2 SOUR @S1@
+3 PAGE Volume 4, page 209; volume 14, page 251
+0 @F120@ FAM
+1 _UID 60EDCE57CFD7D711BA22ACE9C2156A36E826
+1 HUSB @I175@
+1 WIFE @I177@
+1 CHIL @I174@
+1 SOUR @S1@
+2 PAGE Volume 4, page 209
+0 @F121@ FAM
+1 _UID 67EDCE57CFD7D711BA22ACE9C2156A36EF96
+1 HUSB @I178@
+1 CHIL @I177@
+0 @F122@ FAM
+1 _UID 6CEDCE57CFD7D711BA22ACE9C2156A36F4E6
+1 HUSB @I179@
+1 WIFE @I180@
+1 CHIL @I190@
+1 EVEN
+2 TYPE Pardon for marrying without licence
+2 DATE 21 Feb 1529/30
+2 SOUR @S1@
+3 PAGE Volume 4, page 210
+0 @F123@ FAM
+1 _UID 71EDCE57CFD7D711BA22ACE9C2156A36F936
+1 HUSB @I179@
+1 WIFE @I181@
+1 SOUR @S1@
+2 PAGE Volume 4, page 210
+0 @F124@ FAM
+1 _UID 7CEDCE57CFD7D711BA22ACE9C2156A3604E6
+1 HUSB @I179@
+1 WIFE @I185@
+1 MARR
+2 DATE BEF 1 Jan 1561/1562
+2 SOUR @S1@
+3 PAGE Volume 4, page 210
+0 @F125@ FAM
+1 _UID 74EDCE57CFD7D711BA22ACE9C2156A36FC66
+1 HUSB @I182@
+1 WIFE @I183@
+1 CHIL @I181@
+1 SOUR @S1@
+2 PAGE Volume 4, page 210
+0 @F126@ FAM
+1 _UID 79EDCE57CFD7D711BA22ACE9C2156A3601B6
+1 HUSB @I184@
+1 CHIL @I183@
+0 @F127@ FAM
+1 _UID 87EDCE57CFD7D711BA22ACE9C2156A360F96
+1 HUSB @I189@
+1 WIFE @I185@
+1 SOUR @S1@
+2 PAGE Volume 4, page 211
+0 @F128@ FAM
+1 _UID 7FEDCE57CFD7D711BA22ACE9C2156A360716
+1 HUSB @I186@
+1 WIFE @I187@
+1 CHIL @I185@
+1 SOUR @S1@
+2 PAGE Volume 4, page 210
+0 @F129@ FAM
+1 _UID 84EDCE57CFD7D711BA22ACE9C2156A360C66
+1 HUSB @I188@
+1 CHIL @I187@
+0 @F130@ FAM
+1 _UID A5EDCE57CFD7D711BA22ACE9C2156A362D76
+1 HUSB @I198@
+1 WIFE @I191@
+1 SOUR @S1@
+2 PAGE Volume 6, page 505
+0 @F131@ FAM
+1 _UID 9AEDCE57CFD7D711BA22ACE9C2156A3622C6
+1 HUSB @I194@
+1 WIFE @I191@
+1 MARR
+2 DATE ABT Dec 1560
+2 PLAC Hertford House, Canon Row, Westminster
+2 NOTE (privately)
+2 SOUR @S1@
+3 PAGE Volume 4, page 421, note c; volume 6, page 505
+0 @F132@ FAM
+1 _UID 97EDCE57CFD7D711BA22ACE9C2156A361F96
+1 HUSB @I193@
+1 WIFE @I192@
+1 MARR
+2 DATE Aug 1565
+3 NOTE 10 or 12 August
+2 SOUR @S1@
+3 PAGE Volume 4, page 421, note c
+0 @F133@ FAM
+1 _UID A8EDCE57CFD7D711BA22ACE9C2156A3630A6
+1 HUSB @I194@
+1 WIFE @I199@
+1 MARR
+2 DATE BEF Nov 1595
+2 SOUR @S1@
+3 PAGE Volume 6, page 506
+0 @F134@ FAM
+1 _UID B8EDCE57CFD7D711BA22ACE9C2156A3640A6
+1 HUSB @I194@
+1 WIFE @I203@
+1 SOUR @S1@
+2 PAGE Volume 6, page 506
+0 @F135@ FAM
+1 _UID A2EDCE57CFD7D711BA22ACE9C2156A362A46
+1 HUSB @I196@
+1 WIFE @I197@
+1 CHIL @I194@
+1 SOUR @S1@
+2 PAGE Volume 6, page 504
+0 @F136@ FAM
+1 _UID ABEDCE57CFD7D711BA22ACE9C2156A3633D6
+1 HUSB @I200@
+1 WIFE @I201@
+1 CHIL @I199@
+1 SOUR @S1@
+2 PAGE Volume 6, page 506
+0 @F137@ FAM
+1 _UID B0EDCE57CFD7D711BA22ACE9C2156A363826
+1 HUSB @I202@
+1 CHIL @I201@
+0 @F138@ FAM
+1 _UID C7EDCE57CFD7D711BA22ACE9C2156A364F96
+1 HUSB @I204@
+1 WIFE @I203@
+1 SOUR @S1@
+2 PAGE Volume 6, page 506
+0 @F139@ FAM
+1 _UID C6EDCE57CFD7D711BA22ACE9C2156A364E86
+1 HUSB @I208@
+1 WIFE @I203@
+1 SOUR @S1@
+2 PAGE Volume 6, page 506
+0 @F140@ FAM
+1 _UID C0EDCE57CFD7D711BA22ACE9C2156A364826
+1 HUSB @I205@
+1 WIFE @I206@
+1 CHIL @I203@
+1 SOUR @S1@
+2 PAGE Volume 6, page 506
+0 @F141@ FAM
+1 _UID C3EDCE57CFD7D711BA22ACE9C2156A364B56
+1 HUSB @I207@
+1 CHIL @I206@
+0 @F142@ FAM
+1 _UID 65E872ADF4D7D711BA224445535400002B90
+1 HUSB @I210@
+1 CHIL @I209@
+0 @F143@ FAM
+1 _UID 72E872ADF4D7D711BA224445535400003860
+1 HUSB @I214@
+1 CHIL @I213@
+0 @F144@ FAM
+1 _UID 838837EC5CD9D711BA2284A7D1D71B364B16
+1 HUSB @I217@
+1 CHIL @I84@
+0 @F145@ FAM
+1 _UID E42E9C1D51DAD711BA22444553540000EA13
+1 HUSB @I88@
+1 WIFE @I66@
+1 CHIL @I10@
+1 CHIL @I176@
+1 CHIL @I168@
+1 CHIL @I218@
+1 CHIL @I219@
+1 CHIL @I220@
+1 MARR
+2 DATE 8 Aug 1503
+2 PLAC Abbey Church of Holyrood
+2 SOUR @S2@
+3 PAGE Volume 1, page 21
+0 @F146@ FAM
+1 _UID F52E9C1D51DAD711BA22444553540000FB23
+1 HUSB @I222@
+1 WIFE @I221@
+1 CHIL @I223@
+1 CHIL @I224@
+1 MARR
+2 DATE 6 Jul 1544
+2 SOUR @S2@
+3 PAGE Volume 1, page 22
+0 @F147@ FAM
+1 _UID FC2E9C1D51DAD711BA224445535400000293
+1 HUSB @I224@
+1 WIFE @I225@
+1 CHIL @I227@
+1 SOUR @S2@
+2 PAGE Volume 1, page 22
+0 @F148@ FAM
+1 _UID FF2E9C1D51DAD711BA2244455354000005C3
+1 HUSB @I226@
+1 CHIL @I225@
+0 @F149@ FAM
+1 _UID 042F9C1D51DAD711BA224445535400000B22
+1 HUSB @I228@
+1 WIFE @I227@
+1 SOUR @S2@
+2 PAGE Volume 1, page 22
+0 @F150@ FAM
+1 NOTE Not married
+1 _UID 072F9C1D51DAD711BA224445535400000E52
+1 HUSB @I88@
+1 WIFE @I229@
+1 CHIL @I230@
+1 CHIL @I231@
+1 SOUR @S2@
+2 PAGE Volume 1, page 22
+0 @F151@ FAM
+1 _UID 0E2F9C1D51DAD711BA2244455354000015C2
+1 HUSB @I232@
+1 WIFE @I231@
+1 SOUR @S2@
+2 PAGE Volume 1, page 22
+0 @F152@ FAM
+1 NOTE Not married
+1 _UID 112F9C1D51DAD711BA2244455354000018F2
+1 HUSB @I88@
+1 WIFE @I233@
+1 CHIL @I235@
+1 SOUR @S2@
+2 PAGE Volume 1, page 22
+0 @F154@ FAM
+1 _UID 192F9C1D51DAD711BA224445535400002072
+1 HUSB @I235@
+1 WIFE @I236@
+1 SOUR @S2@
+2 PAGE Volume 1, page 22
+0 @F155@ FAM
+1 _UID 1C2F9C1D51DAD711BA2244455354000023A2
+1 HUSB @I237@
+1 CHIL @I236@
+0 @F156@ FAM
+1 NOTE Not married
+1 _UID 1F2F9C1D51DAD711BA2244455354000026D2
+1 HUSB @I88@
+1 WIFE @I238@
+1 CHIL @I239@
+1 SOUR @S2@
+2 PAGE Volume 1, page 22
+0 @F157@ FAM
+1 _UID 242F9C1D51DAD711BA224445535400002B22
+1 HUSB @I240@
+1 WIFE @I239@
+1 SOUR @S2@
+2 PAGE Volume 1, page 22
+0 @F158@ FAM
+1 _UID 272F9C1D51DAD711BA224445535400002E52
+1 HUSB @I241@
+1 WIFE @I239@
+1 SOUR @S2@
+2 PAGE Volume 1, page 22
+0 @F159@ FAM
+1 NOTE Not married
+1 _UID 2A2F9C1D51DAD711BA224445535400003182
+1 HUSB @I88@
+1 WIFE @I242@
+1 CHIL @I244@
+1 SOUR @S2@
+2 PAGE Volume 1, page 22
+0 @F160@ FAM
+1 _UID 2D2F9C1D51DAD711BA2244455354000034B2
+1 HUSB @I243@
+1 CHIL @I242@
+0 @F161@ FAM
+1 _UID 322F9C1D51DAD711BA224445535400003902
+1 HUSB @I245@
+1 WIFE @I244@
+1 SOUR @S2@
+2 PAGE Volume 1, page 22
+0 @F162@ FAM
+1 NOTE Not married
+1 _UID 352F9C1D51DAD711BA224445535400003C32
+1 HUSB @I246@
+1 WIFE @I244@
+1 CHIL @I247@
+1 SOUR @S2@
+2 PAGE Volume 1, page 23
+0 @F163@ FAM
+1 _UID 3C2F9C1D51DAD711BA2244455354000043A2
+1 HUSB @I218@
+1 WIFE @I248@
+1 MARR
+2 DATE 1 Jan 1536/1537
+2 PLAC Notre Dame Cathedral, Paris
+2 SOUR @S2@
+3 PAGE Volume 1, page 23
+0 @F164@ FAM
+1 _UID 3F2F9C1D51DAD711BA2244455354000046D2
+1 HUSB @I249@
+1 CHIL @I248@
+0 @F165@ FAM
+1 _UID 422F9C1D51DAD711BA224445535400004902
+1 HUSB @I218@
+1 WIFE @I250@
+1 CHIL @I252@
+1 CHIL @I253@
+1 CHIL @I254@
+1 MARR
+2 DATE Jun 1538
+2 PLAC St Andrews
+2 SOUR @S2@
+3 PAGE Volume 1, page 23
+0 @F166@ FAM
+1 _UID 452F9C1D51DAD711BA224445535400004C32
+1 HUSB @I251@
+1 WIFE @I250@
+1 SOUR @S2@
+2 PAGE Volume 1, page 23
+0 @F167@ FAM
+1 _UID 4E2F9C1D51DAD711BA2244455354000055C2
+1 HUSB @I255@
+1 WIFE @I254@
+1 MARR
+2 DATE 24 Apr 1558
+2 SOUR @S2@
+3 PAGE Volume 1, page 26
+0 @F168@ FAM
+1 _UID 4F2F9C1D51DAD711BA2244455354000056D2
+1 HUSB @I246@
+1 WIFE @I256@
+1 CHIL @I255@
+1 SOUR @S2@
+2 PAGE Volume 1, page 26
+0 @F169@ FAM
+1 _UID 522F9C1D51DAD711BA224445535400005902
+1 HUSB @I223@
+1 WIFE @I254@
+1 CHIL @I257@
+1 MARR
+2 DATE 29 Jul 1565
+2 SOUR @S2@
+3 PAGE Volume 1, page 26
+0 @F170@ FAM
+1 _UID 592F9C1D51DAD711BA224445535400006072
+1 HUSB @I258@
+1 WIFE @I254@
+1 MARR
+2 DATE 15 May 1567
+2 PLAC Holyrood
+2 SOUR @S2@
+3 PAGE Volume 1, page 26
+0 @F171@ FAM
+1 _UID 5C2F9C1D51DAD711BA2244455354000063A2
+1 HUSB @I257@
+1 WIFE @I259@
+1 MARR
+2 DATE 24 Nov 1589
+2 PLAC Upslo, Denmark
+2 SOUR @S2@
+3 PAGE Volume 1, page 27
+0 @F172@ FAM
+1 _UID 459304CACCDAD711BA22B8E68CB2433564E1
+1 HUSB @I261@
+1 WIFE @I260@
+1 MARR
+2 DATE 4 Feb 1519/1520
+2 SOUR @S3@
+3 PAGE 346
+0 @F173@ FAM
+1 _UID 489304CACCDAD711BA22B8E68CB243356711
+1 HUSB @I262@
+1 WIFE @I260@
+1 MARR
+2 DATE BEF 1534
+2 SOUR @S3@
+3 PAGE 346
+0 @F174@ FAM
+1 NOTE Not married
+1 _UID 4B9304CACCDAD711BA22B8E68CB243356A41
+1 HUSB @I14@
+1 WIFE @I260@
+1 CHIL @I263@
+1 CHIL @I264@
+0 @F175@ FAM
+1 _UID 569304CACCDAD711BA22B8E68CB2433575F1
+1 HUSB @I267@
+1 WIFE @I264@
+1 MARR
+2 DATE BEF May 1540
+2 SOUR @S3@
+3 PAGE 348
+0 @F176@ FAM
+1 _UID 599304CACCDAD711BA22B8E68CB243357821
+1 HUSB @I263@
+1 WIFE @I268@
+1 SOUR @S3@
+2 PAGE 349
+0 @F177@ FAM
+1 MARR
+2 DATE 25 Jul 1554
+2 PLAC Winchester Cathedral
+2 SOUR @S4@
+3 PAGE 541
+1 _UID 5C9304CACCDAD711BA22B8E68CB243357B51
+1 HUSB @I269@
+1 WIFE @I266@
+0 @F178@ FAM
+1 HUSB @I270@
+1 WIFE @I159@
+1 MARR
+2 DATE 21 May 1553
+2 PLAC Durham House, London
+2 SOUR @S5@
+3 PAGE Volume 16, page 105
 0 @S1@ SOUR
-1 _UID 482B6177CCC240AE802C1246440DC7FFE2A4
-1 AUTH Various
-1 TITL List of British monarchs
-1 PUBL Wikipedia
-1 REPO @R0@
-1 NOTE http://en.wikipedia.org/wiki/List_of_British_monarchs
-1 CHAN
-2 DATE 23 OCT 2019
-3 TIME 18:04:41.282
+1 AUTH Vicary Gibbs (ed.) and others
+1 TITL The Complete Peerage
+1 PUBL 13 volumes (in 14 parts). London: The St Catherine Press Ltd. 1910-1959
+2 CONT Volume 14 (addenda and corrigenda). Stroud: Sutton Publishing Ltd. 1998.
+2 CONT Microprint edition of volumes 1-13. Gloucester: Alan Sutton Publishing Ltd. First published 1982; reprinted 2000.
 0 @S2@ SOUR
-1 _UID B88144825099452EA3A016C0B14B7FA39206
-1 AUTH The Royal Household
-1 TITL History of the Monarchy
-1 PUBL Crown Copyright
-1 REPO @R0@
-1 NOTE http://www.royal.gov.uk/HistoryoftheMonarchy/HistoryoftheMonarchy.aspx
-1 CHAN
-2 DATE 23 OCT 2019
-3 TIME 18:04:41.282
-0 @R0@ REPO
-1 _UID 6897B7691C9C411A9A73548325C2134F5FF3
-1 NAME [no name]
-1 CHAN
-2 DATE 13 MAY 2018
-3 TIME 14:42:09.617
-0 @K0@ _TASK
-1 _UID 9D4D4CDC575749B89C4AD8BB3B3DE6EF87C5
-1 _TDSC Update Elizabeth II events
-1 _TTIL Event
-1 _TSDT V05T00S000115082011000000000000LE000100000000000000000000LT
-1 _TCDT V05T00S000114022012000000000000LE000100000000000000000000LT
-1 _TSTS INPROGRESS
-1 _TPTY HIGH
-1 CHAN
-2 DATE 30 DEC 2015
-3 TIME 18:04:59.190
+1 AUTH Sir J. B. Paul (editor)
+1 TITL Scots Peerage
+1 PUBL 9 volumes. Edinburgh: David Douglas. 1904-1914
+0 @S3@ SOUR
+1 AUTH Anthony Hoskins
+1 TITL Mary Boleyn's Carey children  - offspring of King Henry VIII?
+1 PUBL Genealogists' Magazine (London), volume 25, number 9, pages 345-352 (March 1997)
+0 @S4@ SOUR
+1 AUTH J. D. Mackie
+1 TITL The Earlier Tudors 1485-1558
+1 PUBL Oxford: Oxford University Press. First published 1952; paperback edition 1994
+0 @S5@ SOUR
+1 AUTH Leslie Stephen (editor)
+1 TITL Dictionary of National Biography
+1 PUBL 67 volumes. London: Smith, Elder. 1885-1903
+0 @N1@ NOTE Henry Stewart is said to have married firstly "the Lady Leslie", 
+1 CONC who must have been divorced before March 1527/8, in which month he married Margaret Tudor
+1 SOUR @S1@
+2 PAGE Volume 8, pages 682, 683
+0 @N2@ NOTE The name of Arthur Plantagenet's mother is unknown. She is said by some to be 
+1 CONC the "Lady Elizabeth Lucy", by others the notorious Jane Shore, and by others one 
+1 CONC Elizabeth Waite, he himself being at first known as Arthur Waite.
+1 SOUR @S1@
+2 PAGE Volume 8, page 63
+0 @N3@ NOTE He died "it is said of 
+1 CONC joy at the King having ordered his release on being convinced of his innocence, 
+1 CONC and is said to have been bur. there."
+1 SOUR @S1@
+2 PAGE Volume 8, page 67
+0 @N4@ NOTE The existence of such a child is claimed in pedigrees 
+1 CONC at the College of Arms, and possibly confirmed by a reference in the will 
+1 CONC of Lady Katherine Gordon, wife of Perkin Warbeck, to her "Cosyn Margarett Keymes"
+1 SOUR @S1@
+2 PAGE Volume 14, pages 626, 627
 0 TRLR
