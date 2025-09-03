@@ -110,11 +110,12 @@ final class Import implements CreatesTeams
      */
     public function getStatistics(): array
     {
+        // Only get parsed data if parsing has been done
         $parsedData = $this->parser->getParsedData();
 
         return [
-            'individuals_parsed'   => count($parsedData->getIndividuals()),
-            'families_parsed'      => count($parsedData->getFamilies()),
+            'individuals_parsed'   => $parsedData ? count($parsedData->getIndividuals()) : 0,
+            'families_parsed'      => $parsedData ? count($parsedData->getFamilies()) : 0,
             'individuals_imported' => count($this->individualImporter->getPersonMap()),
             'families_imported'    => count($this->familyImporter->getFamilyMap()),
         ];

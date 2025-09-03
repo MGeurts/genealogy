@@ -9,6 +9,7 @@ use App\Models\PersonMetadata;
 use App\Models\Team;
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Individual importer - handles importing persons from GEDCOM data
@@ -30,7 +31,14 @@ class IndividualImporter
     public function import(array $individuals): array
     {
         foreach ($individuals as $gedcomId => $individual) {
+            if ($individual === null) {
+                continue;
+            }
+
             $personData = $this->extractPersonData($individual);
+
+            // Truncate fields to prevent database errors
+            $personData = $this->truncatePersonData($personData);
 
             $person = Person::create([
                 'firstname' => $personData['firstname'],
@@ -76,7 +84,7 @@ class IndividualImporter
     /**
      * Extract person data from GEDCOM individual record
      */
-    private function extractPersonData(array $individual): array
+    private function extractPersonData(?array $individual): array
     {
         $data = [
             'firstname' => null,
@@ -94,7 +102,7 @@ class IndividualImporter
             'metadata'  => [],
         ];
 
-        if (! isset($individual['data'])) {
+        if ($individual === null || ! isset($individual['data'])) {
             return $data;
         }
 
@@ -355,5 +363,35 @@ class IndividualImporter
         }
 
         return $existing . "\n\n" . $new;
+    }
+
+    /**
+     * Truncate person data to fit database column limits
+     */
+    private function truncatePersonData(array $personData): array
+    {
+        // Define column limits (adjust these based on your database schema)
+        $limits = [
+            'firstname' => 255,
+            'surname'   => 255,
+            'birthname' => 255,
+            'nickname'  => 255,
+            'pob'       => 255,
+            'pod'       => 255,
+        ];
+
+        foreach ($limits as $field => $limit) {
+            if (! empty($personData[$field]) && mb_strlen($personData[$field]) > $limit) {
+                $personData[$field] = mb_substr($personData[$field], 0, $limit);
+
+                // Log truncation for awareness
+                Log::info("GEDCOM Import: Truncated {$field}", [
+                    'original_length' => mb_strlen($personData[$field] ?? ''),
+                    'truncated_to'    => $limit,
+                ]);
+            }
+        }
+
+        return $personData;
     }
 }

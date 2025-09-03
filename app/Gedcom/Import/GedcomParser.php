@@ -151,7 +151,7 @@ class GedcomParser
     /**
      * Get the parsed data
      */
-    public function getParsedData(): GedcomData
+    public function getParsedData(): ?GedcomData
     {
         return $this->parsedData;
     }
