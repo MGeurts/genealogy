@@ -2,17 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Php\Gedcom;
+namespace App\Gedcom\Export;
 
 use App\Models\Person;
 use App\Models\User;
 use Carbon\CarbonInterface;
 use Exception;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
-use InvalidArgumentException;
-use Log;
 use RuntimeException;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use ZipArchive;
@@ -29,7 +28,7 @@ use ZipArchive;
  * $gedcom = $export->export($individuals, $couples);
  * return $export->downloadGedcom($gedcom);
  */
-class Export
+class ExportOriginal
 {
     // --------------------------------------------------------------------------------------
     // CONSTANTS - Configuration and Standards
@@ -109,15 +108,9 @@ class Export
      * @param  Collection<Person>  $individuals  Collection of Person models
      * @param  Collection  $couples  Collection of couple models
      * @return string Complete GEDCOM content
-     *
-     * @throws InvalidArgumentException When data is empty
      */
     public function export(Collection $individuals, Collection $couples): string
     {
-        if ($individuals->isEmpty() && $couples->isEmpty()) {
-            throw new InvalidArgumentException('Cannot export empty genealogy data');
-        }
-
         // Collect media objects for individuals
         $this->collectMediaObjects($individuals);
 
@@ -251,9 +244,6 @@ class Export
      */
     private function collectMediaObjects(Collection $individuals): void
     {
-        $this->mediaObjects = [];
-        $this->mediaFiles   = [];
-
         foreach ($individuals as $person) {
             $personMedia = $this->getPersonImages($person);
 
@@ -290,14 +280,10 @@ class Export
 
         // Get only original .webp files (not _medium.webp or _small.webp)
         $images = collect($allFiles)
-            ->filter(function ($file) {
-                $filename = basename($file);
-
-                return str_ends_with($filename, '.webp') &&
-                       ! str_ends_with($filename, '_medium.webp') &&
-                       ! str_ends_with($filename, '_small.webp');
+            ->filter(function ($file): bool {
+                return $this->isOriginalWebpFile($file);
             })
-            ->map(function ($originalFile) {
+            ->map(function ($originalFile): array {
                 // Extract filename without extension for database comparison
                 $filename           = basename($originalFile);
                 $filenameWithoutExt = pathinfo($filename, PATHINFO_FILENAME);
@@ -330,6 +316,19 @@ class Export
     }
 
     /**
+     * Check if file is an original .webp file (not a resized variant).
+     *
+     * @param  string  $file  File path
+     * @return bool True if original .webp file
+     */
+    private function isOriginalWebpFile(string $file): bool
+    {
+        $filename = basename($file);
+
+        return str_ends_with($filename, '.webp') && ! str_ends_with($filename, '_medium.webp') && ! str_ends_with($filename, '_small.webp');
+    }
+
+    /**
      * Generate a descriptive title for an image.
      */
     private function generateImageTitle(string $filename): string
@@ -342,7 +341,7 @@ class Export
     }
 
     // --------------------------------------------------------------------------------------
-    // GEDCOM BUILDING - Core Structure Methods (Enhanced)
+    // GEDCOM BUILDING - Core Structure Methods
     // --------------------------------------------------------------------------------------
 
     /**
@@ -361,7 +360,7 @@ class Export
 
         // Build family structures for GEDCOM
         $gedcomFamilies = $this->buildGedcomFamilies($individuals, $couples);
-        $famsMapping    = $this->buildFamilyMapping($couples, $gedcomFamilies);
+        $famsMapping    = $this->buildFamilyMapping($gedcomFamilies);
 
         $gedcom = '';
         $gedcom .= $this->buildHeader($submitterId);
@@ -388,6 +387,24 @@ class Export
     // --------------------------------------------------------------------------------------
     // GEDCOM BUILDING - Individual Records (Enhanced with Media)
     // --------------------------------------------------------------------------------------
+
+    /**
+     * Build all individual records.
+     *
+     * @param  Collection<Person>  $individuals
+     * @param  array<int, array<int>>  $famsMapping  Person ID to family IDs mapping
+     * @return string All individual records
+     */
+    private function buildIndividuals(Collection $individuals, array $famsMapping): string
+    {
+        $gedcom = '';
+
+        foreach ($individuals as $person) {
+            $gedcom .= $this->buildIndividualRecord($person, $famsMapping);
+        }
+
+        return $gedcom;
+    }
 
     /**
      * Build a single individual record.
@@ -419,252 +436,6 @@ class Export
         $lines = array_merge($lines, $this->buildAdditionalIndividualFields($person));
 
         return implode($this->eol(), $lines) . $this->eol();
-    }
-
-    /**
-     * Build media object references for an individual.
-     *
-     * @return array<string> Media reference lines
-     */
-    private function buildIndividualMediaFields(Person $person): array
-    {
-        $lines = [];
-
-        if (isset($this->mediaObjects[$person->id])) {
-            foreach ($this->mediaObjects[$person->id] as $media) {
-                $lines[] = "1 OBJE @M{$media['id']}@";
-            }
-        }
-
-        return $lines;
-    }
-
-    // --------------------------------------------------------------------------------------
-    // GEDCOM BUILDING - Media Records
-    // --------------------------------------------------------------------------------------
-
-    /**
-     * Build all media object records.
-     *
-     * @return string All media records
-     */
-    private function buildMediaRecords(): string
-    {
-        $gedcom = '';
-
-        foreach ($this->mediaObjects as $personId => $mediaList) {
-            foreach ($mediaList as $media) {
-                $gedcom .= $this->buildMediaRecord($media);
-            }
-        }
-
-        return $gedcom;
-    }
-
-    /**
-     * Build a single media object record.
-     *
-     * @param  array  $media  Media object data
-     * @return string Media GEDCOM record
-     */
-    private function buildMediaRecord(array $media): string
-    {
-        $lines   = [];
-        $lines[] = "0 @M{$media['id']}@ OBJE";
-
-        // File reference - GEDCOM 7.0 structure
-        $lines[] = "1 FILE {$media['file_reference']}";
-        $lines[] = "2 FORM {$media['mime_type']}";  // FORM now uses MIME type directly
-
-        // Title at file level
-        if (! empty($media['title'])) {
-            $lines[] = "2 TITL {$this->sanitizeText($media['title'])}";
-        }
-
-        // Notes or additional metadata could be added here
-
-        return implode($this->eol(), $lines) . $this->eol();
-    }
-
-    // --------------------------------------------------------------------------------------
-    // ZIP WITH MEDIA CREATION
-    // --------------------------------------------------------------------------------------
-
-    /**
-     * Create ZIP archive with media files.
-     *
-     * @param  string  $zipPath  ZIP file path
-     * @param  string  $gedcomPath  GEDCOM file path
-     * @param  string  $gedcomFile  GEDCOM filename for archive
-     *
-     * @throws RuntimeException When ZIP creation fails
-     */
-    private function createZipWithMedia(string $zipPath, string $gedcomPath, string $gedcomFile): void
-    {
-        $zip    = new ZipArchive();
-        $result = $zip->open($zipPath, ZipArchive::CREATE);
-
-        if ($result !== true) {
-            throw new RuntimeException('Failed to create ZIP archive: ' . $result);
-        }
-
-        // Add GEDCOM file
-        if (! $zip->addFile($gedcomPath, $gedcomFile)) {
-            $zip->close();
-            throw new RuntimeException('Failed to add GEDCOM file to ZIP archive');
-        }
-
-        // Add media files
-        $mediaDir = 'media/';
-        foreach ($this->mediaFiles as $mediaPath) {
-            $diskPath = Storage::disk('photos')->path($mediaPath);
-
-            if (file_exists($diskPath)) {
-                $filename    = basename($mediaPath);
-                $archivePath = $mediaDir . $filename;
-
-                if (! $zip->addFile($diskPath, $archivePath)) {
-                    Log::warning("Failed to add media file to ZIP: {$mediaPath}");
-                }
-            } else {
-                Log::warning("Media file not found: {$diskPath}");
-            }
-        }
-
-        if (! $zip->close()) {
-            throw new RuntimeException('Failed to close ZIP archive');
-        }
-
-        Log::info('Created ZIP with ' . count($this->mediaFiles) . ' media files');
-    }
-
-    // --------------------------------------------------------------------------------------
-    // [Previous methods remain unchanged - keeping the rest of the original class]
-    // --------------------------------------------------------------------------------------
-
-    /**
-     * Debug version with logging to identify the exact issue
-     */
-    private function buildGedcomFamilies(Collection $individuals, Collection $couples): \Illuminate\Support\Collection
-    {
-        Log::info('Starting family building with ' . $couples->count() . ' couples and ' . $individuals->count() . ' individuals');
-
-        $gedcomFamilies            = collect();
-        $this->parentFamilyMapping = [];
-
-        // Step 1: Create unique families for each couple pair
-        $uniquePairs = [];
-
-        foreach ($couples as $couple) {
-            $ids = [$couple->person1_id, $couple->person2_id];
-            sort($ids);
-            $pairKey = implode('-', $ids);
-
-            if (! isset($uniquePairs[$pairKey])) {
-                $uniquePairs[$pairKey] = $couple->id;
-
-                $family = (object) [
-                    'id'            => $couple->id,
-                    'type'          => 'couple',
-                    'person1_id'    => $couple->person1_id,
-                    'person2_id'    => $couple->person2_id,
-                    'relationships' => $couples->where('person1_id', $couple->person1_id)
-                        ->where('person2_id', $couple->person2_id)
-                        ->merge($couples->where('person1_id', $couple->person2_id)
-                            ->where('person2_id', $couple->person1_id)),
-                    'children' => collect(),
-                ];
-
-                $gedcomFamilies->push($family);
-                $this->parentFamilyMapping[$pairKey] = $couple->id;
-
-                Log::info("Created couple family {$couple->id} for pair {$pairKey}");
-            } else {
-                $this->parentFamilyMapping[$pairKey] = $uniquePairs[$pairKey];
-            }
-        }
-
-        Log::info('Created ' . $gedcomFamilies->count() . ' couple families');
-
-        // Step 2: Process children - assign to existing families or create parent-only families
-        $nextParentId = 20000; // Use a clearly different range
-
-        foreach ($individuals as $person) {
-            $familyId = null;
-
-            // Check father_id/mother_id combination
-            if ($person->father_id || $person->mother_id) {
-                $parentKey = $this->getParentKey($person->father_id, $person->mother_id);
-
-                if (isset($this->parentFamilyMapping[$parentKey])) {
-                    $familyId = $this->parentFamilyMapping[$parentKey];
-                    Log::info("Person {$person->id} assigned to existing family {$familyId} via parents {$parentKey}");
-                } else {
-                    // Create parent-only family
-                    $familyId                              = $nextParentId++;
-                    $this->parentFamilyMapping[$parentKey] = $familyId;
-
-                    $parentFamily = (object) [
-                        'id'         => $familyId,
-                        'type'       => 'parent',
-                        'person1_id' => $person->father_id,
-                        'person2_id' => $person->mother_id,
-                        'children'   => collect(),
-                    ];
-
-                    $gedcomFamilies->push($parentFamily);
-                    Log::info("Created parent-only family {$familyId} for person {$person->id} with parents {$parentKey}");
-                }
-            }
-            // Check parents_id
-            elseif ($person->parents_id) {
-                $familyId = $person->parents_id;
-                Log::info("Person {$person->id} assigned to family {$familyId} via parents_id");
-            }
-
-            // Add person as child to their family
-            if ($familyId) {
-                $family = $gedcomFamilies->firstWhere('id', $familyId);
-                if ($family) {
-                    $family->children->push($person);
-                } else {
-                    Log::warning("Could not find family {$familyId} for person {$person->id}");
-                }
-            }
-        }
-
-        Log::info('Final family count: ' . $gedcomFamilies->count());
-
-        return $gedcomFamilies;
-    }
-
-    /**
-     * Generate a unique key for a parent combination.
-     */
-    private function getParentKey(?int $parent1Id, ?int $parent2Id): string
-    {
-        return collect([$parent1Id, $parent2Id])
-            ->filter()
-            ->sort()
-            ->implode('-');
-    }
-
-    /**
-     * Build all individual records.
-     *
-     * @param  Collection<Person>  $individuals
-     * @param  array<int, array<int>>  $famsMapping  Person ID to family IDs mapping
-     * @return string All individual records
-     */
-    private function buildIndividuals(Collection $individuals, array $famsMapping): string
-    {
-        $gedcom = '';
-
-        foreach ($individuals as $person) {
-            $gedcom .= $this->buildIndividualRecord($person, $famsMapping);
-        }
-
-        return $gedcom;
     }
 
     /**
@@ -781,40 +552,54 @@ class Export
             }
 
             // Cemetery - Fixed MAP tag placement and coordinate format
-            $cemetery_name               = $person->getMetadataValue('cemetery_location_name');
-            $cemetery_address            = $person->getMetadataValue('cemetery_location_address');
-            $cemetery_location_latitude  = $person->getMetadataValue('cemetery_location_latitude');
-            $cemetery_location_longitude = $person->getMetadataValue('cemetery_location_longitude');
+            $lines = array_merge($lines, $this->buildCemeteryFields($person));
+        }
 
-            if ($cemetery_name || $cemetery_address || $cemetery_location_latitude || $cemetery_location_longitude) {
-                $lines[] = '1 BURI';
+        return $lines;
+    }
 
-                // Build cemetery place name with coordinates
-                $cemeteryPlace = $cemetery_name ?: '';
+    /**
+     * Build cemetery burial fields for an individual.
+     *
+     * @return array<string> Cemetery field lines
+     */
+    private function buildCemeteryFields(Person $person): array
+    {
+        $cemetery_name               = $person->getMetadataValue('cemetery_location_name');
+        $cemetery_address            = $person->getMetadataValue('cemetery_location_address');
+        $cemetery_location_latitude  = $person->getMetadataValue('cemetery_location_latitude');
+        $cemetery_location_longitude = $person->getMetadataValue('cemetery_location_longitude');
 
-                if ($cemeteryPlace) {
-                    $lines[] = '2 PLAC ' . $this->sanitizeText($cemeteryPlace);
+        if (! ($cemetery_name || $cemetery_address || $cemetery_location_latitude || $cemetery_location_longitude)) {
+            return [];
+        }
 
-                    // Add map coordinates under PLAC (GEDCOM 7.0 compliant format)
-                    if ($cemetery_location_latitude || $cemetery_location_longitude) {
-                        $lines[] = '3 MAP';
-                        if ($cemetery_location_latitude) {
-                            $lines[] = '4 LATI ' . $this->formatGedcomCoordinate($cemetery_location_latitude, 'latitude');
-                        }
-                        if ($cemetery_location_longitude) {
-                            $lines[] = '4 LONG ' . $this->formatGedcomCoordinate($cemetery_location_longitude, 'longitude');
-                        }
-                    }
+        $lines = ['1 BURI'];
+
+        // Build cemetery place name with coordinates
+        $cemeteryPlace = $cemetery_name ?: '';
+
+        if ($cemeteryPlace) {
+            $lines[] = '2 PLAC ' . $this->sanitizeText($cemeteryPlace);
+
+            // Add map coordinates under PLAC (GEDCOM 7.0 compliant format)
+            if ($cemetery_location_latitude || $cemetery_location_longitude) {
+                $lines[] = '3 MAP';
+                if ($cemetery_location_latitude) {
+                    $lines[] = '4 LATI ' . $this->formatGedcomCoordinate($cemetery_location_latitude, 'latitude');
                 }
-
-                // Cemetery address (ADDR) with multi-line support
-                if ($cemetery_address) {
-                    $lines = array_merge(
-                        $lines,
-                        $this->exportMultilineText('ADDR', $cemetery_address, 2)
-                    );
+                if ($cemetery_location_longitude) {
+                    $lines[] = '4 LONG ' . $this->formatGedcomCoordinate($cemetery_location_longitude, 'longitude');
                 }
             }
+        }
+
+        // Cemetery address (ADDR) with multi-line support
+        if ($cemetery_address) {
+            $lines = array_merge(
+                $lines,
+                $this->exportMultilineText('ADDR', $cemetery_address, 2)
+            );
         }
 
         return $lines;
@@ -883,12 +668,29 @@ class Export
     }
 
     /**
+     * Build media object references for an individual.
+     *
+     * @return array<string> Media reference lines
+     */
+    private function buildIndividualMediaFields(Person $person): array
+    {
+        $lines = [];
+
+        if (isset($this->mediaObjects[$person->id])) {
+            foreach ($this->mediaObjects[$person->id] as $media) {
+                $lines[] = "1 OBJE @M{$media['id']}@";
+            }
+        }
+
+        return $lines;
+    }
+
+    /**
      * Build additional individual fields.
      *
      * Override this method to add custom fields like:
      * - OCCU (Occupation)
      * - RELI (Religion)
-     * - NOTE (Notes)
      * - SOUR (Sources)
      *
      * @return array<string> Additional field lines
@@ -896,6 +698,53 @@ class Export
     private function buildAdditionalIndividualFields(Person $person): array
     {
         return [];
+    }
+
+    // --------------------------------------------------------------------------------------
+    // GEDCOM BUILDING - Media Records
+    // --------------------------------------------------------------------------------------
+
+    /**
+     * Build all media object records.
+     *
+     * @return string All media records
+     */
+    private function buildMediaRecords(): string
+    {
+        $gedcom = '';
+
+        foreach ($this->mediaObjects as $personId => $mediaList) {
+            foreach ($mediaList as $media) {
+                $gedcom .= $this->buildMediaRecord($media);
+            }
+        }
+
+        return $gedcom;
+    }
+
+    /**
+     * Build a single media object record.
+     *
+     * @param  array  $media  Media object data
+     * @return string Media GEDCOM record
+     */
+    private function buildMediaRecord(array $media): string
+    {
+        $lines   = [];
+        $lines[] = "0 @M{$media['id']}@ OBJE";
+
+        // File reference - GEDCOM 7.0 structure
+        $lines[] = "1 FILE {$media['file_reference']}";
+        $lines[] = "2 FORM {$media['mime_type']}";  // FORM now uses MIME type directly
+
+        // Title at file level
+        if (! empty($media['title'])) {
+            $lines[] = "2 TITL {$this->sanitizeText($media['title'])}";
+        }
+
+        // Notes or additional metadata could be added here
+
+        return implode($this->eol(), $lines) . $this->eol();
     }
 
     // --------------------------------------------------------------------------------------
@@ -1082,6 +931,10 @@ class Export
         return '';
     }
 
+    // --------------------------------------------------------------------------------------
+    // GEDCOM BUILDING - Header, Submitter, Footer
+    // --------------------------------------------------------------------------------------
+
     /**
      * Build GEDCOM header record.
      *
@@ -1143,10 +996,121 @@ class Export
         return '0 TRLR' . $this->eol();
     }
 
+    // --------------------------------------------------------------------------------------
+    // FAMILY STRUCTURE BUILDING
+    // --------------------------------------------------------------------------------------
+
+    /**
+     * Debug version with logging to identify the exact issue
+     */
+    private function buildGedcomFamilies(Collection $individuals, Collection $couples): \Illuminate\Support\Collection
+    {
+        Log::info('Starting family building with ' . $couples->count() . ' couples and ' . $individuals->count() . ' individuals');
+
+        $gedcomFamilies            = collect();
+        $this->parentFamilyMapping = [];
+
+        // Step 1: Create unique families for each couple pair
+        $uniquePairs = [];
+
+        foreach ($couples as $couple) {
+            $ids = [$couple->person1_id, $couple->person2_id];
+            sort($ids);
+            $pairKey = implode('-', $ids);
+
+            if (! isset($uniquePairs[$pairKey])) {
+                $uniquePairs[$pairKey] = $couple->id;
+
+                $family = (object) [
+                    'id'            => $couple->id,
+                    'type'          => 'couple',
+                    'person1_id'    => $couple->person1_id,
+                    'person2_id'    => $couple->person2_id,
+                    'relationships' => $couples->where('person1_id', $couple->person1_id)
+                        ->where('person2_id', $couple->person2_id)
+                        ->merge($couples->where('person1_id', $couple->person2_id)
+                            ->where('person2_id', $couple->person1_id)),
+                    'children' => collect(),
+                ];
+
+                $gedcomFamilies->push($family);
+                $this->parentFamilyMapping[$pairKey] = $couple->id;
+
+                Log::info("Created couple family {$couple->id} for pair {$pairKey}");
+            } else {
+                $this->parentFamilyMapping[$pairKey] = $uniquePairs[$pairKey];
+            }
+        }
+
+        Log::info('Created ' . $gedcomFamilies->count() . ' couple families');
+
+        // Step 2: Process children - assign to existing families or create parent-only families
+        $nextParentId = 20000; // Use a clearly different range
+
+        foreach ($individuals as $person) {
+            $familyId = null;
+
+            // Check father_id/mother_id combination
+            if ($person->father_id || $person->mother_id) {
+                $parentKey = $this->getParentKey($person->father_id, $person->mother_id);
+
+                if (isset($this->parentFamilyMapping[$parentKey])) {
+                    $familyId = $this->parentFamilyMapping[$parentKey];
+                    Log::info("Person {$person->id} assigned to existing family {$familyId} via parents {$parentKey}");
+                } else {
+                    // Create parent-only family
+                    $familyId                              = $nextParentId++;
+                    $this->parentFamilyMapping[$parentKey] = $familyId;
+
+                    $parentFamily = (object) [
+                        'id'         => $familyId,
+                        'type'       => 'parent',
+                        'person1_id' => $person->father_id,
+                        'person2_id' => $person->mother_id,
+                        'children'   => collect(),
+                    ];
+
+                    $gedcomFamilies->push($parentFamily);
+                    Log::info("Created parent-only family {$familyId} for person {$person->id} with parents {$parentKey}");
+                }
+            }
+            // Check parents_id
+            elseif ($person->parents_id) {
+                $familyId = $person->parents_id;
+                Log::info("Person {$person->id} assigned to family {$familyId} via parents_id");
+            }
+
+            // Add person as child to their family
+            if ($familyId) {
+                $family = $gedcomFamilies->firstWhere('id', $familyId);
+                if ($family) {
+                    $family->children->push($person);
+                } else {
+                    Log::warning("Could not find family {$familyId} for person {$person->id}");
+                }
+            }
+        }
+
+        Log::info('Final family count: ' . $gedcomFamilies->count());
+
+        return $gedcomFamilies;
+    }
+
+    /**
+     * Generate a unique key for a parent combination.
+     */
+    private function getParentKey(?int $parent1Id, ?int $parent2Id): string
+    {
+        return collect([$parent1Id, $parent2Id])
+            ->filter()
+            ->sort()
+            ->implode('-');
+    }
+
     /**
      * Fixed family mapping that ensures every adult gets FAMS tags
      */
-    private function buildFamilyMapping(Collection $couples, \Illuminate\Support\Collection $gedcomFamilies): array
+    private function buildFamilyMapping(\Illuminate\Support\Collection $gedcomFamilies): array
     {
         $famsMapping = [];
 
@@ -1174,6 +1138,58 @@ class Export
         Log::info('FAMS mapping created for ' . count($famsMapping) . ' people');
 
         return $famsMapping;
+    }
+
+    // --------------------------------------------------------------------------------------
+    // ZIP WITH MEDIA CREATION
+    // --------------------------------------------------------------------------------------
+
+    /**
+     * Create ZIP archive with media files.
+     *
+     * @param  string  $zipPath  ZIP file path
+     * @param  string  $gedcomPath  GEDCOM file path
+     * @param  string  $gedcomFile  GEDCOM filename for archive
+     *
+     * @throws RuntimeException When ZIP creation fails
+     */
+    private function createZipWithMedia(string $zipPath, string $gedcomPath, string $gedcomFile): void
+    {
+        $zip    = new ZipArchive();
+        $result = $zip->open($zipPath, ZipArchive::CREATE);
+
+        if ($result !== true) {
+            throw new RuntimeException('Failed to create ZIP archive: ' . $result);
+        }
+
+        // Add GEDCOM file
+        if (! $zip->addFile($gedcomPath, $gedcomFile)) {
+            $zip->close();
+            throw new RuntimeException('Failed to add GEDCOM file to ZIP archive');
+        }
+
+        // Add media files
+        $mediaDir = 'media/';
+        foreach ($this->mediaFiles as $mediaPath) {
+            $diskPath = Storage::disk('photos')->path($mediaPath);
+
+            if (file_exists($diskPath)) {
+                $filename    = basename($mediaPath);
+                $archivePath = $mediaDir . $filename;
+
+                if (! $zip->addFile($diskPath, $archivePath)) {
+                    Log::warning("Failed to add media file to ZIP: {$mediaPath}");
+                }
+            } else {
+                Log::warning("Media file not found: {$diskPath}");
+            }
+        }
+
+        if (! $zip->close()) {
+            throw new RuntimeException('Failed to close ZIP archive');
+        }
+
+        Log::info('Created ZIP with ' . count($this->mediaFiles) . ' media files');
     }
 
     // --------------------------------------------------------------------------------------

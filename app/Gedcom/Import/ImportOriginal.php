@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Php\Gedcom;
+namespace App\Gedcom\Import;
 
 use App\Models\Couple;
 use App\Models\Person;
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Storage;
 use Laravel\Jetstream\Contracts\CreatesTeams;
 use Laravel\Jetstream\Events\AddingTeam;
 
-final class Import implements CreatesTeams
+final class ImportOriginal implements CreatesTeams
 {
     public User $user;
 

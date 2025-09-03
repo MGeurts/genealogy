@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Livewire\Gedcom;
 
+use App\Gedcom\Import\Import;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\User;
-use App\Php\Gedcom\Import;
 use Exception;
 use Illuminate\View\View;
 use Livewire\Component;
