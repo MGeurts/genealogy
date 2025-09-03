@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Gedcom\Export;
 
 use Exception;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 use RuntimeException;
@@ -84,8 +85,8 @@ class GedcomFileHandler
     {
         $tempDir    = $this->ensureTempDirectory();
         $gedcomFile = $this->basename . '.ged';
-        $gedcomPath = $tempDir . '/' . $gedcomFile;
-        $zipPath    = $tempDir . '/' . $this->basename . '.zip';
+        $gedcomPath = $tempDir . DIRECTORY_SEPARATOR . $gedcomFile;
+        $zipPath    = $tempDir . DIRECTORY_SEPARATOR . $this->basename . '.zip';
 
         try {
             $this->createGedcomFile($gedcomPath, $gedcom);
@@ -94,6 +95,21 @@ class GedcomFileHandler
                 $this->createZipWithMedia($zipPath, $gedcomPath, $gedcomFile, $mediaFiles);
             } else {
                 $this->createZipFile($zipPath, $gedcomPath, $gedcomFile);
+            }
+
+            // Verify ZIP file was created successfully
+            if (! file_exists($zipPath)) {
+                throw new RuntimeException('ZIP file was not created: ' . $zipPath);
+            }
+
+            // Verify ZIP file is readable
+            if (! is_readable($zipPath)) {
+                throw new RuntimeException('ZIP file is not readable: ' . $zipPath);
+            }
+
+            // Verify ZIP file has content
+            if (filesize($zipPath) === 0) {
+                throw new RuntimeException('ZIP file is empty: ' . $zipPath);
             }
 
             return $this->streamZipDownload($zipPath, $gedcomPath);
@@ -112,7 +128,7 @@ class GedcomFileHandler
     public function cleanup(): void
     {
         $tempDir = Storage::path('temp');
-        $pattern = $tempDir . '/' . $this->basename . '.*';
+        $pattern = $tempDir . DIRECTORY_SEPARATOR . $this->basename . '.*';
 
         foreach (glob($pattern) as $file) {
             @unlink($file);
@@ -138,41 +154,65 @@ class GedcomFileHandler
      */
     private function createZipWithMedia(string $zipPath, string $gedcomPath, string $gedcomFile, array $mediaFiles): void
     {
-        $zip    = new ZipArchive();
-        $result = $zip->open($zipPath, ZipArchive::CREATE);
+        $zip = new ZipArchive();
+
+        // Delete existing file if it exists
+        if (file_exists($zipPath)) {
+            unlink($zipPath);
+        }
+
+        $result = $zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE);
 
         if ($result !== true) {
-            throw new RuntimeException('Failed to create ZIP archive: ' . $result);
+            throw new RuntimeException("Failed to create ZIP archive: {$this->getZipErrorMessage($result)} (Code: {$result})");
+        }
+
+        // Verify GEDCOM file exists before adding
+        if (! file_exists($gedcomPath)) {
+            $zip->close();
+            throw new RuntimeException('GEDCOM file does not exist: ' . $gedcomPath);
         }
 
         // Add GEDCOM file
         if (! $zip->addFile($gedcomPath, $gedcomFile)) {
             $zip->close();
-            throw new RuntimeException('Failed to add GEDCOM file to ZIP archive');
+            throw new RuntimeException('Failed to add GEDCOM file to ZIP archive: ' . $gedcomPath);
         }
 
         // Add media files
-        $mediaDir = 'media/';
+        $mediaDir   = 'media/';
+        $addedFiles = 0;
         foreach ($mediaFiles as $mediaPath) {
             $diskPath = Storage::disk('photos')->path($mediaPath);
 
-            if (file_exists($diskPath)) {
+            if (file_exists($diskPath) && is_readable($diskPath)) {
                 $filename    = basename($mediaPath);
                 $archivePath = $mediaDir . $filename;
 
-                if (! $zip->addFile($diskPath, $archivePath)) {
+                if ($zip->addFile($diskPath, $archivePath)) {
+                    $addedFiles++;
+                } else {
                     Log::warning("Failed to add media file to ZIP: {$mediaPath}");
                 }
             } else {
-                Log::warning("Media file not found: {$diskPath}");
+                Log::warning("Media file not found or not readable: {$diskPath}");
             }
         }
 
         if (! $zip->close()) {
-            throw new RuntimeException('Failed to close ZIP archive');
+            throw new RuntimeException('Failed to close ZIP archive: ' . $zip->getStatusString());
         }
 
-        Log::info('Created ZIP with ' . count($mediaFiles) . ' media files');
+        // Verify the ZIP file was created and has content
+        if (! file_exists($zipPath)) {
+            throw new RuntimeException('ZIP file was not created after close(): ' . $zipPath);
+        }
+
+        if (filesize($zipPath) === 0) {
+            throw new RuntimeException('ZIP file is empty after creation: ' . $zipPath);
+        }
+
+        Log::info("Created ZIP with GEDCOM file and {$addedFiles} media files");
     }
 
     /**
@@ -186,20 +226,41 @@ class GedcomFileHandler
      */
     private function createZipFile(string $zipPath, string $gedcomPath, string $gedcomFile): void
     {
-        $zip    = new ZipArchive();
-        $result = $zip->open($zipPath, ZipArchive::CREATE);
+        $zip = new ZipArchive();
+
+        // Delete existing file if it exists
+        if (file_exists($zipPath)) {
+            unlink($zipPath);
+        }
+
+        $result = $zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE);
 
         if ($result !== true) {
-            throw new RuntimeException('Failed to create ZIP archive: ' . $result);
+            throw new RuntimeException("Failed to create ZIP archive: {$this->getZipErrorMessage($result)} (Code: {$result})");
+        }
+
+        // Verify GEDCOM file exists before adding
+        if (! file_exists($gedcomPath)) {
+            $zip->close();
+            throw new RuntimeException('GEDCOM file does not exist: ' . $gedcomPath);
         }
 
         if (! $zip->addFile($gedcomPath, $gedcomFile)) {
             $zip->close();
-            throw new RuntimeException('Failed to add GEDCOM file to ZIP archive');
+            throw new RuntimeException('Failed to add GEDCOM file to ZIP archive: ' . $gedcomPath);
         }
 
         if (! $zip->close()) {
-            throw new RuntimeException('Failed to close ZIP archive');
+            throw new RuntimeException('Failed to close ZIP archive: ' . $zip->getStatusString());
+        }
+
+        // Verify the ZIP file was created
+        if (! file_exists($zipPath)) {
+            throw new RuntimeException('ZIP file was not created after close(): ' . $zipPath);
+        }
+
+        if (filesize($zipPath) === 0) {
+            throw new RuntimeException('ZIP file is empty after creation: ' . $zipPath);
         }
     }
 
@@ -217,8 +278,16 @@ class GedcomFileHandler
     private function ensureTempDirectory(): string
     {
         $tempDir = Storage::path('temp');
-        if (! is_dir($tempDir) && ! mkdir($tempDir, 0755, true)) {
-            throw new RuntimeException('Unable to create temp directory: ' . $tempDir);
+
+        if (! is_dir($tempDir)) {
+            if (! mkdir($tempDir, 0755, true)) {
+                throw new RuntimeException('Unable to create temp directory: ' . $tempDir);
+            }
+        }
+
+        // Verify directory is writable
+        if (! is_writable($tempDir)) {
+            throw new RuntimeException('Temp directory is not writable: ' . $tempDir);
         }
 
         return $tempDir;
@@ -234,8 +303,18 @@ class GedcomFileHandler
      */
     private function createGedcomFile(string $path, string $gedcom): void
     {
-        if (file_put_contents($path, $gedcom) === false) {
+        $result = file_put_contents($path, $gedcom);
+        if ($result === false) {
             throw new RuntimeException('Failed to write GEDCOM file: ' . $path);
+        }
+
+        // Verify file was created with content
+        if (! file_exists($path)) {
+            throw new RuntimeException('GEDCOM file was not created: ' . $path);
+        }
+
+        if (filesize($path) === 0) {
+            throw new RuntimeException('GEDCOM file is empty: ' . $path);
         }
     }
 
@@ -257,14 +336,21 @@ class GedcomFileHandler
             function () use ($zipPath): void {
                 $handle = fopen($zipPath, 'rb');
                 if ($handle === false) {
-                    throw new RuntimeException('Cannot open ZIP file for reading');
+                    throw new RuntimeException('Cannot open ZIP file for reading: ' . $zipPath);
                 }
 
-                while (! feof($handle)) {
-                    echo fread($handle, self::STREAM_BUFFER_SIZE);
-                    flush();
+                try {
+                    while (! feof($handle)) {
+                        $data = fread($handle, self::STREAM_BUFFER_SIZE);
+                        if ($data === false) {
+                            throw new RuntimeException('Error reading from ZIP file');
+                        }
+                        echo $data;
+                        flush();
+                    }
+                } finally {
+                    fclose($handle);
                 }
-                fclose($handle);
             },
             $this->filename,
             [
@@ -286,6 +372,47 @@ class GedcomFileHandler
                 @unlink($path);
             }
         }
+    }
+
+    // --------------------------------------------------------------------------------------
+    // HELPER METHODS
+    // --------------------------------------------------------------------------------------
+
+    /**
+     * Get human-readable error message for ZipArchive error codes.
+     *
+     * @param  int  $code  ZipArchive error code
+     * @return string Error message
+     */
+    private function getZipErrorMessage(int $code): string
+    {
+        return match ($code) {
+            ZipArchive::ER_OK          => 'No error',
+            ZipArchive::ER_MULTIDISK   => 'Multi-disk zip archives not supported',
+            ZipArchive::ER_RENAME      => 'Renaming temporary file failed',
+            ZipArchive::ER_CLOSE       => 'Closing zip archive failed',
+            ZipArchive::ER_SEEK        => 'Seek error',
+            ZipArchive::ER_READ        => 'Read error',
+            ZipArchive::ER_WRITE       => 'Write error',
+            ZipArchive::ER_CRC         => 'CRC error',
+            ZipArchive::ER_ZIPCLOSED   => 'Containing zip archive was closed',
+            ZipArchive::ER_NOENT       => 'No such file',
+            ZipArchive::ER_EXISTS      => 'File already exists',
+            ZipArchive::ER_OPEN        => 'Can\'t open file',
+            ZipArchive::ER_TMPOPEN     => 'Failure to create temporary file',
+            ZipArchive::ER_ZLIB        => 'Zlib error',
+            ZipArchive::ER_MEMORY      => 'Memory allocation failure',
+            ZipArchive::ER_CHANGED     => 'Entry has been changed',
+            ZipArchive::ER_COMPNOTSUPP => 'Compression method not supported',
+            ZipArchive::ER_EOF         => 'Premature EOF',
+            ZipArchive::ER_INVAL       => 'Invalid argument',
+            ZipArchive::ER_NOZIP       => 'Not a zip archive',
+            ZipArchive::ER_INTERNAL    => 'Internal error',
+            ZipArchive::ER_INCONS      => 'Zip archive inconsistent',
+            ZipArchive::ER_REMOVE      => 'Can\'t remove file',
+            ZipArchive::ER_DELETED     => 'Entry has been deleted',
+            default                    => 'Unknown error',
+        };
     }
 
     // --------------------------------------------------------------------------------------

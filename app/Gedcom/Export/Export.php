@@ -81,14 +81,6 @@ class Export
         $this->initializeBuilders();
     }
 
-    /**
-     * Clean up temporary files on destruction.
-     */
-    public function __destruct()
-    {
-        $this->fileHandler->cleanup();
-    }
-
     // --------------------------------------------------------------------------------------
     // PUBLIC API - Main Export Methods
     // --------------------------------------------------------------------------------------
