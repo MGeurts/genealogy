@@ -259,7 +259,9 @@ To date, version 7 has not been fully implemented in any open-source php based p
 Translations can be added by submitting a <b>Pull Request</b> to the project.<br />
 Translation integrity can be checked by issuing the command `php artisan translations:check --excludedDirectories=vendor`
 
-Instructions on how to add a language can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-LANGUAGES.md" target="_blank">README-LANGUAGES.md</a>.
+Instructions on how to add a language can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-LANGUAGES.md" target="_blank">README-LANGUAGES.md<br/><br/>
+
+The applocation does **not support Right To Left (RTL) languages** like Arabic, Hebrew, Persian, Urdu, Pashto, Kurdish (Sorani), Uyghur, Syriac, Thaana, North Korean.</a>.
 
 ## Uploads
 
