@@ -77,7 +77,7 @@ final class Exportteam extends Component
                 couples: $this->teamCouples,
             );
 
-            $this->toast()->success(__('app.download'), __('gedcom.export_succeeded') . ': ' . __('app.downloading'))->send();
+            $this->toast()->success(__('app.download'), __('gedcom.export_succeeded') . ': <br/>' . __('app.downloading'))->send();
 
             // Use FORMATS zip flag to decide download type
             $formatConfig = collect(self::formats())->firstWhere('value', $this->format);
