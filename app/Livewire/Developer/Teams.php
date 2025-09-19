@@ -7,7 +7,6 @@ namespace App\Livewire\Developer;
 use App\Models\Team;
 use Filament\Actions\Concerns\InteractsWithActions;
 use Filament\Actions\Contracts\HasActions;
-use Filament\Actions\DeleteAction;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Tables\Columns\IconColumn;
@@ -79,11 +78,6 @@ class Teams extends Component implements HasActions, HasSchemas, HasTable
                 TernaryFilter::make('personal_team')
                     ->label(__('team.team_personal') . '?')
                     ->default(false),
-            ])
-            ->recordActions([
-                DeleteAction::make()
-                    ->iconButton()
-                    ->visible(fn (Team $record): bool => $record->isDeletable()),
             ])
             ->defaultSort('name')
             ->striped()
