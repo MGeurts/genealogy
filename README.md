@@ -118,6 +118,8 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 
 ## Roles & permissions
 
+### Teams & Users
+
 <table>
     <thead>
         <tr>
@@ -128,11 +130,47 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     </thead>
     <tbody>
         <tr>
-            <td rowspan="3"><b>Administrator</b></td>
-            <td>user (team member)</td>
-            <td>create, read, update, delete</td>
+            <td rowspan="3"><b>Team owner</b></td>
+            <td>personal team</td>
+            <td>update, invite members</td>
         </tr>
         <tr>
+            <td>non-personal team</td>
+            <td>read, update, delete, invite members, transfer ownership</td>
+        </tr>
+        <tr>
+            <td>new team</td>
+            <td>create</td>
+        </tr>
+        <tr>
+            <td rowspan="3"><b>Team member</b></td>
+            <td>personal team</td>
+            <td>update, invite members</td>
+        </tr>
+        <tr>
+            <td>non-personal team</td>
+            <td>accept membership, read, leave</td>
+        </tr>
+        <tr>
+            <td>new team</td>
+            <td>create</td>
+        </tr>
+    </tbody>
+</table>
+
+### Persons & Couples
+
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">Role</th>
+            <th style="text-align:left">Model</th>
+            <th style="text-align:left">Permissions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="2"><b>Administrator</b></td>
             <td>person</td>
             <td>create, read, update, delete</td>
         </tr>
