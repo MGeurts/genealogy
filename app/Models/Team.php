@@ -67,7 +67,26 @@ final class Team extends JetstreamTeam
     /* -------------------------------------------------------------------------------------------- */
     public function isDeletable(): bool
     {
-        return $this->persons->isEmpty() && $this->couples->isEmpty() && $this->users->isEmpty();
+        // Prevent deletion of personal teams
+        if ($this->personal_team) {
+            return false;
+        }
+
+        // Use exists() queries instead of loading relationships
+        // This only counts records without loading them into memory
+        if ($this->users()->exists()) {
+            return false;
+        }
+
+        if ($this->persons()->exists()) {
+            return false;
+        }
+
+        if ($this->couples()->exists()) {
+            return false;
+        }
+
+        return true;
     }
 
     /* -------------------------------------------------------------------------------------------- */
