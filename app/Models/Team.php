@@ -6,6 +6,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\DB;
 use Laravel\Jetstream\Events\TeamCreated;
 use Laravel\Jetstream\Events\TeamDeleted;
 use Laravel\Jetstream\Events\TeamUpdated;
@@ -49,7 +50,9 @@ final class Team extends JetstreamTeam
     {
         return LogOptions::defaults()
             ->useLogName('user_team')
-            ->setDescriptionForEvent(fn (string $eventName): string => __('team.team') . ' ' . __('app.event_' . $eventName))
+            ->setDescriptionForEvent(function (string $eventName): string {
+                return __('team.team') . ' ' . __('app.event_' . $eventName);
+            })
             ->logOnly([
                 'name',
                 'description',
@@ -61,7 +64,24 @@ final class Team extends JetstreamTeam
 
     public function tapActivity(Activity $activity, string $eventName): void
     {
-        $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
+        $user = auth()->user();
+
+        if (! $user) {
+            $activity->team_id = null;
+
+            return;
+        }
+
+        $currentTeam = $user->currentTeam;
+
+        // Don't set team_id if this team is being deleted or if no current team exists
+        if (! $currentTeam || $currentTeam->id === $this->id) {
+            // Try to use the user's personal team as fallback
+            $personalTeam      = $user->personalTeam();
+            $activity->team_id = $personalTeam?->id;
+        } else {
+            $activity->team_id = $currentTeam->id;
+        }
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -70,6 +90,11 @@ final class Team extends JetstreamTeam
         // Prevent deletion of personal teams
         if ($this->personal_team) {
             return false;
+        }
+
+        // Developers can delete any non-personal team
+        if (auth()->user()?->isDeveloper()) {
+            return true;
         }
 
         // Use exists() queries instead of loading relationships
@@ -87,6 +112,17 @@ final class Team extends JetstreamTeam
         }
 
         return true;
+    }
+
+    public function delete(): ?bool
+    {
+        // If user is a developer and this is not a personal team, handle cleanup
+        if (auth()->user()?->isDeveloper() && ! $this->personal_team) {
+            $this->handleCurrentTeamSwitch();
+            $this->performDeveloperDelete();
+        }
+
+        return parent::delete();
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -109,5 +145,70 @@ final class Team extends JetstreamTeam
         return [
             'personal_team' => 'boolean',
         ];
+    }
+
+    protected function handleCurrentTeamSwitch(): void
+    {
+        $user = auth()->user();
+
+        // If this team is the user's current team, switch to their personal team
+        if ($user && $user->currentTeam && $user->currentTeam->id === $this->id) {
+            $personalTeam = $user->personalTeam();
+
+            if ($personalTeam) {
+                $user->switchTeam($personalTeam);
+            } else {
+                // Fallback: find another team the user belongs to
+                $otherTeam = $user->allTeams()->where('id', '!=', $this->id)->first();
+                if ($otherTeam) {
+                    $user->switchTeam($otherTeam);
+                }
+            }
+        }
+    }
+
+    protected function performDeveloperDelete(): void
+    {
+        DB::transaction(function (): void {
+            // Load relationships once to avoid N+1 queries
+            $this->load(['couples', 'users']);
+
+            // Disable activity logging globally during cleanup
+            config(['activitylog.enabled' => false]);
+
+            try {
+                // Delete all persons and their photos and files
+                $this->persons->each(function ($person): void {
+                    // remove photos
+                    // remove files
+
+                    $person->forceDelete();
+                });
+
+                // Delete all couples
+                $this->couples->each(function ($couple): void {
+                    $couple->delete();
+                });
+
+                // Disconnect all users from this team
+                $this->users()->detach();
+            } finally {
+                // Re-enable activity logging
+                config(['activitylog.enabled' => true]);
+            }
+
+            // Log a single comprehensive activity after cleanup
+            activity()
+                ->causedBy(auth()->user())
+                ->performedOn($this)
+                ->withProperties([
+                    'deleted_persons_count' => $this->persons->count(),
+                    'deleted_couples_count' => $this->couples->count(),
+                    'detached_users_count'  => $this->users->count(),
+                    'team_name'             => $this->name,
+                    'reason'                => 'Developer force delete with cleanup',
+                ])
+                ->log('Team deleted with full cleanup by developer');
+        });
     }
 }
