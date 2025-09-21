@@ -75,15 +75,9 @@
                 <x-ts-select.styled :options="[5, 10, 25, 50, 100]" wire:model.live="perPage" required button-class="!w-24" />
             </div>
 
-            <!-- Center: Search Input -->
+            <!-- Right: Search Input -->
             <div class="flex-1 max-w-md">
                 <x-ts-input wire:model.live.debounce.300ms="search" placeholder="{{ __('app.search') }} {{ strtolower(__('team.' . $activeTab)) }} ..." class="w-full" />
-            </div>
-
-            <!-- Right: Results Count -->
-            <div class="text-sm text-gray-600 dark:text-gray-400">
-                {{ __('team.showing') }} {{ $paginatedData->firstItem() ?? 0 }} - {{ $paginatedData->lastItem() ?? 0 }}
-                {{ __('team.of') }} {{ number_format($paginatedData->total()) }} {{ strtolower(__('team.' . $activeTab)) }}
             </div>
         </div>
 
@@ -104,7 +98,7 @@
         <div class="bg-white dark:bg-neutral-700 px-4 py-3 border border-gray-200 dark:border-neutral-600 rounded-lg">
             <div class="flex items-center justify-between">
                 <div class="flex-1">
-                    {{ $paginatedData->links('vendor.pagination.team.custom-tailwind') }}
+                    {{ $paginatedData->links('livewire/pagination/tailwind') }}
                 </div>
             </div>
         </div>

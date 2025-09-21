@@ -33,7 +33,7 @@
 
             <div class="hidden gap-2 md:flex-1 md:flex md:items-center md:justify-end">
                 <div>
-                    <p class="leading-5 text-gray-700 dark:text-gray-200">
+                    <p class="text-sm text-gray-700 dark:text-gray-400 leading-5">
                         <span>{!! __('pagination.showing') !!}</span>
                         <span class="font-medium">{{ $paginator->firstItem() }}</span>
                         <span>{!! __('pagination.to') !!}</span>
