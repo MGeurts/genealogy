@@ -4,65 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "49098a1fb0c8230eb1f99784d329c4e7",
+    "content-hash": "5612d323295af8a46deefd96cd811c70",
     "packages": [
-        {
-            "name": "alisalehi/laravel-lang-files-translator",
-            "version": "v1.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/alisalehi1380/laravel-lang-files-translator.git",
-                "reference": "1b11e9f36da15e2a2e6391a5dda90153e6616ee0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/alisalehi1380/laravel-lang-files-translator/zipball/1b11e9f36da15e2a2e6391a5dda90153e6616ee0",
-                "reference": "1b11e9f36da15e2a2e6391a5dda90153e6616ee0",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "9.*|10.*|11.*|12.*",
-                "php": ">=8.0",
-                "stichoza/google-translate-php": "^5.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^10.4"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Alisalehi\\LaravelLangFilesTranslator\\LangFilesTranslatorServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Alisalehi\\LaravelLangFilesTranslator\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": ":Ali Salehi",
-                    "email": "alisalehi13800930@gmail.com"
-                }
-            ],
-            "description": "easiest way to translate lang files to another language in laravel",
-            "homepage": "https://github.com/alisalehi1380/laravel-lang-files-translator",
-            "keywords": [
-                "laravel lang files translator",
-                "laravel translator"
-            ],
-            "support": {
-                "issues": "https://github.com/alisalehi1380/laravel-lang-files-translator/issues",
-                "source": "https://github.com/alisalehi1380/laravel-lang-files-translator/tree/v1.0.6"
-            },
-            "time": "2025-02-24T07:54:14+00:00"
-        },
         {
             "name": "anourvalar/eloquent-serialize",
             "version": "1.3.4",
@@ -1142,16 +1085,16 @@
         },
         {
             "name": "filament/actions",
-            "version": "v4.0.18",
+            "version": "v4.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/actions.git",
-                "reference": "3291a86b2e4d37391c0012d54f355579e1d781ba"
+                "reference": "790523b46b49785fa4dd2e0fe31e25be21f16115"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/actions/zipball/3291a86b2e4d37391c0012d54f355579e1d781ba",
-                "reference": "3291a86b2e4d37391c0012d54f355579e1d781ba",
+                "url": "https://api.github.com/repos/filamentphp/actions/zipball/790523b46b49785fa4dd2e0fe31e25be21f16115",
+                "reference": "790523b46b49785fa4dd2e0fe31e25be21f16115",
                 "shasum": ""
             },
             "require": {
@@ -1187,20 +1130,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-09-18T22:22:02+00:00"
+            "time": "2025-09-21T21:07:41+00:00"
         },
         {
             "name": "filament/forms",
-            "version": "v4.0.18",
+            "version": "v4.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/forms.git",
-                "reference": "0c420d450e96300bf1f5f9f4e3fb976b4cc072be"
+                "reference": "b2966733b5950a3f0b6c056d647e9afc7c5a6fa6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/forms/zipball/0c420d450e96300bf1f5f9f4e3fb976b4cc072be",
-                "reference": "0c420d450e96300bf1f5f9f4e3fb976b4cc072be",
+                "url": "https://api.github.com/repos/filamentphp/forms/zipball/b2966733b5950a3f0b6c056d647e9afc7c5a6fa6",
+                "reference": "b2966733b5950a3f0b6c056d647e9afc7c5a6fa6",
                 "shasum": ""
             },
             "require": {
@@ -1237,11 +1180,11 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-09-18T22:22:14+00:00"
+            "time": "2025-09-21T21:07:52+00:00"
         },
         {
             "name": "filament/infolists",
-            "version": "v4.0.18",
+            "version": "v4.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/infolists.git",
@@ -1286,7 +1229,7 @@
         },
         {
             "name": "filament/notifications",
-            "version": "v4.0.18",
+            "version": "v4.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/notifications.git",
@@ -1333,16 +1276,16 @@
         },
         {
             "name": "filament/schemas",
-            "version": "v4.0.18",
+            "version": "v4.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/schemas.git",
-                "reference": "0c916db55e8971d80126dc4037898f20ec988856"
+                "reference": "5bfa0245bd9ba110e6ae8d98d99b3718b035077e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/schemas/zipball/0c916db55e8971d80126dc4037898f20ec988856",
-                "reference": "0c916db55e8971d80126dc4037898f20ec988856",
+                "url": "https://api.github.com/repos/filamentphp/schemas/zipball/5bfa0245bd9ba110e6ae8d98d99b3718b035077e",
+                "reference": "5bfa0245bd9ba110e6ae8d98d99b3718b035077e",
                 "shasum": ""
             },
             "require": {
@@ -1374,20 +1317,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-09-18T22:21:48+00:00"
+            "time": "2025-09-21T21:08:24+00:00"
         },
         {
             "name": "filament/support",
-            "version": "v4.0.18",
+            "version": "v4.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/support.git",
-                "reference": "41147c12ea932bcfc9bb866c9cd6a442d762916a"
+                "reference": "b9dcceb511626a92d53ef3a841921891b65d7e29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/support/zipball/41147c12ea932bcfc9bb866c9cd6a442d762916a",
-                "reference": "41147c12ea932bcfc9bb866c9cd6a442d762916a",
+                "url": "https://api.github.com/repos/filamentphp/support/zipball/b9dcceb511626a92d53ef3a841921891b65d7e29",
+                "reference": "b9dcceb511626a92d53ef3a841921891b65d7e29",
                 "shasum": ""
             },
             "require": {
@@ -1432,20 +1375,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-09-18T22:22:12+00:00"
+            "time": "2025-09-21T21:08:35+00:00"
         },
         {
             "name": "filament/tables",
-            "version": "v4.0.18",
+            "version": "v4.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/tables.git",
-                "reference": "18fa8ba3be0987d3b22444addd8a09e75a2dcfaa"
+                "reference": "86fc6676f97dc50b91f6189ab02281bd8770a025"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/tables/zipball/18fa8ba3be0987d3b22444addd8a09e75a2dcfaa",
-                "reference": "18fa8ba3be0987d3b22444addd8a09e75a2dcfaa",
+                "url": "https://api.github.com/repos/filamentphp/tables/zipball/86fc6676f97dc50b91f6189ab02281bd8770a025",
+                "reference": "86fc6676f97dc50b91f6189ab02281bd8770a025",
                 "shasum": ""
             },
             "require": {
@@ -1477,7 +1420,7 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-09-18T22:21:58+00:00"
+            "time": "2025-09-21T21:08:11+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -4948,16 +4891,16 @@
         },
         {
             "name": "phiki/phiki",
-            "version": "v2.0.3",
+            "version": "v2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phikiphp/phiki.git",
-                "reference": "fe51fe6dc31856cd776fd1b04ee74053a4271644"
+                "reference": "160785c50c01077780ab217e5808f00ab8f05a13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phikiphp/phiki/zipball/fe51fe6dc31856cd776fd1b04ee74053a4271644",
-                "reference": "fe51fe6dc31856cd776fd1b04ee74053a4271644",
+                "url": "https://api.github.com/repos/phikiphp/phiki/zipball/160785c50c01077780ab217e5808f00ab8f05a13",
+                "reference": "160785c50c01077780ab217e5808f00ab8f05a13",
                 "shasum": ""
             },
             "require": {
@@ -5003,7 +4946,7 @@
             "description": "Syntax highlighting using TextMate grammars in PHP.",
             "support": {
                 "issues": "https://github.com/phikiphp/phiki/issues",
-                "source": "https://github.com/phikiphp/phiki/tree/v2.0.3"
+                "source": "https://github.com/phikiphp/phiki/tree/v2.0.4"
             },
             "funding": [
                 {
@@ -5015,7 +4958,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2025-09-19T11:50:41+00:00"
+            "time": "2025-09-20T17:21:02+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -5607,16 +5550,16 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.12.10",
+            "version": "v0.12.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "6e80abe6f2257121f1eb9a4c55bf29d921025b22"
+                "reference": "cd23863404a40ccfaf733e3af4db2b459837f7e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/6e80abe6f2257121f1eb9a4c55bf29d921025b22",
-                "reference": "6e80abe6f2257121f1eb9a4c55bf29d921025b22",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/cd23863404a40ccfaf733e3af4db2b459837f7e7",
+                "reference": "cd23863404a40ccfaf733e3af4db2b459837f7e7",
                 "shasum": ""
             },
             "require": {
@@ -5679,9 +5622,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bobthecow/psysh/issues",
-                "source": "https://github.com/bobthecow/psysh/tree/v0.12.10"
+                "source": "https://github.com/bobthecow/psysh/tree/v0.12.12"
             },
-            "time": "2025-08-04T12:39:37+00:00"
+            "time": "2025-09-20T13:46:31+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -7020,87 +6963,6 @@
                 "source": "https://github.com/stevebauman/location/tree/v7.6.0"
             },
             "time": "2025-08-04T02:33:41+00:00"
-        },
-        {
-            "name": "stichoza/google-translate-php",
-            "version": "v5.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Stichoza/google-translate-php.git",
-                "reference": "2891310296cc115786d7c135a47a4ed53cd38df1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Stichoza/google-translate-php/zipball/2891310296cc115786d7c135a47a4ed53cd38df1",
-                "reference": "2891310296cc115786d7c135a47a4ed53cd38df1",
-                "shasum": ""
-            },
-            "require": {
-                "ext-dom": "*",
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "guzzlehttp/guzzle": "^7.0",
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.5.10"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Stichoza\\GoogleTranslate\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Levan Velijanashvili",
-                    "email": "me@stichoza.com"
-                }
-            ],
-            "description": "Free Google Translate API PHP Package",
-            "homepage": "https://github.com/Stichoza/google-translate-php",
-            "keywords": [
-                "google",
-                "php",
-                "translate",
-                "translating",
-                "translator"
-            ],
-            "support": {
-                "issues": "https://github.com/Stichoza/google-translate-php/issues",
-                "source": "https://github.com/Stichoza/google-translate-php/tree/v5.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://btc.com/bc1qc25j4x7yahghm8nnn6lypnw59nptylsw32nkfl",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.paypal.me/stichoza",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://ko-fi.com/stichoza",
-                    "type": "ko_fi"
-                },
-                {
-                    "url": "https://liberapay.com/stichoza",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://opencollective.com/stichoza",
-                    "type": "open_collective"
-                },
-                {
-                    "url": "https://www.patreon.com/stichoza",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2025-05-20T08:38:25+00:00"
         },
         {
             "name": "symfony/clock",
@@ -10071,6 +9933,63 @@
     ],
     "packages-dev": [
         {
+            "name": "alisalehi/laravel-lang-files-translator",
+            "version": "v1.0.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alisalehi1380/laravel-lang-files-translator.git",
+                "reference": "1b11e9f36da15e2a2e6391a5dda90153e6616ee0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alisalehi1380/laravel-lang-files-translator/zipball/1b11e9f36da15e2a2e6391a5dda90153e6616ee0",
+                "reference": "1b11e9f36da15e2a2e6391a5dda90153e6616ee0",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "9.*|10.*|11.*|12.*",
+                "php": ">=8.0",
+                "stichoza/google-translate-php": "^5.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Alisalehi\\LaravelLangFilesTranslator\\LangFilesTranslatorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Alisalehi\\LaravelLangFilesTranslator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": ":Ali Salehi",
+                    "email": "alisalehi13800930@gmail.com"
+                }
+            ],
+            "description": "easiest way to translate lang files to another language in laravel",
+            "homepage": "https://github.com/alisalehi1380/laravel-lang-files-translator",
+            "keywords": [
+                "laravel lang files translator",
+                "laravel translator"
+            ],
+            "support": {
+                "issues": "https://github.com/alisalehi1380/laravel-lang-files-translator/issues",
+                "source": "https://github.com/alisalehi1380/laravel-lang-files-translator/tree/v1.0.6"
+            },
+            "time": "2025-02-24T07:54:14+00:00"
+        },
+        {
             "name": "barryvdh/laravel-debugbar",
             "version": "v3.16.0",
             "source": {
@@ -13000,16 +12919,16 @@
         },
         {
             "name": "sebastian/exporter",
-            "version": "7.0.0",
+            "version": "7.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "76432aafc58d50691a00d86d0632f1217a47b688"
+                "reference": "b759164a8e02263784b662889cc6cbb686077af6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/76432aafc58d50691a00d86d0632f1217a47b688",
-                "reference": "76432aafc58d50691a00d86d0632f1217a47b688",
+                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/b759164a8e02263784b662889cc6cbb686077af6",
+                "reference": "b759164a8e02263784b662889cc6cbb686077af6",
                 "shasum": ""
             },
             "require": {
@@ -13066,15 +12985,27 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/exporter/issues",
                 "security": "https://github.com/sebastianbergmann/exporter/security/policy",
-                "source": "https://github.com/sebastianbergmann/exporter/tree/7.0.0"
+                "source": "https://github.com/sebastianbergmann/exporter/tree/7.0.1"
             },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
                     "type": "github"
+                },
+                {
+                    "url": "https://liberapay.com/sebastianbergmann",
+                    "type": "liberapay"
+                },
+                {
+                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
+                    "type": "thanks_dev"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/sebastian/exporter",
+                    "type": "tidelift"
                 }
             ],
-            "time": "2025-02-07T04:56:42+00:00"
+            "time": "2025-09-22T05:39:29+00:00"
         },
         {
             "name": "sebastian/global-state",
@@ -13953,6 +13884,87 @@
                 }
             ],
             "time": "2024-10-20T05:08:20+00:00"
+        },
+        {
+            "name": "stichoza/google-translate-php",
+            "version": "v5.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Stichoza/google-translate-php.git",
+                "reference": "2891310296cc115786d7c135a47a4ed53cd38df1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Stichoza/google-translate-php/zipball/2891310296cc115786d7c135a47a4ed53cd38df1",
+                "reference": "2891310296cc115786d7c135a47a4ed53cd38df1",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "guzzlehttp/guzzle": "^7.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5.10"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Stichoza\\GoogleTranslate\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Levan Velijanashvili",
+                    "email": "me@stichoza.com"
+                }
+            ],
+            "description": "Free Google Translate API PHP Package",
+            "homepage": "https://github.com/Stichoza/google-translate-php",
+            "keywords": [
+                "google",
+                "php",
+                "translate",
+                "translating",
+                "translator"
+            ],
+            "support": {
+                "issues": "https://github.com/Stichoza/google-translate-php/issues",
+                "source": "https://github.com/Stichoza/google-translate-php/tree/v5.3.0"
+            },
+            "funding": [
+                {
+                    "url": "https://btc.com/bc1qc25j4x7yahghm8nnn6lypnw59nptylsw32nkfl",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.paypal.me/stichoza",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/stichoza",
+                    "type": "ko_fi"
+                },
+                {
+                    "url": "https://liberapay.com/stichoza",
+                    "type": "liberapay"
+                },
+                {
+                    "url": "https://opencollective.com/stichoza",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://www.patreon.com/stichoza",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2025-05-20T08:38:25+00:00"
         },
         {
             "name": "symfony/yaml",
