@@ -153,7 +153,11 @@
                         <li class="py-2">
                             <x-link href="https://github.com/tallstackui/tallstackui/" target="_blank">tallstackui/tallstackui</x-link>
                             <x-ts-button xs href="https://tallstackui.com/docs/v2/installation/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
-                            <x-ts-button xs class="ms-5" color="emerald">{{ 'DEV' }}</x-ts-button>
+                        </li>
+
+                        <li class="py-2">
+                            <x-link href="https://github.com/MuhammadSadeeq/laravel-activitylog-ui/" target="_blank">MuhammadSadeeq/laravel-activitylog-ui</x-link>
+                            <x-ts-button xs class="ms-5" color="orange">{{ 'Optional' }}</x-ts-button>
                         </li>
                     </ul>
                 </div>
