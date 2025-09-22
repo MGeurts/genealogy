@@ -85,6 +85,7 @@
                     <ul class="w-full">
                         <li class="py-2">
                             <x-link href="https://github.com/alisalehi1380/laravel-lang-files-translator/" target="_blank">alisalehi1380/laravel-lang-files-translator</x-link>
+                            <x-ts-button xs class="ms-5" color="emerald">{{ 'DEV' }}</x-ts-button>
                         </li>
 
                         <li class="py-2">
