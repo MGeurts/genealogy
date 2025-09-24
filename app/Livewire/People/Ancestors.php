@@ -70,6 +70,16 @@ final class Ancestors extends Component
     }
 
     /**
+     * Get the number of ancestors actually displayed (respecting $count).
+     */
+    public function getDisplayedAncestorsCountProperty(): int
+    {
+        return $this->ancestors
+            ->where('degree', '<', $this->count) // keep within displayed levels
+            ->count();
+    }
+
+    /**
      * Load ancestors from the database with recursion.
      */
     private function loadAncestors(): void

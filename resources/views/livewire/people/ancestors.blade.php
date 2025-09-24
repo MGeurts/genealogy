@@ -32,7 +32,7 @@
 
                 <div class="flex-1 grow max-w-full min-w-max text-end">
                     @if (count($ancestors) > 1)
-                        <x-ts-badge color="emerald" sm class="me-2" text="{{ count($ancestors) - 1 }}" />
+                        <x-ts-badge color="emerald" sm class="me-2" text="{{ $this->displayedAncestorsCount - 1 }} / {{ count($ancestors) - 1 }}" />
                     @endif
                     <x-ts-icon icon="tabler.binary-tree" class="inline-block size-5 rotate-180" />
                 </div>

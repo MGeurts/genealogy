@@ -70,6 +70,16 @@ final class Descendants extends Component
     }
 
     /**
+     * Get the number of descendants actually displayed (respecting $count).
+     */
+    public function getDisplayedDescendantsCountProperty(): int
+    {
+        return $this->descendants
+            ->where('degree', '<', $this->count) // keep within displayed levels
+            ->count();
+    }
+
+    /**
      * Load descendants from the database with recursion.
      */
     private function loadDescendants(): void
