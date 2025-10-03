@@ -15,8 +15,11 @@ $descendants_next = $descendants->where('degree', $level_current)->filter(functi
         <x-link href="/people/{{ $person->id }}" title="{{ $person->sex === 'm' ? __('app.male') : __('app.female') }}">
             <figure class="w-24">
                 <div class="user-image">
-                    @if ($person->photo and Storage::exists('public/photos/' . $person->team_id . '/' . $person->id . '/' . $person->photo) . '_small.webp'))
-                        <img src="{{ asset('storage/photos/' . $person->team_id . '/' . $person->id . '/' . $person->photo) }}_small.webp" class="w-full rounded-sm shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
+                    @php
+                        $photoPath = $person->team_id . '/' . $person->id . '/' . $person->photo . '_small.webp';
+                    @endphp
+                    @if ($person->photo && Storage::disk('photos')->exists($photoPath))
+                        <img src="{{ Storage::disk('photos')->url($photoPath) }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
                     @else
                         <x-svg.person-no-image class="w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
                     @endif
