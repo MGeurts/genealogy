@@ -36,21 +36,31 @@ final class Gallery extends Component
 
         $allFiles = Storage::disk('photos')->files($directory);
 
-        // Get all medium files and match them with originals
+        // Get all original files (files without _large, _medium, _small suffix)
         $this->images = collect($allFiles)
-            ->filter(fn ($file) => str_ends_with($file, '_medium.webp'))
-            ->map(function ($mediumFile) {
-                // Extract the base filename (without _medium.webp)
-                $baseName     = basename($mediumFile);
-                $originalName = str_replace('_medium.webp', '.webp', $baseName);
-                $originalFile = str_replace($baseName, $originalName, $mediumFile);
+            ->filter(function ($file) {
+                $basename = basename($file);
+
+                return ! str_contains($basename, '_large.')
+                    && ! str_contains($basename, '_medium.')
+                    && ! str_contains($basename, '_small.');
+            })
+            ->map(function ($originalFile) use ($directory) {
+                $baseName = basename($originalFile);
 
                 // Extract filename without extension for database comparison
-                $filenameWithoutExt = pathinfo($originalName, PATHINFO_FILENAME);
+                $filenameWithoutExt = pathinfo($baseName, PATHINFO_FILENAME);
+
+                // Build paths for variants
+                $largeFile  = $directory . '/' . $filenameWithoutExt . '_large.webp';
+                $mediumFile = $directory . '/' . $filenameWithoutExt . '_medium.webp';
+                $smallFile  = $directory . '/' . $filenameWithoutExt . '_small.webp';
 
                 return [
                     'filename' => $filenameWithoutExt, // Store filename without extension for database comparison
-                    'medium'   => Storage::disk('photos')->url($mediumFile),
+                    'small'    => Storage::disk('photos')->exists($smallFile) ? Storage::disk('photos')->url($smallFile) : null,
+                    'medium'   => Storage::disk('photos')->exists($mediumFile) ? Storage::disk('photos')->url($mediumFile) : null,
+                    'large'    => Storage::disk('photos')->exists($largeFile) ? Storage::disk('photos')->url($largeFile) : null,
                     'original' => Storage::disk('photos')->url($originalFile),
                 ];
             })

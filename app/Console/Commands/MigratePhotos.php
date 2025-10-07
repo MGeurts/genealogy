@@ -16,39 +16,50 @@ class MigratePhotos extends Command
      *
      * This command migrates photos from an old folder structure to a new unified structure.
      * It reorganizes photo files from three separate folders (photos, photos-096, photos-384)
-     * into a single unified photos folder.
+     * into a single unified photos folder with originals and WebP variants.
      *
      * Usage: php artisan photos:migrate [--dry-run]
      *
      * OLD STRUCTURE:
      * storage/app/public/
-     * ├── photos/          (original size)
+     * ├── photos/          (largest size - WebP)
      *     └── {teamId}/
-     *         ├── {personId}_{index}_{timestamp}.{ext}
-     * ├── photos-096/      (small size)
+     *         ├── {personId}_{index}_{timestamp}.webp
+     * ├── photos-096/      (small size - WebP)
      *     └── {teamId}/
-     *         ├── {personId}_{index}_{timestamp}.{ext}
-     * └── photos-384/      (medium size)
+     *         ├── {personId}_{index}_{timestamp}.webp
+     * └── photos-384/      (medium size - WebP)
      *     └── {teamId}/
-     *         ├── {personId}_{index}_{timestamp}.{ext}
+     *         ├── {personId}_{index}_{timestamp}.webp
      *
      * NEW STRUCTURE:
      * storage/app/public/photos/
      * └── {teamId}/
      *     └── {personId}/
-     *         ├── {personId}_{index}_{timestamp}.{ext}         (original size)
-     *         ├── {personId}_{index}_{timestamp}_small.{ext}   (small size)
-     *         └── {personId}_{index}_{timestamp}_medium.{ext}  (medium size)
+     *         ├── {personId}_{index}_{timestamp}.webp        (original - from photos/)
+     *         ├── {personId}_{index}_{timestamp}_large.webp  (1920x1080 - copy of original)
+     *         ├── {personId}_{index}_{timestamp}_medium.webp (384px - from photos-384/)
+     *         └── {personId}_{index}_{timestamp}_small.webp  (96px - from photos-096/)
+     *
+     * MIGRATION STRATEGY:
+     * 1. Files from "photos/" become the "original" (no suffix) AND are duplicated as "_large.webp"
+     * 2. Files from "photos-096/" become "_small.webp" variants
+     * 3. Files from "photos-384/" become "_medium.webp" variants
+     * 4. All files are kept as WebP format
+     * 5. Files that don't exist in all three folders are ignored
      *
      * OPERATIONS:
      * 1. Creates backup of existing folders (photos, photos-096, photos-384) with timestamp
      * 2. Checks if migration has already been run (photos-096 and photos-384 must exist)
-     * 3. Scans each old folder and processes files within teamId/filename structure
-     * 4. Extracts team ID from directory and person ID from filename (before first underscore)
-     * 5. Renames files by adding size suffixes (_small, _medium) for non-original images
-     * 6. Creates new directory structure (photos/{teamId}/{personId}/)
-     * 7. Copies files to new locations and deletes originals
-     * 8. Cleans up empty folders (except main photos folder)
+     * 3. Scans "photos/" folder to identify all available photos
+     * 4. For each photo found in "photos/":
+     *    a. Copies as original (no suffix)
+     *    b. Copies as _large.webp variant
+     *    c. Copies from photos-384/ as _medium.webp (if exists)
+     *    d. Copies from photos-096/ as _small.webp (if exists)
+     * 5. Creates new directory structure (photos/{teamId}/{personId}/)
+     * 6. Copies files to new locations and deletes originals
+     * 7. Cleans up empty folders
      *
      * SAFETY FEATURES:
      * - Creates timestamped backups before migration
@@ -57,23 +68,25 @@ class MigratePhotos extends Command
      * - Skips .gitignore files during processing
      * - Error handling for unexpected file structures
      * - Ensures target directories exist before copying
+     * - Ignores photos that don't have all variants
      *
      * EXAMPLE:
-     * photos-096/1/560_001_20250816113838.jpg → photos/1/560/560_001_20250816113838_small.jpg
-     * photos-384/1/560_001_20250816113838.png → photos/1/560/560_001_20250816113838_medium.png
+     * photos/1/560_001_20250816113838.webp     → photos/1/560/560_001_20250816113838.webp (original)
+     *                                           → photos/1/560/560_001_20250816113838_large.webp
+     * photos-384/1/560_001_20250816113838.webp → photos/1/560/560_001_20250816113838_medium.webp
+     * photos-096/1/560_001_20250816113838.webp → photos/1/560/560_001_20250816113838_small.webp
      *
      * PURPOSE:
      * Refactors photo storage system for better organization by team and person while
      * maintaining different image sizes in a structured way for easier management.
-     * Supports all common image formats (JPG, PNG, WebP, GIF, BMP, TIFF, SVG).
-     * This improves performance and allow migrating disks to other storage solutions.
+     * This improves performance and allows migrating disks to other storage solutions.
      *
      * WARNING:
      * This command is intended to be run ONLY ONCE during the migration process!!
      */
     protected $signature = 'photos:migrate {--dry-run : Only show actions without moving or deleting files and/or folders}';
 
-    protected $description = 'Migrate old photo folder structure (photos, photos-096, photos-384) into the new unified structure (photos)';
+    protected $description = 'Migrate old photo folder structure (photos, photos-096, photos-384) into the new unified structure with original + variants';
 
     public function handle(): int
     {
@@ -99,74 +112,134 @@ class MigratePhotos extends Command
         // Create backups before migration
         $this->createBackups($basePath, $dryRun);
 
-        // Old folders → size key
-        $oldFolders = [
-            'photos'     => 'original',
-            'photos-096' => 'small',
-            'photos-384' => 'medium',
-        ];
+        $photosRoot    = "{$basePath}/photos";
+        $photos096Root = "{$basePath}/photos-096";
+        $photos384Root = "{$basePath}/photos-384";
 
-        $newRoot = "{$basePath}/photos";
+        if (! is_dir($photosRoot)) {
+            $this->error('❌ Main photos folder not found. Cannot proceed with migration.');
 
-        foreach ($oldFolders as $folderName => $size) {
-            $sourceRoot = "{$basePath}/{$folderName}";
+            return self::FAILURE;
+        }
 
-            if (! is_dir($sourceRoot)) {
-                $this->warn("⚠ Folder {$sourceRoot} not found, skipping...");
+        $this->info('Scanning photos folder for images to migrate...');
+
+        $migratedCount = 0;
+        $skippedCount  = 0;
+
+        // Get all files from the main photos folder (these become our originals)
+        foreach ($this->getAllFiles($photosRoot) as $originalPath) {
+            if (str_contains($originalPath, '.gitignore')) {
                 continue;
             }
 
-            $this->info("Scanning {$folderName} for {$size} photos...");
+            $relativePath = Str::after($originalPath, "{$photosRoot}/");
+            $parts        = explode('/', $relativePath);
 
-            foreach ($this->getAllFiles($sourceRoot) as $oldPath) {
-                if (str_contains($oldPath, '.gitignore')) {
-                    $this->warn("Skipping .gitignore file: {$oldPath}");
-                    continue;
-                }
-
-                $relativePath = Str::after($oldPath, "{$sourceRoot}/");
-                $parts        = explode('/', $relativePath);
-
-                if (count($parts) < 2) {
-                    $this->warn("⚠ Unexpected file structure: {$relativePath}");
-                    continue;
-                }
-
-                $teamId   = $parts[0];
-                $filename = $parts[1];
-                $personId = Str::before($filename, '_');
-
-                if ($size !== 'original') {
-                    // Extract file extension and add size suffix before the extension
-                    $extension            = pathinfo($filename, PATHINFO_EXTENSION);
-                    $nameWithoutExtension = pathinfo($filename, PATHINFO_FILENAME);
-                    $filename             = "{$nameWithoutExtension}_{$size}.{$extension}";
-                }
-
-                $newPath = "{$newRoot}/{$teamId}/{$personId}/{$filename}";
-
-                if ($this->option('dry-run')) {
-                    $this->line("[DRY] {$oldPath} → {$newPath}");
-                } else {
-                    $newDir = dirname($newPath);
-                    if (! is_dir($newDir)) {
-                        mkdir($newDir, 0755, true);
-                    }
-
-                    copy($oldPath, $newPath);
-                    unlink($oldPath);
-
-                    $this->line("✔ {$oldPath} → {$newPath}");
-                }
+            if (count($parts) < 2) {
+                $this->warn("⚠ Unexpected file structure: {$relativePath}");
+                $skippedCount++;
+                continue;
             }
 
-            // Cleanup old folder
-            if ($folderName !== 'photos') {
-                $this->cleanupFolder($sourceRoot, $this->option('dry-run'));
+            $teamId       = $parts[0];
+            $filename     = $parts[1];
+            $personId     = Str::before($filename, '_');
+            $extension    = pathinfo($filename, PATHINFO_EXTENSION);
+            $baseFilename = pathinfo($filename, PATHINFO_FILENAME);
+
+            // Build paths for all variants
+            $newDir          = "{$basePath}/photos/{$teamId}/{$personId}";
+            $newOriginalPath = "{$newDir}/{$filename}";
+            $newLargePath    = "{$newDir}/{$baseFilename}_large.{$extension}";
+            $newMediumPath   = "{$newDir}/{$baseFilename}_medium.{$extension}";
+            $newSmallPath    = "{$newDir}/{$baseFilename}_small.{$extension}";
+
+            // Find corresponding files in other folders (optional)
+            $mediumPath = "{$photos384Root}/{$teamId}/{$filename}";
+            $smallPath  = "{$photos096Root}/{$teamId}/{$filename}";
+
+            if ($dryRun) {
+                $this->line("[DRY] Processing: {$baseFilename}");
+                $this->line("[DRY]   Original: {$originalPath} → {$newOriginalPath}");
+                $this->line("[DRY]   Large:    {$originalPath} → {$newLargePath}");
+
+                if (file_exists($mediumPath)) {
+                    $this->line("[DRY]   Medium:   {$mediumPath} → {$newMediumPath}");
+                } else {
+                    $this->line('[DRY]   Medium:   ⚠ Not found, skipping');
+                }
+
+                if (file_exists($smallPath)) {
+                    $this->line("[DRY]   Small:    {$smallPath} → {$newSmallPath}");
+                } else {
+                    $this->line('[DRY]   Small:    ⚠ Not found, skipping');
+                }
+
+                $migratedCount++;
+            } else {
+                // Create directory if needed
+                if (! is_dir($newDir)) {
+                    mkdir($newDir, 0755, true);
+                }
+
+                // Copy original file (no suffix)
+                copy($originalPath, $newOriginalPath);
+
+                // Copy original as large variant
+                copy($originalPath, $newLargePath);
+
+                // Copy medium if exists
+                if (file_exists($mediumPath)) {
+                    copy($mediumPath, $newMediumPath);
+                    unlink($mediumPath);
+                }
+
+                // Copy small if exists
+                if (file_exists($smallPath)) {
+                    copy($smallPath, $newSmallPath);
+                    unlink($smallPath);
+                }
+
+                // Delete original after successful copy
+                unlink($originalPath);
+
+                $this->line("✔ Migrated: {$baseFilename}");
+                $migratedCount++;
             }
         }
 
-        $this->info($this->option('dry-run') ? '✅ Photo migration DRY RUN completed successfully.' : '✅ Photo migration completed successfully.');
+        // Cleanup old folders
+        if (! $dryRun) {
+            if (is_dir($photos096Root)) {
+                $this->cleanupFolder($photos096Root, false);
+            }
+            if (is_dir($photos384Root)) {
+                $this->cleanupFolder($photos384Root, false);
+            }
+        } else {
+            $this->line("[DRY] Would cleanup: {$photos096Root}");
+            $this->line("[DRY] Would cleanup: {$photos384Root}");
+        }
+
+        $this->newLine();
+        $this->info('✅ Migration completed!');
+        $this->info("   Photos migrated: {$migratedCount}");
+
+        if ($skippedCount > 0) {
+            $this->warn("   Photos skipped: {$skippedCount}");
+        }
+
+        if ($dryRun) {
+            $this->newLine();
+            $this->info('💡 This was a DRY RUN. Run without --dry-run to perform actual migration.');
+        } else {
+            $this->newLine();
+            $this->info('💡 Migration successful! Your photos are now organized in the new structure.');
+            $this->info('   - Originals are preserved as .webp files');
+            $this->info('   - Large, medium, and small variants are created');
+            $this->info('   - Old folder structure has been cleaned up');
+        }
 
         return self::SUCCESS;
     }
@@ -186,6 +259,10 @@ class MigratePhotos extends Command
     private function getAllFiles(string $dir): array
     {
         $files = [];
+
+        if (! is_dir($dir)) {
+            return $files;
+        }
 
         foreach (scandir($dir) as $teamId) {
             if (in_array($teamId, ['.', '..'])) {

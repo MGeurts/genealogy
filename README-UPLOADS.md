@@ -59,37 +59,40 @@ These versions allow the application to serve optimized image sizes depending on
 
 #### Upload Settings
 
-Uploaded images are **ALWAYS** converted to `.webp` format for optimal web performance and processed using these settings:
+Uploaded images are **ALWAYS** stored untouched (needed for GEDCOM export), alongside 3 resized versions.
+Uploaded images are also **ALWAYS** resized and converted to `.webp` format for optimal web performance inside the application and processed using these settings:
 
 ```php
     'upload_photo' => [
         'max_width'     => 1920,
         'max_height'    => 1080,
-        'quality'       => 85,
         'add_watermark' => env('PHOTOS_ADD_WATERMARK', false),
         'sizes'         => [
-            'original' => [
-                'width'  => 1920,
-                'height' => 1080,
+            'large' => [
+                'width'   => 1920,
+                'height'  => 1080,
+                'quality' => 90,
             ],
             'medium' => [
-                'width'  => 384,
-                'height' => null,
+                'width'   => 384,
+                'height'  => null,
+                'quality' => 85,
             ],
             'small' => [
-                'width'  => 96,
-                'height' => null,
+                'width'   => 96,
+                'height'  => null,
+                'quality' => 80,
             ],
         ],
     ],
 ```
 
 -   **max_width / max_height**: Images are resized to fit within these dimensions while maintaining aspect ratio.
--   **quality**: Compression quality (0–100). Higher = better quality but larger file size.
 -   **add_watermark**: Adds a watermark automatically to uploaded images.
-    **sizes**: You can customize the dimensions but the size names (original, medium, small) **MUST STAY** untouched as they are hardcoded in the application.
+-   **sizes**: You can customize the dimensions but the size names (large, medium, small) **MUST STAY** untouched as they are hardcoded in the application.
+-   **quality**: Compression quality (0–100). Higher = better quality but larger file size.
 
-Thes values can be modified according to your preferences in `/config/app.php`.
+These values can be modified according to your preferences in `/config/app.php`.
 Only the `add_Watermark` setting is imported from your `.env`.
 
 ---

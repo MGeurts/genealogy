@@ -224,7 +224,7 @@ final class Photos extends Component
 
     /**
      * Load photos.
-     * Only processes original photos, provides URLs for medium and original versions.
+     * Only processes original photos, provides URLs for all versions (small, medium, large, original).
      */
     private function loadPhotos(): void
     {
@@ -260,7 +260,7 @@ final class Photos extends Component
 
     /**
      * Map photo data
-     * Returns URLs for medium (display) and original (full view) versions.
+     * Returns URLs for all versions: small, medium, large, and original.
      */
     private function mapPhotoData(string $filePath, $disk): array
     {
@@ -283,38 +283,60 @@ final class Photos extends Component
             'size'          => Number::fileSize($fileSize, 2),
             'path'          => $disk->path("{$basePath}"),
             'url_original'  => $disk->url("{$basePath}/{$basename}"),
+            'url_large'     => $disk->url("{$basePath}/{$filename}_large.webp"),
             'url_medium'    => $disk->url("{$basePath}/{$filename}_medium.webp"),
+            'url_small'     => $disk->url("{$basePath}/{$filename}_small.webp"),
             'is_primary'    => $filename === $this->person->photo,
         ];
     }
 
     /**
      * Delete photo files.
-     * Removes original, medium, and small versions.
+     * Removes original and all size variants (large, medium, small).
      */
     private function deletePhotoVariants(string $photo, int $teamId, int $personId): void
     {
-        $disk  = Storage::disk('photos');
-        $sizes = ['', '_medium', '_small']; // Original has no suffix, medium and small have suffixes
+        $disk       = Storage::disk('photos');
+        $personPath = "{$teamId}/{$personId}";
 
-        foreach ($sizes as $suffix) {
-            try {
-                $filename  = $photo . $suffix . '.webp';
-                $photoPath = "{$teamId}/{$personId}/{$filename}";
-
-                if ($disk->exists($photoPath)) {
-                    $disk->delete($photoPath);
-                }
-            } catch (Exception $e) {
-                Log::warning('Failed to delete photo from storage', [
-                    'photo'     => $photo,
-                    'team_id'   => $teamId,
-                    'person_id' => $personId,
-                    'suffix'    => $suffix,
-                    'path'      => $photoPath ?? null,
-                    'error'     => $e->getMessage(),
-                ]);
+        try {
+            // Get all files in the person's directory
+            if (! $disk->exists($personPath)) {
+                return;
             }
+
+            $files = $disk->files($personPath);
+
+            // Delete all files that match this photo (original + variants)
+            foreach ($files as $file) {
+                $basename = basename($file);
+                $filebase = pathinfo($basename, PATHINFO_FILENAME);
+
+                // Remove size suffix if present to get the base filename
+                $filebase = preg_replace('/_(large|medium|small)$/', '', $filebase);
+
+                // If this file belongs to the photo we're deleting, remove it
+                if ($filebase === $photo) {
+                    try {
+                        $disk->delete($file);
+                    } catch (Exception $e) {
+                        Log::warning('Failed to delete photo file from storage', [
+                            'photo'     => $photo,
+                            'team_id'   => $teamId,
+                            'person_id' => $personId,
+                            'file'      => $file,
+                            'error'     => $e->getMessage(),
+                        ]);
+                    }
+                }
+            }
+        } catch (Exception $e) {
+            Log::error('Failed to delete photo variants', [
+                'photo'     => $photo,
+                'team_id'   => $teamId,
+                'person_id' => $personId,
+                'error'     => $e->getMessage(),
+            ]);
         }
     }
 
@@ -366,7 +388,9 @@ final class Photos extends Component
      */
     private function isOriginalPhoto(string $basename): bool
     {
-        return str_ends_with($basename, '.webp') && ! str_contains($basename, '_medium.webp') && ! str_contains($basename, '_small.webp');
+        return ! str_contains($basename, '_large.')
+            && ! str_contains($basename, '_medium.')
+            && ! str_contains($basename, '_small.');
     }
 
     /**
@@ -374,9 +398,26 @@ final class Photos extends Component
      */
     private function photoExists(string $photo): bool
     {
-        $disk      = Storage::disk('photos');
-        $photoPath = "{$this->person->team_id}/{$this->person->id}/{$photo}.webp";
+        $disk       = Storage::disk('photos');
+        $personPath = "{$this->person->team_id}/{$this->person->id}";
 
-        return $disk->exists($photoPath);
+        if (! $disk->exists($personPath)) {
+            return false;
+        }
+
+        $files = $disk->files($personPath);
+
+        // Check if any file matches the photo filename (regardless of extension)
+        foreach ($files as $file) {
+            $basename = basename($file);
+            $filebase = pathinfo($basename, PATHINFO_FILENAME);
+
+            // This is an original file and matches our photo name
+            if ($filebase === $photo && $this->isOriginalPhoto($basename)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

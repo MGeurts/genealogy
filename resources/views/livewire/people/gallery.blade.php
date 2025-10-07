@@ -101,8 +101,8 @@
 
     {{-- image --}}
     <div class="user-image">
-        @if (count($images) > 0)
-            <x-ts-link href="{{ $images[$selected]['original'] }}" target="_blank">
+        @if (count($images) > 0 && $images[$selected]['large'] && $images[$selected]['medium'])
+            <x-ts-link href="{{ $images[$selected]['large'] }}" target="_blank">
                 <img class="max-w-sm rounded-sm shadow-lg dark:shadow-black/30" src="{{ $images[$selected]['medium'] }}" alt="{{ $person->name }}" title="{{ $person->name }}" />
             </x-ts-link>
         @else

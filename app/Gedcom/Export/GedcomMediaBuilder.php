@@ -137,7 +137,7 @@ class GedcomMediaBuilder
      * Get images for a specific person.
      *
      * Scans the person's photo directory and creates media object entries
-     * for all original WebP files, filtering out resized variants.
+     * for all original files, filtering out resized variants.
      *
      * @param  Person  $person  Person model instance
      * @return array<array> Array of media objects
@@ -153,20 +153,20 @@ class GedcomMediaBuilder
         $allFiles     = Storage::disk('photos')->files($directory);
         $mediaObjects = [];
 
-        // Get only original .webp files (not _medium.webp or _small.webp)
+        // Get only original files (not _large, _medium, _small variants)
         $images = collect($allFiles)
-            ->filter(function ($file): bool {
-                return $this->isOriginalWebpFile($file);
-            })
-            ->map(function ($originalFile): array {
-                // Extract filename without extension for database comparison
+            ->filter(fn ($file) => $this->isOriginalFile($file))
+            ->map(function ($originalFile) {
                 $filename           = basename($originalFile);
                 $filenameWithoutExt = pathinfo($filename, PATHINFO_FILENAME);
+                $mimeType           = Storage::disk('photos')->mimeType($originalFile);
 
                 return [
-                    'filename'  => $filenameWithoutExt,
-                    'disk_path' => $originalFile, // For file system access
-                    'url'       => Storage::disk('photos')->url($originalFile),
+                    'filename'       => $filenameWithoutExt,
+                    'file_reference' => $filename,   // Full filename with extension
+                    'mime_type'      => $mimeType,   // Actual MIME type
+                    'disk_path'      => $originalFile,
+                    'url'            => Storage::disk('photos')->url($originalFile),
                 ];
             })
             ->sortBy('filename')
@@ -179,8 +179,8 @@ class GedcomMediaBuilder
             $mediaObjects[] = [
                 'id'             => $mediaId,
                 'filename'       => $image['filename'],
-                'file_reference' => $image['filename'] . '.webp',
-                'mime_type'      => 'image/webp',
+                'file_reference' => $image['file_reference'],
+                'mime_type'      => $image['mime_type'],
                 'disk_path'      => $image['disk_path'],
                 'url'            => $image['url'],
                 'title'          => $this->generateImageTitle($image['filename']),
@@ -191,21 +191,20 @@ class GedcomMediaBuilder
     }
 
     /**
-     * Check if file is an original .webp file (not a resized variant).
+     * Check if file is an original file (not a resized variant).
      *
-     * Filters out thumbnail and medium-sized variants to include only
-     * original full-resolution images in the export.
+     * Filters out resized variants to include only original full-resolution images in the export.
      *
      * @param  string  $file  File path
-     * @return bool True if original .webp file
+     * @return bool True if original file
      */
-    private function isOriginalWebpFile(string $file): bool
+    private function isOriginalFile(string $file): bool
     {
-        $filename = basename($file);
+        $filename = pathinfo($file, PATHINFO_FILENAME); // filename without extension
 
-        return str_ends_with($filename, '.webp')
-            && ! str_ends_with($filename, '_medium.webp')
-            && ! str_ends_with($filename, '_small.webp');
+        return ! str_ends_with($filename, '_large')
+            && ! str_ends_with($filename, '_medium')
+            && ! str_ends_with($filename, '_small');
     }
 
     /**
@@ -237,19 +236,23 @@ class GedcomMediaBuilder
      */
     private function buildMediaRecord(array $media): string
     {
-        $lines   = [];
+        $lines = [];
+
+        // Media object header
         $lines[] = "0 @M{$media['id']}@ OBJE";
 
-        // File reference - GEDCOM 7.0 structure
+        // File reference - use actual filename with extension
         $lines[] = "1 FILE {$media['file_reference']}";
-        $lines[] = "2 FORM {$media['mime_type']}";  // FORM now uses MIME type directly
 
-        // Title at file level
+        // MIME type as FORM field for GEDCOM 7.0
+        $lines[] = "2 FORM {$media['mime_type']}";
+
+        // Optional title
         if (! empty($media['title'])) {
             $lines[] = "2 TITL {$this->formatter->sanitizeText($media['title'])}";
         }
 
-        // Notes or additional metadata could be added here
+        // Additional metadata or notes could be added here
 
         return implode($this->formatter->eol(), $lines) . $this->formatter->eol();
     }

@@ -269,12 +269,32 @@ final class Person extends Model implements HasMedia
             return 0;
         }
 
-        // Most efficient: since each photo has exactly 3 files (original, small, medium)
-        // and we know only this person's photos are in this directory,
-        // total files ÷ 3 gives us the photo count
-        $totalFiles = count($disk->files($directory));
+        // Derive valid extensions from accepted photo MIME types in config/app.php
+        $validExtensions = collect(config('app.upload_photo_accept'))
+            ->keys() // e.g. ["image/jpeg", "image/png", ...]
+            ->map(fn ($mime) => Str::after($mime, '/')) // "jpeg", "png", ...
+            ->push('jpg') // ensure "jpg" is included alongside "jpeg"
+            ->unique()
+            ->toArray();
 
-        return (int) ($totalFiles / 3);
+        $files = $disk->files($directory);
+
+        $baseNames = collect($files)
+            // Filter only valid image extensions and ignore system files
+            ->filter(function ($file) use ($validExtensions): bool {
+                $extension = mb_strtolower(pathinfo($file, PATHINFO_EXTENSION));
+                $ignored   = ['gitignore', 'db']; // for .gitignore, thumbs.db
+
+                return in_array($extension, $validExtensions) && ! in_array($extension, $ignored);
+            })
+            // Extract filename without extension
+            ->map(fn ($file) => pathinfo($file, PATHINFO_FILENAME))
+            // Normalize by removing _large, _medium, _small suffixes
+            ->map(fn ($name) => preg_replace('/_(large|medium|small)$/i', '', $name))
+            // Count unique base names
+            ->unique();
+
+        return $baseNames->count();
     }
 
     public function isDeceased(): bool

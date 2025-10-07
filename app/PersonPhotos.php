@@ -9,6 +9,7 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 use Throwable;
@@ -78,10 +79,10 @@ final class PersonPhotos
      * Uses cached file operations for better performance.
      *
      * @param  int  $index  The photo index (1-based)
-     * @param  string  $sizeKey  Size variant: 'original', 'small', 'medium'
+     * @param  string  $sizeKey  Size variant: 'original', 'large', 'medium', 'small'
      * @return string|null The photo URL or null if not found
      */
-    public function getPhotoUrl(int $index, string $sizeKey = 'original'): ?string
+    public function getPhotoUrl(int $index, string $sizeKey = 'large'): ?string
     {
         $filename = $this->findPhotoFile($index, $sizeKey);
 
@@ -131,7 +132,7 @@ final class PersonPhotos
 
     /**
      * Delete a specific photo by index.
-     * Removes all size variants (original, small, medium) and invalidates cache.
+     * Removes original and all size variants (large, medium, small) and invalidates cache.
      *
      * @param  int  $index  The photo index to delete
      * @return bool True if at least one file was deleted
@@ -176,18 +177,39 @@ final class PersonPhotos
 
     /**
      * Count total photos for this person.
-     * Efficiently calculates count by dividing total files by 3
-     * (each photo has original, small, and medium variants).
+     * Counts original files only (without size suffix).
      *
      * @return int Number of photos
      */
     public function countPhotos(): int
     {
+        // allthough we could call $this->person->countPhotos(), we prefer to use cached files
         $files = $this->getPersonFiles();
 
-        // Since each photo generates 3 files (original, small, medium)
-        // and directory contains only this person's photos
-        return (int) (count($files) / 3);
+        if (empty($files)) {
+            return 0;
+        }
+
+        // Derive valid extensions from app config
+        $validExtensions = collect(config('app.upload_photo_accept'))
+            ->keys()
+            ->map(fn ($mime) => Str::after($mime, '/'))
+            ->push('jpg') // ensure "jpg" is included
+            ->unique()
+            ->toArray();
+
+        $baseNames = collect($files)
+            ->filter(function ($file) use ($validExtensions) {
+                $extension = mb_strtolower(pathinfo($file, PATHINFO_EXTENSION));
+                $ignored   = ['gitignore', 'db'];
+
+                return in_array($extension, $validExtensions) && ! in_array($extension, $ignored);
+            })
+            ->map(fn ($file) => pathinfo($file, PATHINFO_FILENAME))
+            ->map(fn ($name) => preg_replace('/_(large|medium|small)$/i', '', $name))
+            ->unique();
+
+        return $baseNames->count();
     }
 
     /**
@@ -251,14 +273,16 @@ final class PersonPhotos
             $basename = basename($file);
 
             // Skip sized versions - only check original files
-            if (str_contains($basename, '_medium.webp') || str_contains($basename, '_small.webp')) {
+            if (str_contains($basename, '_large.') ||
+                str_contains($basename, '_medium.') ||
+                str_contains($basename, '_small.')) {
                 continue;
             }
 
-            // Extract index from filename: personId_index_timestamp.webp
+            // Extract index from filename: personId_index_timestamp.ext
             $parts = explode('_', $basename);
 
-            // We expect at least 3 parts: {personId}_{index}_{timestamp}.webp
+            // We expect at least 3 parts: {personId}_{index}_{timestamp}.ext
             if (count($parts) >= 3 && is_numeric($parts[1])) {
                 $maxIndex = max($maxIndex, (int) $parts[1]);
             }
@@ -272,7 +296,7 @@ final class PersonPhotos
      * Uses cached file list and optimized pattern matching.
      *
      * @param  int  $index  The photo index to find
-     * @param  string  $sizeKey  Size variant: 'original', 'small', 'medium'
+     * @param  string  $sizeKey  Size variant: 'original', 'large', 'medium', 'small'
      * @return string|null The filename or null if not found
      */
     private function findPhotoFile(int $index, string $sizeKey): ?string
@@ -289,11 +313,17 @@ final class PersonPhotos
 
             // Check size match
             if ($sizeKey === 'original') {
-                if (! str_contains($basename, '_medium.webp') && ! str_contains($basename, '_small.webp')) {
+                // Original has no size suffix
+                if (! str_contains($basename, '_large.') &&
+                    ! str_contains($basename, '_medium.') &&
+                    ! str_contains($basename, '_small.')) {
                     return $basename;
                 }
-            } elseif (str_contains($basename, "_{$sizeKey}.webp")) {
-                return $basename;
+            } else {
+                // Check for specific size variant
+                if (str_contains($basename, "_{$sizeKey}.")) {
+                    return $basename;
+                }
             }
         }
 
@@ -301,7 +331,7 @@ final class PersonPhotos
     }
 
     /**
-     * Save a single photo in all configured sizes.
+     * Save a single photo: original untouched + 3 processed variants.
      * Processes the photo and updates person record if it's the first photo.
      *
      * @param  UploadedFile|string  $photo  The photo to save
@@ -313,16 +343,24 @@ final class PersonPhotos
         $timestamp = now()->format('YmdHis');
 
         try {
-            $success = $this->processAndSaveImage($photo, $index, $timestamp);
+            // Save original file untouched
+            $originalSaved = $this->saveOriginalFile($photo, $index, $timestamp);
 
-            if ($success && empty($this->person->photo)) {
-                // Save the original filename for reference
+            if (! $originalSaved) {
+                return false;
+            }
+
+            // Process and save size variants
+            $variantsSaved = $this->processAndSaveVariants($photo, $index, $timestamp);
+
+            if ($originalSaved && empty($this->person->photo)) {
+                // Save the original filename for reference (without extension)
                 $this->person->update([
                     'photo' => $this->makeFilename($index, $timestamp, 'original', false),
                 ]);
             }
 
-            return $success;
+            return $originalSaved && $variantsSaved;
         } catch (Throwable $e) {
             Log::error('Failed to save photo', [
                 'person_id'   => $this->person->id,
@@ -337,15 +375,62 @@ final class PersonPhotos
     }
 
     /**
+     * Save the original uploaded file without any processing.
+     * Preserves the original format and quality.
+     *
+     * @param  UploadedFile|string  $photo  The source photo
+     * @param  int  $index  The photo index
+     * @param  string  $timestamp  The timestamp for filename generation
+     * @return bool True if original was saved successfully
+     */
+    private function saveOriginalFile(UploadedFile|string $photo, int $index, string $timestamp): bool
+    {
+        try {
+            // Determine original extension
+            $extension = 'jpg'; // default fallback
+
+            if ($photo instanceof UploadedFile) {
+                $extension = $photo->getClientOriginalExtension() ?: $photo->extension() ?: 'jpg';
+            } elseif (is_string($photo) && file_exists($photo)) {
+                $extension = pathinfo($photo, PATHINFO_EXTENSION) ?: 'jpg';
+            }
+
+            $filename = $this->makeFilename($index, $timestamp, 'original', true, $extension);
+            $path     = $this->personPath . '/' . $filename;
+
+            // Save original file directly without any processing
+            if ($photo instanceof UploadedFile) {
+                $content = file_get_contents($photo->getRealPath());
+            } else {
+                $content = file_get_contents($photo);
+            }
+
+            $this->photosDisk->put($path, $content);
+
+            return true;
+        } catch (Throwable $e) {
+            Log::error('Failed to save original file', [
+                'person_id'   => $this->person->id,
+                'team_id'     => $this->person->team_id,
+                'photo_index' => $index,
+                'error'       => $e->getMessage(),
+                'exception'   => $e,
+            ]);
+
+            return false;
+        }
+    }
+
+    /**
      * Process image in each configured size and save to the photos disk.
-     * Creates all size variants (original, small, medium) with watermark if enabled.
+     * Creates all size variants (large, medium, small) with watermark if enabled.
      *
      * @param  UploadedFile|string  $photo  The source photo
      * @param  int  $index  The photo index
      * @param  string  $timestamp  The timestamp for filename generation
      * @return bool True if at least one size variant was saved successfully
      */
-    private function processAndSaveImage(UploadedFile|string $photo, int $index, string $timestamp): bool
+    private function processAndSaveVariants(UploadedFile|string $photo, int $index, string $timestamp): bool
     {
         $sizes    = $this->uploadConfig['sizes'] ?? [];
         $savedAny = false;
@@ -353,7 +438,7 @@ final class PersonPhotos
         try {
             $original = $this->imageManager->read($photo);
         } catch (Throwable $e) {
-            Log::error('Failed to read image file', [
+            Log::error('Failed to read image file for variants', [
                 'person_id'   => $this->person->id,
                 'team_id'     => $this->person->team_id,
                 'photo_index' => $index,
@@ -378,9 +463,12 @@ final class PersonPhotos
                 $filename = $this->makeFilename($index, $timestamp, $sizeKey);
                 $path     = $this->personPath . '/' . $filename;
 
+                // Use size-specific quality or fall back to 85
+                $quality = $dimensions['quality'] ?? 85;
+
                 $this->photosDisk->put(
                     $path,
-                    $image->toWebp(quality: $this->uploadConfig['quality'] ?? 80)
+                    $image->toWebp(quality: $quality)
                 );
 
                 $savedAny = true;
@@ -401,16 +489,22 @@ final class PersonPhotos
     }
 
     /**
-     * Build filename using the naming convention: personId_index_timestamp[_size].webp
+     * Build filename using the naming convention: personId_index_timestamp[_size].ext
      *
      * @param  int  $index  The photo index (zero-padded to 3 digits)
      * @param  string  $timestamp  The timestamp string
-     * @param  string  $sizeKey  Size variant: 'original', 'small', 'medium'
-     * @param  bool  $includeExtension  Whether to include .webp extension
+     * @param  string  $sizeKey  Size variant: 'original', 'large', 'medium', 'small'
+     * @param  bool  $includeExtension  Whether to include extension
+     * @param  string  $extension  File extension (default 'webp')
      * @return string The generated filename
      */
-    private function makeFilename(int $index, string $timestamp, string $sizeKey, bool $includeExtension = true): string
-    {
+    private function makeFilename(
+        int $index,
+        string $timestamp,
+        string $sizeKey,
+        bool $includeExtension = true,
+        string $extension = 'webp'
+    ): string {
         $suffix = $sizeKey !== 'original' ? "_{$sizeKey}" : '';
 
         $filename = sprintf(
@@ -422,7 +516,7 @@ final class PersonPhotos
         );
 
         if ($includeExtension) {
-            $filename .= '.webp';
+            $filename .= '.' . $extension;
         }
 
         return $filename;
@@ -486,7 +580,7 @@ final class PersonPhotos
         } catch (Throwable $e) {
             Log::warning('Failed to cleanup temporary files', [
                 'temp_disk'        => get_class($this->tempDisk),
-                'cutoff_timestamp' => $cutoff,
+                'cutoff_timestamp' => $cutoff ?? null,
                 'error'            => $e->getMessage(),
             ]);
         }
