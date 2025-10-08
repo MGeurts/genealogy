@@ -12,7 +12,9 @@ RUN apt-get update && apt-get install -y \
     nginx \
     supervisor \
     && docker-php-ext-configure intl \
-    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip intl
+    && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip intl \
+    && pecl install redis \
+    && docker-php-ext-enable redis
 
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
