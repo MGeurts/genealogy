@@ -9,6 +9,7 @@ services:
     volumes:
       - ./:/var/www/html
       - ./storage:/var/www/html/storage
+      - vendor:/var/www/html/vendor
     networks:
       - genealogy
     depends_on:
@@ -55,4 +56,6 @@ networks:
 
 volumes:
   dbdata:
+    driver: local
+  vendor:
     driver: local
