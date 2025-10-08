@@ -1085,7 +1085,7 @@
         },
         {
             "name": "filament/actions",
-            "version": "v4.1.4",
+            "version": "v4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/actions.git",
@@ -1134,16 +1134,16 @@
         },
         {
             "name": "filament/forms",
-            "version": "v4.1.4",
+            "version": "v4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/forms.git",
-                "reference": "572fb508b4312759e91841048b3f1384401a5f05"
+                "reference": "ddfa808665077bccae64242dc763e0434e98183f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/forms/zipball/572fb508b4312759e91841048b3f1384401a5f05",
-                "reference": "572fb508b4312759e91841048b3f1384401a5f05",
+                "url": "https://api.github.com/repos/filamentphp/forms/zipball/ddfa808665077bccae64242dc763e0434e98183f",
+                "reference": "ddfa808665077bccae64242dc763e0434e98183f",
                 "shasum": ""
             },
             "require": {
@@ -1180,11 +1180,11 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-10-07T12:45:15+00:00"
+            "time": "2025-10-08T10:40:16+00:00"
         },
         {
             "name": "filament/infolists",
-            "version": "v4.1.4",
+            "version": "v4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/infolists.git",
@@ -1229,7 +1229,7 @@
         },
         {
             "name": "filament/notifications",
-            "version": "v4.1.4",
+            "version": "v4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/notifications.git",
@@ -1276,7 +1276,7 @@
         },
         {
             "name": "filament/schemas",
-            "version": "v4.1.4",
+            "version": "v4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/schemas.git",
@@ -1321,16 +1321,16 @@
         },
         {
             "name": "filament/support",
-            "version": "v4.1.4",
+            "version": "v4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/support.git",
-                "reference": "8af3cf138f9dcff58cc84ac267d580299b0c51ea"
+                "reference": "e3294c6cd71d0b6c8cba8d20c99d5af651351a86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/support/zipball/8af3cf138f9dcff58cc84ac267d580299b0c51ea",
-                "reference": "8af3cf138f9dcff58cc84ac267d580299b0c51ea",
+                "url": "https://api.github.com/repos/filamentphp/support/zipball/e3294c6cd71d0b6c8cba8d20c99d5af651351a86",
+                "reference": "e3294c6cd71d0b6c8cba8d20c99d5af651351a86",
                 "shasum": ""
             },
             "require": {
@@ -1375,20 +1375,20 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-10-06T08:11:00+00:00"
+            "time": "2025-10-08T10:40:12+00:00"
         },
         {
             "name": "filament/tables",
-            "version": "v4.1.4",
+            "version": "v4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/tables.git",
-                "reference": "3dde14affa3120f54dd73af807b13a6ee8198d08"
+                "reference": "b3bf48fd079d8abdf6dfb0936f1d1c8c4a4479ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/filamentphp/tables/zipball/3dde14affa3120f54dd73af807b13a6ee8198d08",
-                "reference": "3dde14affa3120f54dd73af807b13a6ee8198d08",
+                "url": "https://api.github.com/repos/filamentphp/tables/zipball/b3bf48fd079d8abdf6dfb0936f1d1c8c4a4479ab",
+                "reference": "b3bf48fd079d8abdf6dfb0936f1d1c8c4a4479ab",
                 "shasum": ""
             },
             "require": {
@@ -1420,7 +1420,7 @@
                 "issues": "https://github.com/filamentphp/filament/issues",
                 "source": "https://github.com/filamentphp/filament"
             },
-            "time": "2025-10-07T12:45:13+00:00"
+            "time": "2025-10-08T11:01:10+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -2353,16 +2353,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v12.32.5",
+            "version": "v12.33.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "77b2740391cd2a825ba59d6fada45e9b8b9bcc5a"
+                "reference": "124efc5f09d4668a4dc13f94a1018c524a58bcb1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/77b2740391cd2a825ba59d6fada45e9b8b9bcc5a",
-                "reference": "77b2740391cd2a825ba59d6fada45e9b8b9bcc5a",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/124efc5f09d4668a4dc13f94a1018c524a58bcb1",
+                "reference": "124efc5f09d4668a4dc13f94a1018c524a58bcb1",
                 "shasum": ""
             },
             "require": {
@@ -2568,7 +2568,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-09-30T17:39:22+00:00"
+            "time": "2025-10-07T14:30:39+00:00"
         },
         {
             "name": "laravel/jetstream",
