@@ -7,20 +7,32 @@ services:
     restart: unless-stopped
     working_dir: /var/www/html
     volumes:
-      - ./:/var/www/html
       - ./storage:/var/www/html/storage
+      - ./bootstrap/cache:/var/www/html/bootstrap/cache
       - vendor:/var/www/html/vendor
     networks:
       - genealogy
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
     environment:
       - APP_ENV=${APP_ENV:-production}
       - APP_DEBUG=${APP_DEBUG:-false}
+      - APP_KEY=${APP_KEY}
+      - APP_URL=${APP_URL:-http://localhost:8000}
+      - DB_CONNECTION=mysql
       - DB_HOST=db
+      - DB_PORT=3306
       - DB_DATABASE=${DB_DATABASE:-genealogy}
       - DB_USERNAME=${DB_USERNAME:-genealogy}
       - DB_PASSWORD=${DB_PASSWORD:-secret}
+      - CACHE_STORE=redis
+      - SESSION_DRIVER=redis
+      - QUEUE_CONNECTION=redis
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     ports:
       - "8000:80"
 
@@ -40,15 +52,30 @@ services:
       - genealogy
     ports:
       - "3306:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${DB_ROOT_PASSWORD:-rootsecret}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
 
   redis:
-    image: redis:alpine
+    image: redis:7-alpine
     container_name: genealogy_redis
     restart: unless-stopped
+    command: redis-server --appendonly yes
+    volumes:
+      - redisdata:/data
     networks:
       - genealogy
     ports:
       - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
 
 networks:
   genealogy:
@@ -56,6 +83,8 @@ networks:
 
 volumes:
   dbdata:
+    driver: local
+  redisdata:
     driver: local
   vendor:
     driver: local
