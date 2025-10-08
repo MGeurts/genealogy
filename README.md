@@ -348,6 +348,10 @@ Command: `php artisan test` or `./vendor/bin/pest`<br/>
 <b>Production (or local development) data</b> should be stored in a MySQL or MariaDB database configured in `.env`.<br /><br />
 <b>Testing data</b> should be stored in a separate MySQL or MariaDB database configured in `.env.testing` to avoid interfering with the production or development data.
 
+## Docker
+
+Instructions on how to use the application in a Docker container are included in <a href="https://github.com/MGeurts/genealogy/blob/main/README-DOCKER.md" target="_blank">README-DOCKER.md</a>.
+
 ## Contributing
 
 Feel free to submit <b>Issues</b> or <b>Pull Requests</b>, for bugs, suggestions or feature requests.

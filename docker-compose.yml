@@ -1,0 +1,60 @@
+version: "3.8"
+
+services:
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: genealogy_app
+        restart: unless-stopped
+        working_dir: /var/www/html
+        volumes:
+            - ./:/var/www/html
+            - ./storage:/var/www/html/storage
+        networks:
+            - genealogy
+        depends_on:
+            - db
+        environment:
+            - APP_ENV=${APP_ENV:-production}
+            - APP_DEBUG=${APP_DEBUG:-false}
+            - DB_HOST=db
+            - DB_DATABASE=${DB_DATABASE:-genealogy}
+            - DB_USERNAME=${DB_USERNAME:-genealogy}
+            - DB_PASSWORD=${DB_PASSWORD:-secret}
+        ports:
+            - "8000:80"
+
+    db:
+        image: mysql:8.0
+        container_name: genealogy_db
+        restart: unless-stopped
+        environment:
+            MYSQL_DATABASE: ${DB_DATABASE:-genealogy}
+            MYSQL_USER: ${DB_USERNAME:-genealogy}
+            MYSQL_PASSWORD: ${DB_PASSWORD:-secret}
+            MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-rootsecret}
+        volumes:
+            - dbdata:/var/lib/mysql
+            - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+        networks:
+            - genealogy
+        ports:
+            - "3306:3306"
+
+    redis:
+        image: redis:alpine
+        container_name: genealogy_redis
+        restart: unless-stopped
+        networks:
+            - genealogy
+        ports:
+            - "6379:6379"
+
+networks:
+    genealogy:
+        driver: bridge
+
+volumes:
+    dbdata:
+        driver: local
