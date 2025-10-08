@@ -2,6 +2,11 @@
 FROM composer:2 AS composer-builder
 
 WORKDIR /app
+
+# Install required PHP extensions for composer install (Alpine version)
+RUN apk add --no-cache icu-dev jpeg-dev freetype-dev libpng-dev \
+    && docker-php-ext-install intl exif gd
+
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --no-scripts --no-interaction --prefer-dist
 
