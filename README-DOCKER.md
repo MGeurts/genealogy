@@ -33,25 +33,25 @@ This guide explains how to run the Genealogy application in Docker containers.
 4. **Build and start containers**
 
     ```bash
-    docker-compose up -d --build
+    docker compose up -d --build
     ```
 
 5. **Generate application key**
 
     ```bash
-    docker-compose exec app php artisan key:generate
+    docker compose exec app php artisan key:generate
     ```
 
 6. **Run migrations and seed database**
 
     ```bash
-    docker-compose exec app php artisan migrate:fresh --seed
+    docker compose exec app php artisan migrate:fresh --seed
     ```
 
 7. **Create storage link**
 
     ```bash
-    docker-compose exec app php artisan storage:link
+    docker compose exec app php artisan storage:link
     ```
 
 8. **Access the application**
@@ -101,44 +101,44 @@ genealogy/
 ### Start containers
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 ### Stop containers
 
 ```bash
-docker-compose down
+docker compose down
 ```
 
 ### View logs
 
 ```bash
-docker-compose logs -f app
+docker compose logs -f app
 ```
 
 ### Access application container
 
 ```bash
-docker-compose exec app bash
+docker compose exec app bash
 ```
 
 ### Run artisan commands
 
 ```bash
-docker-compose exec app php artisan [command]
+docker compose exec app php artisan [command]
 ```
 
 ### Run composer commands
 
 ```bash
-docker-compose exec app composer [command]
+docker compose exec app composer [command]
 ```
 
 ### Rebuild containers
 
 ```bash
-docker-compose down
-docker-compose up -d --build
+docker compose down
+docker compose up -d --build
 ```
 
 ## Database Management
@@ -146,19 +146,19 @@ docker-compose up -d --build
 ### Access MySQL
 
 ```bash
-docker-compose exec db mysql -u genealogy -p
+docker compose exec db mysql -u genealogy -p
 ```
 
 ### Backup database
 
 ```bash
-docker-compose exec db mysqldump -u genealogy -p genealogy > backup.sql
+docker compose exec db mysqldump -u genealogy -p genealogy > backup.sql
 ```
 
 ### Restore database
 
 ```bash
-docker-compose exec -T db mysql -u genealogy -p genealogy < backup.sql
+docker compose exec -T db mysql -u genealogy -p genealogy < backup.sql
 ```
 
 ## Troubleshooting
@@ -168,25 +168,25 @@ docker-compose exec -T db mysql -u genealogy -p genealogy < backup.sql
 If you encounter permission errors:
 
 ```bash
-docker-compose exec app chown -R www-data:www-data /var/www/html/storage
-docker-compose exec app chown -R www-data:www-data /var/www/html/bootstrap/cache
-docker-compose exec app chmod -R 755 /var/www/html/storage
-docker-compose exec app chmod -R 755 /var/www/html/bootstrap/cache
+docker compose exec app chown -R www-data:www-data /var/www/html/storage
+docker compose exec app chown -R www-data:www-data /var/www/html/bootstrap/cache
+docker compose exec app chmod -R 755 /var/www/html/storage
+docker compose exec app chmod -R 755 /var/www/html/bootstrap/cache
 ```
 
 ### Clear caches
 
 ```bash
-docker-compose exec app php artisan cache:clear
-docker-compose exec app php artisan config:clear
-docker-compose exec app php artisan view:clear
-docker-compose exec app php artisan route:clear
+docker compose exec app php artisan cache:clear
+docker compose exec app php artisan config:clear
+docker compose exec app php artisan view:clear
+docker compose exec app php artisan route:clear
 ```
 
 ### Rebuild assets
 
 ```bash
-docker-compose exec app npm run build
+docker compose exec app npm run build
 ```
 
 ## HTTPS Configuration
@@ -225,15 +225,15 @@ server {
 1. **Optimize Composer autoloader**
 
     ```bash
-    docker-compose exec app composer install --optimize-autoloader --no-dev
+    docker compose exec app composer install --optimize-autoloader --no-dev
     ```
 
 2. **Cache configuration**
 
     ```bash
-    docker-compose exec app php artisan config:cache
-    docker-compose exec app php artisan route:cache
-    docker-compose exec app php artisan view:cache
+    docker compose exec app php artisan config:cache
+    docker compose exec app php artisan route:cache
+    docker compose exec app php artisan view:cache
     ```
 
 3. **Optimize images** - Ensure uploaded images are optimized
@@ -261,10 +261,10 @@ For production deployment:
 
 ```bash
 git pull origin main
-docker-compose down
-docker-compose up -d --build
-docker-compose exec app php artisan migrate
-docker-compose exec app php artisan cache:clear
+docker compose down
+docker compose up -d --build
+docker compose exec app php artisan migrate
+docker compose exec app php artisan cache:clear
 ```
 
 ## Support
