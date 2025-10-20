@@ -1,0 +1,33 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    container_name: genealogy-app
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8080}:8080"
+    volumes:
+      - .:/var/www/html:delegated
+    networks:
+      - genealogy-network
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.4
+    container_name: genealogy-db
+    ports:
+      - "${DB_EXTERNAL_PORT:-3306}:3306"
+    environment:
+      MYSQL_DATABASE: "${DB_DATABASE:-genealogy}"
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+    volumes:
+      - ./.docker/data:/var/lib/mysql
+    networks:
+      - genealogy-network
+
+networks:
+  genealogy-network:
+    driver: bridge
