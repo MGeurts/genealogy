@@ -352,6 +352,10 @@ Command: `php artisan test` or `./vendor/bin/pest`<br/>
 
 Feel free to submit <b>Issues</b> or <b>Pull Requests</b>, for bugs, suggestions or feature requests.
 
+## Docker Support
+
+The application can be run in a Dockerized environment. Instructions can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-DOCKER.md" target="_blank">README-DOCKER.md</a>.
+
 ## Documentation
 
 The documentation is included in the applications help.
