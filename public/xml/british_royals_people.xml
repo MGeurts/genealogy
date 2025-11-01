@@ -61,7 +61,7 @@
 <people>
 <id>5</id>
 <firstname>Andrew</firstname>
-<surname>Duke of York</surname>
+<surname>Mountbatton Windsor</surname>
 <sex>M</sex>
 <father_id>2</father_id>
 <mother_id>1</mother_id>
@@ -234,8 +234,7 @@
 <people>
 <id>18</id>
 <firstname>Sarah</firstname>
-<surname>Duchess of York</surname>
-<birthname>Ferguson</birthname>
+<surname>Ferguson</surname>
 <nickname>Fergie</nickname>
 <sex>F</sex>
 <father_id>44</father_id>
