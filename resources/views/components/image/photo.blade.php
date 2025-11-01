@@ -4,6 +4,7 @@
     @php
         $photoPath = $person->team_id . '/' . $person->id . '/' . $person->photo . '_medium.webp';
     @endphp
+
     @if ($person->photo && Storage::disk('photos')->exists($photoPath))
         <img {{ $attributes->merge(['class' => 'w-full rounded-sm shadow-lg dark:shadow-black/30']) }} src="{{ Storage::disk('photos')->url($photoPath) }}" alt="{{ $person->name }}" title="{{ $person->name }}" />
     @else

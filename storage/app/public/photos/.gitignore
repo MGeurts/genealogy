@@ -6,6 +6,7 @@
 
 # Allow specific file patterns
 !*_demo.webp
+!*_demo_large.webp
 !*_demo_medium.webp
 !*_demo_small.webp
 
