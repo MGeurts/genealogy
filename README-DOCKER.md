@@ -5,13 +5,14 @@ This guide provides instructions for running the Genealogy application using Doc
 ## Overview
 
 The Docker setup consists of:
-- **Application Container**: PHP 8.4 with FPM and Nginx (based on [Server Side Up Docker images](https://serversideup.net/open-source/docker-php/))
-- **Database Container**: MySQL 8.4
+
+-   **Application Container**: PHP 8.4 with FPM and Nginx (based on [Server Side Up Docker images](https://serversideup.net/open-source/docker-php/))
+-   **Database Container**: MySQL 8.4
 
 ## Prerequisites
 
-- [Docker](https://docs.docker.com/get-docker/) (20.10 or higher)
-- [Docker Compose](https://docs.docker.com/compose/install/) (2.0 or higher)
+-   [Docker](https://docs.docker.com/get-docker/) (20.10 or higher)
+-   [Docker Compose](https://docs.docker.com/compose/install/) (2.0 or higher)
 
 ## Quick Start
 
@@ -24,10 +25,10 @@ cd genealogy
 
 ### 2. Configure Environment
 
-Copy the example environment file and configure it:
+Copy the docker environment file and configure it:
 
 ```bash
-cp .env.example .env
+cp .env.docker .env
 ```
 
 Edit `.env` and update the database settings:
@@ -48,9 +49,10 @@ docker compose up -d
 ```
 
 This will:
-- Build the application container
-- Pull the MySQL 8.4 image
-- Start both containers in the background
+
+-   Build the application container
+-   Pull the MySQL 8.4 image
+-   Start both containers in the background
 
 ### 4. Install Dependencies and Initialize
 
@@ -58,7 +60,8 @@ Run the following commands to set up the application:
 
 ```bash
 # Install Composer dependencies
-docker compose exec app composer install
+# docker compose exec app composer install
+docker compose exec app composer install --no-scripts
 
 # Generate application key
 docker compose exec app php artisan key:generate
@@ -77,7 +80,8 @@ docker compose exec app npm run build
 ### 5. Access the Application
 
 Open your browser and navigate to:
-- Application: `http://localhost:8080`
+
+-   Application: `http://localhost:8080`
 
 ## Configuration Options
 
@@ -109,29 +113,32 @@ The database data is persisted in `./.docker/data` directory. This ensures your 
 ### Development Image
 
 The development image (`target: development` in docker compose.yml) includes:
-- PHP 8.4 with FPM and Nginx
-- PHP extensions: gd, xsl, exif, intl, pcov
-- User ID mapping for file permissions
+
+-   PHP 8.4 with FPM and Nginx
+-   PHP extensions: gd, xsl, exif, intl, pcov
+-   User ID mapping for file permissions
 
 ### Production Image
 
 For production deployments, use the `deploy` target which includes:
-- Optimized PHP configuration (OPcache enabled)
-- Laravel autorun automations:
-  - Database migrations
-  - Storage link creation
-  - Event caching
-  - Route caching
-  - View caching
-  - Config caching
-- Production-ready Composer dependencies
+
+-   Optimized PHP configuration (OPcache enabled)
+-   Laravel autorun automations:
+    -   Database migrations
+    -   Storage link creation
+    -   Event caching
+    -   Route caching
+    -   View caching
+    -   Config caching
+-   Production-ready Composer dependencies
 
 ### CI Image
 
 A separate CLI-based image is available for continuous integration with:
-- PHP 8.4 CLI
-- All necessary extensions for testing
-- Higher memory limit (2GB)
+
+-   PHP 8.4 CLI
+-   All necessary extensions for testing
+-   Higher memory limit (2GB)
 
 ## Common Commands
 
@@ -225,14 +232,16 @@ docker compose up -d
 ### Database Connection Issues
 
 1. Ensure the database container is running:
-   ```bash
-   docker compose ps
-   ```
+
+    ```bash
+    docker compose ps
+    ```
 
 2. Check database logs:
-   ```bash
-   docker compose logs db
-   ```
+
+    ```bash
+    docker compose logs db
+    ```
 
 3. Verify database credentials in `.env` match the docker compose.yml configuration
 
@@ -248,53 +257,58 @@ docker compose exec app chmod -R 775 storage bootstrap/cache
 ### Container Not Starting
 
 1. Check for port conflicts:
-   ```bash
-   # Check if ports 8080 or 3306 are already in use
-   lsof -i :8080
-   lsof -i :3306
-   ```
+
+    ```bash
+    # Check if ports 8080 or 3306 are already in use
+    lsof -i :8080
+    lsof -i :3306
+    ```
 
 2. View container logs:
-   ```bash
-   docker compose logs
-   ```
+
+    ```bash
+    docker compose logs
+    ```
 
 3. Rebuild containers:
-   ```bash
-   docker compose down -v
-   docker compose build --no-cache
-   docker compose up -d
-   ```
+    ```bash
+    docker compose down -v
+    docker compose build --no-cache
+    docker compose up -d
+    ```
 
 ## Production Deployment
 
 For production deployment:
 
 1. Build the production image:
-   ```bash
-   docker build --target deploy -t genealogy:latest .
-   ```
+
+    ```bash
+    docker build --target deploy -t genealogy:latest .
+    ```
 
 2. Use environment-specific configuration:
-   ```bash
-   cp .env.example .env.production
-   # Edit .env.production with production settings
-   ```
+
+    ```bash
+    cp .env.example .env.production
+    # Edit .env.production with production settings
+    ```
 
 3. Run with production environment:
-   ```bash
-   docker run -d \
-     --name genealogy-app \
-     --env-file .env.production \
-     -p 443:8443 \
-     -v ./storage:/var/www/html/storage \
-     genealogy:latest
-   ```
+    ```bash
+    docker run -d \
+      --name genealogy-app \
+      --env-file .env.production \
+      -p 443:8443 \
+      -v ./storage:/var/www/html/storage \
+      genealogy:latest
+    ```
 
 The production image automatically runs:
-- Database migrations
-- Storage link creation
-- Laravel optimizations (route, view, config caching)
+
+-   Database migrations
+-   Storage link creation
+-   Laravel optimizations (route, view, config caching)
 
 ## Data Backup
 
@@ -334,13 +348,14 @@ docker compose down --rmi all
 
 ## Additional Resources
 
-- [Server Side Up PHP Docker Images](https://serversideup.net/open-source/docker-php/)
-- [Laravel Docker Documentation](https://laravel.com/docs/deployment#docker)
-- [Docker Compose Documentation](https://docs.docker.com/compose/)
+-   [Server Side Up PHP Docker Images](https://serversideup.net/open-source/docker-php/)
+-   [Laravel Docker Documentation](https://laravel.com/docs/deployment#docker)
+-   [Docker Compose Documentation](https://docs.docker.com/compose/)
 
 ## Support
 
 For issues related to:
-- Application functionality: See main [README.md](README.md)
-- Docker setup: Submit an issue on [GitHub](https://github.com/MGeurts/genealogy/issues)
-- Server Side Up images: Visit [Server Side Up Documentation](https://serversideup.net/open-source/docker-php/docs)
+
+-   Application functionality: See main [README.md](README.md)
+-   Docker setup: Submit an issue on [GitHub](https://github.com/MGeurts/genealogy/issues)
+-   Server Side Up images: Visit [Server Side Up Documentation](https://serversideup.net/open-source/docker-php/docs)

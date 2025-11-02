@@ -4,12 +4,16 @@ services:
       context: .
       dockerfile: Dockerfile
       target: development
+      args:
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
     container_name: genealogy-app
     restart: unless-stopped
     ports:
       - "${APP_PORT:-8080}:8080"
     volumes:
       - .:/var/www/html:delegated
+      - ./vendor:/var/www/html/vendor:delegated
     networks:
       - genealogy-network
     depends_on:
