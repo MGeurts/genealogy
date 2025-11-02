@@ -8,6 +8,7 @@ The Docker setup consists of:
 
 -   **Application Container**: PHP 8.4 with FPM and Nginx (based on [Server Side Up Docker images](https://serversideup.net/open-source/docker-php/))
 -   **Database Container**: MySQL 8.4
+-   **Vite Container**: Node.js 23 Alpine for frontend development server
 
 ## Prerequisites
 
@@ -71,17 +72,16 @@ docker compose exec app php artisan storage:link
 
 # Run database migrations and seeders
 docker compose exec app php artisan migrate:fresh --seed
-
-# Install and build frontend assets
-docker compose exec app npm install
-docker compose exec app npm run build
 ```
+
+The Vite service will automatically install npm packages and start the development server when you run `docker compose up -d`.
 
 ### 5. Access the Application
 
 Open your browser and navigate to:
 
 -   Application: `http://localhost:8080`
+-   Vite Dev Server: `http://localhost:5173` (for frontend development with hot module replacement)
 
 ## Configuration Options
 
@@ -95,6 +95,9 @@ APP_PORT=8080
 
 # Database external port (default: 3306)
 DB_EXTERNAL_PORT=3306
+
+# Vite dev server port (default: 5173)
+VITE_PORT=5173
 ```
 
 Then restart the containers:
@@ -194,16 +197,46 @@ docker compose exec app composer dump-autoload
 
 ### NPM Commands
 
+The Vite container automatically runs `npm install` and `npm run dev` on startup. You can also run npm commands manually:
+
 ```bash
-# Install packages
+# Restart Vite dev server
+docker compose restart vite
+
+# View Vite logs
+docker compose logs -f vite
+
+# Run npm commands in the Vite container
+docker compose exec vite npm install
+
+# Build for production (run in Vite container)
+docker compose exec vite npm run build
+
+# Alternatively, you can still run npm commands in the app container if needed
 docker compose exec app npm install
-
-# Build for development
-docker compose exec app npm run dev
-
-# Build for production
 docker compose exec app npm run build
 ```
+
+### Frontend Development
+
+The Vite container provides hot module replacement (HMR) for frontend development:
+
+```bash
+# The Vite dev server starts automatically with docker compose up
+# Access it at http://localhost:5173
+
+# Watch Vite server logs
+docker compose logs -f vite
+
+# Restart the Vite server if needed
+docker compose restart vite
+
+# For production builds, stop the Vite container and build assets
+docker compose stop vite
+docker compose exec vite npm run build
+```
+
+**Note:** When developing, your Laravel application at `http://localhost:8080` will automatically use the Vite dev server for hot module replacement. Changes to CSS and JavaScript files will be reflected immediately in your browser.
 
 ### Testing
 

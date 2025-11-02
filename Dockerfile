@@ -49,6 +49,56 @@ USER root
 RUN install-php-extensions intl gd xsl exif pcov
 
 ############################################
+# Composer stage for installing PHP dependencies
+############################################
+FROM composer:2 AS composer-stage
+
+WORKDIR /app
+
+# Copy composer files
+COPY composer.json composer.lock ./
+
+# Install PHP dependencies (needed for Filament CSS files)
+# Ignore platform requirements since we're only extracting CSS files
+# Disable SSL verification due to Docker build environment constraints
+RUN composer config --global disable-tls true && \
+    composer config --global secure-http false && \
+    composer install --no-dev --no-scripts --no-autoloader --prefer-dist \
+    --ignore-platform-req=ext-intl \
+    --ignore-platform-req=ext-exif \
+    --ignore-platform-req=ext-gd \
+    --ignore-platform-req=ext-xsl
+
+############################################
+# Node stage for compiling assets
+############################################
+FROM node:20 AS node
+
+WORKDIR /app
+
+# Copy package files
+COPY package.json package-lock.json* ./
+
+# Install dependencies using yarn (pre-installed and more reliable than npm in Docker)
+# Disable strict SSL temporarily due to Docker build environment constraints
+RUN yarn config set strict-ssl false && \
+    yarn install --network-timeout 1000000 && \
+    yarn config set strict-ssl true
+
+# Copy source files needed for build
+COPY resources ./resources
+COPY public ./public
+COPY vite.config.js ./
+COPY tailwind.config.js ./
+COPY storage ./storage
+
+# Copy vendor directory from composer stage (needed for Filament CSS imports)
+COPY --from=composer-stage /app/vendor ./vendor
+
+# Build assets
+RUN npm run build
+
+############################################
 # Production Image
 ############################################
 FROM base AS deploy
@@ -67,6 +117,8 @@ ENV PHP_OPCACHE_ENABLE=1
 COPY --chown=www-data:www-data . /var/www/html
 COPY --chown=www-data:www-data --chmod=755 .docker/etc/entrypoint.d /etc/entrypoint.d
 
+# Copy compiled assets from node stage
+COPY --from=node --chown=www-data:www-data /app/public/build /var/www/html/public/build
 
 RUN rm -rf tests/
 

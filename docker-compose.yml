@@ -12,13 +12,12 @@ services:
     ports:
       - "${APP_PORT:-8080}:8080"
     volumes:
-      - .:/var/www/html:delegated
-      - ./vendor:/var/www/html/vendor:delegated
+      - .:/var/www/html
+      - ./vendor:/var/www/html/vendor
     networks:
       - genealogy-network
     depends_on:
       - db
-
   db:
     image: mysql:8.4
     container_name: genealogy-db
@@ -32,6 +31,24 @@ services:
     networks:
       - genealogy-network
 
+  vite:
+    image: node:23-alpine
+    container_name: genealogy-vite
+    working_dir: /app
+    ports:
+      - "${VITE_PORT:-5173}:${VITE_PORT:-5173}"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    networks:
+      - genealogy-network
+    command: sh -c "npm install && npm run dev"
+    stdin_open: true
+    tty: true
+
 networks:
   genealogy-network:
     driver: bridge
+
+volumes:
+  node_modules:
