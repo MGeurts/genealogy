@@ -6461,16 +6461,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "11.17.0",
+            "version": "11.17.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "0d58f3184d6449e3173ee3e44b29dc5ff7425d71"
+                "reference": "3e535836da341776b1616002eb9e2a5776fa9a4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/0d58f3184d6449e3173ee3e44b29dc5ff7425d71",
-                "reference": "0d58f3184d6449e3173ee3e44b29dc5ff7425d71",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/3e535836da341776b1616002eb9e2a5776fa9a4d",
+                "reference": "3e535836da341776b1616002eb9e2a5776fa9a4d",
                 "shasum": ""
             },
             "require": {
@@ -6489,7 +6489,7 @@
                 "spatie/image": "^3.3.2",
                 "spatie/laravel-package-tools": "^1.16.1",
                 "spatie/temporary-directory": "^2.2",
-                "symfony/console": "^6.4.1|^7.0"
+                "symfony/console": "^6.4.1|^7.0|^8.0"
             },
             "conflict": {
                 "php-ffmpeg/php-ffmpeg": "<0.6.1"
@@ -6555,7 +6555,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-medialibrary/issues",
-                "source": "https://github.com/spatie/laravel-medialibrary/tree/11.17.0"
+                "source": "https://github.com/spatie/laravel-medialibrary/tree/11.17.2"
             },
             "funding": [
                 {
@@ -6567,7 +6567,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-10-22T08:01:45+00:00"
+            "time": "2025-11-03T08:29:05+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
