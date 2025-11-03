@@ -346,7 +346,11 @@ Testing is done using <a href="https://pestphp.com/">Pest</a>.<br/>
 Command: `php artisan test` or `./vendor/bin/pest`<br/>
 
 <b>Production (or local development) data</b> should be stored in a MySQL or MariaDB database configured in `.env`.<br /><br />
-<b>Testing data</b> should be stored in a separate MySQL or MariaDB database configured in `.env.testing` to avoid interfering with the production or development data.
+<b>Testing data</b> should be stored in a separate MySQL or MariaDB database configured in `.env.testing` to avoid interfering with the production or development data.<br /><br />
+
+Command to create the testing MySQL database:
+
+`php artisan migrate --env=testing`
 
 ## Contributing
 
