@@ -173,42 +173,22 @@ final class Team extends JetstreamTeam
             // Load relationships once to avoid N+1 queries
             $this->load(['couples', 'users']);
 
-            // Disable activity logging globally during cleanup
-            config(['activitylog.enabled' => false]);
+            // Delete all persons and their photos and files
+            $this->persons->each(function ($person): void {
+                // TODO
+                // remove photos
+                // remove files
 
-            try {
-                // Delete all persons and their photos and files
-                $this->persons->each(function ($person): void {
-                    // remove photos
-                    // remove files
+                $person->forceDelete();
+            });
 
-                    $person->forceDelete();
-                });
+            // Delete all couples
+            $this->couples->each(function ($couple): void {
+                $couple->delete();
+            });
 
-                // Delete all couples
-                $this->couples->each(function ($couple): void {
-                    $couple->delete();
-                });
-
-                // Disconnect all users from this team
-                $this->users()->detach();
-            } finally {
-                // Re-enable activity logging
-                config(['activitylog.enabled' => true]);
-            }
-
-            // Log a single comprehensive activity after cleanup
-            activity()
-                ->causedBy(auth()->user())
-                ->performedOn($this)
-                ->withProperties([
-                    'deleted_persons_count' => $this->persons->count(),
-                    'deleted_couples_count' => $this->couples->count(),
-                    'detached_users_count'  => $this->users->count(),
-                    'team_name'             => $this->name,
-                    'reason'                => 'Developer force delete with cleanup',
-                ])
-                ->log('Team deleted with full cleanup by developer');
+            // Disconnect all users from this team
+            $this->users()->detach();
         });
     }
 }
