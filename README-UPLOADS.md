@@ -23,7 +23,7 @@ php artisan photos:migrate
 **What changed in version 4.5.0:**
 
 -   **Before 4.5.0**: Photos were stored in separate folders (`photos/`, `photos-096/`, `photos-384/`) with a flat `teamId/filename` structure
--   **From 4.5.0**: Photos are stored in a unified `photos/` folder with nested `teamId/personId/` structure
+-   **From 4.5.0**: Photos are stored in a unified `photos/` folder with a nested `teamId/personId/` structure
 
 **Migration features:**
 
@@ -49,7 +49,8 @@ Uploaded photos are saved in the photos folder using the filename template:
 `personId_sequence_timestamp[_size].webp`
 
     Example:
-    552_001_20250815T073948.webp           (original)
+    552_001_20250815T073948.webp           (original, untouched)
+    552_001_20250815T073948_large.webp     (large size, by default 1920 pixels wide)
     552_001_20250815T073948_medium.webp    (medium size, by default 384 pixels wide)
     552_001_20250815T073948_small.webp     (small size, by default 96 pixels wide)
 

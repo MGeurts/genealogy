@@ -22,13 +22,13 @@ php artisan photos:migrate [--dry-run]
 storage/app/public/
 ├── photos/          (original size)
     └── {teamId}/
-        ├── {personId}_{index}_{timestamp}.{ext}
+        └── {personId}_{index}_{timestamp}.{ext}
 ├── photos-096/      (small size)
     └── {teamId}/
-        ├── {personId}_{index}_{timestamp}.{ext}
+        └── {personId}_{index}_{timestamp}.{ext}
 └── photos-384/      (medium size)
     └── {teamId}/
-        ├── {personId}_{index}_{timestamp}.{ext}
+        └── {personId}_{index}_{timestamp}.{ext}
 ```
 
 ### To (New Structure)
@@ -38,8 +38,9 @@ storage/app/public/photos/
 └── {teamId}/
     └── {personId}/
         ├── {personId}_{index}_{timestamp}.{ext}         (original size)
-        ├── {personId}_{index}_{timestamp}_small.{ext}   (small size)
-        └── {personId}_{index}_{timestamp}_medium.{ext}  (medium size)
+        ├── {personId}_{index}_{timestamp}_large.{ext}   (large size)
+        ├── {personId}_{index}_{timestamp}_medium.{ext}  (medium size)
+        └── {personId}_{index}_{timestamp}_small.{ext}   (small size)
 ```
 
 ### Backup Structure (Created Automatically)
@@ -73,7 +74,7 @@ The command supports all common image file formats:
 5. **Extracts metadata** from the file path:
     - Team ID from the first directory level
     - Person ID from the filename (everything before the first underscore)
-6. **Renames files** by adding size suffixes (`_small`, `_medium`) for non-original images while preserving file extensions
+6. **Renames files** by adding size suffixes (`_large`, `_medium`, `_small`) for non-original images while preserving file extensions
 7. **Creates the new directory structure** (`photos/{teamId}/{personId}/`)
 8. **Copies files** to their new locations
 9. **Deletes original files** after successful copy
