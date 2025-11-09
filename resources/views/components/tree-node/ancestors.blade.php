@@ -29,7 +29,11 @@ $ancestors_next = $ancestors->where('degree', $level_current)->filter(function (
                     @endif
                 </div>
 
-                <figcaption @class(['text-red-600 dark:text-red-400' => $person->dod or $person->yod, 'text-primary-500 dark:text-primary-300' => !($person->dod or $person->yod)])>
+                <figcaption @class([
+                    'text-red-600 dark:text-red-400' => $person->dod or $person->yod,
+                    'text-primary-500 dark:text-primary-300' => !($person->dod or $person->yod),
+                    'line-clamp-2 text-xs leading-tight w-24 wrap-break-word'
+                ]) title="{{ implode(' ', array_filter([$person->firstname, $person->surname])) }}">
                     {{ implode(' ', array_filter([$person->firstname, $person->surname])) }}
                 </figcaption>
             </figure>
