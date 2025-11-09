@@ -496,25 +496,6 @@ final class Person extends Model implements HasMedia
     }
 
     /* -------------------------------------------------------------------------------------------- */
-    // Actions
-    /* -------------------------------------------------------------------------------------------- */
-    public function deletePhotos(): void
-    {
-        defer(function (): void {
-            $personPath = $this->team_id . '/' . $this->id;
-
-            Storage::disk('photos')->deleteDirectory($personPath);
-        });
-    }
-
-    public function deleteFiles(): void
-    {
-        defer(function (): void {
-            $this->clearMediaCollection('files');
-        });
-    }
-
-    /* -------------------------------------------------------------------------------------------- */
     // Scopes (global)
     /* -------------------------------------------------------------------------------------------- */
     #[Override]
@@ -531,9 +512,11 @@ final class Person extends Model implements HasMedia
 
         // Handle force deletes (permanent deletion only)
         self::forceDeleted(function (Person $person): void {
-            // Clean up files/photos when permanently deleted
-            $person->deletePhotos();
-            $person->deleteFiles();
+            // Clean up photos
+            Storage::disk('photos')->deleteDirectory($person->team_id . '/' . $person->id);
+
+            // Clean up files
+            $person->clearMediaCollection('files');
         });
     }
 
