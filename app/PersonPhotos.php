@@ -211,7 +211,7 @@ final class PersonPhotos
     {
         // Create the full path at once (recursive)
         if (! $this->photosDisk->exists($this->personPath)) {
-            $this->photosDisk->makeDirectory($this->personPath, 0755, true);
+            $this->photosDisk->makeDirectory($this->personPath);
         }
     }
 
