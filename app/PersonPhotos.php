@@ -9,7 +9,6 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 use Throwable;
@@ -173,43 +172,6 @@ final class PersonPhotos
 
             return false;
         }
-    }
-
-    /**
-     * Count total photos for this person.
-     * Counts original files only (without size suffix).
-     *
-     * @return int Number of photos
-     */
-    public function countPhotos(): int
-    {
-        // allthough we could call $this->person->countPhotos(), we prefer to use cached files
-        $files = $this->getPersonFiles();
-
-        if (empty($files)) {
-            return 0;
-        }
-
-        // Derive valid extensions from app config
-        $validExtensions = collect(config('app.upload_photo_accept'))
-            ->keys()
-            ->map(fn ($mime) => Str::after($mime, '/'))
-            ->push('jpg') // ensure "jpg" is included
-            ->unique()
-            ->toArray();
-
-        $baseNames = collect($files)
-            ->filter(function ($file) use ($validExtensions) {
-                $extension = mb_strtolower(pathinfo($file, PATHINFO_EXTENSION));
-                $ignored   = ['gitignore', 'db'];
-
-                return in_array($extension, $validExtensions) && ! in_array($extension, $ignored);
-            })
-            ->map(fn ($file) => pathinfo($file, PATHINFO_FILENAME))
-            ->map(fn ($name) => preg_replace('/_(large|medium|small)$/i', '', $name))
-            ->unique();
-
-        return $baseNames->count();
     }
 
     /**
