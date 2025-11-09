@@ -75,19 +75,19 @@
             <tbody>
                 <tr class="align-top">
                     <td class="pr-2 border-t-2 border-r-2">{{ __('person.firstname') }}</td>
-                    <td class="pl-2 break-words border-t-2 max-w-sm">{{ $person->firstname }}</td>
+                    <td class="pl-2 wrap-break-word border-t-2 max-w-sm">{{ $person->firstname }}</td>
                 </tr>
                 <tr class="align-top">
                     <td class="pr-2 border-r-2">{{ __('person.surname') }}</td>
-                    <td class="pl-2 break-words max-w-sm">{{ $person->surname }}</td>
+                    <td class="pl-2 wrap-break-word max-w-sm">{{ $person->surname }}</td>
                 </tr>
                 <tr class="align-top">
                     <td class="pr-2 border-r-2">{{ __('person.birthname') }}</td>
-                    <td class="pl-2 break-words max-w-sm">{{ $person->birthname }}</td>
+                    <td class="pl-2 wrap-break-word max-w-sm">{{ $person->birthname }}</td>
                 </tr>
                 <tr class="align-top border-b-2">
                     <td class="pr-2 border-r-2">{{ __('person.nickname') }}</td>
-                    <td class="pl-2 break-words max-w-sm">{{ $person->nickname }}</td>
+                    <td class="pl-2 wrap-break-word max-w-sm">{{ $person->nickname }}</td>
                 </tr>
 
                 <tr class="align-top">
@@ -99,7 +99,7 @@
                 </tr>
                 <tr class="align-top border-b-2">
                     <td class="pr-2 border-r-2">{{ __('person.gender') }}</td>
-                    <td class="pl-2 break-words max-w-sm">{{ $person->gender ? $person->gender->name : '' }}</td>
+                    <td class="pl-2 wrap-break-word max-w-sm">{{ $person->gender ? $person->gender->name : '' }}</td>
                 </tr>
 
                 <tr class="align-top">
@@ -113,7 +113,7 @@
                 </tr>
                 <tr class="align-top border-b-2">
                     <td class="pr-2 border-r-2">{{ __('person.pob') }}</td>
-                    <td class="pl-2 break-words max-w-sm">{{ $person->pob }}</td>
+                    <td class="pl-2 wrap-break-word max-w-sm">{{ $person->pob }}</td>
                 </tr>
 
                 @if ($person->isDeceased())
@@ -128,11 +128,11 @@
                     </tr>
                     <tr class="align-top border-b-2">
                         <td class="pr-2 border-r-2">{{ __('person.pod') }}</td>
-                        <td class="pl-2 break-words max-w-sm">{{ $person->pod }}</td>
+                        <td class="pl-2 wrap-break-word max-w-sm">{{ $person->pod }}</td>
                     </tr>
                     <tr class="align-top">
                         <td class="pr-2 border-r-2">{{ __('person.cemetery') }}</td>
-                        <td class="pl-2 break-words max-w-sm">{{ $person->getMetadataValue('cemetery_location_name') }}</td>
+                        <td class="pl-2 wrap-break-word max-w-sm">{{ $person->getMetadataValue('cemetery_location_name') }}</td>
                     </tr>
                     <tr class="align-top">
                         <td class="pr-2 border-b-2 border-r-2">
@@ -144,7 +144,7 @@
                                 </a>
                             @endif
                         </td>
-                        <td class="pl-2 break-words whitespace-pre-line border-b-2 max-w-sm">{{ $person->getMetadataValue('cemetery_location_address') }}</td>
+                        <td class="pl-2 wrap-break-word whitespace-pre-line border-b-2 max-w-sm">{{ $person->getMetadataValue('cemetery_location_address') }}</td>
                     </tr>
                 @else
                     <tr class="align-top">
@@ -158,17 +158,17 @@
                                 </a>
                             @endif
                         </td>
-                        <td class="pl-2 break-words whitespace-pre-line border-b-2 max-w-sm">{{ $person->address }}</td>
+                        <td class="pl-2 wrap-break-word whitespace-pre-line border-b-2 max-w-sm">{{ $person->address }}</td>
                     </tr>
                     <tr class="align-top">
                         <td class="pr-2 border-b-2 border-r-2">{{ __('person.phone') }}</td>
-                        <td class="pl-2 break-words border-b-2 max-w-sm">{{ $person->phone }}</td>
+                        <td class="pl-2 wrap-break-word border-b-2 max-w-sm">{{ $person->phone }}</td>
                     </tr>
                 @endif
 
                 <tr class="align-top border-b-2">
                     <td class="pr-2 border-r-2">{{ __('person.summary') }}</td>
-                    <td class="pl-2 break-words whitespace-pre-line max-w-sm">{{ $person->summary }}</td>
+                    <td class="pl-2 wrap-break-word whitespace-pre-line max-w-sm">{{ $person->summary }}</td>
                 </tr>
             </tbody>
         </table>

@@ -12,22 +12,22 @@
             <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.firstname') }} :</td>
-                <td class="break-words max-w-sm">{{ $person->firstname }}</td>
+                <td class="wrap-break-word max-w-sm">{{ $person->firstname }}</td>
             </tr>
             <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.surname') }} :</td>
-                <td class="break-words max-w-sm">{{ $person->surname }}</td>
+                <td class="wrap-break-word max-w-sm">{{ $person->surname }}</td>
             </tr>
             <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.birthname') }} :</td>
-                <td class="break-words max-w-sm">{{ $person->birthname }}</td>
+                <td class="wrap-break-word max-w-sm">{{ $person->birthname }}</td>
             </tr>
             <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.nickname') }} :</td>
-                <td class="break-words max-w-sm">{{ $person->nickname }}</td>
+                <td class="wrap-break-word max-w-sm">{{ $person->nickname }}</td>
             </tr>
 
             {{-- sex & gender --}}
@@ -47,7 +47,7 @@
             <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.gender') }} :</td>
-                <td class="break-words max-w-sm">{{ $person->gender ? $person->gender->name : '' }}</td>
+                <td class="wrap-break-word max-w-sm">{{ $person->gender ? $person->gender->name : '' }}</td>
             </tr>
 
             {{-- birth --}}
@@ -64,7 +64,7 @@
             <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
                 <td>{{ __('person.pob') }} :</td>
-                <td class="break-words max-w-sm">{{ $person->pob }}</td>
+                <td class="wrap-break-word max-w-sm">{{ $person->pob }}</td>
             </tr>
             <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
@@ -87,12 +87,12 @@
                 <tr class="align-top">
                     <td colspan="2">&nbsp;</td>
                     <td>{{ __('person.pod') }} :</td>
-                    <td class="break-words max-w-sm">{{ $person->pod }}</td>
+                    <td class="wrap-break-word max-w-sm">{{ $person->pod }}</td>
                 </tr>
                 <tr class="align-top">
                     <td colspan="2">&nbsp;</td>
                     <td>{{ __('person.cemetery') }} :</td>
-                    <td class="break-words max-w-sm">
+                    <td class="wrap-break-word max-w-sm">
                         @php
                             $cemetery = array_filter([$person->getMetadataValue('cemetery_location_name'), $person->getMetadataValue('cemetery_location_address')]);
                         @endphp
@@ -116,12 +116,12 @@
                 <tr class="align-top">
                     <td colspan="2">&nbsp;</td>
                     <td>{{ __('person.address') }} :</td>
-                    <td class="break-words whitespace-pre-line max-w-sm">{{ $person->address }}</td>
+                    <td class="wrap-break-word whitespace-pre-line max-w-sm">{{ $person->address }}</td>
                 </tr>
                 <tr class="align-top">
                     <td colspan="2">&nbsp;</td>
                     <td>{{ __('person.phone') }} :</td>
-                    <td class="break-words max-w-sm">{{ $person->phone }}</td>
+                    <td class="wrap-break-word max-w-sm">{{ $person->phone }}</td>
                 </tr>
             @endif
 
@@ -137,7 +137,7 @@
 
             <tr class="align-top">
                 <td colspan="2">&nbsp;</td>
-                <td colspan="2" class="break-words whitespace-pre-line max-w-sm">{{ $person->summary }}</td>
+                <td colspan="2" class="wrap-break-word whitespace-pre-line max-w-sm">{{ $person->summary }}</td>
             </tr>
 
             <tr>
