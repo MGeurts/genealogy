@@ -173,12 +173,7 @@ final class Team extends JetstreamTeam
             // Load relationships once to avoid N+1 queries
             $this->load(['couples', 'users']);
 
-            // Delete all persons and their photos and files
             $this->persons->each(function ($person): void {
-                // TODO
-                // remove photos
-                // remove files
-
                 $person->forceDelete();
             });
 
