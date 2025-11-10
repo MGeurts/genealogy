@@ -173,13 +173,13 @@ final class Team extends JetstreamTeam
             // Load relationships once to avoid N+1 queries
             $this->load(['couples', 'users']);
 
-            $this->persons->each(function ($person): void {
-                $person->forceDelete();
-            });
-
             // Delete all couples
             $this->couples->each(function ($couple): void {
                 $couple->delete();
+            });
+
+            $this->persons->each(function ($person): void {
+                $person->forceDelete();
             });
 
             // Disconnect all users from this team
