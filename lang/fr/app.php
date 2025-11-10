@@ -14,6 +14,8 @@ return [
     'useful_links'              => 'Liens utiles',
     'impressum'                 => 'Mentions légales',
     'log_viewer'                => 'Visionneuse de journaux',
+    'all'                       => 'Tous',
+    'filter'                    => 'Filtrer',
     'api_tokens'                => 'Jetons API',
     'attention'                 => 'Attention',
     'contact'                   => 'Contact',

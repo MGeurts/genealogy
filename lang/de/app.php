@@ -17,6 +17,8 @@ return [
     'log_viewer'       => 'Protokollbetrachter',
 
     // Labels
+    'all'               => 'Alle',
+    'filter'            => 'Filter',
     'api_tokens'        => 'API-Token',
     'attention'         => 'Achtung',
     'contact'           => 'Kontakt',

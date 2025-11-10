@@ -14,6 +14,8 @@ return [
     'useful_links'              => 'Links úteis',
     'impressum'                 => 'Impressão',
     'log_viewer'                => 'Visualizador de registros',
+    'all'                       => 'Todos',
+    'filter'                    => 'Filtrar',
     'api_tokens'                => 'Tokens de API',
     'attention'                 => 'Atenção',
     'contact'                   => 'Contato',

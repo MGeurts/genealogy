@@ -17,6 +17,8 @@ return [
     'log_viewer'       => 'Günlük Görüntüleyici',
 
     // Etiketler
+    'all'               => 'Tümü',
+    'filter'            => 'Filtre',
     'api_tokens'        => 'API Jetonları',
     'attention'         => 'Dikkat',
     'contact'           => 'İletişim',

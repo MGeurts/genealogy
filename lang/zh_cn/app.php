@@ -17,6 +17,8 @@ return [
     'log_viewer'       => '日志查看',
 
     // 标签
+    'all'               => '全部',
+    'filter'            => '筛选',
     'api_tokens'        => 'API-Token',
     'attention'         => '注意',
     'contact'           => '联系地址',

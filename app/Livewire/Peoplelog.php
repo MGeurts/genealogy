@@ -13,22 +13,42 @@ final class Peoplelog extends Component
 {
     use WithPagination;
 
-    public $perPage = 50;
+    public $perPage = 25;
+
+    public $subjectTypeFilter = 'all';
 
     // -----------------------------------------------------------------------
     public function render(): View
     {
         $timezone = session('timezone', 'UTC');
 
-        $activities = Activity::with('causer')
+        $query = Activity::with('causer')
             ->where('log_name', 'person_couple')
             ->where('team_id', auth()->user()->currentTeam->id)
-            ->where('updated_at', '>=', today()->startOfMonth()->subMonths(1))
+            ->where('updated_at', '>=', today()->startOfMonth()->subMonths(1));
+
+        // Apply subject_type filter if not 'all'
+        if ($this->subjectTypeFilter !== 'all') {
+            $query->where('subject_type', $this->subjectTypeFilter);
+        }
+
+        $activities = $query
             ->orderBy('updated_at', 'desc')
             ->paginate($this->perPage);
 
+        // Get distinct subject types for the filter dropdown
+        $subjectTypes = Activity::where('log_name', 'person_couple')
+            ->where('team_id', auth()->user()->currentTeam->id)
+            ->where('updated_at', '>=', today()->startOfMonth()->subMonths(1))
+            ->distinct()
+            ->pluck('subject_type')
+            ->map(fn ($type) => class_basename($type))
+            ->sort()
+            ->values()
+            ->toArray();
+
         // Transform only the current page data
-        $logs = $activities->getCollection()->map(function ($record) use ($timezone) {
+        $logs = $activities->getCollection()->map(function ($record) use ($timezone): array {
             $event = $record->event;
 
             return [
@@ -46,11 +66,17 @@ final class Peoplelog extends Component
         // Replace the collection with transformed data
         $activities->setCollection($logs);
 
-        return view('livewire.peoplelog', compact('activities'));
+        return view('livewire.peoplelog', compact('activities', 'subjectTypes'));
     }
 
-    // Optional: Method to change per page
-    public function updatedPerPage()
+    // Reset pagination when filter changes
+    public function updatedSubjectTypeFilter(): void
+    {
+        $this->resetPage();
+    }
+
+    // Reset pagination when per page changes
+    public function updatedPerPage(): void
     {
         $this->resetPage();
     }

@@ -17,6 +17,37 @@
 
     {{-- card body --}}
     <div class="p-2 text-sm border-t-2 rounded-b border-neutral-100 dark:border-neutral-600 bg-neutral-200">
+        {{-- Filter Section --}}
+        <div class="mb-4 p-3 bg-white dark:bg-neutral-800 rounded">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+                {{-- Subject Type Filter (Left) --}}
+                <div class="flex-1 grow min-w-max max-w-36">
+                    <div>
+                        <x-ts-select.styled label="{{ __('app.filter') }}"  wire:model.live="subjectTypeFilter" :options="[
+                            ['label' => __('app.all'), 'value' => 'all'],
+                            ...collect($subjectTypes)->map(fn($type): array => [
+                                'label' => $type,
+                                'value' => 'App\Models\\' . $type
+                            ])->toArray()
+                        ]" select="label:label|value:value" required />
+                    </div>
+                </div>
+
+                {{-- Per Page Selector (Right) --}}
+                <div class="flex-1 grow min-w-max max-w-36 text-end">
+                    <div>
+                        <x-ts-select.styled label="{{ __('pagination.per_page') }}" wire:model.live="perPage" :options="[
+                            ['label' => '5', 'value' => 5],
+                            ['label' => '10', 'value' => 10],
+                            ['label' => '25', 'value' => 25],
+                            ['label' => '50', 'value' => 50],
+                            ['label' => '100', 'value' => 100],
+                        ]" select="label:label|value:value" required />
+                    </div>
+                </div>
+            </div>
+        </div>
+
         @if ($activities->count() > 0)
             {{-- Pagination controls at top --}}
             <div class="mb-4">
@@ -53,11 +84,11 @@
                                         ];
                                     })
                                     ->toArray();
-                                        @endphp
+                            @endphp
 
-                                        <x-ts-table :$headers :$rows striped />
+                            <x-ts-table :$headers :$rows striped />
 
-                                        {{-- new values --}}
+                            {{-- new values --}}
                             @php
                                 $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.new')]];
 

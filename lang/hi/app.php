@@ -14,6 +14,8 @@ return [
     'useful_links'              => 'उपयोगी कड़ियां',
     'impressum'                 => 'इम्प्रैसेम',
     'log_viewer'                => 'लॉग देखने वाला',
+    'all'                       => 'सभी',
+    'filter'                    => 'फ़िल्टर',
     'api_tokens'                => 'एपीआई टोकन',
     'attention'                 => 'ध्यान',
     'contact'                   => 'संपर्क',

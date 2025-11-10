@@ -17,6 +17,8 @@ return [
     'log_viewer'       => 'Penampil Log',
 
     // Labels
+    'all'               => 'Semua',
+    'filter'            => 'Filter',
     'api_tokens'        => 'Token API',
     'attention'         => 'Perhatian',
     'contact'           => 'Kontak',

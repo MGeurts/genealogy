@@ -17,6 +17,8 @@ return [
     'log_viewer'       => 'Trình xem nhật ký',
 
     // Labels
+    'all'               => 'Tất cả',
+    'filter'            => 'Bộ lọc',
     'api_tokens'        => 'Mã thông báo API',
     'attention'         => 'Chú ý',
     'contact'           => 'Liên hệ',

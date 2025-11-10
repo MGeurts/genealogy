@@ -17,6 +17,8 @@ return [
     'log_viewer'       => 'Log Viewer',
 
     // Labels
+    'all'               => 'All',
+    'filter'            => 'Filter',
     'api_tokens'        => 'API tokens',
     'attention'         => 'Attention',
     'contact'           => 'Contact',
