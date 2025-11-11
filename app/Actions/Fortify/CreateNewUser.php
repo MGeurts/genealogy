@@ -7,7 +7,6 @@ namespace App\Actions\Fortify;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
@@ -40,7 +39,7 @@ final class CreateNewUser implements CreatesNewUsers
             'email'     => $input['email'],
             'language'  => $input['language'],
             'timezone'  => $input['timezone'],
-            'password'  => Hash::make($input['password']),
+            'password'  => $input['password'],
         ]), function (User $user): void {
             $this->createTeam($user);
         }));
