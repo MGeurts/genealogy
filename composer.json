@@ -34,10 +34,10 @@
     ],
     "require": {
         "php": "^8.3",
-        "filament/tables": "^4.1",
+        "filament/tables": "^4.2",
         "intervention/image": "^3.11",
         "korridor/laravel-has-many-merged": "^1.2",
-        "laravel/framework": "^12.36",
+        "laravel/framework": "^12.37",
         "laravel/jetstream": "^5.3",
         "laravel/sanctum": "^4.2",
         "laravel/tinker": "^2.10",
@@ -47,7 +47,7 @@
         "spatie/laravel-activitylog": "^4.10",
         "spatie/laravel-backup": "^9.3",
         "spatie/laravel-medialibrary": "^11.17",
-        "stefangabos/world_countries": "^3.2",
+        "stefangabos/world_countries": "^3.3",
         "stevebauman/location": "^7.6",
         "tallstackui/tallstackui": "^2.14"
     },
