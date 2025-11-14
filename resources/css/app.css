@@ -92,19 +92,28 @@
   z-index: 0;
 }
 /* -------------------------------------------- */
+/* Ribbon overlay — always stays bottom-right   */
+/* -------------------------------------------- */
 .ribbon {
-  --f: 5px;   /* control the folded part*/
-  --r: 5px;   /* control the ribbon shape */
-  --b: 2px;   /* control the bottom offset */
+  --f: 5px; /* folded part size */
+  --r: 5px; /* ribbon notch radius */
+  --b: 0px; /* bottom offset (set 0 for tight corner fit) */
 
   position: absolute;
-  inset: auto calc(-1*var(--f)) var(--b) auto;
+  right: 0;
+  bottom: var(--b);
   padding: 0 10px var(--f) calc(10px + var(--r));
-  clip-path:
-    polygon(0 0,100% 0,100% calc(100% - var(--f)),calc(100% - var(--f)) 100%,
-    calc(100% - var(--f)) calc(100% - var(--f)),0 calc(100% - var(--f)),
-    var(--r) calc(50% - var(--f)/2));
-  background: #BD1550;
-  color: #FFFFFF;
-  box-shadow: 0 calc(-1*var(--f)) 0 inset #0005;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - var(--f)),
+    calc(100% - var(--f)) 100%,
+    calc(100% - var(--f)) calc(100% - var(--f)),
+    0 calc(100% - var(--f)),
+    var(--r) calc(50% - var(--f) / 2)
+  );
+  background: #bd1550;
+  color: #ffffff;
+  box-shadow: 0 calc(-1 * var(--f)) 0 inset #0005;
 }
+

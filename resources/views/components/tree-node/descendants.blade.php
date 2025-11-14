@@ -1,13 +1,13 @@
 @props(['person', 'descendants', 'level_current' => 0, 'level_max'])
 
 @php
-$level_current++;
+    $level_current++;
 
-$person_sequence = $descendants->firstWhere('id', $person->id)->sequence;
+    $person_sequence = $descendants->firstWhere('id', $person->id)->sequence;
 
-$descendants_next = $descendants->where('degree', $level_current)->filter(function ($item) use ($person_sequence): bool {
-    return strpos($item->sequence, $person_sequence) !== false;
-});
+    $descendants_next = $descendants->where('degree', $level_current)->filter(function ($item) use ($person_sequence): bool {
+        return strpos($item->sequence, $person_sequence) !== false;
+    });
 @endphp
 
 <li>
@@ -18,6 +18,7 @@ $descendants_next = $descendants->where('degree', $level_current)->filter(functi
                     @php
                         $photoPath = $person->team_id . '/' . $person->id . '/' . $person->photo . '_small.webp';
                     @endphp
+
                     @if ($person->photo && Storage::disk('photos')->exists($photoPath))
                         <img src="{{ Storage::disk('photos')->url($photoPath) }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
                     @else
@@ -25,7 +26,7 @@ $descendants_next = $descendants->where('degree', $level_current)->filter(functi
                     @endif
 
                     @if ($person->dod or $person->yod)
-                        <div class="ribbon">{{ __('person.deceased') }}</div>
+                        <div class="ribbon" title="{{ __('person.deceased') }}">&nbsp;</div>
                     @endif
                 </div>
 
