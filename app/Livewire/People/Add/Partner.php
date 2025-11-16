@@ -6,13 +6,12 @@ namespace App\Livewire\People\Add;
 
 use App\Livewire\Forms\People\PersonForm;
 use App\Livewire\Traits\HandlesPhotoUploads;
+use App\Livewire\Traits\SavesPersonPhotos;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Couple;
 use App\Models\Person;
-use App\PersonPhotos;
 use App\Rules\DobValid;
 use App\Rules\YobValid;
-use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -21,7 +20,7 @@ use TallStackUi\Traits\Interactions;
 
 final class Partner extends Component
 {
-    use HandlesPhotoUploads;
+    use HandlesPhotoUploads, SavesPersonPhotos;
     use Interactions, WithFileUploads;
     use TrimStringsAndConvertEmptyStringsToNull;
 
@@ -130,7 +129,7 @@ final class Partner extends Component
 
         // Handle photo uploads if present
         if (! empty($this->form->uploads)) {
-            $this->savePhotos($newPartner);
+            $this->savePersonPhotos($newPartner, 'partner');
         }
 
         $this->toast()->success(__('app.create'), e($newPartner->name) . ' ' . __('app.created') . '.')->send();
@@ -146,27 +145,6 @@ final class Partner extends Component
         ]);
 
         $this->toast()->success(__('app.create'), e($couple->name) . ' ' . __('app.created') . '.')->flash()->send();
-    }
-
-    /**
-     * Save photos for a person.
-     */
-    protected function savePhotos(Person $person): void
-    {
-        try {
-            $photos     = new PersonPhotos($person);
-            $savedCount = $photos->save($this->form->uploads);
-
-            if ($savedCount > 0) {
-                $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
-            }
-        } catch (Exception $e) {
-            \Illuminate\Support\Facades\Log::error('Failed to save photos for new partner', [
-                'person_id'  => $person->id,
-                'partner_id' => $this->person->id,
-                'error'      => $e->getMessage(),
-            ]);
-        }
     }
 
     protected function rules(): array

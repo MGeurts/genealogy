@@ -6,12 +6,11 @@ namespace App\Livewire\People\Add;
 
 use App\Livewire\Forms\People\PersonForm;
 use App\Livewire\Traits\HandlesPhotoUploads;
+use App\Livewire\Traits\SavesPersonPhotos;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person as PersonModel;
-use App\PersonPhotos;
 use App\Rules\DobValid;
 use App\Rules\YobValid;
-use Exception;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -19,7 +18,7 @@ use TallStackUi\Traits\Interactions;
 
 final class Person extends Component
 {
-    use HandlesPhotoUploads;
+    use HandlesPhotoUploads, SavesPersonPhotos;
     use Interactions, WithFileUploads;
     use TrimStringsAndConvertEmptyStringsToNull;
 
@@ -46,7 +45,7 @@ final class Person extends Component
 
         // Handle photo uploads if present
         if (! empty($this->form->uploads)) {
-            $this->savePhotos($newPerson);
+            $this->savePersonPhotos($newPerson, 'person');
         }
 
         $this->toast()->success(__('app.save'), e($newPerson->name) . ' ' . __('app.created'))->flash()->send();
@@ -62,26 +61,6 @@ final class Person extends Component
     // -----------------------------------------------------------------------
     // Protected Methods
     // -----------------------------------------------------------------------
-
-    /**
-     * Save photos for a person.
-     */
-    protected function savePhotos(PersonModel $person): void
-    {
-        try {
-            $photos     = new PersonPhotos($person);
-            $savedCount = $photos->save($this->form->uploads);
-
-            if ($savedCount > 0) {
-                $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
-            }
-        } catch (Exception $e) {
-            \Illuminate\Support\Facades\Log::error('Failed to save photos for new person', [
-                'person_id' => $person->id,
-                'error'     => $e->getMessage(),
-            ]);
-        }
-    }
 
     protected function rules(): array
     {

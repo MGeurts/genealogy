@@ -6,10 +6,9 @@ namespace App\Livewire\People\Add;
 
 use App\Livewire\Forms\People\PersonForm;
 use App\Livewire\Traits\HandlesPhotoUploads;
+use App\Livewire\Traits\SavesPersonPhotos;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
-use App\PersonPhotos;
-use Exception;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -18,7 +17,7 @@ use TallStackUi\Traits\Interactions;
 
 class Child extends Component
 {
-    use HandlesPhotoUploads;
+    use HandlesPhotoUploads, SavesPersonPhotos;
     use Interactions, WithFileUploads;
     use TrimStringsAndConvertEmptyStringsToNull;
 
@@ -98,31 +97,10 @@ class Child extends Component
 
         // Handle photo uploads if present
         if (! empty($this->form->uploads)) {
-            $this->savePhotos($newChild);
+            $this->savePersonPhotos($newChild, 'child');
         }
 
         $this->toast()->success(__('app.create'), __('person.new_person_linked_as_child'))->flash()->send();
-    }
-
-    /**
-     * Save photos for a person.
-     */
-    protected function savePhotos(Person $person): void
-    {
-        try {
-            $photos     = new PersonPhotos($person);
-            $savedCount = $photos->save($this->form->uploads);
-
-            if ($savedCount > 0) {
-                $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
-            }
-        } catch (Exception $e) {
-            \Illuminate\Support\Facades\Log::error('Failed to save photos for new child', [
-                'person_id' => $person->id,
-                'parent_id' => $this->person->id,
-                'error'     => $e->getMessage(),
-            ]);
-        }
     }
 
     protected function rules(): array
