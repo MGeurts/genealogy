@@ -37,6 +37,9 @@ final class PersonForm extends Form
 
     public ?string $pob = null;
 
+    // -----------------------------------------------------------------------
+    // Photo uploads (handled by HandlesPhotoUploads trait in components)
+    // -----------------------------------------------------------------------
     public array $uploads = [];
 
     public array $backup = [];
@@ -54,6 +57,8 @@ final class PersonForm extends Form
     }
 
     // -----------------------------------------------------------------------
+    // Validation rules without photo uploads (handled in trait)
+    // -----------------------------------------------------------------------
     protected function rules(): array
     {
         return [
@@ -66,11 +71,6 @@ final class PersonForm extends Form
             'yob'       => ['nullable', 'integer', 'min:1', 'max:' . date('Y'), new YobValid],
             'dob'       => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', new DobValid],
             'pob'       => ['nullable', 'string', 'max:255'],
-            'uploads.*' => [
-                'file',
-                'mimetypes:' . implode(',', array_keys(config('app.upload_photo_accept'))),
-                'max:' . config('app.upload_max_size'),
-            ],
 
             'person_id' => ['nullable', 'integer', 'exists:people,id', 'required_without:surname'],
         ];
@@ -79,19 +79,10 @@ final class PersonForm extends Form
     protected function messages(): array
     {
         return [
-            'surname.required_without'   => __('validation.surname.required_without'),
-            'sex.required_without'       => __('validation.sex.required_without'),
-            'person_id.required_without' => __('validation.person_id.required_without'),
+            'surname.required_without' => __('validation.surname.required_without'),
+            'sex.required_without'     => __('validation.sex.required_without'),
 
-            'uploads.*.file'      => __('validation.file', ['attribute' => __('person.photos')]),
-            'uploads.*.mimetypes' => __('validation.mimetypes', [
-                'attribute' => __('person.photos'),
-                'values'    => implode(', ', array_values(config('app.upload_photo_accept'))),
-            ]),
-            'uploads.*.max' => __('validation.max.file', [
-                'attribute' => __('person.photos'),
-                'max'       => config('app.upload_max_size'),
-            ]),
+            'person_id.required_without' => __('validation.person_id.required_without'),
         ];
     }
 
@@ -107,7 +98,6 @@ final class PersonForm extends Form
             'yob'       => __('person.yob'),
             'dob'       => __('person.dob'),
             'pob'       => __('person.pob'),
-            'uploads'   => __('person.photos'),
 
             'person_id' => __('person.person'),
         ];

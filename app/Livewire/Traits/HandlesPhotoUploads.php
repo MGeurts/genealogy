@@ -1,0 +1,137 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Livewire\Traits;
+
+use Exception;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
+
+/**
+ * Trait for handling photo uploads in Livewire components.
+ * Provides common functionality for upload management and deduplication.
+ */
+trait HandlesPhotoUploads
+{
+    /**
+     * Handle updates to the uploads property.
+     * Backs up current uploads before Livewire processes new ones.
+     */
+    public function updatingUploads(): void
+    {
+        $this->form->backup = $this->form->uploads;
+    }
+
+    /**
+     * Process uploaded files and remove duplicates.
+     * Merges new uploads with backup and removes duplicates based on original filename.
+     */
+    public function updatedUploads(): void
+    {
+        if (empty($this->form->uploads)) {
+            return;
+        }
+
+        $this->form->uploads = collect(array_merge($this->form->backup, (array) $this->form->uploads))
+            ->unique(fn (UploadedFile $file): string => $file->getClientOriginalName())
+            ->values()
+            ->toArray();
+    }
+
+    /**
+     * Handle file deletion from uploads.
+     * Removes the specified file from the uploads array and deletes the temporary file.
+     *
+     * @param  array  $content  File information containing temporary_name, real_name, extension, size, path, url
+     */
+    public function deleteUpload(array $content): void
+    {
+        if (empty($this->form->uploads)) {
+            return;
+        }
+
+        $temporaryName = $content['temporary_name'] ?? null;
+
+        if (! $temporaryName) {
+            return;
+        }
+
+        // Remove from uploads array
+        $this->form->uploads = collect($this->form->uploads)
+            ->filter(fn (UploadedFile $file): bool => $file->getFilename() !== $temporaryName)
+            ->values()
+            ->toArray();
+
+        // Delete temporary file
+        $this->deleteTemporaryFile($temporaryName);
+    }
+
+    /**
+     * Delete a temporary file from storage.
+     * Safely handles file deletion with error suppression.
+     *
+     * @param  string  $filename  The temporary filename to delete
+     */
+    protected function deleteTemporaryFile(string $filename): void
+    {
+        try {
+            $path = storage_path('app/livewire-tmp/' . $filename);
+
+            if (file_exists($path)) {
+                File::delete($path);
+            }
+        } catch (Exception $e) {
+            Log::warning('Failed to delete temporary upload file', [
+                'file'  => $filename,
+                'error' => $e->getMessage(),
+            ]);
+        }
+    }
+
+    /**
+     * Get validation rules for photo uploads.
+     * Returns array of rules based on application configuration.
+     */
+    protected function getPhotoUploadRules(): array
+    {
+        return [
+            'form.uploads.*' => [
+                'file',
+                'mimetypes:' . implode(',', array_keys(config('app.upload_photo_accept'))),
+                'max:' . config('app.upload_max_size'),
+            ],
+        ];
+    }
+
+    /**
+     * Get validation messages for photo uploads.
+     * Returns localized validation messages.
+     */
+    protected function getPhotoUploadMessages(): array
+    {
+        return [
+            'form.uploads.*.file'      => __('validation.file', ['attribute' => __('person.photos')]),
+            'form.uploads.*.mimetypes' => __('validation.mimetypes', [
+                'attribute' => __('person.photos'),
+                'values'    => implode(', ', array_values(config('app.upload_photo_accept'))),
+            ]),
+            'form.uploads.*.max' => __('validation.max.file', [
+                'attribute' => __('person.photos'),
+                'max'       => config('app.upload_max_size'),
+            ]),
+        ];
+    }
+
+    /**
+     * Get validation attributes for photo uploads.
+     * Returns localized attribute names.
+     */
+    protected function getPhotoUploadAttributes(): array
+    {
+        return [
+            'form.uploads' => __('person.photos'),
+        ];
+    }
+}
