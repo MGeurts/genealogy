@@ -91,7 +91,6 @@
   position: relative;
   z-index: 0;
 }
-/* -------------------------------------------- */
 .ribbon {
   --f: 5px;   /* control the folded part*/
   --r: 5px;   /* control the ribbon shape */
@@ -99,6 +98,7 @@
 
   position: absolute;
   inset: auto calc(-1*var(--f)) var(--b) auto;
+
   padding: 0 10px var(--f) calc(10px + var(--r));
   clip-path:
     polygon(0 0,100% 0,100% calc(100% - var(--f)),calc(100% - var(--f)) 100%,

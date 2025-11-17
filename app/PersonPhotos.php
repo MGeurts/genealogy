@@ -23,8 +23,6 @@ final class PersonPhotos
 
     private readonly string $personId;
 
-    private readonly string $personIdPrefix;
-
     private ?array $cachedFiles = null;
 
     public function __construct(
@@ -34,12 +32,11 @@ final class PersonPhotos
         ?string $photosDiskName = null,
         ?string $tempDiskName = null
     ) {
-        $this->uploadConfig   = $this->uploadConfig ?? config('app.upload_photo');
-        $this->photosDisk     = Storage::disk($photosDiskName ?? 'photos');
-        $this->tempDisk       = Storage::disk($tempDiskName ?? 'local');
-        $this->personPath     = "{$this->person->team_id}/{$this->person->id}";
-        $this->personId       = (string) $this->person->id;
-        $this->personIdPrefix = $this->personId . '_';
+        $this->uploadConfig = $this->uploadConfig ?? config('app.upload_photo');
+        $this->photosDisk   = Storage::disk($photosDiskName ?? 'photos');
+        $this->tempDisk     = Storage::disk($tempDiskName ?? 'local');
+        $this->personPath   = "{$this->person->team_id}/{$this->person->id}";
+        $this->personId     = (string) $this->person->id;
     }
 
     /**
@@ -62,6 +59,7 @@ final class PersonPhotos
 
         foreach ($photos as $photo) {
             $lastIndex++;
+
             if ($this->savePhoto($photo, $lastIndex)) {
                 $savedCount++;
             }
@@ -70,7 +68,7 @@ final class PersonPhotos
         $this->invalidateCache();
         $this->cleanupTemporaryFiles();
 
-        return $savedCount > 0 ? $savedCount : null;
+        return $savedCount ?: null;
     }
 
     /**
@@ -91,18 +89,16 @@ final class PersonPhotos
 
         $path = $this->personPath . '/' . $filename;
 
-        // Handle different disk types
         if (method_exists($this->photosDisk, 'url')) {
             return $this->photosDisk->url($path);
         }
 
-        // Fallback for disks that don't support URLs
         return Storage::url($path);
     }
 
     /**
      * Delete all photos for this person.
-     * Removes the entire person directory and invalidates cache.
+     * Removes the entire person directory, invalidates cache, and clears the person's photo attribute.
      *
      * @return bool True if deletion succeeded or directory didn't exist
      */
@@ -111,10 +107,17 @@ final class PersonPhotos
         try {
             if ($this->photosDisk->exists($this->personPath)) {
                 $result = $this->photosDisk->deleteDirectory($this->personPath);
-                $this->invalidateCache();
+
+                if ($result) {
+                    $this->invalidateCache();
+                    $this->clearPersonPhotoAttribute();
+                }
 
                 return $result;
             }
+
+            // Directory doesn't exist, ensure photo attribute is cleared
+            $this->clearPersonPhotoAttribute();
 
             return true;
         } catch (Throwable $e) {
@@ -132,6 +135,7 @@ final class PersonPhotos
     /**
      * Delete a specific photo by index.
      * Removes original and all size variants (large, medium, small) and invalidates cache.
+     * If the deleted photo was primary, sets a new primary or clears the attribute if no photos remain.
      *
      * @param  int  $index  The photo index to delete
      * @return bool True if at least one file was deleted
@@ -139,14 +143,23 @@ final class PersonPhotos
     public function delete(int $index): bool
     {
         try {
-            $files         = $this->getPersonFiles();
-            $indexPattern  = sprintf('_%03d_', $index);
-            $filesToDelete = [];
+            $files          = $this->getPersonFiles();
+            $indexPattern   = sprintf('_%03d_', $index);
+            $filesToDelete  = [];
+            $deletedPrimary = false;
 
             foreach ($files as $file) {
                 $basename = basename($file);
                 if (str_contains($basename, $indexPattern)) {
                     $filesToDelete[] = $file;
+
+                    // Check if we're deleting the primary photo
+                    if ($this->isOriginalPhoto($basename)) {
+                        $filename = pathinfo($basename, PATHINFO_FILENAME);
+                        if ($filename === $this->person->photo) {
+                            $deletedPrimary = true;
+                        }
+                    }
                 }
             }
 
@@ -154,11 +167,13 @@ final class PersonPhotos
                 return false;
             }
 
-            foreach ($filesToDelete as $file) {
-                $this->photosDisk->delete($file);
-            }
-
+            $this->photosDisk->delete($filesToDelete);
             $this->invalidateCache();
+
+            // Handle primary photo management
+            if ($deletedPrimary) {
+                $this->setNewPrimaryPhoto();
+            }
 
             return true;
         } catch (Throwable $e) {
@@ -171,6 +186,109 @@ final class PersonPhotos
             ]);
 
             return false;
+        }
+    }
+
+    /**
+     * Check if a photo exists by filename.
+     *
+     * @param  string  $photoFilename  The photo filename (without extension)
+     */
+    public function photoExists(string $photoFilename): bool
+    {
+        $files = $this->getPersonFiles();
+
+        foreach ($files as $file) {
+            $basename = basename($file);
+            $filebase = pathinfo($basename, PATHINFO_FILENAME);
+
+            if ($filebase === $photoFilename && $this->isOriginalPhoto($basename)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Get all original photos with metadata.
+     *
+     * @return array Array of photo data with URLs for all size variants
+     */
+    public function getAllPhotos(): array
+    {
+        $files  = $this->getPersonFiles();
+        $photos = [];
+
+        foreach ($files as $file) {
+            $basename = basename($file);
+
+            if (! $this->isOriginalPhoto($basename)) {
+                continue;
+            }
+
+            $filename = pathinfo($basename, PATHINFO_FILENAME);
+            $basePath = $this->personPath;
+
+            $photos[] = [
+                'name'         => $filename,
+                'extension'    => pathinfo($basename, PATHINFO_EXTENSION),
+                'is_primary'   => $filename === $this->person->photo,
+                'url_original' => $this->photosDisk->url("{$basePath}/{$basename}"),
+                'url_large'    => $this->photosDisk->url("{$basePath}/{$filename}_large.webp"),
+                'url_medium'   => $this->photosDisk->url("{$basePath}/{$filename}_medium.webp"),
+                'url_small'    => $this->photosDisk->url("{$basePath}/{$filename}_small.webp"),
+            ];
+        }
+
+        return $photos;
+    }
+
+    /**
+     * Set a new primary photo or clear if no photos exist.
+     * Automatically selects the first available photo or clears the attribute.
+     */
+    public function setNewPrimaryPhoto(): void
+    {
+        try {
+            $files      = $this->getPersonFiles(true); // Force refresh
+            $firstPhoto = null;
+
+            foreach ($files as $file) {
+                $basename = basename($file);
+
+                if (! $this->isOriginalPhoto($basename)) {
+                    continue;
+                }
+
+                $firstPhoto = pathinfo($basename, PATHINFO_FILENAME);
+                break;
+            }
+
+            $this->person->update(['photo' => $firstPhoto]);
+        } catch (Throwable $e) {
+            Log::error('Failed to set new primary photo', [
+                'person_id' => $this->person->id,
+                'team_id'   => $this->person->team_id,
+                'error'     => $e->getMessage(),
+                'exception' => $e,
+            ]);
+        }
+    }
+
+    /**
+     * Clear the person's photo attribute.
+     */
+    private function clearPersonPhotoAttribute(): void
+    {
+        try {
+            $this->person->update(['photo' => null]);
+        } catch (Throwable $e) {
+            Log::error('Failed to clear person photo attribute', [
+                'person_id' => $this->person->id,
+                'team_id'   => $this->person->team_id,
+                'error'     => $e->getMessage(),
+            ]);
         }
     }
 
@@ -209,7 +327,6 @@ final class PersonPhotos
      */
     private function ensurePhotoDirectoryExist(): void
     {
-        // Create the full path at once (recursive)
         if (! $this->photosDisk->exists($this->personPath)) {
             $this->photosDisk->makeDirectory($this->personPath);
         }
@@ -234,17 +351,12 @@ final class PersonPhotos
         foreach ($files as $file) {
             $basename = basename($file);
 
-            // Skip sized versions - only check original files
-            if (str_contains($basename, '_large.') ||
-                str_contains($basename, '_medium.') ||
-                str_contains($basename, '_small.')) {
+            if (! $this->isOriginalPhoto($basename)) {
                 continue;
             }
 
-            // Extract index from filename: personId_index_timestamp.ext
             $parts = explode('_', $basename);
 
-            // We expect at least 3 parts: {personId}_{index}_{timestamp}.ext
             if (count($parts) >= 3 && is_numeric($parts[1])) {
                 $maxIndex = max($maxIndex, (int) $parts[1]);
             }
@@ -263,29 +375,29 @@ final class PersonPhotos
      */
     private function findPhotoFile(int $index, string $sizeKey): ?string
     {
-        $files        = $this->getPersonFiles();
+        $files = $this->getPersonFiles();
+
+        if (empty($files)) {
+            return null;
+        }
+
         $indexPattern = sprintf('_%03d_', $index);
+        $prefix       = $this->personId . $indexPattern;
 
         foreach ($files as $file) {
             $basename = basename($file);
 
-            if (! str_contains($basename, $indexPattern)) {
+            if (! str_starts_with($basename, $prefix)) {
                 continue;
             }
 
-            // Check size match
-            if ($sizeKey === 'original') {
-                // Original has no size suffix
-                if (! str_contains($basename, '_large.') &&
-                    ! str_contains($basename, '_medium.') &&
-                    ! str_contains($basename, '_small.')) {
-                    return $basename;
-                }
-            } else {
-                // Check for specific size variant
-                if (str_contains($basename, "_{$sizeKey}.")) {
-                    return $basename;
-                }
+            $isMatch = match ($sizeKey) {
+                'original' => $this->isOriginalPhoto($basename),
+                default    => str_contains($basename, "_{$sizeKey}.")
+            };
+
+            if ($isMatch) {
+                return $basename;
             }
         }
 
@@ -295,6 +407,7 @@ final class PersonPhotos
     /**
      * Save a single photo: original untouched + 3 processed variants.
      * Processes the photo and updates person record if it's the first photo.
+     * OPTIMIZED: Reads file content only once and reuses for both operations.
      *
      * @param  UploadedFile|string  $photo  The photo to save
      * @param  int  $index  The index number for this photo
@@ -305,18 +418,18 @@ final class PersonPhotos
         $timestamp = now()->format('YmdHis');
 
         try {
-            // Save original file untouched
-            $originalSaved = $this->saveOriginalFile($photo, $index, $timestamp);
+            $fileContent = $this->getFileContent($photo);
+            $extension   = $this->getFileExtension($photo);
+
+            $originalSaved = $this->saveOriginalFile($fileContent, $extension, $index, $timestamp);
 
             if (! $originalSaved) {
                 return false;
             }
 
-            // Process and save size variants
-            $variantsSaved = $this->processAndSaveVariants($photo, $index, $timestamp);
+            $variantsSaved = $this->processAndSaveVariants($fileContent, $index, $timestamp);
 
             if ($originalSaved && empty($this->person->photo)) {
-                // Save the original filename for reference (without extension)
                 $this->person->update([
                     'photo' => $this->makeFilename($index, $timestamp, 'original', false),
                 ]);
@@ -339,35 +452,21 @@ final class PersonPhotos
     /**
      * Save the original uploaded file without any processing.
      * Preserves the original format and quality.
+     * OPTIMIZED: Accepts pre-read file content instead of reading again.
      *
-     * @param  UploadedFile|string  $photo  The source photo
+     * @param  string  $fileContent  The file content (binary)
+     * @param  string  $extension  The file extension
      * @param  int  $index  The photo index
      * @param  string  $timestamp  The timestamp for filename generation
      * @return bool True if original was saved successfully
      */
-    private function saveOriginalFile(UploadedFile|string $photo, int $index, string $timestamp): bool
+    private function saveOriginalFile(string $fileContent, string $extension, int $index, string $timestamp): bool
     {
         try {
-            // Determine original extension
-            $extension = 'jpg'; // default fallback
-
-            if ($photo instanceof UploadedFile) {
-                $extension = $photo->getClientOriginalExtension() ?: $photo->extension() ?: 'jpg';
-            } elseif (is_string($photo) && file_exists($photo)) {
-                $extension = pathinfo($photo, PATHINFO_EXTENSION) ?: 'jpg';
-            }
-
             $filename = $this->makeFilename($index, $timestamp, 'original', true, $extension);
             $path     = $this->personPath . '/' . $filename;
 
-            // Save original file directly without any processing
-            if ($photo instanceof UploadedFile) {
-                $content = file_get_contents($photo->getRealPath());
-            } else {
-                $content = file_get_contents($photo);
-            }
-
-            $this->photosDisk->put($path, $content);
+            $this->photosDisk->put($path, $fileContent);
 
             return true;
         } catch (Throwable $e) {
@@ -386,19 +485,20 @@ final class PersonPhotos
     /**
      * Process image in each configured size and save to the photos disk.
      * Creates all size variants (large, medium, small) with watermark if enabled.
+     * OPTIMIZED: Accepts pre-read file content instead of reading again.
      *
-     * @param  UploadedFile|string  $photo  The source photo
+     * @param  string  $fileContent  The file content (binary)
      * @param  int  $index  The photo index
      * @param  string  $timestamp  The timestamp for filename generation
      * @return bool True if at least one size variant was saved successfully
      */
-    private function processAndSaveVariants(UploadedFile|string $photo, int $index, string $timestamp): bool
+    private function processAndSaveVariants(string $fileContent, int $index, string $timestamp): bool
     {
         $sizes    = $this->uploadConfig['sizes'] ?? [];
         $savedAny = false;
 
         try {
-            $original = $this->imageManager->read($photo);
+            $original = $this->imageManager->read($fileContent);
         } catch (Throwable $e) {
             Log::error('Failed to read image file for variants', [
                 'person_id'   => $this->person->id,
@@ -425,7 +525,6 @@ final class PersonPhotos
                 $filename = $this->makeFilename($index, $timestamp, $sizeKey);
                 $path     = $this->personPath . '/' . $filename;
 
-                // Use size-specific quality or fall back to 85
                 $quality = $dimensions['quality'] ?? 85;
 
                 $this->photosDisk->put(
@@ -546,5 +645,50 @@ final class PersonPhotos
                 'error'            => $e->getMessage(),
             ]);
         }
+    }
+
+    /**
+     * Get file content from UploadedFile or file path.
+     * Centralizes file reading logic.
+     *
+     * @return string File content as binary string
+     */
+    private function getFileContent(UploadedFile|string $photo): string
+    {
+        if ($photo instanceof UploadedFile) {
+            return file_get_contents($photo->getRealPath());
+        }
+
+        return file_get_contents($photo);
+    }
+
+    /**
+     * Determine file extension from UploadedFile or file path.
+     *
+     * @return string File extension (default: 'jpg')
+     */
+    private function getFileExtension(UploadedFile|string $photo): string
+    {
+        if ($photo instanceof UploadedFile) {
+            return $photo->getClientOriginalExtension() ?: $photo->extension() ?: 'jpg';
+        }
+
+        if (is_string($photo) && file_exists($photo)) {
+            return pathinfo($photo, PATHINFO_EXTENSION) ?: 'jpg';
+        }
+
+        return 'jpg';
+    }
+
+    /**
+     * Check if a filename represents an original photo (not a sized version).
+     *
+     * @param  string  $basename  The filename to check
+     */
+    private function isOriginalPhoto(string $basename): bool
+    {
+        return ! str_contains($basename, '_large.')
+            && ! str_contains($basename, '_medium.')
+            && ! str_contains($basename, '_small.');
     }
 }

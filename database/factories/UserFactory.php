@@ -7,7 +7,6 @@ namespace Database\Factories;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
 
@@ -33,7 +32,7 @@ final class UserFactory extends Factory
             'surname'                   => $this->faker->lastName(),
             'email'                     => fake()->unique()->safeEmail(),
             'email_verified_at'         => now(),
-            'password'                  => self::$password ??= Hash::make('password'),
+            'password'                  => self::$password ??= 'password',
             'two_factor_secret'         => null,
             'two_factor_recovery_codes' => null,
             'remember_token'            => Str::random(10),

@@ -100,17 +100,19 @@
     @endif
 
     {{-- image --}}
-    <div class="user-image">
-        @if (count($images) > 0 && $images[$selected]['large'] && $images[$selected]['medium'])
-            <x-ts-link href="{{ $images[$selected]['large'] }}" target="_blank">
-                <img class="max-w-sm rounded-sm shadow-lg dark:shadow-black/30" src="{{ $images[$selected]['medium'] }}" alt="{{ $person->name }}" title="{{ $person->name }}" />
-            </x-ts-link>
-        @else
-            <x-svg.person-no-image class="w-full max-w-sm rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
-        @endif
+    <div class="user-image flex items-center justify-center">
+        <div class="relative inline-block">
+            @if (count($images) > 0 && $images[$selected]['large'] && $images[$selected]['medium'])
+                <x-ts-link href="{{ $images[$selected]['large'] }}" target="_blank">
+                    <img class="max-w-sm rounded-sm shadow-lg dark:shadow-black/30" src="{{ $images[$selected]['medium'] }}" alt="{{ $person->name }}" title="{{ $person->name }}" />
+                </x-ts-link>
+            @else
+                <x-svg.person-no-image class="w-full max-w-sm rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
+            @endif
 
-        @if ($person->isDeceased())
-            <div class="ribbon">{{ __('person.deceased') }}</div>
-        @endif
+            @if ($person->isDeceased())
+                <div class="ribbon">{{ __('person.deceased') }}</div>
+            @endif
+        </div>
     </div>
 </div>
