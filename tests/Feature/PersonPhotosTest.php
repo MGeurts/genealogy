@@ -15,7 +15,7 @@ class PersonPhotosTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_can_upload_photos()
+    public function test_can_upload_photos(): void
     {
         Storage::fake('photos');
 
@@ -30,7 +30,7 @@ class PersonPhotosTest extends TestCase
         $this->assertNotNull($person->fresh()->photo);
     }
 
-    public function test_deleting_last_photo_clears_attribute()
+    public function test_deleting_last_photo_clears_attribute(): void
     {
         Storage::fake('photos');
 
@@ -47,7 +47,7 @@ class PersonPhotosTest extends TestCase
         $this->assertNull($person->fresh()->photo);
     }
 
-    public function test_deleting_primary_selects_new_primary()
+    public function test_deleting_primary_selects_new_primary(): void
     {
         Storage::fake('photos');
 
