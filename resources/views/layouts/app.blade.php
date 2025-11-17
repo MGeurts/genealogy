@@ -20,12 +20,13 @@
 
     <!-- scripts -->
     <tallstackui:script />
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- styles -->
     @livewireStyles
     @filamentStyles
     @stack('styles')
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="font-sans antialiased">
