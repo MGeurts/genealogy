@@ -37,14 +37,17 @@ final class Photos extends Component
 
     /**
      * Handle updates to the uploads property.
+     * Backs up current uploads before Livewire processes new ones.
      */
     public function updatingUploads(): void
     {
-        $this->backup = $this->uploads;
+        // Store the current uploads before they get replaced
+        $this->backup = is_array($this->uploads) ? $this->uploads : [];
     }
 
     /**
      * Process uploaded files and remove duplicates.
+     * Merges new uploads with backup and removes duplicates based on original filename.
      */
     public function updatedUploads(): void
     {
@@ -54,19 +57,27 @@ final class Photos extends Component
             return;
         }
 
-        // Efficient duplicate detection using original filenames
-        $existingNames = collect($this->backup)
-            ->mapWithKeys(fn (UploadedFile $file, $key) => [$file->getClientOriginalName() => true]);
+        // Convert uploads to array if needed
+        $currentUploads = is_array($this->uploads) ? $this->uploads : [$this->uploads];
 
-        $newUploads = collect($this->uploads)->reject(
-            fn (UploadedFile $file) => $existingNames->has($file->getClientOriginalName())
-        );
+        // Merge backup with new uploads
+        $allUploads = array_merge($this->backup, $currentUploads);
 
-        $this->uploads = collect($this->backup)->merge($newUploads)->values()->toArray();
+        // Remove duplicates based on original filename
+        $this->uploads = collect($allUploads)
+            ->unique(fn (UploadedFile $file): string => $file->getClientOriginalName())
+            ->values()
+            ->toArray();
+
+        // Clear backup after merge
+        $this->backup = [];
     }
 
     /**
      * Handle file deletion from uploads.
+     * Removes the specified file from the uploads array and deletes the temporary file.
+     *
+     * @param  array  $content  File information containing temporary_name, real_name, extension, size, path, url
      */
     public function deleteUpload(array $content): void
     {
@@ -79,6 +90,7 @@ final class Photos extends Component
             return;
         }
 
+        // Remove from uploads array
         $this->uploads = collect($this->uploads)
             ->reject(fn (UploadedFile $file): bool => $file->getFilename() === $temporaryName)
             ->values()
@@ -275,7 +287,10 @@ final class Photos extends Component
     }
 
     /**
-     * Delete a temporary file.
+     * Delete a temporary file from storage.
+     * Safely handles file deletion with error suppression.
+     *
+     * @param  string  $filename  The temporary filename to delete
      */
     private function deleteTemporaryFile(string $filename): void
     {

@@ -43,7 +43,7 @@ final class Person extends Component
             'team_id'   => auth()->user()->currentTeam->id,
         ]);
 
-        // Handle photo uploads if present
+        // Handle photo uploads if present, using SavesPersonPhotos trait
         if (! empty($this->form->uploads)) {
             $this->savePersonPhotos($newPerson, 'person');
         }

@@ -18,26 +18,41 @@ trait HandlesPhotoUploads
     /**
      * Handle updates to the uploads property.
      * Backs up current uploads before Livewire processes new ones.
+     *
+     * Note: This uses 'form.uploads' path for nested form objects
      */
-    public function updatingUploads(): void
+    public function updatingFormUploads(): void
     {
-        $this->form->backup = $this->form->uploads;
+        // Store the current uploads before they get replaced
+        $this->form->backup = is_array($this->form->uploads) ? $this->form->uploads : [];
     }
 
     /**
      * Process uploaded files and remove duplicates.
      * Merges new uploads with backup and removes duplicates based on original filename.
+     *
+     * Note: This uses 'form.uploads' path for nested form objects
      */
-    public function updatedUploads(): void
+    public function updatedFormUploads(): void
     {
         if (empty($this->form->uploads)) {
             return;
         }
 
-        $this->form->uploads = collect(array_merge($this->form->backup, (array) $this->form->uploads))
+        // Convert uploads to array if needed
+        $currentUploads = is_array($this->form->uploads) ? $this->form->uploads : [$this->form->uploads];
+
+        // Merge backup with new uploads
+        $allUploads = array_merge($this->form->backup, $currentUploads);
+
+        // Remove duplicates based on original filename
+        $this->form->uploads = collect($allUploads)
             ->unique(fn (UploadedFile $file): string => $file->getClientOriginalName())
             ->values()
             ->toArray();
+
+        // Clear backup after merge
+        $this->form->backup = [];
     }
 
     /**
