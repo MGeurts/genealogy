@@ -110,14 +110,14 @@ final class PersonPhotos
 
                 if ($result) {
                     $this->invalidateCache();
-                    $this->clearPersonPhotoAttribute();
+                    $this->clearPrimaryPhoto();
                 }
 
                 return $result;
             }
 
             // Directory doesn't exist, ensure photo attribute is cleared
-            $this->clearPersonPhotoAttribute();
+            $this->clearPrimaryPhoto();
 
             return true;
         } catch (Throwable $e) {
@@ -277,9 +277,9 @@ final class PersonPhotos
     }
 
     /**
-     * Clear the person's photo attribute.
+     * Clear the person's primary photo attribute.
      */
-    private function clearPersonPhotoAttribute(): void
+    private function clearPrimaryPhoto(): void
     {
         try {
             $this->person->update(['photo' => null]);
