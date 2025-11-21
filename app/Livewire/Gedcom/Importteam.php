@@ -29,6 +29,8 @@ final class Importteam extends Component
 
     public ?TemporaryUploadedFile $file = null;
 
+    public $result = null;
+
     // -----------------------------------------------------------------------
     public function mount(): void
     {
@@ -40,26 +42,38 @@ final class Importteam extends Component
         $this->validate();
 
         try {
-            $content = $this->file->get();
-
-            // Scan for potentially malicious content
-            if ($this->containsMaliciousContent($content)) {
-                throw new Exception('File contains potentially dangerous content.');
-            }
-
             $importer = new Import(
                 $this->name,
                 $this->description,
             );
 
-            $result = $importer->import($content);
+            // Check file type
+            $extension = mb_strtolower($this->file->getClientOriginalExtension());
 
-            if ($result['success']) {
-                $this->toast()->success('Success', "Imported {$result['individuals_imported']} individuals and {$result['families_imported']} families into {$result['team']}.")->send();
+            if (in_array($extension, ['zip'])) {
+                // Import from ZIP (with media)
+                $tempPath = $this->file->getRealPath();
+
+                $this->result = $importer->importFromZip($tempPath);
+            } else {
+                // Import from GEDCOM text
+                $content = file_get_contents($this->file->getRealPath());
+                // $content = $this->file->get();
+
+                // Scan for potentially malicious content
+                if ($this->containsMaliciousContent($content)) {
+                    throw new Exception('File contains potentially dangerous content.');
+                }
+
+                $this->result = $importer->import($content);
+            }
+
+            if ($this->result['success']) {
+                $this->toast()->success('Success', "Imported {$this->result['individuals_imported']} individuals and {$this->result['families_imported']} families into {$this->result['team']}.")->send();
 
                 $this->redirect('/search');
             } else {
-                $this->toast()->error('Error', $result['error'])->send();
+                $this->toast()->error('Error', $this->result['error'])->send();
             }
         } catch (Exception $e) {
             $this->toast()->error('Import Error', $e->getMessage())->send();
@@ -88,7 +102,7 @@ final class Importteam extends Component
         return $rules = [
             'name'        => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:255'],
-            'file'        => ['required', 'file'],
+            'file'        => ['required', 'file', 'mimes:ged,zip', 'max:51200'],  // 50MB max
         ];
     }
 

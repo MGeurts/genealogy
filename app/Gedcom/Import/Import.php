@@ -15,6 +15,7 @@ use Laravel\Jetstream\Events\AddingTeam;
 
 /**
  * Main GEDCOM Import orchestrator class
+ * Supports both .ged files and .zip files with media
  */
 final class Import implements CreatesTeams
 {
@@ -29,6 +30,8 @@ final class Import implements CreatesTeams
     private FamilyImporter $familyImporter;
 
     private CoupleCreator $coupleCreator;
+
+    private ?MediaImportHandler $mediaHandler = null;
 
     /**
      * Initialize with user and create a new team
@@ -48,60 +51,53 @@ final class Import implements CreatesTeams
     }
 
     /**
-     * Import GEDCOM file content
+     * Import GEDCOM file content (text only)
+     *
+     * @param  string  $gedcomContent  Raw GEDCOM text content
+     * @return array Import results
      */
     public function import(string $gedcomContent): array
     {
-        // At the start of your import method, increase time and memory limits
-        ini_set('max_execution_time', 300); // 5 minutes
-        ini_set('memory_limit', '512M');
+        return $this->processImport($gedcomContent, []);
+    }
+
+    /**
+     * Import GEDCOM from ZIP file (with media)
+     *
+     * @param  string  $zipPath  Path to ZIP file
+     * @return array Import results
+     */
+    public function importFromZip(string $zipPath): array
+    {
+        $zipImporter = new ZipImporter();
 
         try {
-            DB::beginTransaction();
+            // Extract ZIP file
+            Log::info('Extracting ZIP file', ['path' => $zipPath]);
+            $zipImporter->extract($zipPath);
 
-            // Parse GEDCOM content
-            $parsedData = $this->parser->parse($gedcomContent);
+            $gedcomContent = $zipImporter->getGedcomContent();
+            $mediaFiles    = $zipImporter->getMediaFiles();
 
-            Log::info('GEDCOM IMPORT: parseGedcom', ['gedcomData' => $parsedData->getGedcomData()]);
-
-            // Import individuals first
-            $personMap = $this->individualImporter->import($parsedData->getIndividuals());
-
-            Log::info('GEDCOM IMPORT: importIndividuals', [
-                'individuals' => $parsedData->getIndividuals(),
-                'personMap'   => $personMap,
+            Log::info('ZIP extracted successfully', [
+                'media_files' => count($mediaFiles),
+                'gedcom_size' => mb_strlen($gedcomContent),
             ]);
 
-            // Import families and relationships
-            $familyMap = $this->familyImporter->import($parsedData->getFamilies(), $personMap);
-
-            Log::info('GEDCOM IMPORT: importFamilies', [
-                'families'  => $parsedData->getFamilies(),
-                'familyMap' => $familyMap,
-            ]);
-
-            // Create couples from families
-            $this->coupleCreator->create($familyMap, $personMap);
-
-            Log::info('GEDCOM IMPORT: createCouples', ['data' => '????']);
-
-            DB::commit();
-
-            return [
-                'success'              => true,
-                'team'                 => $this->team->name,
-                'individuals_imported' => count($personMap),
-                'families_imported'    => count($familyMap),
-                'message'              => 'GEDCOM file imported successfully',
-            ];
+            // Process import with media files
+            return $this->processImport($gedcomContent, $mediaFiles);
         } catch (Exception $e) {
-            DB::rollBack();
-            Log::error('GEDCOM Import Error: ' . $e->getMessage(), ['trace' => $e->getTraceAsString()]);
+            Log::error('ZIP import failed', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
 
             return [
                 'success' => false,
-                'error'   => $e->getMessage(),
+                'error'   => 'ZIP extraction failed: ' . $e->getMessage(),
             ];
+        } finally {
+            $zipImporter->cleanup();
         }
     }
 
@@ -110,15 +106,118 @@ final class Import implements CreatesTeams
      */
     public function getStatistics(): array
     {
-        // Only get parsed data if parsing has been done
         $parsedData = $this->parser->getParsedData();
 
-        return [
+        $stats = [
             'individuals_parsed'   => $parsedData ? count($parsedData->getIndividuals()) : 0,
             'families_parsed'      => $parsedData ? count($parsedData->getFamilies()) : 0,
             'individuals_imported' => count($this->individualImporter->getPersonMap()),
             'families_imported'    => count($this->familyImporter->getFamilyMap()),
         ];
+
+        if ($this->mediaHandler) {
+            $stats['media_references'] = count($this->mediaHandler->getPersonMediaMap());
+        }
+
+        return $stats;
+    }
+
+    /**
+     * Core import processing logic
+     *
+     * @param  string  $gedcomContent  GEDCOM text content
+     * @param  array  $mediaFiles  Array of basename => filepath for media
+     * @return array Import results
+     */
+    private function processImport(string $gedcomContent, array $mediaFiles): array
+    {
+        // Increase limits for large imports
+        ini_set('max_execution_time', 300); // 5 minutes
+        ini_set('memory_limit', '512M');
+
+        try {
+            DB::beginTransaction();
+
+            // Initialize media handler if we have media files
+            if (! empty($mediaFiles)) {
+                $this->mediaHandler = new MediaImportHandler($mediaFiles);
+
+                // Parse media objects from GEDCOM content BEFORE parsing individuals
+                $this->mediaHandler->parseMediaObjects($gedcomContent);
+
+                Log::info('Media handler initialized', [
+                    'files_count'         => count($mediaFiles),
+                    'media_objects_count' => count($this->mediaHandler->getMediaObjects()),
+                ]);
+            }
+
+            // Parse GEDCOM content
+            $parsedData = $this->parser->parse($gedcomContent);
+
+            Log::info('GEDCOM parsed', [
+                'individuals' => count($parsedData->getIndividuals()),
+                'families'    => count($parsedData->getFamilies()),
+            ]);
+
+            // Import individuals first
+            $personMap = $this->individualImporter->import(
+                $parsedData->getIndividuals(),
+                $this->mediaHandler
+            );
+
+            Log::info('Individuals imported', [
+                'count' => count($personMap),
+            ]);
+
+            // Import families and relationships
+            $familyMap = $this->familyImporter->import(
+                $parsedData->getFamilies(),
+                $personMap
+            );
+
+            Log::info('Families imported', [
+                'count' => count($familyMap),
+            ]);
+
+            // Create couples from families
+            $this->coupleCreator->create($familyMap, $personMap);
+
+            Log::info('Couples created');
+
+            // Import media files if available
+            $mediaStats = null;
+            if ($this->mediaHandler) {
+                Log::info('Starting media import');
+                $mediaStats = $this->mediaHandler->importMediaToPersons($personMap);
+                Log::info('Media import complete', $mediaStats);
+            }
+
+            DB::commit();
+
+            $result = [
+                'success'              => true,
+                'team'                 => $this->team->name,
+                'individuals_imported' => count($personMap),
+                'families_imported'    => count($familyMap),
+                'message'              => 'GEDCOM file imported successfully',
+            ];
+
+            if ($mediaStats) {
+                $result['media_stats'] = $mediaStats;
+            }
+
+            return $result;
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::error('GEDCOM Import Error: ' . $e->getMessage(), [
+                'trace' => $e->getTraceAsString(),
+            ]);
+
+            return [
+                'success' => false,
+                'error'   => $e->getMessage(),
+            ];
+        }
     }
 
     /**
@@ -134,13 +233,10 @@ final class Import implements CreatesTeams
             'personal_team' => false,
         ]));
 
-        // -----------------------------------------------------------------------
-        // create team photo folder
-        // -----------------------------------------------------------------------
+        // Create team photo folder
         if (! Storage::disk('photos')->exists($team->id)) {
             Storage::disk('photos')->makeDirectory($team->id);
         }
-        // -----------------------------------------------------------------------
 
         return $team;
     }

@@ -27,12 +27,21 @@ class IndividualImporter
 
     /**
      * Import individuals from parsed GEDCOM data
+     *
+     * @param  array  $individuals  Parsed individual records
+     * @param  MediaImportHandler|null  $mediaHandler  Optional media handler for extracting references
+     * @return array Mapping of GEDCOM ID to Person database ID
      */
-    public function import(array $individuals): array
+    public function import(array $individuals, ?MediaImportHandler $mediaHandler = null): array
     {
         foreach ($individuals as $gedcomId => $individual) {
             if ($individual === null) {
                 continue;
+            }
+
+            // Extract media references if handler is provided
+            if ($mediaHandler) {
+                $mediaHandler->extractMediaReferences($gedcomId, $individual);
             }
 
             $personData = $this->extractPersonData($individual);
@@ -250,6 +259,9 @@ class IndividualImporter
                     }
                     $data['metadata']['education'] = $education;
                     break;
+
+                    // Note: OBJE tags are handled by MediaImportHandler
+                    // We skip them here to avoid duplication
             }
 
             // Handle nickname from NAME variations
