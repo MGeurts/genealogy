@@ -6,7 +6,6 @@ namespace App\Listeners;
 
 use App\Models\Userlog;
 use Illuminate\Auth\Events\Login;
-use Illuminate\Support\Facades\Log;
 use Stevebauman\Location\Facades\Location;
 
 final class UserLogin
@@ -54,8 +53,6 @@ final class UserLogin
 
         if ($devIpHash && hash_equals($requestIpHash, $devIpHash)) {
             // Skip logging
-            Log::debug('Developer IP detected, skipping user location logging.');
-
             return;
         }
 
