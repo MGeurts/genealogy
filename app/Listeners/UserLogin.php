@@ -6,6 +6,7 @@ namespace App\Listeners;
 
 use App\Models\Userlog;
 use Illuminate\Auth\Events\Login;
+use Illuminate\Support\Facades\Log;
 use Stevebauman\Location\Facades\Location;
 
 final class UserLogin
@@ -45,6 +46,22 @@ final class UserLogin
      */
     private function logUserLocation(int $userId): void
     {
+        // -----------------------------------------------------------------------
+        // Exclude your own IP without storing or exposing it
+        // -----------------------------------------------------------------------
+        $requestIpHash = hash('sha256', request()->ip());
+        $devIpHash     = config('app.dev_ip_hash');
+
+        if ($devIpHash && hash_equals($requestIpHash, $devIpHash)) {
+            // Skip logging
+            Log::debug('Developer IP detected, skipping user location logging.');
+
+            return;
+        }
+
+        // -----------------------------------------------------------------------
+        // Log visitor's location
+        // -----------------------------------------------------------------------
         if ($position = Location::get()) {
             Userlog::create([
                 'user_id'      => $userId,

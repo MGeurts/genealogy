@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schedule;
 
@@ -24,12 +23,4 @@ Schedule::command('backup:run --only-db')->daily()->at(config('app.backup.daily_
     ->onFailure(function (): void {
         Log::warning('Backup (Scheduled) -- Backup failed');
     });
-
-// --------------------------------------------------------------------------------
-// schedule userlog cleanup (remove this in your personal application)
-// --------------------------------------------------------------------------------
-Schedule::call(function (): void {
-    DB::table('userlogs')->where('country_code', '=', 'BE')->delete();
-})->hourly();
-
 // --------------------------------------------------------------------------------

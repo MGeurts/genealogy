@@ -145,6 +145,9 @@ return [
     | Custom values used in the application outside of the config files
     |--------------------------------------------------------------------------
     */
+    // hashed IP address to exclude developer's own visits from user location logging
+    'dev_ip_hash' => env('DEV_IP_HASH', null),
+
     'backup' => [
         'disk'          => env('BACKUP_DISK', 'backups'),
         'daily_cleanup' => env('BACKUP_DAILY_CLEANUP', '22:30'),
