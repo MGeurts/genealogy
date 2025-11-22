@@ -41,7 +41,7 @@
         "laravel/jetstream": "^5.3",
         "laravel/sanctum": "^4.2",
         "laravel/tinker": "^2.10",
-        "livewire/livewire": "^3.6",
+        "livewire/livewire": "^3.7",
         "opcodesio/log-viewer": "^3.21",
         "secondnetwork/blade-tabler-icons": "^3.35",
         "spatie/laravel-activitylog": "^4.10",
