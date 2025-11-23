@@ -336,18 +336,23 @@ final class Person extends Model implements HasMedia
     public function getPartnersAttribute(): Collection
     {
         if (! array_key_exists('partners', $this->relations)) {
-            $partners = $this->belongsToMany(self::class, 'couples', 'person1_id', 'person2_id')
+            // Fetch partners where this person is person1
+            $partnersAsPerson1 = $this->belongsToMany(self::class, 'couples', 'person1_id', 'person2_id')
                 ->withPivot(['id', 'date_start', 'date_end', 'is_married', 'has_ended'])
-                ->with('children')
                 ->orderByPivot('date_start')
-                ->get()
-                ->merge(
-                    $this->belongsToMany(self::class, 'couples', 'person2_id', 'person1_id')
-                        ->withPivot(['id', 'date_start', 'date_end', 'is_married', 'has_ended'])
-                        ->with('children')
-                        ->orderByPivot('date_start')
-                        ->get()
-                );
+                ->get();
+
+            // Fetch partners where this person is person2
+            $partnersAsPerson2 = $this->belongsToMany(self::class, 'couples', 'person2_id', 'person1_id')
+                ->withPivot(['id', 'date_start', 'date_end', 'is_married', 'has_ended'])
+                ->orderByPivot('date_start')
+                ->get();
+
+            // Merge both collections FIRST
+            $partners = $partnersAsPerson1->merge($partnersAsPerson2);
+
+            // THEN eager load children for ALL partners at once
+            $partners->load('children');
 
             $this->setRelation('partners', $partners);
         }
