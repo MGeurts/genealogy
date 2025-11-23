@@ -507,13 +507,13 @@ final class Person extends Model implements HasMedia
             } elseif ($this->yob) {
                 if ($this->dod) {
                     // deceased based on yob & dod
-                    $age = (int) Carbon::parse($this->dod)->format('Y') - $this->yod;
+                    $age = (int) Carbon::parse($this->dod)->format('Y') - $this->yob;
                 } elseif ($this->yod) {
                     // deceased based on yob & yod
                     $age = $this->yod - $this->yob;
                 } else {
                     // living
-                    $age = Carbon::today()->format('Y') - $this->yob;
+                    $age = (int) Carbon::today()->format('Y') - $this->yob;
                 }
             } else {
                 $age = null;
