@@ -23,8 +23,8 @@ return [
 
     // Attributes
     'date'         => 'Datum',
-    'hour'         => 'Uur',
+    'time'         => 'Tijd',
     'user'         => 'Gebruiker',
-    'Country_name' => 'Land',
-    'Country_code' => 'Landscode',
+    'country_name' => 'Land',
+    'country_code' => 'Landscode',
 ];

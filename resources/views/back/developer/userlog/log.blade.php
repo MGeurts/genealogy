@@ -27,11 +27,11 @@
                 <table class="min-w-full text-sm font-light text-left">
                     <thead class="font-medium border-b dark:border-neutral-500">
                         <tr>
-                            <th scope="col" class="p-2">Date</th>
-                            <th scope="col" class="p-2">Hour</th>
-                            <th scope="col" class="p-2">User</th>
-                            <th scope="col" class="p-2">Country name</th>
-                            <th scope="col" class="p-2">Country code</th>
+                            <th scope="col" class="p-2">{{ __('userlog.date') }}</th>
+                            <th scope="col" class="p-2">{{ __('userlog.time') }}</th>
+                            <th scope="col" class="p-2">{{ __('userlog.user') }}</th>
+                            <th scope="col" class="p-2">{{ __('userlog.country_name') }}</th>
+                            <th scope="col" class="p-2">{{ __('userlog.country_code') }}</th>
                         </tr>
                     </thead>
 
@@ -54,7 +54,7 @@
                             @endforeach
                         @empty
                             <tr>
-                                <td class="p-2 whitespace-nowrap" colspan="6">No data found.</td>
+                                <td class="p-2 whitespace-nowrap" colspan="6">{{ __('app.nothing_recorded') }}</td>
                             </tr>
                         @endforelse
                     </tbody>

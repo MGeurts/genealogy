@@ -23,8 +23,8 @@ return [
 
     // Attributes
     'date'         => 'Tarih',
-    'hour'         => 'Saat',
+    'time'         => 'Zaman',
     'user'         => 'Kullanıcı',
-    'Country_name' => 'Ülke',
-    'Country_code' => 'Ülke kodu',
+    'country_name' => 'Ülke',
+    'country_code' => 'Ülke kodu',
 ];

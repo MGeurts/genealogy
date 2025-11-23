@@ -23,8 +23,8 @@ return [
 
     // Attributes
     'date'         => 'Tanggal',
-    'hour'         => 'Jam',
+    'time'         => 'Waktu',
     'user'         => 'Pengguna',
-    'Country_name' => 'Negara',
-    'Country_code' => 'Kode negara',
+    'country_name' => 'Negara',
+    'country_code' => 'Kode negara',
 ];

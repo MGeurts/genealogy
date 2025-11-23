@@ -31,10 +31,10 @@
         </div>
     </div>
 
-    <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.12.0/dist/svgMap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.14.0/dist/svgMap.min.css" rel="stylesheet">
 
-    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.12.0/dist/svgMap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.2/dist/svg-pan-zoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/StephanWagner/svgMap@v2.14.0/dist/svgMap.min.js"></script>
 
     <script>
         const map = new svgMap({

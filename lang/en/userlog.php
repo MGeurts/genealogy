@@ -23,8 +23,8 @@ return [
 
     // Attributes
     'date'         => 'Date',
-    'hour'         => 'Hour',
+    'time'         => 'Time',
     'user'         => 'User',
-    'Country_name' => 'Country',
-    'Country_code' => 'Country code',
+    'country_name' => 'Country',
+    'country_code' => 'Country code',
 ];

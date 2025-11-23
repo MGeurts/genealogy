@@ -23,8 +23,8 @@ return [
 
     // 属性
     'date'         => '日期',
-    'hour'         => '小时',
+    'time'         => '时间',
     'user'         => '用户',
-    'Country_name' => '国家',
-    'Country_code' => '国家代码',
+    'country_name' => '国家',
+    'country_code' => '国家代码',
 ];
