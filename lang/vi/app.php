@@ -116,9 +116,14 @@ return [
     'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> được tìm thấy với từ khóa <span class="text-emerald-600"><strong>:keyword</strong></span> trong <span class="text-emerald-600"><strong>:total</strong></span> khả dụng trong <span class="text-emerald-600"><strong>:scope</strong></span>',
     'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> khả dụng trong <span class="text-emerald-600"><strong>:scope</strong></span>',
 
-    'people_search_help_1' => 'Hệ thống sẽ tìm kiếm <b class="text-emerald-600">từng từ một</b> trong hộp tìm kiếm trong các thuộc tính <b class="text-emerald-600">họ</b>, <b class="text-emerald-600">tên</b>, <b class="text-emerald-600">tên khai sinh</b> và <b class="text-emerald-600">biệt danh</b>.',
-    'people_search_help_2' => 'Bắt đầu chuỗi tìm kiếm với <b class="text-emerald-600">%</b> nếu bạn muốn tìm kiếm các phần của tên, ví dụ: <b class="text-emerald-600">%Jr</b>.<br/>Lưu ý rằng các loại tìm kiếm này sẽ chậm hơn.',
-    'people_search_help_3' => 'Nếu một họ, tên, tên khai sinh hoặc biệt danh có bất kỳ <b class="text-emerald-600">khoảng trắng</b>, hãy đặt tên trong dấu ngoặc kép,<br/>ví dụ: <b class="text-emerald-600">"John Fitzgerald Jr." Kennedy</b>.',
+    'people_search_help_1'  => 'Hệ thống sẽ tìm kiếm tên trong các trường <b class="text-emerald-600">họ</b>, <b class="text-emerald-600">tên</b>, <b class="text-emerald-600">tên khai sinh</b> và <b class="text-emerald-600">biệt danh</b>.',
+    'people_search_help_2'  => 'Cách tìm kiếm :',
+    'people_search_help_2a' => 'Nhập bất kỳ phần nào của tên để tìm kết quả phù hợp <span class="italic">(ví dụ: "Kennedy")</span>',
+    'people_search_help_2b' => 'Nhập nhiều từ để thu hẹp kết quả <span class="italic">(ví dụ: "John Kennedy")</span>',
+    'people_search_help_2c' => 'Thứ tự từ không quan trọng <span class="italic">("Kennedy John" = "John Kennedy")</span>',
+    'people_search_help_2d' => 'Dùng dấu ngoặc kép cho tên có khoảng trắng <span class="italic">(ví dụ: "John Fitzgerald Jr.")</span>',
+    'people_search_help_2e' => 'Bắt đầu với <b class="text-emerald-600">%</b> để tìm kiếm chuỗi con <span class="italic">(ví dụ: "%Jr.")</span>',
+    'people_search_help_3'  => 'Lưu ý : <b class="text-emerald-600">Các tìm kiếm ngắn (1–2 ký tự) hoặc wildcard (%) có thể mất nhiều thời gian trên cây gia đình lớn</b>.',
 
     'unauthorized_access' => 'Truy cập không được phép.',
 

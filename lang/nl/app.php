@@ -116,9 +116,14 @@ return [
     'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> gevonden met term <span class="text-emerald-600"><strong>:keyword</strong></span> in <span class="text-emerald-600"><strong>:total</strong></span></span> beschikbaar in <span class="text-emerald-600"><strong>:scope</strong></span>',
     'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> beschikbaar in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
 
-    'people_search_help_1' => 'Het systeem zoekt <b class="text-emerald-600">elk woord</b> in het zoekvak op in de attributen <b class="text-emerald-600">achternaam</b>, <b class="text-emerald-600">voornaam</b>, <b class="text-emerald-600">geboortenaam</b> en <b class="text-emerald-600">bijnaam</b>.',
-    'people_search_help_2' => 'Begin de zoekreeks met <b class="text-emerald-600">%</b> als je delen van namen wilt doorzoeken, bijvoorbeeld : <b class="text-emerald-600">%Jr</b>.<br/>Houd er rekening mee dat dit soort zoekopdrachten langzamer zijn.',
-    'people_search_help_3' => 'Als een achternaam, voornaam, geboortenaam of bijnaam <b class="text-emerald-600">spaties</b> bevat, plaats de naam dan tussen dubbele aanhalingstekens,<br/>bijvoorbeeld : <b class="text-emerald-600">"John Fitzgerald Jr." Kennedy</b>.',
+    'people_search_help_1'  => 'Het systeem zoekt naar namen in de velden <b class="text-emerald-600">achternaam</b>, <b class="text-emerald-600">voornaam</b>, <b class="text-emerald-600">geboortenaam</b> en <b class="text-emerald-600">bijnaam</b>.',
+    'people_search_help_2'  => 'Hoe zoeken :',
+    'people_search_help_2a' => 'Typ een willekeurig deel van een naam om overeenkomsten te vinden <span class="italic">(bijv. "Kennedy")</span>',
+    'people_search_help_2b' => 'Zoek met meerdere woorden om resultaten te verfijnen <span class="italic">(bijv. "John Kennedy")</span>',
+    'people_search_help_2c' => 'De volgorde van woorden maakt niet uit <span class="italic">("Kennedy John" = "John Kennedy")</span>',
+    'people_search_help_2d' => 'Gebruik aanhalingstekens voor namen met spaties <span class="italic">(bijv. "John Fitzgerald Jr.")</span>',
+    'people_search_help_2e' => 'Begin met <b class="text-emerald-600">%</b> voor een substring-zoekopdracht <span class="italic">(bijv. "%Jr.")</span>',
+    'people_search_help_3'  => 'Let op : <b class="text-emerald-600">Korte (1–2 tekens) of wildcard (%) zoekopdrachten kunnen langer duren in grote stambomen</b>.',
 
     'unauthorized_access' => 'Onbevoegde toegang.',
 

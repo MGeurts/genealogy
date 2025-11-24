@@ -116,9 +116,14 @@ return [
     'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> found with keyword <span class="text-emerald-600"><strong>:keyword</strong></span> in <span class="text-emerald-600"><strong>:total</strong></span> available in <span class="text-emerald-600"><strong>:scope</strong></span>',
     'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> available in <span class="text-emerald-600"><strong>:scope</strong></span></span>',
 
-    'people_search_help_1' => 'The system wil look up <b class="text-emerald-600">every single word</b> in the search box in the attributes <b class="text-emerald-600">surname</b>, <b class="text-emerald-600">firstname</b>, <b class="text-emerald-600">birthname</b> and <b class="text-emerald-600">nickname</b>.',
-    'people_search_help_2' => 'Begin the search string with <b class="text-emerald-600">%</b> if you want to search parts of names, for instance : <b class="text-emerald-600">%Jr</b>.<br/>Be aware this kinds of searches are slower.',
-    'people_search_help_3' => 'If a surname, firstname, birthname or nickname containes any <b class="text-emerald-600">spaces</b>, enclose the name in double quoutes,<br/>for instance : <b class="text-emerald-600">"John Fitzgerald Jr." Kennedy</b>.',
+    'people_search_help_1'  => 'The system will search for names across <b class="text-emerald-600">surname</b>, <b class="text-emerald-600">firstname</b>, <b class="text-emerald-600">birthname</b>, and <b class="text-emerald-600">nickname</b> fields.',
+    'people_search_help_2'  => 'How to Search :',
+    'people_search_help_2a' => 'Type any part of a name to find matches <span class="italic">(e.g., "Kennedy")</span>',
+    'people_search_help_2b' => 'Search multiple words to narrow results <span class="italic">(e.g., "John Kennedy")',
+    'people_search_help_2c' => 'Word order doesn\'t matter <span class="italic">("Kennedy John" = "John Kennedy")',
+    'people_search_help_2d' => 'Use quotes for names with spaces <span class="italic">(e.g., "John Fitzgerald Jr.")</span>',
+    'people_search_help_2e' => 'Start with <b class="text-emerald-600">%</b> for substring search <span class="italic">(e.g., "%Jr.")</span>',
+    'people_search_help_3'  => 'Note : <b class="text-emerald-600">Short (1-2 characters) or wildcard (%) searches may take longer on large family trees</b>.',
 
     'unauthorized_access' => 'Unauthorized access.',
 
