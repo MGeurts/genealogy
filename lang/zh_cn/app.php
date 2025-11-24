@@ -117,7 +117,6 @@ return [
     'people_available'          => '<span class="text-emerald-600"><strong>:scope</strong></span>家族中共有 <span class="text-emerald-600"><strong>:total</strong></span> 个人物。',
 
     'people_search_help_1'  => '系统将在 <b class="text-emerald-600">姓氏</b>、<b class="text-emerald-600">名字</b>、<b class="text-emerald-600">出生姓名</b> 和 <b class="text-emerald-600">昵称</b> 字段中搜索姓名。',
-    'people_search_help_1'  => '系统将在 <b class="text-emerald-600">姓氏</b>、<b class="text-emerald-600">名字</b>、<b class="text-emerald-600">出生姓名</b> 和 <b class="text-emerald-600">昵称</b> 字段中搜索姓名。',
     'people_search_help_2'  => '如何搜索 :',
     'people_search_help_2a' => '输入姓名的任意部分即可找到匹配项 <span class="italic">(例如："Kennedy")</span>',
     'people_search_help_2b' => '输入多个词可缩小结果范围 <span class="italic">(例如："John Kennedy")</span>',
