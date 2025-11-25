@@ -750,11 +750,19 @@ final class Person extends Model implements HasMedia
         ];
     }
 
+    /**
+     * Perform LIKE-based search across name fields.
+     * Used as fallback when full-text search doesn't find results
+     * or for substring/short term searches.
+     *
+     * @internal This is a private implementation detail of scopeSearch
+     */
     private function likeSearch(Builder $query, Collection $terms): void
     {
         $escapeLike = fn (string $value): string => str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $value);
 
         foreach ($terms as $term) {
+            // Use % on both sides for substring matching
             $fuzzyTerm = '%' . $escapeLike($term) . '%';
 
             $query->where(function ($q) use ($fuzzyTerm): void {
