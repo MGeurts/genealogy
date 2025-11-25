@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
@@ -138,8 +137,6 @@ final class Person extends Model implements HasMedia
         if ($terms->some(fn ($term) => mb_strlen($term) < 3)) {
             $this->likeSearch($query, $terms);
 
-            Log::debug('LIKE search used : ' . $searchString);
-
             return;
         }
 
@@ -157,15 +154,11 @@ final class Person extends Model implements HasMedia
         if ($ids->isNotEmpty()) {
             $query->whereIn('id', $ids);
 
-            Log::debug('FULL TEXT search : ' . $fullTextQuery);
-
             return;
         }
 
         // Fallback to LIKE for fuzzy matching
         $this->likeSearch($query, $terms);
-
-        Log::debug('LIKE search : ' . $searchString);
     }
 
     #[Scope]
