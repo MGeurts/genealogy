@@ -30,7 +30,7 @@ final class UserFactory extends Factory
         return [
             'firstname'                 => $this->faker->firstName(),
             'surname'                   => $this->faker->lastName(),
-            'email'                     => fake()->unique()->safeEmail(),
+            'email'                     => $this->faker->unique()->safeEmail(),
             'email_verified_at'         => now(),
             'password'                  => self::$password ??= 'password',
             'two_factor_secret'         => null,

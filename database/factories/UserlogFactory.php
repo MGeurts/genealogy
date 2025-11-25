@@ -37,7 +37,7 @@ final class UserlogFactory extends Factory
     private function randomUtcDateTime(string $start, string $end): DateTimeImmutable
     {
         return new DateTimeImmutable(
-            fake()->dateTimeBetween($start, $end, 'UTC')->format('Y-m-d H:i:s'),
+            $this->faker->dateTimeBetween($start, $end, 'UTC')->format('Y-m-d H:i:s'),
             new DateTimeZone('UTC')
         );
     }
@@ -48,7 +48,7 @@ final class UserlogFactory extends Factory
         $start = $after->format('Y-m-d H:i:s');
 
         return new DateTimeImmutable(
-            fake()->dateTimeBetween($start, 'now', 'UTC')->format('Y-m-d H:i:s'),
+            $this->faker->dateTimeBetween($start, 'now', 'UTC')->format('Y-m-d H:i:s'),
             new DateTimeZone('UTC')
         );
     }
