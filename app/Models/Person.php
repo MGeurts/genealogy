@@ -125,10 +125,10 @@ final class Person extends Model implements HasMedia
     public function scopeSearch(Builder $query, string $searchString): void
     {
         /* -------------------------------------------------------------------------------------------- */
-        // The system wil look up every word in the search value in the attributes surname, firstname, birthname and nickname
+        // The system will look up every word in the search value in the attributes surname, firstname, birthname and nickname
         // Begin the search string with % if you want to search parts of names, for instance %Jr.
         // Be aware that this kinds of searches are slower.
-        // If a name containes any spaces, enclose the name in double quoutes, for instance "John Fitzgerald Jr." Kennedy.
+        // If a name contains any spaces, enclose the name in double quotes, for instance "John Fitzgerald Jr." Kennedy.
         /* -------------------------------------------------------------------------------------------- */
         if (mb_trim($searchString) === '%' || empty(mb_trim($searchString))) {
             return;
@@ -143,7 +143,20 @@ final class Person extends Model implements HasMedia
         collect(str_getcsv($searchString, ' ', '"'))
             ->filter()
             ->each(function (string $searchTerm) use ($query, $escapeLike): void {
-                $term = $escapeLike($searchTerm) . '%';
+                // Check if term starts with % for wildcard search
+                $isWildcard = str_starts_with($searchTerm, '%');
+
+                if ($isWildcard) {
+                    // Remove the % prefix and escape the rest
+                    $term        = mb_ltrim($searchTerm, '%');
+                    $escapedTerm = $escapeLike($term);
+                    // Add % at both ends for LIKE %term% (search anywhere in field)
+                    $term = '%' . $escapedTerm . '%';
+                } else {
+                    // Normal prefix search - escape and add % at end
+                    $term = $escapeLike($searchTerm) . '%';
+                }
+
                 $query->whereAny(['firstname', 'surname', 'birthname', 'nickname'], 'like', $term);
             });
     }
