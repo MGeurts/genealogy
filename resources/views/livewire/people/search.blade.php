@@ -32,17 +32,17 @@
 
                 <div class="flex-1 grow max-w-full text-end">
                     @if ($search)
-                        {!! __('app.people_found', [
-        'found' => $people->total(),
-        'total' => $people_db,
-        'scope' => auth()->user()->is_developer ? strtoupper(e(__('team.all_teams'))) : e(auth()->user()->currentTeam->name),
-        'keyword' => e($search),
-    ]) !!}
+                                        {!! __('app.people_found', [
+                            'found' => $people->total(),
+                            'total' => $people_db,
+                            'scope' => auth()->user()->is_developer ? strtoupper(e(__('team.all_teams'))) : e(auth()->user()->currentTeam->name),
+                            'keyword' => e($search),
+                        ]) !!}
                     @else
-                        {!! __('app.people_available', [
-        'total' => $people_db,
-        'scope' => auth()->user()->is_developer ? strtoupper(e(__('team.all_teams'))) : e(auth()->user()->currentTeam->name),
-    ]) !!}
+                                        {!! __('app.people_available', [
+                            'total' => $people_db,
+                            'scope' => auth()->user()->is_developer ? strtoupper(e(__('team.all_teams'))) : e(auth()->user()->currentTeam->name),
+                        ]) !!}
                     @endif
                 </div>
             </div>
@@ -50,7 +50,8 @@
             {{-- search box --}}
             <div class="flex flex-wrap items-start gap-2">
                 <div class="flex-1 grow w-full">
-                    <x-ts-input wire:model.live.debounce.500ms="search" icon="tabler.search" hint="{{ __('app.people_search_tip') }}" placeholder="{{ __('app.people_search_placeholder') }}" autofocus clearable />
+                    <x-ts-input wire:model.live.debounce.500ms="search" icon="tabler.search" hint="{{ __('app.people_search_tip') }}" placeholder="{{ __('app.people_search_placeholder') }}" autofocus
+                        clearable />
                 </div>
 
                 <div class="flex-1 max-w-max">
@@ -86,11 +87,11 @@
         {{-- carousel --}}
         <div class="p-5 mx-auto text-center max-w-6xl">
             <x-ts-carousel :images="[
-            ['src' => url('img/carousel/genealogy-research-001.webp'), 'alt' => '1'],
-            ['src' => url('img/carousel/genealogy-research-002.webp'), 'alt' => '2'],
-            ['src' => url('img/carousel/genealogy-research-003.webp'), 'alt' => '3'],
-            ['src' => url('img/carousel/genealogy-research-004.webp'), 'alt' => '4'],
-        ]" autoplay shuffle stop-on-hover interval="10" />
+                ['src' => url('img/carousel/genealogy-research-001.webp'), 'alt' => '1'],
+                ['src' => url('img/carousel/genealogy-research-002.webp'), 'alt' => '2'],
+                ['src' => url('img/carousel/genealogy-research-003.webp'), 'alt' => '3'],
+                ['src' => url('img/carousel/genealogy-research-004.webp'), 'alt' => '4'],
+            ]" autoplay shuffle stop-on-hover interval="10" />
         </div>
     @endif
 
@@ -100,22 +101,8 @@
             <x-ts-icon icon="tabler.help" class="inline-block size-5" />{{ __('app.help') }}
         </x-slot:title>
 
-        <div class="space-y-2">
-            <p>{!! __('app.people_search_help_1') !!}</p>
-
-            <div>
-                <p>{!! __('app.people_search_help_2') !!}</p>
-
-                <ul class="list-disc list-inside space-y-1 ml-2">
-                    <li>{!! __('app.people_search_help_2a') !!}</li>
-                    <li>{!! __('app.people_search_help_2b') !!}</li>
-                    <li>{!! __('app.people_search_help_2c') !!}</li>
-                    <li>{!! __('app.people_search_help_2d') !!}</li>
-                    <li>{!! __('app.people_search_help_2e') !!}</li>
-                </ul>
-            </div>
-
-            <p>{!! __('app.people_search_help_3') !!}</p>
-        </div>
+        <p>{!! __('app.people_search_help_1') !!}</p><br />
+        <p>{!! __('app.people_search_help_2') !!}</p><br />
+        <p>{!! __('app.people_search_help_3') !!}</p>
     </x-ts-modal>
 </div>

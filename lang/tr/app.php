@@ -116,14 +116,9 @@ return [
     'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> kişi <span class="text-emerald-600"><strong>:keyword</strong></span> anahtar kelimesiyle <span class="text-emerald-600"><strong>:total</strong></span> toplamda <span class="text-emerald-600"><strong>:scope</strong></span> içinde bulundu',
     'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> kişi <span class="text-emerald-600"><strong>:scope</strong></span> içinde mevcut',
 
-    'people_search_help_1'  => 'Sistem, <b class="text-emerald-600">soyadı</b>, <b class="text-emerald-600">ad</b>, <b class="text-emerald-600">doğum adı</b> ve <b class="text-emerald-600">takma ad</b> alanlarında isim arayacaktır.',
-    'people_search_help_2'  => 'Nasıl arama yapılır :',
-    'people_search_help_2a' => 'Eşleşmeleri bulmak için bir ismin herhangi bir kısmını yazın <span class="italic">(ör., "Kennedy")</span>',
-    'people_search_help_2b' => 'Sonuçları daraltmak için birden fazla kelime arayın <span class="italic">(ör., "John Kennedy")</span>',
-    'people_search_help_2c' => 'Kelime sırası önemli değildir <span class="italic">("Kennedy John" = "John Kennedy")</span>',
-    'people_search_help_2d' => 'Boşluk içeren adlar için tırnak işaretleri kullanın <span class="italic">(ör., "John Fitzgerald Jr.")</span>',
-    'people_search_help_2e' => '<b class="text-emerald-600">%</b> ile başlayarak alt dizi araması yapın <span class="italic">(ör., "%Jr.")</span>',
-    'people_search_help_3'  => 'Not : <b class="text-emerald-600">Kısa (1–2 karakter) veya wildcard (%) aramaları büyük aile ağaçlarında daha uzun sürebilir</b>.',
+    'people_search_help_1' => 'Sistem, arama kutusundaki <b class="text-emerald-600">her bir kelimeyi</b> <b class="text-emerald-600">soyadı</b>, <b class="text-emerald-600">adı</b>, <b class="text-emerald-600">doğum adı</b> ve <b class="text-emerald-600">takma ad</b> özelliklerinde arayacaktır.',
+    'people_search_help_2' => 'Arama dizesine <b class="text-emerald-600">%</b> ile başlayarak isim parçalarını arayabilirsiniz, örneğin: <b class="text-emerald-600">%Jr</b>.<br/>Bu tür aramaların daha yavaş olduğunu unutmayın.',
+    'people_search_help_3' => 'Eğer bir soyadı, adı, doğum adı veya takma ad <b class="text-emerald-600">boşluk</b> içeriyorsa, adı çift tırnak içine alın,<br/>örneğin: <b class="text-emerald-600">"John Fitzgerald Jr." Kennedy</b>.',
 
     'unauthorized_access' => 'Yetkisiz erişim.',
 

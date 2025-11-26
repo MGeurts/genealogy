@@ -116,14 +116,9 @@ return [
     'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> 个人物与关键字 <span class="text-emerald-600"><strong>:keyword</strong></span> 匹配，<span class="text-emerald-600"><strong>:scope</strong></span> 家族中共有 <span class="text-emerald-600"><strong>:total</strong></span> 个人物。',
     'people_available'          => '<span class="text-emerald-600"><strong>:scope</strong></span>家族中共有 <span class="text-emerald-600"><strong>:total</strong></span> 个人物。',
 
-    'people_search_help_1'  => '系统将在 <b class="text-emerald-600">姓氏</b>、<b class="text-emerald-600">名字</b>、<b class="text-emerald-600">出生姓名</b> 和 <b class="text-emerald-600">昵称</b> 字段中搜索姓名。',
-    'people_search_help_2'  => '如何搜索 :',
-    'people_search_help_2a' => '输入姓名的任意部分即可找到匹配项 <span class="italic">(例如："Kennedy")</span>',
-    'people_search_help_2b' => '输入多个词可缩小结果范围 <span class="italic">(例如："John Kennedy")</span>',
-    'people_search_help_2c' => '词语顺序无关紧要 <span class="italic">（"Kennedy John" = "John Kennedy"）</span>',
-    'people_search_help_2d' => '带空格的姓名请使用引号 <span class="italic">(例如："John Fitzgerald Jr.")</span>',
-    'people_search_help_2e' => '以 <b class="text-emerald-600">%</b> 开头可进行子字符串搜索 <span class="italic">(例如："%Jr.")</span>',
-    'people_search_help_3'  => '注意 : <b class="text-emerald-600">较短（1–2 个字符）或使用通配符 (%) 的搜索在大型家谱中可能需要更长时间</b>.',
+    'people_search_help_1' => '系统将在搜索框中查找 <b class="text-emerald-600">每一个词</b>，在属性 <b class="text-emerald-600">姓</b>、<b class="text-emerald-600">名</b>、<b class="text-emerald-600">出生名</b> 和 <b class="text-emerald-600">昵称</b> 中进行匹配。',
+    'people_search_help_2' => '如果您想搜索名称的一部分，请以 <b class="text-emerald-600">%</b> 开头，例如：<b class="text-emerald-600">%Jr</b>。<br/>请注意，这种搜索速度较慢。',
+    'people_search_help_3' => '如果姓、名、出生名或昵称中包含任何 <b class="text-emerald-600">空格</b>，请将名称用双引号括起来，<br/>例如：<b class="text-emerald-600">"John Fitzgerald Jr." Kennedy</b>。',
 
     'unauthorized_access' => '未授权访问。',
 

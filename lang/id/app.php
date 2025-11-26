@@ -116,14 +116,9 @@ return [
     'people_found'              => '<span class="text-emerald-600"><strong>:found</strong></span> ditemukan dengan kata kunci <span class="text-emerald-600"><strong>:keyword</strong></span> dari <span class="text-emerald-600"><strong>:total</strong></span> yang tersedia di <span class="text-emerald-600"><strong>:scope</strong></span>',
     'people_available'          => '<span class="text-emerald-600"><strong>:total</strong></span> tersedia di <span class="text-emerald-600"><strong>:scope</strong></span></span>',
 
-    'people_search_help_1'  => 'Sistem akan mencari nama pada bidang <b class="text-emerald-600">nama keluarga</b>, <b class="text-emerald-600">nama depan</b>, <b class="text-emerald-600">nama lahir</b> dan <b class="text-emerald-600">nama panggilan</b>.',
-    'people_search_help_2'  => 'Cara mencari :',
-    'people_search_help_2a' => 'Ketik bagian apa pun dari nama untuk menemukan kecocokan <span class="italic">(mis., "Kennedy")</span>',
-    'people_search_help_2b' => 'Cari beberapa kata untuk mempersempit hasil <span class="italic">(mis., "John Kennedy")</span>',
-    'people_search_help_2c' => 'Urutan kata tidak berpengaruh <span class="italic">("Kennedy John" = "John Kennedy")</span>',
-    'people_search_help_2d' => 'Gunakan tanda kutip untuk nama yang memiliki spasi <span class="italic">(mis., "John Fitzgerald Jr.")</span>',
-    'people_search_help_2e' => 'Mulai dengan <b class="text-emerald-600">%</b> untuk pencarian substring <span class="italic">(mis., "%Jr.")</span>',
-    'people_search_help_3'  => 'Catatan : <b class="text-emerald-600">Pencarian pendek (1–2 karakter) atau wildcard (%) dapat memakan waktu lebih lama pada pohon keluarga besar</b>.',
+    'people_search_help_1' => 'Sistem akan mencari <b class="text-emerald-600">setiap kata</b> di kotak pencarian dalam atribut <b class="text-emerald-600">nama keluarga</b>, <b class="text-emerald-600">nama depan</b>, <b class="text-emerald-600">nama lahir</b>, dan <b class="text-emerald-600">nama panggilan</b>.',
+    'people_search_help_2' => 'Awali string pencarian dengan <b class="text-emerald-600">%</b> jika Anda ingin mencari bagian dari nama, misalnya: <b class="text-emerald-600">%Jr</b>.<br/>Perlu diketahui bahwa jenis pencarian ini lebih lambat.',
+    'people_search_help_3' => 'Jika nama keluarga, nama depan, nama lahir, atau nama panggilan mengandung <b class="text-emerald-600">spasi</b>, apit nama tersebut dengan tanda kutip ganda,<br/>misalnya: <b class="text-emerald-600">"John Fitzgerald Jr." Kennedy</b>.',
 
     'unauthorized_access' => 'Akses tidak sah.',
 

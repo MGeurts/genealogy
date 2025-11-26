@@ -124,41 +124,28 @@ final class Person extends Model implements HasMedia
     #[Scope]
     public function scopeSearch(Builder $query, string $searchString): void
     {
+        /* -------------------------------------------------------------------------------------------- */
+        // The system wil look up every word in the search value in the attributes surname, firstname, birthname and nickname
+        // Begin the search string with % if you want to search parts of names, for instance %Jr.
+        // Be aware that this kinds of searches are slower.
+        // If a name containes any spaces, enclose the name in double quoutes, for instance "John Fitzgerald Jr." Kennedy.
+        /* -------------------------------------------------------------------------------------------- */
         if (mb_trim($searchString) === '%' || empty(mb_trim($searchString))) {
             return;
         }
 
+        // Sanitize: strip HTML tags and trim spaces
         $searchString = strip_tags(mb_trim($searchString));
 
-        // Determine search strategy based on input
-        $terms = collect(str_getcsv($searchString, ' ', '"'))->filter();
+        // Escape SQL wildcard characters in search terms
+        $escapeLike = fn (string $value): string => str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $value);
 
-        // Short terms (< 3 chars) → LIKE only
-        if ($terms->some(fn ($term) => mb_strlen($term) < 3)) {
-            $this->likeSearch($query, $terms);
-
-            return;
-        }
-
-        // Try full-text first (fast)
-        $fullTextQuery = $terms->map(fn ($t) => $t . '*')->implode(' ');
-        $ids           = (clone $query)
-            ->whereFullText(
-                ['firstname', 'surname', 'birthname', 'nickname'],
-                $fullTextQuery,
-                ['mode' => 'boolean']
-            )
-            ->pluck('id');
-
-        // If full-text found results, use them
-        if ($ids->isNotEmpty()) {
-            $query->whereIn('id', $ids);
-
-            return;
-        }
-
-        // Fallback to LIKE for fuzzy matching
-        $this->likeSearch($query, $terms);
+        collect(str_getcsv($searchString, ' ', '"'))
+            ->filter()
+            ->each(function (string $searchTerm) use ($query, $escapeLike): void {
+                $term = $escapeLike($searchTerm) . '%';
+                $query->whereAny(['firstname', 'surname', 'birthname', 'nickname'], 'like', $term);
+            });
     }
 
     #[Scope]
@@ -741,30 +728,6 @@ final class Person extends Model implements HasMedia
             'yob' => 'integer',
             'yod' => 'integer',
         ];
-    }
-
-    /**
-     * Perform LIKE-based search across name fields.
-     * Used as fallback when full-text search doesn't find results
-     * or for substring/short term searches.
-     *
-     * @internal This is a private implementation detail of scopeSearch
-     */
-    private function likeSearch(Builder $query, Collection $terms): void
-    {
-        $escapeLike = fn (string $value): string => str_replace(['\\', '%', '_'], ['\\\\', '\%', '\_'], $value);
-
-        foreach ($terms as $term) {
-            // Use % on both sides for substring matching
-            $fuzzyTerm = '%' . $escapeLike($term) . '%';
-
-            $query->where(function ($q) use ($fuzzyTerm): void {
-                $q->where('firstname', 'LIKE', $fuzzyTerm)
-                    ->orWhere('surname', 'LIKE', $fuzzyTerm)
-                    ->orWhere('birthname', 'LIKE', $fuzzyTerm)
-                    ->orWhere('nickname', 'LIKE', $fuzzyTerm);
-            });
-        }
     }
 
     /* -------------------------------------------------------------------------------------------- */
