@@ -163,6 +163,7 @@ final class AppServiceProvider extends ServiceProvider
 
         $ui->dropdown()
             ->block('floating.default')->replace('rounded-lg', 'rounded-sm')
+            ->block('floating.class')->replace('w-56', 'w-auto')
             ->block('action.icon')->replace('text-gray-400', 'text-primary-500 dark:text-primary-300');
 
         $ui->form('input')
