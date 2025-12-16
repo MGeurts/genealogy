@@ -60,6 +60,7 @@ return [
     'edit_person'                       => 'व्यक्ति संपादित करें',
     'edit_profile'                      => 'प्रोफ़ाइल संपादित करें',
     'edit_relationship'                 => 'संबंध संपादित करें',
+    'edit_events'                       => 'इवेंट संपादित करें',
     'delete_child'                      => 'बच्चे को डिस्कनेक्ट करें',
     'delete_person'                     => 'व्यक्ति को हटाएं',
     'delete_relationship'               => 'संबंध हटाएं',

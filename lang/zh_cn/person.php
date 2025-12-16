@@ -69,6 +69,7 @@ return [
     'edit_person'       => '编辑人物',
     'edit_profile'      => '编辑信息',
     'edit_relationship' => '编辑关系',
+    'edit_events'       => '编辑事件',
 
     'delete_child'        => '删除孩子',
     'delete_person'       => '删除人物',

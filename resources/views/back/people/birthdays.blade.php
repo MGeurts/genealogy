@@ -61,7 +61,7 @@
                                         @if ($person->isDeceased())
                                             <br />
                                             <span class="text-red-600 dark:text-red-400">
-                                                <x-ts-icon icon="tabler.coffin" class="inline-block size-5 mr-1" /> {{ $person->age }}
+                                                <x-ts-icon icon="tabler.grave-2" class="inline-block size-5 mr-1" /> {{ $person->age }}
                                             </span>
                                         @endif
                                     </td>

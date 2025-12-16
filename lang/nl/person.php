@@ -69,6 +69,7 @@ return [
     'edit_person'       => 'Editeer persoon',
     'edit_profile'      => 'Editeer profiel',
     'edit_relationship' => 'Editeer relatie',
+    'edit_events'       => 'Editeer gebeurtenissen',
 
     'delete_child'        => 'Kind ontkoppelen',
     'delete_person'       => 'Verwijder persoon',

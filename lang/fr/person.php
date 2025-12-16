@@ -60,6 +60,7 @@ return [
     'edit_person'                    => 'Modifier la personne',
     'edit_profile'                   => 'Modifier le profil',
     'edit_relationship'              => 'Modifier la relation',
+    'edit_events'                    => 'Modifier les événements',
     'delete_child'                   => 'Déconnecter l\'enfant',
     'delete_person'                  => 'Supprimer une personne',
     'delete_relationship'            => 'Supprimer la relation',

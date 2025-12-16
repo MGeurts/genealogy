@@ -69,6 +69,7 @@ return [
     'edit_person'       => 'Kişiyi düzenle',
     'edit_profile'      => 'Profili düzenle',
     'edit_relationship' => 'İlişkiyi düzenle',
+    'edit_events'       => 'Etkinlikleri düzenle',
 
     'delete_child'        => 'Çocuğu bağlantıdan kaldır',
     'delete_person'       => 'Kişiyi sil',

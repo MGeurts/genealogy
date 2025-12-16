@@ -54,12 +54,14 @@ Route::middleware([
         Route::get('people/{person}/chart', 'chart')->name('people.chart');
         Route::get('people/{person}/history', 'history')->name('people.history');
         Route::get('people/{person}/datasheet', 'datasheet')->name('people.datasheet');
+        Route::get('people/{person}/timeline', 'timeline')->name('people.timeline');
         Route::get('people/{person}/add-father', 'addFather')->name('people.add-father');
         Route::get('people/{person}/add-mother', 'addMother')->name('people.add-mother');
         Route::get('people/{person}/add-child', 'addChild')->name('people.add-child');
         Route::get('people/{person}/add-partner', 'addPartner')->name('people.add-partner');
         Route::get('people/{person}/edit-contact', 'editContact')->name('people.edit-contact');
         Route::get('people/{person}/edit-death', 'editDeath')->name('people.edit-death');
+        Route::get('people/{person}/edit-events', 'editEvents')->name('people.edit-events');
         Route::get('people/{person}/edit-family', 'editFamily')->name('people.edit-family');
         Route::get('people/{person}/edit-files', 'editFiles')->name('people.edit-files');
         Route::get('people/{person}/edit-photos', 'editPhotos')->name('people.edit-photos');

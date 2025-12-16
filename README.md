@@ -220,6 +220,7 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
     <li>Offcanvas menu</li>
     <li>Multiple image upload with possibility of watermarking, photo carousel with navigation</li>
     <li>Multiple documents upload</li>
+    <li>Event management & timeline overview</li>
 </ul>
 
 ### Special features

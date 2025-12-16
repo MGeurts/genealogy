@@ -69,6 +69,7 @@ return [
     'edit_person'       => 'Edit person',
     'edit_profile'      => 'Edit profile',
     'edit_relationship' => 'Edit relationship',
+    'edit_events'       => 'Edit Events',
 
     'delete_child'        => 'Disconnect child',
     'delete_person'       => 'Delete person',

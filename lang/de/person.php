@@ -69,6 +69,7 @@ return [
     'edit_person'       => 'Person bearbeiten',
     'edit_profile'      => 'Profil bearbeiten',
     'edit_relationship' => 'Beziehung bearbeiten',
+    'edit_events'       => 'Ereignisse bearbeiten',
 
     'delete_child'        => 'Untergeordnetes Kind trennen',
     'delete_person'       => 'Person löschen',

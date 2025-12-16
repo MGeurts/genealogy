@@ -30,12 +30,16 @@
                     <x-ts-icon icon="tabler.social" class="inline-block size-4" />
                 </x-ts-button>
 
-                <x-ts-button href="/people/{{ $person->id }}/history" color="{{ request()->routeIs('people.history') ? 'yellow' : 'cyan' }}" class="mb-2 text-xs" title="{{ __('app.history') }}">
-                    <x-ts-icon icon="tabler.history" class="inline-block size-4" />
+                <x-ts-button href="/people/{{ $person->id }}/timeline" color="{{ request()->routeIs('people.timeline') ? 'yellow' : 'secondary' }}" class="mb-2 text-xs" title="{{ __('app.timeline') }}">
+                    <x-ts-icon icon="tabler.timeline-event" class="inline-block size-4" />
                 </x-ts-button>
 
                 <x-ts-button href="/people/{{ $person->id }}/datasheet" color="{{ request()->routeIs('people.datasheet') ? 'yellow' : 'secondary' }}" class="mb-2 text-xs" title="{{ __('app.datasheet') }}">
                     <x-ts-icon icon="tabler.pdf" class="inline-block size-4" />
+                </x-ts-button>
+
+                <x-ts-button href="/people/{{ $person->id }}/history" color="{{ request()->routeIs('people.history') ? 'yellow' : 'cyan' }}" class="mb-2 text-xs" title="{{ __('app.history') }}">
+                    <x-ts-icon icon="tabler.history" class="inline-block size-4" />
                 </x-ts-button>
             </div>
         </div>
@@ -73,14 +77,19 @@
                     {{ __('app.family_chart') }}
                 </x-ts-button>
 
-                <x-ts-button href="/people/{{ $person->id }}/history" color="{{ request()->routeIs('people.history') ? 'yellow' : 'cyan' }}" class="mb-3 mr-2 text-sm">
-                    <x-ts-icon icon="tabler.history" class="inline-block size-5" />
-                    {{ __('app.history') }}
+                <x-ts-button href="/people/{{ $person->id }}/timeline" color="{{ request()->routeIs('people.timeline') ? 'yellow' : 'secondary' }}" class="mb-3 mr-2 text-sm">
+                    <x-ts-icon icon="tabler.timeline-event" class="inline-block size-5" />
+                    {{ __('app.timeline') }}
                 </x-ts-button>
 
                 <x-ts-button href="/people/{{ $person->id }}/datasheet" color="{{ request()->routeIs('people.datasheet') ? 'yellow' : 'secondary' }}" class="mb-3 mr-2 text-sm">
                     <x-ts-icon icon="tabler.pdf" class="inline-block size-5" />
                     {{ __('app.datasheet') }}
+                </x-ts-button>
+
+                <x-ts-button href="/people/{{ $person->id }}/history" color="{{ request()->routeIs('people.history') ? 'yellow' : 'cyan' }}" class="mb-3 mr-2 text-sm">
+                    <x-ts-icon icon="tabler.history" class="inline-block size-5" />
+                    {{ __('app.history') }}
                 </x-ts-button>
             </div>
         </div>

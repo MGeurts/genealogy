@@ -69,6 +69,7 @@ return [
     'edit_person'       => 'Ubah orang',
     'edit_profile'      => 'Ubah profil',
     'edit_relationship' => 'Ubah hubungan',
+    'edit_events'       => 'Ubah acara',
 
     'delete_child'        => 'Putuskan hubungan anak',
     'delete_person'       => 'Hapus orang',

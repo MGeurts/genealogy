@@ -69,6 +69,7 @@ return [
     'edit_person'       => 'Chỉnh sửa người',
     'edit_profile'      => 'Chỉnh sửa hồ sơ',
     'edit_relationship' => 'Chỉnh sửa mối quan hệ',
+    'edit_events'       => 'Chỉnh sửa sự kiện',
 
     'delete_child'        => 'Ngắt kết nối con',
     'delete_person'       => 'Xóa người',

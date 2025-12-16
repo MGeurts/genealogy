@@ -20,13 +20,12 @@
             <div class="grid grid-cols-6 gap-5">
                 {{-- yod --}}
                 <div class="col-span-3">
-                    <x-ts-input wire:model="yod" id="yod" label="{{ __('person.yod') }} :" autofocus type="number" max="{{ date('Y') }}"/>
+                    <x-ts-input wire:model="yod" id="yod" label="{{ __('person.yod') }} :" type="number" max="{{ date('Y') }}" autofocus/>
                 </div>
 
                 {{-- dod --}}
                 <div class="col-span-3">
-                    <x-ts-date wire:model="dod" id="dod" label="{{ __('person.dod') }} :" format="YYYY-MM-DD" :max-date="now()"
-                        placeholder="{{ __('app.select') }} ..." />
+                    <x-ts-date wire:model="dod" id="dod" label="{{ __('person.dod') }} :" format="YYYY-MM-DD" :max-date="now()" placeholder="{{ __('app.select') }} ..." />
                 </div>
 
                 {{-- pod --}}

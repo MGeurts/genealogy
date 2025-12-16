@@ -63,6 +63,11 @@ final class PeopleController extends Controller
         return view('back.people.datasheet', ['person' => $person]);
     }
 
+    public function timeline(Person $person): View
+    {
+        return view('back.people.timeline', ['person' => $person]);
+    }
+
     public function addFather(Person $person): View
     {
         abort_unless(auth()->user()->hasPermission('person:create'), 403, __('app.unauthorized_access'));
@@ -103,6 +108,13 @@ final class PeopleController extends Controller
         abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
 
         return view('back.people.edit.death', ['person' => $person]);
+    }
+
+    public function editEvents(Person $person): View
+    {
+        abort_unless(auth()->user()->hasPermission('person:update'), 403, __('app.unauthorized_access'));
+
+        return view('back.people.edit.events', ['person' => $person]);
     }
 
     public function editFamily(Person $person): View

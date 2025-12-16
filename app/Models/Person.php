@@ -472,6 +472,137 @@ final class Person extends Model implements HasMedia
     }
 
     /* -------------------------------------------------------------------------------------------- */
+    // Relations for Person Events
+    /* -------------------------------------------------------------------------------------------- */
+    /* returns ALL EVENTS (n PersonEvent) related to the person, ordered by date */
+    public function events(): HasMany
+    {
+        return $this->hasMany(PersonEvent::class)->orderByRaw('COALESCE(date, CONCAT(year, "-01-01"))');
+    }
+
+    /* returns a TIMELINE of all person events including birth and death (person and children), and relationships, ordered by date */
+    public function timeline(): Collection
+    {
+        $timeline = collect();
+
+        // Birth event
+        if ($this->dob || $this->yob) {
+            $timeline->push([
+                'type'           => 'birth',
+                'type_label'     => __('personevents.birth'),
+                'date'           => $this->dob,
+                'year'           => $this->yob ?? ($this->dob ? (int) Carbon::parse($this->dob)->format('Y') : null),
+                'date_formatted' => $this->birth_formatted,
+                'place'          => $this->pob,
+                'sort_date'      => $this->dob ?? ($this->yob ? "{$this->yob}-01-01" : null),
+                'color'          => 'green',
+                'icon'           => 'balloon',
+            ]);
+        }
+
+        // Death event
+        if ($this->dod || $this->yod) {
+            $timeline->push([
+                'type'           => 'death',
+                'type_label'     => __('personevents.death'),
+                'date'           => $this->dod,
+                'year'           => $this->yod ?? ($this->dod ? (int) Carbon::parse($this->dod)->format('Y') : null),
+                'date_formatted' => $this->death_formatted,
+                'place'          => $this->pod,
+                'sort_date'      => $this->dod ?? ($this->yod ? "{$this->yod}-01-01" : null),
+                'color'          => 'green',
+                'icon'           => 'grave-2',
+            ]);
+        }
+
+        // Relationship events
+        foreach ($this->couples as $couple) {
+            if ($couple->date_start) {
+                $timeline->push([
+                    'type'           => $couple->is_married ? 'marriage' : 'relationship',
+                    'type_label'     => $couple->is_married ? __('personevents.marriage') : __('personevents.relationship'),
+                    'date'           => $couple->date_start,
+                    'year'           => (int) Carbon::parse($couple->date_start)->format('Y'),
+                    'date_formatted' => $couple->date_start_formatted,
+                    'partner'        => $couple->person1_id === $this->id ? $couple->person2->name : $couple->person1->name,
+                    'sort_date'      => $couple->date_start,
+                    'color'          => 'pink',
+                    'icon'           => 'hearts',
+                ]);
+            }
+
+            if ($couple->date_end && $couple->has_ended) {
+                $timeline->push([
+                    'type'           => 'relationship_end',
+                    'type_label'     => $couple->is_married ? __('personevents.marriage_end') : __('personevents.relationship_end'),
+                    'date'           => $couple->date_end,
+                    'year'           => (int) Carbon::parse($couple->date_end)->format('Y'),
+                    'date_formatted' => Carbon::parse($couple->date_end)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL'),
+                    'partner'        => $couple->person1_id === $this->id ? $couple->person2->name : $couple->person1->name,
+                    'sort_date'      => $couple->date_end,
+                    'color'          => 'pink',
+                    'icon'           => 'hearts-off',
+                ]);
+            }
+        }
+
+        // Children birth and death events (as parent)
+        foreach ($this->children as $child) {
+            if ($child->dob || $child->yob) {
+                $timeline->push([
+                    'type'           => 'child_birth',
+                    'type_label'     => __('personevents.child_birth'),
+                    'date'           => $child->dob,
+                    'year'           => $child->yob ?? ($child->dob ? (int) Carbon::parse($child->dob)->format('Y') : null),
+                    'date_formatted' => $child->birth_formatted,
+                    'child'          => $child->name,
+                    'place'          => $child->pob,
+                    'sort_date'      => $child->dob ?? ($child->yob ? "{$child->yob}-01-01" : null),
+                    'color'          => 'blue',
+                    'icon'           => 'balloon',
+                ]);
+            }
+
+            if ($child->dod || $child->yod) {
+                $timeline->push([
+                    'type'           => 'child_death',
+                    'type_label'     => __('personevents.child_death'),
+                    'date'           => $child->dod,
+                    'year'           => $child->yod ?? ($child->dod ? (int) Carbon::parse($child->dod)->format('Y') : null),
+                    'date_formatted' => $child->death_formatted,
+                    'child'          => $child->name,
+                    'place'          => $child->pod,
+                    'sort_date'      => $child->dod ?? ($child->yod ? "{$child->yod}-01-01" : null),
+                    'color'          => 'blue',
+                    'icon'           => 'grave-2',
+                ]);
+            }
+        }
+
+        // Custom events (baptism, burial, military, etc.)
+        foreach ($this->events as $event) {
+            $timeline->push([
+                'type'           => $event->type,
+                'type_label'     => $event->type_label,
+                'date'           => $event->date,
+                'year'           => $event->year,
+                'date_formatted' => $event->date_formatted,
+                'place'          => $event->address ?? ($event->place ? $event->place : null),
+                'description'    => $event->description,
+                'sort_date'      => $event->date ?? ($event->year ? "{$event->year}-01-01" : null),
+                'color'          => 'gray',
+                'icon'           => 'calendar-week',
+            ]);
+        }
+
+        // Sort by date and return
+        return $timeline
+            ->filter(fn ($event) => $event['sort_date'] !== null)
+            ->sortBy('sort_date')
+            ->values();
+    }
+
+    /* -------------------------------------------------------------------------------------------- */
     // Scopes (global)
     /* -------------------------------------------------------------------------------------------- */
     #[Override]

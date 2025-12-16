@@ -29,6 +29,12 @@
                                     {{ __('person.edit_death') }}
                                 </x-ts-dropdown.items>
                             </a>
+                            <a href="/people/{{ $person->id }}/edit-events">
+                                <x-ts-dropdown.items>
+                                    <x-ts-icon icon="tabler.timeline-event" class="inline-block size-5 mr-2" />
+                                    {{ __('person.edit_events') }}
+                                </x-ts-dropdown.items>
+                            </a>
 
                             <hr />
                             <a href="/people/{{ $person->id }}/edit-photos">
