@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Couple;
 use App\Models\Person;
+use App\Models\PersonEvent;
 use App\Models\PersonMetadata;
 use App\Models\Team;
 use App\Models\User;
@@ -353,11 +354,33 @@ final class DemoSeeder extends Seeder
         // -----------------------------------------------------------------------
         // address
         // -----------------------------------------------------------------------
-        Person::findOrFail(5)->update([
+        $person = Person::findOrFail(5);
+
+        $person->update([
             'street'      => 'Royal Lodge',
             'postal_code' => 'SL4 2JD',
             'city'        => 'Windsor',
             'country'     => 'gb',
+        ]);
+
+        // -----------------------------------------------------------------------
+        // events
+        // -----------------------------------------------------------------------
+        PersonEvent::create([
+            'person_id'   => $person->id,
+            'team_id'     => $person->team_id,
+            'type'        => PersonEvent::TYPE_BAPTISM,
+            'description' => 'He was baptized in the Music Room at Buckingham Palace by the Archbishop of Canterbury. He was named, Andrew Albert Christian Edward.',
+            'date'        => '1960-04-08',
+            'place'       => 'Music Room at Buckingham Palace, London, England',
+        ]);
+
+        PersonEvent::create([
+            'person_id'   => $person->id,
+            'team_id'     => $person->team_id,
+            'type'        => PersonEvent::TYPE_MILITARY_SERVICE,
+            'description' => 'He served 22 years (1979 - 2001) in the Royal Navy, primarily as a helicopter pilot, including active duty in the Falklands War in 1982, where he flew Sea King helicopters and acted as a decoy for Exocet missiles. He retired as a Commander in 2001 but later received honorary promotions, including to Vice-Admiral in 2015, though he was stripped of all military titles and affiliations by Queen Elizabeth II in 2022 following scrutiny over his association with convicted sex offender Jeffrey Epstein.',
+            'year'        => '1979',
         ]);
     }
 
