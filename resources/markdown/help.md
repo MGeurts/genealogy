@@ -491,7 +491,7 @@ The <b>Session</b> menu item allows <b>developers</b> to consult the application
 Visitor can change the language in the top right-hand menu by using the <b>language selector</b>.<br/>
 De <b>default</b> application language is <b>English</b>.
 
-<img src="img/help/genealogy-002aa.webp" class="rounded" alt="Language menu">
+<img src="img/help/genealogy-002a.webp" class="rounded" alt="Language menu">
 
 ### b. Authenticated users
 
@@ -509,4 +509,4 @@ The selected language and timezone are saved in the database.
 Users can change the color theme in the top right-hand menu by using the <b>theme icon</b>.<br/>
 The <b>default</b> application theme is <b>Dark mode</b>.
 
-<img src="img/help/genealogy-002aa.webp" class="rounded" alt="Theme selector">
+<img src="img/help/genealogy-002a.webp" class="rounded" alt="Theme selector">
