@@ -33,7 +33,7 @@
         }
     ],
     "require": {
-        "php": "^8.3",
+        "php": "^8.4",
         "filament/tables": "^4.3",
         "intervention/image": "^3.11",
         "korridor/laravel-has-many-merged": "^1.2",
@@ -43,7 +43,7 @@
         "laravel/tinker": "^2.10",
         "livewire/livewire": "^3.7",
         "opcodesio/log-viewer": "^3.21",
-        "secondnetwork/blade-tabler-icons": "^3.35",
+        "secondnetwork/blade-tabler-icons": "^3.36",
         "spatie/laravel-activitylog": "^4.10",
         "spatie/laravel-backup": "^9.3",
         "spatie/laravel-medialibrary": "^11.17",
