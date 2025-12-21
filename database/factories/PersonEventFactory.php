@@ -6,7 +6,6 @@ namespace Database\Factories;
 
 use App\Models\Person;
 use App\Models\PersonEvent;
-use App\Models\Team;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -27,7 +26,6 @@ final class PersonEventFactory extends Factory
 
         return [
             'person_id'   => Person::factory(),
-            'team_id'     => Team::factory(),
             'type'        => fake()->randomElement(PersonEvent::EVENT_TYPES),
             'description' => fake()->boolean(60) ? fake()->sentence() : null,
             'date'        => $useDate ? fake()->dateTimeBetween('-100 years', 'now')->format('Y-m-d') : null,

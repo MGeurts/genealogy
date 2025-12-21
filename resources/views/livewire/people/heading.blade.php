@@ -48,7 +48,7 @@
     <!-- Desktop layout (original side-by-side) - md and up -->
     <div class="hidden md:block">
         <div class="flex flex-wrap">
-            <div class="flex-1 grow max-w-full text-lg font-medium">
+            <div class="flex-2 grow max-w-full text-lg font-medium">
                 <div>{{ $person->name }}</div>
 
                 @if (auth()->user()->is_developer)
@@ -56,7 +56,7 @@
                 @endif
             </div>
 
-            <div class="flex-1 grow max-w-full print:hidden text-end">
+            <div class="flex-3 grow max-w-full print:hidden text-end">
                 <x-ts-button href="/people/{{ $person->id }}" color="{{ request()->routeIs('people.show') ? 'yellow' : 'primary' }}" class="mb-3 mr-2 text-sm">
                     <x-ts-icon icon="tabler.id" class="inline-block size-5" />
                     {{ __('person.profile') }}

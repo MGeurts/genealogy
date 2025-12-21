@@ -127,7 +127,6 @@ final class Events extends Component
 
         $data = [
             'person_id'   => $this->person->id,
-            'team_id'     => auth()->user()->currentTeam->id,
             'type'        => $this->type,
             'description' => $this->description,
             'date'        => $this->date,

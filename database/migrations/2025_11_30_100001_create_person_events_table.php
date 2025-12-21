@@ -13,7 +13,6 @@ return new class extends Migration
         Schema::create('person_events', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('person_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('team_id')->constrained()->cascadeOnDelete();
 
             // Event type and details
             $table->string('type'); // baptism, burial, military_service, migration, etc.
@@ -43,7 +42,6 @@ return new class extends Migration
             // Indexes for performance
             $table->index(['person_id', 'type']);
             $table->index(['person_id', 'date']);
-            $table->index('team_id');
         });
     }
 

@@ -17,9 +17,7 @@ beforeEach(function (): void {
     $this->user->currentTeam()->associate($this->team);
     $this->user->save();
 
-    $this->person = Person::factory()->create([
-        'team_id' => $this->team->id,
-    ]);
+    $this->person = Person::factory()->create();
 
     $this->actingAs($this->user);
 });
@@ -34,7 +32,6 @@ test('component can be mounted', function (): void {
 test('component displays person events', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'type'      => PersonEvent::TYPE_BAPTISM,
         'date'      => '2000-01-15',
     ]);
@@ -61,7 +58,6 @@ test('can open modal for creating new event', function (): void {
 test('can open modal for editing existing event', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id'   => $this->person->id,
-        'team_id'     => $this->team->id,
         'type'        => PersonEvent::TYPE_BAPTISM,
         'description' => 'Test baptism event',
         'date'        => '2000-01-15',
@@ -107,7 +103,6 @@ test('can close modal', function (): void {
 
 //     $event = PersonEvent::first();
 //     expect($event->person_id)->toBe($this->person->id)
-//         ->and($event->team_id)->toBe($this->team->id)
 //         ->and($event->type)->toBe(PersonEvent::TYPE_BAPTISM)
 //         ->and($event->description)->toBe('New baptism event')
 //         ->and($event->place)->toBe('St. Mary Church')
@@ -117,7 +112,6 @@ test('can close modal', function (): void {
 test('can update existing event', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id'   => $this->person->id,
-        'team_id'     => $this->team->id,
         'type'        => PersonEvent::TYPE_BAPTISM,
         'description' => 'Original description',
     ]);
@@ -138,7 +132,6 @@ test('can update existing event', function (): void {
 test('can delete event', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
     ]);
 
     expect(PersonEvent::count())->toBe(1);
@@ -268,7 +261,6 @@ test('refresh events listener works', function (): void {
 test('form is reset after closing modal', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id'   => $this->person->id,
-        'team_id'     => $this->team->id,
         'type'        => PersonEvent::TYPE_BAPTISM,
         'description' => 'Test description',
     ]);
@@ -285,7 +277,6 @@ test('form is reset after closing modal', function (): void {
 // test('events are ordered by date and year descending', function () {
 //     $event1 = PersonEvent::factory()->create([
 //         'person_id' => $this->person->id,
-//         'team_id'   => $this->team->id,
 //         'type'      => PersonEvent::TYPE_BAPTISM,
 //         'date'      => '2000-01-15',
 //         'year'      => null,
@@ -293,7 +284,6 @@ test('form is reset after closing modal', function (): void {
 
 //     $event2 = PersonEvent::factory()->create([
 //         'person_id' => $this->person->id,
-//         'team_id'   => $this->team->id,
 //         'type'      => PersonEvent::TYPE_BURIAL,
 //         'date'      => '2020-05-20',
 //         'year'      => null,
@@ -301,7 +291,6 @@ test('form is reset after closing modal', function (): void {
 
 //     $event3 = PersonEvent::factory()->create([
 //         'person_id' => $this->person->id,
-//         'team_id'   => $this->team->id,
 //         'type'      => PersonEvent::TYPE_CENSUS,
 //         'date'      => null,
 //         'year'      => 1990,
@@ -323,7 +312,6 @@ test('form is reset after closing modal', function (): void {
 // test('component displays place when address is not available', function (): void {
 //     $event = PersonEvent::factory()->create([
 //         'person_id' => $this->person->id,
-//         'team_id'   => $this->team->id,
 //         'place'     => 'St. Mary Church',
 //         'street'    => null,
 //         'city'      => null,
@@ -336,7 +324,6 @@ test('form is reset after closing modal', function (): void {
 test('component displays address when available', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'place'     => 'St. Mary Church',
         'street'    => 'Main Street',
         'number'    => '123',
@@ -360,7 +347,6 @@ test('toast messages show correct translations on save', function (): void {
 test('toast messages show correct translations on delete', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
     ]);
 
     Livewire::test(Events::class, ['person' => $this->person])

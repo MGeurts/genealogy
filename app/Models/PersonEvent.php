@@ -5,13 +5,11 @@ declare(strict_types=1);
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Override;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Models\Activity;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -73,7 +71,6 @@ final class PersonEvent extends Model
 
     protected $fillable = [
         'person_id',
-        'team_id',
         'type',
         'description',
         'date',
@@ -100,7 +97,7 @@ final class PersonEvent extends Model
     {
         return LogOptions::defaults()
             ->useLogName('person_couple')
-            ->setDescriptionForEvent(fn (string $eventName): string => __('person.person_event') . ' ' . __('app.event_' . $eventName))
+            ->setDescriptionForEvent(fn (string $eventName): string => __('personevents.event') . ' ' . __('app.event_' . $eventName))
             ->logOnly([
                 'person.name',
                 'type',
@@ -108,7 +105,6 @@ final class PersonEvent extends Model
                 'date',
                 'year',
                 'place',
-                'team.name',
             ])
             ->logOnlyDirty()
             ->dontSubmitEmptyLogs();
@@ -116,7 +112,7 @@ final class PersonEvent extends Model
 
     public function tapActivity(Activity $activity, string $eventName): void
     {
-        $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
+        // $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -125,26 +121,6 @@ final class PersonEvent extends Model
     public function person(): BelongsTo
     {
         return $this->belongsTo(Person::class);
-    }
-
-    public function team(): BelongsTo
-    {
-        return $this->belongsTo(Team::class);
-    }
-
-    /* -------------------------------------------------------------------------------------------- */
-    // Global Scopes
-    /* -------------------------------------------------------------------------------------------- */
-    #[Override]
-    protected static function booted(): void
-    {
-        self::addGlobalScope('team', function (Builder $builder): void {
-            if (auth()->guest() || auth()->user()->is_developer) {
-                return;
-            }
-
-            $builder->where('person_events.team_id', auth()->user()->currentTeam->id);
-        });
     }
 
     /* -------------------------------------------------------------------------------------------- */

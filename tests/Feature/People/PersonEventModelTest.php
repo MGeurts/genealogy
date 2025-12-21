@@ -17,9 +17,7 @@ beforeEach(function (): void {
     $this->user->currentTeam()->associate($this->team);
     $this->user->save();
 
-    $this->person = Person::factory()->create([
-        'team_id' => $this->team->id,
-    ]);
+    $this->person = Person::factory()->create([]);
 
     $this->actingAs($this->user);
 });
@@ -27,7 +25,6 @@ beforeEach(function (): void {
 test('person event can be created', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id'   => $this->person->id,
-        'team_id'     => $this->team->id,
         'type'        => PersonEvent::TYPE_BAPTISM,
         'description' => 'Test baptism',
         'date'        => '2000-01-15',
@@ -35,35 +32,13 @@ test('person event can be created', function (): void {
 
     expect($event)->toBeInstanceOf(PersonEvent::class)
         ->and($event->person_id)->toBe($this->person->id)
-        ->and($event->team_id)->toBe($this->team->id)
         ->and($event->type)->toBe(PersonEvent::TYPE_BAPTISM)
         ->and($event->description)->toBe('Test baptism');
-});
-
-test('person event belongs to person', function (): void {
-    $event = PersonEvent::factory()->create([
-        'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
-    ]);
-
-    expect($event->person)->toBeInstanceOf(Person::class)
-        ->and($event->person->id)->toBe($this->person->id);
-});
-
-test('person event belongs to team', function (): void {
-    $event = PersonEvent::factory()->create([
-        'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
-    ]);
-
-    expect($event->team)->toBeInstanceOf(Team::class)
-        ->and($event->team->id)->toBe($this->team->id);
 });
 
 test('type label accessor returns translated label', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'type'      => PersonEvent::TYPE_BAPTISM,
     ]);
 
@@ -74,7 +49,6 @@ test('type label accessor returns translated label', function (): void {
 test('type label is appended to array', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'type'      => PersonEvent::TYPE_BAPTISM,
     ]);
 
@@ -85,7 +59,6 @@ test('type label is appended to array', function (): void {
 test('date formatted accessor returns formatted date', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'date'      => '2000-01-15',
     ]);
 
@@ -99,7 +72,6 @@ test('date formatted accessor returns formatted date', function (): void {
 test('date formatted accessor returns year when only year is set', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'date'      => null,
         'year'      => 1950,
     ]);
@@ -110,7 +82,6 @@ test('date formatted accessor returns year when only year is set', function (): 
 test('date formatted accessor returns null when no date or year', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'date'      => null,
         'year'      => null,
     ]);
@@ -121,7 +92,6 @@ test('date formatted accessor returns null when no date or year', function (): v
 test('event year accessor returns year from date', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'date'      => '2000-01-15',
         'year'      => 1999,
     ]);
@@ -132,7 +102,6 @@ test('event year accessor returns year from date', function (): void {
 test('event year accessor returns year field when no date', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'date'      => null,
         'year'      => 1950,
     ]);
@@ -143,7 +112,6 @@ test('event year accessor returns year field when no date', function (): void {
 test('event year accessor returns null when no date or year', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'date'      => null,
         'year'      => null,
     ]);
@@ -154,7 +122,6 @@ test('event year accessor returns null when no date or year', function (): void 
 test('address accessor builds full address from components', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id'   => $this->person->id,
-        'team_id'     => $this->team->id,
         'street'      => 'Main Street',
         'number'      => '123',
         'postal_code' => '12345',
@@ -169,7 +136,6 @@ test('address accessor builds full address from components', function (): void {
 test('address accessor handles partial address components', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id'   => $this->person->id,
-        'team_id'     => $this->team->id,
         'street'      => 'Main Street',
         'number'      => null,
         'postal_code' => null,
@@ -184,7 +150,6 @@ test('address accessor handles partial address components', function (): void {
 test('address accessor returns null when no address components', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id'   => $this->person->id,
-        'team_id'     => $this->team->id,
         'street'      => null,
         'number'      => null,
         'postal_code' => null,
@@ -199,7 +164,6 @@ test('address accessor returns null when no address components', function (): vo
 test('address accessor trims whitespace correctly', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id'   => $this->person->id,
-        'team_id'     => $this->team->id,
         'street'      => 'Main Street',
         'number'      => '',
         'postal_code' => '',
@@ -255,7 +219,6 @@ test('event type constants have correct values', function (): void {
 test('person event uses soft deletes', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
     ]);
 
     $event->delete();
@@ -268,7 +231,6 @@ test('person event uses soft deletes', function (): void {
 test('person event can be restored after soft delete', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
     ]);
 
     $event->delete();
@@ -282,7 +244,6 @@ test('person event can be restored after soft delete', function (): void {
 test('person event can be force deleted', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
     ]);
 
     $event->forceDelete();
@@ -295,7 +256,6 @@ test('metadata is cast to array', function (): void {
 
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'metadata'  => $metadata,
     ]);
 
@@ -306,7 +266,6 @@ test('metadata is cast to array', function (): void {
 test('metadata can be null', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'metadata'  => null,
     ]);
 
@@ -316,7 +275,6 @@ test('metadata can be null', function (): void {
 test('date is cast to date object', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'date'      => '2000-01-15',
     ]);
 
@@ -327,7 +285,6 @@ test('date is cast to date object', function (): void {
 test('date can be null', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'date'      => null,
     ]);
 
@@ -337,7 +294,6 @@ test('date can be null', function (): void {
 test('year is cast to integer', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'year'      => '1950',
     ]);
 
@@ -348,28 +304,10 @@ test('year is cast to integer', function (): void {
 test('year can be null', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'year'      => null,
     ]);
 
     expect($event->year)->toBeNull();
-});
-
-test('global scope filters by team', function (): void {
-    $otherTeam = Team::factory()->create();
-
-    PersonEvent::factory()->create([
-        'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
-    ]);
-
-    PersonEvent::factory()->create([
-        'person_id' => $this->person->id,
-        'team_id'   => $otherTeam->id,
-    ]);
-
-    expect(PersonEvent::count())->toBe(1)
-        ->and(PersonEvent::withoutGlobalScope('team')->count())->toBe(2);
 });
 
 test('global scope does not apply when user is guest', function (): void {
@@ -377,7 +315,6 @@ test('global scope does not apply when user is guest', function (): void {
 
     PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
     ]);
 
     expect(PersonEvent::count())->toBe(1);
@@ -386,7 +323,6 @@ test('global scope does not apply when user is guest', function (): void {
 test('activity logging is configured correctly', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'type'      => PersonEvent::TYPE_BAPTISM,
     ]);
 
@@ -400,7 +336,6 @@ test('activity logging is configured correctly', function (): void {
 test('type label accessor handles missing translation gracefully', function (): void {
     $event = PersonEvent::factory()->make([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
         'type'      => 'non_existent_type',
     ]);
 
@@ -413,7 +348,6 @@ test('type label accessor handles missing translation gracefully', function (): 
 test('all required fields can be mass assigned', function (): void {
     $data = [
         'person_id'   => $this->person->id,
-        'team_id'     => $this->team->id,
         'type'        => PersonEvent::TYPE_BAPTISM,
         'description' => 'Test description',
         'date'        => '2000-01-15',
@@ -432,7 +366,6 @@ test('all required fields can be mass assigned', function (): void {
     $event = PersonEvent::create($data);
 
     expect($event->person_id)->toBe($data['person_id'])
-        ->and($event->team_id)->toBe($data['team_id'])
         ->and($event->type)->toBe($data['type'])
         ->and($event->description)->toBe($data['description'])
         ->and($event->place)->toBe($data['place'])
@@ -445,7 +378,6 @@ test('all required fields can be mass assigned', function (): void {
 test('factory creates valid events', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
     ]);
 
     expect($event)->toBeInstanceOf(PersonEvent::class)
@@ -455,7 +387,6 @@ test('factory creates valid events', function (): void {
 test('factory baptism method creates baptism event', function (): void {
     $event = PersonEvent::factory()->baptism()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
     ]);
 
     expect($event->type)->toBe(PersonEvent::TYPE_BAPTISM)
@@ -465,7 +396,6 @@ test('factory baptism method creates baptism event', function (): void {
 test('factory withDate method creates event with specific date', function (): void {
     $event = PersonEvent::factory()->withDate('2000-01-15')->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
     ]);
 
     expect($event->date->format('Y-m-d'))->toBe('2000-01-15')
@@ -475,7 +405,6 @@ test('factory withDate method creates event with specific date', function (): vo
 test('factory withYearOnly method creates event with only year', function (): void {
     $event = PersonEvent::factory()->withYearOnly(1950)->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
     ]);
 
     expect($event->year)->toBe(1950)
@@ -485,7 +414,6 @@ test('factory withYearOnly method creates event with only year', function (): vo
 test('factory withFullAddress method creates event with complete address', function (): void {
     $event = PersonEvent::factory()->withFullAddress()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
     ]);
 
     expect($event->street)->not->toBeNull()
@@ -498,7 +426,6 @@ test('factory withFullAddress method creates event with complete address', funct
 test('factory withMetadata method creates event with metadata', function (): void {
     $event = PersonEvent::factory()->withMetadata()->create([
         'person_id' => $this->person->id,
-        'team_id'   => $this->team->id,
     ]);
 
     expect($event->metadata)->toBeArray()
