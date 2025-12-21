@@ -28,6 +28,10 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
+/**
+ * @property-read string|null $birth_formatted
+ * @property-read string|null $death_formatted
+ */
 final class Person extends Model implements HasMedia
 {
     use HasFactory;
@@ -77,6 +81,8 @@ final class Person extends Model implements HasMedia
      */
     protected $appends = [
         'name',
+        'birth_formatted',
+        'death_formatted',
     ];
 
     /* -------------------------------------------------------------------------------------------- */
