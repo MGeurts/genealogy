@@ -2,8 +2,8 @@
 
 **Genealogy** is een gratis en open-source applicatie voor het bijhouden van stambomen en het registreren van familieleden en hun relaties.
 
-<img src="img/help/genealogy-000a.webp" class="rounded" alt="Genealogy-000a">
-<img src="img/help/genealogy-020a.webp" class="rounded" alt="Genealogy-020a">
+<img src="img/help/genealogy-000.webp" class="rounded" alt="Genealogy-000">
+<img src="img/help/genealogy-020.webp" class="rounded" alt="Genealogy-020">
 
 ## Demo
 

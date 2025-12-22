@@ -2,8 +2,8 @@
 
 **Genealogy** एक मुफ्त और ओपन-सोर्स परिवार वृक्ष एप्लिकेशन है जो परिवार के सदस्यों और उनके संबंधों को रिकॉर्ड करता है।
 
-<img src="img/help/genealogy-000a.webp" class="rounded" alt="Genealogy-000a">
-<img src="img/help/genealogy-020a.webp" class="rounded" alt="Genealogy-020a">
+<img src="img/help/genealogy-000.webp" class="rounded" alt="Genealogy-000">
+<img src="img/help/genealogy-020.webp" class="rounded" alt="Genealogy-020">
 
 ## डेमो
 

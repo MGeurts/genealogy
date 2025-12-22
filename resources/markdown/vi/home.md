@@ -2,8 +2,8 @@
 
 **Genealogy** là một ứng dụng miễn phí và mã nguồn mở để ghi lại các thành viên trong gia đình và các mối quan hệ của họ.
 
-<img src="img/help/genealogy-000a.webp" class="rounded" alt="Genealogy-000a">
-<img src="img/help/genealogy-020a.webp" class="rounded" alt="Genealogy-020a">
+<img src="img/help/genealogy-000.webp" class="rounded" alt="Genealogy-000">
+<img src="img/help/genealogy-020.webp" class="rounded" alt="Genealogy-020">
 
 ## Demo
 

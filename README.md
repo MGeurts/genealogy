@@ -17,8 +17,8 @@
 
 <b>Genealogy</b> is a free and open-source family tree PHP application to record family members and their relationships, build with Laravel 12.
 
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-000a.webp" class="rounded" alt="Genealogy-000a"/>
-<img src="https://genealogy.kreaweb.be/img/help/genealogy-020a.webp" class="rounded" alt="Genealogy-020"/>
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-000.webp" class="rounded" alt="Genealogy-000"/>
+<img src="https://genealogy.kreaweb.be/img/help/genealogy-020.webp" class="rounded" alt="Genealogy-020"/>
 
 This <b>TallStack</b> application is build using :
 
