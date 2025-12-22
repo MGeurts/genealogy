@@ -25,7 +25,7 @@ final class Couple extends Model
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'person1_id',
@@ -40,7 +40,7 @@ final class Couple extends Model
     /**
      * The accessors to append to the model's array form.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $appends = [
         'name',

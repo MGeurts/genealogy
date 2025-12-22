@@ -43,7 +43,7 @@ final class Person extends Model implements HasMedia
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $fillable = [
         'firstname',
@@ -77,7 +77,7 @@ final class Person extends Model implements HasMedia
     /**
      * The accessors to append to the model's array form.
      *
-     * @var array<int, string>
+     * @var list<string>
      */
     protected $appends = [
         'name',

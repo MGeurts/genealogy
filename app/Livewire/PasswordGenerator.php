@@ -111,9 +111,11 @@ class PasswordGenerator extends Component
 
         $length -= $password->count();
 
-        return $password->merge(
-            $options->pipe(fn ($chars) => Collection::times($length, fn () => $chars[random_int(0, $chars->count() - 1)]))
-        )->shuffle()->implode('');
+        // Collect all options into array and generate remaining characters
+        $allChars  = $options->all();
+        $remaining = Collection::times($length, fn () => $allChars[random_int(0, count($allChars) - 1)]);
+
+        return $password->merge($remaining)->shuffle()->implode('');
     }
 
     private function evaluatePasswordStrength(string $password): array
