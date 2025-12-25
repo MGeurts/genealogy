@@ -10,15 +10,16 @@ final class Countries
 {
     // Mapping of locales to country directory names
     private const array LOCALE_TO_COUNTRY = [
-        'de'    => 'de',
-        'en'    => 'en',
-        'es'    => 'es',
-        'fr'    => 'fr',
-        'hi'    => 'hi',
-        'id'    => 'id',
-        'nl'    => 'nl',
-        'pt'    => 'pt',
-        'tr'    => 'tr',
+        'de' => 'de',
+        'en' => 'en',
+        'es' => 'es',
+        'fr' => 'fr',
+        'hi' => 'hi',
+        'id' => 'id',
+        'nl' => 'nl',
+        'pt' => 'pt',
+        'tr' => 'tr',
+        // 'vi'    => 'vi', // Vietnamese not available in the package
         'zh_cn' => 'zh',
     ];
 
