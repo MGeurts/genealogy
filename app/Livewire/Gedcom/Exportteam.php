@@ -7,8 +7,8 @@ namespace App\Livewire\Gedcom;
 use App\Gedcom\Export\Export;
 use App\Models\User;
 use Exception;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -29,8 +29,10 @@ final class Exportteam extends Component
 
     public string $teamname;
 
+    /** @var Collection<int, \App\Models\Person> */
     public Collection $teamPersons;
 
+    /** @var Collection<int, \App\Models\Couple> */
     public Collection $teamCouples;
 
     public static function formats(): array

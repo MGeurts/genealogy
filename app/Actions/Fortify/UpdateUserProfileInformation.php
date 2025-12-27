@@ -24,8 +24,8 @@ final class UpdateUserProfileInformation implements UpdatesUserProfileInformatio
             'surname'   => ['required', 'string', 'max:255'],
             'email'     => ['required', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'photo'     => ['nullable', 'mimes:jpg,jpeg,png', 'max:1024'],
-            'language'  => ['required', Rule::in(array_values(config('app.available_locales')))],
-            'timezone'  => ['required', Rule::in(array_values(timezone_identifiers_list()))],
+            'language'  => ['required', Rule::in(config('app.available_locales'))],
+            'timezone'  => ['required', Rule::in(timezone_identifiers_list())],
         ])->validateWithBag('updateProfileInformation');
 
         if (isset($input['photo'])) {

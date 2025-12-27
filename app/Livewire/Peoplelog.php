@@ -47,8 +47,8 @@ final class Peoplelog extends Component
             ->values()
             ->toArray();
 
-        // Transform only the current page data
-        $logs = $activities->getCollection()->map(function ($record) use ($timezone): array {
+        // Transform paginated data using through()
+        $activities->through(function ($record) use ($timezone): array {
             $event = $record->event;
 
             return [
@@ -62,9 +62,6 @@ final class Peoplelog extends Component
                 'causer'         => $record->causer->name ?? '',
             ];
         });
-
-        // Replace the collection with transformed data
-        $activities->setCollection($logs);
 
         return view('livewire.peoplelog', compact('activities', 'subjectTypes'));
     }

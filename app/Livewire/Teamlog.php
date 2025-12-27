@@ -43,14 +43,20 @@ final class Teamlog extends Component
             ];
         });
 
-        // Replace the collection with transformed data
-        $activities->setCollection($logs);
+        // Create a new paginator with transformed data
+        $activities = new \Illuminate\Pagination\LengthAwarePaginator(
+            $logs,
+            $activities->total(),
+            $activities->perPage(),
+            $activities->currentPage(),
+            ['path' => $activities->path()]
+        );
 
         return view('livewire.teamlog', compact('activities'));
     }
 
     // Optional: Method to change per page
-    public function updatedPerPage()
+    public function updatedPerPage(): void
     {
         $this->resetPage();
     }

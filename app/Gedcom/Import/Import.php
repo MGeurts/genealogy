@@ -237,8 +237,8 @@ final class Import implements CreatesTeams
         $this->user->switchTeam($team);
 
         // Create team photo folder
-        if (! Storage::disk('photos')->exists($team->id)) {
-            Storage::disk('photos')->makeDirectory($team->id);
+        if (! Storage::disk('photos')->exists((string) $team->id)) {
+            Storage::disk('photos')->makeDirectory((string) $team->id);
         }
 
         return $team;

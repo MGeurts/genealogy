@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Gedcom\Export;
 
 use App\Models\Person;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 
 // ==============================================================================
@@ -192,14 +193,15 @@ class GedcomIndividualBuilder
         if ($person->dob || $person->yob || $person->pob) {
             $lines[] = '1 BIRT';
 
-            // Full date of birth
+            // Date of birth
             if ($person->dob) {
-                if ($d = $this->formatter->formatGedcomDate($person->dob)) {
+                // Convert string to Carbon if needed
+                $date = $person->dob instanceof \Carbon\CarbonInterface ? $person->dob : Carbon::parse($person->dob);
+
+                if ($d = $this->formatter->formatGedcomDate($date)) {
                     $lines[] = "2 DATE {$d}";
                 }
-            }
-            // Fallback to year of birth if no full date
-            elseif ($person->yob) {
+            } elseif ($person->yob) {
                 $lines[] = '2 DATE ' . (int) $person->yob;
             }
 
@@ -227,9 +229,14 @@ class GedcomIndividualBuilder
         if ($person->dod || $person->yod || $person->pod) {
             $lines[] = '1 DEAT';
 
-            // Full date of death
-            if ($person->dod && $d = $this->formatter->formatGedcomDate($person->dod)) {
-                $lines[] = "2 DATE {$d}";
+            // Date of death
+            if ($person->dod) {
+                // Convert string to Carbon if needed
+                $date = $person->dod instanceof \Carbon\CarbonInterface ? $person->dod : Carbon::parse($person->dod);
+
+                if ($d = $this->formatter->formatGedcomDate($date)) {
+                    $lines[] = "2 DATE {$d}";
+                }
             } elseif ($person->yod) {
                 $lines[] = '2 DATE ' . (int) $person->yod;
             }

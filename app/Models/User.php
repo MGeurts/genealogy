@@ -46,7 +46,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property Carbon|null $deleted_at
  * @property-read string|null $name
  * @property-read string $profile_photo_url
- * @property-read Team|null $currentTeam  <-- ADD THIS
+ * @property-read Team|null $currentTeam
  */
 final class User extends Authenticatable
     // ---------------------------------------------------------------------------------------

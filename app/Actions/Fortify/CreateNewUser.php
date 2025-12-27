@@ -28,8 +28,8 @@ final class CreateNewUser implements CreatesNewUsers
             'firstname' => ['nullable', 'string', 'max:255'],
             'surname'   => ['required', 'string', 'max:255'],
             'email'     => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'language'  => ['required', Rule::in(array_values(config('app.available_locales')))],
-            'timezone'  => ['required', Rule::in(array_values(timezone_identifiers_list()))],
+            'language'  => ['required', Rule::in(config('app.available_locales'))],
+            'timezone'  => ['required', Rule::in(timezone_identifiers_list())],
             'password'  => $this->passwordRules(),
             'terms'     => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
         ])->validate();

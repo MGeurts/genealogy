@@ -529,7 +529,7 @@ final class PersonPhotos
 
                 $this->photosDisk->put(
                     $path,
-                    $image->toWebp(quality: $quality)
+                    (string) $image->toWebp(quality: $quality)
                 );
 
                 $savedAny = true;
