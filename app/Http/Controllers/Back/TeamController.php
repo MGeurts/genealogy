@@ -40,8 +40,10 @@ final class TeamController extends Controller
             'new_owner_id' => ['required', 'exists:users,id'],
         ]);
 
+        /** @var User $currentOwner */
         $currentOwner = $team->owner;
-        $newOwner     = User::findOrFail($validated['new_owner_id']);
+        /** @var User $newOwner */
+        $newOwner = User::findOrFail($validated['new_owner_id']);
 
         try {
             DB::transaction(function () use ($team, $currentOwner, $newOwner): void {
@@ -52,8 +54,8 @@ final class TeamController extends Controller
                     $team->users()->attach($currentOwner->id, [
                         'role' => 'administrator',
                     ]);
-                } elseif (empty($currentOwner_as_teamUser->membership->role)) {
-                    // If the membership entry exists but no role is set, update it
+                } elseif (empty($currentOwner_as_teamUser->pivot->role)) {
+                    // If the pivot entry exists but no role is set, update it
                     $team->users()->updateExistingPivot($currentOwner->id, [
                         'role' => 'administrator',
                     ]);

@@ -15,6 +15,7 @@ final class UserLogin
      */
     public function handle(Login $event): void
     {
+        /** @var \App\Models\User $user */
         $user = $event->user;
 
         // -----------------------------------------------------------------------
@@ -29,7 +30,7 @@ final class UserLogin
         // Update user's last seen timestamp
         // -----------------------------------------------------------------------
         $user->timestamps = false;
-        $user->seen_at    = now()->getTimestamp();
+        $user->seen_at    = \Carbon\Carbon::now();
         $user->saveQuietly();
 
         // -----------------------------------------------------------------------

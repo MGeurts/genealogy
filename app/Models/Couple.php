@@ -14,9 +14,21 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Override;
 use Spatie\Activitylog\LogOptions;
-use Spatie\Activitylog\Models\Activity;
 use Spatie\Activitylog\Traits\LogsActivity;
 
+/**
+ * @property int $id
+ * @property int $person1_id
+ * @property int $person2_id
+ * @property string|null $date_start
+ * @property string|null $date_end
+ * @property bool $is_married
+ * @property bool $has_ended
+ * @property-read string|null $name
+ * @property-read string|null $date_start_formatted
+ * @property-read Person $person1
+ * @property-read Person $person2
+ */
 final class Couple extends Model
 {
     use HasFactory;

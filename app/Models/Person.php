@@ -23,14 +23,37 @@ use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
 use Override;
 use Spatie\Activitylog\LogOptions;
-use Spatie\Activitylog\Models\Activity;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
+ * @property int $id
+ * @property int $team_id
+ * @property string|null $firstname
+ * @property string|null $surname
+ * @property string|null $birthname
+ * @property string|null $nickname
+ * @property string|null $sex
+ * @property int|null $gender_id
+ * @property int|null $father_id
+ * @property int|null $mother_id
+ * @property int|null $parents_id
+ * @property string|null $dob
+ * @property int|null $yob
+ * @property string|null $pob
+ * @property string|null $dod
+ * @property int|null $yod
+ * @property string|null $pod
+ * @property-read string|null $name
  * @property-read string|null $birth_formatted
  * @property-read string|null $death_formatted
+ * @property-read int|null $age
+ * @property-read string|null $birthYear
+ * @property-read string|null $deathYear
+ * @property-read Collection<int, Person> $children
+ * @property-read Collection<int, Couple> $couples
+ * @property-read Collection<int, PersonEvent> $events
  */
 final class Person extends Model implements HasMedia
 {
@@ -404,6 +427,7 @@ final class Person extends Model implements HasMedia
             return null;
         }
 
+        /** @var PersonMetadata|null $metadata */
         $metadata = $this->metadata->firstWhere('key', $key);
 
         return $metadata ? $metadata->value : null;

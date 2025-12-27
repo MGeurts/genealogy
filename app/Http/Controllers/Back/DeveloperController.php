@@ -91,7 +91,7 @@ final class DeveloperController extends Controller
             ->get()
             ->mapWithKeys(fn ($item) => [
                 $item->country_code => [
-                    'visitors' => $item->visitors,
+                    'visitors' => $item->getAttribute('visitors'),
                 ],
             ])->toArray();
 

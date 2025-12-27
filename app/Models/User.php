@@ -20,7 +20,6 @@ use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 use Override;
 use Spatie\Activitylog\LogOptions;
-use Spatie\Activitylog\Models\Activity;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 /**
@@ -47,6 +46,7 @@ use Spatie\Activitylog\Traits\LogsActivity;
  * @property Carbon|null $deleted_at
  * @property-read string|null $name
  * @property-read string $profile_photo_url
+ * @property-read Team|null $currentTeam  <-- ADD THIS
  */
 final class User extends Authenticatable
     // ---------------------------------------------------------------------------------------

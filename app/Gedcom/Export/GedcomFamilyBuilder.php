@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Gedcom\Export;
 
+use App\Models\Couple;
 use App\Models\Person;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Log;
@@ -46,7 +47,7 @@ class GedcomFamilyBuilder
      * GEDCOM family record organization.
      *
      * @param  Collection<Person>  $individuals  Collection of Person models
-     * @param  Collection  $couples  Collection of couple models
+     * @param  Collection<int, Couple>  $couples  Collection of couple models
      * @return \Illuminate\Support\Collection GEDCOM family structures
      */
     public function buildGedcomFamilies(Collection $individuals, Collection $couples): \Illuminate\Support\Collection

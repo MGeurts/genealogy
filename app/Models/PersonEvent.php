@@ -14,6 +14,18 @@ use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Models\Activity;
 use Spatie\Activitylog\Traits\LogsActivity;
 
+/**
+ * @property int $id
+ * @property int $person_id
+ * @property string $type
+ * @property string|null $date
+ * @property int|null $year
+ * @property string|null $place
+ * @property string|null $address
+ * @property string|null $description
+ * @property-read string $type_label
+ * @property-read string|null $date_formatted
+ */
 final class PersonEvent extends Model
 {
     use HasFactory;

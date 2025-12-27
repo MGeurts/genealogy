@@ -227,11 +227,14 @@ final class Import implements CreatesTeams
     {
         AddingTeam::dispatch($this->user);
 
-        $this->user->switchTeam($team = $this->user->ownedTeams()->create([
+        /** @var Team $team */
+        $team = $this->user->ownedTeams()->create([
             'name'          => $name,
             'description'   => $description ?? null,
             'personal_team' => false,
-        ]));
+        ]);
+
+        $this->user->switchTeam($team);
 
         // Create team photo folder
         if (! Storage::disk('photos')->exists($team->id)) {

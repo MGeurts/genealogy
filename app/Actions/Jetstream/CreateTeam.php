@@ -31,17 +31,20 @@ final class CreateTeam implements CreatesTeams
 
         AddingTeam::dispatch($user);
 
-        $user->switchTeam($team = $user->ownedTeams()->create([
+        /** @var Team $team */
+        $team = $user->ownedTeams()->create([
             'name'          => $input['name'],
             'description'   => $input['description'] ?? null,
             'personal_team' => false,
-        ]));
+        ]);
+
+        $user->switchTeam($team);
 
         // -----------------------------------------------------------------------
         // create team photo folder
         // -----------------------------------------------------------------------
-        if (! Storage::disk('photos')->exists($team->id)) {
-            Storage::disk('photos')->makeDirectory($team->id);
+        if (! Storage::disk('photos')->exists((string) $team->id)) {
+            Storage::disk('photos')->makeDirectory((string) $team->id);
         }
         // -----------------------------------------------------------------------
 

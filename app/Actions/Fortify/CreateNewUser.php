@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Laravel\Jetstream\Jetstream;
+use RuntimeException;
 
 final class CreateNewUser implements CreatesNewUsers
 {
@@ -50,11 +51,16 @@ final class CreateNewUser implements CreatesNewUsers
      */
     protected function createTeam(User $user): void
     {
+        /** @var Team $team */
         $team = $user->ownedTeams()->save(Team::forceCreate([
             'user_id'       => $user->id,
             'name'          => 'Team ' . $user->name,
             'personal_team' => true,
         ]));
+
+        if (! $team) {
+            throw new RuntimeException('Failed to create team for user');
+        }
 
         // Set the current_team_id to the newly created personal team
         $user->current_team_id = $team->id;
