@@ -95,7 +95,7 @@ class GedcomParser
                         $currentRecordId = null;
                     }
                 }
-            } elseif ($level === 1 && $currentRecord !== null && isset($currentRecord['data'])) {
+            } elseif ($level === 1 && $currentRecord !== null) {
                 // Level 1 data for current record - add additional safety check
                 $tag   = $parts[1];
                 $value = implode(' ', array_slice($parts, 2));
@@ -106,18 +106,12 @@ class GedcomParser
                     'level' => 1,
                     'data'  => [],
                 ];
-            } elseif ($level === 2 && $currentRecord !== null &&
-                      isset($currentRecord['data']) && ! empty($currentRecord['data'])) {
+            } elseif ($level === 2 && $currentRecord !== null && ! empty($currentRecord['data'])) {
                 // Level 2 data - add to the last level 1 item
                 $lastIndex = count($currentRecord['data']) - 1;
                 if ($lastIndex >= 0) {
                     $tag   = $parts[1];
                     $value = implode(' ', array_slice($parts, 2));
-
-                    // Ensure the data array exists
-                    if (! isset($currentRecord['data'][$lastIndex]['data'])) {
-                        $currentRecord['data'][$lastIndex]['data'] = [];
-                    }
 
                     $currentRecord['data'][$lastIndex]['data'][] = [
                         'tag'   => $tag,

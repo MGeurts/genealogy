@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Log;
  */
 class FamilyImporter
 {
+    /** @phpstan-ignore property.onlyWritten */
     private Team $team;
 
     private array $familyMap = [];

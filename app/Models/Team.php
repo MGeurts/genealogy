@@ -85,7 +85,7 @@ final class Team extends JetstreamTeam
         if (! $currentTeam || $currentTeam->id === $this->id) {
             // Try to use the user's personal team as fallback
             $personalTeam      = $user->personalTeam();
-            $activity->team_id = $personalTeam?->id;
+            $activity->team_id = $personalTeam->id;
         } else {
             $activity->team_id = $currentTeam->id;
         }

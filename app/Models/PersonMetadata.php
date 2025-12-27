@@ -57,7 +57,7 @@ final class PersonMetadata extends Model
 
     public function tapActivity(Activity $activity, string $eventName): void
     {
-        $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
+        $activity->team_id = auth()->user()?->currentTeam->id ?? null;
     }
 
     /* -------------------------------------------------------------------------------------------- */

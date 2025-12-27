@@ -59,7 +59,7 @@ final class Peoplelog extends Component
                 'properties_old' => in_array($event, ['updated', 'deleted']) ? ($record->properties['old'] ?? []) : [],
                 'properties_new' => in_array($event, ['updated', 'created']) ? ($record->properties['attributes'] ?? []) : [],
                 'updated_at'     => $record->updated_at->setTimezone($timezone)->isoFormat('LLL'),
-                'causer'         => $record->causer?->name ?? '',
+                'causer'         => $record->causer->name ?? '',
             ];
         });
 

@@ -81,7 +81,7 @@ final class Couple extends Model
 
     public function tapActivity(Activity $activity, string $eventName): void
     {
-        $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
+        $activity->team_id = auth()->user()?->currentTeam->id ?? null;
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -164,8 +164,8 @@ final class Couple extends Model
     {
         return Attribute::make(get: function (): ?string {
             $names = array_filter([
-                $this->person1?->name,
-                $this->person2?->name,
+                $this->person1->name,
+                $this->person2->name,
             ]);
 
             return $names !== [] ? implode(' & ', $names) : null;

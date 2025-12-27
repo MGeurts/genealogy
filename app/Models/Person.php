@@ -144,7 +144,7 @@ final class Person extends Model implements HasMedia
 
     public function tapActivity(Activity $activity, string $eventName): void
     {
-        $activity->team_id = auth()->user()?->currentTeam?->id ?? null;
+        $activity->team_id = auth()->user()?->currentTeam->id ?? null;
     }
 
     /* -------------------------------------------------------------------------------------------- */
@@ -810,7 +810,7 @@ final class Person extends Model implements HasMedia
 
     protected function birthFormatted(): Attribute
     {
-        return Attribute::make(get: function (): ?string {
+        return Attribute::make(get: function (): string {
             if ($this->dob) {
                 $birth = Carbon::parse($this->dob)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL');
             } elseif ($this->yob) {
@@ -825,7 +825,7 @@ final class Person extends Model implements HasMedia
 
     protected function deathFormatted(): Attribute
     {
-        return Attribute::make(get: function (): ?string {
+        return Attribute::make(get: function (): string {
             if ($this->dod) {
                 $dead = Carbon::parse($this->dod)->timezone(session('timezone') ?? 'UTC')->isoFormat('LL');
             } elseif ($this->yod) {

@@ -24,7 +24,7 @@ trait HandlesPhotoUploads
     public function updatingFormUploads(): void
     {
         // Store the current uploads before they get replaced
-        $this->form->backup = is_array($this->form->uploads) ? $this->form->uploads : [];
+        $this->form->backup = $this->form->uploads;
     }
 
     /**
@@ -39,11 +39,8 @@ trait HandlesPhotoUploads
             return;
         }
 
-        // Convert uploads to array if needed
-        $currentUploads = is_array($this->form->uploads) ? $this->form->uploads : [$this->form->uploads];
-
         // Merge backup with new uploads
-        $allUploads = array_merge($this->form->backup, $currentUploads);
+        $allUploads = array_merge($this->form->backup, $this->form->uploads);
 
         // Remove duplicates based on original filename
         $this->form->uploads = collect($allUploads)

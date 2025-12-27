@@ -429,13 +429,13 @@ final class PersonPhotos
 
             $variantsSaved = $this->processAndSaveVariants($fileContent, $index, $timestamp);
 
-            if ($originalSaved && empty($this->person->photo)) {
+            if (empty($this->person->photo)) {
                 $this->person->update([
                     'photo' => $this->makeFilename($index, $timestamp, 'original', false),
                 ]);
             }
 
-            return $originalSaved && $variantsSaved;
+            return $variantsSaved;
         } catch (Throwable $e) {
             Log::error('Failed to save photo', [
                 'person_id'   => $this->person->id,
@@ -673,7 +673,7 @@ final class PersonPhotos
             return $photo->getClientOriginalExtension() ?: $photo->extension() ?: 'jpg';
         }
 
-        if (is_string($photo) && file_exists($photo)) {
+        if (file_exists($photo)) {
             return pathinfo($photo, PATHINFO_EXTENSION) ?: 'jpg';
         }
 

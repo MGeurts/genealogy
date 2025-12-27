@@ -97,7 +97,7 @@ class ZipImporter
     public function cleanup(): void
     {
         if (is_dir($this->tempPath)) {
-            // $this->deleteDirectory($this->tempPath);
+            $this->deleteDirectory($this->tempPath);
         }
     }
 

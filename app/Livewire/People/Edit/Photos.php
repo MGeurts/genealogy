@@ -42,7 +42,7 @@ final class Photos extends Component
     public function updatingUploads(): void
     {
         // Store the current uploads before they get replaced
-        $this->backup = is_array($this->uploads) ? $this->uploads : [];
+        $this->backup = $this->uploads;
     }
 
     /**
@@ -57,11 +57,8 @@ final class Photos extends Component
             return;
         }
 
-        // Convert uploads to array if needed
-        $currentUploads = is_array($this->uploads) ? $this->uploads : [$this->uploads];
-
         // Merge backup with new uploads
-        $allUploads = array_merge($this->backup, $currentUploads);
+        $allUploads = array_merge($this->backup, $this->uploads);
 
         // Remove duplicates based on original filename
         $this->uploads = collect($allUploads)
