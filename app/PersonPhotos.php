@@ -23,8 +23,12 @@ final class PersonPhotos
 
     private readonly string $personId;
 
+    /** @var array<int, string>|null */
     private ?array $cachedFiles = null;
 
+    /**
+     * @param  array{sizes?: array<string, array{width: int, height: int, quality?: int}>, add_watermark?: bool}|null  $uploadConfig
+     */
     public function __construct(
         private readonly Person $person,
         private readonly ImageManager $imageManager = new ImageManager(new Driver()),
@@ -213,7 +217,9 @@ final class PersonPhotos
     /**
      * Get all original photos with metadata.
      *
-     * @return array Array of photo data with URLs for all size variants
+     * Return an array of photo data with URLs for all size variants
+     *
+     * @return array<int, array{name: string, extension: string, is_primary: bool, url_original: string, url_large: string, url_medium: string, url_small: string}>
      */
     public function getAllPhotos(): array
     {

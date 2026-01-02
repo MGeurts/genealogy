@@ -22,16 +22,19 @@ final class Family extends Component
     public Person $person;
 
     // -----------------------------------------------------------------------
-    public $father_id = null;
+    public ?int $father_id = null;
 
-    public $mother_id = null;
+    public ?int $mother_id = null;
 
-    public $parents_id = null;
+    public ?int $parents_id = null;
 
+    /** @var Collection<int, array{id: int, name: string}> */
     public Collection $fathers;
 
+    /** @var Collection<int, array{id: int, name: string}> */
     public Collection $mothers;
 
+    /** @var Collection<int, array{id: int, couple: string}> */
     public Collection $parents;
 
     // -----------------------------------------------------------------------
@@ -82,6 +85,9 @@ final class Family extends Component
     }
 
     // -----------------------------------------------------------------------
+    /**
+     * @return array<string, array<int, mixed>>
+     */
     protected function rules(): array
     {
         return $rules = [
@@ -95,11 +101,17 @@ final class Family extends Component
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function messages(): array
     {
         return [];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function validationAttributes(): array
     {
         return [

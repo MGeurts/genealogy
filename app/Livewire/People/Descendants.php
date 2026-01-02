@@ -14,6 +14,24 @@ final class Descendants extends Component
 {
     public Person $person;
 
+    /**
+     * @var Collection<int, object{
+     *     id: int,
+     *     firstname: string|null,
+     *     surname: string|null,
+     *     sex: string|null,
+     *     father_id: int|null,
+     *     mother_id: int|null,
+     *     dod: string|null,
+     *     yod: int|null,
+     *     team_id: int|null,
+     *     photo: string|null,
+     *     dob: string|null,
+     *     yob: int|null,
+     *     degree: int,
+     *     sequence: string
+     * }>
+     */
     public Collection $descendants;
 
     public int $count_min = 1;

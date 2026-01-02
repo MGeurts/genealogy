@@ -13,10 +13,12 @@ final class Gallery extends Component
 {
     public Person $person;
 
+    /** @var array<int, array{filename: string, small: string|null, medium: string|null, large: string|null, original: string}> */
     public array $images = [];
 
     public ?int $selected = null;
 
+    /** @var array<string, string> */
     protected $listeners = [
         'photos_updated' => 'mount',
         'person_updated' => 'render',

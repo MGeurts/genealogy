@@ -27,7 +27,7 @@ class GedcomMediaBuilder
     /** @var int Counter for generating media object IDs */
     private int $nextMediaId = 1;
 
-    /** @var array<int, array> Media objects by person ID */
+    /** @var array<int, array<int, array{id: int, filename: string, file_reference: string, mime_type: string, disk_path: string, url: string, title: string}>> Media objects by person ID */
     private array $mediaObjects = [];
 
     /** @var array<string> Collection of all media files for ZIP export */
@@ -54,7 +54,7 @@ class GedcomMediaBuilder
      * Scans through all individuals and gathers their associated media files,
      * preparing them for both GEDCOM record creation and ZIP export.
      *
-     * @param  Collection<Person>  $individuals  Collection of Person models
+     * @param  Collection<int, Person>  $individuals  Collection of Person models
      */
     public function collectMediaObjects(Collection $individuals): void
     {
@@ -140,7 +140,7 @@ class GedcomMediaBuilder
      * for all original files, filtering out resized variants.
      *
      * @param  Person  $person  Person model instance
-     * @return array<array> Array of media objects
+     * @return array<int, array{id: int, filename: string, file_reference: string, mime_type: string, disk_path: string, url: string, title: string}> Array of media objects
      */
     private function getPersonImages(Person $person): array
     {
@@ -231,7 +231,7 @@ class GedcomMediaBuilder
      * Creates a GEDCOM 7.0 compliant media object record with file
      * reference, format information, and descriptive title.
      *
-     * @param  array  $media  Media object data
+     * @param  array{id: int, filename: string, file_reference: string, mime_type: string, disk_path: string, url: string, title: string}  $media  Media object data
      * @return string Media GEDCOM record
      */
     private function buildMediaRecord(array $media): string

@@ -24,20 +24,20 @@ final class Death extends Component
 
     // -----------------------------------------------------------------------
     #[Validate]
-    public $yod = null;
+    public ?int $yod = null;
 
     #[Validate]
-    public $dod = null;
+    public ?string $dod = null;
 
-    public $pod = null;
+    public ?string $pod = null;
 
-    public $cemetery_location_name = null;
+    public ?string $cemetery_location_name = null;
 
-    public $cemetery_location_address = null;
+    public ?string $cemetery_location_address = null;
 
-    public $cemetery_location_latitude = null;
+    public ?string $cemetery_location_latitude = null;
 
-    public $cemetery_location_longitude = null;
+    public ?string $cemetery_location_longitude = null;
 
     // -----------------------------------------------------------------------
     public function mount(): void
@@ -58,6 +58,7 @@ final class Death extends Component
         // ------------------------------------------------------
         // update or create metadata
         // ------------------------------------------------------
+        /** @var array<string, mixed> $validated */
         $this->person->updateMetadata(
             collect($validated)
                 ->forget(['yod', 'dod', 'pod'])
@@ -77,6 +78,9 @@ final class Death extends Component
     }
 
     // ------------------------------------------------------------------------------
+    /**
+     * @return array<string, mixed>
+     */
     protected function rules(): array
     {
         return [
@@ -90,11 +94,17 @@ final class Death extends Component
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function messages(): array
     {
         return [];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function validationAttributes(): array
     {
         return [

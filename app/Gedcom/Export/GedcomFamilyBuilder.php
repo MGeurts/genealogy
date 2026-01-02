@@ -7,6 +7,7 @@ namespace App\Gedcom\Export;
 use App\Models\Couple;
 use App\Models\Person;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection as SupportCollection;
 use Illuminate\Support\Facades\Log;
 
 // ==============================================================================
@@ -46,11 +47,11 @@ class GedcomFamilyBuilder
      * relationships and parent-child relationships, ensuring proper
      * GEDCOM family record organization.
      *
-     * @param  Collection<Person>  $individuals  Collection of Person models
+     * @param  Collection<int, Person>  $individuals  Collection of Person models
      * @param  Collection<int, Couple>  $couples  Collection of couple models
-     * @return \Illuminate\Support\Collection GEDCOM family structures
+     * @return SupportCollection<int, object> GEDCOM family structures
      */
-    public function buildGedcomFamilies(Collection $individuals, Collection $couples): \Illuminate\Support\Collection
+    public function buildGedcomFamilies(Collection $individuals, Collection $couples): SupportCollection
     {
         Log::info('Starting family building with ' . $couples->count() . ' couples and ' . $individuals->count() . ' individuals');
 
@@ -149,10 +150,10 @@ class GedcomFamilyBuilder
      * Creates mapping from person IDs to family IDs where they appear
      * as spouses/partners, ensuring every adult gets proper FAMS tags.
      *
-     * @param  \Illuminate\Support\Collection  $gedcomFamilies  GEDCOM family structures
+     * @param  SupportCollection<int, object>  $gedcomFamilies  GEDCOM family structures
      * @return array<int, array<int>> Person ID to family IDs mapping
      */
-    public function buildFamilyMapping(\Illuminate\Support\Collection $gedcomFamilies): array
+    public function buildFamilyMapping(SupportCollection $gedcomFamilies): array
     {
         $famsMapping = [];
 
@@ -218,10 +219,10 @@ class GedcomFamilyBuilder
      * Processes the collection of GEDCOM family structures and generates
      * complete family records with relationships and children.
      *
-     * @param  \Illuminate\Support\Collection  $gedcomFamilies  GEDCOM family structures
+     * @param  SupportCollection<int, object>  $gedcomFamilies  GEDCOM family structures
      * @return string All family records
      */
-    public function buildFamilies(\Illuminate\Support\Collection $gedcomFamilies): string
+    public function buildFamilies(SupportCollection $gedcomFamilies): string
     {
         $gedcom = '';
 
@@ -256,10 +257,10 @@ class GedcomFamilyBuilder
      * Creates a complete GEDCOM family record including spouse references,
      * marriage/relationship events, and child references.
      *
-     * @param  mixed  $family  GEDCOM family object
+     * @param  object  $family  GEDCOM family object
      * @return string Family GEDCOM record
      */
-    private function buildFamilyRecord($family): string
+    private function buildFamilyRecord(object $family): string
     {
         $fid   = "@F{$family->id}@";
         $lines = ["0 {$fid} FAM"];
@@ -289,10 +290,10 @@ class GedcomFamilyBuilder
      * Handles various relationship types including marriages, partnerships,
      * and their associated events (start, end, divorce) with proper dating.
      *
-     * @param  mixed  $family  Family object with relationship data
+     * @param  object  $family  Family object with relationship data
      * @return array<string> Marriage field lines
      */
-    private function buildFamilyFields($family): array
+    private function buildFamilyFields(object $family): array
     {
         $lines = [];
 
@@ -385,10 +386,10 @@ class GedcomFamilyBuilder
      *
      * Creates CHIL references for all children associated with this family.
      *
-     * @param  mixed  $family  Family object with children collection
+     * @param  object  $family  Family object with children collection
      * @return array<string> Children field lines
      */
-    private function buildChildrenFields($family): array
+    private function buildChildrenFields(object $family): array
     {
         $lines = [];
 

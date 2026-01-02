@@ -40,8 +40,10 @@ final class PersonForm extends Form
     // -----------------------------------------------------------------------
     // Photo uploads (handled by HandlesPhotoUploads trait in components)
     // -----------------------------------------------------------------------
+    /** @var array<int, mixed> */
     public array $uploads = [];
 
+    /** @var array<int, mixed> */
     public array $backup = [];
 
     // -----------------------------------------------------------------------
@@ -50,6 +52,9 @@ final class PersonForm extends Form
     public ?int $person_id = null;
 
     // -----------------------------------------------------------------------
+    /**
+     * @return Collection<int, Gender>
+     */
     #[Computed(persist: true, seconds: 3600, cache: true)]
     public function genders(): Collection
     {
@@ -59,6 +64,9 @@ final class PersonForm extends Form
     // -----------------------------------------------------------------------
     // Validation rules without photo uploads (handled in trait)
     // -----------------------------------------------------------------------
+    /**
+     * @return array<string, mixed>
+     */
     protected function rules(): array
     {
         return [
@@ -76,6 +84,9 @@ final class PersonForm extends Form
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function messages(): array
     {
         return [
@@ -86,6 +97,9 @@ final class PersonForm extends Form
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function validationAttributes(): array
     {
         return [

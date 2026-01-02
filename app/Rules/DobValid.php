@@ -21,6 +21,8 @@ final class DobValid implements DataAwareRule, ValidationRule
 
     /**
      * Set the validation data.
+     *
+     * @param  array<string, mixed>  $data
      */
     public function setData(array $data): static
     {

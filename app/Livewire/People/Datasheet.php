@@ -15,9 +15,15 @@ final class Datasheet extends Component
 {
     public Person $person;
 
+    /**
+     * @var Collection<int, string>
+     */
     #[Locked]
     public Collection $images;
 
+    /**
+     * @var Collection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media>
+     */
     #[Locked]
     public Collection $files;
 

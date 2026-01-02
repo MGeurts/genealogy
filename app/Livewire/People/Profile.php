@@ -17,6 +17,7 @@ final class Profile extends Component
     public Person $person;
 
     // -----------------------------------------------------------------------
+    /** @var array<string, string> */
     protected $listeners = [
         'person_updated' => 'render',
         'couple_deleted' => 'render',

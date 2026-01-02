@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace App\Livewire\People;
 
+use App\Models\Person as PersonModel;
 use Illuminate\View\View;
 use Livewire\Component;
 
 final class Person extends Component
 {
     // ------------------------------------------------------------------------------
-    public $person;
+    public PersonModel $person;
 
     // ------------------------------------------------------------------------------
     public function render(): View

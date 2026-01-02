@@ -26,29 +26,32 @@ final class Profile extends Component
     public Person $person;
 
     // -----------------------------------------------------------------------
-    public $firstname = null;
+    public ?string $firstname = null;
 
-    public $surname = null;
+    public ?string $surname = null;
 
-    public $birthname = null;
+    public ?string $birthname = null;
 
-    public $nickname = null;
+    public ?string $nickname = null;
 
-    public $sex = null;
+    public ?string $sex = null;
 
-    public $gender_id = null;
-
-    #[Validate]
-    public $yob = null;
+    public ?int $gender_id = null;
 
     #[Validate]
-    public $dob = null;
+    public ?int $yob = null;
 
-    public $pob = null;
+    #[Validate]
+    public ?string $dob = null;
 
-    public $summary = null;
+    public ?string $pob = null;
+
+    public ?string $summary = null;
 
     // -----------------------------------------------------------------------
+    /**
+     * @return Collection<int, Gender>
+     */
     #[Computed(persist: true, seconds: 3600, cache: true)]
     public function genders(): Collection
     {
@@ -79,6 +82,9 @@ final class Profile extends Component
     }
 
     // -----------------------------------------------------------------------
+    /**
+     * @return array<string, array<int, mixed>>
+     */
     protected function rules(): array
     {
         return [
@@ -109,11 +115,17 @@ final class Profile extends Component
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function messages(): array
     {
         return [];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function validationAttributes(): array
     {
         return [

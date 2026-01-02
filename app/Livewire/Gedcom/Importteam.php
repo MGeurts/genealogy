@@ -29,7 +29,8 @@ final class Importteam extends Component
 
     public ?TemporaryUploadedFile $file = null;
 
-    public $result = null;
+    /** @var array{success: bool, individuals_imported?: int, families_imported?: int, team?: string, error?: string}|null */
+    public ?array $result = null;
 
     // -----------------------------------------------------------------------
     public function mount(): void
@@ -97,6 +98,9 @@ final class Importteam extends Component
     }
 
     // -----------------------------------------------------------------------
+    /**
+     * @return array<string, array<int, string|int>>
+     */
     protected function rules(): array
     {
         return $rules = [
@@ -106,6 +110,9 @@ final class Importteam extends Component
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function messages(): array
     {
         return [
@@ -114,6 +121,9 @@ final class Importteam extends Component
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function validationAttributes(): array
     {
         return [

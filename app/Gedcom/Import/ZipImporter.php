@@ -19,6 +19,7 @@ class ZipImporter
 
     private ?string $gedcomContent = null;
 
+    /** @var array<string, string> */
     private array $mediaFiles = [];
 
     public function __construct()
@@ -85,6 +86,8 @@ class ZipImporter
 
     /**
      * Get media files mapping (GEDCOM reference => actual file path)
+     *
+     * @return array<string, string>
      */
     public function getMediaFiles(): array
     {

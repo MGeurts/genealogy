@@ -51,6 +51,8 @@ final class LogAllRequests
 
     /**
      * Extract relevant headers from the request.
+     *
+     * @return array<string, string|null>
      */
     private function extractHeaders(Request $request): array
     {
@@ -65,6 +67,8 @@ final class LogAllRequests
 
     /**
      * Extract authenticated user data if available.
+     *
+     * @return array<string, mixed>|null
      */
     private function extractUserData(Request $request): ?array
     {
@@ -80,6 +84,8 @@ final class LogAllRequests
 
     /**
      * Extract request data while excluding sensitive keys.
+     *
+     * @return array<string, mixed>|null
      */
     private function extractRequestData(Request $request): ?array
     {
@@ -92,6 +98,9 @@ final class LogAllRequests
 
     /**
      * Extract specific fields from the response data.
+     *
+     * @param  array<string, mixed>  $responseData
+     * @return array<string, mixed>
      */
     private function extractResponseData(array $responseData): array
     {

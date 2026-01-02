@@ -15,6 +15,7 @@ final class Siblings extends Component
     public Person $person;
 
     // ------------------------------------------------------------------------------
+    /** @var Collection<int, Person> */
     public Collection $siblings;
 
     // ------------------------------------------------------------------------------

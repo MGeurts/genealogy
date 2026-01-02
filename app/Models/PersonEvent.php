@@ -28,7 +28,9 @@ use Spatie\Activitylog\Traits\LogsActivity;
  */
 final class PersonEvent extends Model
 {
+    /** @use HasFactory<\Database\Factories\PersonFactory> */
     use HasFactory;
+
     use LogsActivity;
     use SoftDeletes;
 
@@ -130,6 +132,9 @@ final class PersonEvent extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Relations
     /* -------------------------------------------------------------------------------------------- */
+    /**
+     * @return BelongsTo<Person, covariant PersonEvent>
+     */
     public function person(): BelongsTo
     {
         return $this->belongsTo(Person::class);
@@ -138,6 +143,9 @@ final class PersonEvent extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
+    /**
+     * @return Attribute<string, never>
+     */
     protected function typeLabel(): Attribute
     {
         return Attribute::make(
@@ -147,6 +155,9 @@ final class PersonEvent extends Model
         );
     }
 
+    /**
+     * @return Attribute<string|null, never>
+     */
     protected function dateFormatted(): Attribute
     {
         return Attribute::make(get: function (): ?string {
@@ -158,6 +169,9 @@ final class PersonEvent extends Model
         });
     }
 
+    /**
+     * @return Attribute<int|null, never>
+     */
     protected function eventYear(): Attribute
     {
         return Attribute::make(get: function (): ?int {
@@ -169,6 +183,9 @@ final class PersonEvent extends Model
         });
     }
 
+    /**
+     * @return Attribute<string|null, never>
+     */
     protected function address(): Attribute
     {
         return Attribute::make(get: function (): ?string {

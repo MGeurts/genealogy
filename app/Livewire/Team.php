@@ -17,6 +17,7 @@ final class Team extends Component
 
     public User $user;
 
+    /** @var array<string, int> */
     public array $teamCounts = [];
 
     public string $activeTab = 'users';     // [users, persons, couples]
@@ -79,6 +80,9 @@ final class Team extends Component
     }
 
     // -----------------------------------------------------------------------
+    /**
+     * @return LengthAwarePaginator<int, array{id: int, name: string}>
+     */
     private function getPaginatedUsers(): LengthAwarePaginator
     {
         $teamId = $this->user->current_team_id;
@@ -103,7 +107,7 @@ final class Team extends Component
             ->limit($this->perPage)
             ->get()
             ->map(fn ($user): array => [
-                'id'   => $user->id,
+                'id'   => (int) $user->id,
                 'name' => mb_trim(($user->firstname ?? '') . ' ' . $user->surname),
             ]);
 
@@ -117,6 +121,9 @@ final class Team extends Component
     }
 
     // -----------------------------------------------------------------------
+    /**
+     * @return LengthAwarePaginator<int, array{id: int, name: string, sex: string|null}>
+     */
     private function getPaginatedPersons(): LengthAwarePaginator
     {
         $teamId = $this->user->current_team_id;
@@ -140,11 +147,12 @@ final class Team extends Component
             ->limit($this->perPage)
             ->get()
             ->map(fn ($person): array => [
-                'id'   => $person->id,
+                'id'   => (int) $person->id,
                 'name' => mb_trim(($person->firstname ?? '') . ' ' . $person->surname),
-                'sex'  => $person->sex,
+                'sex'  => $person->sex !== null ? (string) $person->sex : null,
             ]);
 
+        // @phpstan-ignore return.type
         return new LengthAwarePaginator(
             $results,
             $total,
@@ -155,6 +163,9 @@ final class Team extends Component
     }
 
     // -----------------------------------------------------------------------
+    /**
+     * @return LengthAwarePaginator<int, array{id: int, person1: array{id: int, name: string, sex: string|null}, person2: array{id: int, name: string, sex: string|null}}>
+     */
     private function getPaginatedCouples(): LengthAwarePaginator
     {
         $teamId = $this->user->current_team_id;
@@ -193,19 +204,20 @@ final class Team extends Component
             ->limit($this->perPage)
             ->get()
             ->map(fn ($couple): array => [
-                'id'      => $couple->id,
+                'id'      => (int) $couple->id,
                 'person1' => [
-                    'id'   => $couple->person1_id,
+                    'id'   => (int) $couple->person1_id,
                     'name' => mb_trim(($couple->person1_firstname ?? '') . ' ' . $couple->person1_surname),
-                    'sex'  => $couple->person1_sex,
+                    'sex'  => $couple->person1_sex !== null ? (string) $couple->person1_sex : null,
                 ],
                 'person2' => [
-                    'id'   => $couple->person2_id,
+                    'id'   => (int) $couple->person2_id,
                     'name' => mb_trim(($couple->person2_firstname ?? '') . ' ' . $couple->person2_surname),
-                    'sex'  => $couple->person2_sex,
+                    'sex'  => $couple->person2_sex !== null ? (string) $couple->person2_sex : null,
                 ],
             ]);
 
+        // @phpstan-ignore return.type
         return new LengthAwarePaginator(
             $results,
             $total,

@@ -31,7 +31,9 @@ use Spatie\Activitylog\Traits\LogsActivity;
  */
 final class Couple extends Model
 {
+    /** @use HasFactory<\Database\Factories\PersonFactory> */
     use HasFactory;
+
     use LogsActivity;
 
     /**
@@ -87,6 +89,9 @@ final class Couple extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Local Scopes
     /* -------------------------------------------------------------------------------------------- */
+    /**
+     * @param  Builder<self>  $query
+     */
     #[Scope]
     public function scopeYoungerThan(Builder $query, ?string $year = null): void
     {
@@ -98,6 +103,9 @@ final class Couple extends Model
         }
     }
 
+    /**
+     * @param  Builder<self>  $query
+     */
     #[Scope]
     public function scopeOlderThan(Builder $query, ?string $year = null): void
     {
@@ -113,24 +121,28 @@ final class Couple extends Model
     // Relations
     /* -------------------------------------------------------------------------------------------- */
     /* returns PARTNER 1 (1 Person) based on person1_id in Couple model */
+    /** @return BelongsTo<Person, covariant self> */
     public function person1(): BelongsTo
     {
         return $this->belongsTo(Person::class, 'person1_id');
     }
 
     /* returns PARTNER 2 (1 Person) based on person2_id in Couple model */
+    /** @return BelongsTo<Person, covariant self> */
     public function person2(): BelongsTo
     {
         return $this->belongsTo(Person::class, 'person2_id');
     }
 
     /* returns ALL CHILDREN (n Person) based on parents_id in Person model */
+    /** @return HasMany<Person, covariant self> */
     public function children(): HasMany
     {
         return $this->hasMany(Person::class, 'parents_id');
     }
 
     /* returns TEAM (1 Team) based on team_id in Team model */
+    /** @return BelongsTo<Team, covariant self> */
     public function team(): BelongsTo
     {
         return $this->belongsTo(Team::class);
@@ -160,6 +172,7 @@ final class Couple extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
+    /** @return Attribute<string|null, never> */
     protected function name(): Attribute
     {
         return Attribute::make(get: function (): ?string {
@@ -172,6 +185,7 @@ final class Couple extends Model
         });
     }
 
+    /** @return Attribute<string|null, never> */
     protected function dateStartFormatted(): Attribute
     {
         return Attribute::make(get: function (): ?string {

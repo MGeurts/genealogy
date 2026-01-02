@@ -18,6 +18,9 @@ final class Partners extends Component
     public Person $person;
 
     // ------------------------------------------------------------------------------
+    /**
+     * @var array<string, string>
+     */
     protected $listeners = [
         'couple_deleted' => 'render',
     ];
@@ -41,6 +44,9 @@ final class Partners extends Component
             ->send();
     }
 
+    /**
+     * @param  array{id: int, name: string}  $couple
+     */
     public function delete(array $couple): void
     {
         Couple::findOrFail($couple['id'])->delete();

@@ -25,6 +25,9 @@ class Child extends Component
 
     public PersonForm $form;
 
+    /**
+     * @var Collection<int, array{id: int, name: string}>
+     */
     public Collection $persons;
 
     public ?string $selectedTab = null;
@@ -84,6 +87,8 @@ class Child extends Component
 
     /**
      * Create a new person and link as a child.
+     *
+     * @param  array<string, mixed>  $validated
      */
     protected function createNewChild(array $validated): void
     {
@@ -103,6 +108,9 @@ class Child extends Component
         $this->toast()->success(__('app.create'), __('person.new_person_linked_as_child'))->flash()->send();
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function rules(): array
     {
         return array_merge([
@@ -120,6 +128,9 @@ class Child extends Component
         ], $this->getPhotoUploadRules());
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function messages(): array
     {
         return array_merge([
@@ -130,6 +141,9 @@ class Child extends Component
         ], $this->getPhotoUploadMessages());
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function validationAttributes(): array
     {
         return array_merge([

@@ -22,23 +22,24 @@ final class Contact extends Component
     public Person $person;
 
     // -----------------------------------------------------------------------
-    public $street = null;
+    public ?string $street = null;
 
-    public $number = null;
+    public ?string $number = null;
 
-    public $postal_code = null;
+    public ?string $postal_code = null;
 
-    public $city = null;
+    public ?string $city = null;
 
-    public $province = null;
+    public ?string $province = null;
 
-    public $state = null;
+    public ?string $state = null;
 
-    public $country = null;
+    public ?string $country = null;
 
-    public $phone = null;
+    public ?string $phone = null;
 
     // -----------------------------------------------------------------------
+    /** @return Collection<int, array{id: string, name: string}> */
     #[Computed(persist: true, seconds: 3600, cache: true)]
     public function countries(): Collection
     {
@@ -69,6 +70,7 @@ final class Contact extends Component
     }
 
     // -----------------------------------------------------------------------
+    /** @return array<string, array<int, string|int>> */
     protected function rules(): array
     {
         return [
@@ -83,11 +85,13 @@ final class Contact extends Component
         ];
     }
 
+    /** @return array<string, string> */
     protected function messages(): array
     {
         return [];
     }
 
+    /** @return array<string, string> */
     protected function validationAttributes(): array
     {
         return [

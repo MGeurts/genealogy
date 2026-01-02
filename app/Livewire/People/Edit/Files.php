@@ -26,10 +26,13 @@ final class Files extends Component
 
     public ?string $source_date = null;
 
+    /** @var array<int, UploadedFile> */
     public array $uploads = [];
 
+    /** @var array<int, UploadedFile> */
     public array $backup = [];
 
+    /** @var Collection<int, Media>|null */
     public ?Collection $files = null;
 
     // ------------------------------------------------------------------------------
@@ -40,6 +43,8 @@ final class Files extends Component
 
     /**
      * Handle file deletion from uploads.
+     *
+     * @param  array{temporary_name: string, real_name: string, extension: string, size: int, path: string, url: string}  $content
      */
     public function deleteUpload(array $content): void
     {
@@ -178,6 +183,9 @@ final class Files extends Component
     }
 
     // ------------------------------------------------------------------------------
+    /**
+     * @return array<string, array<int, string|int>>
+     */
     protected function rules(): array
     {
         return [
@@ -190,6 +198,9 @@ final class Files extends Component
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function messages(): array
     {
         return [

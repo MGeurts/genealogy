@@ -61,7 +61,9 @@ final class Person extends Component
     // -----------------------------------------------------------------------
     // Protected Methods
     // -----------------------------------------------------------------------
-
+    /**
+     * @return array<string, mixed>
+     */
     protected function rules(): array
     {
         return array_merge([
@@ -77,11 +79,17 @@ final class Person extends Component
         ], $this->getPhotoUploadRules());
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function messages(): array
     {
         return $this->getPhotoUploadMessages();
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function validationAttributes(): array
     {
         return array_merge([

@@ -18,6 +18,7 @@ final class Children extends Component
     public Person $person;
 
     // ------------------------------------------------------------------------------
+    /** @var Collection<int, Person> */
     public Collection $children;
 
     // ------------------------------------------------------------------------------

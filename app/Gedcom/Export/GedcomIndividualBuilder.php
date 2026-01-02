@@ -42,7 +42,7 @@ class GedcomIndividualBuilder
      * Processes the collection of individuals and generates complete
      * GEDCOM individual records for each person.
      *
-     * @param  Collection<Person>  $individuals  Collection of Person models
+     * @param  Collection<int, Person>  $individuals  Collection of Person models
      * @param  array<int, array<int>>  $famsMapping  Person ID to family IDs mapping
      * @param  GedcomFamilyBuilder  $familyBuilder  Family builder for relationship queries
      * @param  GedcomMediaBuilder  $mediaBuilder  Media builder for photo references

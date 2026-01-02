@@ -21,6 +21,9 @@ final class Search extends Component
     public int $perpage = 10;
 
     // List of pagination options
+    /**
+     * @var array<int, array{value: int, label: int}>
+     */
     public array $options = [
         ['value' => 5, 'label' => 5],
         ['value' => 10, 'label' => 10],

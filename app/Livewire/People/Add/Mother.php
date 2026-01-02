@@ -27,6 +27,9 @@ final class Mother extends Component
 
     public PersonForm $form;
 
+    /**
+     * @var Collection<int, array{id: int, name: string}>
+     */
     public Collection $persons;
 
     public ?string $selectedTab = null;
@@ -83,6 +86,8 @@ final class Mother extends Component
 
     /**
      * Create a new person and link as mother.
+     *
+     * @param  array<string, mixed>  $validated
      */
     protected function createNewMother(array $validated): void
     {
@@ -106,6 +111,9 @@ final class Mother extends Component
         $this->toast()->success(__('app.create'), __('person.new_person_linked_as_mother'))->flash()->send();
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function rules(): array
     {
         return array_merge([
@@ -122,6 +130,9 @@ final class Mother extends Component
         ], $this->getPhotoUploadRules());
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function messages(): array
     {
         return array_merge([
@@ -131,6 +142,9 @@ final class Mother extends Component
         ], $this->getPhotoUploadMessages());
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function validationAttributes(): array
     {
         return array_merge([

@@ -51,19 +51,25 @@ final class Events extends Component
     public ?string $country = null;
 
     // -----------------------------------------------------------------------
+    /**
+     * @return Collection<int, array{id: string, name: string}>
+     */
     #[Computed(persist: true, seconds: 3600, cache: true)]
     public function countries(): Collection
     {
         return (new Countries(app()->getLocale()))->getAllCountries();
     }
 
+    /**
+     * @return Collection<int, array{id: string, name: string}>
+     */
     public function eventTypes(): Collection
     {
         return collect(PersonEvent::EVENT_TYPES)
             ->map(function ($type) {
                 return [
                     'id'   => $type,
-                    'name' => __('personevents.' . $type),
+                    'name' => (string) __('personevents.' . $type),
                 ];
             })
             ->sortBy('name')

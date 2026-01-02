@@ -18,6 +18,9 @@ final class SettingsForm extends Form
     public bool $logAllQueriesNPlusOne = false;
 
     // -----------------------------------------------------------------------
+    /**
+     * @return array<string, array<int, string>>
+     */
     protected function rules(): array
     {
         return $rules = [
@@ -28,11 +31,17 @@ final class SettingsForm extends Form
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function messages(): array
     {
         return [];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function validationAttributes(): array
     {
         return [

@@ -13,9 +13,9 @@ final class Peoplelog extends Component
 {
     use WithPagination;
 
-    public $perPage = 25;
+    public int $perPage = 25;
 
-    public $subjectTypeFilter = 'all';
+    public string $subjectTypeFilter = 'all';
 
     // -----------------------------------------------------------------------
     public function render(): View

@@ -75,6 +75,9 @@ class PasswordGenerator extends Component
     }
 
     // -----------------------------------------------------------------------
+    /**
+     * @return array<string, string>
+     */
     protected function validationAttributes(): array
     {
         return [
@@ -83,7 +86,7 @@ class PasswordGenerator extends Component
     }
 
     // -----------------------------------------------------------------------
-    private function password($length = 32, $letters = true, $numbers = true, $symbols = true, $spaces = false): string
+    private function password(int $length = 32, bool $letters = true, bool $numbers = true, bool $symbols = true, bool $spaces = false): string
     {
         $password = new Collection();
 
@@ -118,6 +121,9 @@ class PasswordGenerator extends Component
         return $password->merge($remaining)->shuffle()->implode('');
     }
 
+    /**
+     * @return array{strength: string, entropy: float, estimated_entropy: float, shannon_entropy: float}
+     */
     private function evaluatePasswordStrength(string $password): array
     {
         $estimated = $this->calculateEstimatedEntropy($password);

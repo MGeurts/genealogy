@@ -14,6 +14,7 @@ final class Family extends Component
     public Person $person;
 
     // ------------------------------------------------------------------------------
+    /** @var array<string, string> */
     protected $listeners = [
         'couple_deleted' => 'render',
     ];

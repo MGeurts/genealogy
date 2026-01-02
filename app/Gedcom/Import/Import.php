@@ -54,7 +54,7 @@ final class Import implements CreatesTeams
      * Import GEDCOM file content (text only)
      *
      * @param  string  $gedcomContent  Raw GEDCOM text content
-     * @return array Import results
+     * @return array{success: bool, team?: string, individuals_imported?: int, families_imported?: int, message?: string, media_stats?: array<string, int>, error?: string} Import results
      */
     public function import(string $gedcomContent): array
     {
@@ -65,7 +65,7 @@ final class Import implements CreatesTeams
      * Import GEDCOM from ZIP file (with media)
      *
      * @param  string  $zipPath  Path to ZIP file
-     * @return array Import results
+     * @return array{success: bool, team?: string, individuals_imported?: int, families_imported?: int, message?: string, media_stats?: array<string, int>, error?: string} Import results
      */
     public function importFromZip(string $zipPath): array
     {
@@ -103,6 +103,8 @@ final class Import implements CreatesTeams
 
     /**
      * Get import statistics
+     *
+     * @return array{individuals_parsed: int, families_parsed: int, individuals_imported: int, families_imported: int, media_references?: int}
      */
     public function getStatistics(): array
     {
@@ -126,8 +128,8 @@ final class Import implements CreatesTeams
      * Core import processing logic
      *
      * @param  string  $gedcomContent  GEDCOM text content
-     * @param  array  $mediaFiles  Array of basename => filepath for media
-     * @return array Import results
+     * @param  array<string, string>  $mediaFiles  Array of basename => filepath for media
+     * @return array{success: bool, team?: string, individuals_imported?: int, families_imported?: int, message?: string, media_stats?: array<string, int>, error?: string} Import results
      */
     private function processImport(string $gedcomContent, array $mediaFiles): array
     {

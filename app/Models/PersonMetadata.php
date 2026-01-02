@@ -64,6 +64,9 @@ final class PersonMetadata extends Model
     // Relations
     /* -------------------------------------------------------------------------------------------- */
     /* returns PERSON (1 Person) */
+    /**
+     * @return BelongsTo<Person, covariant PersonMetadata>
+     */
     public function person(): BelongsTo
     {
         return $this->belongsTo(Person::class);
@@ -72,6 +75,9 @@ final class PersonMetadata extends Model
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
+    /**
+     * @return Attribute<string, string>
+     */
     public function key(): Attribute
     {
         return new Attribute(

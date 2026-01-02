@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace App\Gedcom\Export;
 
+use App\Models\Couple;
 use App\Models\Person;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection as SupportCollection;
 use RuntimeException;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
@@ -91,8 +93,8 @@ class Export
      * This is the main entry point for generating GEDCOM content.
      * Delegates to specialized builders for each record type.
      *
-     * @param  Collection<Person>  $individuals  Collection of Person models
-     * @param  Collection  $couples  Collection of couple models
+     * @param  Collection<int, Person>  $individuals  Collection of Person models
+     * @param  Collection<int, Couple>  $couples  Collection of couple models
      * @return string Complete GEDCOM content
      */
     public function export(Collection $individuals, Collection $couples): string
@@ -150,7 +152,8 @@ class Export
      * Coordinates the export process by delegating to appropriate builders
      * while maintaining the proper GEDCOM structure and record order.
      *
-     * @param  Collection<Person>  $individuals
+     * @param  Collection<int, Person>  $individuals
+     * @param  Collection<int, Couple>  $couples
      * @return string Complete GEDCOM content
      */
     private function buildGedcom(Collection $individuals, Collection $couples): string
@@ -192,10 +195,11 @@ class Export
      * - Repository records (REPO)
      * - Note records (NOTE)
      *
-     * @param  Collection<Person>  $individuals
+     * @param  Collection<int, Person>  $individuals
+     * @param  SupportCollection<int, object>  $gedcomFamilies
      * @return string Additional records
      */
-    private function buildAdditionalRecords(Collection $individuals, \Illuminate\Support\Collection $gedcomFamilies): string
+    private function buildAdditionalRecords(Collection $individuals, SupportCollection $gedcomFamilies): string
     {
         return '';
     }

@@ -56,7 +56,7 @@ trait HandlesPhotoUploads
      * Handle file deletion from uploads.
      * Removes the specified file from the uploads array and deletes the temporary file.
      *
-     * @param  array  $content  File information containing temporary_name, real_name, extension, size, path, url
+     * @param  array{uuid: string, name: string, size: int, url: string, temporaryUrl: string}  $content
      */
     public function deleteUpload(array $content): void
     {
@@ -105,6 +105,8 @@ trait HandlesPhotoUploads
     /**
      * Get validation rules for photo uploads.
      * Returns array of rules based on application configuration.
+     *      *
+     * @return array<string, array<int, string|int>>
      */
     protected function getPhotoUploadRules(): array
     {
@@ -120,6 +122,8 @@ trait HandlesPhotoUploads
     /**
      * Get validation messages for photo uploads.
      * Returns localized validation messages.
+     *
+     * @return array<string, string>
      */
     protected function getPhotoUploadMessages(): array
     {
@@ -139,6 +143,8 @@ trait HandlesPhotoUploads
     /**
      * Get validation attributes for photo uploads.
      * Returns localized attribute names.
+     *
+     * @return array<string, string>
      */
     protected function getPhotoUploadAttributes(): array
     {

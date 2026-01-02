@@ -63,7 +63,10 @@ final class Manage extends Component
     // -----------------------------------------------------------------------
     use Interactions;
 
-    // ------------------------------------------------------------------------------
+    // -----------------------------------------------------------------------
+    /**
+     * @var Collection<int, array{file_name: string, file_size: string, date_created: string, date_ago: string}>
+     */
     public Collection $backups;
 
     // -----------------------------------------------------------------------

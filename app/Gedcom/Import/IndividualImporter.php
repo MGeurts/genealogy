@@ -18,6 +18,7 @@ class IndividualImporter
 {
     private Team $team;
 
+    /** @var array<string, int> */
     private array $personMap = [];
 
     public function __construct(Team $team)
@@ -28,9 +29,9 @@ class IndividualImporter
     /**
      * Import individuals from parsed GEDCOM data
      *
-     * @param  array  $individuals  Parsed individual records
+     * @param  array<string, array{id: string, type: string, data: array<mixed>}|null>  $individuals  Parsed individual records
      * @param  MediaImportHandler|null  $mediaHandler  Optional media handler for extracting references
-     * @return array Mapping of GEDCOM ID to Person database ID
+     * @return array<string, int> Mapping of GEDCOM ID to Person database ID
      */
     public function import(array $individuals, ?MediaImportHandler $mediaHandler = null): array
     {
@@ -84,6 +85,8 @@ class IndividualImporter
 
     /**
      * Get the person mapping
+     *
+     * @return array<string, int>
      */
     public function getPersonMap(): array
     {
@@ -92,6 +95,9 @@ class IndividualImporter
 
     /**
      * Extract person data from GEDCOM individual record
+     *
+     * @param  array{id: string, type: string, data: array<mixed>}|null  $individual
+     * @return array{firstname: ?string, surname: ?string, birthname: ?string, nickname: ?string, sex: string, dob: ?string, yob: ?int, pob: ?string, dod: ?string, yod: ?int, pod: ?string, summary: ?string, metadata: array<string, string>}
      */
     private function extractPersonData(?array $individual): array
     {
@@ -283,7 +289,10 @@ class IndividualImporter
     }
 
     /**
+    /**
      * Parse GEDCOM name format
+     *
+     * @return array{given: ?string, surname: ?string}
      */
     private function parseName(string $name): array
     {
@@ -303,6 +312,9 @@ class IndividualImporter
 
     /**
      * Extract event data (birth, death, etc.)
+     *
+     * @param  array<string, mixed>  $eventField
+     * @return array{date: ?string, year: ?int, place: ?string}
      */
     private function extractEvent(array $eventField): array
     {
@@ -329,6 +341,8 @@ class IndividualImporter
 
     /**
      * Parse GEDCOM date formats
+     *
+     * @return array{date: ?string, year: ?int}
      */
     private function parseDate(string $dateString): array
     {
@@ -379,6 +393,9 @@ class IndividualImporter
 
     /**
      * Truncate person data to fit database column limits
+     *
+     * @param  array{firstname: ?string, surname: ?string, birthname: ?string, nickname: ?string, sex: string, dob: ?string, yob: ?int, pob: ?string, dod: ?string, yod: ?int, pod: ?string, summary: ?string, metadata: array<string, string>}  $personData
+     * @return array{firstname: ?string, surname: ?string, birthname: ?string, nickname: ?string, sex: string, dob: ?string, yob: ?int, pob: ?string, dod: ?string, yod: ?int, pod: ?string, summary: ?string, metadata: array<string, string>}
      */
     private function truncatePersonData(array $personData): array
     {

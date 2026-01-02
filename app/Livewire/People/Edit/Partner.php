@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace App\Livewire\People\Edit;
 
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
+use App\Models\Couple;
 use App\Models\Person;
+use DateTimeInterface;
 use Illuminate\Support\Collection;
 use Illuminate\View\View;
 use Livewire\Component;
@@ -20,18 +22,19 @@ final class Partner extends Component
     public Person $person;
 
     // -----------------------------------------------------------------------
-    public $partner_id = null;
+    public ?int $partner_id = null;
 
-    public $date_start = null;
+    public ?string $date_start = null;
 
-    public $date_end = null;
+    public ?string $date_end = null;
 
-    public $is_married = false;
+    public ?bool $is_married = false;
 
-    public $has_ended = false;
+    public ?bool $has_ended = false;
 
-    public $couple;
+    public Couple $couple;
 
+    /** @var Collection<int, array{id: int, name: string}> */
     public Collection $persons;
 
     // -----------------------------------------------------------------------
@@ -94,6 +97,9 @@ final class Partner extends Component
     }
 
     // -----------------------------------------------------------------------
+    /**
+     * @return array<string, array<int, string>>
+     */
     protected function rules(): array
     {
         return $rules = [
@@ -105,6 +111,9 @@ final class Partner extends Component
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function messages(): array
     {
         return [
@@ -112,6 +121,9 @@ final class Partner extends Component
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function validationAttributes(): array
     {
         return [
@@ -127,30 +139,41 @@ final class Partner extends Component
     private function loadData(): void
     {
         $this->partner_id = ($this->couple->person1_id === $this->person->id) ? $this->couple->person2_id : $this->couple->person1_id;
-        $this->date_start = $this->couple->date_start?->format('Y-m-d');
-        $this->date_end   = $this->couple->date_end?->format('Y-m-d');
+
+        $dateStart        = $this->couple->date_start;
+        $this->date_start = ($dateStart instanceof DateTimeInterface) ? $dateStart->format('Y-m-d') : null;
+
+        $dateEnd        = $this->couple->date_end;
+        $this->date_end = ($dateEnd instanceof DateTimeInterface) ? $dateEnd->format('Y-m-d') : null;
+
         $this->is_married = $this->couple->is_married;
         $this->has_ended  = $this->couple->has_ended;
     }
 
-    private function hasOverlap($start, $end): bool
+    private function hasOverlap(?string $start, ?string $end): bool
     {
-        if (empty($start) && empty($end)) {
+        if ($start === null && $end === null) {
             return false;
         }
 
         foreach ($this->person->couples as $couple) {
             // Skip the current couple being edited
-            if ($this->couple && $couple->id === $this->couple->id) {
+            if ($couple->id === $this->couple->id) {
                 continue;
             }
 
-            if (! empty($couple->date_start) && ! empty($couple->date_end)) {
-                if (! empty($start) && $start >= $couple->date_start && $start <= $couple->date_end) {
+            $coupleStart = $couple->date_start;
+            $coupleEnd   = $couple->date_end;
+
+            if ($coupleStart instanceof DateTimeInterface && $coupleEnd instanceof DateTimeInterface) {
+                $coupleStartStr = $coupleStart->format('Y-m-d');
+                $coupleEndStr   = $coupleEnd->format('Y-m-d');
+
+                if ($start !== null && $start >= $coupleStartStr && $start <= $coupleEndStr) {
                     return true;
                 }
 
-                if (! empty($end) && $end >= $couple->date_start && $end <= $couple->date_end) {
+                if ($end !== null && $end >= $coupleStartStr && $end <= $coupleEndStr) {
                     return true;
                 }
             }

@@ -23,6 +23,9 @@ class CoupleCreator
 
     /**
      * Create couple records from family data
+     *
+     * @param  array<string, array{husband: ?string, wife: ?string, children: array<string>, marriage_date: ?string, divorce_date: ?string}>  $familyMap
+     * @param  array<string, int>  $personMap
      */
     public function create(array $familyMap, array $personMap): void
     {

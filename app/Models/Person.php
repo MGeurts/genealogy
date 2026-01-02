@@ -57,7 +57,9 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  */
 final class Person extends Model implements HasMedia
 {
+    /** @use HasFactory<\Database\Factories\PersonFactory> */
     use HasFactory;
+
     use HasManyMergedRelation;
     use InteractsWithMedia;
     use LogsActivity;
@@ -150,6 +152,7 @@ final class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     // Local Scopes
     /* -------------------------------------------------------------------------------------------- */
+    /** @param Builder<self> $query */
     #[Scope]
     public function scopeSearch(Builder $query, string $searchString): void
     {
@@ -190,6 +193,7 @@ final class Person extends Model implements HasMedia
             });
     }
 
+    /** @param Builder<self> $query */
     #[Scope]
     public function scopeYoungerThan(Builder $query, ?string $dob, ?int $yob): void
     {
@@ -222,6 +226,7 @@ final class Person extends Model implements HasMedia
         });
     }
 
+    /** @param Builder<self> $query */
     #[Scope]
     public function scopeOlderThan(Builder $query, ?string $dob, ?int $yob): void
     {
@@ -254,6 +259,7 @@ final class Person extends Model implements HasMedia
         });
     }
 
+    /** @param Builder<self> $query */
     #[Scope]
     public function scopePartnerOffset(Builder $query, ?string $dob, ?int $yob, int $offset = 40): void
     {
@@ -321,47 +327,55 @@ final class Person extends Model implements HasMedia
     // Relations
     /* -------------------------------------------------------------------------------------------- */
     /* returns TEAM (1 Team) based on team_id */
+    /** @return BelongsTo<Team, $this> */
     public function team(): BelongsTo
     {
         return $this->belongsTo(Team::class);
     }
 
     /* lookup table */
+    /** @return BelongsTo<Gender, $this> */
     public function gender(): BelongsTo
     {
         return $this->belongsTo(Gender::class);
     }
 
     /* returns FATHER (1 Person) based on father_id */
+    /** @return BelongsTo<Person, $this> */
     public function father(): BelongsTo
     {
         return $this->belongsTo(self::class);
     }
 
     /* returns MOTHER (1 Person) based on mother_id */
+    /** @return BelongsTo<Person, $this> */
     public function mother(): BelongsTo
     {
         return $this->belongsTo(self::class);
     }
 
     /* returns PARENTS (1 Couple) based on parents_id */
+    /** @return BelongsTo<Couple, $this> */
     public function parents(): BelongsTo
     {
         return $this->belongsTo(Couple::class)->with(['person1', 'person2']);
     }
 
     /* returns OWN NATURAL CHILDREN (n Person) based on father_id OR mother_id, ordered by dob */
+    /** @return HasManyMerged<Person, Person> */
     public function children(): HasManyMerged
     {
         return $this->hasManyMerged(self::class, ['father_id', 'mother_id'])->orderBy('dob');
     }
 
+    /** @return HasManyMerged<Person, Person> */
     public function children_with_children(): HasManyMerged // only used in family chart
     {
         return $this->hasManyMerged(self::class, ['father_id', 'mother_id'])->with('children')->orderBy('dob');
     }
 
     /* returns ALL NATURAL CHILDREN (n Person) (OWN + CURRENT PARTNER), ordered by type, birthyear */
+    /** @return Collection<int, Person> */
     public function childrenNaturalAll(): Collection
     {
         $children_natural = $this->children;
@@ -375,6 +389,7 @@ final class Person extends Model implements HasMedia
     }
 
     /* returns ALL PARTNERS (n Person) related to the person, ordered by date_start */
+    /** @return Collection<int, Person> */
     public function getPartnersAttribute(): Collection
     {
         if (! array_key_exists('partners', $this->relations)) {
@@ -409,12 +424,14 @@ final class Person extends Model implements HasMedia
     }
 
     /* returns ALL PARTNERSHIPS (n Couple) related to the person, ordered by date_start */
+    /** @return HasManyMerged<Couple, Person> */
     public function couples(): HasManyMerged
     {
         return $this->hasManyMerged(Couple::class, ['person1_id', 'person2_id'])->with(['person1', 'person2']);
     }
 
     /* returns ALL METADATA (n PersonMetadata) related to the person */
+    /** @return HasMany<PersonMetadata, $this> */
     public function metadata(): HasMany
     {
         return $this->hasMany(PersonMetadata::class);
@@ -434,6 +451,7 @@ final class Person extends Model implements HasMedia
     }
 
     /* updates, deletes if empty or creates 1 to n METADATA related to the person */
+    /** @param Collection<string, mixed> $personMetadata */
     public function updateMetadata(Collection $personMetadata): void
     {
         // First, delete any existing metadata where the value is empty
@@ -464,6 +482,7 @@ final class Person extends Model implements HasMedia
     }
 
     /* returns ALL SIBLINGS (n Person) related to the person, either through father_id, mother_id or parents_id ordered by type, birthyear */
+    /** @return Collection<int, Person> */
     public function siblings(bool $withChildren = false): Collection
     {
         // Early return if no parent information
@@ -505,12 +524,14 @@ final class Person extends Model implements HasMedia
     // Relations for Person Events
     /* -------------------------------------------------------------------------------------------- */
     /* returns ALL EVENTS (n PersonEvent) related to the person, ordered by date */
+    /** @return HasMany<PersonEvent, $this> */
     public function events(): HasMany
     {
         return $this->hasMany(PersonEvent::class)->orderByRaw('COALESCE(date, CONCAT(year, "-01-01"))');
     }
 
     /* returns a TIMELINE of all person events including birth and death (person and children), and relationships, ordered by date */
+    /** @return Collection<int, array<string, mixed>> */
     public function timeline(): Collection
     {
         $timeline = collect();
@@ -660,15 +681,17 @@ final class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     // Accessors & Mutators
     /* -------------------------------------------------------------------------------------------- */
+    /** @return Attribute<string, never> */
     protected function name(): Attribute
     {
-        return Attribute::get(function (): ?string {
+        return Attribute::get(function (): string {
             $name = Str::of("{$this->firstname} {$this->surname}")->trim()->value();
 
-            return $name === '' ? null : $name;
+            return $name === '' ? '' : $name;
         });
     }
 
+    /** @return Attribute<?int, never> */
     protected function age(): Attribute
     {
         return Attribute::make(get: function (): ?int {
@@ -702,6 +725,7 @@ final class Person extends Model implements HasMedia
         });
     }
 
+    /** @return Attribute<?Carbon, never> */
     protected function nextBirthday(): Attribute
     {
         return Attribute::make(get: function (): ?Carbon {
@@ -716,6 +740,7 @@ final class Person extends Model implements HasMedia
         });
     }
 
+    /** @return Attribute<?int, never> */
     protected function nextBirthdayAge(): Attribute
     {
         return Attribute::make(get: function (): ?int {
@@ -723,6 +748,7 @@ final class Person extends Model implements HasMedia
         });
     }
 
+    /** @return Attribute<?int, never> */
     protected function nextBirthdayRemainingDays(): Attribute
     {
         return Attribute::make(get: function (): ?int {
@@ -745,6 +771,7 @@ final class Person extends Model implements HasMedia
         });
     }
 
+    /** @return Attribute<?string, never> */
     protected function lifetime(): Attribute
     {
         return Attribute::make(get: function (): ?string {
@@ -778,6 +805,7 @@ final class Person extends Model implements HasMedia
         });
     }
 
+    /** @return Attribute<?string, never> */
     protected function birthYear(): Attribute
     {
         return Attribute::make(get: function (): ?string {
@@ -793,6 +821,7 @@ final class Person extends Model implements HasMedia
         });
     }
 
+    /** @return Attribute<?string, never> */
     protected function deathYear(): Attribute
     {
         return Attribute::make(get: function (): ?string {
@@ -808,6 +837,7 @@ final class Person extends Model implements HasMedia
         });
     }
 
+    /** @return Attribute<string, never> */
     protected function birthFormatted(): Attribute
     {
         return Attribute::make(get: function (): string {
@@ -823,6 +853,7 @@ final class Person extends Model implements HasMedia
         });
     }
 
+    /** @return Attribute<string, never> */
     protected function deathFormatted(): Attribute
     {
         return Attribute::make(get: function (): string {
@@ -838,6 +869,7 @@ final class Person extends Model implements HasMedia
         });
     }
 
+    /** @return Attribute<?string, never> */
     protected function address(): Attribute
     {
         return Attribute::make(get: function (): ?string {
@@ -857,6 +889,7 @@ final class Person extends Model implements HasMedia
         });
     }
 
+    /** @return Attribute<?string, never> */
     protected function addressGoogle(): Attribute
     {
         return Attribute::make(get: function (): ?string {
@@ -879,6 +912,7 @@ final class Person extends Model implements HasMedia
         });
     }
 
+    /** @return Attribute<?string, never> */
     protected function cemeteryGoogle(): Attribute
     {
         return Attribute::make(get: function (): ?string {
@@ -907,12 +941,14 @@ final class Person extends Model implements HasMedia
     /* -------------------------------------------------------------------------------------------- */
     // Optimized relationship methods for siblings
     /* -------------------------------------------------------------------------------------------- */
+    /** @return HasMany<Person, $this> */
     private function fullSiblings(): HasMany
     {
         return $this->hasMany(self::class, 'parents_id', 'parents_id')
             ->where('id', '!=', $this->id);
     }
 
+    /** @return HasMany<Person, $this> */
     private function halfSiblingsFather(): HasMany
     {
         return $this->hasMany(self::class, 'father_id', 'father_id')
@@ -920,6 +956,7 @@ final class Person extends Model implements HasMedia
             ->whereNull('parents_id');
     }
 
+    /** @return HasMany<Person, $this> */
     private function halfSiblingsMother(): HasMany
     {
         return $this->hasMany(self::class, 'mother_id', 'mother_id')

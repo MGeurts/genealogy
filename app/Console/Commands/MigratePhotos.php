@@ -256,6 +256,9 @@ class MigratePhotos extends Command
         return ! $photos096Exists && ! $photos384Exists;
     }
 
+    /**
+     * @return array<int, string>
+     */
     private function getAllFiles(string $dir): array
     {
         $files = [];

@@ -11,13 +11,14 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Validation\ValidationException;
 use Laravel\Jetstream\Contracts\RemovesTeamMembers;
 use Laravel\Jetstream\Events\TeamMemberRemoved;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 final class RemoveTeamMember implements RemovesTeamMembers
 {
     /**
      * Remove the team member from the given team.
      */
-    public function remove(User $user, Team $team, User $teamMember)
+    public function remove(User $user, Team $team, User $teamMember): RedirectResponse
     {
         $role = $teamMember->teamRole($team);
 

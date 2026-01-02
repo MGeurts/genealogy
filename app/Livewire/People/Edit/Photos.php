@@ -24,10 +24,15 @@ final class Photos extends Component
 
     public Person $person;
 
+    /** @var array<int, UploadedFile> */
     public array $uploads = [];
 
+    /** @var array<int, UploadedFile> */
     public array $backup = [];
 
+    /**
+     * @var Collection<int, array{name: string, extension: string, is_primary: bool, url_original: string, url_large: string, url_medium: string, url_small: string, size: string, name_download: string, path: string}>|null
+     */
     public ?Collection $photos = null;
 
     public function mount(): void
@@ -74,7 +79,7 @@ final class Photos extends Component
      * Handle file deletion from uploads.
      * Removes the specified file from the uploads array and deletes the temporary file.
      *
-     * @param  array  $content  File information containing temporary_name, real_name, extension, size, path, url
+     * @param  array<string, mixed>  $content  File information containing temporary_name, real_name, extension, size, path, url
      */
     public function deleteUpload(array $content): void
     {
@@ -200,6 +205,8 @@ final class Photos extends Component
 
     /**
      * Validation rules.
+     *
+     * @return array<string, mixed>
      */
     protected function rules(): array
     {
@@ -214,6 +221,8 @@ final class Photos extends Component
 
     /**
      * Validation messages.
+     *
+     * @return array<string, string>
      */
     protected function messages(): array
     {

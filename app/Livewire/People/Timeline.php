@@ -16,6 +16,7 @@ final class Timeline extends Component
     #[Locked]
     public Person $person;
 
+    /** @var Collection<int, array<string, mixed>> */
     public Collection $timeline;
 
     public function mount(Person $person): void

@@ -75,7 +75,7 @@ final class InviteTeamMember implements InvitesTeamMembers
     /**
      * Get the validation rules for inviting a team member.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
+     * @return array<string, array<int, mixed>|null>
      */
     private function rules(Team $team): array
     {

@@ -23,6 +23,9 @@ final class Countries
         'zh_cn' => 'zh',
     ];
 
+    /**
+     * @var Collection<int, array{alpha2: string, name: string}>
+     */
     public Collection $countries;
 
     /**
@@ -48,6 +51,8 @@ final class Countries
 
     /**
      * Get a collection of all countries with their alpha2 code and name.
+     *
+     * @return Collection<int, array{id: string, name: string}>
      */
     public function getAllCountries(): Collection
     {
@@ -59,6 +64,8 @@ final class Countries
 
     /**
      * Get country names formatted for svgMap's countryNames configuration.
+     *
+     * @return Collection<string, string>
      */
     public function getCountryNamesForSvgMap(): Collection
     {
@@ -69,11 +76,20 @@ final class Countries
 
     /**
      * Load countries data from the specified path.
+     *
+     * @return Collection<int, array{alpha2: string, name: string}>|null
      */
     private function loadCountriesData(string $path): ?Collection
     {
         $file = "{$path}/countries.php";
 
-        return file_exists($file) ? collect(require $file) : null;
+        if (! file_exists($file)) {
+            return null;
+        }
+
+        /** @var array<int, array{alpha2: string, name: string}> $data */
+        $data = require $file;
+
+        return collect($data);
     }
 }

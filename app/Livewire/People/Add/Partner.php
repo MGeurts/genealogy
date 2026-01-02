@@ -28,17 +28,18 @@ final class Partner extends Component
 
     public PersonForm $form;
 
+    /** @var Collection<int, array{id: int, name: string}> */
     public Collection $persons;
 
     public ?string $selectedTab = null;
 
-    public $date_start = null;
+    public ?string $date_start = null;
 
-    public $date_end = null;
+    public ?string $date_end = null;
 
-    public $is_married = false;
+    public bool $is_married = false;
 
-    public $has_ended = false;
+    public bool $has_ended = false;
 
     public function mount(): void
     {
@@ -93,6 +94,8 @@ final class Partner extends Component
 
     /**
      * Link an existing person as partner.
+     *
+     * @param  array<string, mixed>  $validated
      */
     protected function linkExistingPartner(array $validated): void
     {
@@ -111,6 +114,8 @@ final class Partner extends Component
 
     /**
      * Create a new person and link as partner.
+     *
+     * @param  array<string, mixed>  $validated
      */
     protected function createNewPartner(array $validated): void
     {
@@ -147,6 +152,9 @@ final class Partner extends Component
         $this->toast()->success(__('app.create'), e($couple->name) . ' ' . __('app.created') . '.')->flash()->send();
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     protected function rules(): array
     {
         return array_merge([
@@ -169,6 +177,9 @@ final class Partner extends Component
         ], $this->getPhotoUploadRules());
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function messages(): array
     {
         return array_merge([
@@ -179,6 +190,9 @@ final class Partner extends Component
         ], $this->getPhotoUploadMessages());
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function validationAttributes(): array
     {
         return array_merge([
@@ -204,7 +218,7 @@ final class Partner extends Component
     /**
      * Check if couple dates overlap with existing couples.
      */
-    private function hasOverlap($start, $end): bool
+    private function hasOverlap(?string $start, ?string $end): bool
     {
         if (empty($start) && empty($end)) {
             return false;

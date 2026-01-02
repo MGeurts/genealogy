@@ -35,6 +35,9 @@ final class Exportteam extends Component
     /** @var Collection<int, \App\Models\Couple> */
     public Collection $teamCouples;
 
+    /**
+     * @return array<int, array{value: string, label: string, zip: bool, description: string}>
+     */
     public static function formats(): array
     {
         return [
@@ -119,6 +122,9 @@ final class Exportteam extends Component
     }
 
     // ------------------------------------------------------------------------------
+    /**
+     * @return array<string, array<int, string>>
+     */
     protected function rules(): array
     {
         return [
@@ -127,11 +133,17 @@ final class Exportteam extends Component
         ];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function messages(): array
     {
         return [];
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function validationAttributes(): array
     {
         return [

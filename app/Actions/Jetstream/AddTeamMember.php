@@ -14,13 +14,14 @@ use Laravel\Jetstream\Events\AddingTeamMember;
 use Laravel\Jetstream\Events\TeamMemberAdded;
 use Laravel\Jetstream\Jetstream;
 use Laravel\Jetstream\Rules\Role;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 final class AddTeamMember implements AddsTeamMembers
 {
     /**
      * Add a new team member to the given team.
      */
-    public function add(User $user, Team $team, string $email, ?string $role = null)
+    public function add(User $user, Team $team, string $email, ?string $role = null): RedirectResponse
     {
         Gate::forUser($user)->authorize('addTeamMember', $team);
 
@@ -73,9 +74,7 @@ final class AddTeamMember implements AddsTeamMembers
     }
 
     /**
-     * Get the validation rules for adding a team member.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
+     * @return array<string, list<string|Role>>
      */
     private function rules(): array
     {

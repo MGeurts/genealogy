@@ -18,6 +18,7 @@ class FamilyImporter
     /** @phpstan-ignore property.onlyWritten */
     private Team $team;
 
+    /** @var array<string, array{husband: ?string, wife: ?string, children: array<string>, marriage_date: ?string, divorce_date: ?string}> */
     private array $familyMap = [];
 
     public function __construct(Team $team)
@@ -27,6 +28,10 @@ class FamilyImporter
 
     /**
      * Import families and set parent-child relationships
+     *
+     * @param  array<string, array{id: string, type: string, data: array<mixed>}|null>  $families
+     * @param  array<string, int>  $personMap
+     * @return array<string, array{husband: ?string, wife: ?string, children: array<string>, marriage_date: ?string, divorce_date: ?string}>
      */
     public function import(array $families, array $personMap): array
     {
@@ -62,6 +67,8 @@ class FamilyImporter
 
     /**
      * Get the family mapping
+     *
+     * @return array<string, array{husband: ?string, wife: ?string, children: array<string>, marriage_date: ?string, divorce_date: ?string}>
      */
     public function getFamilyMap(): array
     {
@@ -70,6 +77,9 @@ class FamilyImporter
 
     /**
      * Extract family data from GEDCOM family record
+     *
+     * @param  array{id: string, type: string, data: array<mixed>}|null  $family
+     * @return array{husband: ?string, wife: ?string, children: array<string>, marriage_date: ?string, divorce_date: ?string}
      */
     private function extractFamilyData(?array $family): array
     {
@@ -129,6 +139,9 @@ class FamilyImporter
 
     /**
      * Extract event data (birth, death, etc.)
+     *
+     * @param  array<string, mixed>  $eventField
+     * @return array{date: ?string, year: ?int, place: ?string}
      */
     private function extractEvent(array $eventField): array
     {
@@ -155,6 +168,8 @@ class FamilyImporter
 
     /**
      * Parse GEDCOM date formats
+     *
+     * @return array{date: ?string, year: ?int}
      */
     private function parseDate(string $dateString): array
     {

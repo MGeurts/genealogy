@@ -13,7 +13,7 @@ final class Teamlog extends Component
 {
     use WithPagination;
 
-    public $perPage = 50;
+    public int $perPage = 50;
 
     // -----------------------------------------------------------------------
     public function render(): View

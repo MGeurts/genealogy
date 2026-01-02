@@ -17,6 +17,9 @@ final class History extends Component
     public Person $person;
 
     // ------------------------------------------------------------------------------
+    /**
+     * @var Collection<int, mixed>
+     */
     public Collection $activities;
 
     // ------------------------------------------------------------------------------

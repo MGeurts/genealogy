@@ -14,14 +14,17 @@ use Illuminate\Support\Facades\Log;
  */
 class MediaImportHandler
 {
+    /** @var array<string, string> */
     private array $mediaFiles;
 
+    /** @var array<string, array{id: string, file: ?string, format: ?string, title: ?string}> */
     private array $mediaObjects = [];
 
+    /** @var array<string, array<string>> */
     private array $personMediaMap = [];
 
     /**
-     * @param  array  $mediaFiles  Array of basename => filepath mappings
+     * @param  array<string, string>  $mediaFiles  Array of basename => filepath mappings
      */
     public function __construct(array $mediaFiles = [])
     {
@@ -32,7 +35,7 @@ class MediaImportHandler
      * Parse GEDCOM data to build media object registry
      * Call this BEFORE processing individuals to build the media lookup table
      *
-     * @param  array  $gedcomData  The full parsed GEDCOM data
+     * @param  array<mixed>  $gedcomData  The full parsed GEDCOM data
      */
     public function buildMediaRegistry(array $gedcomData): void
     {
@@ -143,7 +146,7 @@ class MediaImportHandler
      * Call this during individual processing to build media mapping
      *
      * @param  string  $gedcomId  The GEDCOM ID of the person
-     * @param  array  $individual  The parsed individual data
+     * @param  array{id: string, type: string, data: array<mixed>}  $individual  The parsed individual data
      */
     public function extractMediaReferences(string $gedcomId, array $individual): void
     {
@@ -187,7 +190,8 @@ class MediaImportHandler
     /**
      * Import media files to persons after all persons are created
      *
-     * @param  array  $personMap  Mapping of GEDCOM ID to Person database ID
+     * @param  array<string, int>  $personMap  Mapping of GEDCOM ID to Person database ID
+     * @return array{processed: int, succeeded: int, failed: int, missing_files: int, total_photos: int}
      */
     public function importMediaToPersons(array $personMap): array
     {
@@ -261,7 +265,10 @@ class MediaImportHandler
     }
 
     /**
+    /**
      * Get the person-media mapping for debugging
+     *
+     * @return array<string, array<string>>
      */
     public function getPersonMediaMap(): array
     {
@@ -269,7 +276,10 @@ class MediaImportHandler
     }
 
     /**
+    /**
      * Get the media objects registry for debugging
+     *
+     * @return array<string, array{id: string, file: ?string, format: ?string, title: ?string}>
      */
     public function getMediaObjects(): array
     {
@@ -279,8 +289,8 @@ class MediaImportHandler
     /**
      * Collect actual photo file paths for a person's media references
      *
-     * @param  array  $mediaRefs  Array of filename references
-     * @return array Array of file paths that exist
+     * @param  array<string>  $mediaRefs  Array of filename references
+     * @return array<string> Array of file paths that exist
      */
     private function collectPhotosForPerson(array $mediaRefs): array
     {

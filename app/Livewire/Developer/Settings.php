@@ -16,6 +16,9 @@ final class Settings extends Component
 {
     use Interactions;
 
+    /**
+     * @var Collection<string, mixed>
+     */
     public Collection $settings;
 
     public SettingsForm $settingsForm;

@@ -24,7 +24,9 @@ use Spatie\Activitylog\Traits\LogsActivity;
  */
 final class Team extends JetstreamTeam
 {
+    /** @use HasFactory<\Database\Factories\PersonFactory> */
     use HasFactory;
+
     use LogsActivity;
 
     /**
