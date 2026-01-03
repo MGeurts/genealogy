@@ -63,7 +63,8 @@ final class CreateNewUser implements CreatesNewUsers
         }
 
         // Set the current_team_id to the newly created personal team
-        $user->current_team_id = $team->id;
-        $user->save();
+        $user->forceFill([
+            'current_team_id' => $team->id,
+        ])->save();
     }
 }

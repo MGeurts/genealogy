@@ -123,7 +123,13 @@ class ZipImporter
 
             // Find GEDCOM file
             if (in_array($extension, ['ged', 'gedcom'])) {
-                $this->gedcomContent = file_get_contents($filePath);
+                $content = file_get_contents($filePath);
+
+                if ($content === false) {
+                    throw new Exception("Failed to read GEDCOM file: {$filePath}");
+                }
+
+                $this->gedcomContent = $content;
                 Log::info('GEDCOM file found in ZIP', ['file' => $file->getFilename()]);
             }
 

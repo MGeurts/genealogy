@@ -59,7 +59,11 @@ final class Importteam extends Component
             } else {
                 // Import from GEDCOM text
                 $content = file_get_contents($this->file->getRealPath());
-                // $content = $this->file->get();
+
+                // Handle file_get_contents failure
+                if ($content === false) {
+                    throw new Exception('Failed to read file contents.');
+                }
 
                 // Scan for potentially malicious content
                 if ($this->containsMaliciousContent($content)) {
@@ -70,11 +74,17 @@ final class Importteam extends Component
             }
 
             if ($this->result['success']) {
-                $this->toast()->success('Success', "Imported {$this->result['individuals_imported']} individuals and {$this->result['families_imported']} families into {$this->result['team']}.")->send();
+                // Safely access array offsets with null coalescing
+                $individualsImported = $this->result['individuals_imported'] ?? 0;
+                $familiesImported    = $this->result['families_imported'] ?? 0;
+                $teamName            = $this->result['team'] ?? 'team';
+
+                $this->toast()->success('Success', "Imported {$individualsImported} individuals and {$familiesImported} families into {$teamName}.")->send();
 
                 $this->redirect('/search');
             } else {
-                $this->toast()->error('Error', $this->result['error'])->send();
+                $errorMessage = $this->result['error'] ?? 'Unknown error occurred';
+                $this->toast()->error('Error', $errorMessage)->send();
             }
         } catch (Exception $e) {
             $this->toast()->error('Import Error', $e->getMessage())->send();

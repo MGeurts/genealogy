@@ -164,7 +164,7 @@ class GedcomMediaBuilder
                 return [
                     'filename'       => $filenameWithoutExt,
                     'file_reference' => $filename,   // Full filename with extension
-                    'mime_type'      => $mimeType,   // Actual MIME type
+                    'mime_type'      => $mimeType ?: 'application/octet-stream',   // Default if detection fails
                     'disk_path'      => $originalFile,
                     'url'            => Storage::disk('photos')->url($originalFile),
                 ];

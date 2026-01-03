@@ -109,16 +109,27 @@ class PasswordGenerator extends Component
             'spaces' => $spaces === true ? [' '] : null,
         ]))
             ->filter()
-            ->each(fn ($chars) => $password->push($chars[random_int(0, count($chars) - 1)]))
+            ->each(function ($chars) use ($password) {
+                $charCount = count($chars);
+                if ($charCount > 0) {
+                    $password->push($chars[random_int(0, $charCount - 1)]);
+                }
+            })
             ->flatten();
 
         $length -= $password->count();
 
         // Collect all options into array and generate remaining characters
-        $allChars  = $options->all();
-        $remaining = Collection::times($length, fn () => $allChars[random_int(0, count($allChars) - 1)]);
+        $allChars      = $options->all();
+        $allCharsCount = count($allChars);
 
-        return $password->merge($remaining)->shuffle()->implode('');
+        if ($allCharsCount > 0) {
+            $remaining = Collection::times($length, fn () => $allChars[random_int(0, $allCharsCount - 1)]);
+
+            return $password->merge($remaining)->shuffle()->implode('');
+        }
+
+        return $password->shuffle()->implode('');
     }
 
     /**

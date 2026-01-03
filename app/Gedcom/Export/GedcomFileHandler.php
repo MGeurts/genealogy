@@ -130,7 +130,13 @@ class GedcomFileHandler
         $tempDir = Storage::path('temp');
         $pattern = $tempDir . DIRECTORY_SEPARATOR . $this->basename . '.*';
 
-        foreach (glob($pattern) as $file) {
+        $files = glob($pattern);
+
+        if ($files === false) {
+            return;
+        }
+
+        foreach ($files as $file) {
             @unlink($file);
         }
     }

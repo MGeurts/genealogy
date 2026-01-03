@@ -15,9 +15,14 @@ final class PageController extends Controller
     public function home(): View
     {
         $homeFile = Jetstream::localizedMarkdownPath(app()->getLocale() . '/' . 'home.md');
+        $content  = file_get_contents($homeFile);
+
+        if ($content === false) {
+            abort(404, 'Home page content not found');
+        }
 
         return view('home', [
-            'home' => Str::markdown(file_get_contents($homeFile)),
+            'home' => Str::markdown($content),
         ]);
     }
 
@@ -31,6 +36,10 @@ final class PageController extends Controller
         $aboutFile = Jetstream::localizedMarkdownPath(app()->getLocale() . '/' . 'about.md');
         $markdown  = file_get_contents($aboutFile);
 
+        if ($markdown === false) {
+            abort(404, 'About page content not found');
+        }
+
         // First render as Blade (to process {{ date('Y') }}, etc.)
         $compiledBlade = Blade::render($markdown);
 
@@ -43,9 +52,14 @@ final class PageController extends Controller
     public function help(): View
     {
         $helpFile = Jetstream::localizedMarkdownPath('help.md');
+        $content  = file_get_contents($helpFile);
+
+        if ($content === false) {
+            abort(404, 'Help page content not found');
+        }
 
         return view('help', [
-            'help' => Str::markdown(file_get_contents($helpFile)),
+            'help' => Str::markdown($content),
         ]);
     }
 }

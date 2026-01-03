@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
+use RuntimeException;
 use Throwable;
 
 final class PersonPhotos
@@ -658,14 +659,28 @@ final class PersonPhotos
      * Centralizes file reading logic.
      *
      * @return string File content as binary string
+     *
+     * @throws RuntimeException If file cannot be read
      */
     private function getFileContent(UploadedFile|string $photo): string
     {
         if ($photo instanceof UploadedFile) {
-            return file_get_contents($photo->getRealPath());
+            $content = file_get_contents($photo->getRealPath());
+
+            if ($content === false) {
+                throw new RuntimeException("Failed to read uploaded file: {$photo->getClientOriginalName()}");
+            }
+
+            return $content;
         }
 
-        return file_get_contents($photo);
+        $content = file_get_contents($photo);
+
+        if ($content === false) {
+            throw new RuntimeException("Failed to read file: {$photo}");
+        }
+
+        return $content;
     }
 
     /**

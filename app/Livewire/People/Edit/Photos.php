@@ -258,7 +258,8 @@ final class Photos extends Component
 
                 $fileSize = 0;
                 if (file_exists($path)) {
-                    $fileSize = filesize($path);
+                    $fileSizeResult = filesize($path);
+                    $fileSize       = $fileSizeResult !== false ? $fileSizeResult : 0;
                 }
 
                 return array_merge($photo, [
