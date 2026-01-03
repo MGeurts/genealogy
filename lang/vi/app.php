@@ -151,6 +151,7 @@ return [
     'use_numbers'          => 'Sử dụng số',
     'use_symbols'          => 'Sử dụng ký hiệu',
     'generate'             => 'Tạo',
+    'generating'           => 'Đang tạo',
     'copy_to_clipboard'    => 'Sao chép vào bảng tạm',
     'copied_to_clipboard'  => 'Đã sao chép vào bảng tạm!',
     'password_very_weak'   => 'Rất yếu',

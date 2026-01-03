@@ -176,6 +176,15 @@ final class Couple extends Model
     protected function name(): Attribute
     {
         return Attribute::make(get: function (): ?string {
+            // Guard against unloaded relationships
+            if (! $this->relationLoaded('person1') || ! $this->relationLoaded('person2')) {
+                return null;
+            }
+
+            if (! $this->person1 || ! $this->person2) {
+                return null;
+            }
+
             $names = array_filter([
                 $this->person1->name,
                 $this->person2->name,

@@ -151,6 +151,7 @@ return [
     'use_numbers'          => 'Use numbers',
     'use_symbols'          => 'Use symbols',
     'generate'             => 'Generate',
+    'generating'           => 'Generating',
     'copy_to_clipboard'    => 'Copy to clipboard',
     'copied_to_clipboard'  => 'Copied to clipboard!',
     'password_very_weak'   => 'Very weak',

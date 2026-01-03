@@ -129,6 +129,7 @@ return [
     'use_numbers'          => 'Usar números',
     'use_symbols'          => 'Usar símbolos',
     'generate'             => 'Generar',
+    'generating'           => 'Generando',
     'copy_to_clipboard'    => 'Copiar al portapapeles',
     'copied_to_clipboard'  => '¡Copiado al portapapeles!',
     'password_very_weak'   => 'Muy débil',

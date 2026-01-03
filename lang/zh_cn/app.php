@@ -151,6 +151,7 @@ return [
     'use_numbers'          => '使用数字',
     'use_symbols'          => '使用符号',
     'generate'             => '生成',
+    'generating'           => '生成中',
     'copy_to_clipboard'    => '复制到剪贴板',
     'copied_to_clipboard'  => '已复制到剪贴板！',
     'password_very_weak'   => '非常弱',

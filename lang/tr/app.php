@@ -151,6 +151,7 @@ return [
     'use_numbers'          => 'Rakamları kullan',
     'use_symbols'          => 'Sembolleri kullan',
     'generate'             => 'Oluştur',
+    'generating'           => 'Oluşturuluyor',
     'copy_to_clipboard'    => 'Panoya kopyala',
     'copied_to_clipboard'  => 'Panoya kopyalandı!',
     'password_very_weak'   => 'Çok zayıf',

@@ -151,6 +151,7 @@ return [
     'use_numbers'          => 'Gebruik cijfers',
     'use_symbols'          => 'Gebruik symbolen',
     'generate'             => 'Genereren',
+    'generating'           => 'Wordt gegenereerd',
     'copy_to_clipboard'    => 'Kopiëren naar klembord',
     'copied_to_clipboard'  => 'Gekopieerd naar klembord!',
     'password_very_weak'   => 'Zeer zwak',

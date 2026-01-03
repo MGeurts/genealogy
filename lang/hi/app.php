@@ -125,6 +125,7 @@ return [
     'use_numbers'          => 'संख्याएँ उपयोग करें',
     'use_symbols'          => 'प्रतीकों का उपयोग करें',
     'generate'             => 'जनरेट करें',
+    'generating'           => 'उत्पन्न किया जा रहा है',
     'copy_to_clipboard'    => 'क्लिपबोर्ड पर कॉपी करें',
     'copied_to_clipboard'  => 'क्लिपबोर्ड पर कॉपी किया गया!',
     'password_very_weak'   => 'बहुत कमजोर',

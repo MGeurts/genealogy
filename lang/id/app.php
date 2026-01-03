@@ -151,6 +151,7 @@ return [
     'use_numbers'          => 'Gunakan angka',
     'use_symbols'          => 'Gunakan simbol',
     'generate'             => 'Hasilkan',
+    'generating'           => 'Sedang dibuat',
     'copy_to_clipboard'    => 'Salin ke papan klip',
     'copied_to_clipboard'  => 'Disalin ke papan klip!',
     'password_very_weak'   => 'Sangat lemah',

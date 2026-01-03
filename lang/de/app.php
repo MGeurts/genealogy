@@ -151,6 +151,7 @@ return [
     'use_numbers'          => 'Zahlen verwenden',
     'use_symbols'          => 'Symbole verwenden',
     'generate'             => 'Generieren',
+    'generating'           => 'Wird generiert',
     'copy_to_clipboard'    => 'In Zwischenablage kopieren',
     'copied_to_clipboard'  => 'In Zwischenablage kopiert!',
     'password_very_weak'   => 'Sehr schwach',
