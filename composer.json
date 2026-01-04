@@ -34,7 +34,7 @@
     ],
     "require": {
         "php": "^8.4",
-        "filament/tables": "^4.3",
+        "filament/tables": "^4.4",
         "intervention/image": "^3.11",
         "korridor/laravel-has-many-merged": "^1.2",
         "laravel/framework": "^12.44",
@@ -62,7 +62,7 @@
         "larswiegers/laravel-translations-checker": "^0.9",
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.8",
-        "pestphp/pest": "^4.2",
+        "pestphp/pest": "^4.3",
         "pestphp/pest-plugin-livewire": "^4.0",
         "spatie/laravel-ignition": "^2.9"
     },
