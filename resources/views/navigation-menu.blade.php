@@ -170,10 +170,12 @@
                     {{ __('auth.login') }}
                 </x-nav-link>
 
-                <x-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
-                    <x-ts-icon icon="tabler.user-plus" class="inline-block size-5 mr-1" />
-                    {{ __('auth.register') }}
-                </x-nav-link>
+                @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::registration()))
+                    <x-nav-link href="{{ route('register') }}" :active="request()->routeIs('register')">
+                        <x-ts-icon icon="tabler.user-plus" class="inline-block size-5 mr-1" />
+                        {{ __('auth.register') }}
+                    </x-nav-link>
+                @endif
 
                 <x-set.language />
             @endauth
@@ -232,10 +234,12 @@
                     {{ __('auth.login') }}
                 </x-nav-link-responsive>
 
-                <x-nav-link-responsive href="{{ route('register') }}" :active="request()->routeIs('register')">
-                    <x-ts-icon icon="tabler.user-plus" class="inline-block size-5 mr-1" />
-                    {{ __('auth.register') }}
-                </x-nav-link-responsive>
+                @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::registration()))
+                    <x-nav-link-responsive href="{{ route('register') }}" :active="request()->routeIs('register')">
+                        <x-ts-icon icon="tabler.user-plus" class="inline-block size-5 mr-1" />
+                        {{ __('auth.register') }}
+                    </x-nav-link-responsive>
+                @endif
             </div>
 
             {{-- responsive settings options --}}
