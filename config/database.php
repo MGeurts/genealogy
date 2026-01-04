@@ -62,7 +62,7 @@ return [
             'options'        => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::ATTR_EMULATE_PREPARES         => false,                            // Use native prepared statements
                 PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,                             // Useful for large SELECTs
-                PDO::MYSQL_ATTR_SSL_CA             => env('MYSQL_ATTR_SSL_CA'),    // Optional SSL
+                (PHP_VERSION_ID >= 80500 ? \Pdo\Mysql::ATTR_SSL_CA : \PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),    // Optional SSL
             ]) : [],
             'dump' => [
                 'dump_binary_path' => env('BACKUP_DUMP_PATH', null), // only the path, so without `mysqldump` or `pg_dump`
@@ -91,7 +91,7 @@ return [
             'options'        => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::ATTR_EMULATE_PREPARES         => false,                                     // Native prepares: faster + safer
                 PDO::MYSQL_ATTR_USE_BUFFERED_QUERY => true,                                      // Useful for read-heavy apps
-                PDO::MYSQL_ATTR_SSL_CA             => env('MYSQL_ATTR_SSL_CA'),             // If using SSL
+                (PHP_VERSION_ID >= 80500 ? \Pdo\Mysql::ATTR_SSL_CA : \PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
 
