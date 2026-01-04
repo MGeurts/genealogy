@@ -63,11 +63,22 @@ final class PgSqlDescendantsQuery implements DescendantsQueryInterface
                 SELECT
                     p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo, p.dob, p.yob,
                     d.degree + 1 AS degree,
-                    CAST(d.sequence || ',' || p.id AS VARCHAR(1024)) AS sequence
+                    d.sequence || ',' || p.id AS sequence
                 FROM people p
-                JOIN descendants d ON p.father_id = d.id OR p.mother_id = d.id
+                JOIN descendants d ON p.father_id = d.id
+                WHERE p.deleted_at IS NULL AND d.degree < $maxDepth
+
+                UNION ALL
+
+                SELECT
+                    p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo, p.dob, p.yob,
+                    d.degree + 1 AS degree,
+                    d.sequence || ',' || p.id AS sequence
+                FROM people p
+                JOIN descendants d ON p.mother_id = d.id
                 WHERE p.deleted_at IS NULL AND d.degree < $maxDepth
             )
+
             SELECT * FROM descendants
             ORDER BY degree, dob NULLS LAST, yob NULLS LAST;
         ";

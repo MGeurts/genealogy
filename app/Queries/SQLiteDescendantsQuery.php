@@ -78,6 +78,7 @@ final class SQLiteDescendantsQuery implements DescendantsQueryInterface
                 JOIN descendants d ON p.mother_id = d.id
                 WHERE p.deleted_at IS NULL AND d.degree < $maxDepth
             )
+
             SELECT * FROM descendants
             ORDER BY degree, dob IS NULL, dob, yob IS NULL, yob;
         ";
