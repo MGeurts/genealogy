@@ -13,7 +13,6 @@ services:
       - "${APP_PORT:-8080}:8080"
     volumes:
       - .:/var/www/html
-      - ./vendor:/var/www/html/vendor
     networks:
       - genealogy-network
     depends_on:
@@ -39,7 +38,7 @@ services:
       - "${VITE_PORT:-5173}:${VITE_PORT:-5173}"
     volumes:
       - .:/app
-      - node_modules:/app/node_modules
+
     networks:
       - genealogy-network
     command: sh -c "npm install && npm run dev"
@@ -49,6 +48,3 @@ services:
 networks:
   genealogy-network:
     driver: bridge
-
-volumes:
-  node_modules:
