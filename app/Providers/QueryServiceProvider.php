@@ -8,6 +8,8 @@ use App\Contracts\AncestorsQueryInterface;
 use App\Contracts\DescendantsQueryInterface;
 use App\Queries\MySqlAncestorsQuery;
 use App\Queries\MySqlDescendantsQuery;
+use App\Queries\PgSqlAncestorsQuery;
+use App\Queries\PgSqlDescendantsQuery;
 use Illuminate\Support\ServiceProvider;
 use RuntimeException;
 
@@ -21,6 +23,7 @@ final class QueryServiceProvider extends ServiceProvider
         $this->app->singleton(DescendantsQueryInterface::class, function () {
             return match ($this->getDatabaseDriver()) {
                 'mysql', 'mariadb' => new MySqlDescendantsQuery,
+                'pgsql' => new PgSqlDescendantsQuery,
                 default => throw new RuntimeException("Unsupported database driver [{$this->getDatabaseDriver()}] for descendants query."),
             };
         });
@@ -28,6 +31,7 @@ final class QueryServiceProvider extends ServiceProvider
         $this->app->singleton(AncestorsQueryInterface::class, function () {
             return match ($this->getDatabaseDriver()) {
                 'mysql', 'mariadb' => new MySqlAncestorsQuery,
+                'pgsql' => new PgSqlAncestorsQuery,
                 default => throw new RuntimeException("Unsupported database driver [{$this->getDatabaseDriver()}] for ancestors query."),
             };
         });
