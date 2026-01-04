@@ -25,18 +25,18 @@ final class QueryServiceProvider extends ServiceProvider
         $this->app->singleton(DescendantsQueryInterface::class, function () {
             return match ($this->getDatabaseDriver()) {
                 'mysql', 'mariadb' => new MySqlDescendantsQuery,
-                'pgsql' => new PgSqlDescendantsQuery,
+                'pgsql'  => new PgSqlDescendantsQuery,
                 'sqlite' => new SQLiteDescendantsQuery,
-                default => throw new RuntimeException("Unsupported database driver [{$this->getDatabaseDriver()}] for descendants query."),
+                default  => throw new RuntimeException("Unsupported database driver [{$this->getDatabaseDriver()}] for descendants query."),
             };
         });
 
         $this->app->singleton(AncestorsQueryInterface::class, function () {
             return match ($this->getDatabaseDriver()) {
                 'mysql', 'mariadb' => new MySqlAncestorsQuery,
-                'pgsql' => new PgSqlAncestorsQuery,
+                'pgsql'  => new PgSqlAncestorsQuery,
                 'sqlite' => new SQLiteAncestorsQuery,
-                default => throw new RuntimeException("Unsupported database driver [{$this->getDatabaseDriver()}] for ancestors query."),
+                default  => throw new RuntimeException("Unsupported database driver [{$this->getDatabaseDriver()}] for ancestors query."),
             };
         });
     }
