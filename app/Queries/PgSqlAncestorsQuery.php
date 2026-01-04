@@ -65,17 +65,7 @@ final class PgSqlAncestorsQuery implements AncestorsQueryInterface
                     a.degree + 1 AS degree,
                     CAST(a.sequence || ',' || p.id AS VARCHAR(1024)) AS sequence
                 FROM people p
-                JOIN ancestors a ON a.father_id = p.id
-                WHERE p.deleted_at IS NULL AND a.degree < $maxDepth
-
-                UNION ALL
-
-                SELECT
-                    p.id, p.firstname, p.surname, p.sex, p.father_id, p.mother_id, p.dod, p.yod, p.team_id, p.photo, p.dob, p.yob,
-                    a.degree + 1 AS degree,
-                    CAST(a.sequence || ',' || p.id AS VARCHAR(1024)) AS sequence
-                FROM people p
-                JOIN ancestors a ON a.mother_id = p.id
+                JOIN ancestors a ON a.father_id = p.id OR a.mother_id = p.id
                 WHERE p.deleted_at IS NULL AND a.degree < $maxDepth
             )
 
