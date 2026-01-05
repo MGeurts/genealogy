@@ -351,6 +351,11 @@ class IndividualImporter
         // Remove common prefixes
         $dateString = preg_replace('/^(ABT|EST|CAL|AFT|BEF|BET)\s+/i', '', mb_trim($dateString));
 
+        // Ensure $dateString is not null after preg_replace
+        if ($dateString === null) {
+            return $result;
+        }
+
         // Extract year
         if (preg_match('/\b(\d{4})\b/', $dateString, $matches)) {
             $result['year'] = (int) $matches[1];

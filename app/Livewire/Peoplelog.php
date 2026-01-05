@@ -22,9 +22,16 @@ final class Peoplelog extends Component
     {
         $timezone = session('timezone', 'UTC');
 
+        $user        = auth()->user();
+        $currentTeam = $user?->currentTeam;
+
+        if (! $currentTeam) {
+            abort(403, 'No team selected');
+        }
+
         $query = Activity::with('causer')
             ->where('log_name', 'person_couple')
-            ->where('team_id', auth()->user()->currentTeam->id)
+            ->where('team_id', $currentTeam->id)
             ->where('updated_at', '>=', today()->startOfMonth()->subMonths(1));
 
         // Apply subject_type filter if not 'all'
@@ -38,7 +45,7 @@ final class Peoplelog extends Component
 
         // Get distinct subject types for the filter dropdown
         $subjectTypes = Activity::where('log_name', 'person_couple')
-            ->where('team_id', auth()->user()->currentTeam->id)
+            ->where('team_id', $currentTeam->id)
             ->where('updated_at', '>=', today()->startOfMonth()->subMonths(1))
             ->distinct()
             ->pluck('subject_type')
@@ -49,16 +56,19 @@ final class Peoplelog extends Component
 
         // Transform paginated data using through()
         $activities->through(function ($record) use ($timezone): array {
-            $event = $record->event;
+            $event       = $record->event ?? '';
+            $subjectType = $record->subject_type ?? '';
+            $description = $record->description ?? '';
+            $updatedAt   = $record->updated_at;
 
             return [
                 'event'          => mb_strtoupper($event),
-                'subject_type'   => class_basename($record->subject_type),
+                'subject_type'   => $subjectType !== '' ? class_basename($subjectType) : '',
                 'subject_id'     => $record->subject_id,
-                'description'    => mb_strtoupper($record->description),
+                'description'    => mb_strtoupper($description),
                 'properties_old' => in_array($event, ['updated', 'deleted']) ? ($record->properties['old'] ?? []) : [],
                 'properties_new' => in_array($event, ['updated', 'created']) ? ($record->properties['attributes'] ?? []) : [],
-                'updated_at'     => $record->updated_at->setTimezone($timezone)->isoFormat('LLL'),
+                'updated_at'     => $updatedAt?->setTimezone($timezone)->isoFormat('LLL') ?? '',
                 'causer'         => $record->causer->name ?? '',
             ];
         });

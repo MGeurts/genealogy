@@ -39,7 +39,7 @@ if (! function_exists('mb_trim')) {
         // Build regex pattern for multibyte characters
         $pattern = '/^[' . $chars . ']+|[' . $chars . ']+$/u';
 
-        return preg_replace($pattern, '', $string);
+        return preg_replace($pattern, '', $string) ?? $string;
     }
 }
 
@@ -50,7 +50,7 @@ if (! function_exists('mb_ltrim')) {
         $chars    = preg_quote($characters, '/');
         $pattern  = '/^[' . $chars . ']+/u';
 
-        return preg_replace($pattern, '', $string);
+        return preg_replace($pattern, '', $string) ?? $string;
     }
 }
 
@@ -61,6 +61,6 @@ if (! function_exists('mb_rtrim')) {
         $chars    = preg_quote($characters, '/');
         $pattern  = '/[' . $chars . ']+$/u';
 
-        return preg_replace($pattern, '', $string);
+        return preg_replace($pattern, '', $string) ?? $string;
     }
 }

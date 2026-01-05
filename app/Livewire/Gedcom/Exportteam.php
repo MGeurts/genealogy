@@ -50,19 +50,31 @@ final class Exportteam extends Component
 
     public function mount(): void
     {
-        $this->user = auth()->user();
+        $authUser = auth()->user();
 
-        $this->teamname = $this->user->currentTeam->name;
+        if ($authUser === null) {
+            abort(401);
+        }
+
+        $this->user = $authUser;
+
+        $currentTeam = $this->user->currentTeam;
+
+        if ($currentTeam === null) {
+            abort(403, 'No team selected');
+        }
+
+        $this->teamname = $currentTeam->name;
 
         // Load team data with relationships for better performance
-        $this->teamPersons = $this->user->currentTeam
+        $this->teamPersons = $currentTeam
             ->persons()
             ->with(['metadata'])
             ->orderBy('surname')
             ->orderBy('firstname')
             ->get();
 
-        $this->teamCouples = $this->user->currentTeam
+        $this->teamCouples = $currentTeam
             ->couples()
             ->with(['person1', 'person2'])
             ->get();
@@ -93,9 +105,11 @@ final class Exportteam extends Component
 
             return $export->downloadGedcom($gedcom);
         } catch (Exception $e) {
+            $currentTeam = $this->user->currentTeam;
+
             logger()->error(__('gedcom.export_failed'), [
                 'user_id'           => $this->user->id,
-                'team_id'           => $this->user->currentTeam->id,
+                'team_id'           => $currentTeam?->id,
                 'format'            => $this->format,
                 'filename'          => $this->filename,
                 'error'             => $e->getMessage(),
@@ -163,7 +177,7 @@ final class Exportteam extends Component
         $tz  = $this->user->timezone ?? config('app.timezone', 'UTC');
         $now = $dateTime ?? now($tz);
 
-        $teamName = $teamName ?? $this->user->currentTeam->name;
+        $teamName = $teamName ?? ($this->user->currentTeam->name ?? 'export');
 
         // Slugify only the team name, if needed
         $safeTeam = $this->sanitizeTeamName($teamName);
@@ -187,15 +201,18 @@ final class Exportteam extends Component
     private function sanitizeTeamName(string $teamName): string
     {
         // Remove or replace problematic characters
-        $safe = preg_replace('/[^\p{L}\p{N}\-\+\s]/u', '', $teamName);
+        $safe = preg_replace('/[^\p{L}\p{N}\-\+\s]/u', '', $teamName) ?? '';
 
         // Use slug if original contains non-ASCII characters
-        if (preg_match('/[^\x00-\x7F]/', $safe)) {
+        if ($safe !== '' && preg_match('/[^\x00-\x7F]/', $safe)) {
             return Str::slug($safe);
         }
 
         // Lower case, replace spaces with hyphens and clean up
-        return mb_strtolower(preg_replace('/\s+/', '-', mb_trim($safe)));
+        $trimmed  = mb_trim($safe);
+        $replaced = preg_replace('/\s+/', '-', $trimmed) ?? '';
+
+        return mb_strtolower($replaced);
     }
 
     /**
@@ -204,10 +221,11 @@ final class Exportteam extends Component
     private function sanitizeFilename(string $filename): string
     {
         // Remove any file extensions
-        $filename = preg_replace('/\.(ged|gedcom|zip|gdz)$/i', '', $filename);
+        $filename = preg_replace('/\.(ged|gedcom|zip|gdz)$/i', '', $filename) ?? '';
 
         // Keep only allowed characters
-        $sanitized = preg_replace('/[^a-z0-9\-\+\_\.]/i', '', mb_trim($filename));
+        $trimmed   = mb_trim($filename);
+        $sanitized = preg_replace('/[^a-z0-9\-\+\_\.]/i', '', $trimmed) ?? '';
 
         // Truncate if too long
         return mb_substr($sanitized, 0, self::MAX_FILENAME_LENGTH);

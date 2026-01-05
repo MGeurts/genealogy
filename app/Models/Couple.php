@@ -160,12 +160,19 @@ final class Couple extends Model
                 return;
             }
 
-            // Apply team scope if the user is not a developer
-            if (auth()->user()->is_developer) {
+            $user = auth()->user();
+
+            // Skip if user is null (shouldn't happen after guest check, but for type safety)
+            if ($user === null) {
                 return;
             }
 
-            $builder->where('couples.team_id', auth()->user()->currentTeam?->id);
+            // Apply team scope if the user is not a developer
+            if ($user->is_developer) {
+                return;
+            }
+
+            $builder->where('couples.team_id', $user->currentTeam?->id);
         });
     }
 

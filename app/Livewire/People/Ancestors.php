@@ -91,7 +91,6 @@ final class Ancestors extends Component
      */
     private function loadAncestors(AncestorsQueryInterface $ancestorsQuery): void
     {
-        /** @phpstan-ignore assign.propertyType (Collection template covariance) */
         $this->ancestors = $ancestorsQuery->getAncestors($this->person->id, $this->count_max);
 
         $maxDegree       = $this->ancestors->max('degree');

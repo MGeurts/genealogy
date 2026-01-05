@@ -45,6 +45,11 @@ class GedcomFormatter
         // Remove line breaks and control characters, limit length
         $sanitized = preg_replace('/[\r\n\t]/', ' ', mb_trim($text));
 
+        // Handle potential null return from preg_replace
+        if ($sanitized === null) {
+            $sanitized = mb_trim($text);
+        }
+
         return mb_substr($sanitized, 0, 248); // GEDCOM line length limit
     }
 
@@ -56,7 +61,14 @@ class GedcomFormatter
      */
     public function oneLine(string $text): string
     {
-        return mb_trim(preg_replace('/\s+/', ' ', str_replace(["\r", "\n"], ' ', $text)));
+        $replaced = preg_replace('/\s+/', ' ', str_replace(["\r", "\n"], ' ', $text));
+
+        // Handle potential null return from preg_replace
+        if ($replaced === null) {
+            $replaced = str_replace(["\r", "\n"], ' ', $text);
+        }
+
+        return mb_trim($replaced);
     }
 
     // --------------------------------------------------------------------------------------

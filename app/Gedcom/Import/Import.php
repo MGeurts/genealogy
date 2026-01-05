@@ -38,10 +38,17 @@ final class Import implements CreatesTeams
      */
     public function __construct(?string $teamName, ?string $teamDescription)
     {
-        $this->user = auth()->user();
+        $user = auth()->user();
+
+        // Ensure user is authenticated
+        if (! $user instanceof User) {
+            throw new Exception('User must be authenticated to import GEDCOM files');
+        }
+
+        $this->user = $user;
 
         // Create new team for this import
-        $this->team = $this->createTeam($teamName, $teamDescription);
+        $this->team = $this->createTeam($teamName ?? 'Imported Family Tree', $teamDescription);
 
         // Initialize sub-components
         $this->parser             = new GedcomParser();
@@ -77,7 +84,13 @@ final class Import implements CreatesTeams
             $zipImporter->extract($zipPath);
 
             $gedcomContent = $zipImporter->getGedcomContent();
-            $mediaFiles    = $zipImporter->getMediaFiles();
+
+            // Ensure we have valid GEDCOM content
+            if ($gedcomContent === null) {
+                throw new Exception('No GEDCOM content found in ZIP file');
+            }
+
+            $mediaFiles = $zipImporter->getMediaFiles();
 
             Log::info('ZIP extracted successfully', [
                 'media_files' => count($mediaFiles),

@@ -49,7 +49,14 @@ final class UserLogin
         // -----------------------------------------------------------------------
         // Exclude your own IP without storing or exposing it
         // -----------------------------------------------------------------------
-        $requestIpHash = hash('sha256', request()->ip());
+        $requestIp = request()->ip();
+
+        // Skip if IP is not available
+        if (! $requestIp) {
+            return;
+        }
+
+        $requestIpHash = hash('sha256', $requestIp);
         $devIpHash     = config('app.dev_ip_hash');
 
         if ($devIpHash && hash_equals($requestIpHash, $devIpHash)) {

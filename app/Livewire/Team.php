@@ -29,7 +29,13 @@ final class Team extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->user = User::with('currentTeam:id,name')->find(auth()->user()->id);
+        $authUser = auth()->user();
+
+        if ($authUser === null) {
+            abort(401);
+        }
+
+        $this->user = User::with('currentTeam:id,name')->findOrFail($authUser->id);
 
         $this->loadTeamCounts();
     }
@@ -152,7 +158,6 @@ final class Team extends Component
                 'sex'  => $person->sex !== null ? (string) $person->sex : null,
             ]);
 
-        // @phpstan-ignore return.type
         return new LengthAwarePaginator(
             $results,
             $total,
@@ -217,7 +222,6 @@ final class Team extends Component
                 ],
             ]);
 
-        // @phpstan-ignore return.type
         return new LengthAwarePaginator(
             $results,
             $total,

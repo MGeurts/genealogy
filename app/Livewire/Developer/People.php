@@ -66,7 +66,7 @@ final class People extends Component implements HasActions, HasSchemas, HasTable
                     ->searchable(),
                 TextColumn::make('sex')
                     ->label(__('person.sex'))
-                    ->getStateUsing(fn (Person $record) => mb_strtoupper($record->sex))
+                    ->getStateUsing(fn (Person $record) => $record->sex ? mb_strtoupper($record->sex) : '')
                     ->searchable(),
                 TextColumn::make('father.name')
                     ->label(__('person.father'))

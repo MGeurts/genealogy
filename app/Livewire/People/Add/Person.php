@@ -28,6 +28,15 @@ final class Person extends Component
 
     public function savePerson(): void
     {
+        // Ensure user is authenticated and has a current team
+        $user = auth()->user();
+
+        if (! $user || ! $user->currentTeam) {
+            $this->toast()->error(__('app.error'), __('app.no_team_selected'))->send();
+
+            return;
+        }
+
         $validated = $this->validate($this->rules());
 
         $newPerson = PersonModel::create([
@@ -40,7 +49,7 @@ final class Person extends Component
             'yob'       => $validated['form']['yob'],
             'dob'       => $validated['form']['dob'],
             'pob'       => $validated['form']['pob'],
-            'team_id'   => auth()->user()->currentTeam->id,
+            'team_id'   => $user->currentTeam->id,
         ]);
 
         // Handle photo uploads if present, using SavesPersonPhotos trait

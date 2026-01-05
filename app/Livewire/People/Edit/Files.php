@@ -135,6 +135,10 @@ final class Files extends Component
      */
     public function deleteFile(int $id): void
     {
+        if (! $this->files) {
+            return;
+        }
+
         $file = $this->files->firstWhere('id', $id);
 
         if ($file) {
@@ -156,6 +160,10 @@ final class Files extends Component
      */
     public function moveFile(int $position, string $direction): void
     {
+        if (! $this->files) {
+            return;
+        }
+
         $targetPosition = $direction === 'up' ? $position - 1 : $position + 1;
 
         $this->files->transform(function ($file) use ($position, $targetPosition) {

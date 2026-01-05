@@ -35,12 +35,26 @@ final class Importteam extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $this->user = auth()->user();
+        $user = auth()->user();
+
+        // Ensure we have a valid User instance
+        if (! $user instanceof User) {
+            throw new Exception('User must be authenticated.');
+        }
+
+        $this->user = $user;
     }
 
     public function importteam(): void
     {
         $this->validate();
+
+        // Ensure file is not null before proceeding
+        if ($this->file === null) {
+            $this->toast()->error('Error', 'No file uploaded.')->send();
+
+            return;
+        }
 
         try {
             $importer = new Import(
@@ -92,8 +106,8 @@ final class Importteam extends Component
             // Log detailed error for debugging
             logger()->error('GEDCOM Import failed', [
                 'user_id'  => $this->user->id,
-                'filename' => $this->file?->getClientOriginalName(),
-                'filesize' => $this->file?->getSize(),
+                'filename' => $this->file->getClientOriginalName(),
+                'filesize' => $this->file->getSize(),
                 'error'    => $e->getMessage(),
                 'trace'    => $e->getTraceAsString(),
             ]);

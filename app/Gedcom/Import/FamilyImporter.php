@@ -178,6 +178,11 @@ class FamilyImporter
         // Remove common prefixes
         $dateString = preg_replace('/^(ABT|EST|CAL|AFT|BEF|BET)\s+/i', '', mb_trim($dateString));
 
+        // preg_replace can return null on error, so we need to handle that
+        if ($dateString === null) {
+            return $result;
+        }
+
         // Extract year
         if (preg_match('/\b(\d{4})\b/', $dateString, $matches)) {
             $result['year'] = (int) $matches[1];

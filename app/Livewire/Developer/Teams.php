@@ -28,6 +28,8 @@ class Teams extends Component implements HasActions, HasSchemas, HasTable
     // -----------------------------------------------------------------------
     public function table(Table $table): Table
     {
+        $timezone = auth()->user()->timezone ?? config('app.timezone', 'UTC');
+
         return $table
             ->query(Team::query()->with('owner')->withCount(['users', 'couples', 'persons']))
             ->columns([
@@ -66,12 +68,12 @@ class Teams extends Component implements HasActions, HasSchemas, HasTable
                     ->boolean(),
                 TextColumn::make('created_at')
                     ->label(__('app.created_at'))
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone($timezone)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
                     ->label(__('app.updated_at'))
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone($timezone)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])

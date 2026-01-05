@@ -41,7 +41,7 @@ final class RemoveTeamMember implements RemovesTeamMembers
                 ->withProperties([
                     'email' => $teamMember->email,
                     'name'  => $teamMember->name,
-                    'role'  => $role->name,
+                    'role'  => $role->name ?? 'N/A',
                 ])
                 ->log(__('team.member') . ' ' . __('app.event_removed'));
         });

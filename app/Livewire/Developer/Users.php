@@ -37,6 +37,8 @@ final class Users extends Component implements HasActions, HasSchemas, HasTable
     // -----------------------------------------------------------------------
     public function table(Table $table): Table
     {
+        $timezone = auth()->user()->timezone ?? config('app.timezone', 'UTC');
+
         return $table
             ->query(User::query()->with(['teams', 'ownedTeams']))
             ->columns([
@@ -65,11 +67,11 @@ final class Users extends Component implements HasActions, HasSchemas, HasTable
                 TextColumn::make('two_factor_confirmed_at')
                     ->label(__('user.two_factor_confirmed_at'))
                     ->verticallyAlignStart()
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone),
+                    ->dateTime('Y-m-d H:i')->timezone($timezone),
                 TextColumn::make('seen_at')
                     ->label(__('user.seen_at'))
                     ->verticallyAlignStart()
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone($timezone)
                     ->sortable(),
                 TextColumn::make('team_personal')
                     ->label(__('team.team_personal'))
@@ -92,24 +94,24 @@ final class Users extends Component implements HasActions, HasSchemas, HasTable
                 TextColumn::make('email_verified_at')
                     ->label(__('user.email_verified_at'))
                     ->verticallyAlignStart()
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone($timezone)
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->label(__('app.created_at'))
                     ->verticallyAlignStart()
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone($timezone)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
                     ->label(__('app.updated_at'))
                     ->verticallyAlignStart()
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone($timezone)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('deleted_at')
                     ->label(__('app.deleted_at'))
                     ->verticallyAlignStart()
-                    ->dateTime('Y-m-d H:i')->timezone(auth()->user()->timezone)
+                    ->dateTime('Y-m-d H:i')->timezone($timezone)
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])

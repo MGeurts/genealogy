@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
@@ -661,11 +660,17 @@ final class Person extends Model implements HasMedia
     {
         // Team scope
         self::addGlobalScope('team', function (Builder $builder): void {
-            if (Auth::guest() || auth()->user()->is_developer) {
+            $user = auth()->user();
+
+            if (! $user || $user->is_developer) {
                 return;
             }
 
-            $builder->where('people.team_id', auth()->user()->currentTeam->id);
+            $currentTeam = $user->currentTeam;
+
+            if ($currentTeam) {
+                $builder->where('people.team_id', $currentTeam->id);
+            }
         });
 
         // Handle force deletes (permanent deletion only)

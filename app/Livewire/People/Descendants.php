@@ -91,7 +91,6 @@ final class Descendants extends Component
      */
     private function loadDescendants(DescendantsQueryInterface $descendantsQuery): void
     {
-        /** @phpstan-ignore assign.propertyType (Collection template covariance) */
         $this->descendants = $descendantsQuery->getDescendants($this->person->id, $this->count_max);
 
         $maxDegree       = $this->descendants->max('degree');
