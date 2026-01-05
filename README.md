@@ -296,7 +296,11 @@ To date, version 7 has not been fully implemented in any open-source php based p
 </ul>
 
 Translations can be added by submitting a <b>Pull Request</b> to the project.<br />
-Translation integrity can be checked by issuing the command `php artisan translations:check --excludedDirectories=vendor`
+Translation integrity can be checked by issuing the command:
+
+```bash
+php artisan translations:check --excludedDirectories=vendor
+```
 
 Instructions on how to add a language can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-LANGUAGES.md" target="_blank">README-LANGUAGES.md<br/>
 
@@ -314,23 +318,45 @@ Both the <b>ancestors</b> and <b>descendants</b> family trees are build using <a
 
 create a new project folder, cd into the folder
 
-`git clone https://github.com/MGeurts/genealogy.git .`
+```bash
+git clone https://github.com/MGeurts/genealogy.git .
+```
 
-`cp .env.example .env`
+```bash
+cp .env.example .env
+```
 
 make the needed changes regarding name, url, database connection & mail server
 
-`composer install`
+```bash
+composer install
+```
 
-`php artisan key:generate`
+```bash
+php artisan key:generate
+```
 
-`php artisan storage:link`
+```bash
+php artisan storage:link
+```
 
-`php artisan migrate:fresh --seed`
+```bash
+php artisan migrate:fresh --seed
+```
 
-`npm install & npm run build`
+```bash
+npm install && npm run build
+```
 
-`php artisan serve` or `npm run dev`
+```bash
+php artisan serve
+```
+
+or
+
+```bash
+npm run dev
+```
 
 ## Updating
 
@@ -344,14 +370,26 @@ Instructions on how to report security issues can be found in <a href="https://g
 
 Testing is done using <a href="https://pestphp.com/">Pest</a>.<br/>
 
-Command: `php artisan test` or `./vendor/bin/pest`<br/>
+Command:
+
+```bash
+php artisan test
+```
+
+or
+
+```bash
+./vendor/bin/pest
+```
 
 <b>Production (or local development) data</b> should be stored in a MySQL or MariaDB database configured in `.env`.<br /><br />
 <b>Testing data</b> should be stored in a separate MySQL or MariaDB database configured in `.env.testing` to avoid interfering with the production or development data.<br /><br />
 
 Command to create the testing MySQL database:
 
-`php artisan migrate --env=testing`
+```bash
+php artisan migrate --env=testing
+```
 
 ## Contributing
 
