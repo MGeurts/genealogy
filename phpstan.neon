@@ -8,7 +8,7 @@ parameters:
         - app/
 
     # Level 10 is the highest level
-    level: 8
+    level: 9
 
     treatPhpDocTypesAsCertain: false
 

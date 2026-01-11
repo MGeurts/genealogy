@@ -1,16 +1,11 @@
 @import 'tailwindcss';
 
+/* TallStackUI */
+@import '../../vendor/tallstackui/tallstackui/css/v4.css';
+
+/* Tailwind Plugins */
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
-
-@config "../../tailwind.config.js";
-
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source "../**/*.blade.php";
-@source "../**/*.js";
-
-@source '../../vendor/laravel/jetstream/**/*.blade.php';
 
 /* Filement 4 (Tables only) */
 @import '../../vendor/filament/support/resources/css/index.css';
@@ -19,8 +14,14 @@
 @import '../../vendor/filament/schemas/resources/css/index.css';
 @import '../../vendor/filament/tables/resources/css/index.css';
 
-@variant dark (&:where(.dark, .dark *));
+/* Source files for Tailwind to scan */
+@source '../../vendor/tallstackui/tallstackui/**/*.php';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source '../../vendor/laravel/jetstream/**/*.blade.php';
 
+@variant dark (&:where(.dark, .dark *));
 
 @theme {
   /* TallStackUI START ------------------------------------------------------------------ */
