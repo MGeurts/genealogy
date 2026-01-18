@@ -29,7 +29,7 @@ This <b>TallStack</b> application is build using :
     <li><a href="https://alpinejs.dev/" target="_blank">Alpine.js</a> 3</li>
     <li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a> 4</li>
     <li><a href="https://tallstackui.com//" target="_blank">TallStackUI</a> 2 (featuring <a href="https://tabler.io/icons" target="_blank">Tabler Icons</a>)</li>
-    <li><a href="https://filamentphp.com//" target="_blank">Laravel Filament</a> 4 (only <a href="https://filamentphp.com/docs/4.x/tables/overview/" target="_blank">Table Builder</a>)</li>
+    <li><a href="https://filamentphp.com//" target="_blank">Laravel Filament</a> 5 (only <a href="https://filamentphp.com/docs/5.x/tables/overview" target="_blank">Table Builder</a>)</li>
 </ul>
 
 <img src="https://genealogy.kreaweb.be/img/logo/tallstack.webp" class="rounded" alt="tall-stack"/>
@@ -408,9 +408,9 @@ Visit the <a href="https://genealogy.kreaweb.be/help" target="_blank">demo proje
 
 Maintaining this project takes time and effort. If you find it useful, consider supporting me:
 
--   [![Star on GitHub](https://img.shields.io/github/stars/MGeurts/genealogy?style=social)](https://github.com/MGeurts/genealogy)
--   [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/MGeurtsKREAWEB)
--   [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-orange?logo=buy-me-a-coffee)](https://buymeacoffee.com/MGeurts)
+- [![Star on GitHub](https://img.shields.io/github/stars/MGeurts/genealogy?style=social)](https://github.com/MGeurts/genealogy)
+- [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.me/MGeurtsKREAWEB)
+- [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-orange?logo=buy-me-a-coffee)](https://buymeacoffee.com/MGeurts)
 
 > Your support helps me improve and maintain [Genealogy](https://github.com/MGeurts/genealogy) and other open-source tools. Every bit is appreciated. Thank you! 🙏
 

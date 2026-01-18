@@ -94,11 +94,11 @@ final class Manage extends Component
         if ($exitCode === 0) {
             Log::info("Backup (Manually) -- Backup started \r\n" . $output);
 
-            $this->toast()->success(__('backup.backup'), __('backup.created'))->flash()->send();
+            $this->toast()->success(__('backup.backup'), __('backup.created'))->send();
         } else {
             Log::error("Backup (Manually) -- Backup failed \r\n" . $output);
 
-            $this->toast()->error(__('backup.backup'), __('backup.failed'))->flash()->send();
+            $this->toast()->error(__('backup.backup'), __('backup.failed'))->send();
         }
 
         $this->redirect('/developer/backups');
@@ -127,9 +127,9 @@ final class Manage extends Component
         if ($disk->exists(config('backup.backup.name') . '/' . $backup_to_delete)) {
             $disk->delete(config('backup.backup.name') . '/' . $backup_to_delete);
 
-            $this->toast()->success(__('backup.backup'), e($backup_to_delete) . ' ' . __('backup.deleted'))->expandable(false)->flash()->send();
+            $this->toast()->success(__('backup.backup'), e($backup_to_delete) . ' ' . __('backup.deleted'))->expandable(false)->send();
         } else {
-            $this->toast()->error(__('backup.backup'), __('backup.not_found'))->flash()->send();
+            $this->toast()->error(__('backup.backup'), __('backup.not_found'))->send();
         }
 
         $this->redirect('/developer/backups');

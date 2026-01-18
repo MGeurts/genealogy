@@ -25,7 +25,7 @@
                             </li>
 
                             <li class="py-2">
-                                <x-link href="https://livewire.laravel.com/" target="_blank">Laravel Livewire</x-link> 3
+                                <x-link href="https://livewire.laravel.com/" target="_blank">Laravel Livewire</x-link> 4
                                 <x-ts-button xs href="https://livewire.laravel.com/docs/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                             </li>
 
@@ -35,7 +35,7 @@
                             </li>
 
                             <li class="py-2">
-                                <x-link href="https://filamentphp.com/" target="_blank">Laravel Filament</x-link> 4 (only Table Builder)
+                                <x-link href="https://filamentphp.com/" target="_blank">Laravel Filament</x-link> 5 (only Table Builder)
                                 <x-ts-button xs href="https://filamentphp.com/docs/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                             </li>
 
