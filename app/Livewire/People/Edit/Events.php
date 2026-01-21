@@ -65,13 +65,12 @@ final class Events extends Component
      */
     public function eventTypes(): Collection
     {
+        /** @var Collection<int, array{id: string, name: string}> */
         return collect(PersonEvent::EVENT_TYPES)
-            ->map(function ($type) {
-                return [
-                    'id'   => $type,
-                    'name' => (string) __('personevents.' . $type),
-                ];
-            })
+            ->map(fn (string $type): array => [
+                'id'   => $type,
+                'name' => (string) __('personevents.' . $type),
+            ])
             ->sortBy('name')
             ->values();
     }
