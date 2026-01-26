@@ -34,7 +34,7 @@
     ],
     "require": {
         "php": "^8.4",
-        "filament/tables": "~5.0",
+        "filament/tables": "^5.1",
         "intervention/image": "^3.11",
         "korridor/laravel-has-many-merged": "^1.2",
         "laravel/framework": "^12.48",
