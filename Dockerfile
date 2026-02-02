@@ -89,7 +89,6 @@ RUN yarn config set strict-ssl false && \
 COPY resources ./resources
 COPY public ./public
 COPY vite.config.js ./
-COPY tailwind.config.js ./
 COPY storage ./storage
 
 # Copy vendor directory from composer stage (needed for Filament CSS imports)
@@ -115,7 +114,7 @@ ENV PHP_OPCACHE_ENABLE=1
 
 # Copy the rest of the application
 COPY --chown=www-data:www-data . /var/www/html
-COPY --chown=www-data:www-data --chmod=755 .docker/etc/entrypoint.d /etc/entrypoint.d
+COPY --chown=www-data:www-data --chmod=755 .docker/entrypoint.d /etc/entrypoint.d
 
 # Copy compiled assets from node stage
 COPY --from=node --chown=www-data:www-data /app/public/build /var/www/html/public/build
