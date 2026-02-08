@@ -34,10 +34,10 @@
     ],
     "require": {
         "php": "^8.4",
-        "filament/tables": "^5.1",
+        "filament/tables": "^5.2",
         "intervention/image": "^3.11",
         "korridor/laravel-has-many-merged": "^1.2",
-        "laravel/framework": "^12.49",
+        "laravel/framework": "^12.50",
         "laravel/jetstream": "^5.4",
         "laravel/sanctum": "^4.3",
         "laravel/tinker": "^2.11",
