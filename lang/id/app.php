@@ -28,6 +28,7 @@ return [
     'death'             => 'Kematian',
     'documentation'     => 'Dokumentasi',
     'error'             => 'Kesalahan',
+    'warning'           => 'Peringatan',
     'family_chart'      => 'Bagan keluarga',
     'female'            => 'Perempuan',
     'history'           => 'Riwayat',

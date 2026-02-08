@@ -1,0 +1,15 @@
+# Deny access to any scripts
+
+<FilesMatch "\.(php.\*|phtml|phar|pl|py|cgi|sh|exe|bat)$">
+Require all denied
+</FilesMatch>
+
+# Only allow image files
+
+<FilesMatch "\.(bmp|gif|jpe?g|png|webp)$">
+Require all granted
+</FilesMatch>
+
+# Deny everything else by default
+
+Require all denied

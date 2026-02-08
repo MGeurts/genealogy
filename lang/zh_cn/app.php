@@ -28,6 +28,7 @@ return [
     'death'             => '去世',
     'documentation'     => '文档',
     'error'             => '错误',
+    'warning'           => '警告',
     'family_chart'      => '家谱图',
     'female'            => '女性',
     'history'           => '历史',

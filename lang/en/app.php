@@ -28,6 +28,7 @@ return [
     'death'             => 'Death',
     'documentation'     => 'Documentation',
     'error'             => 'Error',
+    'warning'           => 'Warning',
     'family_chart'      => 'Family chart',
     'female'            => 'Female',
     'history'           => 'History',

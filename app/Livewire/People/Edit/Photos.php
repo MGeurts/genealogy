@@ -114,6 +114,15 @@ final class Photos extends Component
         }
 
         try {
+            // Additional security check
+            foreach ($this->uploads as $upload) {
+                if (! $this->isValidImage($upload)) {
+                    $this->toast()->error(__('app.error'), __('person.invalid_image_file_detected'))->send();
+
+                    return;
+                }
+            }
+
             $personPhotos = new PersonPhotos($this->person);
             $savedCount   = $personPhotos->save($this->uploads);
 
@@ -210,11 +219,20 @@ final class Photos extends Component
      */
     protected function rules(): array
     {
+        $dimensions = config('app.upload_photo_validation.dimensions');
+
         return [
             'uploads.*' => [
-                'file',
-                'mimetypes:' . implode(',', array_keys(config('app.upload_photo_accept'))),
+                'image',
+                'mimes:' . config('app.upload_photo_validation.mimes_rule'),
                 'max:' . config('app.upload_max_size'),
+                sprintf(
+                    'dimensions:min_width=%d,min_height=%d,max_width=%d,max_height=%d',
+                    $dimensions['min_width'],
+                    $dimensions['min_height'],
+                    $dimensions['max_width'],
+                    $dimensions['max_height']
+                ),
             ],
         ];
     }
@@ -226,16 +244,20 @@ final class Photos extends Component
      */
     protected function messages(): array
     {
+        $acceptedFormats = implode(', ', array_values(config('app.upload_photo_accept')));
+        $maxSizeMB       = config('app.upload_max_size') / 1024;
+
         return [
-            'uploads.*.file'      => __('validation.file', ['attribute' => __('person.photos')]),
-            'uploads.*.mimetypes' => __('validation.mimetypes', [
+            'uploads.*.image' => __('validation.image', ['attribute' => __('person.photos')]),
+            'uploads.*.mimes' => __('validation.mimes', [
                 'attribute' => __('person.photos'),
-                'values'    => implode(', ', array_values(config('app.upload_photo_accept'))),
+                'values'    => $acceptedFormats,
             ]),
             'uploads.*.max' => __('validation.max.file', [
                 'attribute' => __('person.photos'),
                 'max'       => config('app.upload_max_size'),
             ]),
+            'uploads.*.dimensions' => __('validation.dimensions', ['attribute' => __('person.photos')]),
         ];
     }
 
@@ -313,5 +335,71 @@ final class Photos extends Component
                 'error' => $e->getMessage(),
             ]);
         }
+    }
+
+    /**
+     * Validate that uploaded file is a genuine image
+     */
+    private function isValidImage(UploadedFile $file): bool
+    {
+        // Check 1: Verify MIME type matches config
+        $mimeType     = $file->getMimeType();
+        $allowedMimes = array_keys(config('app.upload_photo_accept'));
+
+        if (! in_array($mimeType, $allowedMimes)) {
+            Log::warning('Invalid MIME type detected', [
+                'file'    => $file->getClientOriginalName(),
+                'mime'    => $mimeType,
+                'allowed' => $allowedMimes,
+            ]);
+
+            return false;
+        }
+
+        // Check 2: Verify file is actually an image using getimagesize
+        try {
+            $imageInfo = @getimagesize($file->getRealPath());
+            if ($imageInfo === false) {
+                Log::warning('File failed getimagesize validation', [
+                    'file' => $file->getClientOriginalName(),
+                ]);
+
+                return false;
+            }
+
+            // Verify the image type matches expected types
+            $allowedImageTypes = config('app.upload_photo_validation.image_types');
+
+            if (! in_array($imageInfo[2], $allowedImageTypes)) {
+                Log::warning('Image type not allowed', [
+                    'file' => $file->getClientOriginalName(),
+                    'type' => $imageInfo[2],
+                ]);
+
+                return false;
+            }
+        } catch (Exception $e) {
+            Log::error('Error validating image', [
+                'file'  => $file->getClientOriginalName(),
+                'error' => $e->getMessage(),
+            ]);
+
+            return false;
+        }
+
+        // Check 3: Verify extension matches allowed types
+        $extension         = mb_strtolower($file->getClientOriginalExtension());
+        $allowedExtensions = config('app.upload_photo_validation.extensions');
+
+        if (! in_array($extension, $allowedExtensions)) {
+            Log::warning('Invalid file extension', [
+                'file'      => $file->getClientOriginalName(),
+                'extension' => $extension,
+            ]);
+
+            return false;
+        }
+
+        return true;
     }
 }

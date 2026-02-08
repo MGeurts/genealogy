@@ -28,6 +28,7 @@ return [
     'death'             => 'Overlijden',
     'documentation'     => 'Documentatie',
     'error'             => 'Fout',
+    'warning'           => 'Waarschuwing',
     'family_chart'      => 'Stamboom',
     'female'            => 'Vrouw',
     'history'           => 'Geschiedenis',

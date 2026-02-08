@@ -112,7 +112,7 @@ trait HandlesPhotoUploads
     {
         return [
             'form.uploads.*' => [
-                'file',
+                'image',
                 'mimetypes:' . implode(',', array_keys(config('app.upload_photo_accept'))),
                 'max:' . config('app.upload_max_size'),
             ],
@@ -128,7 +128,7 @@ trait HandlesPhotoUploads
     protected function getPhotoUploadMessages(): array
     {
         return [
-            'form.uploads.*.file'      => __('validation.file', ['attribute' => __('person.photos')]),
+            'form.uploads.*.image'     => __('validation.image', ['attribute' => __('person.photos')]),
             'form.uploads.*.mimetypes' => __('validation.mimetypes', [
                 'attribute' => __('person.photos'),
                 'values'    => implode(', ', array_values(config('app.upload_photo_accept'))),

@@ -4,9 +4,11 @@
 # But do not ignore directories (so Git can track them if needed)
 !*/
 
+# But do not ignore access restrictions
+!.htaccess
+
 # Allow specific file patterns
-!*_demo.webp
 !*_demo_large.webp
 !*_demo_medium.webp
 !*_demo_small.webp
-
+!*_demo.webp

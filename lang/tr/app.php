@@ -28,6 +28,7 @@ return [
     'death'             => 'Ölüm',
     'documentation'     => 'Dokümantasyon',
     'error'             => 'Hata',
+    'warning'           => 'Uyarı',
     'family_chart'      => 'Aile ağacı',
     'female'            => 'Kadın',
     'history'           => 'Geçmiş',

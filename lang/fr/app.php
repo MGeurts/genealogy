@@ -26,6 +26,7 @@ return [
     'death'             => 'Décès',
     'documentation'     => 'Documentation',
     'error'             => 'Erreur',
+    'warning'           => 'Avertissement',
     'family_chart'      => 'Arbre généalogique',
     'female'            => 'Femme',
     'history'           => 'Historique',

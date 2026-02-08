@@ -26,6 +26,7 @@ return [
     'death'             => 'मृत्यु',
     'documentation'     => 'दस्तावेज़',
     'error'             => 'त्रुटि',
+    'warning'           => 'चेतावनी',
     'family_chart'      => 'परिवार चार्ट',
     'female'            => 'महिला',
     'history'           => 'इतिहास',

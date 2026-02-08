@@ -182,13 +182,36 @@ return [
 
     // accepted file types for photo uploads
     'upload_photo_accept' => [
-        'image/bmp'     => 'BMP',
-        'image/gif'     => 'GIF',
-        'image/jpeg'    => 'JPEG',
-        'image/png'     => 'PNG',
-        'image/svg+xml' => 'SVG',
-        'image/tiff'    => 'TIFF',
-        'image/webp'    => 'WEBP',
+        'image/bmp'  => 'BMP',
+        'image/gif'  => 'GIF',
+        'image/jpeg' => 'JPEG',
+        'image/png'  => 'PNG',
+        'image/webp' => 'WEBP',
+    ],
+
+    'upload_photo_validation' => [
+        // File extensions (derived from upload_photo_accept)
+        'extensions' => ['bmp', 'gif', 'jpeg', 'jpg', 'png', 'webp'],
+
+        // MIME types for mimes validation rule (derived from upload_photo_accept)
+        'mimes_rule' => 'bmp,gif,jpeg,jpg,png,webp',
+
+        // Image types for getimagesize() validation
+        'image_types' => [
+            IMAGETYPE_BMP,
+            IMAGETYPE_GIF,
+            IMAGETYPE_JPEG,
+            IMAGETYPE_PNG,
+            IMAGETYPE_WEBP,
+        ],
+
+        // Dimension constraints
+        'dimensions' => [
+            'min_width'  => 100,
+            'min_height' => 100,
+            'max_width'  => 8000,
+            'max_height' => 8000,
+        ],
     ],
 
     // accepted file types for file uploads

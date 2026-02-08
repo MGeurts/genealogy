@@ -28,6 +28,7 @@ return [
     'death'             => 'Qua đời',
     'documentation'     => 'Tài liệu',
     'error'             => 'Lỗi',
+    'warning'           => 'Cảnh báo',
     'family_chart'      => 'Sơ đồ gia đình',
     'female'            => 'Nữ',
     'history'           => 'Lịch sử',

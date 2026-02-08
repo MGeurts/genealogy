@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App;
 
 use App\Models\Person;
+use Exception;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Log;
@@ -422,11 +423,19 @@ final class PersonPhotos
      */
     private function savePhoto(UploadedFile|string $photo, int $index): bool
     {
-        $timestamp = now()->format('YmdHis');
-
         try {
+            if ($photo instanceof UploadedFile && ! $this->isValidImage($photo)) {
+                Log::warning('Invalid image file rejected', [
+                    'person_id' => $this->person->id,
+                    'filename'  => $photo->getClientOriginalName(),
+                ]);
+
+                return false;
+            }
+
             $fileContent = $this->getFileContent($photo);
             $extension   = $this->getFileExtension($photo);
+            $timestamp   = (string) time();
 
             $originalSaved = $this->saveOriginalFile($fileContent, $extension, $index, $timestamp);
 
@@ -690,12 +699,18 @@ final class PersonPhotos
      */
     private function getFileExtension(UploadedFile|string $photo): string
     {
+        $allowedExtensions = config('app.upload_photo_validation.extensions');
+
         if ($photo instanceof UploadedFile) {
-            return $photo->getClientOriginalExtension() ?: $photo->extension() ?: 'jpg';
+            $extension = mb_strtolower($photo->getClientOriginalExtension() ?: $photo->extension() ?: 'jpg');
+
+            return in_array($extension, $allowedExtensions) ? $extension : 'jpg';
         }
 
         if (file_exists($photo)) {
-            return pathinfo($photo, PATHINFO_EXTENSION) ?: 'jpg';
+            $extension = mb_strtolower(pathinfo($photo, PATHINFO_EXTENSION) ?: 'jpg');
+
+            return in_array($extension, $allowedExtensions) ? $extension : 'jpg';
         }
 
         return 'jpg';
@@ -711,5 +726,75 @@ final class PersonPhotos
         return ! str_contains($basename, '_large.')
             && ! str_contains($basename, '_medium.')
             && ! str_contains($basename, '_small.');
+    }
+
+    /**
+     * Validate that uploaded file is a genuine image
+     */
+    private function isValidImage(UploadedFile $file): bool
+    {
+        // Check 1: Verify MIME type matches config
+        $mimeType     = $file->getMimeType();
+        $allowedMimes = array_keys(config('app.upload_photo_accept'));
+
+        if (! in_array($mimeType, $allowedMimes)) {
+            Log::warning('Invalid MIME type detected', [
+                'person_id' => $this->person->id,
+                'file'      => $file->getClientOriginalName(),
+                'mime'      => $mimeType,
+            ]);
+
+            return false;
+        }
+
+        // Check 2: Verify file is actually an image using getimagesize
+        try {
+            $imageInfo = @getimagesize($file->getRealPath());
+            if ($imageInfo === false) {
+                Log::warning('File failed getimagesize validation', [
+                    'person_id' => $this->person->id,
+                    'file'      => $file->getClientOriginalName(),
+                ]);
+
+                return false;
+            }
+
+            // Verify the image type matches expected types
+            $allowedImageTypes = config('app.upload_photo_validation.image_types');
+
+            if (! in_array($imageInfo[2], $allowedImageTypes)) {
+                Log::warning('Image type not allowed', [
+                    'person_id' => $this->person->id,
+                    'file'      => $file->getClientOriginalName(),
+                    'type'      => $imageInfo[2],
+                ]);
+
+                return false;
+            }
+        } catch (Exception $e) {
+            Log::error('Error validating image', [
+                'person_id' => $this->person->id,
+                'file'      => $file->getClientOriginalName(),
+                'error'     => $e->getMessage(),
+            ]);
+
+            return false;
+        }
+
+        // Check 3: Verify extension matches allowed types
+        $extension         = mb_strtolower($file->getClientOriginalExtension());
+        $allowedExtensions = config('app.upload_photo_validation.extensions');
+
+        if (! in_array($extension, $allowedExtensions)) {
+            Log::warning('Invalid file extension', [
+                'person_id' => $this->person->id,
+                'file'      => $file->getClientOriginalName(),
+                'extension' => $extension,
+            ]);
+
+            return false;
+        }
+
+        return true;
     }
 }

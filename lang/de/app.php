@@ -28,6 +28,7 @@ return [
     'death'             => 'Tod',
     'documentation'     => 'Dokumentation',
     'error'             => 'Fehler',
+    'warning'           => 'Warnung',
     'family_chart'      => 'Familienstammbaum',
     'female'            => 'Weiblich',
     'history'           => 'Verlauf',
