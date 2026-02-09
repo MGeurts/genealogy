@@ -43,7 +43,7 @@ final class Profile extends Component
         if ($this->person->isDeletable()) {
             $this->person->delete();
 
-            $this->toast()->success(__('app.delete'), e($this->person->name) . ' ' . __('app.deleted') . '.')->flash()->send();
+            $this->toast()->success(__('app.delete'), e($this->person->name) . ' ' . __('app.deleted') . '.')->send();
 
             $this->redirect('/search');
         }

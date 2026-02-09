@@ -139,7 +139,7 @@ final class Partner extends Component
 
         $this->toast()->success(__('app.create'), e($newPartner->name) . ' ' . __('app.created') . '.')->send();
 
-        $couple = Couple::create([
+        $newCouple = Couple::create([
             'person1_id' => $this->person->id,
             'person2_id' => $newPartner->id,
             'date_start' => $validated['date_start'] ?? null,
@@ -149,7 +149,9 @@ final class Partner extends Component
             'team_id'    => $this->person->team_id,
         ]);
 
-        $this->toast()->success(__('app.create'), e($couple->name) . ' ' . __('app.created') . '.')->flash()->send();
+        $newCouple->load('person1', 'person2');
+
+        $this->toast()->success(__('app.create'), e($newCouple->name) . ' ' . __('app.created') . '.')->send();
     }
 
     /**

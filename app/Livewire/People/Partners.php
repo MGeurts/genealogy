@@ -51,7 +51,7 @@ final class Partners extends Component
     {
         Couple::findOrFail($couple['id'])->delete();
 
-        $this->toast()->success(__('app.delete'), e($couple['name']) . ' ' . __('app.deleted') . '.')->flash()->send();
+        $this->toast()->success(__('app.delete'), e($couple['name']) . ' ' . __('app.deleted') . '.')->send();
 
         $this->redirect('/people/' . $this->person->id);
     }

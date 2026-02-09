@@ -70,7 +70,7 @@ final class Profile extends Component
 
         $this->person->update($validated);
 
-        $this->toast()->success(__('app.save'), __('app.saved'))->flash()->send();
+        $this->toast()->success(__('app.save'), __('app.saved'))->send();
 
         $this->redirect('/people/' . $this->person->id);
     }

@@ -108,7 +108,7 @@ final class Father extends Component
             'father_id' => $newFather->id,
         ]);
 
-        $this->toast()->success(__('app.create'), __('person.new_person_linked_as_father'))->flash()->send();
+        $this->toast()->success(__('app.create'), __('person.new_person_linked_as_father'))->send();
     }
 
     /**

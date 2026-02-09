@@ -57,7 +57,7 @@ final class Person extends Component
             $this->savePersonPhotos($newPerson, 'person');
         }
 
-        $this->toast()->success(__('app.save'), e($newPerson->name) . ' ' . __('app.created'))->flash()->send();
+        $this->toast()->success(__('app.create'), e($newPerson->name) . ' ' . __('app.created'))->send();
 
         $this->redirect('/people/' . $newPerson->id);
     }

@@ -108,7 +108,7 @@ final class Mother extends Component
             'mother_id' => $newMother->id,
         ]);
 
-        $this->toast()->success(__('app.create'), __('person.new_person_linked_as_mother'))->flash()->send();
+        $this->toast()->success(__('app.create'), __('person.new_person_linked_as_mother'))->send();
     }
 
     /**

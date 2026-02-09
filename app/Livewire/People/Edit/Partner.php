@@ -84,7 +84,7 @@ final class Partner extends Component
                 ]);
             }
 
-            $this->toast()->success(__('app.save'), __('app.saved'))->flash()->send();
+            $this->toast()->success(__('app.save'), __('app.saved'))->send();
 
             $this->redirect('/people/' . $this->person->id);
         }

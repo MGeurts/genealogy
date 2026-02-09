@@ -49,7 +49,7 @@ final class Children extends Component
         $key = $this->person->sex === 'm' ? 'father_id' : 'mother_id';
         $child->update([$key => null]);
 
-        $this->toast()->success(__('app.disconnect'), e($child->name) . ' ' . __('app.disconnected') . '.')->flash()->send();
+        $this->toast()->success(__('app.disconnect'), e($child->name) . ' ' . __('app.disconnected') . '.')->send();
 
         $this->redirect(route('people.show', $this->person->id));
     }

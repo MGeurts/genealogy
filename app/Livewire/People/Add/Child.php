@@ -105,7 +105,7 @@ class Child extends Component
             $this->savePersonPhotos($newChild, 'child');
         }
 
-        $this->toast()->success(__('app.create'), __('person.new_person_linked_as_child'))->flash()->send();
+        $this->toast()->success(__('app.create'), __('person.new_person_linked_as_child'))->send();
     }
 
     /**
