@@ -138,6 +138,8 @@ return [
     'photo_is_set_primary'        => 'Neues Foto wurde als primäres Foto festgelegt',
     'upload_photos'               => 'Fotos hochladen',
     'upload_photos_tip'           => 'Ziehe deine neuen Fotos hierher ...',
+    'no_valid_photos_to_save'     => 'Keine gültigen Fotos zum Speichern',
+    'photos_invalid'              => '{1} :count Foto war ungültig und wurde übersprungen|[2,*] :count Fotos waren ungültig und wurden übersprungen',
 
     // Messages
     'yod_not_matching_dod' => 'Das Sterbejahr muss übereinstimmen mit dem Sterbedatum (:value).',

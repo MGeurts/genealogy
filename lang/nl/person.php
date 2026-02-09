@@ -138,6 +138,8 @@ return [
     'photo_is_set_primary'        => 'Nieuwe foto is als primair ingesteld',
     'upload_photos'               => 'Foto’s uploaden',
     'upload_photos_tip'           => 'Sleep je nieuwe foto’s hierheen...',
+    'no_valid_photos_to_save'     => 'Geen geldige foto’s om op te slaan',
+    'photos_invalid'              => '{1} :count foto was ongeldig en is overgeslagen|[2,*] :count foto’s waren ongeldig en zijn overgeslagen',
 
     // Messages
     'yod_not_matching_dod' => 'Het Jaar overlijden moet overeenkomen met de Datum overlijden (:value).',

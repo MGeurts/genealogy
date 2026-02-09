@@ -138,6 +138,8 @@ return [
     'photo_is_set_primary'        => 'Foto baru telah dijadikan foto utama',
     'upload_photos'               => 'Unggah foto',
     'upload_photos_tip'           => 'Seret dan lepas foto baru Anda di sini...',
+    'no_valid_photos_to_save'     => 'Tidak ada foto valid untuk disimpan',
+    'photos_invalid'              => '{1} :count foto tidak valid dan dilewati|[2,*] :count foto tidak valid dan dilewati',
 
     // Messages
     'yod_not_matching_dod' => 'Tahun meninggal harus cocok dengan Tanggal meninggal (:value).',

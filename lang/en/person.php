@@ -138,6 +138,8 @@ return [
     'photo_is_set_primary'        => 'New photo has been set as primary',
     'upload_photos'               => 'Upload photos',
     'upload_photos_tip'           => 'Drag and drop your new photos here ...',
+    'no_valid_photos_to_save'     => 'No valid photos to save',
+    'photos_invalid'              => '{1} :count photo was invalid and skipped|[2,*] :count photos were invalid and skipped',
 
     // Messages
     'yod_not_matching_dod' => 'The Year of death must match the Date of death (:value).',

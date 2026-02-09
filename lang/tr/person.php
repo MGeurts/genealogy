@@ -138,6 +138,8 @@ return [
     'photo_is_set_primary'        => 'Yeni fotoğraf birincil olarak ayarlandı',
     'upload_photos'               => 'Fotoğrafları yükle',
     'upload_photos_tip'           => 'Yeni fotoğraflarınızı buraya sürükleyip bırakın...',
+    'no_valid_photos_to_save'     => 'Kaydedilecek geçerli fotoğraf yok',
+    'photos_invalid'              => '{1} :count fotoğraf geçersizdi ve atlandı|[2,*] :count fotoğraf geçersizdi ve atlandı',
 
     // Messages
     'yod_not_matching_dod' => 'Ölüm yılı, ölüm tarihiyle eşleşmelidir (:value).',

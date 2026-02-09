@@ -125,6 +125,8 @@ return [
     'photo_is_set_primary'        => 'Nova foto definida como principal',
     'upload_photos'               => 'Carregar fotos',
     'upload_photos_tip'           => 'Arraste e solte suas novas fotos aqui...',
+    'no_valid_photos_to_save'     => 'Nenhuma foto válida para salvar',
+    'photos_invalid'              => '{1} :count foto era inválida e foi ignorada|[2,*] :count fotos eram inválidas e foram ignoradas',
 
     // Messages
     'yod_not_matching_dod' => 'O Ano do falecimento deve corresponder à Data do falecimento (:value).',

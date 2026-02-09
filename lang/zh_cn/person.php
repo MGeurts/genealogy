@@ -138,6 +138,8 @@ return [
     'photo_is_set_primary'        => '新照片已设为主照片',
     'upload_photos'               => '上传照片',
     'upload_photos_tip'           => '将新照片拖放到此处...',
+    'no_valid_photos_to_save'     => '没有可保存的有效照片',
+    'photos_invalid'              => '{1} :count 张照片无效并已跳过|[2,*] :count 张照片无效并已跳过',
 
     // Messages
     'yod_not_matching_dod' => '死亡年份必须与死亡日期匹配 (:value)。',

@@ -138,6 +138,8 @@ return [
     'photo_is_set_primary'        => 'Ảnh mới đã được đặt làm ảnh chính',
     'upload_photos'               => 'Tải ảnh lên',
     'upload_photos_tip'           => 'Kéo và thả ảnh mới của bạn vào đây...',
+    'no_valid_photos_to_save'     => 'Không có ảnh hợp lệ để lưu',
+    'photos_invalid'              => '{1} :count ảnh không hợp lệ và đã bị bỏ qua|[2,*] :count ảnh không hợp lệ và đã bị bỏ qua',
 
     // Messages
     'yod_not_matching_dod' => 'Năm mất phải khớp với ngày mất (:value).',

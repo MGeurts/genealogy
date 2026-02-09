@@ -125,6 +125,8 @@ return [
     'photo_is_set_primary'        => 'La nouvelle photo a été définie comme principale',
     'upload_photos'               => 'Téléverser des photos',
     'upload_photos_tip'           => 'Glissez-déposez vos nouvelles photos ici...',
+    'no_valid_photos_to_save'     => 'Aucune photo valide à enregistrer',
+    'photos_invalid'              => '{1} :count photo était invalide et a été ignorée|[2,*] :count photos étaient invalides et ont été ignorées',
 
     // Messages
     'yod_not_matching_dod' => 'L’année du décès doit correspondre à la date du décès (:value).',
