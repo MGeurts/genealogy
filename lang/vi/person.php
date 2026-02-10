@@ -111,12 +111,15 @@ return [
     'cemetery_location' => 'Vị trí nghĩa trang',
 
     // files
-    'files'            => 'Tệp',
-    'files_saved'      => '[0] Không có tệp nào được lưu|[1] Tệp được lưu|[2,*] Tệp được lưu',
-    'file'             => 'Tệp',
-    'file_deleted'     => 'Tệp đã bị xóa',
-    'upload_files'     => 'Tải lên tệp',
-    'upload_files_tip' => 'Kéo và thả các tệp mới của bạn vào đây ...',
+    'files'                  => 'Tệp',
+    'files_saved'            => '[0] Không có tệp nào được lưu|[1] Tệp được lưu|[2,*] Tệp được lưu',
+    'file'                   => 'Tệp',
+    'file_deleted'           => 'Tệp đã bị xóa',
+    'upload_files'           => 'Tải lên tệp',
+    'upload_files_tip'       => 'Kéo và thả các tệp mới của bạn vào đây ...',
+    'no_valid_files_to_save' => 'Không có tệp hợp lệ để lưu',
+    'files_invalid'          => '{1} :count tệp không hợp lệ và đã bị bỏ qua|[2,*] :count tệp không hợp lệ và đã bị bỏ qua',
+    'files_save_failed'      => 'Không thể lưu các tệp',
 
     'upload_accept_types' => 'Cho phép : :types',
     'upload_max_size'     => 'Kích thước tối đa : :max KB',

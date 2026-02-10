@@ -111,12 +111,15 @@ return [
     'cemetery_location' => 'Cemetery Location',
 
     // files
-    'files'            => 'Files',
-    'files_saved'      => '[0] No files saved|[1] File saved|[2,*] Files saved',
-    'file'             => 'File',
-    'file_deleted'     => 'File deleted',
-    'upload_files'     => 'Upload files',
-    'upload_files_tip' => 'Drag and drop your new files here ...',
+    'files'                  => 'Files',
+    'files_saved'            => '[0] No files saved|[1] File saved|[2,*] Files saved',
+    'file'                   => 'File',
+    'file_deleted'           => 'File deleted',
+    'upload_files'           => 'Upload files',
+    'upload_files_tip'       => 'Drag and drop your new files here ...',
+    'no_valid_files_to_save' => 'No valid files to save',
+    'files_invalid'          => '{1} :count file was invalid and skipped|[2,*] :count files were invalid and skipped',
+    'files_save_failed'      => 'Failed to save files',
 
     'upload_accept_types' => 'Allowed : :types',
     'upload_max_size'     => 'Maximum size : :max KB',

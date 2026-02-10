@@ -1,2 +1,5 @@
 *
 !.gitignore
+
+# But do not ignore access restrictions
+!.htaccess

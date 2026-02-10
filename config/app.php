@@ -225,5 +225,13 @@ return [
         'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'       => 'XLSX',
     ],
 
+    'upload_file_validation' => [
+        // File extensions (derived from upload_file_accept)
+        'extensions' => ['txt', 'pdf', 'odt', 'doc', 'docx', 'xls', 'xlsx'],
+
+        // MIME types for mimes validation rule
+        'mimes_rule' => 'txt,pdf,odt,doc,docx,xls,xlsx',
+    ],
+
     'upload_max_size' => 10240, // set this according to your webserver settings (in KB)
 ];

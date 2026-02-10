@@ -1,0 +1,12 @@
+# Deny access to any scripts
+<FilesMatch "\.(php.*|phtml|phar|pl|py|cgi|sh|exe|bat|cmd|com|scr|vbs|js|jar)$">
+    Require all denied
+</FilesMatch>
+
+# Only allow document files
+<FilesMatch "\.(txt|pdf|odt|doc|docx|xls|xlsx)$">
+    Require all granted
+</FilesMatch>
+
+# Deny everything else by default
+Require all denied

@@ -98,12 +98,15 @@ return [
     'cemetery_location'              => 'Localização do cemitério',
 
     // files
-    'files'            => 'Arquivos',
-    'files_saved'      => '[0] Nenhum arquivo salvo|[1] Arquivo salvo|[2,*] Arquivos salvos',
-    'file'             => 'Arquivo',
-    'file_deleted'     => 'Arquivo excluído',
-    'upload_files'     => 'Carregar arquivos',
-    'upload_files_tip' => 'Arraste e solte seus novos arquivos aqui ...',
+    'files'                  => 'Arquivos',
+    'files_saved'            => '[0] Nenhum arquivo salvo|[1] Arquivo salvo|[2,*] Arquivos salvos',
+    'file'                   => 'Arquivo',
+    'file_deleted'           => 'Arquivo excluído',
+    'upload_files'           => 'Carregar arquivos',
+    'upload_files_tip'       => 'Arraste e solte seus novos arquivos aqui ...',
+    'no_valid_files_to_save' => 'Nenhum arquivo válido para salvar',
+    'files_invalid'          => '{1} :count arquivo era inválido e foi ignorado|[2,*] :count arquivos eram inválidos e foram ignorados',
+    'files_save_failed'      => 'Falha ao salvar os arquivos',
 
     'upload_accept_types' => 'Permitido : :types',
     'upload_max_size'     => 'Tamanho máximo : :max KB',

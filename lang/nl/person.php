@@ -111,12 +111,15 @@ return [
     'cemetery_location' => 'Locatie begraafplaats',
 
     // Files
-    'files'            => 'Bestanden',
-    'files_saved'      => '[0] Geen bestand bewaard|[1] Bestand bewaard|[2,*] Bestanden bewaard',
-    'file'             => 'Bestand',
-    'file_deleted'     => 'Bestand verwijderd',
-    'upload_files'     => 'Bestanden uploaden',
-    'upload_files_tip' => 'Sleep uw nieuwe bestanden hierheen ...',
+    'files'                  => 'Bestanden',
+    'files_saved'            => '[0] Geen bestand bewaard|[1] Bestand bewaard|[2,*] Bestanden bewaard',
+    'file'                   => 'Bestand',
+    'file_deleted'           => 'Bestand verwijderd',
+    'upload_files'           => 'Bestanden uploaden',
+    'upload_files_tip'       => 'Sleep uw nieuwe bestanden hierheen ...',
+    'no_valid_files_to_save' => 'Geen geldige bestanden om op te slaan',
+    'files_invalid'          => '{1} :count bestand was ongeldig en is overgeslagen|[2,*] :count bestanden waren ongeldig en zijn overgeslagen',
+    'files_save_failed'      => 'Bestanden opslaan mislukt',
 
     'upload_accept_types' => 'Toegestaan: :types',
     'upload_max_size'     => 'Maximale grootte : :max KB',

@@ -111,12 +111,15 @@ return [
     'cemetery_location' => 'Lokasi Pemakaman',
 
     // files
-    'files'            => 'File',
-    'files_saved'      => '[0] Tidak ada file tersimpan|[1] File tersimpan|[2,*] File tersimpan',
-    'file'             => 'File',
-    'file_deleted'     => 'File dihapus',
-    'upload_files'     => 'Unggah file',
-    'upload_files_tip' => 'Seret dan lepas file baru Anda di sini ...',
+    'files'                  => 'File',
+    'files_saved'            => '[0] Tidak ada file tersimpan|[1] File tersimpan|[2,*] File tersimpan',
+    'file'                   => 'File',
+    'file_deleted'           => 'File dihapus',
+    'upload_files'           => 'Unggah file',
+    'upload_files_tip'       => 'Seret dan lepas file baru Anda di sini ...',
+    'no_valid_files_to_save' => 'Tidak ada file valid untuk disimpan',
+    'files_invalid'          => '{1} :count file tidak valid dan dilewati|[2,*] :count file tidak valid dan dilewati',
+    'files_save_failed'      => 'Gagal menyimpan file',
 
     'upload_accept_types' => 'Diizinkan : :types',
     'upload_max_size'     => 'Ukuran maksimum : :max KB',

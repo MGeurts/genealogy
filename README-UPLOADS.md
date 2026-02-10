@@ -156,9 +156,9 @@ These values can be modified in `/config/app.php`.
 
 ---
 
-### 🔒 Security Measures
+### 🔒 Image Security Measures
 
-The application implements multiple layers of security to prevent malicious file uploads:
+The application implements multiple layers of security to prevent malicious image uploads:
 
 #### 1. **Laravel Validation**
 
@@ -170,6 +170,7 @@ The application implements multiple layers of security to prevent malicious file
 
 - MIME type verification from actual file content (not just extension)
 - Image structure validation using `getimagesize()`
+- Image type constant verification (IMAGETYPE\_\*)
 - Extension whitelist enforcement
 
 #### 3. **Image Re-encoding**
@@ -211,7 +212,13 @@ location ~* ^/storage/photos/.*\.(php.*|phtml|phar|pl|py|cgi|sh)$ {
 
 ---
 
-## 📄 File Uploads
+## 📄 File Uploads (Documents)
+
+### Storage Folder
+
+Uploaded files are saved in the `storage/app/files/` folder managed by Spatie Media Library.
+
+---
 
 ### Accepted File Types
 
@@ -234,7 +241,107 @@ These values can be modified in `/config/app.php`.
 
 ---
 
-### Upload Size Limit
+### File Validation Settings
+
+**Configuration in `/config/app.php`:**
+
+```php
+'upload_file_validation' => [
+    // File extensions allowed
+    'extensions' => ['txt', 'pdf', 'odt', 'doc', 'docx', 'xls', 'xlsx'],
+
+    // MIME types for Laravel validation
+    'mimes_rule' => 'txt,pdf,odt,doc,docx,xls,xlsx',
+],
+```
+
+---
+
+### 🔒 Document Security Measures
+
+The application implements comprehensive security measures to prevent malicious document uploads:
+
+#### 1. **Laravel Validation**
+
+- File type validation using `file` and `mimes` rules
+- File size validation
+- Extension whitelist enforcement
+
+#### 2. **Server-Side File Verification**
+
+- MIME type verification from actual file content (not just extension)
+- Extension whitelist enforcement
+- Dangerous extension blocking (php, exe, sh, bat, etc.)
+- File signature verification (magic bytes)
+
+#### 3. **Content-Specific Validation**
+
+**PDF Files:**
+
+- Validates PDF header (`%PDF-`)
+- Scans for potentially dangerous JavaScript or actions
+- Logs warnings for suspicious content
+
+**Office Documents (DOCX, XLSX, ODT):**
+
+- Validates ZIP structure (these formats are ZIP-based)
+- Scans archive contents for hidden executables
+- Blocks documents containing .exe, .dll, .sh, .bat, .php files
+
+**Text Files:**
+
+- Basic MIME type validation
+- Extension verification
+
+#### 4. **Server Protection**
+
+- Files are stored in `storage/app/files/` (not directly in `public/`)
+- Access is controlled through Laravel's storage system and Spatie Media Library
+- For Apache servers, an `.htaccess` file in the files directory blocks script execution
+
+**Recommended `.htaccess` for `storage/app/files/`:**
+
+```apache
+# Deny access to any scripts
+<FilesMatch "\.(php.*|phtml|phar|pl|py|cgi|sh|exe|bat|cmd|com|scr|vbs|js|jar)$">
+    Require all denied
+</FilesMatch>
+
+# Only allow document files
+<FilesMatch "\.(txt|pdf|odt|doc|docx|xls|xlsx)$">
+    Require all granted
+</FilesMatch>
+
+# Deny everything else by default
+Require all denied
+```
+
+**For nginx servers**, add to your configuration:
+
+```nginx
+location ~* ^/storage/files/.*\.(php.*|phtml|phar|pl|py|cgi|sh|exe|bat|cmd|com|scr|vbs|js|jar)$ {
+    deny all;
+}
+```
+
+---
+
+### File Signature Verification (Magic Bytes)
+
+The application verifies file signatures to ensure files match their claimed type:
+
+| File Type     | Magic Bytes (Hex)                      | Description           |
+| ------------- | -------------------------------------- | --------------------- |
+| PDF           | `25504446`                             | `%PDF`                |
+| DOC/XLS       | `d0cf11e0a1b11ae1`                     | OLE format            |
+| DOCX/XLSX/ODT | `504b0304` or `504b0506` or `504b0708` | ZIP format            |
+| TXT           | (none)                                 | No specific signature |
+
+This prevents attackers from simply renaming malicious files (e.g., `virus.exe` → `document.pdf`).
+
+---
+
+## Upload Size Limit
 
 ```php
 'upload_max_size' => 10240  // 10 MB in kilobytes
@@ -260,12 +367,19 @@ The `upload_max_size` value in `/config/app.php` should match or be lower than y
 - **File Too Large**: Check that your file is under 10 MB and your `php.ini` settings allow it
 - **Invalid Image**: The file may be corrupted or contain invalid data
 - **Security Validation Failed**: The file failed security checks and was rejected
+- **File Signature Mismatch**: The file's actual type doesn't match its extension
+
+### Document-Specific Issues
+
+- **PDF Rejected**: May contain JavaScript or other active content (logged as warning)
+- **Office Document Rejected**: May contain hidden executables in the ZIP archive
+- **Suspicious Content Detected**: Check application logs for details
 
 ### Version Upgrade Issues
 
 - **For upgrades from pre-4.5.0**: Make sure you've run `php artisan photos:migrate` **ONCE** before using the application
 - **Missing Photos**: Check that the symbolic link exists: `php artisan storage:link`
-- **Permission Errors**: Ensure `storage/app/public/photos/` is writable by your web server
+- **Permission Errors**: Ensure `storage/app/public/photos/` and `storage/app/files/` are writable by your web server
 
 ### Image Processing Issues
 
@@ -286,18 +400,78 @@ php -i | grep post_max_size
 ls -la public/storage
 
 # Check photos directory permissions
-ls -la storage/app/public/
+ls -la storage/app/public/photos/
+
+# Check files directory permissions
+ls -la storage/app/files/
+
+# View recent upload errors
+tail -f storage/logs/laravel.log | grep -i upload
 ```
+
+---
+
+## 🔍 Security Best Practices
+
+### For Administrators
+
+1. **Regularly review logs** for suspicious upload attempts:
+
+    ```bash
+    grep -i "Invalid\|Dangerous\|Suspicious" storage/logs/laravel.log
+    ```
+
+2. **Keep upload limits reasonable** - Don't increase beyond what's necessary
+
+3. **Verify `.htaccess` files** are in place:
+    - `storage/app/public/photos/.htaccess`
+    - `storage/app/files/.htaccess`
+
+4. **Monitor storage usage** - Malicious users might attempt to fill disk space
+
+5. **Keep Laravel and dependencies updated** for latest security patches
+
+### For Users
+
+1. **Only upload files from trusted sources**
+2. **Scan files with antivirus** before uploading
+3. **Don't rename executables** to bypass validation - they will be detected
+4. **Report suspicious behavior** if uploads fail unexpectedly
 
 ---
 
 ## 📝 Summary
 
-- ✅ **Original files are preserved** in their uploaded format
-- ✅ **Three WebP versions** are created for web performance
-- ✅ **Multiple security layers** protect against malicious uploads
+### Image Uploads
+
+- ✅ **Original files preserved** in uploaded format
+- ✅ **Three WebP versions** created for web performance
+- ✅ **Four-layer security validation** (Laravel, server-side, re-encoding, server config)
+- ✅ **Magic bytes verification** prevents file type spoofing
+- ✅ **Image structure validation** using getimagesize()
+
+### Document Uploads
+
+- ✅ **Multiple MIME type support** (TXT, PDF, DOC, DOCX, XLS, XLSX, ODT)
+- ✅ **Five-layer security validation** (Laravel, MIME check, extension check, signature verification, content scanning)
+- ✅ **PDF content scanning** for JavaScript and dangerous actions
+- ✅ **ZIP archive inspection** for DOCX/XLSX/ODT documents
+- ✅ **Comprehensive logging** of all security events
+
+### General Security
+
 - ✅ **Centralized configuration** in `/config/app.php`
-- ✅ **Customizable settings** for dimensions, quality, and formats
 - ✅ **Server-level protection** via `.htaccess` or nginx config
+- ✅ **Dangerous file blocking** (executables, scripts, etc.)
+- ✅ **User feedback** for invalid uploads
 
 For questions or issues, please consult the application logs at `storage/logs/laravel.log`.
+
+---
+
+## 📚 Additional Resources
+
+- Laravel File Uploads: https://laravel.com/docs/11.x/filesystem
+- Spatie Media Library: https://spatie.be/docs/laravel-medialibrary
+- Intervention Image: https://image.intervention.io/
+- File Signatures Database: https://en.wikipedia.org/wiki/List_of_file_signatures

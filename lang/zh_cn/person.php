@@ -111,12 +111,15 @@ return [
     'cemetery_location' => '墓地位置',
 
     // files
-    'files'            => '文件',
-    'files_saved'      => '[0] 没有文件保存|[1] 文件已保存|[2,*] 文件已保存',
-    'file'             => '文件',
-    'file_deleted'     => '文件已删除',
-    'upload_files'     => '上传文件',
-    'upload_files_tip' => '将文件拖放到此处 ...',
+    'files'                  => '文件',
+    'files_saved'            => '[0] 没有文件保存|[1] 文件已保存|[2,*] 文件已保存',
+    'file'                   => '文件',
+    'file_deleted'           => '文件已删除',
+    'upload_files'           => '上传文件',
+    'upload_files_tip'       => '将文件拖放到此处 ...',
+    'no_valid_files_to_save' => '没有可保存的有效文件',
+    'files_invalid'          => '{1} :count 个文件无效并已跳过|[2,*] :count 个文件无效并已跳过',
+    'files_save_failed'      => '文件保存失败',
 
     'upload_accept_types' => '允许 : :types',
     'upload_max_size'     => '最大尺寸 : :max KB',

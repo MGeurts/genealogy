@@ -111,12 +111,15 @@ return [
     'cemetery_location' => 'Mezarlık Konumu',
 
     // files
-    'files'            => 'Dosyalar',
-    'files_saved'      => '[0] Hiçbir dosya kaydedilmedi|[1] Dosya kaydedildi|[2,*] Dosyalar kaydedildi',
-    'file'             => 'Dosya',
-    'file_deleted'     => 'Dosya silindi',
-    'upload_files'     => 'Dosya yükle',
-    'upload_files_tip' => 'Yeni dosyalarınızı buraya sürükleyip bırakın ...',
+    'files'                  => 'Dosyalar',
+    'files_saved'            => '[0] Hiçbir dosya kaydedilmedi|[1] Dosya kaydedildi|[2,*] Dosyalar kaydedildi',
+    'file'                   => 'Dosya',
+    'file_deleted'           => 'Dosya silindi',
+    'upload_files'           => 'Dosya yükle',
+    'upload_files_tip'       => 'Yeni dosyalarınızı buraya sürükleyip bırakın ...',
+    'no_valid_files_to_save' => 'Kaydedilecek geçerli dosya yok',
+    'files_invalid'          => '{1} :count dosya geçersizdi ve atlandı|[2,*] :count dosya geçersizdi ve atlandı',
+    'files_save_failed'      => 'Dosyalar kaydedilemedi',
 
     'upload_accept_types' => 'İzin verilmiş: :types',
     'upload_max_size'     => 'Maksimum boyut : :max KB',
