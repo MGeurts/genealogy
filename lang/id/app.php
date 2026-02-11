@@ -77,6 +77,7 @@ return [
 
     'save'   => 'Simpan',
     'saved'  => 'Disimpan',
+    'saving' => 'Menyimpan',
     'select' => 'Pilih',
     'show'   => 'Tampilkan',
 

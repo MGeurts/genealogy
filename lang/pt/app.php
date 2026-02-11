@@ -67,6 +67,7 @@ return [
     'show_profile'              => 'Mostrar perfil',
     'save'                      => 'Salvar',
     'saved'                     => 'Salvo',
+    'saving'                    => 'Salvando',
     'select'                    => 'Selecione',
     'show'                      => 'Mostrar',
     'abort_no'                  => 'Não, abortar',

@@ -77,6 +77,7 @@ return [
 
     'save'   => 'Save',
     'saved'  => 'Saved',
+    'saving' => 'Saving',
     'select' => 'Select',
     'show'   => 'Show',
 

@@ -77,6 +77,7 @@ return [
 
     'save'   => 'Kaydet',
     'saved'  => 'Kaydedildi',
+    'saving' => 'Kaydediliyor',
     'select' => 'Seç',
     'show'   => 'Göster',
 

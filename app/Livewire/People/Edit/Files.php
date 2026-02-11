@@ -17,6 +17,13 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use TallStackUi\Traits\Interactions;
 use ZipArchive;
 
+/**
+ * File management component for Person model.
+ *
+ * Uses Livewire 4's reactive properties to eliminate unnecessary database queries.
+ * The $files collection is updated in-memory after mutations (save/delete/move),
+ * allowing the UI to reactively update without page reloads or re-queries.
+ */
 final class Files extends Component
 {
     use Interactions;
@@ -76,20 +83,17 @@ final class Files extends Component
 
     /**
      * Process uploaded files and remove duplicates.
-     * Also validates each upload for security.
+     * Validation is deferred to save() for better performance.
      */
     public function updatedUploads(): void
     {
-        $this->validate();
-
         if (empty($this->uploads)) {
             return;
         }
 
-        // Merge, deduplicate, and validate
+        // Merge and deduplicate only - validation happens at save time
         $this->uploads = collect(array_merge($this->backup, (array) $this->uploads))
             ->unique(fn (UploadedFile $file): string => $file->getClientOriginalName())
-            ->filter(fn (UploadedFile $file): bool => $this->isValidFile($file))
             ->values()
             ->toArray();
 
@@ -123,6 +127,7 @@ final class Files extends Component
         }
 
         $savedCount = 0;
+        $newFiles   = [];
 
         foreach ($validUploads as $upload) {
             try {
@@ -137,6 +142,7 @@ final class Files extends Component
                 }
 
                 $file->save();
+                $newFiles[] = $file;
                 $savedCount++;
             } catch (Exception $e) {
                 Log::error('Failed to save file', [
@@ -162,9 +168,17 @@ final class Files extends Component
                 )->send();
             }
 
-            $this->dispatch('files_updated');
-            $this->loadFiles();
-            $this->uploads = [];
+            // Add new files to the collection in memory
+            if ($this->files) {
+                $this->files = $this->files->concat($newFiles)->sortBy('order_column')->values();
+            } else {
+                $this->files = collect($newFiles)->sortBy('order_column')->values();
+            }
+
+            // Reset form fields
+            $this->uploads     = [];
+            $this->source      = null;
+            $this->source_date = null;
         } else {
             $this->toast()->error(
                 __('app.error'),
@@ -187,14 +201,17 @@ final class Files extends Component
         if ($file) {
             $file->delete();
 
-            $this->reorderFiles();
+            // Remove from collection and reorder in memory
+            $this->files = $this->files->reject(fn ($item) => $item->id === $id)
+                ->values()
+                ->map(function ($item, $index) {
+                    $item->order_column = $index + 1;
+                    $item->save();
+
+                    return $item;
+                });
 
             $this->toast()->success(__('app.delete'), __('person.file_deleted'))->send();
-
-            $this->dispatch('files_updated');
-
-            // Reload the files collection to reflect changes in the UI
-            $this->loadFiles();
         }
     }
 
@@ -209,22 +226,18 @@ final class Files extends Component
 
         $targetPosition = $direction === 'up' ? $position - 1 : $position + 1;
 
-        $this->files->transform(function ($file) use ($position, $targetPosition) {
+        // Update the collection in memory
+        $this->files = $this->files->map(function ($file) use ($position, $targetPosition) {
             if ($file->order_column === $position) {
                 $file->order_column = $targetPosition;
+                $file->save();
             } elseif ($file->order_column === $targetPosition) {
                 $file->order_column = $position;
+                $file->save();
             }
 
-            $file->save();
-
             return $file;
-        });
-
-        $this->dispatch('files_updated');
-
-        // Reload the files collection to reflect changes in the UI
-        $this->loadFiles();
+        })->sortBy('order_column')->values();
     }
 
     // ------------------------------------------------------------------------------
@@ -531,18 +544,5 @@ final class Files extends Component
     private function loadFiles(): void
     {
         $this->files = $this->person->getMedia('files');
-    }
-
-    /**
-     * Reorder the files.
-     */
-    private function reorderFiles(): void
-    {
-        if ($this->files) {
-            // renumber positions sequentially
-            $ordered = $this->files->sortBy('order_column')->pluck('id')->toArray();
-
-            Media::setNewOrder($ordered);
-        }
     }
 }

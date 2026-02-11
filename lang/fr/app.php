@@ -67,6 +67,7 @@ return [
     'show_profile'              => 'Afficher le profil',
     'save'                      => 'Sauvegarder',
     'saved'                     => 'Enregistré',
+    'saving'                    => 'Enregistrement',
     'select'                    => 'Sélectionner',
     'show'                      => 'Montrer',
     'abort_no'                  => 'Non, abandonner',

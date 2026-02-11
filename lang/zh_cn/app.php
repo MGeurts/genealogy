@@ -77,6 +77,7 @@ return [
 
     'save'   => '保存',
     'saved'  => '已保存',
+    'saving' => '正在保存',
     'select' => '选择',
     'show'   => '显示',
 

@@ -15,32 +15,47 @@
         </div>
     </div>
 
-    <div class="p-2 print:hidden">
-        {{-- source --}}
-        <div class="mb-3">
-            <x-ts-textarea id="source" wire:model="source" label="{{ __('person.source') }} :" placeholder="{{ __('person.source_hint') }}" maxlength="1024" count autofocus />
-        </div>
+    <div class="print:hidden">
+        <x-ts-card>
+            <div>
+                {{-- source --}}
+                <div class="mb-3">
+                    <x-ts-textarea id="source" wire:model="source" label="{{ __('person.source') }} :" placeholder="{{ __('person.source_hint') }}" maxlength="1024" count autofocus />
+                </div>
 
-        {{-- source_date --}}
-        <div class="mb-3">
-            <x-ts-date wire:model="source_date" id="source_date" label="{{ __('person.source_date') }} :" format="YYYY-MM-DD" :max-date="now()" placeholder="{{ __('person.source_date_hint') }} ..." />
-        </div>
+                {{-- source_date --}}
+                <div class="mb-3">
+                    <x-ts-date wire:model="source_date" id="source_date" label="{{ __('person.source_date') }} :" format="YYYY-MM-DD" :max-date="now()"
+                        placeholder="{{ __('person.source_date_hint') }} ..." />
+                </div>
 
-        <x-hr.narrow class="my-2" />
+                <x-hr.narrow class="my-2" />
 
-        {{-- uploads --}}
-        <x-ts-upload id="uploads" wire:model="uploads"
-            label="{{ __('person.files') }} :"
-            accept="{{ implode(',', array_keys(config('app.upload_file_accept'))) }}"
-            hint="{{ __('person.upload_max_size', ['max' => config('app.upload_max_size')]) }}<br/>{{ __('person.upload_accept_types', ['types' => implode(', ', array_values(config('app.upload_file_accept')))]) }}"
-            tip="{{ __('person.upload_photos_tip') }}"
-            multiple delete>
-            <x-slot:footer when-uploaded>
-                <x-ts-button class="w-full" wire:click="save()">
-                    {{ __('app.save') }}
-                </x-ts-button>
+                @php
+                    $acceptedMimes = implode(',', array_keys(config('app.upload_file_accept')));
+                    $acceptedTypes = implode(', ', array_values(config('app.upload_file_accept')));
+                    $maxSize = config('app.upload_max_size');
+                @endphp
+
+                {{-- uploads --}}
+                <x-ts-upload id="uploads" wire:model="uploads" label="{{ __('person.files') }} :" accept="{{ $acceptedMimes }}"
+                    hint="{{ __('person.upload_max_size', ['max' => $maxSize]) }}<br/>{{ __('person.upload_accept_types', ['types' => $acceptedTypes]) }}" tip="{{ __('person.upload_photos_tip') }}"
+                    multiple delete>
+                </x-ts-upload>
+            </div>
+
+            <x-slot:footer>
+                <div class="flex justify-end">
+                    <x-ts-button wire:click="save()" wire:loading.attr="disabled" :disabled="empty($uploads)">
+                        <span wire:loading.remove wire:target="save">{{ __('app.save') }}</span>
+                        <span wire:loading wire:target="save">
+                            <x-ts-icon icon="tabler.loader-2" class="inline-block size-5 animate-spin" />
+                            {{ __('app.saving') ?? 'Saving...' }}
+                        </span>
+                    </x-ts-button>
+                </div>
             </x-slot:footer>
-        </x-ts-upload>
+        </x-ts-card>
     </div>
 
     {{-- card body --}}
@@ -58,7 +73,7 @@
                         </x-slot:header>
 
                         @php
-                            $file_type = substr($file['file_name'], strpos($file['file_name'], '.') + 1);
+                            $file_type = pathinfo($file['file_name'], PATHINFO_EXTENSION);
                         @endphp
 
                         <x-ts-link href="{{ $file->getUrl() }}" target="_blank" title="{{ __('app.show') }}">
@@ -71,7 +86,11 @@
                         @endif
 
                         @if ($file->hasCustomProperty('source_date'))
-                            <p>{{ __('person.source_date') }} : {{ Carbon\Carbon::parse($file->getCustomProperty('source_date'))->timezone(session('timezone') ?? 'UTC')->isoFormat('LL') }}</p>
+                            @php
+                                $timezone = session('timezone', 'UTC');
+                                $sourceDate = \Carbon\Carbon::parse($file->getCustomProperty('source_date'))->timezone($timezone)->isoFormat('LL');
+                            @endphp
+                            <p>{{ __('person.source_date') }} : {{ $sourceDate }}</p>
                         @endif
 
                         <x-slot:footer>
@@ -93,13 +112,13 @@
 
                                 {{-- Right side --}}
                                 <div class="flex items-center gap-2">
-                                    <span class="text-sm font-semibold leading-none min-w-[40px] text-center">{{ strtoupper($file_type) }}</span>
+                                    <span class="text-sm font-semibold leading-none min-w-10 text-center">{{ strtoupper($file_type) }}</span>
 
                                     <x-ts-button href="{{ $file->getUrl() }}" color="secondary" class="p-2!" title="{{ __('app.download') }}" download="{{ $file['name'] }}">
                                         <x-ts-icon icon="tabler.download" class="inline-block size-5" />
                                     </x-ts-button>
 
-                                    <span class="text-sm leading-none min-w-[50px] text-center">{{ Number::fileSize($file['size'], 2) }}</span>
+                                    <span class="text-sm leading-none min-w-12.5 text-center">{{ Number::fileSize($file['size'], 2) }}</span>
 
                                     <x-ts-button color="red" class="p-2! text-white" title="{{ __('app.delete') }}" wire:click="deleteFile({{ $file->id }})">
                                         <x-ts-icon icon="tabler.trash" class="inline-block size-5" />

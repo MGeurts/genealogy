@@ -77,6 +77,7 @@ return [
 
     'save'   => 'Bewaren',
     'saved'  => 'Bewaard',
+    'saving' => 'Opslaan',
     'select' => 'Selecteer',
     'show'   => 'Tonen',
 

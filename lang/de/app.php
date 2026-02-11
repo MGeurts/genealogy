@@ -77,6 +77,7 @@ return [
 
     'save'   => 'Speichern',
     'saved'  => 'Gespeichert',
+    'saving' => 'Speichern',
     'select' => 'Auswählen',
     'show'   => 'Zeigen',
 

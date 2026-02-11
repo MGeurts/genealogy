@@ -77,6 +77,7 @@ return [
 
     'save'   => 'Lưu',
     'saved'  => 'Đã lưu',
+    'saving' => 'Đang lưu',
     'select' => 'Chọn',
     'show'   => 'Hiển thị',
 
