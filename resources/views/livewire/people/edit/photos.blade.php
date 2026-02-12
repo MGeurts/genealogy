@@ -4,8 +4,8 @@
         <div class="flex flex-wrap items-start justify-center gap-2">
             <div class="flex-1 grow max-w-full min-w-max">
                 {{ __('person.photos') }}
-                @if (count($photos) > 0)
-                    <x-ts-badge color="emerald" sm text="{{ count($photos) }}" />
+                @if ($this->photos->count() > 0)
+                    <x-ts-badge color="emerald" sm text="{{ $this->photos->count() }}" />
                 @endif
             </div>
 
@@ -15,27 +15,36 @@
         </div>
     </div>
 
-    {{-- uploads --}}
-    <div class="p-2 print:hidden">
-        <x-ts-upload id="uploads" wire:model="uploads"
-            label="{{ __('person.photos') }} :"
-            accept="{{ implode(',', array_keys(config('app.upload_photo_accept'))) }}"
-            hint="{{ __('person.upload_max_size', ['max' => config('app.upload_max_size')]) }}<br/>{{ __('person.upload_accept_types', ['types' => implode(', ', array_values(config('app.upload_photo_accept')))]) }}"
-            tip="{{ __('person.upload_photos_tip') }}"
-            multiple delete>
-            <x-slot:footer when-uploaded>
-                <x-ts-button class="w-full" wire:click="save()">
-                    {{ __('app.save') }}
-                </x-ts-button>
+    <div class="print:hidden">
+        <x-ts-card>
+            <div>
+                {{-- uploads --}}
+                <x-ts-upload id="uploads" wire:model="uploads" label="{{ __('person.photos') }} :" accept="{{ $this->acceptMimes }}"
+                    hint="{{ __('person.upload_max_size', ['max' => $maxSize]) }}<br/>{{ __('person.upload_accept_types', ['types' => $this->acceptedFormats]) }}"
+                    tip="{{ __('person.upload_photos_tip') }}"
+                    multiple delete>
+                </x-ts-upload>
+            </div>
+
+            <x-slot:footer>
+                <div class="flex justify-end">
+                    <x-ts-button wire:click="save()" wire:loading.attr="disabled" :disabled="!$this->isDirty">
+                        <span wire:loading.remove wire:target="save">{{ __('app.save') }}</span>
+                        <span wire:loading wire:target="save">
+                            <x-ts-icon icon="tabler.loader-2" class="inline-block size-5 animate-spin" />
+                            {{ __('app.saving') ?? 'Saving...' }}
+                        </span>
+                    </x-ts-button>
+                </div>
             </x-slot:footer>
-        </x-ts-upload>
+        </x-ts-card>
     </div>
 
     {{-- card body --}}
     <div class="p-2 text-sm border-t-2 rounded-b border-neutral-100 dark:border-neutral-600 bg-neutral-200">
-        @if (count($photos) > 0)
+        @if ($this->photos->count() > 0)
             <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
-                @foreach ($photos as $photo)
+                @foreach ($this->photos as $photo)
                     <x-ts-card>
                         <x-slot:header>
                             <div class="p-4">
@@ -54,8 +63,14 @@
                                 {{-- Left side --}}
                                 <div class="flex items-center gap-2">
                                     @if ($photo['name'] != $person->photo)
-                                        <x-ts-button color="secondary" class="p-2!" title="{{ __('person.photo_set_primary') }}" wire:click="setPrimary('{{ $photo['name'] }}')">
-                                            <x-ts-icon icon="tabler.star" class="inline-block size-5" />
+                                        <x-ts-button color="secondary" class="p-2!" title="{{ __('person.photo_set_primary') }}" wire:click="setPrimary('{{ $photo['name'] }}')" wire:loading.attr="disabled"
+                                            wire:target="setPrimary('{{ $photo['name'] }}')">
+                                            <span wire:loading.remove wire:target="setPrimary('{{ $photo['name'] }}')">
+                                                <x-ts-icon icon="tabler.star" class="inline-block size-5" />
+                                            </span>
+                                            <span wire:loading wire:target="setPrimary('{{ $photo['name'] }}')">
+                                                <x-ts-icon icon="tabler.loader-2" class="inline-block size-5 animate-spin" />
+                                            </span>
                                         </x-ts-button>
                                     @else
                                         <x-ts-icon icon="tabler.star-filled" class="inline-block size-5 text-yellow-500 dark:text-yellow-200" />
@@ -68,10 +83,16 @@
                                         <x-ts-icon icon="tabler.download" class="inline-block size-5" />
                                     </x-ts-button>
 
-                                    <span class="text-sm leading-none min-w-[50px] text-center">{{ $photo['size'] }}</span>
+                                    <span class="text-sm leading-none min-w-12.5 text-center">{{ $photo['size'] }}</span>
 
-                                    <x-ts-button color="red" class="p-2! text-white" title="{{ __('app.delete') }}" wire:click="delete('{{ $photo['name'] }}')">
-                                        <x-ts-icon icon="tabler.trash" class="inline-block size-5" />
+                                    <x-ts-button color="red" class="p-2! text-white" title="{{ __('app.delete') }}" wire:click="delete('{{ $photo['name'] }}')" wire:loading.attr="disabled"
+                                        wire:target="delete('{{ $photo['name'] }}')">
+                                        <span wire:loading.remove wire:target="delete('{{ $photo['name'] }}')">
+                                            <x-ts-icon icon="tabler.trash" class="inline-block size-5" />
+                                        </span>
+                                        <span wire:loading wire:target="delete('{{ $photo['name'] }}')">
+                                            <x-ts-icon icon="tabler.loader-2" class="inline-block size-5 animate-spin" />
+                                        </span>
                                     </x-ts-button>
                                 </div>
                             </div>

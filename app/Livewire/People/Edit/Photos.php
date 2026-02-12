@@ -13,10 +13,16 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Number;
 use Illuminate\View\View;
+use Livewire\Attributes\Computed;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
 
+/**
+ * @property-read Collection<int, array{name: string, extension: string, is_primary: bool, url_original: string, url_large: string, url_medium: string, url_small: string, size: string, name_download: string, path: string}> $photos
+ * @property-read bool $isDirty
+ */
 final class Photos extends Component
 {
     use Interactions;
@@ -30,14 +36,76 @@ final class Photos extends Component
     /** @var array<int, UploadedFile> */
     public array $backup = [];
 
-    /**
-     * @var Collection<int, array{name: string, extension: string, is_primary: bool, url_original: string, url_large: string, url_medium: string, url_small: string, size: string, name_download: string, path: string}>|null
-     */
-    public ?Collection $photos = null;
+    #[Locked]
+    public int $initialPhotoCount = 0;
+
+    // Cache config values as locked properties
+    #[Locked]
+    public string $acceptedFormats = '';
+
+    #[Locked]
+    public string $acceptMimes = '';
+
+    #[Locked]
+    public int $maxSize = 0;
 
     public function mount(): void
     {
-        $this->loadPhotos();
+        // Cache config values once during mount
+        $acceptConfig          = config('app.upload_photo_accept');
+        $this->acceptedFormats = implode(', ', array_values($acceptConfig));
+        $this->acceptMimes     = implode(',', array_keys($acceptConfig));
+        $this->maxSize         = config('app.upload_max_size');
+
+        $this->initialPhotoCount = $this->photos()->count();
+    }
+
+    /**
+     * Computed property for photos - eliminates unnecessary database queries.
+     * Only recalculates when the person model changes.
+     *
+     * @return Collection<int, array{name: string, extension: string, is_primary: bool, url_original: string, url_large: string, url_medium: string, url_small: string, size: string, name_download: string, path: string}>
+     */
+    #[Computed]
+    public function photos(): Collection
+    {
+        try {
+            $personPhotos = new PersonPhotos($this->person);
+            $photosData   = $personPhotos->getAllPhotos();
+
+            return collect($photosData)->map(function ($photo) {
+                // Add file size if available
+                $path = storage_path('app/public/photos/' . $this->person->team_id . '/' . $this->person->id . '/' . $photo['name'] . '.' . $photo['extension']);
+
+                $fileSize = 0;
+                if (file_exists($path)) {
+                    $fileSizeResult = filesize($path);
+                    $fileSize       = $fileSizeResult !== false ? $fileSizeResult : 0;
+                }
+
+                return array_merge($photo, [
+                    'size'          => Number::fileSize($fileSize, 2),
+                    'name_download' => "{$this->person->name} - {$photo['name']}.{$photo['extension']}",
+                    'path'          => dirname($path),
+                ]);
+            })->sortBy('name');
+        } catch (Exception $e) {
+            Log::error('Failed to load person photos', [
+                'person_id' => $this->person->id,
+                'error'     => $e->getMessage(),
+            ]);
+
+            return collect();
+        }
+    }
+
+    /**
+     * Computed property to check if form is dirty (has unsaved uploads).
+     */
+    #[Computed]
+    public function isDirty(): bool
+    {
+        return ! empty($this->uploads);
     }
 
     /**
@@ -53,11 +121,11 @@ final class Photos extends Component
     /**
      * Process uploaded files and remove duplicates.
      * Merges new uploads with backup and removes duplicates based on original filename.
+     * Uses deferred validation for better upload performance.
      */
     public function updatedUploads(): void
     {
-        $this->validate();
-
+        // Defer validation until save for better performance
         if (empty($this->uploads)) {
             return;
         }
@@ -107,6 +175,7 @@ final class Photos extends Component
      */
     public function save(): void
     {
+        // Validate only when saving (deferred validation)
         $this->validate();
 
         if (empty($this->uploads)) {
@@ -128,10 +197,21 @@ final class Photos extends Component
 
             if ($savedCount > 0) {
                 $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
+
+                // Refresh the person model to get updated photo data
+                $this->person->refresh();
+
+                // Clear computed property cache
+                unset($this->photos);
+
+                // Reset form fields
+                $this->reset(['uploads', 'backup']);
+
+                // Update initial count
+                $this->initialPhotoCount = $this->photos()->count();
+
+                // Dispatch event so Photo gallery can update primary photo display
                 $this->dispatch('photos_updated');
-                $this->loadPhotos();
-                $this->uploads = [];
-                $this->backup  = [];
             }
         } catch (Exception $e) {
             Log::error('Failed to save person photos', [
@@ -162,8 +242,18 @@ final class Photos extends Component
 
             if ($deleted) {
                 $this->toast()->success(__('app.delete'), __('person.photo_deleted'))->send();
+
+                // Refresh the person model
+                $this->person->refresh();
+
+                // Clear computed property cache
+                unset($this->photos);
+
+                // Update initial count
+                $this->initialPhotoCount = $this->photos()->count();
+
+                // Dispatch event so Photo gallery can update primary photo display
                 $this->dispatch('photos_updated');
-                $this->loadPhotos();
             } else {
                 $this->toast()->warning(__('app.warning'), __('person.photo_not_found'))->send();
             }
@@ -194,8 +284,15 @@ final class Photos extends Component
             $this->person->update(['photo' => $photo]);
 
             $this->toast()->success(__('app.saved'), __('person.photo_is_set_primary'))->send();
+
+            // Refresh the person model
+            $this->person->refresh();
+
+            // Clear computed property cache to reflect new primary photo
+            unset($this->photos);
+
+            // Dispatch event so Photo gallery can update primary photo display
             $this->dispatch('photos_updated');
-            $this->loadPhotos();
         } catch (Exception $e) {
             Log::error('Failed to set primary photo', [
                 'person_id' => $this->person->id,
@@ -213,7 +310,7 @@ final class Photos extends Component
     }
 
     /**
-     * Validation rules.
+     * Validation rules (deferred until save).
      *
      * @return array<string, mixed>
      */
@@ -223,9 +320,10 @@ final class Photos extends Component
 
         return [
             'uploads.*' => [
+                'required',
                 'image',
                 'mimes:' . config('app.upload_photo_validation.mimes_rule'),
-                'max:' . config('app.upload_max_size'),
+                'max:' . $this->maxSize,
                 sprintf(
                     'dimensions:min_width=%d,min_height=%d,max_width=%d,max_height=%d',
                     $dimensions['min_width'],
@@ -244,18 +342,16 @@ final class Photos extends Component
      */
     protected function messages(): array
     {
-        $acceptedFormats = implode(', ', array_values(config('app.upload_photo_accept')));
-        $maxSizeMB       = config('app.upload_max_size') / 1024;
-
         return [
-            'uploads.*.image' => __('validation.image', ['attribute' => __('person.photos')]),
-            'uploads.*.mimes' => __('validation.mimes', [
+            'uploads.*.required' => __('validation.required', ['attribute' => __('person.photos')]),
+            'uploads.*.image'    => __('validation.image', ['attribute' => __('person.photos')]),
+            'uploads.*.mimes'    => __('validation.mimes', [
                 'attribute' => __('person.photos'),
-                'values'    => $acceptedFormats,
+                'values'    => $this->acceptedFormats,
             ]),
             'uploads.*.max' => __('validation.max.file', [
                 'attribute' => __('person.photos'),
-                'max'       => config('app.upload_max_size'),
+                'max'       => $this->maxSize,
             ]),
             'uploads.*.dimensions' => __('validation.dimensions', ['attribute' => __('person.photos')]),
         ];
@@ -264,41 +360,6 @@ final class Photos extends Component
     // -----------------------------------------------------------------------
     // Protected and Private Methods
     // -----------------------------------------------------------------------
-
-    /**
-     * Load photos from PersonPhotos class.
-     */
-    private function loadPhotos(): void
-    {
-        try {
-            $personPhotos = new PersonPhotos($this->person);
-            $photosData   = $personPhotos->getAllPhotos();
-
-            $this->photos = collect($photosData)->map(function ($photo) {
-                // Add file size if available
-                $path = storage_path('app/public/photos/' . $this->person->team_id . '/' . $this->person->id . '/' . $photo['name'] . '.' . $photo['extension']);
-
-                $fileSize = 0;
-                if (file_exists($path)) {
-                    $fileSizeResult = filesize($path);
-                    $fileSize       = $fileSizeResult !== false ? $fileSizeResult : 0;
-                }
-
-                return array_merge($photo, [
-                    'size'          => Number::fileSize($fileSize, 2),
-                    'name_download' => "{$this->person->name} - {$photo['name']}.{$photo['extension']}",
-                    'path'          => dirname($path),
-                ]);
-            })->sortBy('name');
-        } catch (Exception $e) {
-            Log::error('Failed to load person photos', [
-                'person_id' => $this->person->id,
-                'error'     => $e->getMessage(),
-            ]);
-
-            $this->photos = collect();
-        }
-    }
 
     /**
      * Extract photo index from filename.
