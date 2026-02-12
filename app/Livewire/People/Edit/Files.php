@@ -11,6 +11,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
+use Livewire\Attributes\Locked;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -42,12 +43,28 @@ final class Files extends Component
     /** @var array<int, UploadedFile> */
     public array $backup = [];
 
+    // Cache config values as locked properties
+    #[Locked]
+    public string $acceptedFormats = '';
+
+    #[Locked]
+    public string $acceptMimes = '';
+
+    #[Locked]
+    public int $maxSize = 0;
+
     /** @var Collection<int, Media>|null */
     public ?Collection $files = null;
 
     // ------------------------------------------------------------------------------
     public function mount(): void
     {
+        // Cache config values once during mount
+        $acceptConfig          = config('app.upload_file_accept');
+        $this->acceptedFormats = implode(', ', array_values($acceptConfig));
+        $this->acceptMimes     = implode(',', array_keys($acceptConfig));
+        $this->maxSize         = config('app.upload_max_size');
+
         $this->loadFiles();
     }
 

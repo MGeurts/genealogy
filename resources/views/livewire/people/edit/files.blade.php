@@ -31,16 +31,9 @@
 
                 <x-hr.narrow class="my-2" />
 
-                @php
-                    $acceptedMimes = implode(',', array_keys(config('app.upload_file_accept')));
-                    $acceptedTypes = implode(', ', array_values(config('app.upload_file_accept')));
-                    $maxSize = config('app.upload_max_size');
-                @endphp
-
                 {{-- uploads --}}
-                <x-ts-upload id="uploads" wire:model="uploads" label="{{ __('person.files') }} :" accept="{{ $acceptedMimes }}"
-                    hint="{{ __('person.upload_max_size', ['max' => $maxSize]) }}<br/>{{ __('person.upload_accept_types', ['types' => $acceptedTypes]) }}" tip="{{ __('person.upload_photos_tip') }}"
-                    multiple delete>
+                <x-ts-upload id="uploads" wire:model="uploads" label="{{ __('person.files') }} :" accept="{{ $this->acceptMimes }}"
+                    hint="{{ __('person.upload_max_size', ['max' => $maxSize]) }}<br/>{{ __('person.upload_accept_types', ['types' => $this->acceptedFormats]) }}" tip="{{ __('person.upload_files_tip') }}" multiple delete>
                 </x-ts-upload>
             </div>
 
@@ -90,6 +83,7 @@
                                 $timezone = session('timezone', 'UTC');
                                 $sourceDate = \Carbon\Carbon::parse($file->getCustomProperty('source_date'))->timezone($timezone)->isoFormat('LL');
                             @endphp
+
                             <p>{{ __('person.source_date') }} : {{ $sourceDate }}</p>
                         @endif
 
