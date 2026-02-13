@@ -28,12 +28,9 @@ final class Person extends Component
 
     public function savePerson(): void
     {
-        // Ensure user is authenticated and has a current team
         $user = auth()->user();
 
         if (! $user || ! $user->currentTeam) {
-            $this->toast()->error(__('app.error'), __('app.no_team_selected'))->send();
-
             return;
         }
 
