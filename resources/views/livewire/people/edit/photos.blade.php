@@ -19,7 +19,7 @@
         <x-ts-card>
             <div>
                 {{-- uploads --}}
-                <x-ts-upload id="uploads" wire:model="uploads" label="{{ __('person.photos') }} :" accept="{{ $this->acceptMimes }}"
+                <x-ts-upload id="uploads" wire:model="uploads" label="{{ __('person.photos') }} :" accept="{{ $acceptMimes }}"
                     hint="{{ __('person.upload_max_size', ['max' => $maxSize]) }}<br/>{{ __('person.upload_accept_types', ['types' => $this->acceptedFormats]) }}"
                     tip="{{ __('person.upload_photos_tip') }}"
                     multiple delete>
@@ -28,7 +28,7 @@
 
             <x-slot:footer>
                 <div class="flex justify-end">
-                    <x-ts-button wire:click="save()" wire:loading.attr="disabled" :disabled="!$this->isDirty">
+                    <x-ts-button wire:click="save()" wire:loading.attr="disabled" :disabled="empty($uploads)">
                         <span wire:loading.remove wire:target="save">{{ __('app.save') }}</span>
                         <span wire:loading wire:target="save">
                             <x-ts-icon icon="tabler.loader-2" class="inline-block size-5 animate-spin" />

@@ -21,7 +21,6 @@ use TallStackUi\Traits\Interactions;
 
 /**
  * @property-read Collection<int, array{name: string, extension: string, is_primary: bool, url_original: string, url_large: string, url_medium: string, url_small: string, size: string, name_download: string, path: string}> $photos
- * @property-read bool $isDirty
  */
 final class Photos extends Component
 {
@@ -35,9 +34,6 @@ final class Photos extends Component
 
     /** @var array<int, UploadedFile> */
     public array $backup = [];
-
-    #[Locked]
-    public int $initialPhotoCount = 0;
 
     // Cache config values as locked properties
     #[Locked]
@@ -56,8 +52,6 @@ final class Photos extends Component
         $this->acceptedFormats = implode(', ', array_values($acceptConfig));
         $this->acceptMimes     = implode(',', array_keys($acceptConfig));
         $this->maxSize         = config('app.upload_max_size');
-
-        $this->initialPhotoCount = $this->photos()->count();
     }
 
     /**
@@ -97,15 +91,6 @@ final class Photos extends Component
 
             return collect();
         }
-    }
-
-    /**
-     * Computed property to check if form is dirty (has unsaved uploads).
-     */
-    #[Computed]
-    public function isDirty(): bool
-    {
-        return ! empty($this->uploads);
     }
 
     /**
@@ -207,9 +192,6 @@ final class Photos extends Component
                 // Reset form fields
                 $this->reset(['uploads', 'backup']);
 
-                // Update initial count
-                $this->initialPhotoCount = $this->photos()->count();
-
                 // Dispatch event so Photo gallery can update primary photo display
                 $this->dispatch('photos_updated');
             }
@@ -248,9 +230,6 @@ final class Photos extends Component
 
                 // Clear computed property cache
                 unset($this->photos);
-
-                // Update initial count
-                $this->initialPhotoCount = $this->photos()->count();
 
                 // Dispatch event so Photo gallery can update primary photo display
                 $this->dispatch('photos_updated');
