@@ -35,7 +35,7 @@
             <!-- Logo Section -->
             <div class="flex justify-center md:justify-start">
                 <a href="{{ route('home') }}" aria-label="Go to Home" title="Home">
-                    <x-svg.genealogy class="size-48 fill-dark dark:fill-neutral-400 hover:fill-primary-300 dark:hover:fill-primary-300" alt="Genealogy Logo" />
+                    <x-svg.genealogy class="size-48 dark:fill-neutral-400 hover:fill-primary-300 dark:hover:fill-primary-300" alt="Genealogy Logo" />
                 </a>
             </div>
 

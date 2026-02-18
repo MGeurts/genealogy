@@ -7,7 +7,7 @@
             {{-- logo --}}
             <div class="flex items-center shrink-0">
                 <a href="{{ route('home') }}" title="{{ __('app.home') }}">
-                    <x-svg.genealogy class="size-12 fill-dark dark:fill-neutral-400 hover:fill-primary-300 dark:hover:fill-primary-300" alt="genealogy" />
+                    <x-svg.genealogy class="size-12 dark:fill-neutral-400 hover:fill-primary-300 dark:hover:fill-primary-300" alt="genealogy" />
                 </a>
             </div>
 
