@@ -124,8 +124,8 @@
                 @endforeach
             </div>
         @else
-            <div>
-                <x-ts-alert title="{{ __('person.files') }}" text="{{ __('app.nothing_recorded') }}" color="cyan" />
+            <div class="flex justify-center" title="{{ __('app.nothing_recorded') }}">
+                <x-svg.empty-state alt="{{ __('app.nothing_recorded') }}" />
             </div>
         @endif
     </div>

@@ -121,7 +121,9 @@
             </div>
         @else
             <div class="w-3xl">
-                <x-ts-alert title="{{ __('person.people') }}" text="{{ __('app.nothing_recorded') }}" color="cyan" />
+                <div class="flex justify-center" title="{{ __('app.nothing_recorded') }}">
+                    <x-svg.empty-state alt="{{ __('app.nothing_recorded') }}" />
+                </div>
             </div>
         @endif
     </div>
