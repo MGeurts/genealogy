@@ -38,6 +38,15 @@ final class MySqlDescendantsQuery implements DescendantsQueryInterface
     /**
      * Build the recursive query for descendants.
      *
+     * Two separate UNION ALL branches are used (one for father, one for mother)
+     * rather than a single branch with OR. This allows MySQL to use indexes on
+     * both father_id and mother_id independently, which is significantly faster
+     * on large tables.
+     *
+     * The sequence column doubles as a cycle guard via FIND_IN_SET: if a person's
+     * id already appears in the descendant chain, the join condition excludes them.
+     * This prevents infinite loops caused by circular references in the data.
+     *
      * REMARK: The maximum length of the comma separated sequence of all id's in the tree can NOT succeed 1024 characters!
      *         So, when largest id is 3 digits (max        999), the maximum level depth is 1024 / (3 + 1) = 256 levels
      *             when largest id is 4 digits (max      9.999), the maximum level depth is 1024 / (4 + 1) = 204 levels
@@ -66,7 +75,7 @@ final class MySqlDescendantsQuery implements DescendantsQueryInterface
                     CONCAT_WS(',', d.sequence, p.id) AS sequence
                 FROM people p
                 JOIN descendants d ON p.father_id = d.id
-                WHERE p.deleted_at IS NULL AND d.degree < $maxDepth
+                WHERE p.deleted_at IS NULL AND d.degree < $maxDepth AND NOT FIND_IN_SET(p.id, sequence)
 
                 UNION ALL
 
@@ -76,7 +85,7 @@ final class MySqlDescendantsQuery implements DescendantsQueryInterface
                     CONCAT_WS(',', d.sequence, p.id) AS sequence
                 FROM people p
                 JOIN descendants d ON p.mother_id = d.id
-                WHERE p.deleted_at IS NULL AND d.degree < $maxDepth
+                WHERE p.deleted_at IS NULL AND d.degree < $maxDepth AND NOT FIND_IN_SET(p.id, sequence)
             )
 
             SELECT * FROM descendants
