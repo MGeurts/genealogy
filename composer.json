@@ -37,16 +37,16 @@
         "filament/tables": "^5.2",
         "intervention/image": "^3.11",
         "korridor/laravel-has-many-merged": "^1.2",
-        "laravel/framework": "^12.51",
+        "laravel/framework": "^12.52",
         "laravel/jetstream": "^5.4",
         "laravel/sanctum": "^4.3",
         "laravel/tinker": "^2.11",
         "livewire/livewire": "~4.1",
         "opcodesio/log-viewer": "^3.21",
-        "secondnetwork/blade-tabler-icons": "^3.36",
-        "spatie/laravel-activitylog": "^4.11",
+        "secondnetwork/blade-tabler-icons": "^3.37",
+        "spatie/laravel-activitylog": "^4.12",
         "spatie/laravel-backup": "^9.4",
-        "spatie/laravel-medialibrary": "^11.19",
+        "spatie/laravel-medialibrary": "^11.21",
         "stefangabos/world_countries": "^3.3",
         "stevebauman/location": "^7.6",
         "tallstackui/tallstackui": "^2.15"
@@ -61,10 +61,10 @@
         "laravel/sail": "^1.53",
         "larswiegers/laravel-translations-checker": "^0.9",
         "mockery/mockery": "^1.6",
-        "nunomaduro/collision": "^8.8",
-        "pestphp/pest": "^4.3",
+        "nunomaduro/collision": "^8.9",
+        "pestphp/pest": "^4.4",
         "pestphp/pest-plugin-livewire": "^4.1",
-        "spatie/laravel-ignition": "^2.10"
+        "spatie/laravel-ignition": "^2.11"
     },
     "autoload": {
         "psr-4": {
