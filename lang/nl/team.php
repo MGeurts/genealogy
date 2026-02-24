@@ -79,6 +79,7 @@ return [
     'discard'                    => 'Als u niet verwachtte een uitnodiging voor dit team te ontvangen, kunt u deze e-mail weggooien.',
 
     'transfer'           => 'Overdragen',
+    'transfer_failed'    => 'De overdracht is mislukt',
     'transfer_ownership' => 'Eigendom overdragen',
     'transfer_message'   => 'Draag het eigendom van dit team over aan een ander teamlid.',
     'select_new_owner'   => 'Selecteer een bestaand teamlid als de nieuwe teameigenaar.',

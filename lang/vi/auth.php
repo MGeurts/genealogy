@@ -85,4 +85,7 @@ return [
     'resend'       => 'Gửi lại Email Xác Minh',
     'edit_profile' => 'Chỉnh sửa Hồ Sơ',
 
+    'no_permissions' => 'Bạn không có bất kỳ quyền nào.',
+    'role_unknown'   => 'Vai trò không xác định.',
+
 ];

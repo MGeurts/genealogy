@@ -79,6 +79,7 @@ return [
     'discard'                    => 'If you did not expect to receive an invitation to this team, you may discard this email.',
 
     'transfer'           => 'Transfer',
+    'transfer_failed'    => 'The transfer failed',
     'transfer_ownership' => 'Transfer ownership',
     'transfer_message'   => 'Transfer this team\'s ownership to another team member.',
     'select_new_owner'   => 'Select an existing team member as the new team owner.',

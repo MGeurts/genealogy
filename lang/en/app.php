@@ -44,6 +44,7 @@ return [
     'year'              => 'Year',
     'yes'               => 'Yes',
     'no'                => 'No',
+    'unknown'           => 'Unknown',
 
     'created_at' => 'Created at',
     'updated_at' => 'Updated at',

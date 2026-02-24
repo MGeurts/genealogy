@@ -79,6 +79,7 @@ return [
     'discard'                    => 'Jika Anda tidak mengharapkan untuk menerima undangan ke tim ini, Anda dapat mengabaikan email ini.',
 
     'transfer'           => 'Transfer',
+    'transfer_failed'    => 'Transfer gagal',
     'transfer_ownership' => 'Transfer kepemilikan',
     'transfer_message'   => 'Transfer kepemilikan tim ini ke anggota tim lain.',
     'select_new_owner'   => 'Pilih anggota tim yang sudah ada sebagai pemilik tim baru.',

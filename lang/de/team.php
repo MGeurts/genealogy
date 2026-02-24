@@ -79,6 +79,7 @@ return [
     'discard'                    => 'Wenn Sie nicht damit gerechnet haben, eine Einladung zu diesem Team zu erhalten, können Sie diese E-Mail verwerfen.',
 
     'transfer'           => 'Übertragen',
+    'transfer_failed'    => 'Die Übertragung ist fehlgeschlagen',
     'transfer_ownership' => 'Eigentum übertragen',
     'transfer_message'   => 'Übertragen Sie den Besitz dieses Teams auf ein anderes Teammitglied.',
     'select_new_owner'   => 'Wählen Sie ein bestehendes Teammitglied als neuen Teambesitzer aus.',

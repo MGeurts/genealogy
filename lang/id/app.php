@@ -44,6 +44,7 @@ return [
     'year'              => 'Tahun',
     'yes'               => 'Ya',
     'no'                => 'Tidak',
+    'unknown'           => 'Tidak diketahui',
 
     'created_at' => 'Dibuat pada',
     'updated_at' => 'Diperbarui pada',

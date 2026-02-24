@@ -44,6 +44,7 @@ return [
     'year'              => '年',
     'yes'               => '是',
     'no'                => '否',
+    'unknown'           => '未知',
 
     'created_at' => '添加',
     'updated_at' => '更新',

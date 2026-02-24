@@ -72,7 +72,7 @@
                                                 <x-ts-icon icon="tabler.edit" class="inline-block size-5" />
                                             </x-ts-button>
 
-                                            <x-ts-button wire:click="confirm('{{ $event->id }}')" color="red" title="{{ __('personevenst.delete_event') }}">
+                                            <x-ts-button wire:click="confirm('{{ $event->id }}')" color="red" title="{{ __('personevents.delete_event') }}">
                                                 <x-ts-icon icon="tabler.trash" class="inline-block size-5" />
                                             </x-ts-button>
                                         </div>

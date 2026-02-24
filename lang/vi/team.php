@@ -79,6 +79,7 @@ return [
     'discard'                    => 'Nếu bạn không mong đợi nhận được lời mời tham gia đội này, bạn có thể bỏ qua email này.',
 
     'transfer'           => 'Chuyển khoản',
+    'transfer_failed'    => 'Chuyển giao thất bại',
     'transfer_ownership' => 'Chuyển quyền sở hữu',
     'transfer_message'   => 'Chuyển quyền sở hữu của nhóm này cho thành viên khác trong nhóm.',
     'select_new_owner'   => 'Chọn một thành viên nhóm hiện có làm chủ sở hữu nhóm mới.',

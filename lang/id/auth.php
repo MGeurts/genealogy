@@ -85,4 +85,7 @@ return [
     'resend'       => 'Kirim Ulang Email Verifikasi',
     'edit_profile' => 'Ubah Profil',
 
+    'no_permissions' => 'Anda tidak memiliki izin apa pun.',
+    'role_unknown'   => 'Peran tidak diketahui.',
+
 ];

@@ -79,6 +79,7 @@ return [
     'discard'                    => 'Bu takıma davet almayı beklemiyorsanız, bu e-postayı yok sayabilirsiniz.',
 
     'transfer'           => 'Aktar',
+    'transfer_failed'    => 'Aktarım başarısız oldu',
     'transfer_ownership' => 'Sahipliği aktar',
     'transfer_message'   => 'Bu takımın sahipliğini başka bir takım üyesine aktarın.',
     'select_new_owner'   => 'Yeni takım sahibi olarak mevcut bir takım üyesini seçin.',

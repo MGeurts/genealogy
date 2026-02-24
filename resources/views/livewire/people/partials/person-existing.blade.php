@@ -7,7 +7,7 @@
             <x-ts-select.styled wire:model="form.person_id" id="person_id" label="{{ __('person.person') }} : *" :options="$persons" select="label:name|value:id" placeholder="{{ __('app.select') }} ..." searchable>
                 <x-slot:after>
                     <div class="w-full px-2 mb-2">
-                        <x-ts-alert title="{{ __('app.nothing_available') }}" text="{{ __('person.use_tab') . ' : ' . __('person.add_new_person') }}" color="cyan" />
+                        <x-ts-alert title="{{ __('app.nothing_available') }}" text="{{ __('person.use_tab') . ' : ' . __('person.add_person') }}" color="cyan" />
                     </div>
                 </x-slot:after>
             </x-ts-select.styled>

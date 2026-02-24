@@ -84,4 +84,7 @@ return [
     'resend'       => '重新发送验证电子邮件',
     'edit_profile' => '编辑个人资料',
 
+    'no_permissions' => '您没有任何权限。',
+    'role_unknown'   => '角色未知。',
+
 ];

@@ -85,4 +85,7 @@ return [
     'resend'       => 'Bestätigungsmail erneut senden',
     'edit_profile' => 'Profil bearbeiten',
 
+    'no_permissions' => 'Sie haben keine Berechtigungen.',
+    'role_unknown'   => 'Rolle ist unbekannt.',
+
 ];

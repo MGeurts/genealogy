@@ -40,7 +40,7 @@
 
         <x-slot name="actions">
             <x-action-message class="me-3" on="created">
-                {{ __('api.created.') }}
+                {{ __('api.created') }}
             </x-action-message>
 
             <x-ts-button type="submit" color="primary">

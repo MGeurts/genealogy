@@ -42,6 +42,7 @@ return [
     'year'              => 'Année',
     'yes'               => 'Oui',
     'no'                => 'Non',
+    'unknown'           => 'Inconnu',
 
     'created_at'                => 'Créé à',
     'updated_at'                => 'Mis à jour à',

@@ -79,6 +79,7 @@ return [
     'discard'                    => '如果您没有预期收到此家族的邀请，可以丢弃此电子邮件。',
 
     'transfer'           => '转移',
+    'transfer_failed'    => '传输失败',
     'transfer_ownership' => '转让所有权',
     'transfer_message'   => '将该团队的所有权转让给另一个团队成员。',
     'select_new_owner'   => '选择现有团队成员作为新团队所有者。',

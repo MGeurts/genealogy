@@ -85,4 +85,7 @@ return [
     'resend'       => 'Doğrulama E-postasını Tekrar Gönder',
     'edit_profile' => 'Profili Düzenle',
 
+    'no_permissions' => 'Herhangi bir izniniz yok.',
+    'role_unknown'   => 'Rol bilinmiyor.',
+
 ];

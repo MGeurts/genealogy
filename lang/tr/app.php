@@ -44,6 +44,7 @@ return [
     'year'              => 'Yıl',
     'yes'               => 'Evet',
     'no'                => 'Hayır',
+    'unknown'           => 'Bilinmiyor',
 
     'created_at' => 'Oluşturulma Tarihi',
     'updated_at' => 'Güncellenme Tarihi',

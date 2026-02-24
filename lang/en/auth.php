@@ -85,4 +85,7 @@ return [
     'resend'       => 'Resend Verification Email',
     'edit_profile' => 'Edit Profile',
 
+    'no_permissions' => 'You do not have any permissions.',
+    'role_unknown'   => 'Role is unknown.',
+
 ];

@@ -44,6 +44,7 @@ return [
     'year'              => 'Jaar',
     'yes'               => 'Ja',
     'no'                => 'Nee',
+    'unknown'           => 'Onbekend',
 
     'created_at' => 'Aangemaakt op',
     'updated_at' => 'Gewijzigd op',

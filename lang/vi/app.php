@@ -44,6 +44,7 @@ return [
     'year'              => 'Năm',
     'yes'               => 'Có',
     'no'                => 'Không',
+    'unknown'           => 'Không xác định',
 
     'created_at' => 'Được tạo vào',
     'updated_at' => 'Được cập nhật vào',

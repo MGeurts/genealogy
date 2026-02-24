@@ -85,4 +85,7 @@ return [
     'resend'       => 'Verificatie-e-mail opnieuw verzenden',
     'edit_profile' => 'Bewerk profiel',
 
+    'no_permissions' => 'U heeft geen rechten.',
+    'role_unknown'   => 'Rol is onbekend.',
+
 ];

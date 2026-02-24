@@ -72,6 +72,7 @@ return [
     'discard'                    => 'Si vous ne vous attendiez pas à recevoir une invitation à cette équipe, vous pouvez supprimer cet e-mail.',
 
     'transfer'           => 'Transfert',
+    'transfer_failed'    => 'Le transfert a échoué',
     'transfer_ownership' => 'Transférer la propriété',
     'transfer_message'   => 'Transférez la propriété de cette équipe à un autre membre de l\'équipe.',
     'select_new_owner'   => 'Sélectionnez un membre de l\'équipe existant en tant que nouveau propriétaire de l\'équipe.',
