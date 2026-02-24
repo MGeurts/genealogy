@@ -89,7 +89,7 @@ class GedcomParser
                     } else {
                         // Non-ID level 0 records (HEAD, TRLR)
                         $tag             = $parts[1];
-                        $value           = $parts[2] ?? '';
+                        $value           = $parts[2];
                         $gedcomData[]    = ['type' => $tag, 'value' => mb_trim($value)];
                         $currentRecord   = null;
                         $currentRecordId = null;
