@@ -11,7 +11,7 @@ use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-it('does not detect self-overlap when editing a couple', function (): void {
+it('can save an existing couple without triggering a false overlap error', function (): void {
     // Create user and team, and assign the team to the user
     $user = User::factory()->create();
     $team = Team::factory()->create([
