@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
+use Livewire\Blaze\Blaze;
 use Opcodes\LogViewer\Facades\LogViewer;
 use Override;
 use TallStackUi\Facades\TallStackUi;
@@ -38,6 +39,8 @@ final class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Blaze::optimize()->in(resource_path('views/components'));
+
         // ------------------------------------------------------------------------------
         // Configure application settings and services
         // ------------------------------------------------------------------------------
