@@ -189,7 +189,7 @@ return [
                 |----------------------------------
                 | Allowed: heroicons, BladeUI or anonymous Blade components as svg (check the docs).
                 */
-                'type' => env('TALLSTACKUI_ICON_TYPE', 'secondnetwork/blade-tabler-icons'),
+                'type' => env('TALLSTACKUI_ICON_TYPE', 'heroicons'),
 
                 /*
                 |----------------------------------

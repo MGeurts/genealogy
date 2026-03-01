@@ -6,9 +6,9 @@ return [
     'export'                    => 'Dışa Aktar',
     'exporting_please_wait'     => 'Dışa aktarılıyor, lütfen bekleyin.',
     'export_in_progress'        => 'Dışa aktarma devam ediyor.',
-    'gedcom_export'             => 'Takımı GEDCOM dosyasına dışa aktar.',
+    'gedcom_export'             => 'Takımı GEDCOM dosyasına dışa aktar',
     'gedcom_file'               => 'GEDCOM dosyası',
-    'gedcom_import'             => 'Takımı GEDCOM dosyasından içe aktar.',
+    'gedcom_import'             => 'Takımı GEDCOM dosyasından içe aktar',
     'gedcom_import_placeholder' => 'Bir GEDCOM dosyası seçin',
 
     'import'                => 'İçe Aktar',

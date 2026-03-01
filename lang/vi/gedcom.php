@@ -6,9 +6,9 @@ return [
     'export'                    => 'Xuất khẩu',
     'exporting_please_wait'     => 'Đang xuất, vui lòng chờ.',
     'export_in_progress'        => 'Đang tiến hành xuất.',
-    'gedcom_export'             => 'Xuất đội sang tệp GEDCOM.',
+    'gedcom_export'             => 'Xuất đội sang tệp GEDCOM',
     'gedcom_file'               => 'Tệp GEDCOM',
-    'gedcom_import'             => 'Nhập đội từ tệp GEDCOM.',
+    'gedcom_import'             => 'Nhập đội từ tệp GEDCOM',
     'gedcom_import_placeholder' => 'Chọn một tập tin GEDCOM',
 
     'import'                => 'Nhập',

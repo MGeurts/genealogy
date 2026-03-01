@@ -50,7 +50,7 @@
         "spatie/laravel-medialibrary": "^11.21",
         "stefangabos/world_countries": "^3.3",
         "stevebauman/location": "^7.6",
-        "tallstackui/tallstackui": "^2.15"
+        "tallstackui/tallstackui": "^3.0"
     },
     "require-dev": {
         "alisalehi/laravel-lang-files-translator": "^1.0",

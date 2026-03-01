@@ -6,9 +6,9 @@ return [
     'export'                    => 'Export',
     'exporting_please_wait'     => 'Exporting, please wait.',
     'export_in_progress'        => 'Export in progress.',
-    'gedcom_export'             => 'Export team to GEDCOM file.',
+    'gedcom_export'             => 'Export team to GEDCOM file',
     'gedcom_file'               => 'GEDCOM file',
-    'gedcom_import'             => 'Import team from GEDCOM file.',
+    'gedcom_import'             => 'Import team from GEDCOM file',
     'gedcom_import_placeholder' => 'Choose a GEDCOM file',
 
     'import'                => 'Import',

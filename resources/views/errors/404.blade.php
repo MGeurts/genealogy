@@ -3,10 +3,6 @@
 @endsection
 
 <x-app-layout>
-    <x-slot name="heading">
-        {{ $exception->getStatuscode() }}
-    </x-slot>
-
     <div class="p-5 max-w-5xl overflow-x-auto grow">
         <div class="flex">
             <x-ts-alert icon="tabler.bug" ext="Neutral" color="neutral" >

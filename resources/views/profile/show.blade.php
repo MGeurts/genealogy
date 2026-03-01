@@ -3,10 +3,6 @@
 @endsection
 
 <x-app-layout>
-    <x-slot name="heading">
-        {{ __('user.profile') }}
-    </x-slot>
-
     <div class="w-full p-2 space-y-5">
         <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
             @if (Laravel\Fortify\Features::canUpdateProfileInformation())

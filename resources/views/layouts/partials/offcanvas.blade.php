@@ -1,9 +1,9 @@
-<x-ts-slide id="offcanvas" size="sm" blur>
+<x-ts-slide id="offcanvas" left size="sm" blur>
     @php
-$user = auth()->user();
-$currentTeam = $user?->currentTeam;
-$role = $user?->teamRole($currentTeam);
-$permissions = $user?->teamPermissions($currentTeam);
+        $user = auth()->user();
+        $currentTeam = $user?->currentTeam;
+        $role = $user?->teamRole($currentTeam);
+        $permissions = $user?->teamPermissions($currentTeam);
     @endphp
 
     <x-slot:title>

@@ -6,9 +6,9 @@ return [
     'export'                    => 'Ekspor',
     'exporting_please_wait'     => 'Sedang mengekspor, harap tunggu.',
     'export_in_progress'        => 'Ekspor sedang berlangsung.',
-    'gedcom_export'             => 'Ekspor tim ke file GEDCOM.',
+    'gedcom_export'             => 'Ekspor tim ke file GEDCOM',
     'gedcom_file'               => 'File GEDCOM',
-    'gedcom_import'             => 'Impor tim dari file GEDCOM.',
+    'gedcom_import'             => 'Impor tim dari file GEDCOM',
     'gedcom_import_placeholder' => 'Pilih file GEDCOM',
 
     'import'                => 'Impor',

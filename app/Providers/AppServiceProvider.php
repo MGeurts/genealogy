@@ -39,7 +39,13 @@ final class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Blaze::optimize()->in(resource_path('views/components'));
+        // ------------------------------------------------------------------------------
+        // Configure Livewire Blaze settings, enable debugging and optimize components in the specified directory.
+        // ------------------------------------------------------------------------------
+        // Blaze::optimize()->in(resource_path('views/components'))->in(resource_path('../vendor/tallstackui/tallstackui/src/View/Components'));
+        // if (app()->isLocal()) {
+        //     Blaze::debug();
+        // }
 
         // ------------------------------------------------------------------------------
         // Configure application settings and services
@@ -145,7 +151,7 @@ final class AppServiceProvider extends ServiceProvider
      */
     private function configureTallStackUiPersonalization(): void
     {
-        $ui = TallStackUi::personalize();
+        $ui = TallStackUi::customize();
 
         $ui->alert()->block('wrapper')->replace('rounded-lg', 'rounded-sm');
 
@@ -189,7 +195,7 @@ final class AppServiceProvider extends ServiceProvider
             ->block('wrapper.first')->replace('bg-gray-400/75', 'bg-gray-400/10')
             ->block('wrapper.fourth')->replace([
                 'dark:bg-dark-700' => 'dark:bg-gray-900',
-                'rounded-xl'       => 'rounded-sm',
+                'rounded-t-xl'     => 'rounded-t-sm',
             ]);
 
         $ui->slide()

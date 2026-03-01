@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="flex-1 max-w-max">
-                    <x-ts-button color="cyan" title="{{ __('app.help') }}" x-on:click="$modalOpen('search-help')" class="pb-1! p-1.5! mt-1! text-sm text-white">
+                    <x-ts-button color="cyan" title="{{ __('app.help') }}" x-on:click="$tsui.open.modal('search-help')" class="pb-1! p-1.5! mt-1! text-sm text-white">
                         <x-ts-icon icon="tabler.help" class="inline-block size-5" />
                     </x-ts-button>
                 </div>

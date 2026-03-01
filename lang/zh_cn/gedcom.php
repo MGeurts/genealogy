@@ -6,9 +6,9 @@ return [
     'export'                    => '导出',
     'exporting_please_wait'     => '正在导出，请稍候。',
     'export_in_progress'        => '正在导出。',
-    'gedcom_export'             => '将家族导出为 GEDCOM 文件。',
+    'gedcom_export'             => '将家族导出为 GEDCOM 文件',
     'gedcom_file'               => 'GEDCOM 文件',
-    'gedcom_import'             => '从 GEDCOM 文件导入家族。',
+    'gedcom_import'             => '从 GEDCOM 文件导入家族',
     'gedcom_import_placeholder' => '选择一个GEDCOM文件',
 
     'import'                => '导入',

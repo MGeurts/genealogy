@@ -184,7 +184,7 @@
          {{-- theme switch and offcanvas--}}
         <div class="flex flex-col place-items-center">
             <div class="hidden space-x-6 min-h-8 md:flex md:items-center md:ml-5">
-                <x-ts-theme-switch only-icons />
+                <x-ts-theme-switch simple only-icons />
             </div>
             <div class="hidden space-x-6 min-h-8 md:flex md:items-center md:ml-5">
                 <x-set.offcanvas />
@@ -247,7 +247,7 @@
                 <x-set.language />
             </div>
             <div class="pt-2 pb-2 pl-4 border-t border-gray-200">
-                <x-ts-theme-switch only-icons />
+                <x-ts-theme-switch simple only-icons />
             </div>
             <div class="pt-2 pb-2 pl-4 border-t border-gray-200">
                 <x-set.offcanvas />
@@ -343,7 +343,7 @@
 
             {{-- responsive settings options --}}
             <div class="py-2 pl-4 border-t border-gray-200">
-                <x-ts-theme-switch only-icons />
+                <x-ts-theme-switch simple only-icons />
             </div>
             <div class="py-1 pl-4 border-t border-gray-200">
                 <x-set.offcanvas />

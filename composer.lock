@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c0aa407feda2a505dd669503376e183",
+    "content-hash": "93d9621242bceab63331a5806f026f98",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -6041,16 +6041,16 @@
         },
         {
             "name": "spatie/image",
-            "version": "3.9.1",
+            "version": "3.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/image.git",
-                "reference": "9a8e02839897b236f37708d24bcb12381ba050ff"
+                "reference": "13a8f1441293c93c4acf4ed35102305f68e7a723"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/image/zipball/9a8e02839897b236f37708d24bcb12381ba050ff",
-                "reference": "9a8e02839897b236f37708d24bcb12381ba050ff",
+                "url": "https://api.github.com/repos/spatie/image/zipball/13a8f1441293c93c4acf4ed35102305f68e7a723",
+                "reference": "13a8f1441293c93c4acf4ed35102305f68e7a723",
                 "shasum": ""
             },
             "require": {
@@ -6098,7 +6098,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/image/tree/3.9.1"
+                "source": "https://github.com/spatie/image/tree/3.9.2"
             },
             "funding": [
                 {
@@ -6110,7 +6110,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-12T07:34:13+00:00"
+            "time": "2026-03-01T15:19:18+00:00"
         },
         {
             "name": "spatie/image-optimizer",
@@ -9468,36 +9468,37 @@
         },
         {
             "name": "tallstackui/tallstackui",
-            "version": "v2.15.2",
+            "version": "v3.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tallstackui/tallstackui.git",
-                "reference": "77e2f4f3716e860a3a85000be63e9102e0c93b02"
+                "reference": "0314a8a18d18a47b1a6ee769cdd8821955e70b4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/77e2f4f3716e860a3a85000be63e9102e0c93b02",
-                "reference": "77e2f4f3716e860a3a85000be63e9102e0c93b02",
+                "url": "https://api.github.com/repos/tallstackui/tallstackui/zipball/0314a8a18d18a47b1a6ee769cdd8821955e70b4f",
+                "reference": "0314a8a18d18a47b1a6ee769cdd8821955e70b4f",
                 "shasum": ""
             },
             "require": {
                 "ext-zip": "*",
-                "illuminate/console": "^10.0|^11.0|^12.0",
-                "illuminate/contracts": "^10.0|^11.0|^12.0",
-                "illuminate/pagination": "^10.0|^11.0|^12.0",
-                "illuminate/support": "^10.0|^11.0|^12.0",
-                "illuminate/view": "^10.0|^11.0|^12.0",
-                "livewire/livewire": "^3.5.0|^4.0.0",
+                "illuminate/console": "^10.0|^11.0|^12.0|^13.0",
+                "illuminate/contracts": "^10.0|^11.0|^12.0|^13.0",
+                "illuminate/pagination": "^10.0|^11.0|^12.0|^13.0",
+                "illuminate/support": "^10.0|^11.0|^12.0|^13.0",
+                "illuminate/view": "^10.0|^11.0|^12.0|^13.0",
+                "livewire/livewire": "^3.5.0|^4.0",
                 "php": "^8.1"
             },
             "require-dev": {
-                "blade-ui-kit/blade-icons": "^1.7.0",
-                "laravel/pint": "^1.13.0",
-                "orchestra/testbench": "^8.0.0|^9.0.0|^10.0.0",
-                "orchestra/testbench-dusk": "^8.0.0|^9.0.0",
-                "pestphp/pest": "^4.0.0",
-                "pestphp/pest-plugin-type-coverage": "^4.0.0",
-                "spatie/ray": "^1.41.0"
+                "blade-ui-kit/blade-icons": "^1.7",
+                "larastan/larastan": "^3.9",
+                "laravel/pint": "^1.13",
+                "orchestra/testbench": "^8.0|^9.0|^10.0",
+                "orchestra/testbench-dusk": "^8.0|^9.0",
+                "pestphp/pest": "^4.0",
+                "pestphp/pest-plugin-type-coverage": "^4.0",
+                "spatie/ray": "^1.41"
             },
             "type": "library",
             "extra": {
@@ -9531,7 +9532,7 @@
             "description": "TallStackUI is a powerful suite of Blade components that elevate your workflow of Livewire applications.",
             "support": {
                 "issues": "https://github.com/tallstackui/tallstackui/issues",
-                "source": "https://github.com/tallstackui/tallstackui/tree/v2.15.2"
+                "source": "https://github.com/tallstackui/tallstackui/tree/v3.0.5"
             },
             "funding": [
                 {
@@ -9539,7 +9540,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-01-22T21:16:22+00:00"
+            "time": "2026-02-28T03:25:30+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

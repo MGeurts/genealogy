@@ -44,6 +44,8 @@
         <!-- main content -->
         <main>
             {{ $slot }}
+
+            <x-ts-back-to-top square color="green" />
         </main>
 
         <!-- footer -->

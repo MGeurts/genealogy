@@ -28,7 +28,7 @@ This <b>TallStack</b> application is build using :
     <li><a href="https://livewire.laravel.com/" target="_blank">Livewire</a> 4</li>
     <li><a href="https://alpinejs.dev/" target="_blank">Alpine.js</a> 3</li>
     <li><a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a> 4</li>
-    <li><a href="https://tallstackui.com//" target="_blank">TallStackUI</a> 2 (featuring <a href="https://tabler.io/icons" target="_blank">Tabler Icons</a>)</li>
+    <li><a href="https://tallstackui.com//" target="_blank">TallStackUI</a> 3 (featuring <a href="https://tabler.io/icons" target="_blank">Tabler Icons</a>)</li>
     <li><a href="https://filamentphp.com//" target="_blank">Laravel Filament</a> 5 (only <a href="https://filamentphp.com/docs/5.x/tables/overview" target="_blank">Table Builder</a>)</li>
 </ul>
 
