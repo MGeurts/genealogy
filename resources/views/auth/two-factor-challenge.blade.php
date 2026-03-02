@@ -3,10 +3,6 @@
 @endsection
 
 <x-app-layout>
-    <x-slot name="heading">
-        {{ __('auth.2_factor_authentification') }}
-    </x-slot>
-
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />

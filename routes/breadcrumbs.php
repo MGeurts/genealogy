@@ -241,6 +241,10 @@ TallStackUi::breadcrumbs()
         ->parent('home')
         ->add(label: __('auth.reset_password'), link: route('password.reset', $token))
     )
+    ->for('two-factor.login', fn (BreadcrumbTrail $trail) => $trail
+        ->parent('home')
+        ->add(label: __('user.2fa'), link: route('two-factor.login'))
+    )
 
     // -----------------------------------------------------------------------------------
     // team management
