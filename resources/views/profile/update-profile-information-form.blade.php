@@ -18,13 +18,13 @@
                 {{-- profile photo file input --}}
                 <input type="file" id="photo" class="hidden" wire:model.live="photo" x-ref="photo"
                     x-on:change="
-                                photoName = $refs.photo.files[0].name;
-                                const reader = new FileReader();
-                                reader.onload = (e) => {
-                                    photoPreview = e.target.result;
-                                };
-                                reader.readAsDataURL($refs.photo.files[0]);
-                            " />
+                    photoName = $refs.photo.files[0].name;
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        photoPreview = e.target.result;
+                    };
+                    reader.readAsDataURL($refs.photo.files[0]);
+                " />
 
                 <x-label for="photo" value="{{ __('user.photo') }} :" />
 
@@ -103,8 +103,20 @@
         <div class="col-span-6 md:col-span-4">
             <x-label for="timezone" value="{{ __('user.timezone') }} :" />
             <select id="timezone" class="block w-full mt-1 rounded-sm" name="timezone" wire:model="state.timezone" required>
-                @foreach (timezone_identifiers_list() as $timezone)
-                    <option value="{{ $timezone }}" @selected(old('timezone') === $timezone)>{{ $timezone }}</option>
+                @php
+                    $timezones = collect(timezone_identifiers_list())
+                        ->groupBy(fn($tz) => str_contains($tz, '/') ? explode('/', $tz)[0] : 'Other')
+                        ->sortKeys();
+                @endphp
+
+                @foreach ($timezones as $continent => $zones)
+                    <optgroup label="{{ $continent }}">
+                        @foreach ($zones as $timezone)
+                            <option value="{{ $timezone }}" @selected(old('timezone') === $timezone)>
+                                {{ str_replace('_', ' ', $timezone) }}
+                            </option>
+                        @endforeach
+                    </optgroup>
                 @endforeach
             </select>
         </div>

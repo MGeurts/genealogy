@@ -65,8 +65,20 @@
                 </div>
                 <div class="md:w-2/3">
                     <select id="timezone" class="block w-full rounded-sm" name="timezone" required>
-                        @foreach (timezone_identifiers_list() as $timezone)
-                            <option value="{{ $timezone }}" @selected($timezone === old('timezone', config('app.timezone')))>{{ $timezone }}</option>
+                        @php
+                            $timezones = collect(timezone_identifiers_list())
+                                ->groupBy(fn($tz) => str_contains($tz, '/') ? explode('/', $tz)[0] : 'Other')
+                                ->sortKeys();
+                        @endphp
+
+                        @foreach ($timezones as $continent => $zones)
+                            <optgroup label="{{ $continent }}">
+                                @foreach ($zones as $timezone)
+                                    <option value="{{ $timezone }}" @selected($timezone === old('timezone', config('app.timezone')))>
+                                        {{ str_replace('_', ' ', $timezone) }}
+                                    </option>
+                                @endforeach
+                            </optgroup>
                         @endforeach
                     </select>
                 </div>
