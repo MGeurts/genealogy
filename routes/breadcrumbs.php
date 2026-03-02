@@ -229,9 +229,10 @@ TallStackUi::breadcrumbs()
         ->parent('home')
         ->add(label: __('app.my_profile'), link: route('profile.show'), icon: 'tabler.id')
     )
-    ->for('password.confirm', fn (BreadcrumbTrail $trail, $token) => $trail
+// After (fixed)
+    ->for('password.confirm', fn (BreadcrumbTrail $trail) => $trail
         ->parent('home')
-        ->add(label: __('auth.confirm_password'), link: route('password.confirm', $token))
+        ->add(label: __('auth.confirm_password'), link: route('password.confirm'))
     )
     ->for('password.request', fn (BreadcrumbTrail $trail) => $trail
         ->parent('home')
