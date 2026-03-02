@@ -46,7 +46,7 @@
         "opcodesio/log-viewer": "^3.23",
         "secondnetwork/blade-tabler-icons": "^3.37",
         "spatie/laravel-activitylog": "^4.12",
-        "spatie/laravel-backup": "^9.4",
+        "spatie/laravel-backup": "^10.0",
         "spatie/laravel-medialibrary": "^11.21",
         "stefangabos/world_countries": "^3.3",
         "stevebauman/location": "^7.6",
