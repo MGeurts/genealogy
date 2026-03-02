@@ -3,10 +3,6 @@
 @endsection
 
 <x-app-layout>
-    <x-slot name="heading">
-        {{ __('auth.confirm_password') }}
-    </x-slot>
-
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -14,7 +10,7 @@
 
         <x-slot name="header">
             {{ __('auth.confirm_password') }}
-        </x-slot>        
+        </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
             {{ __('auth.secure_area') }}

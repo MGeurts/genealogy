@@ -229,6 +229,19 @@ TallStackUi::breadcrumbs()
         ->parent('home')
         ->add(label: __('app.my_profile'), link: route('profile.show'), icon: 'tabler.id')
     )
+    ->for('password.confirm', fn (BreadcrumbTrail $trail, $token) => $trail
+        ->parent('home')
+        ->add(label: __('auth.confirm_password'), link: route('password.confirm', $token))
+    )
+    ->for('password.request', fn (BreadcrumbTrail $trail) => $trail
+        ->parent('home')
+        ->add(label: __('auth.forgot_password'), link: route('password.request'))
+    )
+    ->for('password.reset', fn (BreadcrumbTrail $trail, $token) => $trail
+        ->parent('home')
+        ->add(label: __('auth.reset_password'), link: route('password.reset', $token))
+    )
+
     // -----------------------------------------------------------------------------------
     // team management
     // -----------------------------------------------------------------------------------
@@ -238,5 +251,12 @@ TallStackUi::breadcrumbs()
     )
     ->for('teams.show', fn (BreadcrumbTrail $trail, $team) => $trail
         ->parent('home')
-        ->add(label: $team, link: route('teams.show', $team), icon: 'tabler.droplet-cog')
+        ->add(label: __('team.settings'), link: route('teams.show', $team), icon: 'tabler.droplet-cog')
+    )
+    // -----------------------------------------------------------------------------------
+    // user
+    // -----------------------------------------------------------------------------------
+    ->for('api-tokens.index', fn (BreadcrumbTrail $trail) => $trail
+        ->parent('home')
+        ->add(label: __('api.api_tokens'), link: route('api-tokens.index'), icon: 'tabler.key')
     );
