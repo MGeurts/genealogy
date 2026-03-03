@@ -58,6 +58,7 @@
         "barryvdh/laravel-ide-helper": "^3.6",
         "fakerphp/faker": "^1.24",
         "larastan/larastan": "^3.9",
+        "laravel/boost": "^2.2",
         "laravel/pint": "^1.27",
         "laravel/sail": "^1.53",
         "larswiegers/laravel-translations-checker": "^0.9",
