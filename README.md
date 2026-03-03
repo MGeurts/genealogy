@@ -310,6 +310,92 @@ The application does **not support Right To Left (RTL) languages** like Arabic, 
 
 Instructions on how to configure file and image uploads can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-UPLOADS.md" target="_blank">README-UPLOADS.md</a>.
 
+## Person photos: Media Library driver & migration
+
+Genealogy now supports storing person photos using <a href="https://spatie.be/docs/laravel-medialibrary" target="_blank">Spatie Laravel Media Library</a> in addition to the original custom, disk-based implementation.
+
+### Why this was introduced
+
+- **Stronger security**: person photos are served via short‑lived, **signed URLs** instead of long‑lived public paths.
+- **Cleaner abstraction**: all photo operations go through `PersonPhotoServiceInterface`, allowing you to switch drivers without touching calling code.
+- **Consistent transformations**: conversions (`small`, `medium`, `large`) are centralised on the `Person` model and share the same WebP and sizing rules as the legacy implementation.
+- **Future flexibility**: Media Library opens up features like responsive images, custom collections, and alternative disks without changing the UI.
+
+### Drivers overview
+
+Person photos are handled by a pluggable service, selected via the `PHOTO_DRIVER` environment variable:
+
+- `PHOTO_DRIVER=custom` (default): uses the original filesystem layout on the `photos` disk.
+- `PHOTO_DRIVER=medialibrary`: uses Spatie Media Library with a `photos` collection on the `Person` model, storing files on the `photos` disk and metadata in the `media` table.
+
+When `PHOTO_DRIVER=medialibrary` is enabled, all URLs returned by the photo service are **signed** using temporary URLs, with an optional TTL configured by `app.photo_signed_url_ttl` (in minutes, default 60).
+
+### Enabling the Media Library photo driver (new setups)
+
+For a fresh install (or if you do not have existing person photos):
+
+1. Ensure you have run all migrations:
+
+```bash
+php artisan migrate
+```
+
+2. Set the driver in `.env`:
+
+```bash
+PHOTO_DRIVER=medialibrary
+```
+
+3. (Optional) Configure the signed URL TTL in `config/app.php`:
+
+```php
+'photo_signed_url_ttl' => 60, // minutes
+```
+
+After this, new uploads will be stored via Media Library, and all person photo URLs will be generated as signed temporary URLs.
+
+### Migrating existing photos from the legacy driver
+
+If you already have person photos stored with the legacy `custom` driver on the `photos` disk, you can migrate them into Media Library.
+
+**Before you start**:
+
+- Make a full **backup** of your database and the `storage/app/public/photos` directory.
+- Ensure `php artisan migrate` has created the `media` table.
+
+#### Step 1: Run the migration command
+
+By default the application ships with an Artisan command that:
+
+- Scans all existing legacy photos on the `photos` disk,
+- Creates corresponding Media Library records on the `photos` collection for each `Person`,
+- Updates `people.photo` to point at the new Media ID for the primary photo,
+- Deletes the legacy originals and their generated variants once imported (files are only kept in the new Media Library structure).
+
+Run:
+
+```bash
+php artisan photos:migrate-to-medialibrary
+```
+
+You can limit migration to specific persons if needed:
+
+```bash
+php artisan photos:migrate-to-medialibrary --person=1 --person=2
+```
+
+After the command completes, person photo metadata will live in the `media` table, and files will be managed by Media Library.
+
+#### Step 2: Switch the driver
+
+Once you have verified that photos display correctly:
+
+```bash
+PHOTO_DRIVER=medialibrary
+```
+
+Reload the application; all person photo operations (upload, display, delete, gallery, exports) will now use the Media Library‑backed implementation.
+
 ## Techniques
 
 Both the <b>ancestors</b> and <b>descendants</b> family trees are build using <a href="https://dev.mysql.com/blog-archive/mysql-8-0-labs-recursive-common-table-expressions-in-mysql-ctes" target="_blank">Recursive Common Table Expressions</a> (Recursive CTE). This prevents the N+1 query problem generating the recursive tree family elements and dramatically improves performance.
