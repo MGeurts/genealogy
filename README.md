@@ -316,7 +316,7 @@ Genealogy now supports storing person photos using <a href="https://spatie.be/do
 
 ### Why this was introduced
 
-- **Stronger security**: person photos are served via short‑lived, **signed URLs** instead of long‑lived public paths.
+- **Stronger security**: person photos are stored on a local filesystem disk and served via short‑lived, **signed URLs**, instead of exposing long‑lived public paths.
 - **Cleaner abstraction**: all photo operations go through `PersonPhotoServiceInterface`, allowing you to switch drivers without touching calling code.
 - **Consistent transformations**: conversions (`small`, `medium`, `large`) are centralised on the `Person` model and share the same WebP and sizing rules as the legacy implementation.
 - **Future flexibility**: Media Library opens up features like responsive images, custom collections, and alternative disks without changing the UI.
@@ -328,7 +328,7 @@ Person photos are handled by a pluggable service, selected via the `PHOTO_DRIVER
 - `PHOTO_DRIVER=custom` (default): uses the original filesystem layout on the `photos` disk.
 - `PHOTO_DRIVER=medialibrary`: uses Spatie Media Library with a `photos` collection on the `Person` model, storing files on the `photos` disk and metadata in the `media` table.
 
-When `PHOTO_DRIVER=medialibrary` is enabled, all URLs returned by the photo service are **signed** using temporary URLs, with an optional TTL configured by `app.photo_signed_url_ttl` (in minutes, default 60).
+When `PHOTO_DRIVER=medialibrary` is enabled, all URLs returned by the photo service are **signed** temporary URLs, even though the files live on a local disk. The lifetime of these URLs can be configured via `app.photo_signed_url_ttl` (in minutes, default 60).
 
 ### Enabling the Media Library photo driver (new setups)
 
