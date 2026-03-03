@@ -17,6 +17,17 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/.gemini
+/.junie
+/.cursor
+/.claude
+/.github/skills
+/.ai
+.mcp.json
+boost.json
+/.agents
+config.toml
+opencode.json
 deploy-genealogy.sh
 herd.yml
 _ide_helper.php
