@@ -15,9 +15,8 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  *
  * This command reads existing photos from the legacy `photos` disk layout
  * (used by the custom photo driver), creates corresponding Media Library
- * records on the `photos` collection for each person, and optionally deletes
- * the legacy files after successful import. Callers should rely on this to
- * move existing installs to the new Media Library-backed photo driver.
+ * records on the `photos` collection for each person, and removes the legacy
+ * files after successful import so files only live in the new structure.
  */
 class MigratePersonPhotosToMediaLibrary extends Command
 {
@@ -27,7 +26,6 @@ class MigratePersonPhotosToMediaLibrary extends Command
      * @var string
      */
     protected $signature = 'photos:migrate-to-medialibrary
-                            {--delete-old : Delete legacy photo files after importing}
                             {--person=* : Limit migration to specific person IDs}';
 
     /**
@@ -41,7 +39,6 @@ class MigratePersonPhotosToMediaLibrary extends Command
     {
         $this->info('Starting person photo migration to Media Library...');
 
-        $deleteOld = (bool) $this->option('delete-old');
         /** @var array<int, int|string> $personIds */
         $personIds = $this->option('person');
 
@@ -61,7 +58,6 @@ class MigratePersonPhotosToMediaLibrary extends Command
 
         $query->chunkById(100, function ($people) use (
             $legacyService,
-            $deleteOld,
             &$totalPersons,
             &$totalPhotos,
             &$skippedPhotos,
@@ -111,7 +107,7 @@ class MigratePersonPhotosToMediaLibrary extends Command
                     /** @var Media $media */
                     $media = $person
                         ->addMedia($legacyAbsolute)
-                        ->toMediaCollection('photos', 'photos');
+                        ->toMediaCollection('photos', 's3');
 
                     $totalPhotos++;
 
@@ -121,9 +117,7 @@ class MigratePersonPhotosToMediaLibrary extends Command
                         $primaryUpdated++;
                     }
 
-                    if ($deleteOld) {
-                        $this->deleteLegacyFilesForPhoto($diskPath);
-                    }
+                    $this->deleteLegacyFilesForPhoto($diskPath);
                 }
             }
         });
@@ -136,10 +130,6 @@ class MigratePersonPhotosToMediaLibrary extends Command
         $this->line("Missing files   : {$missingFiles}");
         $this->line("Primary updated : {$primaryUpdated}");
 
-        if (! $deleteOld) {
-            $this->comment('Legacy files were not deleted. Re-run with --delete-old once you have verified the migration.');
-        }
-
         return self::SUCCESS;
     }
 
@@ -149,8 +139,8 @@ class MigratePersonPhotosToMediaLibrary extends Command
 
         $disk->delete($diskPath);
 
-        $directory         = dirname($diskPath);
-        $filename          = basename($diskPath);
+        $directory          = dirname($diskPath);
+        $filename           = basename($diskPath);
         $filenameWithoutExt = pathinfo($filename, PATHINFO_FILENAME);
 
         $variants = [
@@ -162,4 +152,3 @@ class MigratePersonPhotosToMediaLibrary extends Command
         $disk->delete($variants);
     }
 }
-
