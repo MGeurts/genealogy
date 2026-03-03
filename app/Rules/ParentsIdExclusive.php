@@ -9,15 +9,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 
 class ParentsIdExclusive implements ValidationRule
 {
-    protected mixed $fatherId;
-
-    protected mixed $motherId;
-
-    public function __construct(mixed $fatherId, mixed $motherId)
-    {
-        $this->fatherId = $fatherId;
-        $this->motherId = $motherId;
-    }
+    public function __construct(protected ?int $fatherId, protected ?int $motherId) {}
 
     /**
      * Run the validation rule.
