@@ -1,12 +1,14 @@
 @props(['person' => null])
 
+@inject('photoService', 'App\Contracts\PersonPhotoServiceInterface')
+
 <div class="user-image">
     @php
-        $photoPath = $person->team_id . '/' . $person->id . '/' . $person->photo . '_medium.webp';
+        $photoUrl = $person?->photo ? $photoService->getPrimaryPhotoUrl($person, 'medium') : null;
     @endphp
 
-    @if ($person->photo && Storage::disk('photos')->exists($photoPath))
-        <img {{ $attributes->merge(['class' => 'w-full rounded-sm shadow-lg dark:shadow-black/30']) }} src="{{ Storage::disk('photos')->url($photoPath) }}" alt="{{ $person->name }}" title="{{ $person->name }}" />
+    @if ($photoUrl)
+        <img {{ $attributes->merge(['class' => 'w-full rounded-sm shadow-lg dark:shadow-black/30']) }} src="{{ $photoUrl }}" alt="{{ $person->name }}" title="{{ $person->name }}" />
     @else
         <x-svg.person-no-image {{ $attributes->merge(['class' => 'w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400']) }} alt="no-image-found" />
     @endif

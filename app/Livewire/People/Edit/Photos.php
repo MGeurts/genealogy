@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Livewire\People\Edit;
 
+use App\Contracts\PersonPhotoServiceInterface;
 use App\Models\Person;
-use App\PersonPhotos;
 use Exception;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
@@ -64,8 +64,9 @@ final class Photos extends Component
     public function photos(): Collection
     {
         try {
-            $personPhotos = new PersonPhotos($this->person);
-            $photosData   = $personPhotos->getAllPhotos();
+            /** @var PersonPhotoServiceInterface $photoService */
+            $photoService = app(PersonPhotoServiceInterface::class);
+            $photosData   = $photoService->getAllPhotos($this->person);
 
             return collect($photosData)->map(function ($photo) {
                 // Add file size if available
@@ -177,8 +178,9 @@ final class Photos extends Component
                 }
             }
 
-            $personPhotos = new PersonPhotos($this->person);
-            $savedCount   = $personPhotos->save($this->uploads);
+            /** @var PersonPhotoServiceInterface $photoService */
+            $photoService = app(PersonPhotoServiceInterface::class);
+            $savedCount   = $photoService->save($this->person, $this->uploads);
 
             if ($savedCount > 0) {
                 $this->toast()->success(__('app.save'), trans_choice('person.photos_saved', $savedCount))->send();
@@ -211,16 +213,9 @@ final class Photos extends Component
     public function delete(string $photo): void
     {
         try {
-            $personPhotos = new PersonPhotos($this->person);
-
-            // Extract index from photo filename
-            $index = $this->extractPhotoIndex($photo);
-
-            if ($index === null) {
-                throw new Exception('Invalid photo filename format');
-            }
-
-            $deleted = $personPhotos->delete($index);
+            /** @var PersonPhotoServiceInterface $photoService */
+            $photoService = app(PersonPhotoServiceInterface::class);
+            $deleted      = $photoService->delete($this->person, $photo);
 
             if ($deleted) {
                 $this->toast()->success(__('app.delete'), __('person.photo_deleted'))->send();
@@ -253,14 +248,14 @@ final class Photos extends Component
     public function setPrimary(string $photo): void
     {
         try {
-            $personPhotos = new PersonPhotos($this->person);
+            /** @var PersonPhotoServiceInterface $photoService */
+            $photoService = app(PersonPhotoServiceInterface::class);
 
-            // Verify photo exists
-            if (! $personPhotos->photoExists($photo)) {
+            if (! $photoService->photoExists($this->person, $photo)) {
                 throw new Exception('Photo does not exist');
             }
 
-            $this->person->update(['photo' => $photo]);
+            $photoService->setPrimary($this->person, $photo);
 
             $this->toast()->success(__('app.saved'), __('person.photo_is_set_primary'))->send();
 
@@ -339,21 +334,6 @@ final class Photos extends Component
     // -----------------------------------------------------------------------
     // Protected and Private Methods
     // -----------------------------------------------------------------------
-
-    /**
-     * Extract photo index from filename.
-     * Expects format: {personId}_{index}_{timestamp}
-     */
-    private function extractPhotoIndex(string $filename): ?int
-    {
-        $parts = explode('_', $filename);
-
-        if (count($parts) >= 3 && is_numeric($parts[1])) {
-            return (int) $parts[1];
-        }
-
-        return null;
-    }
 
     /**
      * Delete a temporary file from storage.

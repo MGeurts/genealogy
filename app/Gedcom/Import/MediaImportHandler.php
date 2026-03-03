@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Gedcom\Import;
 
+use App\Contracts\PersonPhotoServiceInterface;
 use App\Models\Person;
-use App\PersonPhotos;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
@@ -236,8 +236,9 @@ class MediaImportHandler
             }
 
             try {
-                $personPhotos = new PersonPhotos($person);
-                $savedCount   = $personPhotos->save($photos);
+                /** @var PersonPhotoServiceInterface $photoService */
+                $photoService = app(PersonPhotoServiceInterface::class);
+                $savedCount   = $photoService->save($person, $photos);
 
                 if ($savedCount > 0) {
                     $stats['succeeded']++;

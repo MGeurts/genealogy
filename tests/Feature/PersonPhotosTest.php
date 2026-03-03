@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Contracts\PersonPhotoServiceInterface;
 use App\Models\Person;
-use App\PersonPhotos;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -14,11 +14,12 @@ it('can upload photos', function () {
     Storage::fake('photos');
 
     $person = Person::factory()->create();
-    $photos = new PersonPhotos($person);
+    /** @var PersonPhotoServiceInterface $photoService */
+    $photoService = app(PersonPhotoServiceInterface::class);
 
     $file = UploadedFile::fake()->image('photo.jpg');
 
-    $result = $photos->save([$file]);
+    $result = $photoService->save($person, [$file]);
 
     expect($result)->toBe(1);
     expect($person->fresh()->photo)->not->toBeNull();
@@ -28,14 +29,15 @@ it('clears photo attribute when deleting the last photo', function () {
     Storage::fake('photos');
 
     $person = Person::factory()->create();
-    $photos = new PersonPhotos($person);
+    /** @var PersonPhotoServiceInterface $photoService */
+    $photoService = app(PersonPhotoServiceInterface::class);
 
     $file = UploadedFile::fake()->image('photo.jpg');
-    $photos->save([$file]);
+    $photoService->save($person, [$file]);
 
     expect($person->fresh()->photo)->not->toBeNull();
 
-    $photos->delete(1);
+    $photoService->delete($person, $person->fresh()->photo);
 
     expect($person->fresh()->photo)->toBeNull();
 });
@@ -44,19 +46,20 @@ it('selects a new primary when deleting the current primary photo', function () 
     Storage::fake('photos');
 
     $person = Person::factory()->create();
-    $photos = new PersonPhotos($person);
+    /** @var PersonPhotoServiceInterface $photoService */
+    $photoService = app(PersonPhotoServiceInterface::class);
 
     $files = [
         UploadedFile::fake()->image('photo1.jpg'),
         UploadedFile::fake()->image('photo2.jpg'),
     ];
 
-    $photos->save($files);
+    $photoService->save($person, $files);
 
     $firstPhoto = $person->fresh()->photo;
     expect($firstPhoto)->not->toBeNull();
 
-    $photos->delete(1); // Delete first photo
+    $photoService->delete($person, $firstPhoto); // Delete first photo
 
     $newPrimary = $person->fresh()->photo;
 

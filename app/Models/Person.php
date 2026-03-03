@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Contracts\PersonPhotoServiceInterface;
 use App\Countries;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Attributes\Scope;
@@ -16,7 +17,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Korridor\LaravelHasManyMerged\HasManyMerged;
 use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
@@ -675,8 +675,11 @@ final class Person extends Model implements HasMedia
 
         // Handle force deletes (permanent deletion only)
         self::forceDeleted(function (Person $person): void {
+            /** @var PersonPhotoServiceInterface $photoService */
+            $photoService = app(PersonPhotoServiceInterface::class);
+
             // Clean up photos
-            Storage::disk('photos')->deleteDirectory($person->team_id . '/' . $person->id);
+            $photoService->cleanupOnDelete($person);
 
             // Clean up files
             $person->clearMediaCollection('files');

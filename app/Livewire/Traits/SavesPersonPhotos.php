@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Livewire\Traits;
 
+use App\Contracts\PersonPhotoServiceInterface;
 use App\Models\Person;
-use App\PersonPhotos;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
@@ -46,8 +46,9 @@ trait SavesPersonPhotos
         }
 
         try {
-            $photos     = new PersonPhotos($person);
-            $savedCount = $photos->save($validUploads);
+            /** @var PersonPhotoServiceInterface $photoService */
+            $photoService = app(PersonPhotoServiceInterface::class);
+            $savedCount   = $photoService->save($person, $validUploads);
 
             if ($savedCount > 0) {
                 $this->toast()->success(
