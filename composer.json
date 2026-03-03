@@ -44,7 +44,7 @@
         "livewire/blaze": "^1.0",
         "livewire/livewire": "~4.2",
         "opcodesio/log-viewer": "^3.23",
-        "secondnetwork/blade-tabler-icons": "^3.37",
+        "secondnetwork/blade-tabler-icons": "^3.38",
         "spatie/laravel-activitylog": "^4.12",
         "spatie/laravel-backup": "^10.0",
         "spatie/laravel-medialibrary": "^11.21",

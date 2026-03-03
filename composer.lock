@@ -1085,7 +1085,7 @@
         },
         {
             "name": "filament/actions",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/actions.git",
@@ -1134,7 +1134,7 @@
         },
         {
             "name": "filament/forms",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/forms.git",
@@ -1184,7 +1184,7 @@
         },
         {
             "name": "filament/infolists",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/infolists.git",
@@ -1229,7 +1229,7 @@
         },
         {
             "name": "filament/notifications",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/notifications.git",
@@ -1276,7 +1276,7 @@
         },
         {
             "name": "filament/query-builder",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/query-builder.git",
@@ -1322,7 +1322,7 @@
         },
         {
             "name": "filament/schemas",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/schemas.git",
@@ -1367,7 +1367,7 @@
         },
         {
             "name": "filament/support",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/support.git",
@@ -1425,7 +1425,7 @@
         },
         {
             "name": "filament/tables",
-            "version": "v5.3.0",
+            "version": "v5.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/filamentphp/tables.git",
@@ -5920,16 +5920,16 @@
         },
         {
             "name": "secondnetwork/blade-tabler-icons",
-            "version": "v3.37.0",
+            "version": "v3.38.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/secondnetwork/blade-tabler-icons.git",
-                "reference": "97b03688aa4925091cbb33f39578bf3dc79bd474"
+                "reference": "33d8b506fcc2ce4e7a1f71788a16f12ddb37fcca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/secondnetwork/blade-tabler-icons/zipball/97b03688aa4925091cbb33f39578bf3dc79bd474",
-                "reference": "97b03688aa4925091cbb33f39578bf3dc79bd474",
+                "url": "https://api.github.com/repos/secondnetwork/blade-tabler-icons/zipball/33d8b506fcc2ce4e7a1f71788a16f12ddb37fcca",
+                "reference": "33d8b506fcc2ce4e7a1f71788a16f12ddb37fcca",
                 "shasum": ""
             },
             "require": {
@@ -5972,9 +5972,9 @@
             ],
             "support": {
                 "issues": "https://github.com/secondnetwork/blade-tabler-icons/issues",
-                "source": "https://github.com/secondnetwork/blade-tabler-icons/tree/v3.37.0"
+                "source": "https://github.com/secondnetwork/blade-tabler-icons/tree/v3.38.0"
             },
-            "time": "2026-02-22T18:54:55+00:00"
+            "time": "2026-03-02T15:27:43+00:00"
         },
         {
             "name": "spatie/db-dumper",
