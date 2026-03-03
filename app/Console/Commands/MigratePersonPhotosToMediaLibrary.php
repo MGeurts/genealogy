@@ -107,7 +107,7 @@ class MigratePersonPhotosToMediaLibrary extends Command
                     /** @var Media $media */
                     $media = $person
                         ->addMedia($legacyAbsolute)
-                        ->toMediaCollection('photos', 's3');
+                        ->toMediaCollection('photos', 'local');
 
                     $totalPhotos++;
 
@@ -117,7 +117,7 @@ class MigratePersonPhotosToMediaLibrary extends Command
                         $primaryUpdated++;
                     }
 
-                    $this->deleteLegacyFilesForPhoto($diskPath);
+                    // $this->deleteLegacyFilesForPhoto($diskPath);
                 }
             }
         });
