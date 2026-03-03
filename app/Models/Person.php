@@ -23,8 +23,10 @@ use Korridor\LaravelHasManyMerged\HasManyMergedRelation;
 use Override;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
  * @property int $id
@@ -650,6 +652,39 @@ final class Person extends Model implements HasMedia
             ->filter(fn ($event) => $event['sort_date'] !== null)
             ->sortBy('sort_date')
             ->values();
+    }
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('photos')
+            ->useDisk('photos')
+            ->acceptsMimeTypes(array_keys(config('app.upload_photo_accept')));
+    }
+
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        $sizes = config('app.upload_photo.sizes');
+
+        $this->addMediaConversion('large')
+            ->fit(Fit::Max, $sizes['large']['width'], $sizes['large']['height'] ?? $sizes['large']['width'])
+            ->format('webp')
+            ->quality($sizes['large']['quality'])
+            ->performOnCollections('photos')
+            ->nonQueued();
+
+        $this->addMediaConversion('medium')
+            ->fit(Fit::Max, $sizes['medium']['width'], $sizes['medium']['width'])
+            ->format('webp')
+            ->quality($sizes['medium']['quality'])
+            ->performOnCollections('photos')
+            ->nonQueued();
+
+        $this->addMediaConversion('small')
+            ->fit(Fit::Max, $sizes['small']['width'], $sizes['small']['width'])
+            ->format('webp')
+            ->quality($sizes['small']['quality'])
+            ->performOnCollections('photos')
+            ->nonQueued();
     }
 
     /* -------------------------------------------------------------------------------------------- */

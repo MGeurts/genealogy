@@ -6,6 +6,7 @@ namespace App\Providers;
 
 use App\Contracts\PersonPhotoServiceInterface;
 use App\Services\Photos\CustomPersonPhotoService;
+use App\Services\Photos\MediaLibraryPersonPhotoService;
 use Illuminate\Support\ServiceProvider;
 use RuntimeException;
 
@@ -27,7 +28,7 @@ final class PhotoServiceProvider extends ServiceProvider
 
             return match ($driver) {
                 'custom'       => new CustomPersonPhotoService(),
-                'medialibrary' => throw new RuntimeException('MediaLibrary photo driver not yet implemented.'),
+                'medialibrary' => new MediaLibraryPersonPhotoService(),
                 default        => throw new RuntimeException("Unsupported photo driver [{$driver}]."),
             };
         });
