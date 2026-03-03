@@ -8,6 +8,7 @@ use App\Contracts\PersonPhotoServiceInterface;
 use App\Models\Person;
 use Illuminate\Support\Facades\Storage;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use Throwable;
 
 /**
  * Media Library-backed implementation of the person photo service.
@@ -51,10 +52,10 @@ class MediaLibraryPersonPhotoService implements PersonPhotoServiceInterface
                     'name'         => $media->name,
                     'extension'    => $extension,
                     'is_primary'   => $id === $person->photo,
-                    'url_original' => $media->getUrl(),
-                    'url_large'    => $media->getUrl('large'),
-                    'url_medium'   => $media->getUrl('medium'),
-                    'url_small'    => $media->getUrl('small'),
+                    'url_original' => $this->getSignedUrl($media, 'original'),
+                    'url_large'    => $this->getSignedUrl($media, 'large'),
+                    'url_medium'   => $this->getSignedUrl($media, 'medium'),
+                    'url_small'    => $this->getSignedUrl($media, 'small'),
                 ];
             })
             ->values()
@@ -69,11 +70,7 @@ class MediaLibraryPersonPhotoService implements PersonPhotoServiceInterface
             return null;
         }
 
-        if ($variant === 'original') {
-            return $media->getUrl();
-        }
-
-        return $media->getUrl($variant);
+        return $this->getSignedUrl($media, $variant);
     }
 
     public function getPrimaryPhotoUrl(Person $person, string $variant = 'medium'): ?string
@@ -145,10 +142,10 @@ class MediaLibraryPersonPhotoService implements PersonPhotoServiceInterface
                 return [
                     'id'       => (string) $media->id,
                     'filename' => $filename,
-                    'small'    => $media->getUrl('small'),
-                    'medium'   => $media->getUrl('medium'),
-                    'large'    => $media->getUrl('large'),
-                    'original' => $media->getUrl(),
+                    'small'    => $this->getSignedUrl($media, 'small'),
+                    'medium'   => $this->getSignedUrl($media, 'medium'),
+                    'large'    => $this->getSignedUrl($media, 'large'),
+                    'original' => $this->getSignedUrl($media, 'original'),
                 ];
             })
             ->values()
@@ -168,7 +165,7 @@ class MediaLibraryPersonPhotoService implements PersonPhotoServiceInterface
                     'file_reference' => $filename,
                     'mime_type'      => $media->mime_type ?: 'application/octet-stream',
                     'disk_path'      => $path,
-                    'url'            => $media->getUrl(),
+                    'url'            => $this->getSignedUrl($media, 'original'),
                 ];
             })
             ->values()
@@ -223,10 +220,19 @@ class MediaLibraryPersonPhotoService implements PersonPhotoServiceInterface
             return null;
         }
 
-        if ($variant === 'original') {
-            return $media->getUrl();
-        }
+        return $this->getSignedUrl($media, $variant);
+    }
 
-        return $media->getUrl($variant);
+    private function getSignedUrl(Media $media, string $variant): string
+    {
+        $expiryMinutes = (int) config('app.photo_signed_url_ttl', 60);
+        $expiresAt     = now()->addMinutes($expiryMinutes);
+        $conversion    = $variant === 'original' ? '' : $variant;
+
+        try {
+            return $media->getTemporaryUrl($expiresAt, $conversion);
+        } catch (Throwable $e) {
+            return $conversion === '' ? $media->getUrl() : $media->getUrl($conversion);
+        }
     }
 }
