@@ -41,8 +41,8 @@
                             </li>
 
                             <li class="py-2">
-                                <x-link href="https://tallstackui.com/" target="_blank">TallStackUI</x-link> 2 (featuring <x-link href="https://tabler.io/icons" target="_blank">Tabler Icons</x-link>)
-                                <x-ts-button xs href="https://tallstackui.com/docs/get-started/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
+                                <x-link href="https://tallstackui.com/" target="_blank">TallStackUI</x-link> 3 (featuring <x-link href="https://tabler.io/icons" target="_blank">Tabler Icons</x-link>)
+                                <x-ts-button xs href="https://tallstackui.com/docs/v3/installation/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                             </li>
                         </ul>
 
@@ -80,21 +80,6 @@
                 <div class="p-4">
                     <ul class="w-full">
                         <li class="py-2">
-                            <x-link href="https://github.com/alisalehi1380/laravel-lang-files-translator/" target="_blank">alisalehi1380/laravel-lang-files-translator</x-link>
-                            <x-ts-button xs class="ms-5" color="emerald">{{ 'DEV' }}</x-ts-button>
-                        </li>
-
-                        <li class="py-2">
-                            <x-link href="https://github.com/barryvdh/laravel-debugbar/" target="_blank">barryvdh/laravel-debugbar</x-link>
-                            <x-ts-button xs class="ms-5" color="emerald" >{{ 'DEV' }}</x-ts-button>
-                        </li>
-
-                        <li class="py-2">
-                            <x-link href="https://github.com/barryvdh/laravel-ide-helper/" target="_blank">barryvdh/laravel-ide-helper</x-link>
-                            <x-ts-button xs class="ms-5" color="emerald">{{ 'DEV' }}</x-ts-button>
-                        </li>
-
-                        <li class="py-2">
                             <x-link href="https://github.com/filamentphp/tables/" target="_blank">filamentphp/tables/</x-link>
                             <x-ts-button xs href="https://filamentphp.com/docs/4.x/tables/overview/" target="_blank" class="ms-5">{{ __('app.documentation') }}</x-ts-button>
                         </li>
@@ -106,11 +91,6 @@
 
                         <li class="py-2">
                             <x-link href="https://github.com/korridor/laravel-has-many-merged/" target="_blank">korridor/laravel-has-many-merged</x-link>
-                        </li>
-
-                        <li class="py-2">
-                            <x-link href="https://github.com/LarsWiegers/laravel-translations-checker/" target="_blank">larswiegers/laravel-translations-checker</x-link>
-                            <x-ts-button xs class="ms-5" color="emerald">{{ 'DEV' }}</x-ts-button>
                         </li>
 
                         <li class="py-2">
@@ -154,6 +134,30 @@
                         <li class="py-2">
                             <x-link href="https://github.com/MuhammadSadeeq/laravel-activitylog-ui/" target="_blank">MuhammadSadeeq/laravel-activitylog-ui</x-link>
                             <x-ts-button xs class="ms-5" color="orange">{{ 'Optional' }}</x-ts-button>
+                        </li>
+                    </ul>
+
+                    <hr class="my-4">
+
+                    <ul class="w-full">
+                        <li class="py-2">
+                            <x-link href="https://github.com/alisalehi1380/laravel-lang-files-translator/" target="_blank">alisalehi1380/laravel-lang-files-translator</x-link>
+                            <x-ts-button xs class="ms-5" color="emerald">{{ 'DEV' }}</x-ts-button>
+                        </li>
+
+                        <li class="py-2">
+                            <x-link href="https://github.com/barryvdh/laravel-debugbar/" target="_blank">barryvdh/laravel-debugbar</x-link>
+                            <x-ts-button xs class="ms-5" color="emerald">{{ 'DEV' }}</x-ts-button>
+                        </li>
+
+                        <li class="py-2">
+                            <x-link href="https://github.com/barryvdh/laravel-ide-helper/" target="_blank">barryvdh/laravel-ide-helper</x-link>
+                            <x-ts-button xs class="ms-5" color="emerald">{{ 'DEV' }}</x-ts-button>
+                        </li>
+
+                        <li class="py-2">
+                            <x-link href="https://github.com/LarsWiegers/laravel-translations-checker/" target="_blank">larswiegers/laravel-translations-checker</x-link>
+                            <x-ts-button xs class="ms-5" color="emerald">{{ 'DEV' }}</x-ts-button>
                         </li>
                     </ul>
                 </div>
