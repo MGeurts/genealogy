@@ -9,7 +9,7 @@ use Illuminate\Contracts\Validation\ValidationRule;
 
 class ParentsIdExclusive implements ValidationRule
 {
-    public function __construct(protected int $fatherId, protected int $motherId) {}
+    public function __construct(protected ?int $fatherId, protected ?int $motherId) {}
 
     /**
      * Run the validation rule.
