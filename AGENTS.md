@@ -67,7 +67,7 @@ This file is for coding agents working in this repo. Follow it literally.
 
 ### Component suite (TallStackUI)
 
-- **Use <TallStackUI> (`https://tallstackui.com/docs/v2/installation`) as the default suite for Blade components.**
+- **Use <TallStackUI> (`https://tallstackui.com/docs/v3/installation`) as the default suite for Blade components.**
 
 ### Interactivity (Alpine.js in Blade)
 
@@ -230,6 +230,7 @@ This project has domain-specific skills available. You MUST activate the relevan
 - Use appropriate PHP type hints for method parameters.
 
 <!-- Explicit Return Types and Method Params -->
+
 ```php
 protected function isAccessible(User $user, ?string $path = null): bool
 {
