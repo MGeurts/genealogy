@@ -54,7 +54,7 @@
 
                 {{-- gender_id --}}
                 <div class="col-span-3">
-                    <x-ts-select.styled wire:model="gender_id" id="gender_id" label="{{ __('person.gender') }} :" :options="$this->genders()" select="label:name|value:id"placeholder="{{ __('app.select') }} ..." searchable lazy="10" />
+                    <x-ts-select.styled wire:model="gender_id" id="gender_id" label="{{ __('person.gender') }} :" :options="$this->genders()" select="label:name|value:id"placeholder="{{ __('app.select') }} ..." searchable />
                 </div>
                 <x-hr.narrow class="col-span-6 my-0!" />
 

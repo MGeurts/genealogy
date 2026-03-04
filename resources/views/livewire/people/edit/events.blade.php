@@ -168,7 +168,7 @@
                     </div>
 
                     <div class="grid grid-cols-1">
-                        <x-ts-select.styled wire:model="country" id="country" label="{{ __('person.country') }} :" :options="$this->countries()" select="label:name|value:id" placeholder="{{ __('app.select') }} ..." searchable lazy="10" />
+                        <x-ts-select.styled wire:model="country" id="country" label="{{ __('person.country') }} :" :options="$this->countries()" select="label:name|value:id" placeholder="{{ __('app.select') }} ..." searchable  />
                     </div>
                 </div>
             </div>

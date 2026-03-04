@@ -21,7 +21,7 @@
                 <div class="grid grid-cols-6 gap-5">
                     {{-- partner_id --}}
                     <div class="col-span-6">
-                        <x-ts-select.styled wire:model="partner_id" id="partner_id" label="{{ __('person.partner') }} : *" :options="$persons" select="label:name|value:id" placeholder="{{ __('app.select') }} ..." searchable lazy="10"  />
+                        <x-ts-select.styled wire:model="partner_id" id="partner_id" label="{{ __('person.partner') }} : *" :options="$persons" select="label:name|value:id" placeholder="{{ __('app.select') }} ..." searchable />
                     </div>
 
                     {{-- date_start --}}

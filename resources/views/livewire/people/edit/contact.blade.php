@@ -51,7 +51,7 @@
 
                 {{-- country --}}
                 <div class="col-span-5">
-                    <x-ts-select.styled wire:model="country" id="country" label="{{ __('person.country') }} :" :options="$this->countries()" select="label:name|value:id" placeholder="{{ __('app.select') }} ..." searchable lazy="10" />
+                    <x-ts-select.styled wire:model="country" id="country" label="{{ __('person.country') }} :" :options="$this->countries()" select="label:name|value:id" placeholder="{{ __('app.select') }} ..." searchable />
                 </div>
 
                 {{-- show on google maps button --}}
