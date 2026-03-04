@@ -56,38 +56,32 @@ final class Partner extends Component
     {
         $validated = $this->validate();
 
-        // Custom rule: If date_end is set, has_ended must be true
-        if ($validated['date_end'] && ! $validated['has_ended']) {
-            $this->addError('has_ended', __('couple.required_if_date_end'));
-
+        // Relationship overlap check
+        if ($this->overlapsWith($validated['date_start'], $validated['date_end'])) {
             return;
         }
 
-        if ($this->hasOverlap($validated['date_start'], $validated['date_end'])) {
-            $this->toast()->error(__('app.create'), __('couple.overlap'))->send();
-        } else {
-            if ($this->person->id === $this->couple->person1_id) {
-                $this->couple->update([
-                    'person2_id' => $validated['partner_id'],
-                    'date_start' => $validated['date_start'] ?? null,
-                    'date_end'   => $validated['date_end'] ?? null,
-                    'is_married' => $validated['is_married'],
-                    'has_ended'  => $validated['date_end'] or $validated['has_ended'],
-                ]);
-            } elseif ($this->person->id === $this->couple->person2_id) {
-                $this->couple->update([
-                    'person1_id' => $validated['partner_id'],
-                    'date_start' => $validated['date_start'] ?? null,
-                    'date_end'   => $validated['date_end'] ?? null,
-                    'is_married' => $validated['is_married'],
-                    'has_ended'  => $validated['date_end'] or $validated['has_ended'],
-                ]);
-            }
-
-            $this->toast()->success(__('app.save'), __('app.saved'))->send();
-
-            $this->redirect('/people/' . $this->person->id);
+        if ($this->person->id === $this->couple->person1_id) {
+            $this->couple->update([
+                'person2_id' => $validated['partner_id'],
+                'date_start' => $validated['date_start'] ?? null,
+                'date_end'   => $validated['date_end'] ?? null,
+                'is_married' => $validated['is_married'],
+                'has_ended'  => $validated['date_end'] or $validated['has_ended'],
+            ]);
+        } elseif ($this->person->id === $this->couple->person2_id) {
+            $this->couple->update([
+                'person1_id' => $validated['partner_id'],
+                'date_start' => $validated['date_start'] ?? null,
+                'date_end'   => $validated['date_end'] ?? null,
+                'is_married' => $validated['is_married'],
+                'has_ended'  => $validated['date_end'] or $validated['has_ended'],
+            ]);
         }
+
+        $this->toast()->success(__('app.save'), __('app.saved'))->send();
+
+        $this->redirect('/people/' . $this->person->id);
     }
 
     // ------------------------------------------------------------------------------
@@ -150,32 +144,37 @@ final class Partner extends Component
         $this->has_ended  = $this->couple->has_ended;
     }
 
-    private function hasOverlap(?string $start, ?string $end): bool
+    private function overlapsWith(?string $start, ?string $end): bool
     {
-        if ($start === null && $end === null) {
-            return false;
-        }
+        $newStart = $start ?? '0000-01-01';
+        $newEnd   = $end ?? '9999-12-31';
 
         foreach ($this->person->couples as $couple) {
-            // Skip the current couple being edited
             if ($couple->id === $this->couple->id) {
                 continue;
             }
 
-            $coupleStart = $couple->date_start;
-            $coupleEnd   = $couple->date_end;
+            $existingStart = $couple->date_start instanceof DateTimeInterface ? $couple->date_start->format('Y-m-d') : '0000-01-01';
+            $existingEnd   = $couple->date_end instanceof DateTimeInterface ? $couple->date_end->format('Y-m-d') : '9999-12-31';
 
-            if ($coupleStart instanceof DateTimeInterface && $coupleEnd instanceof DateTimeInterface) {
-                $coupleStartStr = $coupleStart->format('Y-m-d');
-                $coupleEndStr   = $coupleEnd->format('Y-m-d');
+            if ($newStart <= $existingEnd && $newEnd >= $existingStart) {
+                $startOverlaps = $start !== null && $start >= $existingStart && $start <= $existingEnd;
+                $endOverlaps   = $end !== null && $end >= $existingStart && $end <= $existingEnd;
 
-                if ($start !== null && $start >= $coupleStartStr && $start <= $coupleEndStr) {
-                    return true;
+                if ($startOverlaps && $endOverlaps) {
+                    $this->addError('date_start', __('couple.overlap'));
+                    $this->addError('date_end', __('couple.overlap'));
+                } elseif ($startOverlaps) {
+                    $this->addError('date_start', __('couple.overlap'));
+                } elseif ($endOverlaps) {
+                    $this->addError('date_end', __('couple.overlap'));
+                } else {
+                    // Engulfment: new range straddles the existing one entirely
+                    $this->addError('date_start', __('couple.overlap'));
+                    $this->addError('date_end', __('couple.overlap'));
                 }
 
-                if ($end !== null && $end >= $coupleStartStr && $end <= $coupleEndStr) {
-                    return true;
-                }
+                return true;
             }
         }
 
