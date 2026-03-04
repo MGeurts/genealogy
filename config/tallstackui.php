@@ -416,7 +416,7 @@ return [
                 'z-index'    => 'z-50',
                 'progress'   => true,
                 'expandable' => false,
-                'position'   => 'top-right',
+                'position'   => 'bottom-right',
                 'timeout'    => 3,
             ],
         ],
