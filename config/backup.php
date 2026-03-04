@@ -28,6 +28,7 @@ return [
                 'exclude' => [
                     base_path('vendor'),
                     base_path('node_modules'),
+                    storage_path('framework'),
                 ],
 
                 /*
@@ -58,7 +59,7 @@ return [
              * 'mysql' => [
              *       ...
              *      'dump' => [
-             *           'excludeTables' => [
+             *           'exclude_tables' => [
              *                'table_to_exclude_from_backup',
              *                'another_table_to_exclude'
              *            ]
@@ -79,7 +80,7 @@ return [
              * For a complete list of available customization options, see https://github.com/spatie/db-dumper
              */
             'databases' => [
-                'mysql',
+                env('DB_CONNECTION', 'mysql'),
             ],
         ],
 
@@ -115,7 +116,7 @@ return [
          * If not specified, the file extension will be .archive for MongoDB and .sql for all other databases
          * The file extension should be specified without a leading .
          */
-        'database_dump_file_extension' => 'genealogy-',
+        'database_dump_file_extension' => '',
 
         'destination' => [
             /*
@@ -155,6 +156,11 @@ return [
             'disks' => [
                 env('BACKUP_DISK', 'backups'),
             ],
+
+            /*
+             * Determines whether to allow backups to continue when some targets fail instead of failing completely.
+             */
+            'continue_on_failure' => false,
         ],
 
         /*
@@ -170,12 +176,19 @@ return [
 
         /*
          * The encryption algorithm to be used for archive encryption.
-         * You can set it to `null` or `false` to disable encryption.
+         * Set to 'none' to disable encryption.
          *
-         * When set to 'default', we'll use ZipArchive::EM_AES_256 if it is
-         * available on your system.
+         * Supported: 'none', 'default', 'aes128', 'aes192', 'aes256'
+         *
+         * When set to 'default', we'll use AES-256 if available on your system.
          */
         'encryption' => 'default',
+
+        /*
+         * After creating the zip, verify it can be opened and contains files.
+         * Recommended for critical backups but adds a small overhead.
+         */
+        'verify_backup' => false,
 
         /*
          * The number of attempts, in case the backup command encounters an exception
@@ -246,6 +259,14 @@ return [
              * If this is an empty string, the avatar on the webhook will be used.
              */
             'avatar_url' => '',
+        ],
+
+        /*
+         * A generic webhook channel that POSTs JSON to a URL.
+         * Useful for Mattermost, Microsoft Teams, or custom integrations.
+         */
+        'webhook' => [
+            'url' => '',
         ],
     ],
 
