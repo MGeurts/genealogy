@@ -7,7 +7,6 @@ namespace App\Livewire\Backups;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Number;
 use Illuminate\Support\Str;
@@ -72,38 +71,23 @@ final class Manage extends Component
     // -----------------------------------------------------------------------
     public function mount(): void
     {
-        $disk = Storage::disk(config('app.backup.disk'));
-
-        $this->backups = collect($disk->files(config('backup.backup.name')))
-            ->filter(fn ($file): bool => str_ends_with($file, '.zip') && $disk->exists($file))
-            ->map(fn ($file): array => [
-                'file_name'    => Str::after($file, config('backup.backup.name') . '/'),
-                'file_size'    => Number::fileSize($disk->size($file), 2),
-                'date_created' => Carbon::createFromTimestamp($disk->lastModified($file))->format('d-m-Y H:i:s'),
-                'date_ago'     => Carbon::createFromTimestamp($disk->lastModified($file))->diffForHumans(),
-            ])
-            ->sortByDesc('date_created')
-            ->values(); // Reset collection keys
+        $this->loadBackups();
     }
 
+    // -----------------------------------------------------------------------
     public function create(): void
     {
         $exitCode = Artisan::call('backup:run --only-db');
-        $output   = Artisan::output();
 
         if ($exitCode === 0) {
-            Log::info("Backup (Manually) -- Backup started \r\n" . $output);
-
             $this->toast()->success(__('backup.backup'), __('backup.created'))->send();
+            $this->loadBackups();
         } else {
-            Log::error("Backup (Manually) -- Backup failed \r\n" . $output);
-
             $this->toast()->error(__('backup.backup'), __('backup.failed'))->send();
         }
-
-        $this->redirect('/developer/backups');
     }
 
+    // -----------------------------------------------------------------------
     public function download(string $file_name): ?StreamedResponse
     {
         $disk = Storage::disk(config('app.backup.disk'));
@@ -120,6 +104,7 @@ final class Manage extends Component
         return null;
     }
 
+    // -----------------------------------------------------------------------
     public function delete(string $backup_to_delete): void
     {
         $disk = Storage::disk(config('app.backup.disk'));
@@ -128,13 +113,13 @@ final class Manage extends Component
             $disk->delete(config('backup.backup.name') . '/' . $backup_to_delete);
 
             $this->toast()->success(__('backup.backup'), e($backup_to_delete) . ' ' . __('backup.deleted'))->expandable(false)->send();
+            $this->loadBackups();
         } else {
             $this->toast()->error(__('backup.backup'), __('backup.not_found'))->send();
         }
-
-        $this->redirect('/developer/backups');
     }
 
+    // -----------------------------------------------------------------------
     public function confirm(string $file_name): void
     {
         $this->dialog()
@@ -154,5 +139,22 @@ final class Manage extends Component
     public function render(): View
     {
         return view('livewire.backups.manage');
+    }
+
+    // -----------------------------------------------------------------------
+    private function loadBackups(): void
+    {
+        $disk = Storage::disk(config('app.backup.disk'));
+
+        $this->backups = collect($disk->files(config('backup.backup.name')))
+            ->filter(fn ($file): bool => str_ends_with($file, '.zip') && $disk->exists($file))
+            ->map(fn ($file): array => [
+                'file_name'    => Str::after($file, config('backup.backup.name') . '/'),
+                'file_size'    => Number::fileSize($disk->size($file), 2),
+                'date_created' => Carbon::createFromTimestamp($disk->lastModified($file))->format('d-m-Y H:i:s'),
+                'date_ago'     => Carbon::createFromTimestamp($disk->lastModified($file))->diffForHumans(),
+            ])
+            ->sortByDesc('date_created')
+            ->values();
     }
 }
