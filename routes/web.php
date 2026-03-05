@@ -26,9 +26,9 @@ Route::middleware([
     // teams
     // -----------------------------------------------------------------------------------
     Route::controller(App\Http\Controllers\Back\TeamController::class)->group(function (): void {
-        Route::get('team', 'team')->name('team');
-        Route::get('teamlog', 'teamlog')->name('teamlog');
-        Route::get('peoplelog', 'peoplelog')->name('peoplelog');
+        Route::get('team', 'pages::team')->name('team');
+        Route::get('teamlog', 'pages::teamlog')->name('teamlog');
+        Route::get('peoplelog', 'pages::peoplelog')->name('peoplelog');
 
         Route::put('/teams/{team}/transfer-ownership', 'transferOwnership')->name('teams.transfer-ownership');
     });
@@ -103,7 +103,7 @@ Route::middleware([
         // -----------------------------------------------------------------------------------
         // backups
         // -----------------------------------------------------------------------------------
-        Route::get('backups', App\Livewire\Backups\Manage::class)->name('backups');
+        Route::livewire('backups', 'pages::backups.manage')->name('backups');
     });
 });
 

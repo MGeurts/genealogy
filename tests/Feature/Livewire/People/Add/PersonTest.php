@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Livewire\People\Add\Person as AddPerson;
 use App\Models\User;
 use Livewire\Livewire;
 
@@ -12,7 +11,7 @@ test('authenticated user can create a person', function (): void {
     $user = User::factory()->withPersonalTeam()->create();
 
     Livewire::actingAs($user)
-        ->test(AddPerson::class)
+        ->test('people.add.person')
         ->set('form.firstname', 'John')
         ->set('form.surname', 'Doe')
         ->set('form.sex', 'm')
@@ -35,7 +34,7 @@ test('validation errors when required fields are missing', function (): void {
     $this->actingAs($user);
 
     Livewire::actingAs($user)
-        ->test(AddPerson::class)
+        ->test('people.add.person')
         ->set('form.surname', '')
         ->set('form.sex', '')
         ->call('savePerson')
