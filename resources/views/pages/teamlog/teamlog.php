@@ -48,7 +48,7 @@ new class extends Component
         });
 
         // Create a new paginator with transformed data
-        $activities = new \Illuminate\Pagination\LengthAwarePaginator(
+        $activities = new Illuminate\Pagination\LengthAwarePaginator(
             $logs,
             $activities->total(),
             $activities->perPage(),

@@ -161,5 +161,4 @@ new class extends Component implements HasActions, HasSchemas, HasTable
     }
 
     // -----------------------------------------------------------------------
-    
 };

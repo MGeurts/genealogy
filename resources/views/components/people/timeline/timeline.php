@@ -28,5 +28,4 @@ new class extends Component
     {
         $this->timeline = $this->person->timeline();
     }
-
-    };
+};

@@ -20,7 +20,7 @@ new class extends Component
     public Collection $images;
 
     /**
-     * @var Collection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media>
+     * @var Collection<int, Spatie\MediaLibrary\MediaCollections\Models\Media>
      */
     #[Locked]
     public Collection $files;
@@ -38,7 +38,6 @@ new class extends Component
     /**
      * Render the Livewire view.
      */
-    
     protected function loadImages(): void
     {
         $disk       = Storage::disk('photos');

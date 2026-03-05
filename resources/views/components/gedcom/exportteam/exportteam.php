@@ -27,10 +27,10 @@ new class extends Component
 
     public string $teamname;
 
-    /** @var Collection<int, \App\Models\Person> */
+    /** @var Collection<int, App\Models\Person> */
     public Collection $teamPersons;
 
-    /** @var Collection<int, \App\Models\Couple> */
+    /** @var Collection<int, App\Models\Couple> */
     public Collection $teamCouples;
 
     /**

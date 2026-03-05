@@ -61,7 +61,7 @@ new class extends Component
     }
 
     // ------------------------------------------------------------------------------
-    
+
     // -----------------------------------------------------------------------
     /** @return array<string, array<int, string|int>> */
     protected function rules(): array

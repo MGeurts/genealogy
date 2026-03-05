@@ -88,7 +88,7 @@ new class extends Component
             $this->editingEventId = $event->id;
             $this->type           = $event->type;
             $this->description    = $event->description;
-            $this->date           = $event->date ? \Carbon\Carbon::parse($event->date)->format('Y-m-d') : null;
+            $this->date           = $event->date ? Carbon\Carbon::parse($event->date)->format('Y-m-d') : null;
             $this->year           = $event->year;
             $this->place          = $event->place;
             $this->street         = $event->street;

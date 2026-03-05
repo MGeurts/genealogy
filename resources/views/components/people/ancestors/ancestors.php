@@ -69,7 +69,7 @@ new class extends Component
     /**
      * Render the Livewire component view.
      */
-    
+
     /**
      * Get the number of ancestors actually displayed (respecting $count).
      */

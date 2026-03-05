@@ -13,7 +13,7 @@ new class extends Component
 
     // ------------------------------------------------------------------------------
     /**
-     * @var Collection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media>
+     * @var Collection<int, Spatie\MediaLibrary\MediaCollections\Models\Media>
      */
     public Collection $files;
 
@@ -32,5 +32,4 @@ new class extends Component
     }
 
     // ------------------------------------------------------------------------------
-    
 };

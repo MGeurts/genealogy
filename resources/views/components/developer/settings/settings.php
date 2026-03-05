@@ -60,5 +60,4 @@ new class extends Component
     /**
      * Render the Livewire component view.
      */
-    
 };
