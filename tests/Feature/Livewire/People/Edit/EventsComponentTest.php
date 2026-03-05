@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Livewire\People\Edit\Events;
 use App\Models\Person;
 use App\Models\PersonEvent;
 use App\Models\Team;
@@ -23,7 +22,7 @@ beforeEach(function (): void {
 });
 
 test('component can be mounted', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->assertStatus(200)
         ->assertSet('person.id', $this->person->id)
         ->assertSet('showModal', false);
@@ -36,19 +35,19 @@ test('component displays person events', function (): void {
         'date'      => '2000-01-15',
     ]);
 
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->assertSee($event->type_label)
         ->assertSee($event->date_formatted);
 });
 
 test('component shows empty state when no events exist', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->assertSee(__('personevents.no_events'))
         ->assertSee(__('personevents.add_events'));
 });
 
 test('can open modal for creating new event', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('openModal')
         ->assertSet('showModal', true)
         ->assertSet('editingEventId', null)
@@ -66,7 +65,7 @@ test('can open modal for editing existing event', function (): void {
         'country'     => 'US',
     ]);
 
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('openModal', $event->id)
         ->assertSet('showModal', true)
         ->assertSet('editingEventId', $event->id)
@@ -79,7 +78,7 @@ test('can open modal for editing existing event', function (): void {
 });
 
 test('can close modal', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('openModal')
         ->assertSet('showModal', true)
         ->call('closeModal')
@@ -116,7 +115,7 @@ test('can update existing event', function (): void {
         'description' => 'Original description',
     ]);
 
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('openModal', $event->id)
         ->set('description', 'Updated description')
         ->set('place', 'Updated Church')
@@ -136,7 +135,7 @@ test('can delete event', function (): void {
 
     expect(PersonEvent::count())->toBe(1);
 
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('delete', $event->id)
         ->assertDispatched('event-saved');
 
@@ -144,7 +143,7 @@ test('can delete event', function (): void {
 });
 
 test('validation requires event type', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('openModal')
         ->set('type', '')
         ->set('description', 'Test event')
@@ -153,7 +152,7 @@ test('validation requires event type', function (): void {
 });
 
 test('validation requires valid event type', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('openModal')
         ->set('type', 'invalid_type')
         ->call('save')
@@ -161,7 +160,7 @@ test('validation requires valid event type', function (): void {
 });
 
 test('validation enforces date format', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('openModal')
         ->set('type', PersonEvent::TYPE_BAPTISM)
         ->set('date', 'invalid-date')
@@ -170,7 +169,7 @@ test('validation enforces date format', function (): void {
 });
 
 test('validation enforces year minimum', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('openModal')
         ->set('type', PersonEvent::TYPE_BAPTISM)
         ->set('year', 0)
@@ -179,7 +178,7 @@ test('validation enforces year minimum', function (): void {
 });
 
 test('validation enforces year maximum', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('openModal')
         ->set('type', PersonEvent::TYPE_BAPTISM)
         ->set('year', date('Y') + 1)
@@ -188,7 +187,7 @@ test('validation enforces year maximum', function (): void {
 });
 
 test('validation enforces country code length', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('openModal')
         ->set('type', PersonEvent::TYPE_BAPTISM)
         ->set('country', 'USA')
@@ -197,7 +196,7 @@ test('validation enforces country code length', function (): void {
 });
 
 test('validation enforces description max length', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('openModal')
         ->set('type', PersonEvent::TYPE_BAPTISM)
         ->set('description', str_repeat('a', 1001))
@@ -206,7 +205,7 @@ test('validation enforces description max length', function (): void {
 });
 
 test('validation enforces place max length', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('openModal')
         ->set('type', PersonEvent::TYPE_BAPTISM)
         ->set('place', str_repeat('a', 256))
@@ -215,7 +214,7 @@ test('validation enforces place max length', function (): void {
 });
 
 test('event types are returned in correct format for styled select', function (): void {
-    $component = Livewire::test(Events::class, ['person' => $this->person])
+    $component = Livewire::test('people.edit.events', ['person' => $this->person])
         ->instance();
 
     $eventTypes = $component->eventTypes();
@@ -230,7 +229,7 @@ test('event types are returned in correct format for styled select', function ()
 });
 
 test('event types are sorted by translation', function (): void {
-    $component = Livewire::test(Events::class, ['person' => $this->person])
+    $component = Livewire::test('people.edit.events', ['person' => $this->person])
         ->instance();
 
     $eventTypes  = $component->eventTypes();
@@ -241,7 +240,7 @@ test('event types are sorted by translation', function (): void {
 });
 
 test('countries are cached', function (): void {
-    $component = Livewire::test(Events::class, ['person' => $this->person])
+    $component = Livewire::test('people.edit.events', ['person' => $this->person])
         ->instance();
 
     $countries1 = $component->countries();
@@ -253,7 +252,7 @@ test('countries are cached', function (): void {
 });
 
 test('refresh events listener works', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->dispatch('event-saved')
         ->assertStatus(200);
 });
@@ -265,7 +264,7 @@ test('form is reset after closing modal', function (): void {
         'description' => 'Test description',
     ]);
 
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('openModal', $event->id)
         ->assertSet('type', PersonEvent::TYPE_BAPTISM)
         ->call('closeModal')
@@ -330,13 +329,13 @@ test('component displays address when available', function (): void {
         'city'      => 'Boston',
     ]);
 
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->assertSee('Main Street 123')
         ->assertSee('Boston');
 });
 
 test('toast messages show correct translations on save', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->set('type', PersonEvent::TYPE_BAPTISM)
         ->call('save');
 
@@ -349,14 +348,14 @@ test('toast messages show correct translations on delete', function (): void {
         'person_id' => $this->person->id,
     ]);
 
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('delete', $event->id);
 
     expect(PersonEvent::count())->toBe(0);
 });
 
 test('validation resets when opening modal', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->call('openModal')
         ->set('type', '')
         ->call('save')
@@ -366,7 +365,7 @@ test('validation resets when opening modal', function (): void {
 });
 
 test('can create event with only required fields', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->set('type', PersonEvent::TYPE_CENSUS)
         ->call('save')
         ->assertSet('showModal', false);
@@ -379,7 +378,7 @@ test('can create event with only required fields', function (): void {
 });
 
 test('can create event with all fields', function (): void {
-    Livewire::test(Events::class, ['person' => $this->person])
+    Livewire::test('people.edit.events', ['person' => $this->person])
         ->set('type', PersonEvent::TYPE_BAPTISM)
         ->set('description', 'Baptism ceremony')
         ->set('date', '2000-01-15')

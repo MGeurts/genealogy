@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Livewire\People\Edit\Partner;
 use App\Models\Couple;
 use App\Models\Person;
 use App\Models\Team;
@@ -39,7 +38,7 @@ it('can save an existing couple without triggering a false overlap error', funct
     ]);
 
     // Load the Livewire component to simulate editing this couple
-    Livewire::test(Partner::class, [
+    Livewire::test('people.edit.partner', [
         'person' => $person,
         'couple' => $couple,
     ])

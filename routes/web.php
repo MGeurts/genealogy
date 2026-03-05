@@ -103,7 +103,7 @@ Route::middleware([
         // -----------------------------------------------------------------------------------
         // backups
         // -----------------------------------------------------------------------------------
-        Route::get('backups', App\Livewire\Backups\Manage::class)->name('backups');
+        Route::livewire('backups', 'backups.manage')->name('backups');
     });
 });
 
