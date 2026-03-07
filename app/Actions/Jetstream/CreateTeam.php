@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Actions\Jetstream;
 
+use App\Contracts\PersonPhotoServiceInterface;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Jetstream\Contracts\CreatesTeams;
 use Laravel\Jetstream\Events\AddingTeam;
@@ -43,9 +43,9 @@ final class CreateTeam implements CreatesTeams
         // -----------------------------------------------------------------------
         // create team photo folder
         // -----------------------------------------------------------------------
-        if (! Storage::disk('photos')->exists((string) $team->id)) {
-            Storage::disk('photos')->makeDirectory((string) $team->id);
-        }
+        /** @var PersonPhotoServiceInterface $photoService */
+        $photoService = app(PersonPhotoServiceInterface::class);
+        $photoService->ensureTeamDirectoryExists($team->id);
         // -----------------------------------------------------------------------
 
         return $team;

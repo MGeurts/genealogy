@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Gedcom\Export;
 
+use App\Contracts\PersonPhotoServiceInterface;
 use Exception;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
@@ -189,7 +190,9 @@ class GedcomFileHandler
         $mediaDir   = 'media/';
         $addedFiles = 0;
         foreach ($mediaFiles as $mediaPath) {
-            $diskPath = Storage::disk('photos')->path($mediaPath);
+            /** @var PersonPhotoServiceInterface $photoService */
+            $photoService = app(PersonPhotoServiceInterface::class);
+            $diskPath     = $photoService->getAbsolutePath($mediaPath);
 
             if (file_exists($diskPath) && is_readable($diskPath)) {
                 $filename    = basename($mediaPath);

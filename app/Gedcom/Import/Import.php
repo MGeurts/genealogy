@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Gedcom\Import;
 
+use App\Contracts\PersonPhotoServiceInterface;
 use App\Models\Team;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 use Laravel\Jetstream\Contracts\CreatesTeams;
 use Laravel\Jetstream\Events\AddingTeam;
 
@@ -252,9 +252,9 @@ final class Import implements CreatesTeams
         $this->user->switchTeam($team);
 
         // Create team photo folder
-        if (! Storage::disk('photos')->exists((string) $team->id)) {
-            Storage::disk('photos')->makeDirectory((string) $team->id);
-        }
+        /** @var PersonPhotoServiceInterface $photoService */
+        $photoService = app(PersonPhotoServiceInterface::class);
+        $photoService->ensureTeamDirectoryExists($team->id);
 
         return $team;
     }

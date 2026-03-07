@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Actions\Jetstream;
 
+use App\Contracts\PersonPhotoServiceInterface;
 use App\Models\Team;
-use Illuminate\Support\Facades\Storage;
 use Laravel\Jetstream\Contracts\DeletesTeams;
 
 final class DeleteTeam implements DeletesTeams
@@ -18,9 +18,9 @@ final class DeleteTeam implements DeletesTeams
         $teamId = (string) $team->id;
 
         // Delete the photo folders
-        if (Storage::disk('photos')->exists($teamId)) {
-            Storage::disk('photos')->deleteDirectory($teamId);
-        }
+        /** @var PersonPhotoServiceInterface $photoService */
+        $photoService = app(PersonPhotoServiceInterface::class);
+        $photoService->deleteTeamDirectory((int) $teamId);
 
         $user = auth()->user();
 

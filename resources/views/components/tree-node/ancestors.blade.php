@@ -1,5 +1,7 @@
 @props(['person', 'ancestors', 'level_current' => 0, 'level_max'])
 
+@inject('photoService', 'App\Contracts\PersonPhotoServiceInterface')
+
 @php
     $level_current++;
 
@@ -16,11 +18,11 @@
             <figure class="w-24">
                 <div class="user-image">
                     @php
-                        $photoPath = $person->team_id . '/' . $person->id . '/' . $person->photo . '_small.webp';
+                        $photoUrl = $person->photo ? $photoService->getPhotoUrlFromAttributes($person->team_id, $person->id, $person->photo, 'small') : null;
                     @endphp
 
-                    @if ($person->photo && Storage::disk('photos')->exists($photoPath))
-                        <img src="{{ Storage::disk('photos')->url($photoPath) }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
+                    @if ($photoUrl)
+                        <img src="{{ $photoUrl }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
                     @else
                         <x-svg.person-no-image class="w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
                     @endif

@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Gedcom\Export;
 
+use App\Contracts\PersonPhotoServiceInterface;
 use App\Models\Person;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
 
 // ==============================================================================
 // GEDCOM MEDIA BUILDER - Handles media objects and files
@@ -144,35 +144,12 @@ class GedcomMediaBuilder
      */
     private function getPersonImages(Person $person): array
     {
-        $directory = "{$person->team_id}/{$person->id}";
+        /** @var PersonPhotoServiceInterface $photoService */
+        $photoService = app(PersonPhotoServiceInterface::class);
 
-        if (! Storage::disk('photos')->exists($directory)) {
-            return [];
-        }
-
-        $allFiles     = Storage::disk('photos')->files($directory);
+        $images       = $photoService->getOriginalPhotosForExport($person);
         $mediaObjects = [];
 
-        // Get only original files (not _large, _medium, _small variants)
-        $images = collect($allFiles)
-            ->filter(fn ($file) => $this->isOriginalFile($file))
-            ->map(function ($originalFile) {
-                $filename           = basename($originalFile);
-                $filenameWithoutExt = pathinfo($filename, PATHINFO_FILENAME);
-                $mimeType           = Storage::disk('photos')->mimeType($originalFile);
-
-                return [
-                    'filename'       => $filenameWithoutExt,
-                    'file_reference' => $filename,   // Full filename with extension
-                    'mime_type'      => $mimeType ?: 'application/octet-stream',   // Default if detection fails
-                    'disk_path'      => $originalFile,
-                    'url'            => Storage::disk('photos')->url($originalFile),
-                ];
-            })
-            ->sortBy('filename')
-            ->values();
-
-        // Convert to media objects with GEDCOM IDs
         foreach ($images as $image) {
             $mediaId = $this->nextMediaId++;
 
@@ -188,23 +165,6 @@ class GedcomMediaBuilder
         }
 
         return $mediaObjects;
-    }
-
-    /**
-     * Check if file is an original file (not a resized variant).
-     *
-     * Filters out resized variants to include only original full-resolution images in the export.
-     *
-     * @param  string  $file  File path
-     * @return bool True if original file
-     */
-    private function isOriginalFile(string $file): bool
-    {
-        $filename = pathinfo($file, PATHINFO_FILENAME); // filename without extension
-
-        return ! str_ends_with($filename, '_large')
-            && ! str_ends_with($filename, '_medium')
-            && ! str_ends_with($filename, '_small');
     }
 
     /**

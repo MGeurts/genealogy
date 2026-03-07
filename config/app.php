@@ -155,6 +155,8 @@ return [
         'mail_address'  => env('BACKUP_MAIL_ADDRESS', 'webmaster@yourdomain.com'),
     ],
 
+    'photo_driver' => env('PHOTO_DRIVER', 'custom'),
+
     // uploaded originals (needed for GEDCOM export) are always kept alongside the resized versions
     // default values for resizing, watermarking and saving photo uploads
     'upload_photo' => [
