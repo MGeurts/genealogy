@@ -32,14 +32,14 @@
 
                 <div class="flex-1 grow max-w-full text-end">
                     @if ($search)
-                        {!! __('app.people_found', [
-                            'found' => $this->people->total(),
+                                        {!! __('app.people_found', [
+                            'found' => $people->total(),
                             'total' => $people_db,
                             'scope' => auth()->user()->is_developer ? strtoupper(e(__('team.all_teams'))) : e(auth()->user()->currentTeam->name),
                             'keyword' => e($search),
                         ]) !!}
                     @else
-                        {!! __('app.people_available', [
+                                        {!! __('app.people_available', [
                             'total' => $people_db,
                             'scope' => auth()->user()->is_developer ? strtoupper(e(__('team.all_teams'))) : e(auth()->user()->currentTeam->name),
                         ]) !!}
@@ -62,24 +62,24 @@
             </div>
 
             {{-- footer : perpage and pagination --}}
-            @if (count($this->people) > 0)
+            @if (count($people) > 0)
                 <div class="flex flex-wrap items-center justify-center gap-2">
                     <div class="flex-1 grow min-w-max max-w-36">
                         <x-ts-select.styled wire:model.live="perpage" name="perpage" id="perpage" :options="$options" select="label:label|value:value" required />
                     </div>
 
                     <div class="flex-1 grow max-w-full min-w-max text-end">
-                        {{ $this->people->links('components/pagination/tailwind') }}
+                        {{ $people->links('components/pagination/tailwind') }}
                     </div>
                 </div>
             @endif
         </div>
     </div>
 
-    @if (count($this->people) > 0)
+    @if (count($people) > 0)
         {{-- people grid --}}
         <div class="p-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
-            @foreach ($this->people as $person)
+            @foreach ($people as $person)
                 <livewire:people::person :person="$person" :key="$person->id" />
             @endforeach
         </div>
