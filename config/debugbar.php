@@ -16,9 +16,9 @@ return [
      |
      */
 
-    'enabled' => env('DEBUGBAR_ENABLED'),
+    'enabled'      => env('DEBUGBAR_ENABLED'),
     'collect_jobs' => env('DEBUGBAR_COLLECT_JOBS', false),
-    'except' => [
+    'except'       => [
         'telescope*',
         'horizon*',
         '_boost/browser-logs',
@@ -73,75 +73,75 @@ return [
 
     'options' => [
         'time' => [
-            'memory_usage' => env('DEBUGBAR_OPTIONS_TIME_MEMORY_USAGE', false), // Calculated by subtracting memory start and end, it may be inaccurate
+            'memory_usage' => env('DEBUGBAR_OPTIONS_TIME_MEMORY_USAGE', false),                         // Calculated by subtracting memory start and end, it may be inaccurate
         ],
         'messages' => [
-            'trace' => env('DEBUGBAR_OPTIONS_MESSAGES_TRACE', true),                  // Trace the origin of the debug message
-            'backtrace_exclude_paths' => [],                                                      // Paths to exclude from backtrace. (in addition to defaults)
-            'capture_dumps' => env('DEBUGBAR_OPTIONS_MESSAGES_CAPTURE_DUMPS', false), // Capture laravel `dump();` as message
-            'timeline' => env('DEBUGBAR_OPTIONS_MESSAGES_TIMELINE', true),            // Add messages to the timeline
+            'trace'                   => env('DEBUGBAR_OPTIONS_MESSAGES_TRACE', true),                  // Trace the origin of the debug message
+            'backtrace_exclude_paths' => [],                                                                          // Paths to exclude from backtrace. (in addition to defaults)
+            'capture_dumps'           => env('DEBUGBAR_OPTIONS_MESSAGES_CAPTURE_DUMPS', false),         // Capture laravel `dump();` as message
+            'timeline'                => env('DEBUGBAR_OPTIONS_MESSAGES_TIMELINE', true),               // Add messages to the timeline
         ],
         'memory' => [
-            'reset_peak' => env('DEBUGBAR_OPTIONS_MEMORY_RESET_PEAK', false),       // run memory_reset_peak_usage before collecting
-            'with_baseline' => env('DEBUGBAR_OPTIONS_MEMORY_WITH_BASELINE', false), // Set boot memory usage as memory peak baseline
-            'precision' => (int) env('DEBUGBAR_OPTIONS_MEMORY_PRECISION', 0),       // Memory rounding precision
+            'reset_peak'    => env('DEBUGBAR_OPTIONS_MEMORY_RESET_PEAK', false),                        // run memory_reset_peak_usage before collecting
+            'with_baseline' => env('DEBUGBAR_OPTIONS_MEMORY_WITH_BASELINE', false),                     // Set boot memory usage as memory peak baseline
+            'precision'     => (int) env('DEBUGBAR_OPTIONS_MEMORY_PRECISION', 0),                       // Memory rounding precision
         ],
         'auth' => [
-            'show_name' => env('DEBUGBAR_OPTIONS_AUTH_SHOW_NAME', true),     // Also show the users name/email in the debugbar
-            'show_guards' => env('DEBUGBAR_OPTIONS_AUTH_SHOW_GUARDS', true), // Show the guards that are used
+            'show_name'   => env('DEBUGBAR_OPTIONS_AUTH_SHOW_NAME', true),                              // Also show the users name/email in the debugbar
+            'show_guards' => env('DEBUGBAR_OPTIONS_AUTH_SHOW_GUARDS', true),                            // Show the guards that are used
         ],
         'gate' => [
-            'trace' => false,      // Trace the origin of the Gate checks
-            'timeline' => env('DEBUGBAR_OPTIONS_GATE_TIMELINE', false),      // Add mails to the timeline
+            'trace'    => false,      // Trace the origin of the Gate checks
+            'timeline' => env('DEBUGBAR_OPTIONS_GATE_TIMELINE', false),                                 // Add mails to the timeline
         ],
         'db' => [
-            'with_params'       => env('DEBUGBAR_OPTIONS_WITH_PARAMS', true),   // Render SQL with the parameters substituted
-            'exclude_paths'     => [       // Paths to exclude entirely from the collector
-                //'vendor/laravel/framework/src/Illuminate/Session', // Exclude sessions queries
+            'with_params'   => env('DEBUGBAR_OPTIONS_WITH_PARAMS', true),                               // Render SQL with the parameters substituted
+            'exclude_paths' => [       // Paths to exclude entirely from the collector
+                // 'vendor/laravel/framework/src/Illuminate/Session',                                                 // Exclude sessions queries
             ],
-            'backtrace'         => env('DEBUGBAR_OPTIONS_DB_BACKTRACE', true),   // Use a backtrace to find the origin of the query in your files.
-            'backtrace_exclude_paths' => [],   // Paths to exclude from backtrace. (in addition to defaults)
-            'timeline'          => env('DEBUGBAR_OPTIONS_DB_TIMELINE', false),  // Add the queries to the timeline
-            'duration_background'  => env('DEBUGBAR_OPTIONS_DB_DURATION_BACKGROUND', true),   // Show shaded background on each query relative to how long it took to execute.
-            'explain' => [                 // Show EXPLAIN output on queries
+            'backtrace'               => env('DEBUGBAR_OPTIONS_DB_BACKTRACE', true),                    // Use a backtrace to find the origin of the query in your files.
+            'backtrace_exclude_paths' => [],                                                                          // Paths to exclude from backtrace. (in addition to defaults)
+            'timeline'                => env('DEBUGBAR_OPTIONS_DB_TIMELINE', false),                    // Add the queries to the timeline
+            'duration_background'     => env('DEBUGBAR_OPTIONS_DB_DURATION_BACKGROUND', true),          // Show shaded background on each query relative to how long it took to execute.
+            'explain'                 => [                 // Show EXPLAIN output on queries
                 'enabled' => env('DEBUGBAR_OPTIONS_DB_EXPLAIN_ENABLED', true),
             ],
-            'show_query_result' => env('DEBUGBAR_OPTIONS_DB_SHOW_QUERY_RESULT', true), // Show option to re-run SELECT queries and show the result
-            'only_slow_queries' => env('DEBUGBAR_OPTIONS_DB_ONLY_SLOW_QUERIES', true), // Only track queries that last longer than `slow_threshold`
-            'slow_threshold'    => env('DEBUGBAR_OPTIONS_DB_SLOW_THRESHOLD', false), // Max query execution time (ms). Exceeding queries will be highlighted
-            'memory_usage'      => env('DEBUGBAR_OPTIONS_DB_MEMORY_USAGE', false),   // Show queries memory usage
-            'soft_limit'       => (int) env('DEBUGBAR_OPTIONS_DB_SOFT_LIMIT', 100),  // After the soft limit, no parameters/backtrace are captured
-            'hard_limit'       => (int) env('DEBUGBAR_OPTIONS_DB_HARD_LIMIT', 500),  // After the hard limit, queries are ignored
+            'show_query_result' => env('DEBUGBAR_OPTIONS_DB_SHOW_QUERY_RESULT', true),                  // Show option to re-run SELECT queries and show the result
+            'only_slow_queries' => env('DEBUGBAR_OPTIONS_DB_ONLY_SLOW_QUERIES', true),                  // Only track queries that last longer than `slow_threshold`
+            'slow_threshold'    => env('DEBUGBAR_OPTIONS_DB_SLOW_THRESHOLD', false),                    // Max query execution time (ms). Exceeding queries will be highlighted
+            'memory_usage'      => env('DEBUGBAR_OPTIONS_DB_MEMORY_USAGE', false),                      // Show queries memory usage
+            'soft_limit'        => (int) env('DEBUGBAR_OPTIONS_DB_SOFT_LIMIT', 100),                    // After the soft limit, no parameters/backtrace are captured
+            'hard_limit'        => (int) env('DEBUGBAR_OPTIONS_DB_HARD_LIMIT', 500),                    // After the hard limit, queries are ignored
         ],
         'mail' => [
-            'timeline' => env('DEBUGBAR_OPTIONS_MAIL_TIMELINE', true),  // Add mails to the timeline
+            'timeline'  => env('DEBUGBAR_OPTIONS_MAIL_TIMELINE', true),                                 // Add mails to the timeline
             'show_body' => env('DEBUGBAR_OPTIONS_MAIL_SHOW_BODY', true),
         ],
         'views' => [
-            'timeline' => env('DEBUGBAR_OPTIONS_VIEWS_TIMELINE', true),                  // Add the views to the timeline
-            'data' => env('DEBUGBAR_OPTIONS_VIEWS_DATA', false),                         // True for all data, 'keys' for only names, false for no parameters.
-            'group' => (int) env('DEBUGBAR_OPTIONS_VIEWS_GROUP', 50),                    // Group duplicate views. Pass value to auto-group, or true/false to force
-            'exclude_paths' => [    // Add the paths which you don't want to appear in the views
-                'vendor/filament',   // Exclude Filament components by default
+            'timeline'      => env('DEBUGBAR_OPTIONS_VIEWS_TIMELINE', true),                            // Add the views to the timeline
+            'data'          => env('DEBUGBAR_OPTIONS_VIEWS_DATA', false),                               // True for all data, 'keys' for only names, false for no parameters.
+            'group'         => (int) env('DEBUGBAR_OPTIONS_VIEWS_GROUP', 50),                           // Group duplicate views. Pass value to auto-group, or true/false to force
+            'exclude_paths' => [                                                                                      // Add the paths which you don't want to appear in the views
+                'vendor/filament',                                                                                    // Exclude Filament components by default
             ],
         ],
         'inertia' => [
-            'pages' => env('DEBUGBAR_OPTIONS_VIEWS_INERTIA_PAGES', 'js/Pages'),  // Path for Inertia views
+            'pages' => env('DEBUGBAR_OPTIONS_VIEWS_INERTIA_PAGES', 'js/Pages'),                         // Path for Inertia views
         ],
         'route' => [
-            'label' => env('DEBUGBAR_OPTIONS_ROUTE_LABEL', true),  // Show complete route on bar
+            'label' => env('DEBUGBAR_OPTIONS_ROUTE_LABEL', true),                                       // Show complete route on bar
         ],
         'session' => [
-            'masked' => [], // List of keys that are masked
+            'masked' => [],                                                                                           // List of keys that are masked
         ],
         'symfony_request' => [
-            'label' => env('DEBUGBAR_OPTIONS_SYMFONY_REQUEST_LABEL', true),  // Show route on bar
-            'masked' => [], // List of keys that are masked
+            'label'  => env('DEBUGBAR_OPTIONS_SYMFONY_REQUEST_LABEL', true),                            // Show route on bar
+            'masked' => [],                                                                                           // List of keys that are masked
         ],
         'events' => [
-            'data' => env('DEBUGBAR_OPTIONS_EVENTS_DATA', false), // Collect events data
-            'listeners' => env('DEBUGBAR_OPTIONS_EVENTS_LISTENERS', false), // Add listeners to the events data
-            'excluded' => [], // Example: ['eloquent.*', 'composing', Illuminate\Cache\Events\CacheHit::class]
+            'data'      => env('DEBUGBAR_OPTIONS_EVENTS_DATA', false),                                  // Collect events data
+            'listeners' => env('DEBUGBAR_OPTIONS_EVENTS_LISTENERS', false),                             // Add listeners to the events data
+            'excluded'  => [],                                                                                        // Example: ['eloquent.*', 'composing', Illuminate\Cache\Events\CacheHit::class]
         ],
         'logs' => [
             'file' => env('DEBUGBAR_OPTIONS_LOGS_FILE'),
@@ -150,12 +150,12 @@ return [
             'masked' => [],
         ],
         'cache' => [
-            'values' => env('DEBUGBAR_OPTIONS_CACHE_VALUES', true), // Collect cache values
-            'timeline' => env('DEBUGBAR_OPTIONS_CACHE_TIMELINE', false),  // Add cache events to the timeline
+            'values'   => env('DEBUGBAR_OPTIONS_CACHE_VALUES', true),                                   // Collect cache values
+            'timeline' => env('DEBUGBAR_OPTIONS_CACHE_TIMELINE', false),                                // Add cache events to the timeline
         ],
         'http_client' => [
-            'masked' => [],
-            'timeline' => env('DEBUGBAR_OPTIONS_HTTP_CLIENT_TIMELINE', true),  // Add requests to the timeline
+            'masked'   => [],
+            'timeline' => env('DEBUGBAR_OPTIONS_HTTP_CLIENT_TIMELINE', true),                           // Add requests to the timeline
         ],
     ],
 
@@ -202,11 +202,11 @@ return [
     | You can defer loading the dataset, so it will be loaded with ajax after the request is done. (Experimental)
     */
 
-    'capture_ajax' => env('DEBUGBAR_CAPTURE_AJAX', true),
-    'add_ajax_timing' => env('DEBUGBAR_ADD_AJAX_TIMING', false),
-    'ajax_handler_auto_show' => env('DEBUGBAR_AJAX_HANDLER_AUTO_SHOW', true),
+    'capture_ajax'            => env('DEBUGBAR_CAPTURE_AJAX', true),
+    'add_ajax_timing'         => env('DEBUGBAR_ADD_AJAX_TIMING', false),
+    'ajax_handler_auto_show'  => env('DEBUGBAR_AJAX_HANDLER_AUTO_SHOW', true),
     'ajax_handler_enable_tab' => env('DEBUGBAR_AJAX_HANDLER_ENABLE_TAB', true),
-    'defer_datasets' => env('DEBUGBAR_DEFER_DATASETS', false),
+    'defer_datasets'          => env('DEBUGBAR_DEFER_DATASETS', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -232,7 +232,7 @@ return [
     */
 
     'remote_sites_path' => env('DEBUGBAR_REMOTE_SITES_PATH'),
-    'local_sites_path' => env('DEBUGBAR_LOCAL_SITES_PATH', env('IGNITION_LOCAL_SITES_PATH')),
+    'local_sites_path'  => env('DEBUGBAR_LOCAL_SITES_PATH', env('IGNITION_LOCAL_SITES_PATH')),
 
     /*
     |--------------------------------------------------------------------------
@@ -253,11 +253,11 @@ return [
     */
     'storage' => [
         'enabled'    => env('DEBUGBAR_STORAGE_ENABLED', true),
-        'open'       => env('DEBUGBAR_OPEN_STORAGE'), // bool/callback.
-        'driver'     => env('DEBUGBAR_STORAGE_DRIVER', 'file'), // redis, file, sqlite, pdo, custom
-        'path'       => env('DEBUGBAR_STORAGE_PATH', storage_path('debugbar')), // For file driver
-        'connection' => env('DEBUGBAR_STORAGE_CONNECTION'), // Leave null for default connection (Redis/PDO)
-        'provider'   => env('DEBUGBAR_STORAGE_PROVIDER', ''), // Instance of StorageInterface for custom driver
+        'open'       => env('DEBUGBAR_OPEN_STORAGE'),                                                  // bool/callback.
+        'driver'     => env('DEBUGBAR_STORAGE_DRIVER', 'file'),                               // redis, file, sqlite, pdo, custom
+        'path'       => env('DEBUGBAR_STORAGE_PATH', storage_path('debugbar')),         // For file driver
+        'connection' => env('DEBUGBAR_STORAGE_CONNECTION'),                                            // Leave null for default connection (Redis/PDO)
+        'provider'   => env('DEBUGBAR_STORAGE_PROVIDER', ''),                                 // Instance of StorageInterface for custom driver
     ],
 
     /*
@@ -272,7 +272,7 @@ return [
      | So if you want syntax highlighting, set it to true.
      |
      */
-    'use_dist_files' => env('DEBUGBAR_USE_DIST_FILES', true),
+    'use_dist_files'  => env('DEBUGBAR_USE_DIST_FILES', true),
     'include_vendors' => env('DEBUGBAR_INCLUDE_VENDORS', true),
 
     /*
@@ -294,7 +294,7 @@ return [
      |
      */
     'error_handler' => env('DEBUGBAR_ERROR_HANDLER', false),
-    'error_level' => env('DEBUGBAR_ERROR_LEVEL', E_ALL),
+    'error_level'   => env('DEBUGBAR_ERROR_LEVEL', E_ALL),
 
     /*
      |--------------------------------------------------------------------------
