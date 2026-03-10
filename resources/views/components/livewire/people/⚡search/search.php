@@ -3,7 +3,8 @@
 declare(strict_types=1);
 
 use App\Models\Person;
-use Illuminate\View\View;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Livewire\Attributes\Computed;
 use Livewire\Attributes\Session;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -23,10 +24,10 @@ new class extends Component
      * @var array<int, array{value: int, label: int}>
      */
     public array $options = [
-        ['value' => 5, 'label' => 5],
-        ['value' => 10, 'label' => 10],
-        ['value' => 25, 'label' => 25],
-        ['value' => 50, 'label' => 50],
+        ['value' => 5,   'label' => 5],
+        ['value' => 10,  'label' => 10],
+        ['value' => 25,  'label' => 25],
+        ['value' => 50,  'label' => 50],
         ['value' => 100, 'label' => 100],
     ];
 
@@ -39,7 +40,7 @@ new class extends Component
         $this->people_db = Person::count();
     }
 
-    // ------------------------------------------------------------------------------
+    // --------------------------------------------------------------------------
     public function updatedSearch(): void
     {
         // Sanitize input to prevent XSS
@@ -64,8 +65,9 @@ new class extends Component
         $this->resetPage();
     }
 
-    // ------------------------------------------------------------------------------
-    public function render(): View
+    // --------------------------------------------------------------------------
+    #[Computed]
+    public function people(): LengthAwarePaginator
     {
         // Begin query builder
         $query = Person::query();
@@ -75,14 +77,11 @@ new class extends Component
             $query->search($this->search);
         }
 
-        $query->with('father:id,firstname,surname,sex,yod,dod', 'mother:id,firstname,surname,sex,yod,dod')
+        return $query
+            ->with('father:id,firstname,surname,sex,yod,dod', 'mother:id,firstname,surname,sex,yod,dod')
             ->orderBy('firstname')
-            ->orderBy('surname');
-
-        // Paginate the results with the given perpage value
-        $people = $query->paginate($this->perpage);
-
-        return $this->view(['people' => $people]);
+            ->orderBy('surname')
+            ->paginate($this->perpage);
     }
 
     // --------------------------------------------------------------------------
