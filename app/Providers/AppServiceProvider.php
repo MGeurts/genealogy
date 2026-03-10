@@ -40,14 +40,6 @@ final class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // ------------------------------------------------------------------------------
-        // Configure Livewire Blaze settings, enable debugging and optimize components in the specified directory.
-        // ------------------------------------------------------------------------------
-        // Blaze::optimize()->in(resource_path('views/components'))->in(resource_path('../vendor/tallstackui/tallstackui/src/View/Components'));
-        // if (app()->isLocal()) {
-        //     Blaze::debug();
-        // }
-
-        // ------------------------------------------------------------------------------
         // Configure application settings and services
         // ------------------------------------------------------------------------------
         $this->configureUrl();
