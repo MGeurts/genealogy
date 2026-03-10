@@ -63,7 +63,7 @@ new class extends Component
                 'date_start' => $validated['date_start'] ?? null,
                 'date_end'   => $validated['date_end'] ?? null,
                 'is_married' => $validated['is_married'],
-                'has_ended'  => $validated['date_end'] or $validated['has_ended'],
+                'has_ended'  => $validated['date_end'] || $validated['has_ended'],
             ]);
         } elseif ($this->person->id === $this->couple->person2_id) {
             $this->couple->update([
@@ -71,13 +71,13 @@ new class extends Component
                 'date_start' => $validated['date_start'] ?? null,
                 'date_end'   => $validated['date_end'] ?? null,
                 'is_married' => $validated['is_married'],
-                'has_ended'  => $validated['date_end'] or $validated['has_ended'],
+                'has_ended'  => $validated['date_end'] || $validated['has_ended'],
             ]);
         }
 
         $this->toast()->success(__('app.save'), __('app.saved'))->send();
 
-        $this->redirect('/people/' . $this->person->id);
+        $this->dispatch('couple_updated');
     }
 
     // -----------------------------------------------------------------------

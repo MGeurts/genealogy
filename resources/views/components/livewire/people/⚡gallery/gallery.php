@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Models\Person;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 new class extends Component
@@ -15,12 +16,8 @@ new class extends Component
 
     public ?int $selected = null;
 
-    /** @var array<string, string> */
-    protected $listeners = [
-        'photos_updated' => 'mount',
-        'person_updated' => 'render',
-    ];
-
+    // ------------------------------------------------------------------------------
+    #[On('photos_updated')]
     public function mount(): void
     {
         // Get files from the person's directory

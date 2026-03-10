@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Models\Person;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -13,12 +14,14 @@ new class extends Component
     // -----------------------------------------------------------------------
     public Person $person;
 
-    // -----------------------------------------------------------------------
-    /** @var array<string, string> */
-    protected $listeners = [
-        'person_updated' => 'render',
-        'couple_deleted' => 'render',
-    ];
+    // ------------------------------------------------------------------------------
+    #[On('person_updated')]
+    #[On('couple_deleted')]
+    public function refreshProfile(): void
+    {
+        // optionally refresh any data here
+        // Livewire will re-render automatically
+    }
 
     // -----------------------------------------------------------------------
     public function confirm(): void

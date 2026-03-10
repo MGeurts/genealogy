@@ -8,6 +8,7 @@ use App\Livewire\Traits\SavesPersonPhotos;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
 use Illuminate\Support\Collection;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
@@ -29,8 +30,11 @@ new class extends Component
 
     public ?string $selectedTab = null;
 
+    #[On('person_added_as_child')]
     public function mount(): void
     {
+        $this->form->reset();
+
         $this->persons = Person::where('id', '!=', $this->person->id)
             ->whereNull($this->person->sex === 'm' ? 'father_id' : 'mother_id')
             ->youngerThan($this->person->dob, $this->person->yob)
@@ -56,7 +60,7 @@ new class extends Component
             $this->createNewChild($validated['form']);
         }
 
-        $this->redirect(route('people.show', $this->person->id));
+        $this->dispatch('person_added_as_child');
     }
 
     /**

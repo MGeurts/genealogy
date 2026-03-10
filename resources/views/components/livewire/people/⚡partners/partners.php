@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Models\Couple;
 use App\Models\Person;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -15,12 +16,14 @@ new class extends Component
     public Person $person;
 
     // ------------------------------------------------------------------------------
-    /**
-     * @var array<string, string>
-     */
-    protected $listeners = [
-        'couple_deleted' => 'render',
-    ];
+    #[On('couple_added')]
+    #[On('couple_updated')]
+    #[On('couple_deleted')]
+    public function refreshPartners(): void
+    {
+        // optionally refresh any data here
+        // Livewire will re-render automatically
+    }
 
     // ------------------------------------------------------------------------------
     public function confirm(int $id, string $name): void
@@ -50,6 +53,6 @@ new class extends Component
 
         $this->toast()->success(__('app.delete'), e($couple['name']) . ' ' . __('app.deleted') . '.')->send();
 
-        $this->redirect('/people/' . $this->person->id);
+        $this->dispatch('couple_deleted');
     }
 };

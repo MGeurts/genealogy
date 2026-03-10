@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Models\Person;
 use Illuminate\Support\Collection;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use TallStackUi\Traits\Interactions;
 
@@ -19,6 +20,7 @@ new class extends Component
     public Collection $children;
 
     // ------------------------------------------------------------------------------
+    #[On('person_added_as_child')]
     public function mount(): void
     {
         $this->children = $this->person->childrenNaturalAll();
@@ -48,6 +50,6 @@ new class extends Component
 
         $this->toast()->success(__('app.disconnect'), e($child->name) . ' ' . __('app.disconnected') . '.')->send();
 
-        $this->redirect(route('people.show', $this->person->id));
+        $this->dispatch('person_added_as_child');
     }
 };

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Models\Person;
 use Illuminate\Support\Collection;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 new class extends Component
@@ -18,14 +19,7 @@ new class extends Component
     public Collection $files;
 
     // ------------------------------------------------------------------------------
-    /**
-     * @var array<string, string>
-     */
-    protected $listeners = [
-        'files_updated' => 'mount',
-    ];
-
-    // ------------------------------------------------------------------------------
+    #[On('files_updated')]
     public function mount(): void
     {
         $this->files = $this->person->getMedia('files');

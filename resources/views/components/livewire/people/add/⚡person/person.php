@@ -21,8 +21,6 @@ new class extends Component
 
     public PersonForm $form;
 
-    public function mount(): void {}
-
     public function savePerson(): void
     {
         $user = auth()->user();

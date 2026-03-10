@@ -50,7 +50,7 @@ it('can save an existing couple without triggering a false overlap error', funct
         ->set('has_ended', true)
         ->call('savePartner')
         ->assertHasNoErrors()
-        ->assertRedirect('/people/' . $person->id);
+        ->assertDispatched('couple_updated');
 
     // Assert update was saved correctly
     $this->assertDatabaseHas('couples', [

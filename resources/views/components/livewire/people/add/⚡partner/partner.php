@@ -77,7 +77,7 @@ new class extends Component
             $this->createNewPartner($validated);
         }
 
-        $this->redirect(route('people.show', $this->person->id));
+        $this->dispatch('couple_added');
     }
 
     /**

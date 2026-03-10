@@ -57,7 +57,7 @@ new class extends Component
             $this->createNewFather($validated['form']);
         }
 
-        $this->redirect(route('people.show', $this->person->id));
+        $this->dispatch('father_added');
     }
 
     /**

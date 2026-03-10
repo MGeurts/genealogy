@@ -69,7 +69,7 @@ new class extends Component
 
         $this->toast()->success(__('app.save'), __('app.saved'))->send();
 
-        $this->redirect('/people/' . $this->person->id);
+        $this->dispatch('person_updated');
     }
 
     // -----------------------------------------------------------------------
