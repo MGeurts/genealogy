@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use App\Livewire\People\Search;
 use App\Models\Person;
 use App\Models\Team;
 use App\Models\User;
@@ -21,24 +20,24 @@ beforeEach(function (): void {
 // Component Mounting Tests
 // ------------------------------------------------------------------------------
 test('component can be mounted', function (): void {
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->assertStatus(200);
 });
 
 test('mount initializes people count correctly', function (): void {
     Person::factory()->count(5)->create(['team_id' => $this->team->id]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->assertSet('people_db', 5);
 });
 
 test('mount sets default perpage to 10', function (): void {
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->assertSet('perpage', 10);
 });
 
 test('mount sets search to null by default', function (): void {
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->assertSet('search', null);
 });
 
@@ -57,7 +56,7 @@ test('search by firstname returns matching results', function (): void {
         'team_id'   => $this->team->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', 'John')
         ->assertSee('John')
         ->assertDontSee('Jane');
@@ -75,7 +74,7 @@ test('search by surname returns matching results', function (): void {
         'team_id'   => $this->team->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', 'Doe')
         ->assertViewHas('people', function ($people) {
             return $people->count() === 1 &&
@@ -97,7 +96,7 @@ test('search by birthname returns matching results', function (): void {
         'team_id'   => $this->team->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', 'Johnson')
         ->assertViewHas('people', function ($people) {
             return $people->count() === 1 &&
@@ -119,7 +118,7 @@ test('search by nickname returns matching results', function (): void {
         'team_id'   => $this->team->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', 'Bob')
         ->assertViewHas('people', function ($people) {
             return $people->count() === 1 &&
@@ -144,7 +143,7 @@ test('search with multiple words uses AND logic', function (): void {
         'team_id'   => $this->team->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', 'John Doe')
         ->assertSee('John Doe')
         ->assertDontSee('John Smith')
@@ -163,7 +162,7 @@ test('search with quoted phrase treats it as single term', function (): void {
         'team_id'   => $this->team->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', '"John Fitzgerald" Kennedy')
         ->assertSee('Kennedy')
         ->assertDontSee('Smith');
@@ -182,7 +181,7 @@ test('search with wildcard prefix finds partial matches anywhere in field', func
     ]);
 
     // Wildcard search should find "Jr." anywhere in the surname
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', '%Jr')
         ->assertViewHas('people', function ($people) {
             return $people->count() === 1 &&
@@ -197,11 +196,11 @@ test('search is case insensitive', function (): void {
         'team_id'   => $this->team->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', 'john')
         ->assertSee('John');
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', 'JOHN')
         ->assertSee('John');
 });
@@ -209,7 +208,7 @@ test('search is case insensitive', function (): void {
 test('empty search returns all people', function (): void {
     Person::factory()->count(3)->create(['team_id' => $this->team->id]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', '')
         ->assertViewHas('people', function ($people) {
             return $people->total() === 3;
@@ -219,7 +218,7 @@ test('empty search returns all people', function (): void {
 test('search with only whitespace returns all people', function (): void {
     Person::factory()->count(3)->create(['team_id' => $this->team->id]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', '   ')
         ->assertViewHas('people', function ($people) {
             return $people->total() === 3;
@@ -229,7 +228,7 @@ test('search with only whitespace returns all people', function (): void {
 test('search with only percent sign returns all people', function (): void {
     Person::factory()->count(3)->create(['team_id' => $this->team->id]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', '%')
         ->assertViewHas('people', function ($people) {
             return $people->total() === 3;
@@ -246,7 +245,7 @@ test('search sanitizes HTML tags', function (): void {
         'team_id'   => $this->team->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', '<script>alert("XSS")</script>John')
         ->assertSee('John');
 });
@@ -258,7 +257,7 @@ test('search trims leading and trailing spaces', function (): void {
         'team_id'   => $this->team->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', '   John   ')
         ->assertSee('John');
 });
@@ -266,7 +265,7 @@ test('search trims leading and trailing spaces', function (): void {
 test('search validates max length of 255 characters', function (): void {
     $longString = str_repeat('a', 256);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', $longString)
         ->assertHasErrors(['search' => 'max']);
 });
@@ -284,7 +283,7 @@ test('search escapes SQL wildcard characters when not using wildcard prefix', fu
     ]);
 
     // Without % prefix, underscore should be escaped and only match literal underscore
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', 'John_')
         ->assertViewHas('people', function ($people) {
             return $people->count() === 1 &&
@@ -305,7 +304,7 @@ test('wildcard search still escapes special characters in the search term', func
     ]);
 
     // Wildcard search with apostrophe should be safe
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', '%O\'Brien')
         ->assertViewHas('people', function ($people) {
             return $people->count() === 1 &&
@@ -319,7 +318,7 @@ test('wildcard search still escapes special characters in the search term', func
 test('perpage changes pagination size', function (): void {
     Person::factory()->count(30)->create(['team_id' => $this->team->id]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('perpage', 5)
         ->assertViewHas('people', function ($people) {
             return $people->perPage() === 5;
@@ -327,7 +326,7 @@ test('perpage changes pagination size', function (): void {
 });
 
 test('perpage validates allowed values', function (): void {
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('perpage', 999)
         ->assertHasErrors(['perpage' => 'in']);
 });
@@ -336,7 +335,7 @@ test('perpage accepts valid values', function (): void {
     $validValues = [5, 10, 25, 50, 100];
 
     foreach ($validValues as $value) {
-        Livewire::test(Search::class)
+        Livewire::test('people::search')
             ->set('perpage', $value)
             ->assertHasNoErrors(['perpage']);
     }
@@ -345,7 +344,7 @@ test('perpage accepts valid values', function (): void {
 test('changing search resets pagination to first page', function (): void {
     Person::factory()->count(30)->create(['team_id' => $this->team->id]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('perpage', 10)
         ->call('gotoPage', 2)
         ->assertSet('paginators.page', 2)
@@ -356,7 +355,7 @@ test('changing search resets pagination to first page', function (): void {
 test('changing perpage resets pagination to first page', function (): void {
     Person::factory()->count(30)->create(['team_id' => $this->team->id]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->call('gotoPage', 2)
         ->assertSet('paginators.page', 2)
         ->set('perpage', 25)
@@ -383,7 +382,7 @@ test('results are ordered by firstname then surname', function (): void {
         'team_id'   => $this->team->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->assertViewHas('people', function ($people) {
             return $people[0]->firstname === 'Alice' &&
                    $people[0]->surname === 'Anderson' &&
@@ -417,7 +416,7 @@ test('component loads father and mother relationships', function (): void {
         'team_id'   => $this->team->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', 'Child')
         ->assertViewHas('people', function ($people) {
             return $people[0]->father !== null &&
@@ -431,11 +430,11 @@ test('component loads father and mother relationships', function (): void {
 // Session Persistence Tests
 // ------------------------------------------------------------------------------
 test('search value persists in session', function (): void {
-    $component = Livewire::test(Search::class)
+    $component = Livewire::test('people::search')
         ->set('search', 'John');
 
     // Simulate a new request
-    $newComponent = Livewire::test(Search::class);
+    $newComponent = Livewire::test('people::search');
 
     expect($newComponent->get('search'))->toBe('John');
 });
@@ -457,7 +456,7 @@ test('search only returns people from current team', function (): void {
         'team_id'   => $otherTeam->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->assertViewHas('people', function ($people) {
             return $people->total() === 1 &&
                    $people[0]->firstname === 'John';
@@ -474,7 +473,7 @@ test('search with special characters is handled correctly', function (): void {
         'team_id'   => $this->team->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', "O'Brien")
         ->assertSee("O'Brien");
 });
@@ -486,7 +485,7 @@ test('search with unicode characters works correctly', function (): void {
         'team_id'   => $this->team->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', 'José')
         ->assertSee('José');
 });
@@ -494,7 +493,7 @@ test('search with unicode characters works correctly', function (): void {
 test('null search value is handled gracefully', function (): void {
     Person::factory()->count(3)->create(['team_id' => $this->team->id]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', null)
         ->assertViewHas('people', function ($people) {
             return $people->total() === 3;
@@ -508,7 +507,7 @@ test('search returns empty result when no matches found', function (): void {
         'team_id'   => $this->team->id,
     ]);
 
-    Livewire::test(Search::class)
+    Livewire::test('people::search')
         ->set('search', 'NonExistent')
         ->assertViewHas('people', function ($people) {
             return $people->total() === 0;

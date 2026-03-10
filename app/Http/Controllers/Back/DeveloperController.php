@@ -11,26 +11,6 @@ use Illuminate\View\View;
 
 final class DeveloperController extends Controller
 {
-    public function settings(): View
-    {
-        return view('back.developer.settings');
-    }
-
-    public function teams(): View
-    {
-        return view('back.developer.teams');
-    }
-
-    public function people(): View
-    {
-        return view('back.developer.people');
-    }
-
-    public function users(): View
-    {
-        return view('back.developer.users');
-    }
-
     public function dependencies(): View
     {
         return view('back.developer.dependencies');

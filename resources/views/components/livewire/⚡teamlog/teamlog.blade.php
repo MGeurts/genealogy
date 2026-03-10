@@ -1,0 +1,117 @@
+<div>
+    @section('title')
+        &vert; {{ __('app.team_logbook') }}
+    @endsection
+
+    <div class="p-2 w-full">
+        <div class="max-w-max flex flex-col rounded-sm bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 text-neutral-800 dark:text-neutral-50">
+            {{-- card header --}}
+            <div class="flex flex-col p-2 text-lg font-medium border-b-2 rounded-t h-14 min-h-min border-neutral-100 dark:border-neutral-600 dark:text-neutral-50">
+                <div class="flex flex-wrap items-start justify-center gap-2">
+                    <div class="flex-1 grow max-w-full min-w-max">
+                        {{ __('app.team_logbook') }}
+                        @if ($this->activities->count() > 0)
+                            <x-ts-badge color="emerald" sm text="{{ $this->activities->total() }}" />
+                        @endif
+                    </div>
+
+                    <div class="flex-1 grow max-w-full min-w-max text-end">
+                        <x-ts-icon icon="tabler.history" class="inline-block size-5" />
+                    </div>
+                </div>
+            </div>
+
+            {{-- card body --}}
+            <div class="p-2 text-sm border-t-2 rounded-b border-neutral-100 dark:border-neutral-600 bg-neutral-200">
+                @if ($this->activities->count() > 0)
+                    {{-- Pagination controls at top --}}
+                    <div class="mb-4">
+                        {{ $this->activities->links() }}
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-2">
+                        @foreach ($this->activities as $log)
+                            <x-ts-card>
+                                <x-slot:header>
+                                    <div class="p-4">
+                                        {{ $log['description'] }}
+                                    </div>
+                                </x-slot:header>
+
+                                <div class="grid grid-cols-2 gap-2">
+                                    @if ($log['event'] === 'UPDATED' or $log['event'] === 'DELETED')
+                                        {{-- old values --}}
+                                        @php
+                                            $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.old')]];
+
+                                            $rows = collect($log['properties_old'])
+                                                ->map(function ($value, $key) {
+                                                    return [
+                                                        'key' => $key,
+                                                        'value' => $value,
+                                                    ];
+                                                })
+                                                ->toArray();
+                                        @endphp
+
+                                        <x-ts-table :$headers :$rows striped />
+
+                                        {{-- new values --}}
+                                        @php
+                                            $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.new')]];
+
+                                            $rows = collect($log['properties_new'])
+                                                ->map(function ($value, $key) {
+                                                    return [
+                                                        'key' => $key,
+                                                        'value' => $value,
+                                                    ];
+                                                })
+                                                ->toArray();
+                                        @endphp
+
+                                        <x-ts-table :$headers :$rows striped />
+                                    @else
+                                        {{-- values --}}
+                                        @php
+                                            $headers = [['index' => 'key', 'label' => 'Key'], ['index' => 'value', 'label' => __('app.value')]];
+
+                                            $rows = collect($log['properties'])
+                                                ->map(function ($value, $key) {
+                                                    return [
+                                                        'key' => $key,
+                                                        'value' => $value,
+                                                    ];
+                                                })
+                                                ->toArray();
+                                        @endphp
+
+                                        <x-ts-table :$headers :$rows />
+                                    @endif
+                                </div>
+
+                                <x-slot:footer>
+                                    {{ $log['event'] }} {{ $log['updated_at'] }}
+                                    @if ($log['causer'])
+                                        by {{ $log['causer'] }}
+                                    @endif
+                                </x-slot:footer>
+                            </x-ts-card>
+                        @endforeach
+                    </div>
+
+                    {{-- Pagination controls at bottom --}}
+                    <div class="mt-4">
+                        {{ $this->activities->links() }}
+                    </div>
+                @else
+                    <div class="w-3xl">
+                        <div class="flex justify-center" title="{{ __('app.nothing_recorded') }}">
+                            <x-svg.empty-state alt="{{ __('app.nothing_recorded') }}" />
+                        </div>
+                    </div>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>

@@ -34,6 +34,11 @@ return [
     'component_namespaces' => [
         'layouts' => resource_path('views/layouts'),
         'pages'   => resource_path('views/pages'),
+
+        'livewire'  => resource_path('views/components/livewire'),
+        'developer' => resource_path('views/components/livewire/developer'),
+        'gedcom'    => resource_path('views/components/livewire/gedcom'),
+        'people'    => resource_path('views/components/livewire/people'),
     ],
 
     /*
@@ -71,8 +76,8 @@ return [
     */
 
     'make_command' => [
-        'type'  => 'mfc', // Options: 'sfc', 'mfc', 'class'
-        'emoji' => true, // Options: true, false
+        'type'  => 'mfc',                   // Options: 'sfc', 'mfc', 'class'
+        'emoji' => true,                    // Options: true, false
         'with'  => [
             'js'   => false,
             'css'  => false,
@@ -131,17 +136,17 @@ return [
     */
 
     'temporary_file_upload' => [
-        'disk'          => env('LIVEWIRE_TEMPORARY_FILE_UPLOAD_DISK'),     // Example: 'local', 's3'             | Default: 'default'
-        'rules'         => null,                                                // Example: ['file', 'mimes:png,jpg'] | Default: ['required', 'file', 'max:12288'] (12MB)
-        'directory'     => null,                                                // Example: 'tmp'                     | Default: 'livewire-tmp'
-        'middleware'    => null,                                                // Example: 'throttle:5,1'            | Default: 'throttle:60,1'
-        'preview_mimes' => [                                                    // Supported file types for temporary pre-signed file URLs...
+        'disk'          => env('LIVEWIRE_TEMPORARY_FILE_UPLOAD_DISK'),             // Example: 'local', 's3'             | Default: 'default'
+        'rules'         => null,                                                        // Example: ['file', 'mimes:png,jpg'] | Default: ['required', 'file', 'max:12288'] (12MB)
+        'directory'     => null,                                                        // Example: 'tmp'                     | Default: 'livewire-tmp'
+        'middleware'    => null,                                                        // Example: 'throttle:5,1'            | Default: 'throttle:60,1'
+        'preview_mimes' => [                                                            // Supported file types for temporary pre-signed file URLs...
             'png', 'gif', 'bmp', 'svg', 'wav', 'mp4',
             'mov', 'avi', 'wmv', 'mp3', 'm4a',
             'jpg', 'jpeg', 'mpga', 'webp', 'wma',
         ],
-        'max_upload_time' => 5, // Max duration (in minutes) before an upload is invalidated...
-        'cleanup'         => true, // Should cleanup temporary uploads older than 24 hrs...
+        'max_upload_time' => 5,                                                         // Max duration (in minutes) before an upload is invalidated...
+        'cleanup'         => true,                                                      // Should cleanup temporary uploads older than 24 hrs...
     ],
 
     /*
@@ -276,9 +281,9 @@ return [
     */
 
     'payload' => [
-        'max_size'          => 1024 * 1024,   // 1MB - maximum request payload size in bytes
-        'max_nesting_depth' => 10,   // Maximum depth of dot-notation property paths
-        'max_calls'         => 50,           // Maximum method calls per request
-        'max_components'    => 20,      // Maximum components per batch request
+        'max_size'          => 1024 * 1024,             // 1MB - maximum request payload size in bytes
+        'max_nesting_depth' => 10,                      // Maximum depth of dot-notation property paths
+        'max_calls'         => 50,                      // Maximum method calls per request
+        'max_components'    => 20,                      // Maximum components per batch request
     ],
 ];

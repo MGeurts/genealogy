@@ -7,9 +7,10 @@ use Illuminate\Support\Facades\Route;
 // -----------------------------------------------------------------------------------
 // frontend routes
 // -----------------------------------------------------------------------------------
+Route::livewire('password-generator', 'livewire::password-generator')->name('password.generator');
+
 Route::controller(App\Http\Controllers\Front\PageController::class)->group(function (): void {
     Route::get('/', 'home')->name('home');
-    Route::get('password-generator', 'passwordGenerator')->name('password.generator');
     Route::get('about', 'about')->name('about');
     Route::get('help', 'help')->name('help');
 });
@@ -23,21 +24,15 @@ Route::middleware([
     'verified',
 ])->group(function (): void {
     // -----------------------------------------------------------------------------------
-    // teams
-    // -----------------------------------------------------------------------------------
-    Route::controller(App\Http\Controllers\Back\TeamController::class)->group(function (): void {
-        Route::get('team', 'team')->name('team');
-        Route::get('teamlog', 'teamlog')->name('teamlog');
-        Route::get('peoplelog', 'peoplelog')->name('peoplelog');
-
-        Route::put('/teams/{team}/transfer-ownership', 'transferOwnership')->name('teams.transfer-ownership');
-    });
-
-    // -----------------------------------------------------------------------------------
     // pages
     // -----------------------------------------------------------------------------------
-    Route::controller(App\Http\Controllers\Back\PageController::class)->group(function (): void {
-        Route::get('test', 'test')->name('test');
+    Route::livewire('team', 'livewire::team')->name('team');
+    Route::livewire('teamlog', 'livewire::teamlog')->name('teamlog');
+    Route::livewire('peoplelog', 'livewire::peoplelog')->name('peoplelog');
+    Route::livewire('test', 'livewire::test')->name('test');
+
+    Route::controller(App\Http\Controllers\Back\TeamController::class)->group(function (): void {
+        Route::put('/teams/{team}/transfer-ownership', 'transferOwnership')->name('teams.transfer-ownership');
     });
 
     // -----------------------------------------------------------------------------------
@@ -72,25 +67,25 @@ Route::middleware([
     // -----------------------------------------------------------------------------------
     // gedcom
     // -----------------------------------------------------------------------------------
-    Route::controller(App\Http\Controllers\Back\GedcomController::class)->prefix('gedcom')->as('gedcom.')->group(function (): void {
-        Route::get('exportteam', 'exportteam')->name('exportteam');
-        Route::get('importteam', 'importteam')->name('importteam');
-    });
+    Route::livewire('exportteam', 'gedcom::exportteam')->name('gedcom.exportteam');
+    Route::livewire('importteam', 'gedcom::importteam')->name('gedcom.importteam');
 
     // -----------------------------------------------------------------------------------
     // developer
     // -----------------------------------------------------------------------------------
     Route::middleware(App\Http\Middleware\IsDeveloper::class)->prefix('developer')->as('developer.')->group(function (): void {
+        Route::livewire('teams', 'developer::teams')->name('teams');
+        Route::livewire('people', 'developer::people')->name('people');
+
+        Route::livewire('users', 'developer::users')->name('users');
+
+        Route::livewire('settings', 'developer::settings')->name('settings');
+        Route::livewire('backups', 'developer::backups')->name('backups');
+
         // -----------------------------------------------------------------------------------
         // pages
         // -----------------------------------------------------------------------------------
         Route::controller(App\Http\Controllers\Back\DeveloperController::class)->group(function (): void {
-            Route::get('settings', 'settings')->name('settings');
-
-            Route::get('teams', 'teams')->name('teams');
-            Route::get('people', 'people')->name('people');
-            Route::get('users', 'users')->name('users');
-
             Route::get('dependencies', 'dependencies')->name('dependencies');
             Route::get('session', 'session')->name('session');
 
@@ -99,11 +94,6 @@ Route::middleware([
             Route::get('userlog/originmap', 'userlogOriginMap')->name('userlog.origin-map');
             Route::get('userlog/period', 'userlogPeriod')->name('userlog.period');
         });
-
-        // -----------------------------------------------------------------------------------
-        // backups
-        // -----------------------------------------------------------------------------------
-        Route::get('backups', App\Livewire\Backups\Manage::class)->name('backups');
     });
 });
 

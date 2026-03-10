@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-use App\Livewire\PasswordGenerator;
 use Livewire\Livewire;
 
 test('generate a password with default settings', function (): void {
-    Livewire::test(PasswordGenerator::class)
+    Livewire::test('livewire::password-generator')
         ->call('generate')
         ->assertSet('generatedPassword', fn ($value) => is_string($value) && mb_strlen($value) === 20)
         ->assertSet('passwordStrength', fn ($value) => in_array($value, [
@@ -23,7 +22,7 @@ test('generate a password with default settings', function (): void {
 });
 
 test('generate a password with numbers and symbols disabled', function (): void {
-    Livewire::test(PasswordGenerator::class)
+    Livewire::test('livewire::password-generator')
         ->set('length', 16)
         ->set('useNumbers', false)
         ->set('useSymbols', false)
@@ -32,12 +31,12 @@ test('generate a password with numbers and symbols disabled', function (): void 
 });
 
 test('validate password length', function (): void {
-    Livewire::test(PasswordGenerator::class)
+    Livewire::test('livewire::password-generator')
         ->set('length', 4)
         ->call('generate')
         ->assertHasErrors(['length' => 'min']);
 
-    Livewire::test(PasswordGenerator::class)
+    Livewire::test('livewire::password-generator')
         ->set('length', 130)
         ->call('generate')
         ->assertHasErrors(['length' => 'max']);

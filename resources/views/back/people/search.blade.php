@@ -3,5 +3,5 @@
 @endsection
 
 <x-app-layout>
-    <livewire:people.search />
+    <livewire:people::search />
 </x-app-layout>

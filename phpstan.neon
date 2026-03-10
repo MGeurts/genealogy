@@ -17,3 +17,8 @@ parameters:
 #
 #    excludePaths:
 #        - ./*/*/FileToBeExcluded.php
+
+    ignoreErrors:
+        -
+            identifier: trait.unused
+            path: app/Livewire/Traits/*

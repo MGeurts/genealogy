@@ -40,12 +40,12 @@ final class PeopleController extends Controller
 
     public function ancestors(Person $person): View
     {
-        return view('back.people.ancestors', ['person' => $person]);
+        return view('components.livewire.people.⚡ancestors.wrapper', ['person' => $person]);
     }
 
     public function descendants(Person $person): View
     {
-        return view('back.people.descendants', ['person' => $person]);
+        return view('components.livewire.people.⚡descendants.wrapper', ['person' => $person]);
     }
 
     public function chart(Person $person): View
@@ -55,17 +55,17 @@ final class PeopleController extends Controller
 
     public function history(Person $person): View
     {
-        return view('back.people.history', ['person' => $person]);
+        return view('components.livewire.people.⚡history.wrapper', ['person' => $person]);
     }
 
     public function datasheet(Person $person): View
     {
-        return view('back.people.datasheet', ['person' => $person]);
+        return view('components.livewire.people.⚡datasheet.wrapper', ['person' => $person]);
     }
 
     public function timeline(Person $person): View
     {
-        return view('back.people.timeline', ['person' => $person]);
+        return view('components.livewire.people.⚡timeline.wrapper', ['person' => $person]);
     }
 
     public function addFather(Person $person): View

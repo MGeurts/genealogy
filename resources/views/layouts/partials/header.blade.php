@@ -1,8 +1,8 @@
 <header class="sticky top-0 z-30 w-full shadow-md print:hidden">
     {{-- menu --}}
-    <livewire:navigation-menu />
+    <livewire:livewire::navigation-menu />
 
-    {{-- heading --}}
+    {{-- breadcrumbs & date --}}
     <div class="flex bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-200">
         <div class="flex-1 p-2 mx-auto" aria-label="Page Heading">
             <x-ts-breadcrumbs lg separator="|" />
