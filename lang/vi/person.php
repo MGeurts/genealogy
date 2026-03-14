@@ -177,4 +177,8 @@ return [
     'family_caution_2' => 'Cha mẹ có thể là cha mẹ ruột, nhưng cũng có thể là cha mẹ không ruột thịt (đồng giới hoặc nhận nuôi). Trong trường hợp đó, chỉ cần để trống Cha và Mẹ.',
 
     'parents_id_exclusive' => 'Cha mẹ là duy nhất. Nếu bạn đặt Cha mẹ, bạn không thể đặt Cha hoặc Mẹ.',
+
+    'similar_persons'      => 'Những người tương tự đã tồn tại',
+    'no_similar_persons'   => 'Chưa tìm thấy người tương tự — hãy bắt đầu nhập tên.',
+    'similar_persons_hint' => 'Để tránh thêm một người nhiều hơn một lần, các người đã tồn tại và tương tự sẽ được hiển thị ở đây khi bạn nhập tên, họ, tên khai sinh hoặc biệt danh.',
 ];

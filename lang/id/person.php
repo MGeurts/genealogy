@@ -177,4 +177,8 @@ return [
     'family_caution_2' => 'Orang Tua bisa merupakan orang tua biologis, tetapi juga dapat digunakan untuk orang tua non-biologis (pasangan sesama jenis atau adopsi). Dalam kasus terakhir, biarkan Ayah dan Ibu kosong.',
 
     'parents_id_exclusive' => 'Orang tua bersifat eksklusif. Jika Anda mengatur Orang Tua, Anda tidak dapat mengatur Ayah atau Ibu.',
+
+    'similar_persons'      => 'Orang yang mirip yang sudah ada',
+    'no_similar_persons'   => 'Belum ada orang serupa ditemukan — mulai ketik nama.',
+    'similar_persons_hint' => 'Untuk menghindari menambahkan seseorang lebih dari sekali, orang yang sudah ada dan mirip akan ditampilkan di sini saat Anda mengetik nama depan, nama keluarga, nama lahir, atau nama panggilan.',
 ];

@@ -299,6 +299,39 @@ final class Person extends Model implements HasMedia
         });
     }
 
+    /**
+     * Scope to find persons with similar names within a team.
+     *
+     * @param  array<string|null>  $terms
+     */
+    #[Scope]
+    public function scopeSimilarTo(Builder $query, ?int $teamId, array $terms): Builder
+    {
+        $terms = array_filter($terms);
+
+        if (empty($terms)) {
+            return $query->whereRaw('0 = 1');
+        }
+
+        if ($teamId !== null) {
+            $query->where('team_id', $teamId);
+        }
+
+        return $query
+            ->where(function ($q) use ($terms): void {
+                foreach ($terms as $term) {
+                    $like = '%' . $term . '%';
+                    $q->orWhere('firstname', 'like', $like)
+                    ->orWhere('surname',   'like', $like)
+                    ->orWhere('birthname', 'like', $like)
+                    ->orWhere('nickname',  'like', $like);
+                }
+            })
+            ->orderBy('surname')
+            ->orderBy('firstname')
+            ->limit(10);
+    }
+
     /* -------------------------------------------------------------------------------------------- */
     // Checks
     /* -------------------------------------------------------------------------------------------- */

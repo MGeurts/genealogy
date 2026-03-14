@@ -9,6 +9,8 @@ use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person as PersonModel;
 use App\Rules\DobValid;
 use App\Rules\YobValid;
+use Illuminate\Database\Eloquent\Collection;
+use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
@@ -20,6 +22,25 @@ new class extends Component
     use TrimStringsAndConvertEmptyStringsToNull;
 
     public PersonForm $form;
+
+    #[Computed]
+    public function similarPersons(): Collection
+    {
+        $user = auth()->user();
+
+        if (! $user || ! $user->currentTeam) {
+            return new Collection;
+        }
+
+        $teamId = $user->isDeveloper() ? null : $user->currentTeam->id;
+
+        return PersonModel::similarTo($teamId, [
+            $this->form->firstname,
+            $this->form->surname,
+            $this->form->birthname,
+            $this->form->nickname,
+        ])->get();
+    }
 
     public function savePerson(): void
     {

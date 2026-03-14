@@ -177,4 +177,8 @@ return [
     'family_caution_2' => 'Eltern können die biologischen Eltern sein, aber auch nicht-biologische (gleichgeschlechtliche oder Adoptiveltern). In diesem Fall lassen Sie Vater und Mutter einfach leer.',
 
     'parents_id_exclusive' => 'Eltern sind exklusiv. Wenn Sie Eltern setzen, können Sie Vater oder Mutter nicht setzen.',
+
+    'similar_persons'      => 'Ähnliche vorhandene Personen',
+    'no_similar_persons'   => 'Noch keine ähnlichen Personen gefunden — beginnen Sie, einen Namen einzugeben.',
+    'similar_persons_hint' => 'Um zu vermeiden, eine Person mehr als einmal hinzuzufügen, werden hier ähnliche vorhandene Personen angezeigt, während Sie einen Vornamen, Nachnamen, Geburtsnamen oder Spitznamen eingeben.',
 ];

@@ -160,4 +160,8 @@ return [
     'family_caution_2' => 'Les parents peuvent être biologiques, mais aussi non biologiques (homosexuels ou adoptifs). Dans ce cas, laissez simplement Père et Mère vides.',
 
     'parents_id_exclusive' => 'Parents est exclusif. Si vous définissez Parents, vous ne pouvez pas définir Père ou Mère.',
+
+    'similar_persons'      => 'Personnes existantes similaires',
+    'no_similar_persons'   => 'Aucune personne similaire trouvée pour le moment — commencez à saisir un nom.',
+    'similar_persons_hint' => 'Pour éviter d’ajouter une personne plus d’une fois, des personnes existantes similaires sont affichées ici lorsque vous saisissez un prénom, un nom de famille, un nom de naissance ou un surnom.',
 ];

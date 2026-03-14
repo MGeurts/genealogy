@@ -160,4 +160,8 @@ return [
     'family_caution_2' => 'Os pais podem ser biológicos, mas também podem ser não biológicos (homossexuais ou adotivos). Nesse caso, deixe Pai e Mãe em branco.',
 
     'parents_id_exclusive' => 'Pais é exclusivo. Se você definir Pais, não pode definir Pai ou Mãe.',
+
+    'similar_persons'      => 'Pessoas existentes semelhantes',
+    'no_similar_persons'   => 'Ainda não foram encontradas pessoas semelhantes — comece a digitar um nome.',
+    'similar_persons_hint' => 'Para evitar adicionar uma pessoa mais de uma vez, pessoas existentes semelhantes são mostradas aqui enquanto você digita um primeiro nome, sobrenome, nome de nascimento ou apelido.',
 ];

@@ -159,4 +159,8 @@ return [
     'family_caution_2' => 'Los padres pueden ser biológicos, pero también pueden ser no biológicos (homosexuales o adoptivos). En este último caso, simplemente deje Padre y Madre en blanco.',
 
     'parents_id_exclusive' => 'Padres es exclusivo. Si estableces Padres, no puedes establecer Padre o Madre.',
+
+    'similar_persons'      => 'Personas similares existentes',
+    'no_similar_persons'   => 'Aún no se encontraron personas similares — comience a escribir un nombre.',
+    'similar_persons_hint' => 'Para evitar añadir una persona más de una vez, aquí se muestran personas existentes similares mientras escribe un nombre, apellido, apellido de nacimiento o apodo.',
 ];

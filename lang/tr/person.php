@@ -177,4 +177,8 @@ return [
     'family_caution_2' => 'Ebeveynler biyolojik olabilir, ancak biyolojik olmayan (eşcinsel veya evlat edinen) ebeveynler de olabilir. Bu durumda Baba ve Anne alanlarını boş bırakın.',
 
     'parents_id_exclusive' => 'Ebeveynler özel. Ebeveynleri ayarlarsanız, Baba veya Anneyi ayarlayamazsınız.',
+
+    'similar_persons'      => 'Benzer mevcut kişiler',
+    'no_similar_persons'   => 'Henüz benzer kişi bulunamadı — bir isim yazmaya başlayın.',
+    'similar_persons_hint' => 'Bir kişiyi birden fazla kez eklememek için, bir ad, soyad, doğum adı veya takma ad yazarken burada benzer mevcut kişiler gösterilir.',
 ];

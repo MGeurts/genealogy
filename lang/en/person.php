@@ -177,4 +177,8 @@ return [
     'family_caution_2' => 'Parents may be the biological parents, but may also be used for non-biological parents (gay or adoptive). In the latter case, simply leave Father and Mother blank.',
 
     'parents_id_exclusive' => 'Parents is exclusive. If you set Parents, you can not set Father or Mother.',
+
+    'similar_persons'      => 'Similar existing persons',
+    'no_similar_persons'   => 'No similar persons found yet — start typing a name.',
+    'similar_persons_hint' => 'To avoid adding a person more than once, similar existing persons are shown here as you type a first name, surname, birthname or nickname.',
 ];
