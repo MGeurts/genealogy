@@ -2,12 +2,27 @@
     <x-ts-card class="max-w-max min-w-max">
         <x-slot:header>
             <div class="flex items-center justify-between w-full">
-                {{ __('person.similar_persons') }}
-                <x-ts-icon icon="tabler.users" class="inline-block size-5" />
+                <div class="flex-1">
+                    {{ __('person.similar_persons') }}
+                </div>
+
+                <div class="flex justify-center gap-2">
+                    <x-ts-button type="button" md wire:click="searchSimilar" color="secondary" title="{{ __('person.search_similar') }}">
+                        <x-ts-icon icon="tabler.search" class="inline-block size-4" />
+                    </x-ts-button>
+
+                    <x-ts-button type="button" md wire:click="clearSimilar" color="secondary" title="{{ __('app.clear') }}">
+                        <x-ts-icon icon="tabler.x" class="inline-block size-4" />
+                    </x-ts-button>
+                </div>
+
+                <div class="flex-1 flex justify-end">
+                    <x-ts-icon icon="tabler.users" class="inline-block size-5" />
+                </div>
             </div>
         </x-slot:header>
 
-        @if ($this->similarPersons->isEmpty())
+        @if (!$searchTriggered or $this->similarPersons->isEmpty())
             <p class="text-neutral-400">
                 {{ __('person.no_similar_persons') }}
             </p>
@@ -15,9 +30,9 @@
             <div class="flex flex-col gap-2 min-w-max">
                 @foreach ($this->similarPersons as $person)
                     <a href="{{ url('/people/' . $person->id) }}" @class([
-                        'flex items-center gap-6 p-2 rounded hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors group',
-                        'text-red-600 dark:text-red-400' => $person->isDeceased(),
-                    ])>
+            'flex items-center gap-6 p-2 rounded hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors group',
+            'text-red-600 dark:text-red-400' => $person->isDeceased(),
+        ])>
 
                         {{-- Photo / avatar --}}
                         <div class="size-10 shrink-0 overflow-hidden bg-neutral-200 dark:bg-neutral-600 flex items-center justify-center">
@@ -29,9 +44,14 @@
                         </div>
 
                         {{-- Name + birth info --}}
-                        <div class="flex flex-col leading-tight min-w-40">
-                            <span class="font-medium group-hover:underline">
-                                {{ $person->name }}
+                        <div class="flex flex-col leading-tight min-w-40 font-medium">
+                            <span>
+                                <span class="group-hover:underline">
+                                    {{ $person->name }}
+                                </span>
+                                <span>
+                                    {{ $person->birthname ? '(' . $person->birthname . ')' : ''}} {{ $person->nickname ? '(' . $person->nickname . ')' : ''}}
+                                </span>
                             </span>
                             <span class="text-neutral-400">
                                 {{ $person->birth_formatted }}

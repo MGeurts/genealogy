@@ -178,7 +178,8 @@ return [
 
     'parents_id_exclusive' => 'Parents is exclusive. If you set Parents, you can not set Father or Mother.',
 
+    'search_similar'       => 'Search similar persons',
     'similar_persons'      => 'Similar existing persons',
-    'no_similar_persons'   => 'No similar persons found yet — start typing a name.',
-    'similar_persons_hint' => 'To avoid adding a person more than once, similar existing persons are shown here as you type a first name, surname, birthname or nickname.',
+    'no_similar_persons'   => 'No similar persons found yet — enter some names and click the search button.',
+    'similar_persons_hint' => 'To avoid adding a person more than once, similar existing persons are shown here after you type a first name, surname, birthname or nickname and click the search button.',
 ];

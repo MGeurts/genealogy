@@ -160,7 +160,7 @@ return [
 
     'parents_id_exclusive' => 'Padres es exclusivo. Si estableces Padres, no puedes establecer Padre o Madre.',
 
+    'search_similar'       => 'Buscar personas similares',
     'similar_persons'      => 'Personas similares existentes',
-    'no_similar_persons'   => 'Aún no se encontraron personas similares — comience a escribir un nombre.',
-    'similar_persons_hint' => 'Para evitar añadir una persona más de una vez, aquí se muestran personas existentes similares mientras escribe un nombre, apellido, apellido de nacimiento o apodo.',
-];
+    'no_similar_persons'   => 'Aún no se encontraron personas similares — ingrese algunos nombres y haga clic en el botón de búsqueda.',
+    'similar_persons_hint' => 'Para evitar añadir una persona más de una vez, aquí se muestran personas existentes similares después de escribir un nombre, apellido, apellido de nacimiento o apodo y hacer clic en el botón de búsqueda.', ];

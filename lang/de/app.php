@@ -62,6 +62,7 @@ return [
     // Actions
     'add'     => 'Hinzufügen',
     'cancel'  => 'Abbrechen',
+    'clear'   => 'Löschen',
     'create'  => 'Erstellen',
     'created' => 'Erstellt',
     'update'  => 'Aktualisieren',

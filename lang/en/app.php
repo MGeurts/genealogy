@@ -62,6 +62,7 @@ return [
     // Actions
     'add'     => 'Add',
     'cancel'  => 'Cancel',
+    'clear'   => 'Clear',
     'create'  => 'Create',
     'created' => 'Created',
     'update'  => 'Update',

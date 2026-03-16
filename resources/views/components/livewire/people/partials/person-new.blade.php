@@ -5,22 +5,22 @@
         <div class="grid grid-cols-6 gap-5">
             {{-- firstname --}}
             <div class="col-span-6 md:col-span-3">
-                <x-ts-input wire:model.live.debounce.400ms="form.firstname" id="firstname" label="{{ __('person.firstname') }} :" autocomplete="firstname" autfocus />
+                <x-ts-input wire:model="form.firstname" id="firstname" label="{{ __('person.firstname') }} :" autocomplete="firstname" autfocus />
             </div>
 
             {{-- surname --}}
             <div class="col-span-6 md:col-span-3">
-                <x-ts-input wire:model.live.debounce.400ms="form.surname" id="surname" label="{{ __('person.surname') }} : *" autocomplete="surname" />
+                <x-ts-input wire:model="form.surname" id="surname" label="{{ __('person.surname') }} : *" autocomplete="surname" />
             </div>
 
             {{-- birthname --}}
             <div class="col-span-6 md:col-span-3">
-                <x-ts-input wire:model.live.debounce.400ms="form.birthname" id="birthname" label="{{ __('person.birthname') }} :" autocomplete="birthname" />
+                <x-ts-input wire:model="form.birthname" id="birthname" label="{{ __('person.birthname') }} :" autocomplete="birthname" />
             </div>
 
             {{-- nickname --}}
             <div class="col-span-6 md:col-span-3">
-                <x-ts-input wire:model.live.debounce.400ms="form.nickname" id="nickname" label="{{ __('person.nickname') }}" autocomplete="nickname" />
+                <x-ts-input wire:model="form.nickname" id="nickname" label="{{ __('person.nickname') }}" autocomplete="nickname" />
             </div>
             <x-hr.narrow class="col-span-6 my-0!" />
 

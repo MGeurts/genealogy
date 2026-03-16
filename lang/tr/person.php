@@ -178,7 +178,8 @@ return [
 
     'parents_id_exclusive' => 'Ebeveynler özel. Ebeveynleri ayarlarsanız, Baba veya Anneyi ayarlayamazsınız.',
 
+    'search_similar'       => 'Benzer kişileri ara',
     'similar_persons'      => 'Benzer mevcut kişiler',
-    'no_similar_persons'   => 'Henüz benzer kişi bulunamadı — bir isim yazmaya başlayın.',
-    'similar_persons_hint' => 'Bir kişiyi birden fazla kez eklememek için, bir ad, soyad, doğum adı veya takma ad yazarken burada benzer mevcut kişiler gösterilir.',
+    'no_similar_persons'   => 'Henüz benzer kişi bulunamadı — bazı isimler girin ve arama düğmesine tıklayın.',
+    'similar_persons_hint' => 'Bir kişiyi birden fazla kez eklememek için, bir ad, soyad, doğum adı veya takma ad yazıp arama düğmesine tıkladıktan sonra burada benzer mevcut kişiler gösterilir.',
 ];

@@ -62,6 +62,7 @@ return [
     // Actions
     'add'     => '添加',
     'cancel'  => '取消',
+    'clear'   => '清除',
     'create'  => '创建',
     'created' => '已创建',
     'update'  => '更新',

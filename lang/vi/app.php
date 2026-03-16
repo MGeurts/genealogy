@@ -62,6 +62,7 @@ return [
     // Actions
     'add'     => 'Thêm',
     'cancel'  => 'Hủy',
+    'clear'   => 'Xóa',
     'create'  => 'Tạo',
     'created' => 'Đã tạo',
     'update'  => 'Cập nhật',

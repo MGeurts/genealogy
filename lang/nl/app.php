@@ -62,6 +62,7 @@ return [
     // Actions
     'add'     => 'Toevoegen',
     'cancel'  => 'Annuleren',
+    'clear'   => 'Wissen',
     'create'  => 'Aanmaken',
     'created' => 'Aangemaakt',
     'update'  => 'Bijwerken',

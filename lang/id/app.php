@@ -62,6 +62,7 @@ return [
     // Actions
     'add'     => 'Tambah',
     'cancel'  => 'Batal',
+    'clear'   => 'Hapus',
     'create'  => 'Buat',
     'created' => 'Dibuat',
     'update'  => 'Perbarui',

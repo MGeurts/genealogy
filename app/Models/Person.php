@@ -302,7 +302,9 @@ final class Person extends Model implements HasMedia
     /**
      * Scope to find persons with similar names within a team.
      *
+     * @param  Builder<Person>  $query
      * @param  array<string|null>  $terms
+     * @return Builder<Person>
      */
     #[Scope]
     public function scopeSimilarTo(Builder $query, ?int $teamId, array $terms): Builder
@@ -322,14 +324,13 @@ final class Person extends Model implements HasMedia
                 foreach ($terms as $term) {
                     $like = '%' . $term . '%';
                     $q->orWhere('firstname', 'like', $like)
-                    ->orWhere('surname',   'like', $like)
-                    ->orWhere('birthname', 'like', $like)
-                    ->orWhere('nickname',  'like', $like);
+                        ->orWhere('surname', 'like', $like)
+                        ->orWhere('birthname', 'like', $like)
+                        ->orWhere('nickname', 'like', $like);
                 }
             })
             ->orderBy('surname')
-            ->orderBy('firstname')
-            ->limit(10);
+            ->orderBy('firstname');
     }
 
     /* -------------------------------------------------------------------------------------------- */

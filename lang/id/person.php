@@ -178,7 +178,8 @@ return [
 
     'parents_id_exclusive' => 'Orang tua bersifat eksklusif. Jika Anda mengatur Orang Tua, Anda tidak dapat mengatur Ayah atau Ibu.',
 
+    'search_similar'       => 'Cari orang yang mirip',
     'similar_persons'      => 'Orang yang mirip yang sudah ada',
-    'no_similar_persons'   => 'Belum ada orang serupa ditemukan — mulai ketik nama.',
-    'similar_persons_hint' => 'Untuk menghindari menambahkan seseorang lebih dari sekali, orang yang sudah ada dan mirip akan ditampilkan di sini saat Anda mengetik nama depan, nama keluarga, nama lahir, atau nama panggilan.',
+    'no_similar_persons'   => 'Belum ada orang serupa ditemukan — masukkan beberapa nama dan klik tombol pencarian.',
+    'similar_persons_hint' => 'Untuk menghindari menambahkan seseorang lebih dari sekali, orang yang sudah ada dan mirip akan ditampilkan di sini setelah Anda mengetik nama depan, nama keluarga, nama lahir, atau nama panggilan dan mengklik tombol pencarian.',
 ];

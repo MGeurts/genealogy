@@ -23,6 +23,9 @@ new class extends Component
 
     public PersonForm $form;
 
+    /** Controls whether the similar-persons results pane is visible. */
+    public bool $searchTriggered = false;
+
     #[Computed]
     public function similarPersons(): Collection
     {
@@ -32,14 +35,43 @@ new class extends Component
             return new Collection;
         }
 
-        $teamId = $user->isDeveloper() ? null : $user->currentTeam->id;
-
-        return PersonModel::similarTo($teamId, [
+        $nameFields = [
             $this->form->firstname,
             $this->form->surname,
             $this->form->birthname,
             $this->form->nickname,
-        ])->get();
+        ];
+
+        $hasMinLength = collect($nameFields)->contains(
+            fn ($value) => mb_strlen((string) $value) >= 3
+        );
+
+        // only query if at least 1 name has at least 3 characters
+        if (! $hasMinLength) {
+            return new Collection;
+        }
+
+        $teamId = $user->isDeveloper() ? null : $user->currentTeam->id;
+
+        return PersonModel::similarTo($teamId, $nameFields)->get();
+    }
+
+    /**
+     * Manually trigger the similar-persons search and show the results pane.
+     */
+    public function searchSimilar(): void
+    {
+        $this->searchTriggered = true;
+        unset($this->similarPersons); // bust the computed cache so it re-runs
+    }
+
+    /**
+     * Hide the similar-persons results pane and reset the trigger flag.
+     */
+    public function clearSimilar(): void
+    {
+        $this->searchTriggered = false;
+        unset($this->similarPersons); // bust cache, mirrors searchSimilar()
     }
 
     public function savePerson(): void

@@ -161,7 +161,8 @@ return [
 
     'parents_id_exclusive' => 'Pais é exclusivo. Se você definir Pais, não pode definir Pai ou Mãe.',
 
+    'search_similar'       => 'Pesquisar pessoas semelhantes',
     'similar_persons'      => 'Pessoas existentes semelhantes',
-    'no_similar_persons'   => 'Ainda não foram encontradas pessoas semelhantes — comece a digitar um nome.',
-    'similar_persons_hint' => 'Para evitar adicionar uma pessoa mais de uma vez, pessoas existentes semelhantes são mostradas aqui enquanto você digita um primeiro nome, sobrenome, nome de nascimento ou apelido.',
+    'no_similar_persons'   => 'Ainda não foram encontradas pessoas semelhantes — digite alguns nomes e clique no botão de pesquisa.',
+    'similar_persons_hint' => 'Para evitar adicionar uma pessoa mais de uma vez, pessoas existentes semelhantes são mostradas aqui depois que você digita um primeiro nome, sobrenome, nome de nascimento ou apelido e clica no botão de pesquisa.',
 ];

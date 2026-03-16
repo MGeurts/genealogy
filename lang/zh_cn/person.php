@@ -178,7 +178,8 @@ return [
 
     'parents_id_exclusive' => '父母是排他的。如果您设置了父母，则不能设置父亲或母亲。',
 
+    'search_similar'       => '搜索相似人物',
     'similar_persons'      => '相似的现有人物',
-    'no_similar_persons'   => '尚未找到相似的人物 — 开始输入姓名。',
-    'similar_persons_hint' => '为了避免重复添加同一个人，当您输入名字、姓氏、出生姓名或昵称时，这里会显示相似的现有人物。',
+    'no_similar_persons'   => '尚未找到相似的人物 — 输入一些姓名并点击搜索按钮。',
+    'similar_persons_hint' => '为了避免重复添加同一个人，当您输入名字、姓氏、出生姓名或昵称并点击搜索按钮后，这里会显示相似的现有人物。',
 ];

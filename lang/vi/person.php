@@ -178,7 +178,8 @@ return [
 
     'parents_id_exclusive' => 'Cha mẹ là duy nhất. Nếu bạn đặt Cha mẹ, bạn không thể đặt Cha hoặc Mẹ.',
 
+    'search_similar'       => 'Tìm người tương tự',
     'similar_persons'      => 'Những người tương tự đã tồn tại',
-    'no_similar_persons'   => 'Chưa tìm thấy người tương tự — hãy bắt đầu nhập tên.',
-    'similar_persons_hint' => 'Để tránh thêm một người nhiều hơn một lần, các người đã tồn tại và tương tự sẽ được hiển thị ở đây khi bạn nhập tên, họ, tên khai sinh hoặc biệt danh.',
+    'no_similar_persons'   => 'Chưa tìm thấy người tương tự — hãy nhập một số tên và nhấp vào nút tìm kiếm.',
+    'similar_persons_hint' => 'Để tránh thêm một người nhiều hơn một lần, các người đã tồn tại và tương tự sẽ được hiển thị ở đây sau khi bạn nhập tên, họ, tên khai sinh hoặc biệt danh và nhấp vào nút tìm kiếm.',
 ];

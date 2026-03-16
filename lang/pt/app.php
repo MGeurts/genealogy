@@ -56,6 +56,7 @@ return [
     'value'                     => 'Valor',
     'add'                       => 'Adicionar',
     'cancel'                    => 'Cancelar',
+    'clear'                     => 'Limpar',
     'create'                    => 'Criar',
     'created'                   => 'Criado',
     'update'                    => 'Atualizar',

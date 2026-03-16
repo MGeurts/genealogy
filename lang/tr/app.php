@@ -62,6 +62,7 @@ return [
     // Eylemler
     'add'     => 'Ekle',
     'cancel'  => 'İptal',
+    'clear'   => 'Temizle',
     'create'  => 'Oluştur',
     'created' => 'Oluşturuldu',
     'update'  => 'Güncelle',
