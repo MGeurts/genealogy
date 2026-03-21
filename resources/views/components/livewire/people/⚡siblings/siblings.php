@@ -18,6 +18,8 @@ new class extends Component
 
     // ------------------------------------------------------------------------------
     #[On('family_updated')]
+    #[On('father_added')]
+    #[On('mother_added')]
     public function mount(): void
     {
         $this->siblings = $this->person->siblings();
