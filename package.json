@@ -14,5 +14,6 @@
         "laravel-vite-plugin": "^2.1",
         "tailwindcss": "^4.2",
         "vite": "^7.3"
-    }
+    },
+    "$schema": "https://www.schemastore.org/package.json"
 }
