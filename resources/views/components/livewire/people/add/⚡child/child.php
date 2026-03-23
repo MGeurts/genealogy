@@ -30,7 +30,6 @@ new class extends Component
 
     public ?string $selectedTab = null;
 
-    #[On('person_added_as_child')]
     public function mount(): void
     {
         $this->form->reset();

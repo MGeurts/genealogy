@@ -52,6 +52,6 @@ new class extends Component
 
         $this->toast()->success(__('app.disconnect'), e($child->name) . ' ' . __('app.disconnected') . '.')->send();
 
-        $this->dispatch('person_added_as_child');
+        $this->dispatch('person_disconnected_as_child');
     }
 };

@@ -17,6 +17,8 @@ new class extends Component
     // ------------------------------------------------------------------------------
     #[On('person_updated')]
     #[On('couple_deleted')]
+    #[On('person_added_as_child')]
+    #[On('person_disconnected_as_child')]
     public function refreshProfile(): void
     {
         // optionally refresh any data here
