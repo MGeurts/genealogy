@@ -4,90 +4,17 @@ declare(strict_types=1);
 
 namespace App\Console\Commands;
 
+use Illuminate\Console\Attributes\Description;
+use Illuminate\Console\Attributes\Signature;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
+#[Signature('photos:migrate {--dry-run : Only show actions without moving or deleting files and/or folders}')]
+#[Description('Migrate old photo folder structure (photos, photos-096, photos-384) into the new unified structure with original + variants')]
 class MigratePhotos extends Command
 {
-    /**
-     * Photo Migration Command
-     *
-     * This command migrates photos from an old folder structure to a new unified structure.
-     * It reorganizes photo files from three separate folders (photos, photos-096, photos-384)
-     * into a single unified photos folder with originals and WebP variants.
-     *
-     * Usage: php artisan photos:migrate [--dry-run]
-     *
-     * OLD STRUCTURE:
-     * storage/app/public/
-     * ├── photos/          (largest size - WebP)
-     *     └── {teamId}/
-     *         ├── {personId}_{index}_{timestamp}.webp
-     * ├── photos-096/      (small size - WebP)
-     *     └── {teamId}/
-     *         ├── {personId}_{index}_{timestamp}.webp
-     * └── photos-384/      (medium size - WebP)
-     *     └── {teamId}/
-     *         ├── {personId}_{index}_{timestamp}.webp
-     *
-     * NEW STRUCTURE:
-     * storage/app/public/photos/
-     * └── {teamId}/
-     *     └── {personId}/
-     *         ├── {personId}_{index}_{timestamp}.webp        (original - from photos/)
-     *         ├── {personId}_{index}_{timestamp}_large.webp  (1920x1080 - copy of original)
-     *         ├── {personId}_{index}_{timestamp}_medium.webp (384px - from photos-384/)
-     *         └── {personId}_{index}_{timestamp}_small.webp  (96px - from photos-096/)
-     *
-     * MIGRATION STRATEGY:
-     * 1. Files from "photos/" become the "original" (no suffix) AND are duplicated as "_large.webp"
-     * 2. Files from "photos-096/" become "_small.webp" variants
-     * 3. Files from "photos-384/" become "_medium.webp" variants
-     * 4. All files are kept as WebP format
-     * 5. Files that don't exist in all three folders are ignored
-     *
-     * OPERATIONS:
-     * 1. Creates backup of existing folders (photos, photos-096, photos-384) with timestamp
-     * 2. Checks if migration has already been run (photos-096 and photos-384 must exist)
-     * 3. Scans "photos/" folder to identify all available photos
-     * 4. For each photo found in "photos/":
-     *    a. Copies as original (no suffix)
-     *    b. Copies as _large.webp variant
-     *    c. Copies from photos-384/ as _medium.webp (if exists)
-     *    d. Copies from photos-096/ as _small.webp (if exists)
-     * 5. Creates new directory structure (photos/{teamId}/{personId}/)
-     * 6. Copies files to new locations and deletes originals
-     * 7. Cleans up empty folders
-     *
-     * SAFETY FEATURES:
-     * - Creates timestamped backups before migration
-     * - Prevents multiple runs by checking if old folders still exist
-     * - Dry-run mode (--dry-run) shows actions without executing
-     * - Skips .gitignore files during processing
-     * - Error handling for unexpected file structures
-     * - Ensures target directories exist before copying
-     * - Ignores photos that don't have all variants
-     *
-     * EXAMPLE:
-     * photos/1/560_001_20250816113838.webp     → photos/1/560/560_001_20250816113838.webp (original)
-     *                                           → photos/1/560/560_001_20250816113838_large.webp
-     * photos-384/1/560_001_20250816113838.webp → photos/1/560/560_001_20250816113838_medium.webp
-     * photos-096/1/560_001_20250816113838.webp → photos/1/560/560_001_20250816113838_small.webp
-     *
-     * PURPOSE:
-     * Refactors photo storage system for better organization by team and person while
-     * maintaining different image sizes in a structured way for easier management.
-     * This improves performance and allows migrating disks to other storage solutions.
-     *
-     * WARNING:
-     * This command is intended to be run ONLY ONCE during the migration process!!
-     */
-    protected $signature = 'photos:migrate {--dry-run : Only show actions without moving or deleting files and/or folders}';
-
-    protected $description = 'Migrate old photo folder structure (photos, photos-096, photos-384) into the new unified structure with original + variants';
-
     public function handle(): int
     {
         $dryRun = $this->option('dry-run');
