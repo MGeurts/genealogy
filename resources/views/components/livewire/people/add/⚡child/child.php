@@ -8,7 +8,6 @@ use App\Livewire\Traits\SavesPersonPhotos;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
 use Illuminate\Support\Collection;
-use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;

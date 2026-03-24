@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use App\Models\Person;
-use Livewire\Attributes\On;
 use Illuminate\Support\Collection;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 new class extends Component
