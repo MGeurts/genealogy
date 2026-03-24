@@ -419,7 +419,7 @@ class IndividualImporter
                 $personData[$field] = mb_substr($personData[$field], 0, $limit);
 
                 // Log truncation for awareness
-                Log::info("GEDCOM Import: Truncated {$field}", [
+                Log::debug("GEDCOM Import: Truncated {$field}", [
                     'original_length' => mb_strlen($personData[$field] ?? ''),
                     'truncated_to'    => $limit,
                 ]);

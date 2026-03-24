@@ -218,7 +218,7 @@ class GedcomFileHandler
             throw new RuntimeException('ZIP file is empty after creation: ' . $zipPath);
         }
 
-        Log::info("Created ZIP with GEDCOM file and {$addedFiles} media files");
+        Log::debug("Created ZIP with GEDCOM file and {$addedFiles} media files");
     }
 
     /**

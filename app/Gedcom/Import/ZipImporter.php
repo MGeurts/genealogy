@@ -130,7 +130,7 @@ class ZipImporter
                 }
 
                 $this->gedcomContent = $content;
-                Log::info('GEDCOM file found in ZIP', ['file' => $file->getFilename()]);
+                Log::debug('GEDCOM file found in ZIP', ['file' => $file->getFilename()]);
             }
 
             // Find media files (images)
@@ -150,7 +150,7 @@ class ZipImporter
             throw new Exception('No GEDCOM file found in ZIP archive');
         }
 
-        Log::info('ZIP extraction complete', [
+        Log::debug('ZIP extraction complete', [
             'media_files_count' => count($this->mediaFiles),
             'gedcom_size'       => mb_strlen($this->gedcomContent),
         ]);

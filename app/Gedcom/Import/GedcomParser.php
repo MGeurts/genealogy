@@ -128,7 +128,7 @@ class GedcomParser
         unset($currentRecord);
 
         // Debug logging to help identify the issue
-        Log::info('GEDCOM Parse Complete', [
+        Log::debug('GEDCOM Parse Complete', [
             'individuals_count' => count($individuals),
             'families_count'    => count($families),
             'families_keys'     => array_keys($families),

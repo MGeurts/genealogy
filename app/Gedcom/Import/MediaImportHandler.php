@@ -135,7 +135,7 @@ class MediaImportHandler
             ]);
         }
 
-        Log::info('Media objects parsed', [
+        Log::debug('Media objects parsed', [
             'count'   => count($this->mediaObjects),
             'objects' => array_keys($this->mediaObjects),
         ]);
@@ -227,7 +227,7 @@ class MediaImportHandler
 
             if (empty($photos)) {
                 $stats['missing_files']++;
-                Log::info('No photo files found for person', [
+                Log::debug('No photo files found for person', [
                     'person_id' => $personId,
                     'gedcom_id' => $gedcomId,
                     'refs'      => $mediaRefs,
@@ -242,7 +242,7 @@ class MediaImportHandler
                 if ($savedCount > 0) {
                     $stats['succeeded']++;
                     $stats['total_photos'] += $savedCount;
-                    Log::info('Photos imported for person', [
+                    Log::debug('Photos imported for person', [
                         'person_id'    => $personId,
                         'person_name'  => $person->name,
                         'photos_count' => $savedCount,

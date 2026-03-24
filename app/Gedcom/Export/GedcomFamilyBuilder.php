@@ -54,7 +54,7 @@ class GedcomFamilyBuilder
      */
     public function buildGedcomFamilies(Collection $individuals, Collection $couples): SupportCollection
     {
-        Log::info('Starting family building with ' . $couples->count() . ' couples and ' . $individuals->count() . ' individuals');
+        Log::debug('Starting family building with ' . $couples->count() . ' couples and ' . $individuals->count() . ' individuals');
 
         $gedcomFamilies            = collect();
         $this->parentFamilyMapping = [];

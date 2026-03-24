@@ -80,7 +80,7 @@ final class Import implements CreatesTeams
 
         try {
             // Extract ZIP file
-            Log::info('Extracting ZIP file', ['path' => $zipPath]);
+            Log::debug('Extracting ZIP file', ['path' => $zipPath]);
             $zipImporter->extract($zipPath);
 
             $gedcomContent = $zipImporter->getGedcomContent();
@@ -92,7 +92,7 @@ final class Import implements CreatesTeams
 
             $mediaFiles = $zipImporter->getMediaFiles();
 
-            Log::info('ZIP extracted successfully', [
+            Log::debug('ZIP extracted successfully', [
                 'media_files' => count($mediaFiles),
                 'gedcom_size' => mb_strlen($gedcomContent),
             ]);
@@ -160,7 +160,7 @@ final class Import implements CreatesTeams
                 // Parse media objects from GEDCOM content BEFORE parsing individuals
                 $this->mediaHandler->parseMediaObjects($gedcomContent);
 
-                Log::info('Media handler initialized', [
+                Log::debug('Media handler initialized', [
                     'files_count'         => count($mediaFiles),
                     'media_objects_count' => count($this->mediaHandler->getMediaObjects()),
                 ]);
@@ -169,7 +169,7 @@ final class Import implements CreatesTeams
             // Parse GEDCOM content
             $parsedData = $this->parser->parse($gedcomContent);
 
-            Log::info('GEDCOM parsed', [
+            Log::debug('GEDCOM parsed', [
                 'individuals' => count($parsedData->getIndividuals()),
                 'families'    => count($parsedData->getFamilies()),
             ]);
@@ -180,7 +180,7 @@ final class Import implements CreatesTeams
                 $this->mediaHandler
             );
 
-            Log::info('Individuals imported', [
+            Log::debug('Individuals imported', [
                 'count' => count($personMap),
             ]);
 
@@ -190,21 +190,21 @@ final class Import implements CreatesTeams
                 $personMap
             );
 
-            Log::info('Families imported', [
+            Log::debug('Families imported', [
                 'count' => count($familyMap),
             ]);
 
             // Create couples from families
             $this->coupleCreator->create($familyMap, $personMap);
 
-            Log::info('Couples created');
+            Log::debug('Couples created');
 
             // Import media files if available
             $mediaStats = null;
             if ($this->mediaHandler) {
-                Log::info('Starting media import');
+                Log::debug('Starting media import');
                 $mediaStats = $this->mediaHandler->importMediaToPersons($personMap);
-                Log::info('Media import complete', $mediaStats);
+                Log::debug('Media import complete', $mediaStats);
             }
 
             DB::commit();

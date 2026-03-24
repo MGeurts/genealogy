@@ -73,7 +73,7 @@ class GedcomMediaBuilder
             }
         }
 
-        Log::info('Collected media objects for ' . count($this->mediaObjects) . ' individuals, ' . count($this->mediaFiles) . ' files for ZIP export');
+        Log::debug('Collected media objects for ' . count($this->mediaObjects) . ' individuals, ' . count($this->mediaFiles) . ' files for ZIP export');
     }
 
     /**
