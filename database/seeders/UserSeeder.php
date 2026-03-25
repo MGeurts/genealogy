@@ -7,7 +7,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Userlog;
 use Illuminate\Database\Seeder;
-use Spatie\Activitylog\Facades\CauserResolver;
+use Spatie\Activitylog\Facades\Activity;
 
 final class UserSeeder extends Seeder
 {
@@ -28,7 +28,7 @@ final class UserSeeder extends Seeder
             $this->createUserlogs($developer);
         }
 
-        CauserResolver::setCauser($developer);
+        Activity::defaultCauser($developer);
 
         // -----------------------------------------------------------------------------------
         // create administrator user

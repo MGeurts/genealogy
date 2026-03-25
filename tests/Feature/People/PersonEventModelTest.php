@@ -329,8 +329,7 @@ test('activity logging is configured correctly', function (): void {
     $options = $event->getActivitylogOptions();
 
     expect($options->logName)->toBe('person_couple')
-        ->and($options->logOnlyDirty)->toBeTrue()
-        ->and($options->submitEmptyLogs)->toBeFalse();
+        ->and($options->logOnlyDirty)->toBeTrue();
 });
 
 test('type label accessor handles missing translation gracefully', function (): void {

@@ -11,7 +11,7 @@ use App\Models\PersonMetadata;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Spatie\Activitylog\Facades\CauserResolver;
+use Spatie\Activitylog\Facades\Activity;
 
 final class DemoSeeder extends Seeder
 {
@@ -36,7 +36,7 @@ final class DemoSeeder extends Seeder
     {
         $manager = User::where('surname', 'Manager')->first();
         auth()->login($manager);
-        CauserResolver::setCauser($manager);
+        Activity::defaultCauser($manager);
 
         $this->importBritishRoyalsPeople();
         $this->importBritishRoyalsCouples();
@@ -46,7 +46,7 @@ final class DemoSeeder extends Seeder
 
         $editor = User::where('surname', 'Editor')->first();
         auth()->login($editor);
-        CauserResolver::setCauser($editor);
+        Activity::defaultCauser($editor);
 
         $this->importKennedyPeople();
         $this->importKennedyCouples();
@@ -55,7 +55,7 @@ final class DemoSeeder extends Seeder
 
         $developer = User::where('surname', 'Developer')->first();
         auth()->login($developer);
-        CauserResolver::setCauser($developer);
+        Activity::defaultCauser($developer);
 
         $this->generatedeveloperTestData();
 
