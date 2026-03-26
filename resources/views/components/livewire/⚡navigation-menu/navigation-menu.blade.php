@@ -15,7 +15,7 @@
             <div class="flex flex-wrap gap-5 py-2">
                 <div class="flex items-center gap-5">
                     <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                        <x-ts-icon icon="tabler.home" class="inline-block size-5 mr-1" />
+                        <x-ts-icon icon="home" class="inline-block size-5 mr-1" />
                         {{ __('app.home') }}
                     </x-nav-link>
 
@@ -207,7 +207,7 @@
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden md:hidden">
         <div class="space-y-1 border-t border-gray-200">
             <x-nav-link-responsive href="{{ route('home') }}" :active="request()->routeIs('home')">
-                <x-ts-icon icon="tabler.home" class="inline-block size-5 mr-1" />
+                <x-ts-icon icon="home" class="inline-block size-5 mr-1" />
                 {{ __('app.home') }}
             </x-nav-link-responsive>
 

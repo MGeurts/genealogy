@@ -17,7 +17,7 @@
                 <x-slot:footer>
                     <div class="flex justify-end">
                         <x-ts-button href="/" color="primary">
-                            <x-ts-icon icon="tabler.home" class="inline-block size-5" />
+                            <x-ts-icon icon="home" class="inline-block size-5" />
                             {{ __('app.home') }}
                         </x-ts-button>
                     </div>
