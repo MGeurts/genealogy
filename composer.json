@@ -35,7 +35,7 @@
     "require": {
         "php": "^8.4",
         "filament/tables": "^5.4",
-        "intervention/image": "^3.11",
+        "intervention/image": "^4.0",
         "korridor/laravel-has-many-merged": "^1.2",
         "laravel/framework": "^12.56",
         "laravel/jetstream": "^5.5",
@@ -43,7 +43,7 @@
         "laravel/tinker": "^3.0",
         "livewire/livewire": "^4.2",
         "opcodesio/log-viewer": "^3.24",
-        "secondnetwork/blade-tabler-icons": "^3.40",
+        "secondnetwork/blade-tabler-icons": "^3.41",
         "spatie/laravel-activitylog": "^5.0",
         "spatie/laravel-backup": "^10.2",
         "spatie/laravel-medialibrary": "^11.21",
@@ -53,7 +53,7 @@
     },
     "require-dev": {
         "alisalehi/laravel-lang-files-translator": "^1.0",
-        "barryvdh/laravel-debugbar": "^4.1",
+        "barryvdh/laravel-debugbar": "^4.2",
         "barryvdh/laravel-ide-helper": "^3.7",
         "fakerphp/faker": "^1.24",
         "larastan/larastan": "^3.9",

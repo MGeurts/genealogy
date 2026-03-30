@@ -10,7 +10,9 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Alignment;
 use Intervention\Image\Drivers\Gd\Driver;
+use Intervention\Image\Format;
 use Intervention\Image\ImageManager;
 use RuntimeException;
 use Throwable;
@@ -514,7 +516,7 @@ final class PersonPhotos
         $savedAny = false;
 
         try {
-            $original = $this->imageManager->read($fileContent);
+            $original = $this->imageManager->decode($fileContent);
         } catch (Throwable $e) {
             Log::error('Failed to read image file for variants', [
                 'person_id'   => $this->person->id,
@@ -531,7 +533,7 @@ final class PersonPhotos
             try {
                 $image = clone $original;
 
-                $image->scaleDown(
+                $image->scale(
                     width: $dimensions['width'],
                     height: $dimensions['height']
                 );
@@ -545,7 +547,7 @@ final class PersonPhotos
 
                 $this->photosDisk->put(
                     $path,
-                    (string) $image->toWebp(quality: $quality)
+                    (string) $image->encodeUsingFormat(Format::WEBP, quality: $quality)
                 );
 
                 $savedAny = true;
@@ -623,7 +625,7 @@ final class PersonPhotos
         }
 
         try {
-            $image->place($path, 'bottom-left', 5, 5);
+            $image->insert($path, 5, 5, Alignment::BOTTOM_LEFT);
         } catch (Throwable $e) {
             Log::warning('Failed to apply watermark', [
                 'person_id'      => $this->person->id,
