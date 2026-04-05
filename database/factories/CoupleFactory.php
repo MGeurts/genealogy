@@ -4,14 +4,11 @@ declare(strict_types=1);
 
 namespace Database\Factories;
 
-use App\Models\Couple;
 use App\Models\Person;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CoupleFactory extends Factory
 {
-    protected $model = Couple::class;
-
     public function definition(): array
     {
         // Get two different people

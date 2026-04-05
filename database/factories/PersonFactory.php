@@ -13,15 +13,13 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class PersonFactory extends Factory
 {
-    protected $model = Person::class;
-
     public function definition(): array
     {
         return [
-            'firstname'   => $this->faker->firstName,
-            'surname'     => $this->faker->lastName,
-            'birthname'   => $this->faker->lastName,
-            'nickname'    => $this->faker->userName,
+            'firstname'   => $this->faker->firstName(),
+            'surname'     => $this->faker->lastName(),
+            'birthname'   => $this->faker->optional()->lastName(),
+            'nickname'    => $this->faker->optional()->userName(),
             'sex'         => $this->faker->randomElement(['m', 'f']),
             'gender_id'   => null,
             'father_id'   => null,

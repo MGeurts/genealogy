@@ -9,10 +9,11 @@
         "@tailwindcss/forms": "^0.5",
         "@tailwindcss/typography": "^0.5",
         "@tailwindcss/vite": "^4.2",
-        "axios": "^1.14",
+        "axios": "1.14.0",
         "concurrently": "^9.2",
         "laravel-vite-plugin": "^3.0",
         "tailwindcss": "^4.2",
         "vite": "^8.0"
-    }
+    },
+    "$schema": "https://www.schemastore.org/package.json"
 }
