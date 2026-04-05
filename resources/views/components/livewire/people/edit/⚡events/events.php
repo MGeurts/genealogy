@@ -175,7 +175,9 @@ new class extends Component
 
     public function delete(int $eventId): void
     {
-        PersonEvent::findOrFail($eventId)->delete();
+        $event = PersonEvent::where('person_id', $this->person->id)->findOrFail($eventId);
+
+        $event->delete();
 
         $this->dispatch('event-saved');
         $this->toast()->success(__('app.delete'), __('personevents.event_deleted'))->send();

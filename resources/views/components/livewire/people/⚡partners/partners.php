@@ -49,7 +49,12 @@ new class extends Component
      */
     public function delete(array $couple): void
     {
-        Couple::findOrFail($couple['id'])->delete();
+        $couple = Couple::where(function ($q) use ($couple): void {
+            $q->where('person1_id', $this->person->id)
+            ->orWhere('person2_id', $this->person->id);
+        })->findOrFail($couple['id']);
+
+        $couple->delete();
 
         $this->toast()->success(__('app.delete'), e($couple['name']) . ' ' . __('app.deleted') . '.')->send();
 
