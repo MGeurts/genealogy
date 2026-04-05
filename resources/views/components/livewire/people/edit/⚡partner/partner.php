@@ -86,7 +86,7 @@ new class extends Component
      */
     protected function rules(): array
     {
-        return $rules = [
+        return [
             'partner_id' => ['required', 'integer', 'exists:people,id'],
             'date_start' => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', 'before:date_end'],
             'date_end'   => ['nullable', 'date_format:Y-m-d', 'before_or_equal:today', 'after:date_start'],

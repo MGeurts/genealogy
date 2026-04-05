@@ -81,7 +81,7 @@ new class extends Component
      */
     protected function rules(): array
     {
-        return $rules = [
+        return [
             'father_id'  => ['nullable', 'integer'],
             'mother_id'  => ['nullable', 'integer'],
             'parents_id' => [
