@@ -28,7 +28,7 @@ use Spatie\Activitylog\Support\LogOptions;
  */
 final class PersonEvent extends Model
 {
-    /** @use HasFactory<\Database\Factories\PersonFactory> */
+    /** @use HasFactory<\Database\Factories\PersonEventFactory> */
     use HasFactory;
 
     use LogsActivity;
