@@ -31,7 +31,7 @@ use Spatie\Activitylog\Support\LogOptions;
  */
 final class Couple extends Model
 {
-    /** @use HasFactory<\Database\Factories\PersonFactory> */
+    /** @use HasFactory<\Database\Factories\CoupleFactory> */
     use HasFactory;
 
     use LogsActivity;
