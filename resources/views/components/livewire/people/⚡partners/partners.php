@@ -49,9 +49,9 @@ new class extends Component
      */
     public function delete(array $couple): void
     {
-        $couple = Couple::where(function ($q) use ($couple): void {
+        $couple = Couple::where(function ($q): void {
             $q->where('person1_id', $this->person->id)
-            ->orWhere('person2_id', $this->person->id);
+                ->orWhere('person2_id', $this->person->id);
         })->findOrFail($couple['id']);
 
         $couple->delete();

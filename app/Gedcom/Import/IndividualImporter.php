@@ -450,7 +450,7 @@ class IndividualImporter
 
         foreach ($limits as $field => $limit) {
             if (! empty($personData[$field]) && mb_strlen($personData[$field]) > $limit) {
-                $originalLength = mb_strlen($personData[$field]);
+                $originalLength     = mb_strlen($personData[$field]);
                 $personData[$field] = mb_substr($personData[$field], 0, $limit);
 
                 Log::debug("GEDCOM Import: Truncated {$field}", [

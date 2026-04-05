@@ -76,9 +76,9 @@ test('unauthenticated user cannot transfer ownership', function (): void {
 });
 
 test('unrelated authenticated user cannot transfer ownership of another team', function (): void {
-    $owner     = User::factory()->withPersonalTeam()->create();
-    $attacker  = User::factory()->withPersonalTeam()->create();
-    $team      = makeNonPersonalTeam($owner);
+    $owner    = User::factory()->withPersonalTeam()->create();
+    $attacker = User::factory()->withPersonalTeam()->create();
+    $team     = makeNonPersonalTeam($owner);
 
     // Attacker has no relationship to this team at all
     $this->actingAs($attacker)
