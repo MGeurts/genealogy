@@ -72,18 +72,15 @@ RUN composer config --global disable-tls true && \
 ############################################
 # Node stage for compiling assets
 ############################################
-FROM node:20 AS node
+FROM node:25 AS node
 
 WORKDIR /app
 
 # Copy package files
-COPY package.json package-lock.json* ./
+COPY package.json package-lock.json ./
 
-# Install dependencies using yarn (pre-installed and more reliable than npm in Docker)
-# Disable strict SSL temporarily due to Docker build environment constraints
-RUN yarn config set strict-ssl false && \
-    yarn install --network-timeout 1000000 && \
-    yarn config set strict-ssl true
+# Install dependencies using npm ci (reproducible install from package-lock.json)
+RUN npm ci
 
 # Copy source files needed for build
 COPY resources ./resources
@@ -119,6 +116,5 @@ COPY --chown=www-data:www-data --chmod=755 .docker/entrypoint.d /etc/entrypoint.
 # Copy compiled assets from node stage
 COPY --from=node --chown=www-data:www-data /app/public/build /var/www/html/public/build
 
-RUN rm -rf tests/
-
-RUN composer install --no-dev --optimize-autoloader --no-scripts
+RUN rm -rf tests/ && \
+    composer install --no-dev --optimize-autoloader
