@@ -12,6 +12,7 @@ use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
 use TallStackUi\Traits\Interactions;
 
 final class TeamController extends Controller
@@ -20,9 +21,31 @@ final class TeamController extends Controller
 
     public function transferOwnership(Request $request, Team $team): RedirectResponse
     {
+        // -----------------------------------------------------------------------
+        // Authorization — three independent guards, all must pass.
+        // -----------------------------------------------------------------------
+
+        // 1. Only the current team owner may initiate a transfer.
+        Gate::authorize('update', $team);
+
+        // 2. Personal teams cannot be transferred.
+        if ($team->personal_team) {
+            abort(403, 'Personal teams cannot be transferred.');
+        }
+
         $validated = $request->validate([
             'new_owner_id' => ['required', 'exists:users,id'],
         ]);
+
+        /** @var User $currentOwner */
+        $currentOwner = $team->owner;
+        /** @var User $newOwner */
+        $newOwner = User::findOrFail($validated['new_owner_id']);
+
+        // 3. The designated new owner must already be a member of this team.
+        if (! $newOwner->belongsToTeam($team)) {
+            abort(422, 'The new owner must already be a member of this team.');
+        }
 
         /** @var User $currentOwner */
         $currentOwner = $team->owner;
