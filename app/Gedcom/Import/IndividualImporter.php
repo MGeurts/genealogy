@@ -289,7 +289,6 @@ class IndividualImporter
     }
 
     /**
-    /**
      * Parse GEDCOM name format
      *
      * @return array{given: ?string, surname: ?string}
