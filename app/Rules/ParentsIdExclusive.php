@@ -7,7 +7,7 @@ namespace App\Rules;
 use Closure;
 use Illuminate\Contracts\Validation\ValidationRule;
 
-class ParentsIdExclusive implements ValidationRule
+final class ParentsIdExclusive implements ValidationRule
 {
     public function __construct(protected ?int $fatherId, protected ?int $motherId) {}
 
