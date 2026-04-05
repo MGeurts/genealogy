@@ -126,10 +126,54 @@ class IndividualImporter
         foreach ($individual['data'] as $field) {
             switch ($field['tag']) {
                 case 'NAME':
-                    $nameInfo          = $this->parseName($field['value']);
-                    $data['firstname'] = $nameInfo['given'];
-                    $data['surname']   = $nameInfo['surname'];
-                    $data['birthname'] = $nameInfo['surname']; // Default birthname to surname
+                    $nameInfo = $this->parseName($field['value']);
+                    $subfields = $field['data'] ?? [];
+
+                    // Determine the type of this NAME record (default = primary name)
+                    $nameType = null;
+                    foreach ($subfields as $sub) {
+                        if ($sub['tag'] === 'TYPE') {
+                            $nameType = mb_strtolower(mb_trim($sub['value']));
+                            break;
+                        }
+                    }
+
+                    if ($nameType === 'birth') {
+                        // This NAME record carries the birth/maiden name.
+                        // Prefer the explicit SURN subfield; fall back to the parsed surname.
+                        $birthSurname = null;
+                        foreach ($subfields as $sub) {
+                            if ($sub['tag'] === 'SURN') {
+                                $birthSurname = mb_trim($sub['value']) ?: null;
+                                break;
+                            }
+                        }
+                        $data['birthname'] = $birthSurname ?? $nameInfo['surname'];
+                    } else {
+                        // Primary (or untyped) NAME record — sets given name and surname.
+                        // Prefer the explicit GIVN/SURN subfields when present.
+                        $givenFromSub   = null;
+                        $surnameFromSub = null;
+                        foreach ($subfields as $sub) {
+                            if ($sub['tag'] === 'GIVN') {
+                                $givenFromSub = mb_trim($sub['value']) ?: null;
+                            } elseif ($sub['tag'] === 'SURN') {
+                                $surnameFromSub = mb_trim($sub['value']) ?: null;
+                            } elseif ($sub['tag'] === 'NICK' && $data['nickname'] === null) {
+                                // Only take the first NICK encountered across all NAME records
+                                $data['nickname'] = mb_trim($sub['value']) ?: null;
+                            }
+                        }
+
+                        $data['firstname'] = $givenFromSub ?? $nameInfo['given'];
+                        $data['surname']   = $surnameFromSub ?? $nameInfo['surname'];
+
+                        // Default birthname to the primary surname; a subsequent
+                        // NAME TYPE birth record will override this if present.
+                        if ($data['birthname'] === null) {
+                            $data['birthname'] = $data['surname'];
+                        }
+                    }
                     break;
 
                 case 'SEX':
@@ -270,14 +314,6 @@ class IndividualImporter
                     // We skip them here to avoid duplication
             }
 
-            // Handle nickname from NAME variations
-            if ($field['tag'] === 'NAME' && isset($field['data'])) {
-                foreach ($field['data'] as $nameField) {
-                    if ($nameField['tag'] === 'NICK') {
-                        $data['nickname'] = $nameField['value'];
-                    }
-                }
-            }
         }
 
         // Fallback: if no BURI but death place exists → use as cemetery address
