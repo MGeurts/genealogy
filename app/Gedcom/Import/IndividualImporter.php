@@ -126,7 +126,7 @@ class IndividualImporter
         foreach ($individual['data'] as $field) {
             switch ($field['tag']) {
                 case 'NAME':
-                    $nameInfo = $this->parseName($field['value']);
+                    $nameInfo  = $this->parseName($field['value']);
                     $subfields = $field['data'] ?? [];
 
                     // Determine the type of this NAME record (default = primary name)
@@ -313,7 +313,6 @@ class IndividualImporter
                     // Note: OBJE tags are handled by MediaImportHandler
                     // We skip them here to avoid duplication
             }
-
         }
 
         // Fallback: if no BURI but death place exists → use as cemetery address
