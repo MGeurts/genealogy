@@ -60,7 +60,7 @@ final class YobValid implements DataAwareRule, ValidationRule
                 try {
                     $dod = Carbon::parse($this->data['person']['dod']);
 
-                    if ($yob >= $dod->year) {
+                    if ($yob > $dod->year) {
                         $fail(__('person.yob_after_dod', ['value' => $this->data['person']['dod']]));
                     }
                 } catch (Throwable) {
@@ -72,7 +72,7 @@ final class YobValid implements DataAwareRule, ValidationRule
             if (! empty($this->data['person']['yod'])) {
                 $yod = (int) $this->data['person']['yod'];
 
-                if ($yob >= $yod) {
+                if ($yob > $yod) {
                     $fail(__('person.yob_after_yod', ['value' => $yod]));
                 }
             }
