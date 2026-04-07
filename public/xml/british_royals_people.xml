@@ -298,7 +298,7 @@
 
 <people>
 <id>23</id>
-<firstname>Sopie</firstname>
+<firstname>Sophie</firstname>
 <surname>Countess of Wessex</surname>
 <birthname>Rhys-Jones</birthname>
 <sex>F</sex>
@@ -311,7 +311,7 @@
 <people>
 <id>24</id>
 <firstname>Louise</firstname>
-<surname>Lady of Windsdor</surname>
+<surname>Lady of Windsor</surname>
 <sex>F</sex>
 <father_id>6</father_id>
 <mother_id>23</mother_id>
@@ -371,6 +371,7 @@
 <yob>1936</yob>
 <dod>2004-06-03</dod>
 <yod>2004</yod>
+<death_place>Seil, Argyll and Bute, Scotland, UK</death_place>
 <photo>Y</photo>
 </people>
 
@@ -382,7 +383,7 @@
 <sex>F</sex>
 <dob>1955-01-31</dob>
 <yob>1955</yob>
-<birth_place>Perrivate (UK)</birth_place>
+<birth_place>Perivale (UK)</birth_place>
 <photo>Y</photo>
 </people>
 
@@ -501,6 +502,7 @@
 <birth_place>London (UK)</birth_place>
 <dod>1936-01-20</dod>
 <yod>1936</yod>
+<death_place>Sandringham House, Norfolk, England, UK</death_place>
 <photo>Y</photo>
 </people>
 
@@ -608,7 +610,7 @@
 <birth_place>Bramcote (UK)</birth_place>
 <dod>1998-09-19</dod>
 <yod>1998</yod>
-<death_place>Tres Lomas (Argentinia)</death_place>
+<death_place>Tres Lomas (Argentina)</death_place>
 <photo>Y</photo>
 </people>
 

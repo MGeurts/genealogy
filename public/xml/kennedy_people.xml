@@ -82,7 +82,9 @@
 <dob>1920-02-20</dob>
 <yob>1920</yob>
 <birth_place>Brookline, Massachusetts, USA</birth_place>
+<dod>1948-05-13</dod>
 <yod>1948</yod>
+<death_place>Saint-Bauzile, Ardèche, France</death_place>
 <photo>Y</photo>
 </people>
 
@@ -279,7 +281,9 @@
 <father_id>504</father_id>
 <mother_id>512</mother_id>
 <yob>1956</yob>
+<dod>1956-08-23</dod>
 <yod>1956</yod>
+<death_place>Newport, Rhode Island, USA</death_place>
 </people>
 
 <people>
@@ -302,7 +306,9 @@
 <father_id>504</father_id>
 <mother_id>512</mother_id>
 <yob>1960</yob>
+<dod>1999-07-16</dod>
 <yod>1999</yod>
+<death_place>Atlantic Ocean (near Martha's Vineyard, Massachusetts, USA)</death_place>
 <photo>Y</photo>
 </people>
 
@@ -314,7 +320,9 @@
 <father_id>504</father_id>
 <mother_id>512</mother_id>
 <yob>1963</yob>
+<dod>1963-08-09</dod>
 <yod>1963</yod>
+<death_place>Boston, Massachusetts, USA</death_place>
 </people>
 
 <people>
@@ -380,7 +388,9 @@
 <father_id>515</father_id>
 <mother_id>508</mother_id>
 <yob>1955</yob>
+<dod>2018-09-04</dod>
 <yod>2018</yod>
+<death_place>Vancouver, British Columbia, Canada</death_place>
 <photo>Y</photo>
 </people>
 
@@ -458,7 +468,9 @@
 <father_id>509</father_id>
 <mother_id>516</mother_id>
 <yob>1955</yob>
+<dod>1984-04-25</dod>
 <yod>1984</yod>
+<death_place>Palm Beach, Florida, USA</death_place>
 <photo>Y</photo>
 </people>
 
@@ -481,7 +493,9 @@
 <father_id>509</father_id>
 <mother_id>516</mother_id>
 <yob>1958</yob>
+<dod>1997-12-31</dod>
 <yod>1997</yod>
+<death_place>Aspen, Colorado, USA</death_place>
 <photo>Y</photo>
 </people>
 
@@ -591,6 +605,9 @@
 <father_id>511</father_id>
 <mother_id>518</mother_id>
 <yob>1960</yob>
+<dod>2011-09-16</dod>
+<yod>2011</yod>
+<death_place>Washington, D.C., USA</death_place>
 <photo>Y</photo>
 </people>
 
