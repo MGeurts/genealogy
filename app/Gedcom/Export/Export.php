@@ -226,10 +226,10 @@ class Export
     private function getExtension(string $format): string
     {
         return match ($format) {
-            'gedcom' => '.ged',
+            'gedcom'          => '.ged',
             'zip', 'zipmedia' => '.zip',
-            'gedzip' => '.gdz',
-            default  => '.ged',
+            'gedzip'          => '.gdz',
+            default           => '.ged',
         };
     }
 }
