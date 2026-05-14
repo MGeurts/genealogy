@@ -12,7 +12,7 @@ test('team members can be removed from teams', function (): void {
     $this->actingAs($user = User::factory()->withPersonalTeam()->create());
 
     $user->currentTeam->users()->attach(
-        $otherUser = User::factory()->create(), ['role' => 'administrator']
+        $otherUser = User::factory()->withPersonalTeam()->create(), ['role' => 'administrator']
     );
 
     $component = Livewire::test(TeamMemberManager::class, ['team' => $user->currentTeam])
