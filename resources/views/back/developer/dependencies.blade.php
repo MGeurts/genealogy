@@ -176,6 +176,8 @@
 
                         <li class="py-2">
                             <x-link href="https://github.com/LarsWiegers/laravel-translations-checker/" target="_blank">LarsWiegers/laravel-translations-checker</x-link>
+                            <x-ts-button xs class="ms-5" color="orange">{{ 'Optional' }}</x-ts-button>
+                            <x-ts-button xs class="ms-5" color="red">{{ 'Not compatible LARAVEL 13 yet' }}</x-ts-button>
                             <br />
                             <span class="ms-5">to check languages, use command :</span> <span class="text-red-500">php artisan translations:check --excludedDirectories=vendor</span>
                     </ul>
@@ -184,6 +186,8 @@
 
                     <ul class="w-full">
                         <x-link href="https://github.com/alisalehi1380/laravel-lang-files-translator" target="_blank">alisalehi1380/laravel-lang-files-translator</x-link>
+                        <x-ts-button xs class="ms-5" color="orange">{{ 'Optional' }}</x-ts-button>
+                        <x-ts-button xs class="ms-5" color="red">{{ 'Not compatible LARAVEL 13 yet' }}</x-ts-button>
                         <br />
                         <span class="ms-5">to create new language, use command :</span> <span class="text-red-500">php artisan translate:lang {from} {to}</span>
                         <br />
