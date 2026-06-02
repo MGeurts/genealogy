@@ -19,7 +19,7 @@ return [
     |
     */
 
-     'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'sqlite'),
 
     /*
     |--------------------------------------------------------------------------
@@ -89,9 +89,9 @@ return [
             'strict'         => true,
             'engine'         => 'InnoDB',
             'options'        => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::ATTR_EMULATE_PREPARES                                                                          => false,                            // Use native prepared statements
-                (PHP_VERSION_ID >= 80500 ? Pdo\Mysql::ATTR_USE_BUFFERED_QUERY : PDO::MYSQL_ATTR_USE_BUFFERED_QUERY) => true,                             // Useful for large SELECTs
-                (PHP_VERSION_ID >= 80500 ? Pdo\Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA)                         => env('MYSQL_ATTR_SSL_CA'),    // Optional SSL
+                PDO::ATTR_EMULATE_PREPARES                                                                      => false,                            // Use native prepared statements
+                (PHP_VERSION_ID >= 80500 ? Mysql::ATTR_USE_BUFFERED_QUERY : PDO::MYSQL_ATTR_USE_BUFFERED_QUERY) => true,                             // Useful for large SELECTs
+                (PHP_VERSION_ID >= 80500 ? Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA)                         => env('MYSQL_ATTR_SSL_CA'),    // Optional SSL
             ]) : [],
         ],
 
