@@ -27,7 +27,6 @@ return [
 
     'email' => '电子邮件',
 
-    'failed'                    => '登录失败，密码或用户名错误',
     'forgot_password'           => '忘记密码？',
     'forgot_password_message'   => '只要告诉我们你的电子邮件地址，我们就会通过电子邮件发送密码重置链接，让你重新选择一个新密码。',
     'email_password_reset_link' => '重新发送密码重置链接',
@@ -44,8 +43,6 @@ return [
     'need_account'              => '需要一个账号？',
     'new_password'              => '输入新密码',
     'new_password_confirmation' => '再次输入新密码',
-
-    'throttle' => '尝试登录次数过多，请在 :seconds 秒后再试！',
 
     'old_password' => '旧密码',
     'or'           => '或',

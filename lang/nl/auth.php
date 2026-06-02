@@ -28,7 +28,6 @@ return [
 
     'email' => 'E-mail',
 
-    'failed'                    => 'De opgegeven credentials komen niet overeen met onze gegevens.',
     'forgot_password'           => 'Wachtwoord vergeten?',
     'forgot_password_message'   => 'Je wachtwoord vergeten? Geen probleem. Laat ons uw e-mailadres weten en wij sturen u per e-mail een link voor het opnieuw instellen van uw wachtwoord waarmee u een nieuw wachtwoord kunt kiezen.',
     'email_password_reset_link' => 'Verstuur link',
@@ -45,8 +44,6 @@ return [
     'need_account'              => 'Een account nodig?',
     'new_password'              => 'Nieuw wachtwoord',
     'new_password_confirmation' => 'Bevestig het nieuwe wachtwoord',
-
-    'throttle' => 'Te veel pogingen om aan te melden. Probeer opnieuw in :seconds seconden.',
 
     'old_password' => 'oud wachtwoord',
     'or'           => 'of',

@@ -28,7 +28,6 @@ return [
 
     'email' => 'Email',
 
-    'failed'                    => 'Kredensial ini tidak cocok dengan catatan kami.',
     'forgot_password'           => 'Lupa Kata Sandi?',
     'forgot_password_message'   => 'Lupa kata sandi Anda? Tidak masalah. Cukup beri tahu kami alamat email Anda dan kami akan mengirimi Anda tautan pengaturan ulang kata sandi melalui email yang memungkinkan Anda memilih yang baru.',
     'email_password_reset_link' => 'Kirim Tautan',
@@ -45,8 +44,6 @@ return [
     'need_account'              => 'Butuh Akun?',
     'new_password'              => 'Kata Sandi Baru',
     'new_password_confirmation' => 'Konfirmasi Kata Sandi Baru',
-
-    'throttle' => 'Terlalu banyak upaya masuk. Silakan coba lagi dalam :seconds detik.',
 
     'old_password' => 'Kata Sandi Lama',
     'or'           => 'atau',

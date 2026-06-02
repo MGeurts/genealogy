@@ -28,7 +28,6 @@ return [
 
     'email' => 'E-Mail Adresse',
 
-    'failed'                    => 'Es gibt keinen Benutzer mit diesen Anmeldeinformationen.',
     'forgot_password'           => 'Passwort vergessen?',
     'forgot_password_message'   => 'Haben Sie Ihr Passwort vergessen? Kein Problem. Teilen Sie uns einfach Ihre E-Mail-Adresse mit und wir senden Ihnen per E-Mail einen Link zum Zurücksetzen Ihres Passworts, mit dem Sie ein neues Passwort auswählen können.',
     'email_password_reset_link' => 'Link senden',
@@ -45,8 +44,6 @@ return [
     'need_account'              => 'Brauchst du ein Konto?',
     'new_password'              => 'Neues Passwort',
     'new_password_confirmation' => 'Neues Passwort bestätigen',
-
-    'throttle' => 'Zu viele Anmeldeversuche. Bitte versuche es in :seconds Sekunden erneut.',
 
     'old_password' => 'Altes Passwort',
     'or'           => 'oder',

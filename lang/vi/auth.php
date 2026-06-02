@@ -28,7 +28,6 @@ return [
 
     'email' => 'Email',
 
-    'failed'                    => 'Thông tin xác thực không khớp với hồ sơ của chúng tôi.',
     'forgot_password'           => 'Quên Mật Khẩu?',
     'forgot_password_message'   => 'Quên mật khẩu của bạn? Không vấn đề gì. Chỉ cần cho chúng tôi biết địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn một liên kết đặt lại mật khẩu để bạn có thể chọn một cái mới.',
     'email_password_reset_link' => 'Gửi Liên Kết',
@@ -45,8 +44,6 @@ return [
     'need_account'              => 'Cần một tài khoản?',
     'new_password'              => 'Mật Khẩu Mới',
     'new_password_confirmation' => 'Xác nhận mật khẩu mới',
-
-    'throttle' => 'Quá nhiều nỗ lực đăng nhập. Vui lòng thử lại sau :seconds giây.',
 
     'old_password' => 'Mật Khẩu Cũ',
     'or'           => 'hoặc',

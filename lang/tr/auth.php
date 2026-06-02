@@ -28,7 +28,6 @@ return [
 
     'email' => 'E-posta',
 
-    'failed'                    => 'Bu kimlik bilgileri kayıtlarımızla eşleşmiyor.',
     'forgot_password'           => 'Şifrenizi mi unuttunuz?',
     'forgot_password_message'   => 'Şifrenizi mi unuttunuz? Sorun değil. Sadece e-posta adresinizi bize bildirin, size yeni bir şifre seçmenizi sağlayacak bir şifre sıfırlama bağlantısı göndereceğiz.',
     'email_password_reset_link' => 'Bağlantıyı Gönder',
@@ -45,8 +44,6 @@ return [
     'need_account'              => 'Hesaba mı ihtiyacınız var?',
     'new_password'              => 'Yeni Şifre',
     'new_password_confirmation' => 'Yeni Şifreyi Onayla',
-
-    'throttle' => 'Çok fazla giriş denemesi. Lütfen :seconds saniye sonra tekrar deneyin.',
 
     'old_password' => 'Eski Şifre',
     'or'           => 'veya',

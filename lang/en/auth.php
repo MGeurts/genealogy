@@ -28,7 +28,6 @@ return [
 
     'email' => 'Email',
 
-    'failed'                    => 'These credentials do not match our records.',
     'forgot_password'           => 'Forgot Password?',
     'forgot_password_message'   => 'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.',
     'email_password_reset_link' => 'Send Link',
@@ -45,8 +44,6 @@ return [
     'need_account'              => 'Need an Account?',
     'new_password'              => 'New Password',
     'new_password_confirmation' => 'Confirm New Password',
-
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
     'old_password' => 'Old Password',
     'or'           => 'or',
