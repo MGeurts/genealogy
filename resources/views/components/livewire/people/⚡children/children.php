@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Livewire\Traits\AuthorizesPersonActions;
 use App\Models\Person;
 use Illuminate\Support\Collection;
 use Livewire\Attributes\On;
@@ -10,7 +11,8 @@ use TallStackUi\Traits\Interactions;
 
 new class extends Component
 {
-    use Interactions;
+use AuthorizesPersonActions;
+use Interactions;
 
     // ------------------------------------------------------------------------------
     public Person $person;
@@ -30,6 +32,8 @@ new class extends Component
 
     public function confirm(int $child_id): void
     {
+        $this->authorizePermission('person:update');
+
         $this->dialog()
             ->question(__('app.attention') . '!', __('app.are_you_sure'))
             ->confirm(__('app.delete_yes'))
@@ -45,6 +49,8 @@ new class extends Component
 
     public function disconnect(int $child_id): void
     {
+        $this->authorizePermission('person:update');
+
         $child = Person::findOrFail($child_id);
 
         $key = $this->person->sex === 'm' ? 'father_id' : 'mother_id';
