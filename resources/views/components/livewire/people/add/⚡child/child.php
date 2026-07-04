@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Livewire\Forms\People\PersonForm;
+use App\Livewire\Traits\AuthorizesPersonActions;
 use App\Livewire\Traits\HandlesPhotoUploads;
 use App\Livewire\Traits\SavesPersonPhotos;
 use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
@@ -14,6 +15,7 @@ use TallStackUi\Traits\Interactions;
 
 new class extends Component
 {
+    use AuthorizesPersonActions;
     use HandlesPhotoUploads, SavesPersonPhotos;
     use Interactions, WithFileUploads;
     use TrimStringsAndConvertEmptyStringsToNull;
@@ -50,6 +52,8 @@ new class extends Component
 
     public function saveChild(): void
     {
+        $this->authorizePermission('person:create');
+
         $validated = $this->validate();
 
         if (isset($validated['form']['person_id'])) {

@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Livewire\Traits\AuthorizesPersonActions;
 use App\Models\Person;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
@@ -15,6 +16,7 @@ use TallStackUi\Traits\Interactions;
 
 new class extends Component
 {
+    use AuthorizesPersonActions;
     use Interactions;
     use WithFileUploads;
 
@@ -110,6 +112,8 @@ new class extends Component
      */
     public function save(): void
     {
+        $this->authorizePermission('person:update');
+
         $this->validate();
 
         if (empty($this->uploads)) {
@@ -199,6 +203,8 @@ new class extends Component
      */
     public function deleteFile(int $id): void
     {
+        $this->authorizePermission('person:update');
+
         if (! $this->files) {
             return;
         }
@@ -229,6 +235,8 @@ new class extends Component
      */
     public function moveFile(int $position, string $direction): void
     {
+        $this->authorizePermission('person:update');
+
         if (! $this->files) {
             return;
         }

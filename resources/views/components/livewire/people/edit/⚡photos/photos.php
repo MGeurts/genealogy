@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Livewire\Traits\AuthorizesPersonActions;
 use App\Models\Person;
 use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
@@ -17,6 +18,7 @@ use TallStackUi\Traits\Interactions;
 
 new class extends Component
 {
+    use AuthorizesPersonActions;
     use Interactions;
     use WithFileUploads;
 
@@ -153,6 +155,8 @@ new class extends Component
      */
     public function save(): void
     {
+        $this->authorizePermission('person:update');
+
         // Validate only when saving (deferred validation)
         $this->validate();
 
@@ -203,6 +207,8 @@ new class extends Component
      */
     public function delete(string $photo): void
     {
+        $this->authorizePermission('person:update');
+
         try {
             $personPhotos = new PersonPhotos($this->person);
 
@@ -245,6 +251,8 @@ new class extends Component
      */
     public function setPrimary(string $photo): void
     {
+        $this->authorizePermission('person:update');
+
         try {
             $personPhotos = new PersonPhotos($this->person);
 
