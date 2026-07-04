@@ -11,8 +11,8 @@ use TallStackUi\Traits\Interactions;
 
 new class extends Component
 {
-use AuthorizesPersonActions;
-use Interactions;
+    use AuthorizesPersonActions;
+    use Interactions;
 
     // ------------------------------------------------------------------------------
     public Person $person;
