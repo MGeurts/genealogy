@@ -13,6 +13,7 @@ uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 beforeEach(function (): void {
     $this->user = User::factory()->create();
     $this->team = Team::factory()->create();
+    $this->team = Team::factory()->create(['user_id' => $this->user->id]);
     $this->user->currentTeam()->associate($this->team);
     $this->user->save();
 
