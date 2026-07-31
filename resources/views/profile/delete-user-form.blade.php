@@ -1,14 +1,10 @@
 <x-action-section>
     <x-slot name="title">
-        <div class="dark:text-gray-400">
-            {{ __('user.delete_account') }}
-        </div>
+        <div class="dark:text-gray-400">{{ __('user.delete_account') }}</div>
     </x-slot>
 
     <x-slot name="description">
-        <div class="dark:text-gray-100">
-            {{ __('user.delete_account_permanently') }}
-        </div>
+        <div class="dark:text-gray-100">{{ __('user.delete_account_permanently') }}</div>
     </x-slot>
 
     <x-slot name="content">
@@ -24,10 +20,10 @@
             $rows = collect(auth()->user()->teamsStatistics())
                 ->map(function ($team) {
                     return [
-                        'team' => $team->name,
-                        'users' => $team->users_count > 0 ? $team->users_count : '',
-                        'persons' => $team->persons_count > 0 ? $team->persons_count : '',
-                        'couples' => $team->couples_count > 0 ? $team->couples_count : '',
+                        'team'     => $team->name,
+                        'users'    => $team->users_count > 0 ? $team->users_count : '',
+                        'persons'  => $team->persons_count > 0 ? $team->persons_count : '',
+                        'couples'  => $team->couples_count > 0 ? $team->couples_count : '',
                         'personal' => $team->personal_team,
                     ];
                 })
@@ -45,9 +41,7 @@
         <x-hr.normal />
 
         @if (auth()->user()->isDeletable())
-            <div class="max-w-xl text-sm text-gray-600 dark:text-gray-400">
-                {{ __('user.once_deleted') }}
-            </div>
+            <div class="max-w-xl text-sm text-gray-600 dark:text-gray-400">{{ __('user.once_deleted') }}</div>
 
             <div class="mt-5">
                 <x-ts-button color="red" wire:click="confirmUserDeletion" wire:loading.attr="disabled">
@@ -57,23 +51,36 @@
 
             {{-- delete user confirmation modal --}}
             <x-dialog-modal wire:model.live="confirmingUserDeletion">
-                <x-slot name="title">
-                    {{ __('user.delete_account') }}
-                </x-slot>
+                <x-slot name="title">{{ __('user.delete_account') }}</x-slot>
 
                 <x-slot name="content">
                     {{ __('user.sure') }}
 
-                    <div class="mt-4" x-data="{}" x-on:confirming-delete-user.window="setTimeout(() => $refs.password.focus(), 250)">
-                        <x-input type="password" class="block w-3/4 mt-1" autocomplete="current-password" placeholder="{{ __('user.password') }}" x-ref="password" wire:model="password"
-                            wire:keydown.enter="deleteUser" />
+                    <div
+                        class="mt-4"
+                        x-data="{}"
+                        x-on:confirming-delete-user.window="setTimeout(() => $refs.password.focus(), 250)"
+                    >
+                        <x-input
+                            type="password"
+                            class="mt-1 block w-3/4"
+                            autocomplete="current-password"
+                            placeholder="{{ __('user.password') }}"
+                            x-ref="password"
+                            wire:model="password"
+                            wire:keydown.enter="deleteUser"
+                        />
 
                         <x-input-error for="password" class="mt-2" />
                     </div>
                 </x-slot>
 
                 <x-slot name="footer">
-                    <x-ts-button color="secondary" wire:click="$toggle('confirmingUserDeletion')" wire:loading.attr="disabled">
+                    <x-ts-button
+                        color="secondary"
+                        wire:click="$toggle('confirmingUserDeletion')"
+                        wire:loading.attr="disabled"
+                    >
                         {{ __('user.cancel') }}
                     </x-ts-button>
 

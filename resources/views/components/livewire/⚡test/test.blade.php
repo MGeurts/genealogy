@@ -3,8 +3,7 @@
         &vert; Test
     @endsection
 
-    <div class="p-2 max-w-5xl overflow-x-auto grow dark:text-neutral-200">
-
+    <div class="max-w-5xl grow overflow-x-auto p-2 dark:text-neutral-200">
         <p>Use this page to test components ...</p>
         <br />
 
@@ -15,7 +14,7 @@
             // ----------------------------------------------------------------------------------------------------------------------
         @endphp
 
-        <pre class="bg-neutral-100 dark:bg-neutral-800 p-4 rounded overflow-x-auto">
+        <pre class="overflow-x-auto rounded bg-neutral-100 p-4 dark:bg-neutral-800">
             {{ $output }}
         </pre>
     </div>

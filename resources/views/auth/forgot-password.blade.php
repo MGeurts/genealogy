@@ -8,13 +8,9 @@
             <x-authentication-card-logo />
         </x-slot>
 
-        <x-slot name="header">
-            {{ __('auth.forgot_password') }}
-        </x-slot>
+        <x-slot name="header">{{ __('auth.forgot_password') }}</x-slot>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('auth.forgot_password_message') }}
-        </div>
+        <div class="mb-4 text-sm text-gray-600">{{ __('auth.forgot_password_message') }}</div>
 
         @if (session('status'))
             <x-ts-alert text="{{ session('status') }}" color="emerald" class="mb-4" />
@@ -27,13 +23,20 @@
 
             <div class="block">
                 <x-label for="email" value="{{ __('auth.email') }} :" />
-                <x-input id="email" class="block w-full mt-1" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" />
+                <x-input
+                    id="email"
+                    class="mt-1 block w-full"
+                    type="email"
+                    name="email"
+                    :value="old('email')"
+                    required
+                    autofocus
+                    autocomplete="email"
+                />
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-ts-button type="submit" color="primary">
-                    {{ __('auth.email_password_reset_link') }}
-                </x-ts-button>
+            <div class="mt-4 flex items-center justify-end">
+                <x-ts-button type="submit" color="primary"> {{ __('auth.email_password_reset_link') }} </x-ts-button>
             </div>
         </form>
     </x-authentication-card>

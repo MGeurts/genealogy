@@ -1,23 +1,21 @@
 <x-ts-slide id="offcanvas" left size="sm" blur>
     @php
-        $user = auth()->user();
+        $user        = auth()->user();
         $currentTeam = $user?->currentTeam;
-        $role = $user?->teamRole($currentTeam);
+        $role        = $user?->teamRole($currentTeam);
         $permissions = $user?->teamPermissions($currentTeam);
     @endphp
 
-    <x-slot:title>
-        {{ __('app.menu') }}
-    </x-slot:title>
+    <x-slot:title>{{ __('app.menu') }}</x-slot:title>
 
     {{-- role and permissions --}}
     <div class="pb-4">
-        <div class="p-4 text-base rounded-sm bg-secondary-100 text-secondary-800" role="alert">
+        <div class="bg-secondary-100 text-secondary-800 rounded-sm p-4 text-base" role="alert">
             <div class="flex flex-row">
                 <div class="basis-1/2">
                     {{ __('auth.role') }} :
 
-                    <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded-sm max-md:mx-auto dark:bg-gray-700" />
+                    <x-hr.narrow class="my-1 h-1 w-full rounded-sm border-0 bg-gray-100 max-md:mx-auto dark:bg-gray-700" />
 
                     {{ __('auth.permissions') }} :
                 </div>
@@ -26,11 +24,12 @@
                     @auth
                         {{ $role?->name ?? __('auth.guest') }}
 
-                        <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded-sm max-md:mx-auto dark:bg-gray-700" />
+                        <x-hr.narrow class="my-1 h-1 w-full rounded-sm border-0 bg-gray-100 max-md:mx-auto dark:bg-gray-700" />
 
-                        @if (!empty($permissions))
+                        @if (! empty($permissions))
                             @foreach ($permissions as $permission)
-                                {{ $permission }}<br />
+                                {{ $permission }}<br
+                                 />
                             @endforeach
                         @else
                             <span class="text-gray-500 italic">{{ __('auth.no_permissions') }}</span>
@@ -38,7 +37,7 @@
                     @else
                         {{ __('auth.guest') }}
 
-                        <x-hr.narrow class="w-full h-1 my-1 bg-gray-100 border-0 rounded-sm max-md:mx-auto dark:bg-gray-700" />
+                        <x-hr.narrow class="my-1 h-1 w-full rounded-sm border-0 bg-gray-100 max-md:mx-auto dark:bg-gray-700" />
                     @endauth
                 </div>
             </div>
@@ -66,35 +65,62 @@
 
                 {{-- Developer Section --}}
                 <x-hr.narrow />
-                <x-nav-link-responsive href="{{ route('developer.teams') }}" :active="request()->routeIs('developer.teams')">
+                <x-nav-link-responsive
+                    href="{{ route('developer.teams') }}"
+                    :active="request()->routeIs('developer.teams')"
+                >
                     {{ __('team.teams') }}
                 </x-nav-link-responsive>
-                <x-nav-link-responsive href="{{ route('developer.people') }}" :active="request()->routeIs('developer.people')">
+                <x-nav-link-responsive
+                    href="{{ route('developer.people') }}"
+                    :active="request()->routeIs('developer.people')"
+                >
                     {{ __('person.people') }}
                 </x-nav-link-responsive>
 
                 <x-hr.narrow />
-                <x-nav-link-responsive href="{{ route('developer.users') }}" :active="request()->routeIs('developer.users')">
+                <x-nav-link-responsive
+                    href="{{ route('developer.users') }}"
+                    :active="request()->routeIs('developer.users')"
+                >
                     {{ __('user.users') }}
                 </x-nav-link-responsive>
-                <x-nav-link-responsive href="{{ route('developer.userlog.origin') }}" :active="request()->routeIs('developer.userlog.origin')">
+                <x-nav-link-responsive
+                    href="{{ route('developer.userlog.origin') }}"
+                    :active="request()->routeIs('developer.userlog.origin')"
+                >
                     {{ __('userlog.users_origin') }}
                 </x-nav-link-responsive>
-                <x-nav-link-responsive href="{{ route('developer.userlog.origin-map') }}" :active="request()->routeIs('developer.userlog.origin-map')">
+                <x-nav-link-responsive
+                    href="{{ route('developer.userlog.origin-map') }}"
+                    :active="request()->routeIs('developer.userlog.origin-map')"
+                >
                     {{ __('userlog.users_origin') }} (Map)
                 </x-nav-link-responsive>
-                <x-nav-link-responsive href="{{ route('developer.userlog.period') }}" :active="request()->routeIs('developer.userlog.period')">
+                <x-nav-link-responsive
+                    href="{{ route('developer.userlog.period') }}"
+                    :active="request()->routeIs('developer.userlog.period')"
+                >
                     {{ __('userlog.users_stats') }}
                 </x-nav-link-responsive>
-                <x-nav-link-responsive href="{{ route('developer.userlog.log') }}" :active="request()->routeIs('developer.userlog.log')">
+                <x-nav-link-responsive
+                    href="{{ route('developer.userlog.log') }}"
+                    :active="request()->routeIs('developer.userlog.log')"
+                >
                     {{ __('userlog.users_log') }}
                 </x-nav-link-responsive>
 
                 <x-hr.narrow />
-                <x-nav-link-responsive href="{{ route('developer.settings') }}" :active="request()->routeIs('developer.settings')">
+                <x-nav-link-responsive
+                    href="{{ route('developer.settings') }}"
+                    :active="request()->routeIs('developer.settings')"
+                >
                     {{ __('app.settings') }}
                 </x-nav-link-responsive>
-                <x-nav-link-responsive href="{{ route('developer.backups') }}" :active="request()->routeIs('developer.backups')">
+                <x-nav-link-responsive
+                    href="{{ route('developer.backups') }}"
+                    :active="request()->routeIs('developer.backups')"
+                >
                     {{ __('backup.backups') }}
                 </x-nav-link-responsive>
                 <x-nav-link-responsive href="{{ url('log-viewer') }}" target="_blank">
@@ -102,10 +128,16 @@
                 </x-nav-link-responsive>
 
                 <x-hr.narrow />
-                <x-nav-link-responsive href="{{ route('developer.dependencies') }}" :active="request()->routeIs('developer.dependencies')">
+                <x-nav-link-responsive
+                    href="{{ route('developer.dependencies') }}"
+                    :active="request()->routeIs('developer.dependencies')"
+                >
                     {{ __('app.dependencies') }}
                 </x-nav-link-responsive>
-                <x-nav-link-responsive href="{{ route('developer.session') }}" :active="request()->routeIs('developer.session')">
+                <x-nav-link-responsive
+                    href="{{ route('developer.session') }}"
+                    :active="request()->routeIs('developer.session')"
+                >
                     {{ __('app.session') }}
                 </x-nav-link-responsive>
 
@@ -115,7 +147,9 @@
                 </x-nav-link-responsive>
             @else
                 {{-- other --}}
-                <div class="text-yellow-500 dark:text-yellow-200">{{ $role?->name ?? __('auth.role_unknown') }} ...</div>
+                <div class="text-yellow-500 dark:text-yellow-200">
+                    {{ $role?->name ?? __('auth.role_unknown') }} ...
+                </div>
 
                 <x-hr.narrow />
                 <x-nav-link-responsive href="{{ route('team') }}" :active="request()->routeIs('team')">
@@ -153,7 +187,10 @@
             </div>
 
             <a href="https://www.kreaweb.be/" target="_blank" title="Kreaweb">
-                <x-svg.kreaweb class="size-11 dark:fill-white hover:fill-primary-300 dark:hover:fill-primary-300" alt="kreaweb" />
+                <x-svg.kreaweb
+                    class="hover:fill-primary-300 dark:hover:fill-primary-300 size-11 dark:fill-white"
+                    alt="kreaweb"
+                />
             </a>
         </div>
     </x-slot:footer>

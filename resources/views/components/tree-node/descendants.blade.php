@@ -6,7 +6,7 @@
     $person_sequence = $descendants->firstWhere('id', $person->id)->sequence;
 
     $descendants_next = $descendants->where('degree', $level_current)->filter(function ($item) use ($person_sequence): bool {
-        return strpos($item->sequence, $person_sequence) !== false;
+        return mb_strpos($item->sequence, $person_sequence) !== false;
     });
 @endphp
 
@@ -20,9 +20,16 @@
                     @endphp
 
                     @if ($person->photo && Storage::disk('photos')->exists($photoPath))
-                        <img src="{{ Storage::disk('photos')->url($photoPath) }}" class="w-full rounded-sm shadow-lg dark:shadow-black/30" alt="{{ $person->id }}" />
+                        <img
+                            src="{{ Storage::disk('photos')->url($photoPath) }}"
+                            class="w-full rounded-sm shadow-lg dark:shadow-black/30"
+                            alt="{{ $person->id }}"
+                        />
                     @else
-                        <x-svg.person-no-image class="w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400" alt="no-image-found" />
+                        <x-svg.person-no-image
+                            class="w-full rounded-sm fill-neutral-400 shadow-lg dark:shadow-black/30"
+                            alt="no-image-found"
+                        />
                     @endif
 
                     @if ($person->dod or $person->yod)
@@ -30,11 +37,14 @@
                     @endif
                 </div>
 
-                <figcaption @class([
-                    'text-red-600 dark:text-red-400' => $person->dod or $person->yod,
-                    'text-primary-500 dark:text-primary-300' => !($person->dod or $person->yod),
-                    'line-clamp-2 text-xs leading-tight w-24 wrap-break-word'
-                ]) title="{{ implode(' ', array_filter([$person->firstname, $person->surname])) }}">
+                <figcaption
+                    @class([
+                        'text-red-600 dark:text-red-400'         => $person->dod or $person->yod,
+                        'text-primary-500 dark:text-primary-300' => ! ($person->dod or $person->yod),
+                        'line-clamp-2 text-xs leading-tight w-24 wrap-break-word',
+                    ])
+                    title="{{ implode(' ', array_filter([$person->firstname, $person->surname])) }}"
+                >
                     {{ implode(' ', array_filter([$person->firstname, $person->surname])) }}
                 </figcaption>
             </figure>
@@ -45,7 +55,12 @@
             @if (count($descendants_next) > 0)
                 <ul>
                     @foreach ($descendants_next as $descendant)
-                        <x-tree-node.descendants :person="$descendant" :descendants="$descendants" :level_current="$level_current" :level_max="$level_max" />
+                        <x-tree-node.descendants
+                            :person="$descendant"
+                            :descendants="$descendants"
+                            :level_current="$level_current"
+                            :level_max="$level_max"
+                        />
                     @endforeach
                 </ul>
             @endif

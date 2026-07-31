@@ -11,18 +11,16 @@
         @endif
     </x-section-title>
 
-    <div class="mt-5 md:mt-0 md:col-span-2">
+    <div class="mt-5 md:col-span-2 md:mt-0">
         <form wire:submit="{{ $submit }}">
             @csrf
 
             <div class="p-4 bg-white sm:p-6 {{ isset($actions) ? 'rounded-tl rounded-tr' : 'rounded-sm' }}">
-                <div class="grid grid-cols-6 gap-5">
-                    {{ $form }}
-                </div>
+                <div class="grid grid-cols-6 gap-5">{{ $form }}</div>
             </div>
 
             @if (isset($actions))
-                <div class="flex items-center justify-end p-4 text-right bg-gray-200 sm:px-6 rounded-b">
+                <div class="flex items-center justify-end rounded-b bg-gray-200 p-4 text-right sm:px-6">
                     {{ $actions }}
                 </div>
             @endif

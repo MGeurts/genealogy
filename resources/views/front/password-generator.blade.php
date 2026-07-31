@@ -3,7 +3,7 @@
 @endsection
 
 <x-app-layout>
-    <div class="p-2 overflow-x-auto max-w-7xl grow dark:text-neutral-200">
-        <livewire:password-generator/>
+    <div class="max-w-7xl grow overflow-x-auto p-2 dark:text-neutral-200">
+        <livewire:password-generator />
     </div>
 </x-app-layout>

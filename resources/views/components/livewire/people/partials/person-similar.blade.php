@@ -1,56 +1,68 @@
 <div class="max-w-3xl">
     <x-ts-card class="max-w-max min-w-max">
         <x-slot:header>
-            <div class="flex items-center justify-between w-full">
-                <div class="flex-1">
-                    {{ __('person.similar_persons') }}
-                </div>
+            <div class="flex w-full items-center justify-between">
+                <div class="flex-1">{{ __('person.similar_persons') }}</div>
 
                 <div class="flex justify-center gap-2">
-                    <x-ts-button type="button" md wire:click="searchSimilar" color="secondary" title="{{ __('person.search_similar') }}">
+                    <x-ts-button
+                        type="button"
+                        md
+                        wire:click="searchSimilar"
+                        color="secondary"
+                        title="{{ __('person.search_similar') }}"
+                    >
                         <x-ts-icon icon="tabler.search" class="inline-block size-4" />
                     </x-ts-button>
 
-                    <x-ts-button type="button" md wire:click="clearSimilar" color="secondary" title="{{ __('app.clear') }}">
+                    <x-ts-button
+                        type="button"
+                        md
+                        wire:click="clearSimilar"
+                        color="secondary"
+                        title="{{ __('app.clear') }}"
+                    >
                         <x-ts-icon icon="tabler.x" class="inline-block size-4" />
                     </x-ts-button>
                 </div>
 
-                <div class="flex-1 flex justify-end">
+                <div class="flex flex-1 justify-end">
                     <x-ts-icon icon="tabler.users" class="inline-block size-5" />
                 </div>
             </div>
         </x-slot:header>
 
-        @if (!$searchTriggered or $this->similarPersons->isEmpty())
-            <p class="text-neutral-400">
-                {{ __('person.no_similar_persons') }}
-            </p>
+        @if (! $searchTriggered or $this->similarPersons->isEmpty())
+            <p class="text-neutral-400">{{ __('person.no_similar_persons') }}</p>
         @else
-            <div class="flex flex-col gap-2 min-w-max">
+            <div class="flex min-w-max flex-col gap-2">
                 @foreach ($this->similarPersons as $person)
-                    <a href="{{ url('/people/' . $person->id) }}" @class([
-            'flex items-center gap-6 p-2 rounded hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors group',
-            'text-red-600 dark:text-red-400' => $person->isDeceased(),
-        ])>
-
+                    <a
+                        href="{{ url('/people/' . $person->id) }}"
+                        @class([
+                            'flex items-center gap-6 p-2 rounded hover:bg-neutral-100 dark:hover:bg-neutral-600 transition-colors group',
+                            'text-red-600 dark:text-red-400' => $person->isDeceased(),
+                        ])
+                    >
                         {{-- Photo / avatar --}}
-                        <div class="size-10 shrink-0 overflow-hidden bg-neutral-200 dark:bg-neutral-600 flex items-center justify-center">
+                        <div class="flex size-10 shrink-0 items-center justify-center overflow-hidden bg-neutral-200 dark:bg-neutral-600">
                             @if ($person->photo)
-                                <img src="{{ Storage::url('photos/' . $person->team->id . '/' . $person->id . '/' . $person->photo . '.webp') }}" alt="{{ $person->name }}" class="w-full h-full object-cover" />
+                                <img
+                                    src="{{ Storage::url('photos/' . $person->team->id . '/' . $person->id . '/' . $person->photo . '.webp') }}"
+                                    alt="{{ $person->name }}"
+                                    class="h-full w-full object-cover"
+                                />
                             @else
                                 <x-ts-icon icon="tabler.user" class="size-5 text-neutral-400" />
                             @endif
                         </div>
 
                         {{-- Name + birth info --}}
-                        <div class="flex flex-col leading-tight min-w-40 font-medium">
+                        <div class="flex min-w-40 flex-col leading-tight font-medium">
                             <span>
-                                <span class="group-hover:underline">
-                                    {{ $person->name }}
-                                </span>
+                                <span class="group-hover:underline"> {{ $person->name }} </span>
                                 <span>
-                                    {{ $person->birthname ? '(' . $person->birthname . ')' : ''}} {{ $person->nickname ? '(' . $person->nickname . ')' : ''}}
+                                    {{ $person->birthname ? '(' . $person->birthname . ')' : '' }} {{ $person->nickname ? '(' . $person->nickname . ')' : '' }}
                                 </span>
                             </span>
                             <span class="text-neutral-400">
@@ -64,7 +76,10 @@
 
                         {{-- Sex badge --}}
                         <div class="ml-auto shrink-0">
-                            <x-ts-icon icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}" class="inline-block size-5" />
+                            <x-ts-icon
+                                icon="tabler.{{ $person->sex === 'm' ? 'gender-male' : 'gender-female' }}"
+                                class="inline-block size-5"
+                            />
                         </div>
                     </a>
                 @endforeach
@@ -72,9 +87,7 @@
         @endif
 
         <x-slot:footer>
-            <p class="text-sm text-neutral-400">
-                {{ __('person.similar_persons_hint') }}
-            </p>
+            <p class="text-sm text-neutral-400">{{ __('person.similar_persons_hint') }}</p>
         </x-slot:footer>
     </x-ts-card>
 </div>

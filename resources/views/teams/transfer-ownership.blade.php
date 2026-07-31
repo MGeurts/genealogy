@@ -1,30 +1,24 @@
 <div class="md:grid md:grid-cols-3 md:gap-5">
     <x-section-title>
         <x-slot name="title">
-            <div class="dark:text-gray-400">
-                {{ __('team.transfer_ownership') }}
-            </div>
+            <div class="dark:text-gray-400">{{ __('team.transfer_ownership') }}</div>
         </x-slot>
 
         <x-slot name="description">
-            <div class="dark:text-gray-100">
-                {{ __('team.transfer_message') }}
-            </div>
+            <div class="dark:text-gray-100">{{ __('team.transfer_message') }}</div>
         </x-slot>
     </x-section-title>
 
-    <div class="mt-5 md:mt-0 md:col-span-2">
+    <div class="mt-5 md:col-span-2 md:mt-0">
         @if ($team->users->count() > 0)
             <form method="POST" action="{{ route('teams.transfer-ownership', $team) }}">
                 @csrf
                 @method('PUT')
 
-                <div class="p-4 bg-white sm:p-6 rounded-tl rounded-tr">
+                <div class="rounded-tl rounded-tr bg-white p-4 sm:p-6">
                     <div class="grid grid-cols-6 gap-5">
                         <div class="col-span-6">
-                            <div class="max-w-xl text-sm text-gray-600">
-                                {{ __('team.select_new_owner') }}
-                            </div>
+                            <div class="max-w-xl text-sm text-gray-600">{{ __('team.select_new_owner') }}</div>
                         </div>
 
                         <div class="col-span-6">
@@ -47,15 +41,17 @@
                     </div>
                 </div>
 
-                <div class="flex items-center justify-end p-4 text-right bg-gray-200 sm:px-6 rounded-b">
-                    <x-ts-button type="submit" color="primary">
-                        {{ __('team.transfer') }}
-                    </x-ts-button>
+                <div class="flex items-center justify-end rounded-b bg-gray-200 p-4 text-right sm:px-6">
+                    <x-ts-button type="submit" color="primary"> {{ __('team.transfer') }} </x-ts-button>
                 </div>
             </form>
         @else
-            <div class="p-4 bg-white sm:p-6 rounded-sm">
-                <x-ts-alert title="{{ __('team.transfer_ownership') }}" text="{{ __('team.can_not_transfer') }}" color="cyan" />
+            <div class="rounded-sm bg-white p-4 sm:p-6">
+                <x-ts-alert
+                    title="{{ __('team.transfer_ownership') }}"
+                    text="{{ __('team.can_not_transfer') }}"
+                    color="cyan"
+                />
             </div>
         @endif
     </div>
