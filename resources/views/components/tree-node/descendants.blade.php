@@ -6,7 +6,7 @@
     $person_sequence = $descendants->firstWhere('id', $person->id)->sequence;
 
     $descendants_next = $descendants->where('degree', $level_current)->filter(function ($item) use ($person_sequence): bool {
-        return mb_strpos($item->sequence, $person_sequence) !== false;
+        return str_contains($item->sequence, $person_sequence.',');
     });
 @endphp
 
