@@ -3,8 +3,8 @@
 @endsection
 
 <x-app-layout>
-    <div class="w-full p-2 space-y-5">
-        <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="w-full space-y-5 p-2">
+        <div class="mx-auto max-w-7xl py-10 sm:px-6 lg:px-8">
             @livewire('teams.create-team-form')
         </div>
     </div>

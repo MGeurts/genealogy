@@ -3,13 +3,13 @@
 @endsection
 
 <x-app-layout>
-    <div class="w-full p-2 space-y-5">
-        <div class="py-10 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="w-full space-y-5 p-2">
+        <div class="mx-auto max-w-7xl py-10 sm:px-6 lg:px-8">
             @livewire('teams.update-team-name-form', ['team' => $team])
 
             @livewire('teams.team-member-manager', ['team' => $team])
 
-            @if (auth()->user()->ownsTeam($team) and !$team->personal_team)
+            @if (auth()->user()->ownsTeam($team) and ! $team->personal_team)
                 <x-section-border />
 
                 <div class="mt-10 sm:mt-0">
@@ -17,7 +17,7 @@
                 </div>
             @endif
 
-            @if (Gate::check('delete', $team) and !$team->personal_team)
+            @if (Gate::check('delete', $team) and ! $team->personal_team)
                 <x-section-border />
 
                 <div class="mt-10 sm:mt-0">

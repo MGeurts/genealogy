@@ -1,9 +1,11 @@
-<div class="w-full min-w-max max-w-3xl grow dark:text-neutral-200">
+<div class="w-full max-w-3xl min-w-max grow dark:text-neutral-200">
     @if ($timeline->isEmpty())
-        <div class="rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 p-8 text-center">
+        <div class="rounded-lg border border-gray-200 bg-gray-50 p-8 text-center dark:border-gray-700 dark:bg-gray-800">
             <x-ts-icon icon="tabler.calendar-week" class="inline-block size-10" />
 
-            <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">{{ __('personevents.no_events') }}</h3>
+            <h3 class="mt-2 text-sm font-medium text-gray-900 dark:text-gray-100">
+                {{ __('personevents.no_events') }}
+            </h3>
             <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">{{ __('personevents.add_events') }}</p>
         </div>
     @else
@@ -12,8 +14,11 @@
                 @foreach ($timeline as $index => $event)
                     <li class="mb-5">
                         <div class="relative pb-8">
-                            @if (!$loop->last)
-                                <span class="absolute left-4 top-4 -ml-px h-full w-0.5 bg-gray-200 dark:bg-gray-700" aria-hidden="true"></span>
+                            @if (! $loop->last)
+                                <span
+                                    class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200 dark:bg-gray-700"
+                                    aria-hidden="true"
+                                ></span>
                             @endif
 
                             <div class="relative flex gap-5">
@@ -31,26 +36,26 @@
                                             {{ $event['type_label'] }}
                                         </p>
 
-                                        @if(!empty($event['partner']))
+                                        @if (! empty($event['partner']))
                                             <p class="mt-0.5 text-sm text-gray-500 dark:text-gray-400">
                                                 {{ $event['partner'] }}
                                             </p>
                                         @endif
 
-                                        @if(!empty($event['child']))
+                                        @if (! empty($event['child']))
                                             <p class="mt-0.5 text-sm text-gray-500 dark:text-gray-400">
                                                 {{ $event['child'] }}
                                             </p>
                                         @endif
 
-                                        @if(!empty($event['place']))
+                                        @if (! empty($event['place']))
                                             <p class="mt-0.5 text-sm text-gray-500 dark:text-gray-400">
                                                 <x-ts-icon icon="tabler.map-pin" class="inline-block size-5" />
                                                 {{ $event['place'] }}
                                             </p>
                                         @endif
 
-                                        @if(!empty($event['description']))
+                                        @if (! empty($event['description']))
                                             <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
                                                 {{ $event['description'] }}
                                             </p>
@@ -58,12 +63,12 @@
                                     </div>
 
                                     {{-- Date --}}
-                                    <div class="whitespace-nowrap text-right text-sm text-gray-500 dark:text-gray-400">
+                                    <div class="text-right text-sm whitespace-nowrap text-gray-500 dark:text-gray-400">
                                         <time datetime="{{ $event['sort_date'] }}">
                                             {{ $event['date_formatted'] }}
                                         </time>
 
-                                        @if(isset($event['year']) && $event['date'] === null)
+                                        @if (isset($event['year']) && $event['date'] === null)
                                             <p class="text-xs text-gray-400 dark:text-gray-500">
                                                 {{ __('app.circa') }}
                                             </p>

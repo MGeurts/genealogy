@@ -8,9 +8,7 @@
             <x-authentication-card-logo />
         </x-slot>
 
-        <x-slot name="header">
-            {{ __('auth.register') }}
-        </x-slot>
+        <x-slot name="header">{{ __('auth.register') }}</x-slot>
 
         <x-validation-errors class="mb-4" />
 
@@ -22,7 +20,15 @@
                     <x-label for="firstname" value="{{ __('user.firstname') }} :" />
                 </div>
                 <div class="md:w-2/3">
-                    <x-input id="firstname" class="block w-full" type="text" name="firstname" :value="old('firstname')" autofocus autocomplete="firstname" />
+                    <x-input
+                        id="firstname"
+                        class="block w-full"
+                        type="text"
+                        name="firstname"
+                        :value="old('firstname')"
+                        autofocus
+                        autocomplete="firstname"
+                    />
                 </div>
             </div>
 
@@ -31,7 +37,15 @@
                     <x-label for="surname" value="{{ __('user.surname') }} :" />
                 </div>
                 <div class="md:w-2/3">
-                    <x-input id="surname" class="block w-full" type="text" name="surname" :value="old('surname')" required autocomplete="surname" />
+                    <x-input
+                        id="surname"
+                        class="block w-full"
+                        type="text"
+                        name="surname"
+                        :value="old('surname')"
+                        required
+                        autocomplete="surname"
+                    />
                 </div>
             </div>
 
@@ -40,11 +54,19 @@
                     <x-label for="email" value="{{ __('user.email') }} :" />
                 </div>
                 <div class="md:w-2/3">
-                    <x-input id="email" class="block w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+                    <x-input
+                        id="email"
+                        class="block w-full"
+                        type="email"
+                        name="email"
+                        :value="old('email')"
+                        required
+                        autocomplete="username"
+                    />
                 </div>
             </div>
 
-            <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
+            <hr class="my-4 h-px border-0 bg-gray-200 dark:bg-gray-700" />
 
             <div class="mt-2 md:flex md:items-center">
                 <div class="md:w-1/3">
@@ -53,7 +75,12 @@
                 <div class="md:w-2/3">
                     <select id="language" class="block w-full rounded-sm" name="language" required>
                         @foreach (config('app.available_locales') as $locale_name => $available_locale)
-                            <option value="{{ $available_locale }}" @selected($available_locale === old('language', app()->getLocale()))>{{ $locale_name }}</option>
+                            <option
+                                value="{{ $available_locale }}"
+                                @selected($available_locale === old('language', app()->getLocale()))
+                            >
+                                {{ $locale_name }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
@@ -67,14 +94,17 @@
                     <select id="timezone" class="block w-full rounded-sm" name="timezone" required>
                         @php
                             $timezones = collect(timezone_identifiers_list())
-                                ->groupBy(fn($tz) => str_contains($tz, '/') ? explode('/', $tz)[0] : 'Other')
+                                ->groupBy(fn ($tz) => str_contains($tz, '/') ? explode('/', $tz)[0] : 'Other')
                                 ->sortKeys();
                         @endphp
 
                         @foreach ($timezones as $continent => $zones)
                             <optgroup label="{{ $continent }}">
                                 @foreach ($zones as $timezone)
-                                    <option value="{{ $timezone }}" @selected($timezone === old('timezone', config('app.timezone')))>
+                                    <option
+                                        value="{{ $timezone }}"
+                                        @selected($timezone === old('timezone', config('app.timezone')))
+                                    >
                                         {{ str_replace('_', ' ', $timezone) }}
                                     </option>
                                 @endforeach
@@ -84,14 +114,21 @@
                 </div>
             </div>
 
-            <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
+            <hr class="my-4 h-px border-0 bg-gray-200 dark:bg-gray-700" />
 
             <div class="mt-2 md:flex md:items-center">
                 <div class="md:w-1/3">
                     <x-label for="password" value="{{ __('user.password') }} :" />
                 </div>
                 <div class="md:w-2/3">
-                    <x-input id="password" class="block w-full" type="password" name="password" required autocomplete="new-password" />
+                    <x-input
+                        id="password"
+                        class="block w-full"
+                        type="password"
+                        name="password"
+                        required
+                        autocomplete="new-password"
+                    />
                 </div>
             </div>
 
@@ -100,12 +137,19 @@
                     <x-label for="password_confirmation" value="{{ __('user.confirm_password') }} :" />
                 </div>
                 <div class="md:w-2/3">
-                    <x-input id="password_confirmation" class="block w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                    <x-input
+                        id="password_confirmation"
+                        class="block w-full"
+                        type="password"
+                        name="password_confirmation"
+                        required
+                        autocomplete="new-password"
+                    />
                 </div>
             </div>
 
             @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
+                <hr class="my-4 h-px border-0 bg-gray-200 dark:bg-gray-700" />
 
                 <div class="mt-4">
                     <x-label for="terms">
@@ -113,34 +157,35 @@
                             <x-checkbox name="terms" id="terms" required />
 
                             <div class="ml-2">
-                                {!! __('auth.agree', [
-                                    'terms_of_service' =>
-                                        '<a target="_blank" href="' .
+                                {!!
+                                    __('auth.agree', [
+                                        'terms_of_service' => '<a target="_blank" href="' .
                                         route('terms.show') .
                                         '" class="text-sm text-gray-600 underline rounded-sm hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
                                         __('app.terms_of_service') .
                                         '</a>',
-                                    'privacy_policy' =>
-                                        '<a target="_blank" href="' .
+                                        'privacy_policy' => '<a target="_blank" href="' .
                                         route('policy.show') .
                                         '" class="text-sm text-gray-600 underline rounded-sm hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">' .
                                         __('app.privacy_policy') .
                                         '</a>',
-                                ]) !!}
+                                    ])
+                                !!}
                             </div>
                         </div>
                     </x-label>
                 </div>
             @endif
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="text-sm text-gray-600 underline rounded-sm hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+            <div class="mt-4 flex items-center justify-end">
+                <a
+                    class="rounded-sm text-sm text-gray-600 underline hover:text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden"
+                    href="{{ route('login') }}"
+                >
                     {{ __('auth.already_registered') }}?
                 </a>
 
-                <x-ts-button type="submit" color="primary" class="ml-4">
-                    {{ __('auth.register') }}
-                </x-ts-button>
+                <x-ts-button type="submit" color="primary" class="ml-4"> {{ __('auth.register') }} </x-ts-button>
             </div>
         </form>
     </x-authentication-card>

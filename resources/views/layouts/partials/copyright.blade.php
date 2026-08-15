@@ -1,11 +1,10 @@
-<div class="flex justify-between p-2 text-xs bg-neutral-200 dark:bg-neutral-700">
+<div class="flex justify-between bg-neutral-200 p-2 text-xs dark:bg-neutral-700">
     <!-- Left Section: Copyright and Licensing -->
     <div class="text-left">
         <p>
             Copyright © {{ date('Y') }} |
-            <x-link href="https://www.kreaweb.be/" target="_blank" aria-label="Visit Kreaweb website">
-                KREAWEB
-            </x-link>.
+            <x-link href="https://www.kreaweb.be/" target="_blank" aria-label="Visit Kreaweb website"> KREAWEB </x-link
+            >.
         </p>
         <p>
             {{ __('app.open_source') }}
@@ -28,7 +27,10 @@
 
         <!-- Kreaweb Logo -->
         <a href="https://www.kreaweb.be/" target="_blank" title="Kreaweb" aria-label="Visit Kreaweb website">
-            <x-svg.kreaweb class="size-11 dark:fill-white hover:fill-primary-300 dark:hover:fill-primary-300" alt="Kreaweb Logo" />
+            <x-svg.kreaweb
+                class="hover:fill-primary-300 dark:hover:fill-primary-300 size-11 dark:fill-white"
+                alt="Kreaweb Logo"
+            />
         </a>
     </div>
 </div>

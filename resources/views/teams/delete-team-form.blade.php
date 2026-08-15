@@ -1,14 +1,10 @@
 <x-action-section>
     <x-slot name="title">
-        <div class="dark:text-gray-400">
-            {{ __('team.delete') }}
-        </div>
+        <div class="dark:text-gray-400">{{ __('team.delete') }}</div>
     </x-slot>
 
     <x-slot name="description">
-        <div class="dark:text-gray-100">
-            {{ __('team.delete_team_message') }}
-        </div>
+        <div class="dark:text-gray-100">{{ __('team.delete_team_message') }}</div>
     </x-slot>
 
     <x-slot name="content">
@@ -27,9 +23,7 @@
         <x-hr.normal />
 
         @if ($team->isDeletable())
-            <div class="max-w-xl text-sm text-gray-600">
-                {{ __('team.delete_team_text') }}
-            </div>
+            <div class="max-w-xl text-sm text-gray-600">{{ __('team.delete_team_text') }}</div>
 
             <div class="mt-5">
                 <x-ts-button color="red" wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
@@ -39,16 +33,16 @@
 
             {{-- delete team confirmation modal --}}
             <x-confirmation-modal wire:model.live="confirmingTeamDeletion">
-                <x-slot name="title">
-                    {{ __('team.delete') }}
-                </x-slot>
+                <x-slot name="title">{{ __('team.delete') }}</x-slot>
 
-                <x-slot name="content">
-                    {{ __('team.delete_team_sure') }}
-                </x-slot>
+                <x-slot name="content">{{ __('team.delete_team_sure') }}</x-slot>
 
                 <x-slot name="footer">
-                    <x-ts-button color="secondary" wire:click="$toggle('confirmingTeamDeletion')" wire:loading.attr="disabled">
+                    <x-ts-button
+                        color="secondary"
+                        wire:click="$toggle('confirmingTeamDeletion')"
+                        wire:loading.attr="disabled"
+                    >
                         {{ __('team.cancel') }}
                     </x-ts-button>
 

@@ -6,9 +6,17 @@
     @endphp
 
     @if ($person->photo && Storage::disk('photos')->exists($photoPath))
-        <img {{ $attributes->merge(['class' => 'w-full rounded-sm shadow-lg dark:shadow-black/30']) }} src="{{ Storage::disk('photos')->url($photoPath) }}" alt="{{ $person->name }}" title="{{ $person->name }}" />
+        <img
+            {{ $attributes->merge(['class' => 'w-full rounded-sm shadow-lg dark:shadow-black/30']) }}
+            src="{{ Storage::disk('photos')->url($photoPath) }}"
+            alt="{{ $person->name }}"
+            title="{{ $person->name }}"
+        />
     @else
-        <x-svg.person-no-image {{ $attributes->merge(['class' => 'w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400']) }} alt="no-image-found" />
+        <x-svg.person-no-image
+            {{ $attributes->merge(['class' => 'w-full rounded-sm shadow-lg dark:shadow-black/30 fill-neutral-400']) }}
+            alt="no-image-found"
+        />
     @endif
 
     @if ($person->isDeceased())

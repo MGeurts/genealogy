@@ -3,16 +3,12 @@
 @endsection
 
 <x-app-layout>
-    <div class="p-5 max-w-5xl overflow-x-auto grow">
+    <div class="max-w-5xl grow overflow-x-auto p-5">
         <div class="flex">
             <x-ts-alert icon="tabler.bug" ext="Neutral" color="neutral">
-                <x-slot:title>
-                    {{ $exception->getStatuscode() }}
-                </x-slot:title>
+                <x-slot:title>{{ $exception->getStatuscode() }}</x-slot:title>
 
-                <div class="my-10">
-                    {{ $exception->getMessage() }}
-                </div>
+                <div class="my-10">{{ $exception->getMessage() }}</div>
 
                 <x-slot:footer>
                     <div class="flex justify-end">

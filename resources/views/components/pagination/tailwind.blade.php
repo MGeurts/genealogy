@@ -1,16 +1,20 @@
 <div>
     @if ($paginator->hasPages())
         <nav role="navigation" aria-label="Pagination Navigation" class="flex items-center justify-between">
-            <div class="flex justify-between flex-1 md:hidden">
+            <div class="flex flex-1 justify-between md:hidden">
                 <span>
                     @if ($paginator->onFirstPage())
-                        <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-500 bg-white border border-gray-300 rounded-sm cursor-default select-none">
+                        <span class="relative inline-flex cursor-default items-center rounded-sm border border-gray-300 bg-white px-4 py-2 text-sm leading-5 font-medium text-gray-500 select-none">
                             {!! __('pagination.previous') !!}
                         </span>
                     @else
-                        <button type="button" wire:click="previousPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled"
+                        <button
+                            type="button"
+                            wire:click="previousPage('{{ $paginator->getPageName() }}')"
+                            wire:loading.attr="disabled"
                             dusk="previousPage{{ $paginator->getPageName() === 'page' ? '' : '.' . $paginator->getPageName() }}.before"
-                            class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-sm hover:text-gray-500 focus:outline-hidden focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700">
+                            class="focus:shadow-outline-blue relative inline-flex items-center rounded-sm border border-gray-300 bg-white px-4 py-2 text-sm leading-5 font-medium text-gray-700 transition duration-150 ease-in-out hover:text-gray-500 focus:border-blue-300 focus:outline-hidden active:bg-gray-100 active:text-gray-700"
+                        >
                             {!! __('pagination.previous') !!}
                         </button>
                     @endif
@@ -18,22 +22,26 @@
 
                 <span>
                     @if ($paginator->hasMorePages())
-                        <button type="button" wire:click="nextPage('{{ $paginator->getPageName() }}')" wire:loading.attr="disabled"
+                        <button
+                            type="button"
+                            wire:click="nextPage('{{ $paginator->getPageName() }}')"
+                            wire:loading.attr="disabled"
                             dusk="nextPage{{ $paginator->getPageName() === 'page' ? '' : '.' . $paginator->getPageName() }}.before"
-                            class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-sm hover:text-gray-500 focus:outline-hidden focus:shadow-outline-blue focus:border-blue-300 active:bg-gray-100 active:text-gray-700">
+                            class="focus:shadow-outline-blue relative ml-3 inline-flex items-center rounded-sm border border-gray-300 bg-white px-4 py-2 text-sm leading-5 font-medium text-gray-700 transition duration-150 ease-in-out hover:text-gray-500 focus:border-blue-300 focus:outline-hidden active:bg-gray-100 active:text-gray-700"
+                        >
                             {!! __('pagination.next') !!}
                         </button>
                     @else
-                        <span class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 text-gray-500 bg-white border border-gray-300 rounded-sm cursor-default select-none">
+                        <span class="relative ml-3 inline-flex cursor-default items-center rounded-sm border border-gray-300 bg-white px-4 py-2 text-sm leading-5 font-medium text-gray-500 select-none">
                             {!! __('pagination.next') !!}
                         </span>
                     @endif
                 </span>
             </div>
 
-            <div class="hidden gap-2 md:flex-1 md:flex md:items-center md:justify-end">
+            <div class="hidden gap-2 md:flex md:flex-1 md:items-center md:justify-end">
                 <div>
-                    <p class="text-sm text-gray-700 dark:text-gray-400 leading-5">
+                    <p class="text-sm leading-5 text-gray-700 dark:text-gray-400">
                         <span>{!! __('pagination.showing') !!}</span>
                         <span class="font-medium">{{ $paginator->firstItem() }}</span>
                         <span>{!! __('pagination.to') !!}</span>
@@ -50,19 +58,28 @@
                         <span>
                             @if ($paginator->onFirstPage())
                                 <span aria-disabled="true" aria-label="{{ __('pagination.previous') }}">
-                                    <span class="relative inline-flex items-center px-2 py-2 text-sm font-medium leading-5 text-gray-500 bg-white border border-gray-300 rounded-l cursor-default"
-                                        aria-hidden="true">
+                                    <span
+                                        class="relative inline-flex cursor-default items-center rounded-l border border-gray-300 bg-white px-2 py-2 text-sm leading-5 font-medium text-gray-500"
+                                        aria-hidden="true"
+                                    >
                                         <svg class="size-5" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                                                clip-rule="evenodd" />
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                                                clip-rule="evenodd"
+                                            />
                                         </svg>
                                     </span>
                                 </span>
                             @else
-                                <button type="button" wire:click="previousPage('{{ $paginator->getPageName() }}')"
-                                    dusk="previousPage{{ $paginator->getPageName() === 'page' ? '' : '.' . $paginator->getPageName() }}.after" rel="prev"
-                                    class="relative inline-flex items-center px-2 py-2 text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-l hover:text-gray-400 focus:z-10 focus:outline-hidden focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500"
-                                    aria-label="{{ __('pagination.previous') }}">
+                                <button
+                                    type="button"
+                                    wire:click="previousPage('{{ $paginator->getPageName() }}')"
+                                    dusk="previousPage{{ $paginator->getPageName() === 'page' ? '' : '.' . $paginator->getPageName() }}.after"
+                                    rel="prev"
+                                    class="focus:shadow-outline-blue relative inline-flex items-center rounded-l border border-gray-300 bg-white px-2 py-2 text-sm leading-5 font-medium text-gray-500 transition duration-150 ease-in-out hover:text-gray-400 focus:z-10 focus:border-blue-300 focus:outline-hidden active:bg-gray-100 active:text-gray-500"
+                                    aria-label="{{ __('pagination.previous') }}"
+                                >
                                     <svg class="size-5" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
                                     </svg>
@@ -72,16 +89,19 @@
 
                         {{-- Pagination Elements --}}
                         @if ($paginator->currentPage() >= 3)
-                            <button type="button" wire:click="gotoPage(1, '{{ $paginator->getPageName() }}')"
-                                class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:z-10 focus:outline-hidden focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
-                                aria-label="{{ __('Go to page :page', ['page' => 1]) }}">
+                            <button
+                                type="button"
+                                wire:click="gotoPage(1, '{{ $paginator->getPageName() }}')"
+                                class="focus:shadow-outline-blue relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm leading-5 font-medium text-gray-700 transition duration-150 ease-in-out hover:text-gray-500 focus:z-10 focus:border-blue-300 focus:outline-hidden active:bg-gray-100 active:text-gray-700"
+                                aria-label="{{ __('Go to page :page', ['page' => 1]) }}"
+                            >
                                 1
                             </button>
                         @endif
 
                         @if ($paginator->currentPage() >= 4)
                             <span aria-disabled="true">
-                                <span class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 bg-white border border-gray-300 cursor-default select-none">
+                                <span class="relative -ml-px inline-flex cursor-default items-center border border-gray-300 bg-white px-4 py-2 text-sm leading-5 font-medium text-gray-700 select-none">
                                     ...
                                 </span>
                             </span>
@@ -91,15 +111,17 @@
                             @if ($i >= $paginator->currentPage() - 1 and $i <= $paginator->currentPage() + 1)
                                 @if ($i === $paginator->currentPage())
                                     <span aria-current="page">
-                                        <span
-                                            class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-500 border border-gray-300 cursor-default select-none bg-yellow-500 dark:bg-yellow-200">
+                                        <span class="relative -ml-px inline-flex cursor-default items-center border border-gray-300 bg-yellow-500 px-4 py-2 text-sm leading-5 font-medium text-gray-500 select-none dark:bg-yellow-200">
                                             {{ $i }}
                                         </span>
                                     </span>
                                 @else
-                                    <button type="button" wire:click="gotoPage({{ $i }}, '{{ $paginator->getPageName() }}')"
-                                        class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:z-10 focus:outline-hidden focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
-                                        aria-label="{{ __('Go to page :page', ['page' => $i]) }}">
+                                    <button
+                                        type="button"
+                                        wire:click="gotoPage({{ $i }}, '{{ $paginator->getPageName() }}')"
+                                        class="focus:shadow-outline-blue relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm leading-5 font-medium text-gray-700 transition duration-150 ease-in-out hover:text-gray-500 focus:z-10 focus:border-blue-300 focus:outline-hidden active:bg-gray-100 active:text-gray-700"
+                                        aria-label="{{ __('Go to page :page', ['page' => $i]) }}"
+                                    >
                                         {{ $i }}
                                     </button>
                                 @endif
@@ -108,16 +130,19 @@
 
                         @if ($paginator->currentPage() <= $paginator->lastPage() - 3)
                             <span aria-disabled="true">
-                                <span class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 bg-white border border-gray-300 cursor-default select-none">
+                                <span class="relative -ml-px inline-flex cursor-default items-center border border-gray-300 bg-white px-4 py-2 text-sm leading-5 font-medium text-gray-700 select-none">
                                     ...
                                 </span>
                             </span>
                         @endif
 
                         @if ($paginator->currentPage() <= $paginator->lastPage() - 2)
-                            <button type="button" wire:click="gotoPage({{ $paginator->lastPage() }}, '{{ $paginator->getPageName() }}')"
-                                class="relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 hover:text-gray-500 focus:z-10 focus:outline-hidden focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-700"
-                                aria-label="{{ __('Go to page :page', ['page' => 1]) }}">
+                            <button
+                                type="button"
+                                wire:click="gotoPage({{ $paginator->lastPage() }}, '{{ $paginator->getPageName() }}')"
+                                class="focus:shadow-outline-blue relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm leading-5 font-medium text-gray-700 transition duration-150 ease-in-out hover:text-gray-500 focus:z-10 focus:border-blue-300 focus:outline-hidden active:bg-gray-100 active:text-gray-700"
+                                aria-label="{{ __('Go to page :page', ['page' => 1]) }}"
+                            >
                                 {{ $paginator->lastPage() }}
                             </button>
                         @endif
@@ -125,21 +150,30 @@
                         {{-- Next Page Link --}}
                         <span>
                             @if ($paginator->hasMorePages())
-                                <button type="button" wire:click="nextPage('{{ $paginator->getPageName() }}')"
-                                    dusk="nextPage{{ $paginator->getPageName() === 'page' ? '' : '.' . $paginator->getPageName() }}.after" rel="next"
-                                    class="relative inline-flex items-center p-2 -ml-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-r hover:text-gray-400 focus:z-10 focus:outline-hidden focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-100 active:text-gray-500"
-                                    aria-label="{{ __('pagination.next') }}">
+                                <button
+                                    type="button"
+                                    wire:click="nextPage('{{ $paginator->getPageName() }}')"
+                                    dusk="nextPage{{ $paginator->getPageName() === 'page' ? '' : '.' . $paginator->getPageName() }}.after"
+                                    rel="next"
+                                    class="focus:shadow-outline-blue relative -ml-px inline-flex items-center rounded-r border border-gray-300 bg-white p-2 text-sm leading-5 font-medium text-gray-500 transition duration-150 ease-in-out hover:text-gray-400 focus:z-10 focus:border-blue-300 focus:outline-hidden active:bg-gray-100 active:text-gray-500"
+                                    aria-label="{{ __('pagination.next') }}"
+                                >
                                     <svg class="size-5" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
                                     </svg>
                                 </button>
                             @else
                                 <span aria-disabled="true" aria-label="{{ __('pagination.next') }}">
-                                    <span class="relative inline-flex items-center p-2 -ml-px text-sm font-medium leading-5 text-gray-500 bg-white border border-gray-300 rounded-r cursor-default"
-                                        aria-hidden="true">
+                                    <span
+                                        class="relative -ml-px inline-flex cursor-default items-center rounded-r border border-gray-300 bg-white p-2 text-sm leading-5 font-medium text-gray-500"
+                                        aria-hidden="true"
+                                    >
                                         <svg class="size-5" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                clip-rule="evenodd" />
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                clip-rule="evenodd"
+                                            />
                                         </svg>
                                     </span>
                                 </span>
