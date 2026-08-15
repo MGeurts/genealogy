@@ -399,6 +399,14 @@ Feel free to submit <b>Issues</b> or <b>Pull Requests</b>, for bugs, suggestions
 
 The application can be run in a Dockerized environment. Instructions can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-DOCKER.md" target="_blank">README-DOCKER.md</a>.
 
+Pre-built production images are published to the GitHub Container Registry on each release:
+
+```bash
+docker pull ghcr.io/mgeurts/genealogy:latest
+```
+
+Specific versions can be pinned by tag (e.g. `ghcr.io/mgeurts/genealogy:v1.2.3`). See all available tags on the [package page](https://github.com/MGeurts/genealogy/pkgs/container/genealogy).
+
 ## Documentation
 
 The documentation is included in the applications help.
