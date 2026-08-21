@@ -168,17 +168,24 @@
                     @click="showAddress = ! showAddress"
                     class="flex items-center text-sm font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
                 >
-                    <svg x-show="
-                            ! showAddress
-                        " class="mr-1 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg
+                        x-show="! showAddress"
+                        class="mr-1 h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                     </svg>
 
-                    <svg x-show="
-                            showAddress
-                        " class="mr-1 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="
-                            display: none;
-                        ">
+                    <svg
+                        x-show="showAddress"
+                        class="mr-1 h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        style="display: none"
+                    >
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
                     </svg>
                     {{ __('personevents.add_detailed_address') }}
