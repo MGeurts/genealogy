@@ -71,7 +71,7 @@ final class UserLogin
             Userlog::create([
                 'user_id'      => $userId,
                 'country_name' => $position->countryName ?? null,
-                'country_code' => $position->countryCode ?? null,
+                'country_code' => mb_strtoupper($position->countryCode) ?? null,
             ]);
         }
     }
