@@ -72,7 +72,15 @@ new class extends Component
 
         $validated = $this->validate();
 
-        $this->person->update($validated);
+        $fatherId  = $this->resolveParentId($validated['father_id'] ?? null, 'm');
+        $motherId  = $this->resolveParentId($validated['mother_id'] ?? null, 'f');
+        $parentsId = $this->resolveParentsId($validated['parents_id'] ?? null);
+
+        $this->person->update([
+            'father_id'  => $fatherId,
+            'mother_id'  => $motherId,
+            'parents_id' => $parentsId,
+        ]);
 
         $this->toast()->success(__('app.save'), __('app.saved'))->send();
 
@@ -122,5 +130,39 @@ new class extends Component
         $this->father_id  = $this->person->father_id;
         $this->mother_id  = $this->person->mother_id;
         $this->parents_id = $this->person->parents_id;
+    }
+
+    private function resolveParentId(?int $parentId, string $sex): ?int
+    {
+        if ($parentId === null) {
+            return null;
+        }
+
+        return Person::query()
+            ->whereKey($parentId)
+            ->where('team_id', $this->person->team_id)
+            ->where('sex', $sex)
+            ->where('id', '!=', $this->person->id)
+            ->olderThan($this->person->dob, $this->person->yob)
+            ->firstOrFail()
+            ->id;
+    }
+
+    private function resolveParentsId(?int $parentsId): ?int
+    {
+        if ($parentsId === null) {
+            return null;
+        }
+
+        return Couple::query()
+            ->whereKey($parentsId)
+            ->where('team_id', $this->person->team_id)
+            ->where('person1_id', '!=', $this->person->id)
+            ->where('person2_id', '!=', $this->person->id)
+            ->olderThan($this->person->birthYear)
+            ->whereHas('person1', fn ($query) => $query->where('team_id', $this->person->team_id))
+            ->whereHas('person2', fn ($query) => $query->where('team_id', $this->person->team_id))
+            ->firstOrFail()
+            ->id;
     }
 };

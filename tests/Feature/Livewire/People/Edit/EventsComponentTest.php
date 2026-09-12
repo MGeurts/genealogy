@@ -129,6 +129,30 @@ test('can update existing event', function (): void {
         ->and($event->place)->toBe('Updated Church');
 });
 
+test('cannot read or modify an event that belongs to another person', function (): void {
+    $this->person->update(['team_id' => $this->team->id]);
+
+    $foreignTeam   = Team::factory()->create();
+    $foreignPerson = Person::factory()->create(['team_id' => $foreignTeam->id]);
+    $foreignEvent  = PersonEvent::factory()->create([
+        'person_id'   => $foreignPerson->id,
+        'description' => 'Private event',
+    ]);
+
+    Livewire::test('people::edit.events', ['person' => $this->person])
+        ->call('openModal', $foreignEvent->id)
+        ->assertNotFound();
+
+    Livewire::test('people::edit.events', ['person' => $this->person])
+        ->set('editingEventId', $foreignEvent->id)
+        ->set('type', PersonEvent::TYPE_BAPTISM)
+        ->call('save')
+        ->assertNotFound();
+
+    expect($foreignEvent->fresh()->person_id)->toBe($foreignPerson->id)
+        ->and($foreignEvent->fresh()->description)->toBe('Private event');
+});
+
 test('can delete event', function (): void {
     $event = PersonEvent::factory()->create([
         'person_id' => $this->person->id,

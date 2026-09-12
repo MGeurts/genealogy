@@ -50,3 +50,18 @@ test('a user with the person:update permission can disconnect a child', function
 
     expect($child->fresh()->mother_id)->toBeNull();
 });
+
+test('a user cannot disconnect a person who is not the displayed parent’s child', function (): void {
+    $editor = $this->memberWithRole('editor');
+    $this->actingAs($editor);
+
+    $parent = Person::factory()->create(['sex' => 'f', 'team_id' => $editor->current_team_id]);
+    $mother = Person::factory()->create(['sex' => 'f', 'team_id' => $editor->current_team_id]);
+    $child  = Person::factory()->create(['mother_id' => $mother->id, 'team_id' => $editor->current_team_id]);
+
+    Livewire::test('people::children', ['person' => $parent])
+        ->call('disconnect', $child->id)
+        ->assertNotFound();
+
+    expect($child->fresh()->mother_id)->toBe($mother->id);
+});

@@ -91,9 +91,16 @@ new class extends Component
      */
     protected function linkExistingPartner(array $validated): void
     {
+        $partner = Person::query()
+            ->whereKey($validated['form']['person_id'])
+            ->where('team_id', $this->person->team_id)
+            ->where('id', '!=', $this->person->id)
+            ->partnerOffset($this->person->dob, $this->person->yob)
+            ->firstOrFail();
+
         $couple = Couple::create([
             'person1_id' => $this->person->id,
-            'person2_id' => $validated['form']['person_id'],
+            'person2_id' => $partner->id,
             'date_start' => $validated['date_start'] ?? null,
             'date_end'   => $validated['date_end'] ?? null,
             'is_married' => $validated['is_married'],

@@ -69,8 +69,16 @@ new class extends Component
      */
     protected function linkExistingMother(int $personId): void
     {
+        $mother = Person::query()
+            ->whereKey($personId)
+            ->where('team_id', $this->person->team_id)
+            ->where('sex', 'f')
+            ->where('id', '!=', $this->person->id)
+            ->olderThan($this->person->dob, $this->person->yob)
+            ->firstOrFail();
+
         $this->person->update([
-            'mother_id' => $personId,
+            'mother_id' => $mother->id,
         ]);
 
         $this->toast()->success(__('app.save'), __('person.existing_person_linked_as_mother'))->send();
