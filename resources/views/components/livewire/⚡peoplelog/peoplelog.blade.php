@@ -33,12 +33,12 @@
                                     label="{{ __('app.filter') }}"
                                     wire:model.live="subjectTypeFilter"
                                     :options="[
-                ['label' => __('app.all'), 'value' => 'all'],
-                ...collect($this->subjectTypes)->map(fn($type): array => [
-                    'label' => $type,
-                    'value' => 'App\Models\\' . $type
-                ])->toArray()
-            ]"
+                                        ['label' => __('app.all'), 'value' => 'all'],
+                                        ...collect($this->subjectTypes)->map(fn($type): array => [
+                                            'label' => $type,
+                                            'value' => 'App\Models\\' . $type
+                                        ])->toArray()
+                                    ]"
                                     select="label:label|value:value"
                                     required
                                 />
@@ -52,12 +52,12 @@
                                     label="{{ __('pagination.per_page') }}"
                                     wire:model.live="perPage"
                                     :options="[
-                ['label' => '5', 'value' => 5],
-                ['label' => '10', 'value' => 10],
-                ['label' => '25', 'value' => 25],
-                ['label' => '50', 'value' => 50],
-                ['label' => '100', 'value' => 100],
-            ]"
+                                        ['label' => '5', 'value' => 5],
+                                        ['label' => '10', 'value' => 10],
+                                        ['label' => '25', 'value' => 25],
+                                        ['label' => '50', 'value' => 50],
+                                        ['label' => '100', 'value' => 100],
+                                    ]"
                                     select="label:label|value:value"
                                     required
                                 />

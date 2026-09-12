@@ -122,11 +122,11 @@
         <div class="mx-auto max-w-6xl p-5 text-center" wire:key="carousel-section">
             <x-ts-carousel
                 :images="[
-            ['src' => url('img/carousel/genealogy-research-001.webp'), 'alt' => '1'],
-            ['src' => url('img/carousel/genealogy-research-002.webp'), 'alt' => '2'],
-            ['src' => url('img/carousel/genealogy-research-003.webp'), 'alt' => '3'],
-            ['src' => url('img/carousel/genealogy-research-004.webp'), 'alt' => '4'],
-        ]"
+                    ['src' => url('img/carousel/genealogy-research-001.webp'), 'alt' => '1'],
+                    ['src' => url('img/carousel/genealogy-research-002.webp'), 'alt' => '2'],
+                    ['src' => url('img/carousel/genealogy-research-003.webp'), 'alt' => '3'],
+                    ['src' => url('img/carousel/genealogy-research-004.webp'), 'alt' => '4'],
+                ]"
                 autoplay
                 shuffle
                 stop-on-hover

@@ -24,7 +24,7 @@ test('a failed ZIP import does not create a team or change the current team', fu
     file_put_contents($zipPath, 'not a zip archive');
 
     $teamCount = Team::count();
-    $teamId = $user->current_team_id;
+    $teamId    = $user->current_team_id;
 
     try {
         $result = (new Import('Broken import', null))->importFromZip($zipPath);

@@ -76,7 +76,7 @@ class ZipImporter
             // follows path components inside entry names (e.g. "../../public/shell.php"),
             // which allows a malicious archive to write files anywhere on the filesystem
             // — a vulnerability known as Zip Slip (CWE-22 / path traversal).
-            $count = $zip->count();
+            $count               = $zip->count();
             $totalExtractedBytes = 0;
 
             for ($i = 0; $i < $count; $i++) {
@@ -136,14 +136,42 @@ class ZipImporter
     }
 
     /**
+     * Get the extracted GEDCOM content
+     */
+    public function getGedcomContent(): ?string
+    {
+        return $this->gedcomContent;
+    }
+
+    /**
+     * Get media files mapping (GEDCOM reference => actual file path)
+     *
+     * @return array<string, string>
+     */
+    public function getMediaFiles(): array
+    {
+        return $this->mediaFiles;
+    }
+
+    /**
+     * Cleanup temporary files
+     */
+    public function cleanup(): void
+    {
+        if (is_dir($this->tempPath)) {
+            $this->deleteDirectory($this->tempPath);
+        }
+    }
+
+    /**
      * Reject archives before extraction when their declared size or file count exceeds safe limits.
      */
     private function validateArchiveLimits(ZipArchive $zip): void
     {
-        $maxEntries = max(1, (int) config('app.gedcom_import.max_archive_entries'));
-        $maxEntrySize = max(1, (int) config('app.gedcom_import.max_archive_entry_size'));
+        $maxEntries     = max(1, (int) config('app.gedcom_import.max_archive_entries'));
+        $maxEntrySize   = max(1, (int) config('app.gedcom_import.max_archive_entry_size'));
         $maxArchiveSize = max(1, (int) config('app.gedcom_import.max_archive_size'));
-        $count = $zip->count();
+        $count          = $zip->count();
 
         if ($count > $maxEntries) {
             throw new Exception("ZIP archive contains more than {$maxEntries} entries.");
@@ -192,9 +220,9 @@ class ZipImporter
             throw new Exception("Could not create extracted file: {$entryName}");
         }
 
-        $maxEntrySize = max(1, (int) config('app.gedcom_import.max_archive_entry_size'));
+        $maxEntrySize   = max(1, (int) config('app.gedcom_import.max_archive_entry_size'));
         $maxArchiveSize = max(1, (int) config('app.gedcom_import.max_archive_size'));
-        $entryBytes = 0;
+        $entryBytes     = 0;
 
         try {
             while (! feof($source)) {
@@ -204,7 +232,7 @@ class ZipImporter
                     throw new Exception("Could not read ZIP archive entry: {$entryName}");
                 }
 
-                $contentsLength = strlen($contents);
+                $contentsLength = mb_strlen($contents);
                 $entryBytes += $contentsLength;
                 $totalExtractedBytes += $contentsLength;
 
@@ -215,7 +243,7 @@ class ZipImporter
                 $bytesWritten = 0;
 
                 while ($bytesWritten < $contentsLength) {
-                    $written = fwrite($target, substr($contents, $bytesWritten));
+                    $written = fwrite($target, mb_substr($contents, $bytesWritten));
 
                     if ($written === false || $written === 0) {
                         throw new Exception("Could not write extracted file: {$entryName}");
@@ -227,34 +255,6 @@ class ZipImporter
         } finally {
             fclose($source);
             fclose($target);
-        }
-    }
-
-    /**
-     * Get the extracted GEDCOM content
-     */
-    public function getGedcomContent(): ?string
-    {
-        return $this->gedcomContent;
-    }
-
-    /**
-     * Get media files mapping (GEDCOM reference => actual file path)
-     *
-     * @return array<string, string>
-     */
-    public function getMediaFiles(): array
-    {
-        return $this->mediaFiles;
-    }
-
-    /**
-     * Cleanup temporary files
-     */
-    public function cleanup(): void
-    {
-        if (is_dir($this->tempPath)) {
-            $this->deleteDirectory($this->tempPath);
         }
     }
 
