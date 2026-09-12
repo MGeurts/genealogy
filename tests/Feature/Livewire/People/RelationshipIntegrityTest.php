@@ -5,6 +5,7 @@ declare(strict_types=1);
 use App\Models\Couple;
 use App\Models\Person;
 use App\Models\Team;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
@@ -19,20 +20,20 @@ test('an editor cannot link a father, mother, or partner from another team', fun
     $mother      = Person::factory()->create(['sex' => 'f', 'team_id' => $foreignTeam->id]);
     $partner     = Person::factory()->create(['team_id' => $foreignTeam->id]);
 
-    Livewire::test('people::add.father', ['person' => $person])
+    expect(fn () => Livewire::test('people::add.father', ['person' => $person])
         ->set('form.person_id', $father->id)
-        ->call('saveFather')
-        ->assertNotFound();
+        ->call('saveFather'))
+        ->toThrow(ModelNotFoundException::class);
 
-    Livewire::test('people::add.mother', ['person' => $person])
+    expect(fn () => Livewire::test('people::add.mother', ['person' => $person])
         ->set('form.person_id', $mother->id)
-        ->call('saveMother')
-        ->assertNotFound();
+        ->call('saveMother'))
+        ->toThrow(ModelNotFoundException::class);
 
-    Livewire::test('people::add.partner', ['person' => $person])
+    expect(fn () => Livewire::test('people::add.partner', ['person' => $person])
         ->set('form.person_id', $partner->id)
-        ->call('savePartner')
-        ->assertNotFound();
+        ->call('savePartner'))
+        ->toThrow(ModelNotFoundException::class);
 
     expect($person->fresh()->father_id)->toBeNull()
         ->and($person->fresh()->mother_id)->toBeNull();
@@ -55,15 +56,15 @@ test('an editor cannot assign parents from another team through the family edito
         'has_ended'  => false,
     ]);
 
-    Livewire::test('people::edit.family', ['person' => $person])
+    expect(fn () => Livewire::test('people::edit.family', ['person' => $person])
         ->set('father_id', $father->id)
-        ->call('saveFamily')
-        ->assertNotFound();
+        ->call('saveFamily'))
+        ->toThrow(ModelNotFoundException::class);
 
-    Livewire::test('people::edit.family', ['person' => $person])
+    expect(fn () => Livewire::test('people::edit.family', ['person' => $person])
         ->set('parents_id', $parents->id)
-        ->call('saveFamily')
-        ->assertNotFound();
+        ->call('saveFamily'))
+        ->toThrow(ModelNotFoundException::class);
 
     expect($person->fresh()->father_id)->toBeNull()
         ->and($person->fresh()->parents_id)->toBeNull();

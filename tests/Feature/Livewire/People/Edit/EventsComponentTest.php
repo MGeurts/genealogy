@@ -6,6 +6,7 @@ use App\Models\Person;
 use App\Models\PersonEvent;
 use App\Models\Team;
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Livewire\Livewire;
 
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
@@ -139,15 +140,15 @@ test('cannot read or modify an event that belongs to another person', function (
         'description' => 'Private event',
     ]);
 
-    Livewire::test('people::edit.events', ['person' => $this->person])
-        ->call('openModal', $foreignEvent->id)
-        ->assertNotFound();
+    expect(fn () => Livewire::test('people::edit.events', ['person' => $this->person])
+        ->call('openModal', $foreignEvent->id))
+        ->toThrow(ModelNotFoundException::class);
 
-    Livewire::test('people::edit.events', ['person' => $this->person])
+    expect(fn () => Livewire::test('people::edit.events', ['person' => $this->person])
         ->set('editingEventId', $foreignEvent->id)
         ->set('type', PersonEvent::TYPE_BAPTISM)
-        ->call('save')
-        ->assertNotFound();
+        ->call('save'))
+        ->toThrow(ModelNotFoundException::class);
 
     expect($foreignEvent->fresh()->person_id)->toBe($foreignPerson->id)
         ->and($foreignEvent->fresh()->description)->toBe('Private event');
