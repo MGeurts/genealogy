@@ -15,12 +15,12 @@
 
 ## About this project
 
-<b>Genealogy</b> is a free and open-source family tree PHP application to record family members and their relationships, build with 13.
+<b>Genealogy</b> is a free and open-source family tree PHP application to record family members and their relationships, built with Laravel 13.
 
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-000.webp" class="rounded" alt="Genealogy-000"/>
 <img src="https://genealogy.kreaweb.be/img/help/genealogy-020.webp" class="rounded" alt="Genealogy-020"/>
 
-This <b>TallStack</b> application is build using :
+This <b>TallStack</b> application is built using:
 
 <ul>
     <li><a href="https://laravel.com/" target="_blank">Laravel</a> 13</li>
@@ -54,15 +54,30 @@ This <b>TallStack</b> application is build using :
 
 <ul>
     <li>
-        The application must be served in HTTPS mode, not in HTTP.<br/>
+        <a href="https://www.php.net/" target="_blank">PHP</a> 8.4 or later.
     </li>
     <li>
-        At least <a href="https://www.php.net/" target="_blank">PHP</a> 8.4, supporting Laravel 13.<br/>
+        <a href="https://getcomposer.org/" target="_blank">Composer</a> 2.
+    </li>
+    <li>
+        Node.js 20.19+ or 22.12+ with npm.
     </li>
     <li>
         At least <a href="https://www.mysql.com/" target="_blank">MySQL</a> 8.0.1 or <a href="https://mariadb.com/" target="_blank">MariaDB</a> 10.2.2 or an equivalent database, supporting <a href="https://dev.mysql.com/doc/refman/8.0/en/with.html" target="_blank">Recursive Common Table Expressions</a>.
     </li>
 </ul>
+
+HTTPS is required in production. HTTP is appropriate for local development only.
+
+## Docker
+
+For local development with Docker, start with the [Docker setup guide](README-DOCKER.md). Production images are published to the GitHub Container Registry on each release:
+
+```bash
+docker pull ghcr.io/mgeurts/genealogy:latest
+```
+
+Pin a deployment to a version tag, such as `ghcr.io/mgeurts/genealogy:v1.2.3`. See all available tags on the [package page](https://github.com/MGeurts/genealogy/pkgs/container/genealogy).
 
 ### License
 
@@ -225,13 +240,13 @@ This project is open-sourced software licensed under the [MIT license](LICENSE).
 
 ### Special features
 
-<p>This application has a built-in <b>Backup Manager</b> :
-    <ul>
-        <li>Backups can be initiated and managed manually</li>
-        <li>Backups can be scheludeld by issuing a cron job on your development or production server</li>
-        <li>An e-mail will be send after each backup</li>
-   </ul>
-</p>
+This application has a built-in <b>Backup Manager</b>:
+
+<ul>
+    <li>Backups can be initiated and managed manually.</li>
+    <li>Daily backup and cleanup tasks are scheduled through Laravel's scheduler.</li>
+    <li>An email is sent after each backup.</li>
+</ul>
 
 <p>This application has a built-in <b>Log Viewer</b>, on demand showing :
     <ul>
@@ -302,9 +317,9 @@ Translation integrity can be checked by issuing the command:
 php artisan translations:check --excludedDirectories=vendor
 ```
 
-Instructions on how to add a language can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-LANGUAGES.md" target="_blank">README-LANGUAGES.md<br/>
+Instructions on how to add a language can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-LANGUAGES.md" target="_blank">README-LANGUAGES.md</a>.
 
-The application does **not support Right To Left (RTL) languages** like Arabic, Hebrew, Persian, Urdu, Pashto, Kurdish (Sorani), Uyghur, Syriac, Thaana, North Korean.</a>
+The application does **not support Right To Left (RTL) languages** such as Arabic, Hebrew, Persian, Urdu, Pashto, Kurdish (Sorani), Uyghur, Syriac, Thaana, or North Korean.
 
 ## Uploads
 
@@ -314,9 +329,11 @@ Instructions on how to configure file and image uploads can be found in <a href=
 
 Both the <b>ancestors</b> and <b>descendants</b> family trees are build using <a href="https://dev.mysql.com/blog-archive/mysql-8-0-labs-recursive-common-table-expressions-in-mysql-ctes" target="_blank">Recursive Common Table Expressions</a> (Recursive CTE). This prevents the N+1 query problem generating the recursive tree family elements and dramatically improves performance.
 
-## Installation
+## Local installation
 
-create a new project folder, cd into the folder
+The following instructions are for a new local installation. For Docker, see the [Docker setup guide](README-DOCKER.md).
+
+Create a new project folder and clone the repository:
 
 ```bash
 git clone https://github.com/MGeurts/genealogy.git .
@@ -326,37 +343,82 @@ git clone https://github.com/MGeurts/genealogy.git .
 cp .env.example .env
 ```
 
-make the needed changes regarding name, url, database connection & mail server
+Configure `.env` with your application URL and database connection. The defaults use MySQL and database-backed sessions, queues, and cache, so run the migrations before starting the application.
+
+```env
+APP_URL=http://localhost:8000
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_DATABASE=genealogy
+DB_USERNAME=your_database_user
+DB_PASSWORD=your_database_password
+```
+
+Install the PHP and JavaScript dependencies:
 
 ```bash
-composer install
+composer install --no-scripts
+npm ci
 ```
+
+Generate the application key and storage link:
 
 ```bash
 php artisan key:generate
-```
-
-```bash
 php artisan storage:link
 ```
 
-```bash
-php artisan migrate:fresh --seed
-```
+Create the schema and seed the initial data:
 
 ```bash
-npm install && npm run build
+php artisan migrate --seed
 ```
+
+Run Composer's post-install scripts after the database tables exist:
 
 ```bash
-php artisan serve
+composer dump-autoload
 ```
 
-or
+Start the local development environment:
 
 ```bash
-npm run dev
+composer run dev
 ```
+
+This starts the application server, queue listener, logs, and Vite development server. Open the local URL configured in `APP_URL`.
+
+To build frontend assets without the development server:
+
+```bash
+npm run build
+```
+
+> `php artisan migrate:fresh --seed` drops every table. Use it only to intentionally reset disposable local data, never for an existing or production database.
+
+## Production operations
+
+Production deployments must use HTTPS with `APP_ENV=production`, `APP_DEBUG=false`, and an `APP_URL` that matches the public HTTPS URL. Store the database, uploaded files, and backups on persistent storage outside the deployment artifact.
+
+Apply schema changes with the non-destructive migration command:
+
+```bash
+php artisan migrate --force
+```
+
+Run a persistent queue worker under your process supervisor:
+
+```bash
+php artisan queue:work --tries=3
+```
+
+Invoke Laravel's scheduler every minute to run the configured backup cleanup and daily database backup tasks:
+
+```cron
+* * * * * cd /path/to/genealogy && php artisan schedule:run >> /dev/null 2>&1
+```
+
+Set `BACKUP_DISK`, `BACKUP_MAIL_ADDRESS`, and the mail settings in the production environment, then verify that backups can be restored before relying on them.
 
 ## Updating
 
@@ -395,17 +457,6 @@ php artisan migrate --env=testing
 
 Feel free to submit <b>Issues</b> or <b>Pull Requests</b>, for bugs, suggestions or feature requests.
 
-## Docker Support
-
-The application can be run in a Dockerized environment. Instructions can be found in <a href="https://github.com/MGeurts/genealogy/blob/main/README-DOCKER.md" target="_blank">README-DOCKER.md</a>.
-
-Pre-built production images are published to the GitHub Container Registry on each release:
-
-```bash
-docker pull ghcr.io/mgeurts/genealogy:latest
-```
-
-Specific versions can be pinned by tag (e.g. `ghcr.io/mgeurts/genealogy:v1.2.3`). See all available tags on the [package page](https://github.com/MGeurts/genealogy/pkgs/container/genealogy).
 
 ## Documentation
 

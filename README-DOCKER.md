@@ -8,7 +8,7 @@ The Docker setup consists of:
 
 -   **Application Container**: PHP 8.4 with FPM and Nginx (based on [Server Side Up Docker images](https://serversideup.net/open-source/docker-php/))
 -   **Database Container**: MySQL 8.4
--   **Vite Container**: Node.js 23 Alpine for frontend development server
+-   **Vite Container**: Node.js 25 Alpine for the frontend development server
 
 ## Prerequisites
 
@@ -26,16 +26,18 @@ cd genealogy
 
 ### 2. Configure Environment
 
-Copy the docker environment file and configure it:
+Copy the Docker environment file:
 
 ```bash
 cp .env.docker .env
 ```
 
-Edit `.env` and update the database settings:
+For the default local HTTP endpoint, set the application URL and session-cookie setting as follows. Then update the database settings if you use a different database service:
 
 ```env
 DB_CONNECTION=mysql
+APP_URL=http://localhost:8080
+SESSION_SECURE_COOKIE=false
 DB_HOST=db
 DB_PORT=3306
 DB_DATABASE=genealogy
@@ -46,7 +48,7 @@ DB_PASSWORD=
 ### 3. Build and Start Containers
 
 ```bash
-docker compose up -d
+docker compose up -d --build
 ```
 
 This will:
@@ -61,7 +63,6 @@ Run the following commands to set up the application:
 
 ```bash
 # Install Composer dependencies
-# docker compose exec app composer install
 docker compose exec app composer install --no-scripts
 
 # Generate application key
@@ -71,10 +72,13 @@ docker compose exec app php artisan key:generate
 docker compose exec app php artisan storage:link
 
 # Run database migrations and seeders
-docker compose exec app php artisan migrate:fresh --seed
+docker compose exec app php artisan migrate --seed
+
+# Run Composer's post-install scripts after the database tables exist
+docker compose exec app composer dump-autoload
 ```
 
-The Vite service will automatically install npm packages and start the development server when you run `docker compose up -d`.
+The Vite service will automatically install npm packages and start the development server when you run `docker compose up -d --build`.
 
 ### 5. Access the Application
 
