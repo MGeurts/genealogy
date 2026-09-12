@@ -30,9 +30,9 @@ final class SQLiteAncestorsQuery implements AncestorsQueryInterface
      *     sequence: string
      * }>
      */
-    public function getAncestors(int $personId, int $maxDepth): Collection
+    public function getAncestors(int $personId, int $teamId, int $maxDepth): Collection
     {
-        return collect(DB::select($this->getRecursiveQuery($personId, $maxDepth)));
+        return collect(DB::select($this->getRecursiveQuery(), [$personId, $teamId, $teamId, $maxDepth, $teamId, $maxDepth]));
     }
 
     /**
@@ -56,7 +56,7 @@ final class SQLiteAncestorsQuery implements AncestorsQueryInterface
      *             when largest id is 8 digits (max 99.999.999), the maximum level depth is 1024 / (8 + 1) = 113 levels
      *             ...
      */
-    private function getRecursiveQuery(int $personId, int $maxDepth): string
+    private function getRecursiveQuery(): string
     {
         return "
             WITH RECURSIVE ancestors AS (
@@ -65,7 +65,7 @@ final class SQLiteAncestorsQuery implements AncestorsQueryInterface
                     0 AS degree,
                     CAST(id AS TEXT) AS sequence
                 FROM people
-                WHERE deleted_at IS NULL AND id = $personId
+                WHERE deleted_at IS NULL AND id = ? AND team_id = ?
 
                 UNION ALL
 
@@ -75,7 +75,7 @@ final class SQLiteAncestorsQuery implements AncestorsQueryInterface
                     a.sequence || ',' || p.id AS sequence
                 FROM people p
                 JOIN ancestors a ON a.father_id = p.id
-                WHERE p.deleted_at IS NULL AND a.degree < $maxDepth AND INSTR(',' || a.sequence || ',', ',' || p.id || ',') = 0
+                WHERE p.deleted_at IS NULL AND p.team_id = ? AND a.degree < ? AND INSTR(',' || a.sequence || ',', ',' || p.id || ',') = 0
 
                 UNION ALL
 
@@ -85,7 +85,7 @@ final class SQLiteAncestorsQuery implements AncestorsQueryInterface
                     a.sequence || ',' || p.id AS sequence
                 FROM people p
                 JOIN ancestors a ON a.mother_id = p.id
-                WHERE p.deleted_at IS NULL AND a.degree < $maxDepth AND INSTR(',' || a.sequence || ',', ',' || p.id || ',') = 0
+                WHERE p.deleted_at IS NULL AND p.team_id = ? AND a.degree < ? AND INSTR(',' || a.sequence || ',', ',' || p.id || ',') = 0
             )
 
             SELECT * FROM ancestors

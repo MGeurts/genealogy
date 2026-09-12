@@ -80,7 +80,7 @@ new class extends Component
      */
     private function loadDescendants(DescendantsQueryInterface $descendantsQuery): void
     {
-        $this->descendants = $descendantsQuery->getDescendants($this->person->id, $this->count_max);
+        $this->descendants = $descendantsQuery->getDescendants($this->person->id, (int) $this->person->team_id, $this->count_max);
 
         $maxDegree       = $this->descendants->max('degree');
         $this->count_max = min($maxDegree + 1, $this->count_max);

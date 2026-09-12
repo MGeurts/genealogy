@@ -38,29 +38,50 @@ test('SQLite recursive queries traverse a tree and stop at a cycle', function ()
                 'id'        => 1,
                 'firstname' => 'Root',
                 'sex'       => 'm',
-                'father_id' => 3,
+                'team_id'   => 1,
+                'father_id' => 4,
             ],
             [
                 'id'        => 2,
                 'firstname' => 'Child',
                 'sex'       => 'm',
+                'team_id'   => 1,
                 'father_id' => 1,
             ],
             [
                 'id'        => 3,
                 'firstname' => 'Grandchild',
                 'sex'       => 'm',
+                'team_id'   => 1,
                 'father_id' => 2,
+            ],
+            [
+                'id'        => 4,
+                'firstname' => 'Foreign',
+                'sex'       => 'm',
+                'team_id'   => 2,
+                'father_id' => 3,
             ],
         ]);
 
-        $ancestors   = (new SQLiteAncestorsQuery())->getAncestors(3, 10);
-        $descendants = (new SQLiteDescendantsQuery())->getDescendants(1, 10);
+        $ancestors   = (new SQLiteAncestorsQuery())->getAncestors(3, 1, 10);
+        $descendants = (new SQLiteDescendantsQuery())->getDescendants(1, 1, 10);
 
+        $depthLimitedAncestors   = (new SQLiteAncestorsQuery())->getAncestors(3, 1, 1);
+        $depthLimitedDescendants = (new SQLiteDescendantsQuery())->getDescendants(1, 1, 1);
+
+        $foreignTeamAncestors   = (new SQLiteAncestorsQuery())->getAncestors(3, 2, 10);
+        $foreignTeamDescendants = (new SQLiteDescendantsQuery())->getDescendants(1, 2, 10);
         expect($ancestors->pluck('id')->all())->toBe([3, 2, 1])
             ->and($ancestors->max('degree'))->toBe(2)
             ->and($descendants->pluck('id')->all())->toBe([1, 2, 3])
-            ->and($descendants->max('degree'))->toBe(2);
+            ->and($descendants->max('degree'))->toBe(2)
+            ->and($foreignTeamAncestors)->toBeEmpty()
+            ->and($foreignTeamDescendants)->toBeEmpty()
+            ->and($depthLimitedAncestors->pluck('id')->all())->toBe([3, 2])
+            ->and($depthLimitedAncestors->max('degree'))->toBe(1)
+            ->and($depthLimitedDescendants->pluck('id')->all())->toBe([1, 2])
+            ->and($depthLimitedDescendants->max('degree'))->toBe(1);
     } finally {
         DB::purge('sqlite');
         config()->set('database.connections.sqlite.database', $originalSqliteDatabase);

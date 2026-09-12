@@ -30,9 +30,9 @@ final class SQLiteDescendantsQuery implements DescendantsQueryInterface
      *     sequence: string
      * }>
      */
-    public function getDescendants(int $personId, int $maxDepth): Collection
+    public function getDescendants(int $personId, int $teamId, int $maxDepth): Collection
     {
-        return collect(DB::select($this->getRecursiveQuery($personId, $maxDepth)));
+        return collect(DB::select($this->getRecursiveQuery(), [$personId, $teamId, $teamId, $maxDepth, $teamId, $maxDepth]));
     }
 
     /**
@@ -56,7 +56,7 @@ final class SQLiteDescendantsQuery implements DescendantsQueryInterface
      *             when largest id is 8 digits (max 99.999.999), the maximum level depth is 1024 / (8 + 1) = 113 levels
      *             ...
      */
-    private function getRecursiveQuery(int $personId, int $maxDepth): string
+    private function getRecursiveQuery(): string
     {
         return "
             WITH RECURSIVE descendants AS (
@@ -65,7 +65,7 @@ final class SQLiteDescendantsQuery implements DescendantsQueryInterface
                     0 AS degree,
                     CAST(id AS TEXT) AS sequence
                 FROM people
-                WHERE deleted_at IS NULL AND id = $personId
+                WHERE deleted_at IS NULL AND id = ? AND team_id = ?
 
                 UNION ALL
 
@@ -75,7 +75,7 @@ final class SQLiteDescendantsQuery implements DescendantsQueryInterface
                     d.sequence || ',' || p.id AS sequence
                 FROM people p
                 JOIN descendants d ON p.father_id = d.id
-                WHERE p.deleted_at IS NULL AND d.degree < $maxDepth AND INSTR(',' || d.sequence || ',', ',' || p.id || ',') = 0
+                WHERE p.deleted_at IS NULL AND p.team_id = ? AND d.degree < ? AND INSTR(',' || d.sequence || ',', ',' || p.id || ',') = 0
 
                 UNION ALL
 
@@ -85,7 +85,7 @@ final class SQLiteDescendantsQuery implements DescendantsQueryInterface
                     d.sequence || ',' || p.id AS sequence
                 FROM people p
                 JOIN descendants d ON p.mother_id = d.id
-                WHERE p.deleted_at IS NULL AND d.degree < $maxDepth AND INSTR(',' || d.sequence || ',', ',' || p.id || ',') = 0
+                WHERE p.deleted_at IS NULL AND p.team_id = ? AND d.degree < ? AND INSTR(',' || d.sequence || ',', ',' || p.id || ',') = 0
             )
 
             SELECT * FROM descendants

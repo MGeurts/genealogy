@@ -28,5 +28,5 @@ interface DescendantsQueryInterface
      *     sequence: string
      * }>
      */
-    public function getDescendants(int $personId, int $maxDepth): Collection;
+    public function getDescendants(int $personId, int $teamId, int $maxDepth): Collection;
 }

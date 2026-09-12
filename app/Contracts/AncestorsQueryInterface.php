@@ -28,5 +28,5 @@ interface AncestorsQueryInterface
      *     sequence: string
      * }>
      */
-    public function getAncestors(int $personId, int $maxDepth): Collection;
+    public function getAncestors(int $personId, int $teamId, int $maxDepth): Collection;
 }

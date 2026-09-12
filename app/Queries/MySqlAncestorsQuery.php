@@ -30,9 +30,9 @@ final class MySqlAncestorsQuery implements AncestorsQueryInterface
      *     sequence: string
      * }>
      */
-    public function getAncestors(int $personId, int $maxDepth): Collection
+    public function getAncestors(int $personId, int $teamId, int $maxDepth): Collection
     {
-        return collect(DB::select($this->getRecursiveQuery($personId, $maxDepth)));
+        return collect(DB::select($this->getRecursiveQuery(), [$personId, $teamId, $teamId, $maxDepth, $teamId, $maxDepth]));
     }
 
     /**
@@ -56,7 +56,7 @@ final class MySqlAncestorsQuery implements AncestorsQueryInterface
      *             when largest id is 8 digits (max 99.999.999), the maximum level depth is 1024 / (8 + 1) = 113 levels
      *             ...
      */
-    private function getRecursiveQuery(int $personId, int $maxDepth): string
+    private function getRecursiveQuery(): string
     {
         return "
             WITH RECURSIVE ancestors AS (
@@ -65,7 +65,7 @@ final class MySqlAncestorsQuery implements AncestorsQueryInterface
                     0 AS degree,
                     CAST(id AS CHAR(1024)) AS sequence
                 FROM people
-                WHERE deleted_at IS NULL AND id = $personId
+                WHERE deleted_at IS NULL AND id = ? AND team_id = ?
 
                 UNION ALL
 
@@ -75,7 +75,7 @@ final class MySqlAncestorsQuery implements AncestorsQueryInterface
                     CONCAT_WS(',', a.sequence, p.id) AS sequence
                 FROM people p
                 JOIN ancestors a ON a.father_id = p.id
-                WHERE p.deleted_at IS NULL AND a.degree < $maxDepth AND NOT FIND_IN_SET(p.id, a.sequence)
+                WHERE p.deleted_at IS NULL AND p.team_id = ? AND a.degree < ? AND NOT FIND_IN_SET(p.id, a.sequence)
 
                 UNION ALL
 
@@ -85,7 +85,7 @@ final class MySqlAncestorsQuery implements AncestorsQueryInterface
                     CONCAT_WS(',', a.sequence, p.id) AS sequence
                 FROM people p
                 JOIN ancestors a ON a.mother_id = p.id
-                WHERE p.deleted_at IS NULL AND a.degree < $maxDepth AND NOT FIND_IN_SET(p.id, a.sequence)
+                WHERE p.deleted_at IS NULL AND p.team_id = ? AND a.degree < ? AND NOT FIND_IN_SET(p.id, a.sequence)
             )
 
             SELECT * FROM ancestors
