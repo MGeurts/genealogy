@@ -117,4 +117,4 @@ COPY --chown=www-data:www-data --chmod=755 .docker/entrypoint.d /etc/entrypoint.
 COPY --from=node --chown=www-data:www-data /app/public/build /var/www/html/public/build
 
 RUN rm -rf tests/ && \
-    composer install --no-dev --optimize-autoloader
+    CACHE_STORE=array composer install --no-dev --optimize-autoloader
