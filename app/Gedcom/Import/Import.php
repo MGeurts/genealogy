@@ -33,8 +33,13 @@ final class Import implements CreatesTeams
 
     private ?MediaImportHandler $mediaHandler = null;
 
+    private string $teamName;
+
+    private ?string $teamDescription;
+
     /**
-     * Initialize with user and create a new team
+     * Initialize with the authenticated user. The team is created inside the
+     * import transaction so a failed import cannot leave an empty team behind.
      */
     public function __construct(?string $teamName, ?string $teamDescription)
     {
@@ -45,16 +50,11 @@ final class Import implements CreatesTeams
             throw new Exception('User must be authenticated to import GEDCOM files');
         }
 
-        $this->user = $user;
+        $this->user            = $user;
+        $this->teamName        = $teamName ?? 'Imported Family Tree';
+        $this->teamDescription = $teamDescription;
 
-        // Create new team for this import
-        $this->team = $this->createTeam($teamName ?? 'Imported Family Tree', $teamDescription);
-
-        // Initialize sub-components
-        $this->parser             = new GedcomParser();
-        $this->individualImporter = new IndividualImporter($this->team);
-        $this->familyImporter     = new FamilyImporter($this->team);
-        $this->coupleCreator      = new CoupleCreator($this->team);
+        $this->parser = new GedcomParser();
     }
 
     /**
@@ -126,8 +126,8 @@ final class Import implements CreatesTeams
         $stats = [
             'individuals_parsed'   => $parsedData ? count($parsedData->getIndividuals()) : 0,
             'families_parsed'      => $parsedData ? count($parsedData->getFamilies()) : 0,
-            'individuals_imported' => count($this->individualImporter->getPersonMap()),
-            'families_imported'    => count($this->familyImporter->getFamilyMap()),
+            'individuals_imported' => isset($this->individualImporter) ? count($this->individualImporter->getPersonMap()) : 0,
+            'families_imported'    => isset($this->familyImporter) ? count($this->familyImporter->getFamilyMap()) : 0,
         ];
 
         if ($this->mediaHandler) {
@@ -152,6 +152,8 @@ final class Import implements CreatesTeams
 
         try {
             DB::beginTransaction();
+
+            $this->initializeImport();
 
             // Initialize media handler if we have media files
             if (! empty($mediaFiles)) {
@@ -223,7 +225,12 @@ final class Import implements CreatesTeams
 
             return $result;
         } catch (Exception $e) {
-            DB::rollBack();
+            if (DB::transactionLevel() > 0) {
+                DB::rollBack();
+            }
+
+            $this->deleteFailedImportFiles();
+
             Log::error('GEDCOM Import Error: ' . $e->getMessage(), [
                 'trace' => $e->getTraceAsString(),
             ]);
@@ -232,6 +239,28 @@ final class Import implements CreatesTeams
                 'success' => false,
                 'error'   => $e->getMessage(),
             ];
+        }
+    }
+
+    /**
+     * Create the import team and its collaborators within the active transaction.
+     */
+    private function initializeImport(): void
+    {
+        $this->team = $this->createTeam($this->teamName, $this->teamDescription);
+
+        $this->individualImporter = new IndividualImporter($this->team);
+        $this->familyImporter     = new FamilyImporter($this->team);
+        $this->coupleCreator      = new CoupleCreator($this->team);
+    }
+
+    /**
+     * Remove the filesystem side effect that cannot be rolled back with the database transaction.
+     */
+    private function deleteFailedImportFiles(): void
+    {
+        if (isset($this->team)) {
+            Storage::disk('photos')->deleteDirectory((string) $this->team->id);
         }
     }
 

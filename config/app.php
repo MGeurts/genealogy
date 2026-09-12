@@ -155,6 +155,12 @@ return [
         'mail_address'  => env('BACKUP_MAIL_ADDRESS', 'webmaster@yourdomain.com'),
     ],
 
+    'gedcom_import' => [
+        'max_archive_entries'    => (int) env('GEDCOM_IMPORT_MAX_ARCHIVE_ENTRIES', 1000),
+        'max_archive_entry_size' => (int) env('GEDCOM_IMPORT_MAX_ARCHIVE_ENTRY_SIZE', 52428800),
+        'max_archive_size'       => (int) env('GEDCOM_IMPORT_MAX_ARCHIVE_SIZE', 262144000),
+    ],
+
     // uploaded originals (needed for GEDCOM export) are always kept alongside the resized versions
     // default values for resizing, watermarking and saving photo uploads
     'upload_photo' => [
