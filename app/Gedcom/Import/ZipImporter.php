@@ -232,7 +232,7 @@ class ZipImporter
                     throw new Exception("Could not read ZIP archive entry: {$entryName}");
                 }
 
-                $contentsLength = mb_strlen($contents);
+                $contentsLength = mb_strlen($contents, '8bit');
                 $entryBytes += $contentsLength;
                 $totalExtractedBytes += $contentsLength;
 
@@ -243,7 +243,7 @@ class ZipImporter
                 $bytesWritten = 0;
 
                 while ($bytesWritten < $contentsLength) {
-                    $written = fwrite($target, mb_substr($contents, $bytesWritten));
+                    $written = fwrite($target, mb_substr($contents, $bytesWritten, null, '8bit'));
 
                     if ($written === false || $written === 0) {
                         throw new Exception("Could not write extracted file: {$entryName}");

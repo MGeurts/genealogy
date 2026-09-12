@@ -43,7 +43,7 @@ final class PgSqlDescendantsQuery implements DescendantsQueryInterface
      * both father_id and mother_id independently, which is significantly faster
      * on large tables.
      *
-     * The sequence column doubles as a cycle guard via FIND_IN_SET: if a person's
+     * The sequence column doubles as a cycle guard: if a person's
      * id already appears in the descendant chain, the join condition excludes them.
      * This prevents infinite loops caused by circular references in the data.
      *
@@ -75,7 +75,7 @@ final class PgSqlDescendantsQuery implements DescendantsQueryInterface
                     d.sequence || ',' || p.id AS sequence
                 FROM people p
                 JOIN descendants d ON p.father_id = d.id
-                WHERE p.deleted_at IS NULL AND d.degree < $maxDepth AND NOT FIND_IN_SET(p.id, sequence)
+                WHERE p.deleted_at IS NULL AND POSITION(',' || p.id::text || ',' IN ',' || d.sequence || ',') = 0
 
                 UNION ALL
 
@@ -85,7 +85,7 @@ final class PgSqlDescendantsQuery implements DescendantsQueryInterface
                     d.sequence || ',' || p.id AS sequence
                 FROM people p
                 JOIN descendants d ON p.mother_id = d.id
-                WHERE p.deleted_at IS NULL AND d.degree < $maxDepth AND NOT FIND_IN_SET(p.id, sequence)
+                WHERE p.deleted_at IS NULL AND POSITION(',' || p.id::text || ',' IN ',' || d.sequence || ',') = 0
             )
 
             SELECT * FROM descendants

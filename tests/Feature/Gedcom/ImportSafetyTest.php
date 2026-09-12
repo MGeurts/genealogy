@@ -59,3 +59,38 @@ test('ZIP extraction rejects archives with too many entries before writing files
         unlink($zipPath);
     }
 });
+
+test('ZIP extraction preserves GEDCOM and media bytes', function (): void {
+    $zipPath = tempnam(sys_get_temp_dir(), 'gedcom-binary-content');
+
+    if ($zipPath === false) {
+        throw new Exception('Could not create the temporary ZIP file.');
+    }
+
+    $gedcomContent = "0 HEAD\n1 CHAR UTF-8\n1 NOTE 😀\n0 TRLR\n";
+    $mediaContent  = "\x00\xFF\xD8\xFFbinary\x00data";
+
+    $zip = new ZipArchive();
+
+    if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE) !== true) {
+        throw new Exception('Could not create the ZIP archive.');
+    }
+
+    $zip->addFromString('tree.ged', $gedcomContent);
+    $zip->addFromString('portrait.jpg', $mediaContent);
+    $zip->close();
+
+    $zipImporter = new ZipImporter();
+
+    try {
+        $zipImporter->extract($zipPath);
+
+        $mediaPath = $zipImporter->getMediaFiles()['portrait.jpg'];
+
+        expect($zipImporter->getGedcomContent())->toBe($gedcomContent)
+            ->and(file_get_contents($mediaPath))->toBe($mediaContent);
+    } finally {
+        $zipImporter->cleanup();
+        unlink($zipPath);
+    }
+});

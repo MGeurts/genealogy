@@ -75,7 +75,7 @@ final class MySqlAncestorsQuery implements AncestorsQueryInterface
                     CONCAT_WS(',', a.sequence, p.id) AS sequence
                 FROM people p
                 JOIN ancestors a ON a.father_id = p.id
-                WHERE p.deleted_at IS NULL AND a.degree < $maxDepth AND NOT FIND_IN_SET(p.id, sequence)
+                WHERE p.deleted_at IS NULL AND a.degree < $maxDepth AND NOT FIND_IN_SET(p.id, a.sequence)
 
                 UNION ALL
 
@@ -85,7 +85,7 @@ final class MySqlAncestorsQuery implements AncestorsQueryInterface
                     CONCAT_WS(',', a.sequence, p.id) AS sequence
                 FROM people p
                 JOIN ancestors a ON a.mother_id = p.id
-                WHERE p.deleted_at IS NULL AND a.degree < $maxDepth AND NOT FIND_IN_SET(p.id, sequence)
+                WHERE p.deleted_at IS NULL AND a.degree < $maxDepth AND NOT FIND_IN_SET(p.id, a.sequence)
             )
 
             SELECT * FROM ancestors
