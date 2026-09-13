@@ -10,7 +10,6 @@ use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
 use App\Rules\DobValid;
 use App\Rules\YobValid;
-use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
@@ -26,27 +25,11 @@ new class extends Component
 
     public PersonForm $form;
 
-    /**
-     * @var Collection<int, array{id: int, name: string}>
-     */
-    public Collection $persons;
-
     public ?string $selectedTab = null;
 
     public function mount(): void
     {
-        $this->persons = Person::where('id', '!=', $this->person->id)
-            ->where('sex', 'f')
-            ->olderThan($this->person->dob, $this->person->yob)
-            ->orderBy('firstname')
-            ->orderBy('surname')
-            ->get()
-            ->map(fn ($p): array => [
-                'id'   => $p->id,
-                'name' => $p->name . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
-            ]);
-
-        $this->selectedTab = $this->persons->isEmpty() ? __('person.add_new_person_as_mother') : __('person.add_existing_person_as_mother');
+        $this->selectedTab = __('person.add_new_person_as_mother');
     }
 
     public function saveMother(): void

@@ -178,8 +178,9 @@ return [
 
     'parents_id_exclusive' => 'Ouders is exclusief. Als je Ouders instelt, kun je Vader of Moeder niet instellen.',
 
-    'search_similar'       => 'Zoek vergelijkbare personen',
-    'similar_persons'      => 'Vergelijkbare bestaande personen',
-    'no_similar_persons'   => 'Nog geen vergelijkbare personen gevonden — voer enkele namen in en klik op de zoekknop.',
-    'similar_persons_hint' => 'Om te voorkomen dat een persoon meer dan één keer wordt toegevoegd, worden hier vergelijkbare bestaande personen getoond nadat u een voornaam, achternaam, geboortenaam of bijnaam hebt ingevoerd en op de zoekknop hebt geklikt.',
+    'search_similar'                      => 'Zoek vergelijkbare personen',
+    'search_relationship_candidates_hint' => 'Voer minstens twee tekens in om de beschikbare personen te doorzoeken.',
+    'similar_persons'                     => 'Vergelijkbare bestaande personen',
+    'no_similar_persons'                  => 'Nog geen vergelijkbare personen gevonden — voer enkele namen in en klik op de zoekknop.',
+    'similar_persons_hint'                => 'Om te voorkomen dat een persoon meer dan één keer wordt toegevoegd, worden hier vergelijkbare bestaande personen getoond nadat u een voornaam, achternaam, geboortenaam of bijnaam hebt ingevoerd en op de zoekknop hebt geklikt.',
 ];

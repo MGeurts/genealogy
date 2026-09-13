@@ -178,7 +178,8 @@ return [
 
     'parents_id_exclusive' => 'Eltern sind exklusiv. Wenn Sie Eltern setzen, können Sie Vater oder Mutter nicht setzen.',
 
-    'search_similar'       => 'Ähnliche Personen suchen',
-    'similar_persons'      => 'Ähnliche vorhandene Personen',
-    'no_similar_persons'   => 'Noch keine ähnlichen Personen gefunden — geben Sie einige Namen ein und klicken Sie auf die Suchschaltfläche.',
-    'similar_persons_hint' => 'Um zu vermeiden, eine Person mehr als einmal hinzuzufügen, werden hier ähnliche vorhandene Personen angezeigt, nachdem Sie einen Vornamen, Nachnamen, Geburtsnamen oder Spitznamen eingegeben und auf die Suchschaltfläche geklickt haben.', ];
+    'search_similar'                      => 'Ähnliche Personen suchen',
+    'search_relationship_candidates_hint' => 'Geben Sie mindestens zwei Zeichen ein, um die verfügbaren Personen zu durchsuchen.',
+    'similar_persons'                     => 'Ähnliche vorhandene Personen',
+    'no_similar_persons'                  => 'Noch keine ähnlichen Personen gefunden — geben Sie einige Namen ein und klicken Sie auf die Suchschaltfläche.',
+    'similar_persons_hint'                => 'Um zu vermeiden, eine Person mehr als einmal hinzuzufügen, werden hier ähnliche vorhandene Personen angezeigt, nachdem Sie einen Vornamen, Nachnamen, Geburtsnamen oder Spitznamen eingegeben und auf die Suchschaltfläche geklickt haben.', ];

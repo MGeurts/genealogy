@@ -18,7 +18,7 @@
                 </x-slot:left>
 
                 {{-- Select Existing Person UI --}}
-                @include('components.livewire.people.partials.person-existing')
+                @include('components.livewire.people.partials.person-existing', ['relationship' => 'child'])
             </x-ts-tab.items>
         </x-ts-tab>
     </form>

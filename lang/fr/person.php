@@ -161,7 +161,8 @@ return [
 
     'parents_id_exclusive' => 'Parents est exclusif. Si vous définissez Parents, vous ne pouvez pas définir Père ou Mère.',
 
-    'search_similar'       => 'Rechercher des personnes similaires',
-    'similar_persons'      => 'Personnes existantes similaires',
-    'no_similar_persons'   => 'Aucune personne similaire trouvée pour le moment — saisissez quelques noms et cliquez sur le bouton de recherche.',
-    'similar_persons_hint' => 'Pour éviter d’ajouter une personne plus d’une fois, des personnes existantes similaires sont affichées ici après avoir saisi un prénom, un nom de famille, un nom de naissance ou un surnom et cliqué sur le bouton de recherche.', ];
+    'search_similar'                      => 'Rechercher des personnes similaires',
+    'search_relationship_candidates_hint' => 'Saisissez au moins deux caractères pour rechercher parmi les personnes disponibles.',
+    'similar_persons'                     => 'Personnes existantes similaires',
+    'no_similar_persons'                  => 'Aucune personne similaire trouvée pour le moment — saisissez quelques noms et cliquez sur le bouton de recherche.',
+    'similar_persons_hint'                => 'Pour éviter d’ajouter une personne plus d’une fois, des personnes existantes similaires sont affichées ici après avoir saisi un prénom, un nom de famille, un nom de naissance ou un surnom et cliqué sur le bouton de recherche.', ];

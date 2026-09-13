@@ -64,6 +64,10 @@ Route::middleware([
         Route::get('people/{person}/{couple}/edit-partner', 'editPartner')->name('people.edit-partner');
     });
 
+    Route::get('people/{person}/relationship-candidates/{relationship}', App\Http\Controllers\Back\SearchRelationshipCandidatesController::class)
+        ->whereIn('relationship', ['father', 'mother', 'child', 'partner'])
+        ->name('people.relationship-candidates');
+
     // -----------------------------------------------------------------------------------
     // gedcom
     // -----------------------------------------------------------------------------------

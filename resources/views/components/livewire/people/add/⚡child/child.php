@@ -3,31 +3,19 @@
 declare(strict_types=1);
 
 use App\Livewire\Forms\People\PersonForm;
-use App\Livewire\Traits\AuthorizesPersonActions;
-use App\Livewire\Traits\HandlesPhotoUploads;
-use App\Livewire\Traits\SavesPersonPhotos;
-use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
 use App\Models\Person;
-use Illuminate\Support\Collection;
 use Livewire\Component;
-use Livewire\WithFileUploads;
-use TallStackUi\Traits\Interactions;
 
 new class extends Component
 {
-    use AuthorizesPersonActions;
-    use HandlesPhotoUploads, SavesPersonPhotos;
-    use Interactions, WithFileUploads;
-    use TrimStringsAndConvertEmptyStringsToNull;
+    use App\Livewire\Traits\AuthorizesPersonActions;
+    use App\Livewire\Traits\HandlesPhotoUploads, \App\Livewire\Traits\SavesPersonPhotos;
+    use App\Livewire\Traits\TrimStringsAndConvertEmptyStringsToNull;
+    use \Livewire\WithFileUploads, TallStackUi\Traits\Interactions;
 
     public Person $person;
 
     public PersonForm $form;
-
-    /**
-     * @var Collection<int, array{id: int, name: string}>
-     */
-    public Collection $persons;
 
     public ?string $selectedTab = null;
 
@@ -35,19 +23,7 @@ new class extends Component
     {
         $this->form->reset();
 
-        $this->persons = Person::where('id', '!=', $this->person->id)
-            ->whereNull($this->person->sex === 'm' ? 'father_id' : 'mother_id')
-            ->youngerThan($this->person->dob, $this->person->yob)
-            ->olderThan($this->person->dod, $this->person->yod)
-            ->orderBy('firstname')
-            ->orderBy('surname')
-            ->get()
-            ->map(fn ($p): array => [
-                'id'   => $p->id,
-                'name' => $p->name . ' [' . ($p->sex === 'm' ? __('app.male') : __('app.female')) . '] ' . ($p->birth_formatted ? ' (' . $p->birth_formatted . ')' : ''),
-            ]);
-
-        $this->selectedTab = $this->persons->isEmpty() ? __('person.add_new_person_as_child') : __('person.add_existing_person_as_child');
+        $this->selectedTab = __('person.add_new_person_as_child');
     }
 
     public function saveChild(): void
@@ -70,7 +46,14 @@ new class extends Component
      */
     protected function linkExistingChild(int $personId): void
     {
-        $child = Person::findOrFail($personId);
+        /** @var Person $child */
+        $child = Person::query()
+            ->whereKey($personId)
+            ->where('team_id', $this->person->team_id)
+            ->whereNull($this->person->sex === 'm' ? 'father_id' : 'mother_id')
+            ->youngerThan($this->person->dob, $this->person->yob)
+            ->olderThan($this->person->dod, $this->person->yod)
+            ->firstOrFail();
 
         $child->update([
             $this->person->sex === 'm' ? 'father_id' : 'mother_id' => $this->person->id,
