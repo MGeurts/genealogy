@@ -23,6 +23,7 @@ new class extends Component
 
     // ------------------------------------------------------------------------------
     #[On('person_added_as_child')]
+    #[On('person_disconnected_as_child')]
     #[On('couple_added')]
     #[On('couple_deleted')]
     public function mount(): void
