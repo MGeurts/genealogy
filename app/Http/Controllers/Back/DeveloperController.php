@@ -9,6 +9,13 @@ use App\Http\Controllers\Controller;
 use App\Models\Userlog;
 use Illuminate\View\View;
 
+/**
+ * Renders developer-only diagnostics and operational reports.
+ *
+ * These pages remain grouped in one controller because they expose related
+ * application diagnostics while keeping their query and presentation concerns
+ * out of the route definitions.
+ */
 final class DeveloperController extends Controller
 {
     public function dependencies(): View
@@ -26,7 +33,8 @@ final class DeveloperController extends Controller
         $months = 2;
 
         $userlogs_by_date = Userlog::select(['userlogs.country_name', 'userlogs.country_code', 'userlogs.created_at', 'users.surname', 'users.firstname'])
-            ->leftjoin('users', 'userlogs.user_id', '=', 'users.id')
+            ->join('users', 'userlogs.user_id', '=', 'users.id')
+            ->whereNull('users.deleted_at')
             ->where('userlogs.created_at', '>=', today()->startOfMonth()->subMonths($months))
             ->orderByDesc('userlogs.created_at')
             ->get()
