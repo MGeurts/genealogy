@@ -12,7 +12,7 @@
         "axios": "^1.21",
         "concurrently": "^10.0",
         "laravel-vite-plugin": "^3.2",
-        "prettier": "^3.9",
+        "prettier": "^3.10",
         "prettier-plugin-blade": "^3.3",
         "prettier-plugin-tailwindcss": "^0.8",
         "tailwindcss": "^4.3",
