@@ -83,8 +83,10 @@ return [
 
         // photos
         'photos' => [
-            'driver'     => 'local',
-            'root'       => storage_path('app/public/photos'),
+            'driver' => 'local',
+            'root'   => env('APP_ENV') === 'testing'
+                ? storage_path('app/testing/photos')
+                : storage_path('app/public/photos'),
             'url'        => env('APP_URL') . '/storage/photos',
             'visibility' => 'public',
             'throw'      => false,
