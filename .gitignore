@@ -11,8 +11,6 @@
 .env.docker
 .env.production
 .phpunit.result.cache
-Homestead.json
-Homestead.yaml
 auth.json
 npm-debug.log
 yarn-error.log
@@ -31,11 +29,5 @@ boost.json
 config.toml
 opencode.json
 deploy-genealogy.sh
-herd.yml
 _ide_helper.php
 _ide_helper_models.php
-
-.devbox/*
-devbox.d/*
-devbox.json
-devbox.lock

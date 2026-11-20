@@ -252,6 +252,11 @@
                                 >MuhammadSadeeq/laravel-activitylog-ui</x-link>
                             <x-ts-button xs class="ms-5" color="orange">{{ 'Optional' }}</x-ts-button>
                         </li>
+
+                        <li class="py-2">
+                            <x-link href="https://github.com/nforst/fagus/" target="_blank">nforst/fagus</x-link>
+                            <x-ts-button xs class="ms-5" color="orange">{{ 'Optional' }}</x-ts-button>
+                        </li>
                     </ul>
 
                     <hr class="my-4" />
