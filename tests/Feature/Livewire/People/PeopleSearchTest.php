@@ -164,8 +164,11 @@ test('search with quoted phrase treats it as single term', function (): void {
 
     Livewire::test('people::search')
         ->set('search', '"John Fitzgerald" Kennedy')
-        ->assertSee('Kennedy')
-        ->assertDontSee('Smith');
+        ->assertViewHas('people', function ($people) {
+            return $people->count() === 1 &&
+                   $people->first()->firstname === 'John Fitzgerald' &&
+                   $people->first()->surname === 'Kennedy';
+        });
 });
 
 test('search with wildcard prefix finds partial matches anywhere in field', function (): void {
