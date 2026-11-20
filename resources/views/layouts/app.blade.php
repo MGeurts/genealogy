@@ -11,6 +11,30 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="description" content="Genealogy Application - Manage your family tree and discover your ancestry." />
 
+    <script>
+        (() => {
+            let stored = null;
+
+            try {
+                stored = localStorage.getItem('dark-theme');
+            } catch (e) {}
+
+            let isDark = false;
+
+            if (stored === 'true' || stored === 'dark') {
+                isDark = true;
+            } else if (stored === 'system') {
+                isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+
+            if (isDark) {
+                document.documentElement.classList.add('dark', 'bg-gray-900');
+            } else {
+                document.documentElement.classList.add('bg-gray-100');
+            }
+        })();
+    </script>
+
     <title>
         {{ config('app.name', 'Genealogy') }}
         @yield('title')
