@@ -2,7 +2,7 @@
 <html
     lang="{{ str_replace('_', '-', app()->getLocale()) ?: 'en' }}"
     dir="ltr"
-    x-data="tallstackui_darkTheme({ dark: true })"
+    x-data="tallstackui_darkTheme({ default: 'system' })"
     x-bind:class="{ 'dark bg-gray-900': darkTheme, 'bg-gray-100': ! darkTheme }"
 >
 <head>
@@ -10,6 +10,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="description" content="Genealogy Application - Manage your family tree and discover your ancestry." />
+
+    <script>
+        (() => {
+            const storedTheme = (() => {
+                try {
+                    return localStorage.getItem('dark-theme');
+                } catch {
+                    return null;
+                }
+            })();
+            const followsSystemTheme = storedTheme === null || storedTheme === 'system';
+            const isDark = storedTheme === 'dark' || storedTheme === 'true' ||
+                (followsSystemTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+            document.documentElement.classList.toggle('dark', isDark);
+            document.documentElement.classList.toggle('bg-gray-900', isDark);
+            document.documentElement.classList.toggle('bg-gray-100', ! isDark);
+        })();
+    </script>
 
     <title>
         {{ config('app.name', 'Genealogy') }}
