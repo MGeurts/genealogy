@@ -2,7 +2,7 @@
 <html
     lang="{{ str_replace('_', '-', app()->getLocale()) ?: 'en' }}"
     dir="ltr"
-    x-data="tallstackui_darkTheme({ dark: true })"
+    x-data="tallstackui_darkTheme({ default: 'system' })"
     x-bind:class="{ 'dark bg-gray-900': darkTheme, 'bg-gray-100': ! darkTheme }"
 >
 <head>
@@ -13,25 +13,20 @@
 
     <script>
         (() => {
-            let stored = null;
+            const storedTheme = (() => {
+                try {
+                    return localStorage.getItem('dark-theme');
+                } catch {
+                    return null;
+                }
+            })();
+            const followsSystemTheme = storedTheme === null || storedTheme === 'system';
+            const isDark = storedTheme === 'dark' || storedTheme === 'true' ||
+                (followsSystemTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-            try {
-                stored = localStorage.getItem('dark-theme');
-            } catch (e) {}
-
-            let isDark = false;
-
-            if (stored === 'true' || stored === 'dark') {
-                isDark = true;
-            } else if (stored === 'system') {
-                isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            }
-
-            if (isDark) {
-                document.documentElement.classList.add('dark', 'bg-gray-900');
-            } else {
-                document.documentElement.classList.add('bg-gray-100');
-            }
+            document.documentElement.classList.toggle('dark', isDark);
+            document.documentElement.classList.toggle('bg-gray-900', isDark);
+            document.documentElement.classList.toggle('bg-gray-100', ! isDark);
         })();
     </script>
 
