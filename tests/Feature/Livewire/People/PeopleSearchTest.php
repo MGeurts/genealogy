@@ -145,9 +145,11 @@ test('search with multiple words uses AND logic', function (): void {
 
     Livewire::test('people::search')
         ->set('search', 'John Doe')
-        ->assertSee('John Doe')
-        ->assertDontSee('John Smith')
-        ->assertDontSee('Jane Doe');
+        ->assertViewHas('people', function ($people) {
+            return $people->count() === 1 &&
+                   $people->first()->firstname === 'John' &&
+                   $people->first()->surname === 'Doe';
+        });
 });
 
 test('search with quoted phrase treats it as single term', function (): void {

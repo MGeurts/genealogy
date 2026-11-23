@@ -6,8 +6,8 @@ namespace App\Livewire\Traits;
 
 use Exception;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 /**
  * Trait for handling photo uploads in Livewire components.
@@ -62,24 +62,31 @@ trait HandlesPhotoUploads
      */
     public function deleteUpload(array $content): void
     {
+        $this->authorizePermission('person:create');
+
         if (empty($this->form->uploads)) {
             return;
         }
 
         $temporaryName = $content['temporary_name'] ?? null;
 
-        if (! $temporaryName) {
+        if (! is_string($temporaryName)) {
             return;
         }
 
-        // Remove from uploads array
+        $upload = collect($this->form->uploads)
+            ->first(fn (UploadedFile $file): bool => $file->getFilename() === $temporaryName);
+
+        if (! $upload instanceof TemporaryUploadedFile) {
+            return;
+        }
+
+        $upload->delete();
+
         $this->form->uploads = collect($this->form->uploads)
-            ->filter(fn (UploadedFile $file): bool => $file->getFilename() !== $temporaryName)
+            ->reject(fn (UploadedFile $file): bool => $file === $upload)
             ->values()
             ->toArray();
-
-        // Delete temporary file
-        $this->deleteTemporaryFile($temporaryName);
     }
 
     /**
@@ -150,28 +157,6 @@ trait HandlesPhotoUploads
         }
 
         return true;
-    }
-
-    /**
-     * Delete a temporary file from storage.
-     * Safely handles file deletion with error suppression.
-     *
-     * @param  string  $filename  The temporary filename to delete
-     */
-    protected function deleteTemporaryFile(string $filename): void
-    {
-        try {
-            $path = storage_path('app/livewire-tmp/' . $filename);
-
-            if (file_exists($path)) {
-                File::delete($path);
-            }
-        } catch (Exception $e) {
-            Log::warning('Failed to delete temporary upload file', [
-                'file'  => $filename,
-                'error' => $e->getMessage(),
-            ]);
-        }
     }
 
     /**

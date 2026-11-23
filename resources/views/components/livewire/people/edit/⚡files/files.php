@@ -6,10 +6,10 @@ use App\Livewire\Traits\AuthorizesPersonActions;
 use App\Models\Person;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use TallStackUi\Traits\Interactions;
@@ -65,19 +65,31 @@ new class extends Component
      */
     public function deleteUpload(array $content): void
     {
+        $this->authorizePermission('person:update');
+
         if (empty($this->uploads)) {
             return;
         }
 
+        $temporaryName = $content['temporary_name'] ?? null;
+
+        if (! is_string($temporaryName)) {
+            return;
+        }
+
+        $upload = collect($this->uploads)
+            ->first(fn (UploadedFile $file): bool => $file->getFilename() === $temporaryName);
+
+        if (! $upload instanceof TemporaryUploadedFile) {
+            return;
+        }
+
+        $upload->delete();
+
         $this->uploads = collect($this->uploads)
-            ->filter(fn (UploadedFile $file): bool => $file->getFilename() !== $content['temporary_name'])
+            ->reject(fn (UploadedFile $file): bool => $file === $upload)
             ->values()
             ->toArray();
-
-        rescue(
-            fn () => File::delete(storage_path('app/livewire-tmp/' . $content['temporary_name'])),
-            report: false
-        );
     }
 
     /**

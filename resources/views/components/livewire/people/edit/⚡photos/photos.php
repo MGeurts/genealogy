@@ -7,12 +7,12 @@ use App\Models\Person;
 use App\PersonPhotos;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Number;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Locked;
 use Livewire\Component;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 use Livewire\WithFileUploads;
 use TallStackUi\Traits\Interactions;
 
@@ -131,23 +131,31 @@ new class extends Component
      */
     public function deleteUpload(array $content): void
     {
+        $this->authorizePermission('person:update');
+
         if (empty($this->uploads)) {
             return;
         }
 
         $temporaryName = $content['temporary_name'] ?? null;
-        if (! $temporaryName) {
+
+        if (! is_string($temporaryName)) {
             return;
         }
 
-        // Remove from uploads array
+        $upload = collect($this->uploads)
+            ->first(fn (UploadedFile $file): bool => $file->getFilename() === $temporaryName);
+
+        if (! $upload instanceof TemporaryUploadedFile) {
+            return;
+        }
+
+        $upload->delete();
+
         $this->uploads = collect($this->uploads)
-            ->reject(fn (UploadedFile $file): bool => $file->getFilename() === $temporaryName)
+            ->reject(fn (UploadedFile $file): bool => $file === $upload)
             ->values()
             ->toArray();
-
-        // Clean up temporary file
-        $this->deleteTemporaryFile($temporaryName);
     }
 
     /**
@@ -349,28 +357,6 @@ new class extends Component
         }
 
         return null;
-    }
-
-    /**
-     * Delete a temporary file from storage.
-     * Safely handles file deletion with error suppression.
-     *
-     * @param  string  $filename  The temporary filename to delete
-     */
-    private function deleteTemporaryFile(string $filename): void
-    {
-        try {
-            $path = storage_path('app/livewire-tmp/' . $filename);
-
-            if (file_exists($path)) {
-                File::delete($path);
-            }
-        } catch (Exception $e) {
-            Log::warning('Failed to delete temporary file', [
-                'file'  => $filename,
-                'error' => $e->getMessage(),
-            ]);
-        }
     }
 
     /**
