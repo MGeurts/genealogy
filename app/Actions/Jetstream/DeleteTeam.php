@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace App\Actions\Jetstream;
 
 use App\Models\Team;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Jetstream\Contracts\DeletesTeams;
 
-final class DeleteTeam implements DeletesTeams
+class DeleteTeam implements DeletesTeams
 {
     /**
      * Delete the given team.
@@ -22,16 +23,21 @@ final class DeleteTeam implements DeletesTeams
             Storage::disk('photos')->deleteDirectory($teamId);
         }
 
-        $user = auth()->user();
+        $affectedUsers = $team->users()->where('current_team_id', $team->id)->get();
 
-        // If the user is currently on this team, switch to another team if available
-        if ($user && $user->current_team_id === $team->id) {
-            $newTeam = $user->allTeams()->where('id', '!=', $team->id)->first();
-
-            $user->forceFill([
-                'current_team_id' => $newTeam?->id,
-            ])->save();
+        if ($team->owner?->current_team_id === $team->id) {
+            $affectedUsers->push($team->owner);
         }
+
+        $affectedUsers->each(function (User $user) use ($team): void {
+            $newTeam = $user->personalTeam();
+
+            if (! $newTeam || $newTeam->id === $team->id) {
+                $newTeam = $user->allTeams()->firstWhere('id', '!=', $team->id);
+            }
+
+            $user->forceFill(['current_team_id' => $newTeam?->id])->save();
+        });
 
         // Permanently delete the team
         $team->purge();

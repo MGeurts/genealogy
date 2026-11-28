@@ -16,6 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->web(append : [
             App\Http\Middleware\Localization::class,
+            App\Http\Middleware\RestoreCurrentTeam::class,
 
             // App\Http\Middleware\LogAllRequests::class,
         ]);

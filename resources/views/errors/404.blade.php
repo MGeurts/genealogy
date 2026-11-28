@@ -2,6 +2,8 @@
     &vert; {{ $exception->getStatuscode() }}
 @endsection
 
+@section('hide-breadcrumbs', '1')
+
 <x-app-layout>
     <div class="max-w-5xl grow overflow-x-auto p-5">
         <div class="flex">

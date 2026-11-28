@@ -118,7 +118,7 @@
                                         type="button"
                                         class="inline-flex items-center rounded-sm border border-transparent bg-white px-3 py-2 text-sm leading-4 font-medium text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:bg-gray-50 focus:outline-hidden active:bg-gray-50"
                                     >
-                                        {{ $user->currentTeam->name }}
+                                        {{ $user->currentTeam?->name ?? __('team.manage') }}
 
                                         <svg class="-mr-0.5 ml-2 size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
@@ -130,7 +130,7 @@
                             <x-slot name="content">
                                 <div class="w-xs">
                                     {{-- teams switcher --}}
-                                    @if ($user->allTeams()->count() > 1)
+                                    @if ($user->allTeams()->count() > ($user->currentTeam ? 1 : 0))
                                         <div class="block px-4 py-2 text-xs text-gray-400">{{ __('team.switch') }}</div>
 
                                         @foreach ($user->allTeams() as $team)
@@ -144,10 +144,12 @@
                                     <div class="block px-4 py-2 text-xs text-gray-400">{{ __('team.manage') }}</div>
 
                                     {{-- teams settings --}}
+                                    @if ($user->currentTeam)
                                     <x-dropdown-link href="{{ route('teams.show', $user->currentTeam->id) }}">
                                         <x-ts-icon icon="tabler.droplet-cog" class="mr-1 inline-block size-5" />
                                         {{ __('team.settings') }}
                                     </x-dropdown-link>
+                                    @endif
 
                                     {{-- create / import / export team --}}
                                     @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
@@ -339,7 +341,7 @@
                     </form>
 
                     {{-- team switcher --}}
-                    @if ($user->allTeams()->count() > 1)
+                    @if ($user->allTeams()->count() > ($user->currentTeam ? 1 : 0))
                         <div class="border-t border-gray-200"></div>
 
                         <div class="block px-4 py-2 text-xs text-gray-400">{{ __('team.switch') }}</div>
@@ -356,6 +358,7 @@
                         <div class="block px-4 py-2 text-xs text-gray-400">{{ __('team.manage') }}</div>
 
                         {{-- team settings --}}
+                        @if ($user->currentTeam)
                         <x-nav-link-responsive
                             href="{{ route('teams.show', $user->currentTeam->id) }}"
                             :active="request()->routeIs('teams.show')"
@@ -363,6 +366,7 @@
                             <x-ts-icon icon="tabler.droplet-cog" class="mr-1 inline-block size-5" />
                             {{ __('team.settings') }}
                         </x-nav-link-responsive>
+                        @endif
 
                         @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                             <x-nav-link-responsive

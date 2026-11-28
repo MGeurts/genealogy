@@ -5,7 +5,9 @@
     {{-- breadcrumbs & date --}}
     <div class="flex bg-neutral-200 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-200">
         <div class="mx-auto flex-1 p-2" aria-label="Page Heading">
-            <x-ts-breadcrumbs lg separator="|" />
+            @unless (View::hasSection('hide-breadcrumbs'))
+                <x-ts-breadcrumbs lg separator="|" />
+            @endunless
         </div>
 
         <div class="mx-auto flex-1 p-2 text-end" aria-label="Current Date">

@@ -48,3 +48,34 @@ test('personal teams cant be deleted', function (): void {
 
     expect($user->currentTeam->fresh())->not->toBeNull();
 });
+
+test('deleting a team restores the personal team for affected members only', function (): void {
+    $owner            = User::factory()->withPersonalTeam()->create();
+    $team             = Team::factory()->create(['user_id' => $owner->id, 'personal_team' => false]);
+    $member           = User::factory()->withPersonalTeam()->create();
+    $unaffectedMember = User::factory()->withPersonalTeam()->create();
+    $personalTeamId   = $member->current_team_id;
+    $unaffectedTeamId = $unaffectedMember->current_team_id;
+
+    $team->users()->attach([$member->id => ['role' => 'editor'], $unaffectedMember->id => ['role' => 'editor']]);
+    $member->switchTeam($team);
+
+    $this->actingAs($owner);
+    app(App\Actions\Jetstream\DeleteTeam::class)->delete($team);
+
+    expect($member->fresh()->current_team_id)->toBe($personalTeamId)
+        ->and($unaffectedMember->fresh()->current_team_id)->toBe($unaffectedTeamId);
+});
+
+test('deleting a team without an alternative leaves its member without a team', function (): void {
+    $owner  = User::factory()->withPersonalTeam()->create();
+    $team   = Team::factory()->create(['user_id' => $owner->id, 'personal_team' => false]);
+    $member = User::factory()->create();
+    $team->users()->attach($member, ['role' => 'editor']);
+    $member->switchTeam($team);
+
+    $this->actingAs($owner);
+    app(App\Actions\Jetstream\DeleteTeam::class)->delete($team);
+
+    expect($member->fresh()->current_team_id)->toBeNull();
+});

@@ -10,13 +10,13 @@
     <x-dynamic-component :component="$component" href="#" x-on:click.prevent="$root.submit()">
         <div class="flex items-center">
             <div
-                class="truncate @if (auth()->user()->isCurrentTeam($team)) text-yellow-500 @endif"
+                class="truncate @if (auth()->user()->current_team_id === $team->id) text-yellow-500 @endif"
                 title="{{ $team->description }}"
             >
                 {{ $team->name }}
             </div>
 
-            @if (auth()->user()->isCurrentTeam($team))
+            @if (auth()->user()->current_team_id === $team->id)
                 <x-ts-icon icon="tabler.circle-check" class="ms-2 inline-block size-5 text-emerald-600" />
             @endif
         </div>

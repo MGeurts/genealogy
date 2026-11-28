@@ -702,9 +702,13 @@ final class Person extends Model implements HasMedia
 
             $currentTeam = $user->currentTeam;
 
-            if ($currentTeam) {
-                $builder->where('people.team_id', $currentTeam->id);
+            if (! $currentTeam) {
+                $builder->whereNull('people.id');
+
+                return;
             }
+
+            $builder->where('people.team_id', $currentTeam->id);
         });
 
         // Handle force deletes (permanent deletion only)
